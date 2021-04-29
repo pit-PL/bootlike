@@ -103,17 +103,20 @@
 
 					<!-- EVENT topiclist_row_prepend -->
 					<!-- IF .searchresults.pagination -->
-					<div class="d-none d-md-block">
-						<ul class="pagination pagination-sm float-end ">
-						<!-- BEGIN pagination -->
-							<!-- IF searchresults.pagination.S_IS_PREV -->
-							<!-- ELSEIF searchresults.pagination.S_IS_CURRENT --><li class="page-item active"><span class="page-link">{searchresults.pagination.PAGE_NUMBER}</span></li>
-							<!-- ELSEIF searchresults.pagination.S_IS_ELLIPSIS --><li class="page-item disabled"><span class="page-link">{L_ELLIPSIS}</span></li>
-							<!-- ELSEIF searchresults.pagination.S_IS_NEXT -->
-							<!-- ELSE --><li class="page-item"><a href="{searchresults.pagination.PAGE_URL}" class="page-link">{searchresults.pagination.PAGE_NUMBER}</a></li>
-							<!-- ENDIF -->
-						<!-- END pagination -->
-						</ul>
+					<div class="float-end">
+					<button class="btn dropdown-toggle btn-lg rounded-0" title="{L_JUMP_TO_PAGE}" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-clone fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_JUMP_TO_PAGE}</span></button>
+						<div class="dropdown-menu dropdown-menu-end p-2">
+							<ul class="pagination m-0">
+							<!-- BEGIN pagination -->
+								<!-- IF searchresults.pagination.S_IS_PREV -->
+								<!-- ELSEIF searchresults.pagination.S_IS_CURRENT --><li class="page-item active"><span class="page-link">{searchresults.pagination.PAGE_NUMBER}</span></li>
+								<!-- ELSEIF searchresults.pagination.S_IS_ELLIPSIS --><li class="page-item disabled"><span class="page-link">{L_ELLIPSIS}</span></li>
+								<!-- ELSEIF searchresults.pagination.S_IS_NEXT -->
+								<!-- ELSE --><li class="page-item"><a href="{searchresults.pagination.PAGE_URL}" class="page-link">{searchresults.pagination.PAGE_NUMBER}</a></li>
+								<!-- ENDIF -->
+							<!-- END pagination -->
+							</ul>
+						</div>
 					</div>
 					<!-- ENDIF -->
 
