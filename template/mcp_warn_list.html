@@ -1,0 +1,72 @@
+<!-- INCLUDE mcp_header.html -->
+
+<form method="post" id="mcp" action="{U_POST_ACTION}">
+
+<div class="card mb-3">
+	<div class="card-header bg-secondary text-white">
+		{L_WARNED_USERS}
+	</div>
+	<div class="card-body pb-0">
+
+	<p>{L_WARNED_USERS_EXPLAIN}</p>
+
+	<!-- IF .user -->
+	<div class="action-bar d-sm-flex justify-content-between p-0 mb-3 border bg-light shadow-sm">
+		<div class="d-flex">
+			<!-- INCLUDE display_options.html -->
+		</div>
+
+		<div class="btn btn-lg d-none d-lg-block disabled fs-6 mt-1 text-nowrap">
+			{TOTAL_USERS} &bull; <span class="fw-normal">{PAGE_NUMBER}</span>
+		</div>
+
+		<div class="d-flex">
+		<!-- IF .pagination -->
+			<button class="btn dropdown-toggle btn-lg rounded-0" title="{L_JUMP_TO_PAGE}" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-clone fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_SEARCH}</span></button>
+			<div class="dropdown-menu dropdown-menu-end">
+				<div class="input-group px-2">
+					<!-- INCLUDE pagination.html -->
+				</div>
+			</div>
+		<!-- ELSE -->
+			&nbsp;
+		<!-- ENDIF -->
+		</div>
+	</div>
+
+	<div class="card mb-3 border-top-0">
+		<div class="card-header d-none d-md-block bg-secondary text-light border-bottom-0">
+			<div class="row">
+				<div class="col-12 col-md-4">{L_USERNAME}</div>
+				<div class="col-12 col-md-4 text-md-center">{L_LATEST_WARNING_TIME}</div>
+				<div class="col-12 col-md-2 text-md-center">{L_WARNINGS}</div>
+				<div class="col-12 col-md-2 text-md-center">&nbsp;</div>
+			</div>
+		</div>
+		<div class="card-body p-0">
+		<!-- BEGIN user -->
+			<div class="row align-items-center border-top m-0<!-- IF user.S_ROW_COUNT is even --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
+				<div class="col-12 col-md-4 py-2"><span class="badge bg-secondary d-md-none">{L_USERNAME}{L_COLON}</span> {user.USERNAME_FULL}</div>
+				<div class="col-12 col-md-4 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_LATEST_WARNING_TIME}{L_COLON}</span> {user.WARNING_TIME}</div>
+				<div class="col-12 col-md-2 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_WARNINGS}{L_COLON}</span> {user.WARNINGS}</div>
+				<div class="col-12 col-md-2 py-2 text-md-center"><a href="{user.U_NOTES}">{L_VIEW_NOTES}</a></div>
+				<div class="d-md-none<!-- IF not user.S_LAST_ROW --> border border-2<!-- ENDIF -->"></div>
+			</div>
+		<!-- END user -->
+		</div>
+	</div>
+
+	<!-- ELSE -->
+	<div class="alert alert-info">
+		{L_NO_WARNINGS}
+	</div>
+	<!-- ENDIF -->
+
+	</div>
+</div>
+
+{S_FORM_TOKEN}
+
+</form>
+
+<!-- INCLUDE mcp_footer.html -->

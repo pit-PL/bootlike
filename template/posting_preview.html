@@ -1,0 +1,70 @@
+<div class="card mb-3" id="preview">
+
+<!-- IF S_HAS_POLL_OPTIONS -->
+	<div class="card-header bg-secondary text-white">
+		{L_PREVIEW}{L_COLON} {POLL_QUESTION}
+	</div>
+	<div class="card-body">
+		<p class="author"><!-- IF L_POLL_LENGTH -->{L_POLL_LENGTH}<br><!-- ENDIF -->{L_MAX_VOTES}</p>
+		<div class="row">
+			<div class="col-md-12 col-lg-10 offset-lg-1">
+			<!-- BEGIN poll_option -->
+				<div class="form-switch">
+					<!-- IF S_IS_MULTI_CHOICE --> <input class="form-check-input" type="checkbox" name="vote_id[]" id="vote_{poll_option.POLL_OPTION_ID}" value="{poll_option.POLL_OPTION_ID}"<!-- IF poll_option.POLL_OPTION_VOTED --> checked="checked"<!-- ENDIF --> /><!-- ELSE --><input class="form-check-input" type="radio" name="vote_id[]" id="vote_{poll_option.POLL_OPTION_ID}" value="{poll_option.POLL_OPTION_ID}"<!-- IF poll_option.POLL_OPTION_VOTED --> checked="checked"<!-- ENDIF --> /><!-- ENDIF -->
+					<label class="form-check-label mb-2" for="vote_{poll_option.POLL_OPTION_ID}">&nbsp;{poll_option.POLL_OPTION_CAPTION}</label>
+				</div>
+			<!-- END poll_option -->
+			</div>
+		</div>
+	</div>
+
+</div>
+
+<!-- EVENT posting_preview_poll_after -->
+
+<div class="card mb-3">
+
+<!-- ENDIF -->
+
+	<div class="card-header bg-secondary text-white">
+		<div class="row justify-content-start">
+			<div class="<!-- IF $PROFILES_ON_LEFT -->col-lg-9 offset-lg-3 col-md-8 offset-md-4<!-- ENDIF --> col-12">{L_PREVIEW}{L_COLON} {PREVIEW_SUBJECT}</div>
+		</div>
+	</div>
+
+	<div class="card-body p-0">
+		<div class="row m-0">
+
+			<div class="postprofile col-lg-3 col-md-4<!-- IF not $PROFILES_ON_LEFT --> order-first order-md-2<!-- ENDIF --> bg2">
+				<div class="text-center p-3"><img class="img-thumbnail" src="{ROOT_PATH}styles/bootlike/theme/images/no_avatar.gif" alt="{L_IMAGE}" /></div>
+			</div>
+
+			<div class="postbody col-lg-9 col-md-8 col-12 p-0<!-- IF not $PROFILES_ON_LEFT --> border-end<!-- ELSE --> border-start<!-- ENDIF --><!-- IF PREVIEW_SIGNATURE --> bg-light<!-- ELSE --> bg1<!-- ENDIF -->">
+			<hr class="d-md-none m-0">
+
+				<div class="px-3 py-2 bg1">
+					<div class="content">{PREVIEW_MESSAGE}</div>
+					<!-- EVENT posting_preview_content_after -->
+
+					<!-- IF .attachment -->
+					<div class="attachbox float-start">
+						<strong>{L_ATTACHMENTS}</strong>
+						<div class="bg-white border p-2">
+						<!-- BEGIN attachment -->
+							<!-- IF not attachment.S_FIRST_ROW --><hr><!-- ENDIF -->
+							{attachment.DISPLAY_ATTACHMENT}
+						<!-- END attachment -->
+						</div>
+					</div>
+					<div class="clearfix"></div>
+					<!-- ENDIF -->
+				</div>
+
+			<!-- IF PREVIEW_SIGNATURE -->
+				<div class="postbody-after d-none d-md-block px-3 py-2 small border-top">{PREVIEW_SIGNATURE}</div>
+			<!-- ENDIF -->
+			</div>
+
+		</div>
+	</div>
+</div>

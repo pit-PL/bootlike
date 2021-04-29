@@ -1,0 +1,53 @@
+<!-- INCLUDE overall_header.html -->
+
+<form method="post" action="{S_REPORT_ACTION}" id="report">
+	<div class="col-md-12 col-lg-10 offset-lg-1">
+		<div class="card mb-3">
+			<div class="card-header bg-secondary text-white">
+				<!-- IF S_REPORT_POST -->{L_REPORT_POST}<!-- ELSE -->{L_REPORT_MESSAGE}<!-- ENDIF -->
+			</div>
+
+			<div class="card-body pb-0">
+				<p><!-- IF S_REPORT_POST -->{L_REPORT_POST_EXPLAIN}<!-- ELSE -->{L_REPORT_MESSAGE_EXPLAIN}<!-- ENDIF --></p>
+				
+				<!-- IF ERROR --><div class="alert alert-danger">{ERROR}</div><!-- ENDIF -->
+				<dl class="row">
+					<dt class="col-lg-3 col-md-4 col-12"><label class="col-form-label" for="reason_id">{L_REASON}{L_COLON}</label></dt>
+					<dd class="col-lg-9 col-md-8 col-12"><select class="form-select" name="reason_id" id="reason_id"><!-- BEGIN reason --><option value="{reason.ID}"<!-- IF reason.S_SELECTED --> selected="selected"<!-- ENDIF -->>{reason.DESCRIPTION}</option><!-- END reason --></select></dd>
+				</dl>
+				<!-- IF S_CAN_NOTIFY -->
+				<dl class="row">
+					<dt class="col-lg-3 col-md-4 col-12">
+						<label class="col-form-label" for="notify1">{L_REPORT_NOTIFY}{L_COLON}</label>
+						<div class="small text-muted fw-normal mb-1">{L_REPORT_NOTIFY_EXPLAIN}</div>
+					</dt>
+					<dd class="col-lg-9 col-md-8 col-12">
+						<input class="btn-check" type="radio" name="notify" id="notify1" value="1" <!-- IF not S_NOTIFY -->checked="checked"<!-- ENDIF --> />
+						<label class="btn btn-outline-success me-1" for="notify1">{L_YES}</label>
+						<input class="btn-check" type="radio" name="notify" id="notify0" value="0" <!-- IF S_NOTIFY -->checked="checked"<!-- ENDIF --> />
+						<label class="btn btn-outline-danger" for="notify0">{L_NO}</label>
+					</dd>
+				</dl>
+				<!-- ENDIF -->
+				<dl class="row">
+					<dt class="col-lg-3 col-md-4 col-12">
+						<label class="col-form-label" for="report_text">{L_MORE_INFO}{L_COLON}</label>
+						<div class="small text-muted fw-normal mb-1">{L_CAN_LEAVE_BLANK}</div>
+					</dt>
+					<dd class="col-lg-9 col-md-8 col-12"><textarea name="report_text" id="report_text" rows="10" cols="76" class="form-control">{REPORT_TEXT}</textarea></dd>
+				</dl>
+				<!-- IF CAPTCHA_TEMPLATE -->
+					<!-- INCLUDE {CAPTCHA_TEMPLATE} -->
+				<!-- ENDIF -->
+			</div>
+
+			<div class="card-footer text-center">
+				<button class="btn btn-danger me-1" type="submit" name="cancel" value="{L_CANCEL}"><i class="fa fa-times fa-fw" aria-hidden="true"></i> {L_CANCEL}</button>
+				<button class="btn btn-success" type="submit" name="submit" value="{L_SUBMIT}"><i class="fa fa-level-down fa-rotate-90 fa-fw" aria-hidden="true"></i> {L_SUBMIT}</button>
+				{S_FORM_TOKEN}
+			</div>
+		</div>
+	</div>
+</form>
+
+<!-- INCLUDE overall_footer.html -->

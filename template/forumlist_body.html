@@ -1,0 +1,146 @@
+<!-- IF .forumrow -->
+<div class="container-xl p-0 mb-2">
+	<div class="row px-1">
+<!-- BEGIN forumrow -->
+
+	<!-- EVENT forumlist_body_category_header_before -->
+	<!-- IF forumrow.S_IS_CAT or forumrow.S_FIRST_ROW or forumrow.S_NO_CAT  -->
+		<div class="col-12 d-flex justify-content-between">
+		<!-- EVENT forumlist_body_category_header_row_prepend -->
+			<h3><!-- IF forumrow.S_IS_CAT --><a href="{forumrow.U_VIEWFORUM}">{forumrow.FORUM_NAME}</a><!-- ELSE -->{L_FORUM}<!-- ENDIF --></h3>
+			<div class="d-flex">
+			<!-- EVENT index_body_markforums_before -->
+			<!-- IF SCRIPT_NAME eq "index" and forumrow.S_FIRST_ROW and U_MARK_FORUMS -->
+				<a href="{U_MARK_FORUMS}" title="{L_MARK_FORUMS_READ}" accesskey="m" data-ajax="mark_forums_read"><i class="fa fa-check fa-2x fa-fw" aria-hidden="true"></i></a>
+			<!-- ENDIF -->
+			<!-- EVENT index_body_markforums_after -->
+
+			<!-- IF SCRIPT_NAME eq "viewforum" and forumrow.S_FIRST_ROW and U_MARK_FORUMS -->
+				<a href="{U_MARK_FORUMS}" title="{L_MARK_SUBFORUMS_READ}" data-ajax="mark_forums_read"><i class="fa fa-check fa-2x fa-fw" aria-hidden="true"></i></a>
+			<!-- ENDIF -->
+		</div>
+		<!-- EVENT forumlist_body_category_header_row_append -->
+		</div>
+	<!-- ENDIF -->
+	<!-- EVENT forumlist_body_category_header_after -->
+
+	<!-- IF not forumrow.S_IS_CAT -->
+		<div class="col-lg-6 col-md-6 col-12 p-1 p-lg-2">
+		<!-- EVENT forumlist_body_forum_row_before -->
+			<div class="mark-forum bg1 border shadow-sm">
+				<div class="row-item position-relative p-2 {forumrow.FORUM_IMG_STYLE}"<!-- IF not forumrow.S_IS_LINK --> title="{forumrow.FORUM_FOLDER_IMG_ALT}"<!-- ENDIF -->>
+				<!-- EVENT forumlist_body_forum_row_prepend -->
+					<div class="folder folder-height overflow-hidden">
+						<!-- IF forumrow.S_UNREAD_FORUM --><a href="{forumrow.U_VIEWFORUM}" class="row-item-link"></a><!-- ENDIF -->
+
+						<!-- IF forumrow.FORUM_IMAGE -->
+							<!-- EVENT forumlist_body_forum_image_before -->
+							<!-- EVENT forumlist_body_forum_image_prepend -->
+							<div class="forum-image float-end img-thumbnail d-none d-lg-block"><a href="#" data-bs-toggle="modal" data-bs-target="#forum-image-popup-{forumrow.FORUM_ID}">{forumrow.FORUM_IMAGE}</a></div>
+							<!-- EVENT forumlist_body_forum_image_append -->
+							<!-- EVENT forumlist_body_forum_image_after -->
+						<!-- ENDIF -->
+
+							<a href="{forumrow.U_VIEWFORUM}" class="forumtitle lead">{forumrow.FORUM_NAME}</a>
+
+							<div class="mt-3">
+							<!-- IF forumrow.S_IS_LINK and forumrow.FORUM_DESC -->
+								{forumrow.FORUM_DESC}
+							<!-- ENDIF -->
+						<!-- IF forumrow.LAST_POST_TIME -->
+							<!-- IF forumrow.S_DISPLAY_SUBJECT -->
+								<!-- EVENT forumlist_body_last_post_title_prepend -->
+								<a href="{forumrow.U_LAST_POST}" title="{forumrow.LAST_POST_SUBJECT}" class="lastsubject">{forumrow.LAST_POST_SUBJECT_TRUNCATED}</a><br>
+							<!-- ENDIF -->
+								<time datetime="{forumrow.LAST_POST_TIME_RFC3339}">{forumrow.LAST_POST_TIME}</time> &raquo; {L_POST_BY_AUTHOR} <!-- EVENT forumlist_body_last_poster_username_prepend --> {forumrow.LAST_POSTER_FULL} <!-- EVENT forumlist_body_last_poster_username_append -->
+							<!-- ELSE -->
+								{% if forumrow.U_UNAPPROVED_TOPICS %}
+									{{ lang('TOPIC_UNAPPROVED_FORUM', forumrow.TOPICS) }}
+								{% endif %}
+						<!-- ENDIF -->
+							</div>
+
+						<!-- IF .forumrow.subforum and forumrow.S_LIST_SUBFORUMS -->
+							<!-- EVENT forumlist_body_subforums_before -->
+							<!-- EVENT forumlist_body_subforums_after -->
+						<!-- ENDIF -->
+
+					</div>
+					<!-- EVENT forumlist_body_forum_row_append -->
+				</div>
+
+				<div class="card-footer p-2">
+			<!-- IF forumrow.FORUM_DESC or (.forumrow.subforum and forumrow.S_LIST_SUBFORUMS) or (S_ENABLE_FEEDS and forumrow.S_FEED_ENABLED) or forumrow.U_UNAPPROVED_TOPICS or forumrow.U_UNAPPROVED_POSTS or forumrow.MODERATORS -->
+				<!-- IF not forumrow.S_IS_LINK and forumrow.FORUM_DESC -->
+					<button type="button" class="btn btn-outline-info btn-sm float-end ms-2" title="{L_INFORMATION}" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="{forumrow.FORUM_DESC}" data-bs-html="true"><i class="fa fa-info fa-fw" aria-hidden="true"></i><span class="visually-hidden">{forumrow.FORUM_DESC}</span></button>
+				<!-- ENDIF -->
+
+				<!-- IF .forumrow.subforum and forumrow.S_LIST_SUBFORUMS -->
+					<div class="float-end ms-2">
+						<button class="btn btn-outline-info btn-sm dropdown-toggle" title="{forumrow.L_SUBFORUM_STR}" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<i class="fa fa-files-o fa-fw"></i><span class="visually-hidden">{forumrow.L_SUBFORUM_STR}</span>
+						</button>
+						<div class="dropdown-menu dropdown-menu-end">
+						<!-- BEGIN subforum -->
+							<!-- EVENT forumlist_body_subforum_link_prepend -->
+							<a href="{forumrow.subforum.U_SUBFORUM}" class="dropdown-item subforum<!-- IF forumrow.subforum.S_UNREAD --> unread<!-- ELSE --> read<!-- ENDIF -->" title="<!-- IF forumrow.subforum.S_UNREAD -->{L_UNREAD_POSTS}<!-- ELSE -->{L_NO_UNREAD_POSTS}<!-- ENDIF -->">
+								<i class="fa<!-- IF forumrow.subforum.S_UNREAD --> fa-file<!-- ELSE --> fa-file-o<!-- ENDIF --> fa-fw" aria-hidden="true"></i> {forumrow.subforum.SUBFORUM_NAME}
+							</a>
+							<!-- EVENT forumlist_body_subforum_link_append -->
+						<!-- END subforum -->
+						</div>
+					</div>
+				<!-- ENDIF -->
+		
+				<!-- IF forumrow.MODERATORS -->
+					<div class="float-end ms-2">
+						<button class="btn btn-outline-info btn-sm dropdown-toggle" title="{forumrow.L_MODERATOR_STR}" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<i class="fa fa-user-secret fa-fw"></i><span class="visually-hidden">{forumrow.L_MODERATOR_STR}</span>
+						</button>
+						<div class="dropdown-menu dropdown-menu-end">
+							<div class="px-3">{forumrow.MODERATORS}</div>
+						</div>
+					</div>
+				<!-- ENDIF -->
+
+				<!-- IF S_ENABLE_FEEDS and forumrow.S_FEED_ENABLED --><!-- <a class="btn btn-outline-info btn-sm float-end ms-2" title="{L_FEED} - {forumrow.FORUM_NAME}" href="{U_FEED}?f={forumrow.FORUM_ID}"><i class="fa fa-rss fa-fw"></i></a> --><!-- ENDIF -->
+
+				<!-- IF forumrow.U_UNAPPROVED_TOPICS -->
+					<a href="{forumrow.U_UNAPPROVED_TOPICS}" class="btn btn-outline-info btn-sm float-end ms-2" title="{L_TOPICS_UNAPPROVED}"><i class="fa fa-flag fa-fw" aria-hidden="true"></i><span class="visually-hidden">{TOPICS_UNAPPROVED}</span></a>
+				<!-- ELSEIF forumrow.U_UNAPPROVED_POSTS -->
+					<a href="{forumrow.U_UNAPPROVED_POSTS}" class="btn btn-outline-info btn-sm float-end ms-2" title="{L_POSTS_UNAPPROVED_FORUM}"><i class="fa fa-flag fa-fw" aria-hidden="true"></i><span class="visually-hidden">{POSTS_UNAPPROVED_FORUM}</span></a>
+				<!-- ENDIF -->
+
+				<!-- IF forumrow.LAST_POST_TIME and not S_IS_BOT -->
+					<a href="{forumrow.U_LAST_POST}" class="btn btn-outline-info btn-sm float-end ms-2" title="{L_VIEW_LATEST_POST}"><i class="fa fa-arrow-{S_CONTENT_FLOW_END} fa-fw"></i><span class="visually-hidden">{L_VIEW_LATEST_POST}</span></a>
+				<!-- ENDIF -->
+			<!-- ENDIF -->
+
+					<div class="pt-1 pb-1">
+					<!-- IF not forumrow.S_IS_LINK -->
+						<i class="fa fa-th-list" title="{L_TOPICS}" aria-hidden="true"></i><span class="visually-hidden">{L_TOPICS}</span> {forumrow.TOPICS} &nbsp;
+						<i class="fa fa-file-text-o" title="{L_POSTS}" aria-hidden="true"></i><span class="visually-hidden">{L_POSTS}</span> {forumrow.POSTS}
+					<!-- ELSEIF forumrow.CLICKS -->
+						<i class="fa fa-external-link" title="{L_REDIRECTS}" aria-hidden="true"></i><span class="visually-hidden">{L_REDIRECTS}</span> {forumrow.CLICKS}
+					<!-- ELSE -->
+						&nbsp;
+					<!-- ENDIF -->
+					</div>
+				</div>
+			</div>
+		<!-- EVENT forumlist_body_forum_row_after -->
+		</div>
+	<!-- ENDIF -->
+
+	<!-- IF forumrow.S_LAST_ROW -->
+		<!-- EVENT forumlist_body_last_row_after -->
+	<!-- ENDIF -->
+
+<!-- END forumrow -->
+	</div>
+</div>
+<!-- ELSE -->
+	<div class="alert alert-info">
+		{L_NO_FORUMS}
+	</div>
+<!-- ENDIF -->

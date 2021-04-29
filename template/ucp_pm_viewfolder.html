@@ -1,0 +1,143 @@
+<!-- INCLUDE ucp_header.html -->
+
+<!-- IF not PROMPT -->
+	<!-- INCLUDE ucp_pm_message_header.html -->
+<!-- ENDIF -->
+
+<!-- IF PROMPT -->
+	<form id="viewfolder" method="post" action="{S_PM_ACTION}">
+
+		<div class="card mb-3">
+			<div class="card-header bg-secondary text-white">
+				{L_EXPORT_AS_CSV}
+			</div>
+			<div class="card-body">
+			<h5 class="card-title pb-1 text-capitalize">{L_OPTIONS}</h5>
+
+			<dl class="row">
+				<dt class="col-lg-3 col-md-4 col-12"><label class="col-form-label" for="delimiter">{L_DELIMITER}{L_COLON}</label></dt>
+				<dd class="col-lg-9 col-md-8 col-12"><input class="form-control" type="text" id="delimiter" name="delimiter" value="," /></dd>
+			</dl>
+			<dl class="row">
+				<dt class="col-lg-3 col-md-4 col-12"><label class="col-form-label" for="enclosure">{L_ENCLOSURE}{L_COLON}</label></dt>
+				<dd class="col-lg-9 col-md-8 col-12"><input class="form-control" type="text" id="enclosure" name="enclosure" value="&#034;" /></dd>
+			</dl>
+
+			</div>
+			<div class="card-footer text-center">
+				<input type="hidden" name="export_option" value="CSV" />
+				<button class="btn btn-danger me-1" type="reset" value="{L_RESET}" name="reset"><i class="fa fa-undo fa-fw" aria-hidden="true"></i> {L_RESET}</button>
+				<button class="btn btn-success" type="submit" name="submit_export" value="{L_EXPORT_FOLDER}"><i class="fa fa-level-down fa-rotate-90 fa-fw" aria-hidden="true"></i> {L_EXPORT_FOLDER}</button>
+				{S_FORM_TOKEN}
+			</div>
+		</div>
+
+	</form>
+
+<!-- ELSE -->
+
+	<!-- IF NUM_REMOVED -->
+		<div class="alert alert-info">
+			{RULE_REMOVED_MESSAGES}
+		</div>
+	<!-- ENDIF -->
+
+	<!-- IF NUM_NOT_MOVED -->
+		<div class="alert alert-info">
+			{NOT_MOVED_MESSAGES}<br>{RELEASE_MESSAGE_INFO}
+		</div>
+	<!-- ENDIF -->
+
+	<!-- IF .messagerow -->
+		<div class="card mb-3">
+		<div class="card-header bg-secondary text-white">
+			<div class="row">
+				<div class="col-md-10 col-sm-10 col-10">{L_MESSAGE}</div>
+				<div class="col-sm-2 col-2 text-center">{L_MARK}</div>
+			</div>
+		</div>
+
+		<!-- BEGIN messagerow -->
+			<div class="container-fluid row-item position-relative px-3 py-1 border-top {messagerow.FOLDER_IMG_STYLE}<!-- IF messagerow.S_ROW_COUNT is odd --> bg1<!-- ELSE --> bg2<!-- ENDIF --><!-- IF messagerow.S_PM_REPORTED --> border border-warning<!-- ENDIF -->">
+				<div class="row align-items-center {messagerow.PM_CLASS}">
+					<div class="<!-- IF S_SHOW_RECIPIENTS or S_UNREAD --> col-md-7<!-- ELSE --> col-md-10<!-- ENDIF --> col-sm-10 col-10 topic-folder folder">
+					<!-- IF messagerow.S_PM_UNREAD and not messagerow.S_PM_DELETED --><a href="{messagerow.U_VIEW_PM}" class="row-item-link"></a><!-- ENDIF -->
+
+					<!-- IF messagerow.S_PM_REPORTED --><a href="{messagerow.U_MCP_REPORT}" class="badge bg-warning" title="{L_PM_REPORTED}"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i><span class="visually-hidden">{L_PM_REPORTED}</span></a><!-- ENDIF -->
+
+					<!-- IF messagerow.S_PM_DELETED -->
+						<a href="{messagerow.U_REMOVE_PM}" class="topictitle">{L_DELETE_MESSAGE}</a>
+						<br><span class="badge bg-secondary">{L_MESSAGE_REMOVED_FROM_OUTBOX}</span>
+					<!-- ELSE -->
+						<!-- IF messagerow.PM_ICON_URL and S_PM_ICONS --><img src="{messagerow.PM_ICON_URL}" class="topic-icon" alt="{L_IMAGE}" /> <!-- ENDIF -->
+						<a href="{messagerow.U_VIEW_PM}" class="topictitle">{messagerow.SUBJECT}</a>
+					<!-- ENDIF -->
+					<!-- IF messagerow.S_AUTHOR_DELETED -->
+						<br><span class="badge bg-warning">{L_PM_FROM_REMOVED_AUTHOR}</span>
+					<!-- ENDIF -->
+						<br>
+					<!-- IF messagerow.ATTACH_ICON_IMG --><span class="tip" title="{L_TOTAL_ATTACHMENTS}"><i class="fa fa-paperclip" aria-hidden="true"></i></span><!-- ENDIF -->
+					<!-- IF S_SHOW_RECIPIENTS -->{L_MESSAGE_TO} {messagerow.RECIPIENTS}<!-- ELSE -->{L_MESSAGE_BY_AUTHOR} {messagerow.MESSAGE_AUTHOR_FULL} &raquo; {messagerow.SENT_TIME}<!-- ENDIF -->
+
+					</div>
+
+					<!-- IF S_SHOW_RECIPIENTS or S_UNREAD -->
+					<div class="col-md-3 d-none d-sm-block">
+						<!-- IF S_SHOW_RECIPIENTS -->
+							{L_SENT_AT}{L_COLON} {messagerow.SENT_TIME}<br>
+						<!-- ENDIF -->
+
+						<!-- IF S_UNREAD -->
+							<!-- IF messagerow.FOLDER --><a href="{messagerow.U_FOLDER}">{messagerow.FOLDER}</a><!-- ELSE -->{L_UNKNOWN_FOLDER}<!-- ENDIF -->
+						<!-- ENDIF -->
+					</div>
+					<!-- ENDIF -->
+					<div class="col-sm-2 col-2 form-check d-flex align-items-center justify-content-between">
+						<div class="form-switch">
+							<input class="form-check-input" type="checkbox" name="marked_msg_id[]" value="{messagerow.MESSAGE_ID}" />
+						</div>
+					<!-- IF messagerow.PM_CLASS -->
+						<i class="fa fa-circle fs-5 mt-1<!-- IF messagerow.PM_CLASS eq 'pm_message_reported_colour' --> text-danger<!-- ELSEIF messagerow.PM_CLASS eq 'pm_marked_colour' --> text-warning<!-- ELSEIF messagerow.PM_CLASS eq 'pm_replied_colour' --> text-secondary<!-- ELSEIF messagerow.PM_CLASS eq 'pm_friend_colour' --> text-primary<!-- ELSEIF messagerow.PM_CLASS eq 'pm_foe_colour' --> text-dark<!-- ENDIF -->" aria-hidden="true"></i>
+					<!-- ENDIF -->
+					</div>
+				</div>
+			</div>
+		<!-- END messagerow -->
+		</div>
+	<!-- ELSE -->
+		<div class="alert alert-info">
+			<!-- IF S_COMPOSE_PM_VIEW and S_NO_AUTH_SEND_MESSAGE -->
+				<!-- IF S_USER_NEW -->{L_USER_NEW_PERMISSION_DISALLOWED}<!-- ELSE -->{L_NO_AUTH_SEND_MESSAGE}<!-- ENDIF -->
+			<!-- ELSE -->
+				{L_NO_MESSAGES}
+			<!-- ENDIF -->
+		</div>
+	<!-- ENDIF -->
+
+	<!-- IF FOLDER_CUR_MESSAGES neq 0 -->
+		<input type="hidden" name="cur_folder_id" value="{CUR_FOLDER_ID}" />
+		<div class="action-bar d-sm-flex justify-content-end p-0 mb-3 border bg-light shadow-sm">
+			<a href="#" onclick="marklist('viewfolder', 'marked_msg', false); return false;" class="btn btn-lg rounded-0" title="{L_UNMARK_ALL}"><i class="fa fa-toggle-off fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_UNMARK_ALL}</span></a>
+			<a href="#" onclick="marklist('viewfolder', 'marked_msg', true); return false;" class="btn btn-lg rounded-0" title="{L_MARK_ALL}"><i class="fa fa-toggle-on fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_MARK_ALL}</span></a>
+		</div>
+
+		<div class="d-sm-flex justify-content-between mb-3">
+			<div class="mt-1 mt-md-0">
+				<div class="input-group">
+					<select class="form-select" name="export_option" id="export_option"><option value="CSV">{L_EXPORT_AS_CSV}</option><option value="CSV_EXCEL">{L_EXPORT_AS_CSV_EXCEL}</option><option value="XML">{L_EXPORT_AS_XML}</option></select>
+					<input class="btn btn-secondary" type="submit" name="submit_export" value="{L_GO}" />
+				</div>
+			</div>
+
+			<div class="mt-1 mt-md-0">
+				<div class="input-group">
+					<select class="form-select" name="mark_option">{S_MARK_OPTIONS}{S_MOVE_MARKED_OPTIONS}</select>
+					<input class="btn btn-secondary" type="submit" name="submit_mark" value="{L_GO}" />
+				</div>
+			</div>
+		</div>
+	<!-- ENDIF -->
+
+	<!-- INCLUDE ucp_pm_message_footer.html -->
+<!-- ENDIF -->
+<!-- INCLUDE ucp_footer.html -->

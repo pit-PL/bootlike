@@ -1,0 +1,95 @@
+<!-- INCLUDE mcp_header.html -->
+
+<form method="post" id="mcp" action="{U_POST_ACTION}">
+
+<div class="card mb-3">
+	<div class="card-header bg-secondary text-white">
+		{L_TITLE}
+	</div>
+	<div class="card-body pb-0">
+
+	<div class="action-bar d-sm-flex justify-content-between p-0 mb-3 border bg-light shadow-sm">
+		<div class="d-flex">
+			<!-- INCLUDE display_options.html -->
+
+			<button class="btn dropdown-toggle btn-lg rounded-0" title="{L_SEARCH}" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-search fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_SEARCH}</span></button>
+			<div class="dropdown-menu dropdown-menu-start" role="search">
+				<div class="input-group px-2">
+					<input type="search" class="form-control" name="keywords" value="{S_KEYWORDS}" placeholder="{L_SEARCH_KEYWORDS}" />
+					<button type="submit" name="filter" class="btn btn-light border" title="{L_SEARCH}"><i class="fa fa-search fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_SEARCH}</span></button>
+				</div>
+			</div>
+		</div>
+
+		<div class="btn btn-lg d-none d-lg-block disabled fs-6 mt-1 text-nowrap">
+			{TOTAL} &bull; <span class="fw-normal">{PAGE_NUMBER}</span>
+		</div>
+
+		<div class="d-flex">
+		<!-- IF .pagination --> 
+			<button class="btn dropdown-toggle btn-lg rounded-0" title="{L_JUMP_TO_PAGE}" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-clone fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_SEARCH}</span></button>
+			<div class="dropdown-menu dropdown-menu-end">
+				<div class="input-group px-2">
+					<!-- INCLUDE pagination.html -->
+				</div>
+			</div>
+		<!-- ELSE -->
+			&nbsp;
+		<!-- ENDIF -->
+		</div>
+	</div>
+
+	<div class="card mb-3 border-top-0">
+		<div class="card-header d-none d-md-block bg-secondary text-light border-bottom-0">
+			<div class="row">
+				<div class="col-12<!-- IF S_CLEAR_ALLOWED --> col-md-6<!-- ELSE --> col-md-8<!-- ENDIF -->">{L_ACTION}</div>
+				<div class="col-12 col-md-2 text-center">{L_MCP_NOTES_USER}</div>
+				<div class="col-12 col-md-2 text-center">{L_TIME}</div>
+			<!-- IF S_CLEAR_ALLOWED -->
+				<div class="col-12 col-md-2 text-center">{L_MARK}</div>
+			<!-- ENDIF -->
+			</div>
+		</div>
+		<div class="card-body p-0">
+		<!-- IF S_LOGS -->
+			<!-- BEGIN log -->
+			<div class="row align-items-center border-top m-0<!-- IF log.S_ROW_COUNT is even --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
+				<div class="col-12 col-md-6 py-2"><span class="badge bg-secondary d-md-none">{L_ACTION}{L_COLON}</span> {log.ACTION}<br>{log.DATA}</div>
+				<div class="col-12 col-md-2 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_MCP_NOTES_USER}{L_COLON}</span> {log.USERNAME} <br class="d-none d-md-block" />{log.IP}</div>
+				<div class="col-12 col-md-2 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_TIME}{L_COLON}</span> {log.DATE}</div>
+			<!-- IF S_CLEAR_ALLOWED -->
+				<div class="col-12 col-md-2 d-sm-flex py-2 text-center">
+					<span class="badge bg-secondary d-md-none me-1">{L_MARK}{L_COLON}</span>
+					<div class="form-switch mx-md-auto"><input class="form-check-input" type="checkbox" name="mark[]" value="{log.ID}" /></div>
+				</div>
+			<!-- ENDIF -->
+				<div class="d-md-none<!-- IF not log.S_LAST_ROW --> border border-2<!-- ENDIF -->"></div>
+			</div>
+			<!-- END log -->
+		<!-- ELSE -->
+			<div class="px-3 py-2 text-center bg2">{L_NO_ENTRIES}</div>
+		<!-- ENDIF -->
+		</div>
+	</div>
+
+	<!-- IF .log -->
+		{S_FORM_TOKEN}
+		<!-- IF S_CLEAR_ALLOWED -->
+		<div class="action-bar d-sm-flex justify-content-end p-0 mb-3 border bg-light shadow-sm">
+			<input class="btn btn-lg rounded-0" type="submit" name="action[del_all]" value="{L_DELETE_ALL}" />
+			<input class="btn btn-lg rounded-0" type="submit" value="{L_DELETE_MARKED}" name="action[del_marked]" />
+			<a href="#" onclick="marklist('mcp', 'mark', false); return false;" class="btn btn-lg rounded-0" title="{L_UNMARK_ALL}"><i class="fa fa-toggle-off fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_UNMARK_ALL}</span></a>
+			<a href="#" onclick="marklist('mcp', 'mark', true); return false;" class="btn btn-lg rounded-0" title="{L_MARK_ALL}"><i class="fa fa-toggle-on fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_MARK_ALL}</span></a>
+		</div>
+		<!-- ENDIF -->
+
+	<!-- ELSE -->
+			{S_FORM_TOKEN}
+	<!-- ENDIF -->
+
+	</div>
+</div>
+
+</form>
+
+<!-- INCLUDE mcp_footer.html -->

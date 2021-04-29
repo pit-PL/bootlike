@@ -1,0 +1,16 @@
+<!-- INCLUDE ucp_header.html -->
+
+<div class="card">
+	<div class="card-header bg-secondary text-white">
+		{L_UCP_AUTH_LINK_TITLE}
+	</div>
+	<div class="card-body">
+		<!-- IF ERROR --><div class="alert alert-danger">{ERROR}</div><!-- ENDIF -->
+
+		<!-- IF PROVIDER_TEMPLATE_FILE -->
+			<!-- INCLUDE {PROVIDER_TEMPLATE_FILE} -->
+		<!-- ENDIF -->
+	</div>
+</div>
+
+<!-- INCLUDE ucp_footer.html -->

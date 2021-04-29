@@ -1,0 +1,43 @@
+	<div id="login-popup" class="modal fade" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">{L_LOGIN}</h5>
+					<button type="button" class="btn-close" title="{L_CLOSE_WINDOW}" data-bs-dismiss="modal" aria-label="{L_CLOSE_WINDOW}"></button>
+				</div>
+
+				<form method="post" action="{S_LOGIN_ACTION}">
+					<div class="modal-body">
+						<div class="row">
+							<div class="col-md-12 col-lg-10 offset-lg-1">
+								<div class="form-floating mb-3">
+									<input class="form-control w-100" id="username" name="username" size="10" placeholder="{L_USERNAME}" tabindex="1" autocomplete="off" />
+									<label for="username">{L_USERNAME}</label>
+								</div>
+								<div class="form-floating mb-3">
+									<input class="form-control w-100" type="password" id="password" name="password" size="10" placeholder="{L_PASSWORD}" tabindex="2" autocomplete="off" />
+									<label for="password">{L_PASSWORD}</label>
+								</div>
+
+								<!-- IF S_AUTOLOGIN_ENABLED -->
+								<div class="form-check form-switch">
+									<label class="form-check-label" for="autologin"><input class="form-check-input" type="checkbox" id="autologin" name="autologin" tabindex="3" />{L_LOG_ME_IN}</label><br>
+								</div>
+								<!-- ENDIF -->
+								<div class="form-check form-switch">
+									<label class="form-check-label" for="viewonline"><input class="form-check-input" type="checkbox" id="viewonline" name="viewonline" tabindex="4" />{L_HIDE_ME}</label>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="modal-footer">
+						<button class="btn btn-success w-100" type="submit" name="login" value="{L_LOGIN}" tabindex="5"><i class="fa fa-power-off fa-fw" aria-hidden="true"></i> {L_LOGIN}</button>
+						{S_LOGIN_REDIRECT}
+						{S_FORM_TOKEN_LOGIN}
+					</div>
+				</form>
+
+			</div>
+		</div>
+	</div>

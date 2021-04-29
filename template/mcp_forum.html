@@ -1,0 +1,148 @@
+<!-- INCLUDE mcp_header.html -->
+
+<form method="post" id="mcp" action="{S_MCP_ACTION}">
+
+<div class="card mb-3">
+	<div class="card-header bg-secondary">
+		<a href="{U_VIEW_FORUM}" class="text-white">{L_FORUM}{L_COLON} {FORUM_NAME}</a>
+	</div>
+	<div class="card-body pb-0">
+
+
+	<!-- DEFINE $CUSTOM_JUMPBOX_CLASS = 1 -->
+	<div class="action-bar d-sm-flex justify-content-between p-0 mb-3 border bg-light shadow-sm">
+		<div class="d-flex">
+			<!-- INCLUDE display_options.html -->
+		</div>
+
+		<!-- IF TOTAL_POSTS or TOTAL_TOPICS -->
+		<div class="btn btn-lg d-none d-lg-block disabled fs-6 mt-1 text-nowrap">
+			{TOTAL_TOPICS} &bull; <span class="fw-normal">{PAGE_NUMBER}</span>
+		</div>
+		<!-- ENDIF -->
+
+		<div class="d-flex">
+		<!-- IF .pagination -->
+			<button class="btn dropdown-toggle btn-lg rounded-0" title="{L_JUMP_TO_PAGE}" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-clone fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_SEARCH}</span></button>
+			<div class="dropdown-menu dropdown-menu-end">
+				<div class="input-group px-2">
+					<!-- INCLUDE pagination.html -->
+				</div>
+			</div>
+		<!-- ELSE -->
+			&nbsp;
+		<!-- ENDIF -->
+		</div>
+	</div>
+
+	<!-- IF .topicrow -->
+	<div class="card mb-3">
+		<div class="card-header bg-dark border-bottom-0 text-light">
+			<div class="row">
+				<div class="<!-- IF S_MERGE_SELECT -->col-md-8<!-- ELSE -->col-md-6<!-- ENDIF --> col-sm-10 col-9">{L_TOPICS}</div>
+				<div class="col-md-4 d-none d-md-block">{L_LAST_POST}</div>
+				<!-- IF not S_MERGE_SELECT -->
+				<div class="col-sm-2 col-3 text-center">{L_MARK}</div>
+				<!-- ENDIF -->
+			</div>
+		</div>
+
+		<!-- BEGIN topicrow -->
+		<div class="container-fluid row-item position-relative pt-1 pb-1 border-top {topicrow.TOPIC_IMG_STYLE}<!-- IF topicrow.S_ROW_COUNT is odd --> bg1<!-- ELSE --> bg2<!-- ENDIF --><!-- IF topicrow.S_TOPIC_REPORTED --> border border-warning<!-- ENDIF -->">
+			<div class="row align-items-center">
+				<div class="<!-- IF S_MERGE_SELECT --> col-md-8<!-- ELSE --> col-md-6<!-- ENDIF --> col-sm-10 col-9 folder">
+					<!-- IF topicrow.S_UNREAD_TOPIC --><a href="{topicrow.U_NEWEST_POST}" class="row-item-link"></a><!-- ENDIF -->
+
+					<!-- IF .topicrow.pagination -->
+					<ul class="pagination pagination-sm float-end">
+					<!-- BEGIN pagination -->
+						<!-- IF topicrow.pagination.S_IS_PREV -->
+						<!-- ELSEIF topicrow.pagination.S_IS_CURRENT --><li class="active"><span>{topicrow.pagination.PAGE_NUMBER}</span></li>
+						<!-- ELSEIF topicrow.pagination.S_IS_ELLIPSIS --><li class="ellipsis"><span>{L_ELLIPSIS}</span></li>
+						<!-- ELSEIF topicrow.pagination.S_IS_NEXT -->
+						<!-- ELSE --><li><a href="{topicrow.pagination.PAGE_URL}">{topicrow.pagination.PAGE_NUMBER}</a></li>
+						<!-- ENDIF -->
+					<!-- END pagination -->
+					</ul>
+					<!-- ENDIF -->
+
+					<!-- EVENT topiclist_row_prepend -->
+					<!-- IF topicrow.S_SELECT_TOPIC --><a href="{topicrow.U_SELECT_TOPIC}" class="badge bg-primary" title="{L_SELECT_MERGE}">{L_SELECT_MERGE}</a><!-- ENDIF -->
+					<!-- EVENT mcp_forum_topic_title_before -->
+					<!-- IF topicrow.S_MOVED_TOPIC and S_CAN_DELETE --><a href="{topicrow.U_DELETE_TOPIC}" class="badge bg-warning" title="{L_DELETE_SHADOW_TOPIC}">{L_DELETE_SHADOW_TOPIC}</a><!-- ENDIF -->
+					<!-- IF topicrow.S_TOPIC_UNAPPROVED or topicrow.S_POSTS_UNAPPROVED --><a href="{topicrow.U_MCP_QUEUE}" class="badge bg-success" title="<!-- IF topicrow.S_TOPIC_UNAPPROVED -->{L_TOPIC_UNAPPROVED}<!-- ELSE -->{L_POSTS_UNAPPROVED}<!-- ENDIF -->"><i class="fa fa-flag" aria-hidden="true"></i><span class="visually-hidden">{L_TOPIC_UNAPPROVED}</span></a><!-- ENDIF -->
+					<!-- IF topicrow.S_TOPIC_DELETED or topicrow.S_POSTS_DELETED --><a href="{topicrow.U_MCP_QUEUE}" class="badge bg-secondary" title="{L_TOPIC_DELETED}"><i class="fa fa-recycle" aria-hidden="true"></i><span class="visually-hidden">{L_TOPIC_DELETED}</span></a><!-- ENDIF -->
+					<!-- IF topicrow.S_TOPIC_REPORTED --><a href="{topicrow.U_MCP_REPORT}" class="badge bg-warning" title="{L_TOPIC_REPORTED}"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i><span class="visually-hidden">{L_TOPIC_REPORTED}</span></a><!-- ENDIF -->
+
+					<!-- IF topicrow.TOPIC_ICON_IMG --><img src="{T_ICONS_PATH}{topicrow.TOPIC_ICON_IMG}" alt="{L_IMAGE}" width="{topicrow.TOPIC_ICON_IMG_WIDTH}" height="{topicrow.TOPIC_ICON_IMG_HEIGHT}" /> <!-- ENDIF --><a href="{topicrow.U_VIEW_TOPIC}" class="topictitle">{topicrow.TOPIC_TITLE}</a>
+					<!-- EVENT mcp_forum_topic_title_after -->
+
+					<div>
+						<!-- IF topicrow.ATTACH_ICON_IMG --><span class="tip" title="{L_TOTAL_ATTACHMENTS}"><i class="fa fa-paperclip" aria-hidden="true"></i><span class="visually-hidden">{L_TOTAL_ATTACHMENTS}</span></span> <!-- ENDIF -->
+						{% EVENT topiclist_row_topic_by_author_before %}
+						{L_POST_BY_AUTHOR} {topicrow.TOPIC_AUTHOR_FULL} &raquo; {topicrow.FIRST_POST_TIME} &nbsp; <i class="fa fa-comment-o ml-2" title="{L_REPLIES}" aria-hidden="true"></i><span class="sr-only">{L_REPLIES}</span> {topicrow.REPLIES}
+						{% EVENT topiclist_row_topic_by_author_after %}
+					</div>
+
+					<div class="d-md-none">
+						<!-- IF topicrow.ATTACH_ICON_IMG --><span class="tip" title="{L_TOTAL_ATTACHMENTS}"><i class="fa fa-paperclip" aria-hidden="true"></i><span class="visually-hidden">{L_TOTAL_ATTACHMENTS}</span></span> <!-- ENDIF -->
+						{L_LAST_POST} {L_POST_BY_AUTHOR} {topicrow.LAST_POST_AUTHOR_FULL} &laquo; {topicrow.LAST_POST_TIME}<br>
+					</div>
+					<!-- EVENT topiclist_row_append -->
+				</div>
+
+				<div class="col-md-4 d-none d-md-block">{L_POST_BY_AUTHOR} {topicrow.LAST_POST_AUTHOR_FULL}<br>{topicrow.LAST_POST_TIME}</div>
+				<!-- IF not S_MERGE_SELECT -->
+				<div class="col-sm-2 col-3 text-center">
+					<!-- IF not topicrow.S_MOVED_TOPIC --><div class="form-switch mx-auto"><input class="form-check-input" type="checkbox" name="topic_id_list[]" value="{topicrow.TOPIC_ID}"<!-- IF topicrow.S_TOPIC_CHECKED --> checked="checked"<!-- ENDIF --> /></div><!-- ELSE -->&nbsp;<!-- ENDIF -->
+				</div>
+				<!-- ENDIF -->
+			</div>
+		</div>
+		<!-- END topicrow -->
+	</div>
+	<!-- ELSE -->
+		<div class="alert alert-info">
+			{L_NO_TOPICS}
+		</div>
+	<!-- ENDIF -->
+
+	<!-- IF not S_MERGE_SELECT -->
+	<div class="action-bar d-sm-flex justify-content-end p-0 mb-3 border bg-light shadow-sm">
+		<a href="#" onclick="marklist('mcp', 'topic_id_list', false); return false;" class="btn btn-lg rounded-0" title="{L_UNMARK_ALL}"><i class="fa fa-toggle-off fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_UNMARK_ALL}</span></a>
+		<a href="#" onclick="marklist('mcp', 'topic_id_list', true); return false;" class="btn btn-lg rounded-0" title="{L_MARK_ALL}"><i class="fa fa-toggle-on fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_MARK_ALL}</span></a>
+	{S_FORM_TOKEN}
+	</div>
+	<!-- ENDIF -->
+
+	<!-- IF not S_MERGE_SELECT -->
+	<div class="mb-3 text-end">
+		<div class="d-inline-block w-auto">
+			<div class="input-group">
+				<select class="form-select" name="action">
+					<option value="" selected="selected">{L_SELECT_ACTION}</option>
+					<!-- IF S_CAN_DELETE --><option value="delete_topic">{L_DELETE}</option><!-- ENDIF -->
+					<!-- IF S_CAN_RESTORE --><option value="restore_topic">{L_RESTORE}</option><!-- ENDIF -->
+					<!-- IF S_CAN_MERGE --><option value="merge_topics">{L_MERGE}</option><!-- ENDIF -->
+					<!-- IF S_CAN_MOVE --><option value="move">{L_MOVE}</option><!-- ENDIF -->
+					<!-- IF S_CAN_FORK --><option value="fork">{L_FORK}</option><!-- ENDIF -->
+					<!-- IF S_CAN_LOCK --><option value="lock">{L_LOCK}</option><option value="unlock">{L_UNLOCK}</option><!-- ENDIF -->
+					<!-- IF S_CAN_SYNC --><option value="resync">{L_RESYNC}</option><!-- ENDIF -->
+					<!-- IF S_CAN_MAKE_NORMAL --><option value="make_normal">{L_MAKE_NORMAL}</option><!-- ENDIF -->
+					<!-- IF S_CAN_MAKE_STICKY --><option value="make_sticky">{L_MAKE_STICKY}</option><!-- ENDIF -->
+					<!-- IF S_CAN_MAKE_ANNOUNCE --><option value="make_announce">{L_MAKE_ANNOUNCE}</option><!-- ENDIF -->
+					<!-- IF S_CAN_MAKE_ANNOUNCE_GLOBAL --><option value="make_global">{L_MAKE_GLOBAL}</option><!-- ENDIF -->
+				</select>
+				<button class="btn btn-secondary" type="submit" value="{L_SUBMIT}"><i class="fa fa-level-down fa-rotate-90 fa-fw" aria-hidden="true"></i> {L_SUBMIT}</button>
+			</div>
+			{S_FORM_TOKEN}
+		</div>
+	</div>
+	<!-- ENDIF -->
+
+	</div>
+</div>
+
+</form>
+
+<!-- INCLUDE mcp_footer.html -->

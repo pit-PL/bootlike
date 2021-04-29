@@ -1,0 +1,129 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-3">
+	<div class="container-fluid" role="navigation">
+	<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-collapse-header"><span class="navbar-toggler-icon"></span></button>
+		<div id="navbar-collapse-header" class="collapse navbar-collapse justify-content-between">
+			<ul class="navbar-nav mb-2 mb-lg-0 d-flex" role="menubar">
+				<!-- EVENT navbar_header_quick_links_before -->
+
+				<li class="nav-item dropdown<!-- IF not S_DISPLAY_QUICK_LINKS and not S_DISPLAY_SEARCH --> d-none<!-- ENDIF -->">
+					<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">{L_QUICK_LINKS}</a>
+					<ul class="dropdown-menu" role="menu">
+
+					<!-- IF S_DISPLAY_SEARCH -->
+						<!-- IF S_REGISTERED_USER -->
+						<li><a href="{U_SEARCH_SELF}" class="dropdown-item" role="menuitem"><i class="fa fa-file-o fa-fw" aria-hidden="true"></i> {L_SEARCH_SELF}</a></li>
+						<!-- ENDIF -->
+						<!-- IF S_USER_LOGGED_IN -->
+						<li><a href="{U_SEARCH_NEW}" class="dropdown-item" role="menuitem"><i class="fa fa-file-o fa-fw text-danger" aria-hidden="true"></i> {L_SEARCH_NEW}</a></li>
+						<!-- ENDIF -->
+						<!-- IF S_LOAD_UNREADS -->
+						<li><a href="{U_SEARCH_UNREAD}" class="dropdown-item" role="menuitem"><i class="fa fa-file-o fa-fw text-danger" aria-hidden="true"></i> {L_SEARCH_UNREAD}</a></li>
+						<!-- ENDIF -->
+						<li class="nav-item"><a href="{U_SEARCH_UNANSWERED}" class="dropdown-item" role="menuitem"><i class="fa fa-file-o fa-fw" aria-hidden="true"></i> {L_SEARCH_UNANSWERED}</a></li>
+						<li><a href="{U_SEARCH_ACTIVE_TOPICS}" class="dropdown-item" role="menuitem"><i class="fa fa-file-o fa-fw text-primary" aria-hidden="true"></i> {L_SEARCH_ACTIVE_TOPICS}</a></li>
+						<li class="dropdown-divider m-0"></li>
+						<li><a href="{U_SEARCH}" class="dropdown-item" role="menuitem"><i class="fa fa-search fa-fw" aria-hidden="true"></i> {L_SEARCH}</a></li>
+					<!-- ENDIF -->
+
+				<!-- IF not S_IS_BOT and (S_DISPLAY_MEMBERLIST or U_TEAM) -->
+						<li class="dropdown-divider m-0"></li>
+					<!-- IF S_DISPLAY_MEMBERLIST -->
+						<li class="nav-item"><a href="{U_MEMBERLIST}" class="dropdown-item" role="menuitem"><i class="fa fa-group fa-fw" aria-hidden="true"></i> {L_MEMBERLIST}</a></li>
+					<!-- ENDIF -->
+					<!-- IF U_TEAM -->
+						<li><a href="{U_TEAM}" class="dropdown-item" role="menuitem"><i class="fa fa-shield fa-fw" aria-hidden="true"></i> {L_THE_TEAM}</a></li>
+					<!-- ENDIF -->
+				<!-- ENDIF -->
+
+					<!-- EVENT navbar_header_quick_links_after -->
+					</ul>
+				</li>
+
+			<!-- EVENT overall_header_navigation_prepend -->
+				<li class="nav-item"><a href="{U_FAQ}" class="nav-link" rel="help" title="{L_FAQ_EXPLAIN}" role="menuitem"><i class="fa fa-question fa-fw" aria-hidden="true"></i> {L_FAQ}</a></li>
+			<!-- EVENT overall_header_navigation_append -->
+			</ul>
+			
+			<ul class="navbar-nav mb-2 mb-lg-0 d-flex" role="menubar">
+			<!-- IF S_REGISTERED_USER -->
+				<!-- IF S_NOTIFICATIONS_DISPLAY -->
+				<li class="nav-item dropdown">
+					<a href="#" id="notification_list_button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button">
+						<i class="fa fa-bell fa-fw position-relative" aria-hidden="true"><strong class="position-absolute top-0 start-0 translate-middle badge rounded-pill bg-danger<!-- IF not NOTIFICATIONS_COUNT --> d-none<!-- ENDIF -->">{NOTIFICATIONS_COUNT}</strong><span class="visually-hidden">{NOTIFICATIONS_COUNT}</span></i> {L_NOTIFICATIONS}
+					</a>
+					<!-- INCLUDE notification_dropdown.html -->
+				</li>
+				<!-- ENDIF -->
+
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#"<!-- IF PRIVATE_MESSAGE_COUNT --> title="{L_UNREAD_MESSAGES}"<!-- ENDIF --> role="button" data-bs-toggle="dropdown" aria-expanded="false">
+					<!-- IF S_DISPLAY_PM and PRIVATE_MESSAGE_COUNT -->
+						<i class="fa fa-inbox fa-fw position-relative" aria-hidden="true"><strong class="position-absolute top-0 start-0 translate-middle badge rounded-pill bg-danger<!-- IF not PRIVATE_MESSAGE_COUNT --> d-none<!-- ENDIF -->">{PRIVATE_MESSAGE_COUNT}</strong><span class="visually-hidden">{L_UNREAD_MESSAGES}</span></i>
+					<!-- ENDIF -->
+						{CURRENT_USERNAME_SIMPLE}
+					</a>
+					<ul class="dropdown-menu dropdown-menu-end bg-light" style="min-width: 300px;">
+						<!-- IF S_DISPLAY_PM -->
+						<li class="nav-item text-center">
+							<a class="dropdown-item border-bottom" href="{U_PRIVATEMSGS}" role="menuitem">
+							<!-- IF PRIVATE_MESSAGE_COUNT -->
+								<div class="spinner-grow spinner-grow-sm text-danger" role="status"><span class="visually-hidden">{L_UNREAD_MESSAGES}</span></div>
+							<!-- ELSE -->
+								<i class="fa fa-inbox fa-fw position-relative" aria-hidden="true"></i>
+							<!-- ENDIF -->
+								{L_PRIVATE_MESSAGES}
+							</a>
+						</li>
+						<!-- ENDIF -->
+
+						<li class="nav-item">
+							<div class="row m-0 mx-1 my-1 align-items-center border bg-white rounded-2">
+								<!-- IF CURRENT_USER_AVATAR -->
+								<div class="col-4 justify-content-center my-1 px-2 py-1 d-none d-md-flex">
+									<div class="img-thumbnail">{CURRENT_USER_AVATAR}</div>
+								</div>
+								<!-- ENDIF -->
+						
+								<div class="<!-- IF CURRENT_USER_AVATAR -->col-md-8<!-- ELSE -->col-12<!-- ENDIF --> px-2 py-1">
+								<!-- IF U_RESTORE_PERMISSIONS -->
+									<a href="{U_RESTORE_PERMISSIONS}" class="btn btn-secondary btn-sm w-100 my-1 text-truncate"><i class="fa fa-refresh fa-fw" aria-hidden="true"></i> {L_RESTORE_PERMISSIONS}</a>
+								<!-- ENDIF -->
+								
+								<!-- EVENT navbar_header_profile_list_before -->
+								
+									<a href="{U_PROFILE}" class="btn btn-secondary btn-sm w-100 my-1 text-truncate" role="menuitem"><i class="fa fa-sliders fa-fw" aria-hidden="true"></i> {L_PROFILE}</a>
+								<!-- IF U_USER_PROFILE -->
+									<a href="{U_USER_PROFILE}" class="btn btn-secondary btn-sm w-100 my-1 text-truncate" role="menuitem"><i class="fa fa-user fa-fw" aria-hidden="true"></i> {L_READ_PROFILE}</a>
+								<!-- ENDIF -->
+								
+								<!-- EVENT navbar_header_profile_list_after -->
+
+								<!-- IF U_MCP -->
+									<a href="{U_MCP}" class="btn btn-success btn-sm w-100 my-1 text-truncate" title="{L_MCP}" role="menuitem"><i class="fa fa-gavel fa-fw" aria-hidden="true"></i> {L_MCP_SHORT}</a>
+								<!-- ENDIF -->
+
+								<!-- IF U_ACP -->
+									<a href="{U_ACP}" class="btn btn-danger btn-sm w-100 my-1 rounded-top" title="{L_ACP}" role="menuitem"><i class="fa fa-cogs fa-fw" aria-hidden="true"></i> {L_ACP_SHORT}</a>
+								<!-- ENDIF -->
+								</div>
+							</div>
+						</li>
+						<li class="nav-item text-center">
+							<a class="dropdown-item border-top" href="{U_LOGIN_LOGOUT}" accesskey="x" role="menuitem"><i class="fa fa-power-off fa-fw" aria-hidden="true"></i> {L_LOGIN_LOGOUT}</a>
+						</li>
+					</ul>
+					<!-- EVENT navbar_header_username_append -->
+				</li>
+
+				<!-- EVENT navbar_header_user_profile_append -->
+			<!-- ELSE IF not S_IS_BOT -->
+				<!-- IF S_REGISTER_ENABLED and not (S_SHOW_COPPA or S_REGISTRATION) -->
+				<li class="nav-item"><a class="nav-link" href="{U_REGISTER}" role="menuitem"><i class="fa fa-pencil-square-o  fa-fw" aria-hidden="true"></i> {L_REGISTER}</a></li>
+				<!-- ENDIF -->
+				<li class="nav-item"><a class="nav-link"<!-- IF not $LOGIN_POPUP_OFF --> href="#" data-bs-toggle="modal" data-bs-target="#login-popup"<!-- ELSE --> href="{U_LOGIN_LOGOUT}"<!-- ENDIF --> title="{L_LOGIN_LOGOUT}" accesskey="x" role="menuitem"><i class="fa fa-power-off fa-fw" aria-hidden="true"></i> {L_LOGIN_LOGOUT}</a></li>
+			<!-- EVENT navbar_header_logged_out_content -->
+		<!-- ENDIF -->
+			</ul>
+		</div>
+	</div>
+</nav>

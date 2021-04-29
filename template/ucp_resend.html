@@ -1,0 +1,36 @@
+<!-- INCLUDE overall_header.html -->
+
+<form action="{S_PROFILE_ACTION}" method="post" id="resend">
+	<div class="col-md-12 col-lg-10 offset-lg-1">
+		<div class="card mb-3">
+			<div class="card-header bg-secondary text-white">
+				{L_UCP_RESEND}
+			</div>
+			<div class="card-body">
+				<div class="row">
+					<div class="col-md-6 col-12">
+						<label class="d-block mb-2" for="username"><strong>{L_USERNAME}{L_COLON}</strong></label>
+						<input class="form-control w-100" type="text" name="username" id="username" size="25" />
+					</div>
+
+					<div class="col-md-6 col-12">
+						<label class="d-block mb-2" for="email"><strong>{L_EMAIL_ADDRESS}{L_COLON}</strong></label>
+						<div class="input-group">
+							<input class="form-control" type="email" name="email" id="email" size="25" maxlength="100" />
+							<button class="btn btn-outline-info" type="button" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="{L_EMAIL_REMIND}"><i class="fa fa-info fa-fw" aria-hidden="true"></i></button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="card-footer text-center">
+				{S_HIDDEN_FIELDS}
+				<button class="btn btn-danger me-1" type="reset" name="reset" value="{L_RESET}"><i class="fa fa-undo fa-fw" aria-hidden="true"></i> {L_RESET}</button>
+				<button class="btn btn-success" type="submit" name="submit" id="submit" value="{L_SUBMIT}" tabindex="2"><i class="fa fa-level-down fa-rotate-90 fa-fw" aria-hidden="true"></i> {L_SUBMIT}</button>
+				{S_FORM_TOKEN}
+			</div>
+		</div>
+	</div>
+</form>
+
+<!-- INCLUDE overall_footer.html -->

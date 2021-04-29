@@ -1,0 +1,192 @@
+<!-- INCLUDE ucp_header.html -->
+
+<form id="ucp" method="post" action="{S_UCP_ACTION}">
+
+<div class="card mb-3">
+	<div class="card-header bg-secondary text-white">
+		{L_TITLE}
+	</div>
+	<div class="card-body pb-0">
+
+	<!-- IF ERROR_MESSAGE --><div class="alert alert-danger">{ERROR_MESSAGE}</div><!-- ENDIF -->
+	<!-- IF NOTIFICATION_MESSAGE --><div class="alert alert-warning">{NOTIFICATION_MESSAGE}</div><!-- ENDIF -->
+
+	<h5 class="card-title pb-1 text-capitalize">{L_DEFINED_RULES}</h5>
+
+	<ol class="def-rules">
+	<!-- BEGIN rule -->
+		<li class="pt-1 pb-2"><div class="float-end"><input type="submit" name="delete_rule[{rule.RULE_ID}]" value="{L_DELETE_RULE}" class="btn btn-danger btn-sm" /></div><strong>{L_IF}</strong> {rule.CHECK} <em>{rule.RULE}</em> <!-- IF rule.STRING --><strong>{rule.STRING}</strong> | <!-- ENDIF -->{rule.ACTION}<!-- IF rule.FOLDER -->{L_COLON} {rule.FOLDER}<!-- ENDIF --></li>
+	<!-- BEGINELSE -->
+		<li><strong>{L_NO_RULES_DEFINED}</strong></li>
+	<!-- END rule -->
+	</ol>
+
+	<h5 class="card-title pb-1 text-capitalize">{L_ADD_NEW_RULE}</h5>
+
+	<!-- IF S_CHECK_DEFINED -->
+		<dl class="row">
+			<dt class="col-lg-3 col-md-4 col-12"><label class="col-form-label"<!-- IF S_CHECK_SELECT --> for="check_option"<!-- ENDIF -->>{L_IF}{L_COLON}</label></dt>
+			<dd class="col-lg-9 col-md-8 col-12 w-auto">
+			<!-- IF S_CHECK_SELECT -->
+				<div class="input-group">
+					<select class="form-select" name="check_option" id="check_option">{S_CHECK_OPTIONS}</select>
+					<input type="submit" name="next" value="{L_NEXT_STEP}" class="btn btn-secondary" />
+				</div>
+			<!-- ELSE -->
+				<label class="col-form-label">{CHECK_CURRENT}</label><input type="hidden" name="check_option" value="{CHECK_OPTION}" />
+			<!-- ENDIF -->
+			</dd>
+		</dl>
+	<!-- ENDIF -->
+
+	<!-- IF S_RULE_DEFINED -->
+		<dl class="row">
+			<dt class="col-lg-3 col-md-4 col-12"><!-- IF S_RULE_SELECT --><input type="submit" name="back[rule]" value="{L_PREVIOUS_STEP}" class="btn btn-secondary" /><!-- ELSE --><label>&nbsp;</label><!-- ENDIF --></dt>
+			<dd class="col-lg-9 col-md-8 col-12 w-auto">
+			<!-- IF S_RULE_SELECT -->
+				<div class="input-group">
+					<select class="form-select" name="rule_option" id="rule_option">{S_RULE_OPTIONS}</select>
+					<input type="submit" name="next" value="{L_NEXT_STEP}" class="btn btn-secondary" />
+				</div>
+			<!-- ELSE -->
+				<em>{RULE_CURRENT}</em><input type="hidden" name="rule_option" value="{RULE_OPTION}" />
+			<!-- ENDIF -->
+			</dd>
+		</dl>
+	<!-- ENDIF -->
+
+	<!-- IF S_COND_DEFINED -->
+		<!-- IF S_COND_SELECT or COND_CURRENT -->
+		<dl class="row">
+			<dt class="col-lg-3 col-md-4 col-12"><!-- IF S_COND_SELECT --><input type="submit" name="back[cond]" value="{L_PREVIOUS_STEP}" class="btn btn-secondary" /><!-- ELSE --><label>&nbsp;</label><!-- ENDIF --></dt>
+			<dd class="col-lg-9 col-md-8 col-12 d-flex">
+				<!-- IF S_COND_SELECT -->
+					<!-- IF S_TEXT_CONDITION -->
+						<input class="form-control me-2" type="text" name="rule_string" value="{CURRENT_STRING}" maxlength="250" />
+					<!-- ELSEIF S_USER_CONDITION -->
+						<input class="form-control me-2" type="text" name="rule_string" value="{CURRENT_STRING}" />
+						<a href="{U_FIND_USERNAME}" onclick="find_username(this.href); return false;" class="btn btn-secondary"><i class="fa fa-search fa-fw" aria-hidden="true"></i> {L_FIND_USERNAME}</a>
+					<!-- ELSEIF S_GROUP_CONDITION -->
+						<input type="hidden" name="rule_string" value="{CURRENT_STRING}" />
+					<!-- IF S_GROUP_OPTIONS -->
+						<select class="form-select me-2" name="rule_group_id">{S_GROUP_OPTIONS}</select>
+					<!-- ELSE -->
+						{L_NO_GROUPS}
+					<!-- ENDIF -->
+				<!-- ENDIF -->
+					<input class="btn btn-secondary" type="submit" name="next" value="{L_NEXT_STEP}" />
+				<!-- ELSE -->
+					<strong>{COND_CURRENT}</strong>
+					<input type="hidden" name="rule_string" value="{CURRENT_STRING}" />
+					<input type="hidden" name="rule_user_id" value="{CURRENT_USER_ID}" />
+					<input type="hidden" name="rule_group_id" value="{CURRENT_GROUP_ID}" />
+				<!-- ENDIF -->
+			</dd>
+		</dl>
+		<!-- ENDIF -->
+		<input type="hidden" name="cond_option" value="{COND_OPTION}" />
+	<!-- ENDIF -->
+
+	<!-- IF NONE_CONDITION --><input type="hidden" name="cond_option" value="none" /><!-- ENDIF -->
+
+	<!-- IF S_ACTION_DEFINED -->
+		<dl class="row">
+			<dt class="col-lg-3 col-md-4 col-12"><!-- IF S_ACTION_SELECT --><input type="submit" name="back[action]" value="{L_PREVIOUS_STEP}" class="btn btn-secondary" /><!-- ELSE --><label>&nbsp;</label><!-- ENDIF --></dt>
+			<dd class="col-lg-9 col-md-8 col-12 w-auto">
+			<!-- IF S_ACTION_SELECT -->
+				<div class="input-group">
+					<select class="form-select" name="action_option">{S_ACTION_OPTIONS}</select>
+					<input type="submit" name="add_rule" value="{L_ADD_RULE}" class="btn btn-secondary" />
+				</div>
+			<!-- ELSE -->
+				{ACTION_CURRENT}
+				<input type="hidden" name="action_option" value="{ACTION_OPTION}" />
+			<!-- ENDIF -->
+			</dd>
+		</dl>
+	<!-- ENDIF -->
+
+	<h5 class="card-title pb-1 text-capitalize">{L_FOLDER_OPTIONS}</h5>
+
+	<!-- IF not S_MAX_FOLDER_ZERO -->
+		<dl class="row">
+			<dt class="col-lg-3 col-md-4 col-12"><label class="col-form-label" for="foldername">{L_ADD_FOLDER}{L_COLON}</label></dt>
+			<dd class="col-lg-9 col-md-8 col-12 w-auto">
+			<!-- IF S_MAX_FOLDER_REACHED -->
+				{L_MAX_FOLDER_REACHED}
+			<!-- ELSE -->
+				<div class="input-group">
+					<input type="text" class="form-control" name="foldername" id="foldername" size="30" maxlength="30" />
+					<input class="btn btn-secondary" type="submit" name="addfolder" value="{L_ADD}" />
+				</div>
+			<!-- ENDIF -->
+			</dd>
+		</dl>
+	<!-- IF S_FOLDER_OPTIONS --><hr><!-- ENDIF -->
+	<!-- ENDIF -->
+
+	<!-- IF S_FOLDER_OPTIONS -->
+		<dl class="row">
+			<dt class="col-lg-3 col-md-4 col-12"><label class="col-form-label" for="rename_folder_id">{L_RENAME_FOLDER}{L_COLON}</label></dt>
+			<dd class="col-lg-9 col-md-8 col-12"><select class="form-select" name="rename_folder_id" id="rename_folder_id"> {S_FOLDER_OPTIONS}</select></dd>
+		</dl>
+		<dl class="row">
+			<dt class="col-lg-3 col-md-4 col-12"><label class="col-form-label" for="new_folder_name">{L_NEW_FOLDER_NAME}{L_COLON}</label></dt>
+			<dd class="col-lg-9 col-md-8 col-12 w-auto">
+				<div class="input-group">
+					<input type="text" class="form-control" name="new_folder_name" id="new_folder_name" size="30" maxlength="30" />
+					<input class="btn btn-secondary" type="submit" name="rename_folder" value="{L_RENAME}" />
+				</div>
+			</dd>
+		</dl>
+
+		<dl class="row">
+			<dt class="col-lg-3 col-md-4 col-12"><label class="col-form-label" for="remove_folder_id">{L_REMOVE_FOLDER}{L_COLON}</label></dt>
+			<dd class="col-lg-9 col-md-8 col-12">
+				<select class="form-select" name="remove_folder_id" id="remove_folder_id">{S_FOLDER_OPTIONS}</select><br>
+				<label class="form-check-label" for="remove_action1"><input class="form-check-input" type="radio" name="remove_action" id="remove_action1" value="1" checked="checked" />{L_MOVE_DELETED_MESSAGES_TO}{L_COLON}</label> <select class="form-select" name="move_to">{S_TO_FOLDER_OPTIONS}</select><br>
+				<label class="form-check-label" for="remove_action2"><input class="form-check-input" type="radio" name="remove_action" id="remove_action2" value="2" /> {L_DELETE_MESSAGES_IN_FOLDER}</label><br>
+				<input class="btn btn-secondary" type="submit" name="remove_folder" value="{L_REMOVE}" />
+			</dd>
+		</dl>
+	<!-- ENDIF -->
+
+		<dl class="row">
+			<dt class="col-lg-3 col-md-4 col-12"><label class="form-check-label" for="full_action1">{L_IF_FOLDER_FULL}{L_COLON}</label></dt>
+			<dd class="col-lg-9 col-md-8 col-12">
+				<label class="form-check-label" for="full_action1"><input class="form-check-input" type="radio" name="full_action" id="full_action1" value="1"{S_DELETE_CHECKED} /> {L_DELETE_OLDEST_MESSAGES}</label>
+				<label class="form-check-label" for="full_action3"><input class="form-check-input" type="radio" name="full_action" id="full_action3" value="3"{S_HOLD_CHECKED} /> {L_HOLD_NEW_MESSAGES}</label>
+				<div class="d-inline-block w-auto mt-1">
+					<div class="input-group">
+						<div class="input-group">
+							<div class="input-group-text">
+								<label class="form-check-label me-2 border-end" for="full_action2">{L_MOVE_TO_FOLDER}</label>
+							</div>
+							<div class="input-group-text">
+								<input class="form-check-input mt-0" type="radio" name="full_action" id="full_action2" value="2"{S_MOVE_CHECKED} />
+							</div>
+							<select class="form-select" name="full_move_to">{S_FULL_FOLDER_OPTIONS}</select>
+						</div>
+					</div>
+				</div>
+			</dd>
+		</dl>
+
+		<dl class="row">
+			<dt class="col-lg-3 col-md-4 col-12">
+				<label>{L_DEFAULT_ACTION}{L_COLON}</label>
+				<div class="small text-muted fw-normal">{L_DEFAULT_ACTION_EXPLAIN}</div>
+			</dt>
+			<dd class="col-lg-9 col-md-8 col-12">
+				<label>{DEFAULT_ACTION}</label><br>
+				<input class="btn btn-secondary" type="submit" name="fullfolder" value="{L_CHANGE}" />
+			</dd>
+		</dl>
+	{S_FORM_TOKEN}
+
+	</div>
+</div>
+
+</form>
+
+<!-- INCLUDE ucp_footer.html -->

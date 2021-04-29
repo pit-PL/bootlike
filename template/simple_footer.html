@@ -1,0 +1,23 @@
+	</div>
+
+	<p class="text-center" role="contentinfo">
+		{CREDIT_LINE}
+		{% if TRANSLATION_INFO %}<br>{TRANSLATION_INFO}{% endif %}
+		{% if DEBUG_OUTPUT %}<br>{DEBUG_OUTPUT}{% endif %}
+	</p>
+
+</div>
+
+<script src="{T_JQUERY_LINK}"></script>
+<script src="{T_ASSETS_PATH}/javascript/core.js?assets_version={T_ASSETS_VERSION}"></script>
+<!-- INCLUDEJS forum_fn.js -->
+<!-- INCLUDEJS ajax.js -->
+
+<!-- EVENT simple_footer_after -->
+
+{$SCRIPTS}
+
+{% EVENT simple_footer_body_after %}
+
+</body>
+</html>

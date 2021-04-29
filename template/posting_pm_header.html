@@ -1,0 +1,89 @@
+<!-- IF not S_SHOW_DRAFTS -->
+	<!-- IF S_ALLOW_MASS_PM -->
+
+	<!-- IF not S_EDIT_POST -->
+	<dl class="row">
+		<dt class="col-lg-3 col-md-4 col-12 d-md-flex align-items-center"><label class="col-form-label">{L_TO_ADD_MASS}{L_COLON}</label></dt>
+		<dd class="col-lg-9 col-md-8 col-12">
+			<div class="row">
+			<div class="col-md-7 col-12">
+				<textarea class="form-control" id="username_list" name="username_list" cols="30" rows="3" tabindex="1"></textarea>
+			</div>
+			<div class="col-md-5 col-12">
+				<div class="btn-group me-1 mt-2 mt-md-0">
+					<input class="btn btn-secondary" type="submit" name="add_to" value="{L_ADD}" tabindex="1" />
+					<input class="btn btn-secondary" type="submit" name="add_bcc" value="{L_ADD_BCC}" tabindex="1" />
+				</div>
+				<!-- EVENT posting_pm_header_find_username_before -->
+				<a class="btn btn-secondary mt-2 text-nowrap" href="{U_FIND_USERNAME}" onclick="find_username(this.href); return false;"><i class="fa fa-search fa-fw" aria-hidden="true"></i> {L_FIND_USERNAME}</a>
+				<!-- EVENT posting_pm_header_find_username_after -->
+			</div>
+			</div>
+		</dd>
+	</dl>
+	<!-- ENDIF -->
+
+	<!-- IF S_GROUP_OPTIONS -->
+	<dl class="row">
+		<dt class="col-lg-3 col-md-4 col-12"><label class="col-form-label" for="group_list">{L_TO_ADD_GROUPS}{L_COLON}</label></dt>
+		<dd class="col-lg-9 col-md-8 col-12">
+			<select class="form-select" name="group_list[]" id="group_list" multiple="multiple" size="3">{S_GROUP_OPTIONS}</select>
+		</dd>
+	</dl>
+	<!-- ENDIF -->
+
+	<!-- IF .to_recipient or .bcc_recipient --><div class="clearfix"></div><!-- ENDIF -->
+
+	<!-- IF .to_recipient -->
+	<dl class="row">
+		<dt class="col-lg-3 col-md-4 col-12"><label class="col-form-label">{L_TO_MASS}{L_COLON}</label></dt>
+		<dd class="col-lg-9 col-md-8 col-12">
+		<!-- BEGIN to_recipient -->
+			<!-- IF to_recipient.IS_GROUP --><a href="{to_recipient.U_VIEW}"><strong>{to_recipient.NAME}</strong></a><!-- ELSE -->{to_recipient.NAME_FULL}<!-- ENDIF -->
+			<!-- IF not S_EDIT_POST --><input class="btn btn-danger btn-sm" type="submit" name="remove_{to_recipient.TYPE}[{to_recipient.UG_ID}]" value="X" title="{L_REMOVE}" /><!-- ENDIF -->
+		<!-- END to_recipient -->
+		</dd>
+	</dl>
+	<!-- ENDIF -->
+
+	<!-- IF .bcc_recipient -->
+	<dl class="row">
+		<dt class="col-lg-3 col-md-4 col-12"><label class="col-form-label">{L_BCC}{L_COLON}</label></dt>
+		<dd class="col-lg-9 col-md-8 col-12">
+		<!-- BEGIN bcc_recipient -->
+			<!-- IF bcc_recipient.IS_GROUP --><a href="{bcc_recipient.U_VIEW}" style="color: {{ bcc_recipient.COLOUR }}"><strong>{bcc_recipient.NAME}</strong></a><!-- ELSE -->{bcc_recipient.NAME_FULL}<!-- ENDIF -->
+			<!-- IF not S_EDIT_POST --><input class="btn btn-danger btn-sm" type="submit" name="remove_{bcc_recipient.TYPE}[{bcc_recipient.UG_ID}]" value="X" title="{L_REMOVE}" /><!-- ENDIF -->
+		<!-- END bcc_recipient -->
+		</dd>
+	</dl>
+	<!-- ENDIF -->
+
+	<!-- ELSE -->
+
+	<!-- IF not S_EDIT_POST -->
+	<dl class="row">
+		<dt class="col-lg-3 col-md-4 col-12"><label class="col-form-label" for="username_list">{L_TO_ADD}{L_COLON}</label></dt>
+		<dd class="col-lg-9 col-md-8 col-12">
+			<div class="input-group">
+				<input class="form-control" type="text" name="username_list" id="username_list" size="20" value="" />
+				<input class="btn btn-secondary" type="submit" name="add_to" value="{L_ADD}" />
+				<a class="btn btn-secondary" href="{U_FIND_USERNAME}" onclick="find_username(this.href); return false">{L_FIND_USERNAME}</a>
+			</div>
+		</dd>
+	</dl>
+	<!-- ENDIF -->
+
+	<!-- IF .to_recipient -->
+	<dl class="row">
+		<dt class="col-lg-3 col-md-4 col-12"><label class="col-form-label">{L_RECIPIENT}{L_COLON}</label></dt>
+		<dd class="col-lg-9 col-md-8 col-12">
+		<!-- BEGIN to_recipient -->
+			<!-- IF to_recipient.IS_GROUP --><a href="{to_recipient.U_VIEW}"><strong>{to_recipient.NAME}</strong></a><!-- ELSE -->{to_recipient.NAME_FULL}<!-- ENDIF -->&nbsp;
+			<!-- IF not S_EDIT_POST --><input class="btn btn-danger" type="submit" name="remove_{to_recipient.TYPE}[{to_recipient.UG_ID}]" value="X" /><!-- ENDIF -->
+		<!-- END to_recipient -->
+		</dd>
+	<!-- ENDIF -->
+	</dl>
+
+	<!-- ENDIF -->
+<!-- ENDIF -->

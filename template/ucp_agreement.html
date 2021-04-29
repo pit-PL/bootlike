@@ -1,0 +1,85 @@
+<!-- INCLUDE overall_header.html -->
+
+<!-- IF S_SHOW_COPPA or S_REGISTRATION -->
+
+<!-- IF S_LANG_OPTIONS -->
+<script>
+	/**
+	* Change language
+	*/
+	function change_language(lang_iso)
+	{
+		document.cookie = '{COOKIE_NAME}_lang=' + lang_iso + '; path={COOKIE_PATH}';
+		document.forms['register'].change_lang.value = lang_iso;
+		document.forms['register'].submit();
+	}
+
+</script>
+
+
+<div class="col-md-12 col-lg-10 offset-lg-1">
+	<form method="post" action="{S_UCP_ACTION}" id="register">
+		<div class="d-flex justify-content-end mb-3">
+			<div class="input-group w-auto">
+				<span class="input-group-text">{L_LANGUAGE}{L_COLON}</span>
+				<select class="form-select" name="lang" id="lang" onchange="change_language(this.value); return false;" title="{L_LANGUAGE}">{S_LANG_OPTIONS}</select>
+			</div>
+			{S_HIDDEN_FIELDS}
+		</div>
+	</form>
+</div>
+
+<!-- ENDIF -->
+
+<form method="post" action="{S_UCP_ACTION}" id="agreement">
+	<div class="col-md-12 col-lg-10 offset-lg-1">
+		<div class="card mb-3">
+			<div class="card-header bg-secondary text-white">
+				{{ SITENAME }} - {{ lang('REGISTRATION') }}
+			</div>
+			<div class="card-body">
+				<!-- EVENT ucp_agreement_terms_before -->
+				<p>{% if S_SHOW_COPPA %}{{ lang('COPPA_BIRTHDAY') }}{% else %}{{ lang('TERMS_OF_USE') }}{% endif %}</p>
+				<!-- EVENT ucp_agreement_terms_after -->
+			</div>
+
+			<div class="card-footer">
+				<div class="row">
+					<div class="col-12 col-md-6">
+					<!-- IF S_SHOW_COPPA -->
+						<input class="btn btn-outline-secondary w-100" type="submit" id="coppa_no" name="coppa_no" value="{{ L_COPPA_NO }}" />
+					<!-- ELSE -->
+						<button class="btn btn-danger w-100" type="submit" id="not_agreed" name="not_agreed" value="{L_NOT_AGREE}"><i class="fa fa-thumbs-o-down fa-fw" aria-hidden="true"></i> {L_NOT_AGREE}</button>
+					<!-- ENDIF -->
+					</div>
+					<div class="col-12 col-md-6">
+					<!-- IF S_SHOW_COPPA -->
+						<input class="btn btn-secondary w-100 mt-1 mt-md-0" type="submit" id="coppa_yes" name="coppa_yes" value="{{ L_COPPA_YES }}" />
+					<!-- ELSE -->
+						<button class="btn btn-success w-100 mt-1 mt-md-0" type="submit" id="agreed" name="agreed" value="{L_AGREE}"><i class="fa fa-thumbs-o-up fa-fw" aria-hidden="true"></i> {L_AGREE}</button>
+					<!-- ENDIF -->
+					</div>
+				</div>
+			{S_HIDDEN_FIELDS}
+			{S_FORM_TOKEN}
+			</div>
+		</div>
+	</div>
+</form>
+
+<!-- ELSEIF S_AGREEMENT -->
+
+<div class="col-md-12 col-lg-10 offset-lg-1">
+	<div class="card mb-3">
+		<div class="card-header bg-secondary text-white">
+			{{ SITENAME }} - {{ AGREEMENT_TITLE }}
+		</div>
+		<div class="card-body">
+			<p>{{ AGREEMENT_TEXT }}</p>
+		</div>
+	</div>
+</div>
+
+<!-- ENDIF -->
+
+<!-- INCLUDE overall_footer.html -->

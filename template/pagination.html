@@ -1,0 +1,10 @@
+<ul class="pagination m-0">
+<!-- BEGIN pagination -->
+	<!-- IF pagination.S_IS_PREV -->
+	<!-- ELSEIF pagination.S_IS_CURRENT --><li class="page-item active"><span class="page-link">{pagination.PAGE_NUMBER}</span></li>
+	<!-- ELSEIF pagination.S_IS_ELLIPSIS --><li class="page-item disabled"><span class="page-link">{L_ELLIPSIS}</span></li>
+	<!-- ELSEIF pagination.S_IS_NEXT -->
+	<!-- ELSE --><li class="page-item"><a href="{pagination.PAGE_URL}" class="page-link">{pagination.PAGE_NUMBER}</a></li>
+	<!-- ENDIF -->
+<!-- END pagination -->
+</ul>

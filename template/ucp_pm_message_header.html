@@ -1,0 +1,85 @@
+
+<form id="viewfolder" method="post" action="{S_PM_ACTION}">
+
+<div class="card mb-3">
+	<div class="card-header bg-secondary text-white">
+		{L_TITLE}<!-- IF CUR_FOLDER_NAME -->{L_COLON} {CUR_FOLDER_NAME}<!-- ENDIF -->
+	</div>
+	<div class="card-body px-1 py-1 px-lg-3 px-md-2 py-lg-3 py-md-2 pb-lg-0">
+
+	<!-- IF FOLDER_STATUS and FOLDER_MAX_MESSAGES neq 0 --><p class="mb-1">{FOLDER_STATUS}</p>
+		<div class="progress mb-3" style="height: 20px;">
+			<div class="progress-bar<!-- IF FOLDER_PERCENT < 40 --> bg-success<!-- ELSEIF FOLDER_PERCENT < 70 --> bg-info<!-- ELSEIF FOLDER_PERCENT < 90 --> bg-warning<!-- ELSE --> bg-danger progress-bar-striped progress-bar-animated<!-- ENDIF -->" style="width: {FOLDER_PERCENT}%;" role="progressbar" aria-valuenow="{FOLDER_PERCENT}" aria-valuemin="0" aria-valuemax="100"></div>
+		</div>
+	<!-- ENDIF -->
+
+	<!-- IF not S_IS_BOT -->
+		<div class="action-bar d-lg-flex justify-content-between p-0 mb-3 border bg-light shadow-sm">
+			<div class="d-flex">
+			<!-- IF U_POST_REPLY_PM -->
+				<a class="btn btn-lg rounded-0 text-nowrap" href="{U_POST_REPLY_PM}"><i class="fa fa-reply fa-fw" aria-hidden="true"></i> {L_BUTTON_PM_REPLY}</a>
+			<!-- ELSEIF U_POST_NEW_TOPIC -->
+				<a class="btn btn-lg rounded-0 text-nowrap" href="{U_POST_NEW_TOPIC}" accesskey="n"><i class="fa fa-plus fa-fw" aria-hidden="true"></i> {L_BUTTON_PM_NEW}</a>
+			<!-- ENDIF -->
+
+			<!-- IF U_FORWARD_PM -->
+				<a class="btn btn-lg rounded-0 text-nowrap" href="{U_FORWARD_PM}"><i class="fa fa-forward fa-fw" aria-hidden="true"></i> {L_BUTTON_PM_FORWARD}</a>
+			<!-- ENDIF -->
+
+			<!-- IF U_POST_REPLY_PM and S_PM_RECIPIENTS gt 1 -->
+				<a class="btn btn-lg rounded-0 text-nowrap" href="{U_POST_REPLY_ALL}"><i class="fa fa-reply-all fa-fw" aria-hidden="true"></i> {L_BUTTON_PM_REPLY_ALL}</a>
+			<!-- ENDIF -->
+
+			<!-- IF FOLDER_CUR_MESSAGES neq 0 and .messagerow -->
+				<!-- INCLUDE display_options.html -->
+			<!-- ENDIF -->
+			</div>
+
+			<!-- IF FOLDER_CUR_MESSAGES neq 0 and .messagerow -->
+			<div class="btn btn-lg d-none d-lg-block disabled fs-6 mt-1 text-nowrap">
+				{TOTAL_MESSAGES} &bull; <span class="fw-normal">{PAGE_NUMBER}</span>
+			</div>
+			<!-- ENDIF -->
+
+			<div class="d-flex">
+			<!-- IF S_VIEW_MESSAGE -->
+				<a class="btn btn-lg rounded-0" href="{U_CURRENT_FOLDER}" title="{L_RETURN_TO_FOLDER}"><i class="fa fa-chevron-{S_CONTENT_FLOW_BEGIN}" aria-hidden="true"></i></a>
+			<!-- ENDIF -->
+
+			<!-- IF .pagination -->
+				<button class="btn dropdown-toggle btn-lg rounded-0" title="{L_JUMP_TO_PAGE}" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-clone fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_SEARCH}</span></button>
+				<div class="dropdown-menu dropdown-menu-end">
+					<div class="input-group px-2">
+						<!-- INCLUDE pagination.html -->
+					</div>
+				</div>
+			<!-- ENDIF -->
+
+			<!-- IF U_PRINT_PM -->
+				<a class="btn btn-lg rounded-0" href="{U_PRINT_PM}" title="{L_PRINT_PM}" accesskey="p"><i class="fa fa-print fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_PRINT_PM}</span></a>
+			<!-- ENDIF -->
+
+			<!-- IF U_PREVIOUS_PM -->
+				<a class="btn btn-lg rounded-0" href="{U_PREVIOUS_PM}" title="{L_VIEW_PREVIOUS_PM}"><i class="fa fa-step-backward fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_VIEW_PREVIOUS_PM}</span></a>
+			<!-- ENDIF -->
+			<!-- IF U_NEXT_PM -->
+				<a class="btn btn-lg rounded-0" href="{U_NEXT_PM}" title="{L_VIEW_NEXT_PM}"><i class="fa fa-step-forward fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_VIEW_NEXT_PM}</span></a>
+			<!-- ENDIF -->
+
+			<!-- IF U_MARK_ALL and .messagerow -->
+				<a class="btn btn-lg rounded-0" href="{U_MARK_ALL}" title="{L_PM_MARK_ALL_READ}"><i class="fa fa-check" aria-hidden="true"></i></a>
+			<!-- ENDIF -->
+			</div>
+		</div>
+	<!-- ENDIF -->
+
+	<!-- IF .pagination or FOLDER_CUR_MESSAGES neq 0 or (S_DISPLAY_HISTORY and (U_VIEW_PREVIOUS_HISTORY or U_VIEW_NEXT_HISTORY)) -->
+		<div class="clearfix mb-3">
+		<!-- IF S_DISPLAY_HISTORY and (U_VIEW_PREVIOUS_HISTORY or U_VIEW_NEXT_HISTORY) -->
+			<div class="btn-group float-end">
+			<!-- IF U_VIEW_PREVIOUS_HISTORY --><a href="{U_VIEW_PREVIOUS_HISTORY}" class="btn btn-outline-secondary"><i class="fa fa-chevron-{S_CONTENT_FLOW_BEGIN}"></i> {L_VIEW_PREVIOUS_HISTORY}</a><!-- ENDIF -->
+			<!-- IF U_VIEW_NEXT_HISTORY --><a href="{U_VIEW_NEXT_HISTORY}" class="btn btn-outline-secondary">{L_VIEW_NEXT_HISTORY} <i class="fa fa-chevron-{S_CONTENT_FLOW_END}"></i></a><!-- ENDIF -->
+			</div>
+		<!-- ENDIF -->
+		</div>
+	<!-- ENDIF -->

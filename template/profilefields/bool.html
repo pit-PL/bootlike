@@ -1,0 +1,9 @@
+<!-- BEGIN bool -->
+<!-- IF bool.FIELD_LENGTH eq 1 -->
+	<!-- BEGIN options -->
+	<label class="col-form-label" for="{bool.FIELD_IDENT}_{bool.options.OPTION_ID}"><input class="form-check-input" type="radio" class="form-check-input" name="{bool.FIELD_IDENT}" id="{bool.FIELD_IDENT}_{bool.options.OPTION_ID}" value="{bool.options.OPTION_ID}"{bool.options.CHECKED} /> {bool.options.VALUE}</label>
+	<!-- END options -->
+<!-- ELSE -->
+	<input class="form-check-input mt-2" type="checkbox" name="{bool.FIELD_IDENT}" id="{bool.FIELD_IDENT}"<!-- IF bool.FIELD_VALUE --> checked="checked"<!-- ENDIF --> />
+<!-- ENDIF -->
+<!-- END bool -->

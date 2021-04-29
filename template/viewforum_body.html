@@ -1,0 +1,319 @@
+<!-- INCLUDE overall_header.html -->
+
+<!-- EVENT viewforum_forum_title_before -->
+<h3 class="mb-3"><!-- EVENT viewforum_forum_name_prepend --><a href="{U_VIEW_FORUM}">{FORUM_NAME}</a><!-- EVENT viewforum_forum_name_append --></h3>
+<!-- EVENT viewforum_forum_title_after -->
+
+<!-- NOTE: remove the "d-none" when you want to have the forum description on the forum body -->
+<!-- IF FORUM_DESC -->
+	<div class="alert alert-info d-none">{FORUM_DESC}</div>
+<!-- ENDIF -->
+
+<!-- IF S_FORUM_RULES -->
+<div class="alert alert-warning">
+	<!-- IF U_FORUM_RULES -->
+		<a href="{U_FORUM_RULES}"><strong>{L_FORUM_RULES}</strong></a>
+	<!-- ELSE -->
+		<strong>{L_FORUM_RULES}</strong><br>
+		{FORUM_RULES}
+	<!-- ENDIF -->
+</div>
+<!-- ENDIF -->
+
+<!-- IF S_HAS_SUBFORUM -->
+	<!-- INCLUDE forumlist_body.html -->
+<!-- ENDIF -->
+
+<!-- IF S_NO_READ_ACCESS -->
+	<div class="alert alert-warning">{L_NO_READ_ACCESS}</div>
+
+	<!-- IF not S_USER_LOGGED_IN and not S_IS_BOT -->
+	<form action="{S_LOGIN_ACTION}" method="post">
+		<div class="mb-3">
+			<div class="col-md-12 col-lg-10 offset-lg-1">
+				<div class="card">
+					<div class="card-header bg-secondary text-white">
+						<a href="{U_LOGIN_LOGOUT}" class="badge bg-white text-dark">{L_LOGIN_LOGOUT}</a><!-- IF S_REGISTER_ENABLED -->&nbsp; &bull; &nbsp;<a href="{U_REGISTER}" class="badge bg-white text-dark">{L_REGISTER}</a><!-- ENDIF -->
+					</div>
+					<div class="card-body">
+						<div class="form-floating">
+							<input class="form-control w-50" type="text" id="username" name="username" size="25" placeholder="{L_USERNAME}" tabindex="1" />
+							<label for="username">{L_USERNAME}</label>
+						</div>
+						<div class="form-floating mt-3">
+							<input class="form-control w-50" type="password" id="password" name="password" size="25" tabindex="2" placeholder="{L_PASSWORD}" autocomplete="off" />
+							<label for="password">{L_PASSWORD}</label>
+						</div>
+
+						<!-- IF S_AUTOLOGIN_ENABLED -->
+						<div class="input-group mt-3">
+							<div class="input-group-text border-primary border-end-0">
+								<input class="form-check-input" type="checkbox" name="autologin" id="autologin" tabindex="3" />
+							</div>
+							<label class="btn btn-outline-primary" for="autologin">{L_LOG_ME_IN}</label>
+						</div>
+						<!-- ENDIF -->
+
+						<div class="input-group mt-3">
+							<div class="input-group-text border-primary border-end-0">
+								<input class="form-check-input mt-0" type="checkbox" name="viewonline" id="viewonline" tabindex="4" />
+							</div>
+							<label class="btn btn-outline-primary" for="viewonline">{L_HIDE_ME}</label>
+						</div>
+					</div>
+
+					<div class="card-footer">
+						<button class="btn btn-success w-50" type="submit" name="login" tabindex="5" value="{L_LOGIN}"><i class="fa fa-power-off fa-fw" aria-hidden="true"></i> {L_LOGIN}</button>
+						{S_LOGIN_REDIRECT}
+						{S_FORM_TOKEN_LOGIN}
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+	<!-- ENDIF -->
+<!-- ENDIF -->
+
+<!-- IF not S_IS_BOT -->
+	<div class="action-bar d-sm-flex justify-content-between p-0 mb-3 border bg-light shadow-sm">
+		<div class="d-flex">
+		<!-- IF S_DISPLAY_POST_INFO -->
+			<!-- EVENT viewforum_buttons_top_before -->
+			<a href="{U_POST_NEW_TOPIC}" class="btn btn-lg rounded-0<!-- IF S_IS_LOCKED --> text-muted<!-- ENDIF --> text-nowrap"><i class="fa<!-- IF S_IS_LOCKED --> fa-lock<!-- ELSE --> fa-plus<!-- ENDIF --> fa-fw" aria-hidden="true"></i> <!-- IF S_IS_LOCKED -->{L_BUTTON_FORUM_LOCKED}<!-- ELSE -->{L_BUTTON_NEW_TOPIC}<!-- ENDIF --></a>
+			<!-- EVENT viewforum_buttons_top_after -->
+		<!-- ENDIF -->
+		<!-- IF S_SELECT_SORT_DAYS -->
+			<form method="post" action="{S_FORUM_ACTION}">
+				<!-- INCLUDE display_options.html -->
+			</form>
+		<!-- ENDIF -->
+		<!-- IF S_DISPLAY_SEARCHBOX and not topicrow.S_TOPIC_TYPE_SWITCH -->
+			<form method="get" id="forum-search" action="{S_SEARCHBOX_ACTION}">
+				<button class="btn dropdown-toggle btn-lg rounded-0" title="{L_SEARCH}" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-search fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_SEARCH}</span></button>
+				<div class="dropdown-menu dropdown-menu-start" role="search">
+					<div class="input-group px-2">
+						<input type="search" name="keywords" id="search_keywords" size="20" placeholder="{L_SEARCH_FORUM}" class="form-control" />
+						<button type="submit" class="btn btn-light border" title="{L_SEARCH}"><i class="fa fa-search fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_SEARCH}</span></button>
+					</div>
+				</div>
+				{S_SEARCH_LOCAL_HIDDEN_FIELDS}
+			</form>
+		<!-- ENDIF -->
+
+		<!-- IF U_WATCH_FORUM_LINK -->
+			<a href="{U_WATCH_FORUM_LINK}" class="btn btn-lg rounded-0" title="{S_WATCH_FORUM_TITLE}" data-ajax="toggle_link" data-toggle-class="icon fa <!-- IF S_WATCHING_FORUM -->fa-check-square-o<!-- ELSE -->fa-square-o<!-- ENDIF --> fa-fw" data-bs-toggle-text="{S_WATCH_FORUM_TOGGLE}" data-bs-toggle-url="{U_WATCH_FORUM_TOGGLE}"><i class="icon fa <!-- IF S_WATCHING_FORUM -->fa-square-o<!-- ELSE -->fa-check-square-o<!-- ENDIF --> fa-fw" aria-hidden="true"></i><span class="visually-hidden">{S_WATCH_FORUM_TITLE}</span></a>
+		<!-- ENDIF -->
+		</div>
+
+		<!-- IF TOTAL_TOPICS -->
+		<div class="btn btn-lg d-none d-lg-block disabled fs-6 mt-1 text-nowrap">
+			{TOTAL_TOPICS} &bull; <span class="fw-normal">{PAGE_NUMBER}</span>
+		</div>
+		<!-- ENDIF -->
+
+		<div class="d-flex">
+		<!-- IF S_VIEWFORUM -->
+			<a href="{U_INDEX}" class="btn btn-lg rounded-0" title="{L_RETURN_TO_INDEX}" accesskey="r"><i class="fa fa-chevron-{S_CONTENT_FLOW_BEGIN} fa-fw" aria-hidden="true"></i></a>
+		<!-- ENDIF -->
+
+		<!-- IF MODERATORS -->
+			<button class="btn dropdown-toggle btn-lg rounded-0" title="<!-- IF S_SINGLE_MODERATOR -->{L_MODERATOR}<!-- ELSE -->{L_MODERATORS}<!-- ENDIF -->" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			<i class="fa fa-user-secret fa-fw"></i><span class="visually-hidden">{forumrow.L_MODERATOR_STR}</span>
+			</button>
+			<div class="dropdown-menu dropdown-menu-end">
+				<div class="px-3">{MODERATORS}</div>
+			</div>
+		<!-- ENDIF -->
+
+		<!-- IF .pagination -->
+		<!-- IF BASE_URL and TOTAL_PAGES > 3 -->
+			<div class="dropdown-form">
+				<button class="btn dropdown-toggle btn-lg rounded-0" title="{L_JUMP_TO_PAGE}" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-clone fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_JUMP_TO_PAGE}</span></button>
+				<div class="dropdown-menu dropdown-menu-end p-2">
+				<!-- IF TOTAL_PAGES > 10 -->
+					{L_JUMP_TO_PAGE}{L_COLON}
+					<div class="input-group mt-1">
+						<input type="number" name="page-number" min="1" max="999999" title="{L_JUMP_PAGE}" class="form-control" data-per-page="{PER_PAGE}" data-base-url="{BASE_URL|e('html_attr')}" data-start-name="{START_NAME}" />
+						<input class="btn btn-light border" value="{L_GO}" type="button" />
+					</div>
+				<!-- ELSEIF TOTAL_PAGES > 3 and TOTAL_PAGES < 11 -->
+					<!-- INCLUDE pagination.html -->
+				<!-- ENDIF -->
+				</div>
+			</div>
+		<!-- ENDIF -->
+
+		<!-- BEGIN pagination -->
+			<!-- IF pagination.S_IS_PREV -->
+				<a class="btn btn-lg rounded-0" href="{pagination.PAGE_URL}" title="{L_PREVIOUS}" rel="prev" role="button"><i class="fa fa-step-backward fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_PREVIOUS}</span></a>
+			<!-- ENDIF -->
+			<!-- IF pagination.S_IS_NEXT -->
+				<a class="btn btn-lg rounded-0" href="{pagination.PAGE_URL}" title="{L_NEXT}" rel="next" role="button"><i class="fa fa-step-forward fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_NEXT}</span></a>
+			<!-- ENDIF -->
+		<!-- END pagination -->
+		<!-- ENDIF -->
+
+		<!-- IF not topicrow.S_TOPIC_TYPE_SWITCH and U_MARK_TOPICS -->
+			<a href="{U_MARK_TOPICS}" class="btn btn-lg rounded-0" title="{L_MARK_TOPICS_READ}" accesskey="m" data-ajax="mark_topics_read"><i class="fa fa-check fa-fw" aria-hidden="true"></i></a>
+		<!-- ENDIF -->
+
+		</div>
+	</div>
+<!-- ENDIF -->
+
+<!-- EVENT viewforum_body_topic_row_before -->
+
+<!-- BEGIN topicrow -->
+
+	<!-- IF not topicrow.S_TOPIC_TYPE_SWITCH and not topicrow.S_FIRST_ROW -->
+	</div>
+	<!-- ENDIF -->
+
+	<!-- IF topicrow.S_FIRST_ROW or not topicrow.S_TOPIC_TYPE_SWITCH -->
+		<div class="card mb-3 shadow-sm">
+		<div class="card-header bg-dark text-light border-bottom-0">
+			<div class="row">
+				<div class="col-lg-7 col-md-6 col-12"<!-- IF S_DISPLAY_ACTIVE --> id="active_topics"<!-- ENDIF -->>
+				<!-- IF S_DISPLAY_ACTIVE -->{L_ACTIVE_TOPICS}<!-- ELSEIF topicrow.S_TOPIC_TYPE_SWITCH and (topicrow.S_POST_ANNOUNCE or topicrow.S_POST_GLOBAL) -->{L_ANNOUNCEMENTS}<!-- ELSE -->{L_TOPICS}<!-- ENDIF -->
+				</div>
+				<div class="col-md-2 d-none d-md-block text-center">{L_REPLIES}/{L_VIEWS}</div>
+				<div class="col-lg-3 col-md-4 d-none d-md-block">{L_LAST_POST}</div>
+			</div>
+		</div>
+	<!-- ENDIF -->
+
+		<!-- EVENT viewforum_body_topicrow_row_before -->
+		<div class="container-fluid row-item position-relative py-1 border-top {topicrow.TOPIC_IMG_STYLE}<!-- IF topicrow.S_ROW_COUNT is odd --> bg1<!-- ELSE --> bg2<!-- ENDIF --><!-- IF topicrow.S_TOPIC_UNAPPROVED or topicrow.S_POSTS_UNAPPROVED --> border border-success<!-- ENDIF --><!-- IF topicrow.S_TOPIC_REPORTED --> border border-warning<!-- ENDIF -->">
+			<div class="row align-items-center" title="{topicrow.TOPIC_FOLDER_IMG_ALT}">
+				<!-- EVENT viewforum_body_topic_row_prepend -->
+				<div class="col-lg-7 col-md-6 col-12 topic-folder folder">
+				<!-- IF topicrow.S_UNREAD_TOPIC and not S_IS_BOT --><a href="{topicrow.U_NEWEST_POST}" class="row-item-link"></a><!-- ENDIF -->
+
+				<!-- IF .topicrow.pagination -->
+					<div class="float-end">
+					<button class="btn dropdown-toggle btn-lg rounded-0" title="{L_JUMP_TO_PAGE}" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-clone fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_JUMP_TO_PAGE}</span></button>
+						<div class="dropdown-menu dropdown-menu-end p-2">
+							<ul class="pagination m-0">
+							<!-- BEGIN pagination -->
+								<!-- IF topicrow.pagination.S_IS_PREV -->
+								<!-- ELSEIF topicrow.pagination.S_IS_CURRENT --><li class="page-item active"><span class="page-link">{topicrow.pagination.PAGE_NUMBER}</span></li>
+								<!-- ELSEIF topicrow.pagination.S_IS_ELLIPSIS --><li class="page-item disabled"><span class="page-link">{L_ELLIPSIS}</span></li>
+								<!-- ELSEIF topicrow.pagination.S_IS_NEXT -->
+								<!-- ELSE --><li class="page-item"><a href="{topicrow.pagination.PAGE_URL}" class="page-link">{topicrow.pagination.PAGE_NUMBER}</a></li>
+								<!-- ENDIF -->
+							<!-- END pagination -->
+							</ul>
+						</div>
+					</div>
+				<!-- ENDIF -->
+
+					<!-- EVENT topiclist_row_prepend -->
+					<!-- IF topicrow.S_TOPIC_UNAPPROVED or topicrow.S_POSTS_UNAPPROVED --><a href="{topicrow.U_MCP_QUEUE}" class="badge bg-success" title="<!-- IF topicrow.S_TOPIC_UNAPPROVED -->{L_TOPIC_UNAPPROVED}<!-- ELSE -->{L_POSTS_UNAPPROVED}<!-- ENDIF -->"><i class="fa fa-flag" aria-hidden="true"></i><span class="visually-hidden"><!-- IF topicrow.S_TOPIC_UNAPPROVED -->{L_TOPIC_UNAPPROVED}<!-- ELSE -->{L_POSTS_UNAPPROVED}<!-- ENDIF --></span></a><!-- ENDIF -->
+					<!-- IF topicrow.S_TOPIC_DELETED --><a href="{topicrow.U_MCP_QUEUE}" class="badge bg-secondary" title="{L_TOPIC_DELETED}"><i class="fa fa-recycle" aria-hidden="true"></i><span class="visually-hidden">{L_TOPIC_DELETED}</span></a><!-- ENDIF -->
+					<!-- IF topicrow.S_TOPIC_REPORTED --><a href="{topicrow.U_MCP_REPORT}" class="badge bg-warning" title="{L_TOPIC_REPORTED}"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i><span class="visually-hidden">{L_TOPIC_REPORTED}</span></a><!-- ENDIF -->
+					<!-- IF topicrow.S_UNREAD_TOPIC and not S_IS_BOT --><a href="{topicrow.U_NEWEST_POST}" class="badge bg-info" title="{L_VIEW_NEWEST_POST}"><i class="fa fa-file icon_topic_newest" aria-hidden="true"></i><span class="visually-hidden">{L_NEW_POST}</span></a><!-- ENDIF -->
+					<!-- IF topicrow.TOPIC_ICON_IMG and S_TOPIC_ICONS --><img src="{T_ICONS_PATH}{topicrow.TOPIC_ICON_IMG}" class="topic-icon" alt="{L_IMAGE}" /> <!-- ENDIF -->
+					<!-- IF topicrow.U_VIEW_TOPIC --><a href="{topicrow.U_VIEW_TOPIC}" class="topictitle fs-5">{topicrow.TOPIC_TITLE}</a><br><!-- ELSE -->{topicrow.TOPIC_TITLE}<br><!-- ENDIF -->
+					<!-- EVENT topiclist_row_topic_title_after -->
+
+				<!-- IF not S_IS_BOT -->
+					<!-- IF topicrow.S_HAS_POLL --><i class="fa fa-bar-chart tip" title="{L_TOPIC_POLL}" aria-hidden="true"></i><span class="visually-hidden">{L_TOPIC_POLL}</span><!-- ENDIF -->
+					<!-- IF topicrow.ATTACH_ICON_IMG --><span class="tip" title="{L_TOTAL_ATTACHMENTS}"><i class="fa fa-paperclip" aria-hidden="true"></i><span class="visually-hidden">{L_TOTAL_ATTACHMENTS}</span></span><!-- ENDIF -->
+					{% EVENT topiclist_row_topic_by_author_before %}
+					{L_POST_BY_AUTHOR} <!-- EVENT viewforum_body_topic_author_username_prepend -->{topicrow.TOPIC_AUTHOR_FULL}<!-- EVENT viewforum_body_topic_author_username_append --> &raquo; <time datetime="{topicrow.FIRST_POST_TIME_RFC3339}">{topicrow.FIRST_POST_TIME}</time>&nbsp; 
+					{% EVENT topiclist_row_topic_by_author_after %}
+					<!-- IF topicrow.S_POST_GLOBAL and FORUM_ID != topicrow.FORUM_ID --> &raquo; {L_IN} <a href="{topicrow.U_VIEW_FORUM}">{topicrow.FORUM_NAME}</a> &nbsp; <!-- ENDIF -->
+
+					<!-- IF (topicrow.REPLIES or topicrow.VIEWS) or topicrow.U_LAST_POST -->
+					<span class="d-md-none">
+					<!-- IF topicrow.REPLIES or topicrow.VIEWS -->
+						<i class="fa fa-comment-o ml-2" title="{L_REPLIES}" aria-hidden="true"></i><span class="sr-only">{L_REPLIES}</span> {topicrow.REPLIES} &nbsp; <i class="fa fa-eye ml-2" title="{L_VIEWS}" aria-hidden="true"></i><span class="sr-only">{L_VIEWS}</span> {topicrow.VIEWS}
+					<!-- ENDIF -->
+					
+					<!-- IF topicrow.U_LAST_POST -->
+						<br>{L_LAST_POST} <!-- EVENT viewforum_body_last_post_author_username_prepend --> {L_POST_BY_AUTHOR} {topicrow.LAST_POST_AUTHOR_FULL}<!-- EVENT viewforum_body_last_post_author_username_append --> &laquo; <a href="{topicrow.U_LAST_POST}" title="{L_GOTO_LAST_POST}"><time datetime="{topicrow.LAST_POST_TIME_RFC3339}">{topicrow.LAST_POST_TIME}</time></a>
+						<a href="{topicrow.U_LAST_POST}" title="{L_GOTO_LAST_POST}" class="float-end lh-1"><i class="fa fa-arrow-{S_CONTENT_FLOW_END} fs-2" aria-hidden="true"></i><span class="visually-hidden">{L_VIEW_LATEST_POST}</span></a>&nbsp;
+					<!-- ENDIF -->
+					</span>
+					<!-- ENDIF -->
+				<!-- ENDIF -->
+
+					<!-- EVENT topiclist_row_append -->
+				</div>
+
+				<div class="col-md-2 d-none d-md-block text-center">
+					<div class="d-block">{topicrow.REPLIES}</div>
+					<div class="small"><span class="small">{topicrow.VIEWS} {L_VIEWS}</span></div>
+				</div>
+				<div class="col-lg-3 col-md-4 d-none d-md-block">
+					{L_POST_BY_AUTHOR} <!-- EVENT viewforum_body_last_post_author_username_prepend --> {topicrow.LAST_POST_AUTHOR_FULL} <!-- EVENT viewforum_body_last_post_author_username_append -->
+					<!-- IF not S_IS_BOT --><a href="{topicrow.U_LAST_POST}" title="{L_GOTO_LAST_POST}"><i class="fa fa-arrow-{S_CONTENT_FLOW_END}" aria-hidden="true"></i><span class="visually-hidden">{L_VIEW_LATEST_POST}</span></a><!-- ENDIF -->
+					<br><time datetime="{topicrow.LAST_POST_TIME_RFC3339}">{topicrow.LAST_POST_TIME}</time>
+				</div>
+				<!-- EVENT viewforum_body_topic_row_append -->
+			</div>
+		</div>
+
+		<!-- EVENT viewforum_body_topic_row_after -->
+
+	<!-- IF topicrow.S_LAST_ROW -->
+	</div>
+	<!-- ENDIF -->
+
+<!-- BEGINELSE -->
+	<!-- IF S_IS_POSTABLE -->
+	<div class="alert alert-info">
+		{L_NO_TOPICS}
+	</div>
+	<!-- ELSE IF not S_HAS_SUBFORUM -->
+	<div class="alert alert-info">
+		{L_NO_FORUMS_IN_CATEGORY}
+	</div>
+	<!-- ENDIF -->
+<!-- END topicrow -->
+
+{% EVENT viewforum_body_online_list_before %}
+
+<!-- IF (S_DISPLAY_ONLINE_LIST and U_VIEWONLINE) or (S_IS_POSTABLE and rules|length) -->
+	<div id="accordion_btn" class="d-flex border bg-light shadow-sm text-nowrap">
+	<!-- IF S_DISPLAY_ONLINE_LIST and U_VIEWONLINE -->
+		<button class="accordion-button w-25 bg-light shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_online" aria-expanded="true" aria-controls="collapse_online"><i class="fa fa-signal fa-fw d-none d-md-inline" aria-hidden="true"></i> {L_WHO_IS_ONLINE}</button>
+	<!-- ENDIF -->
+	<!-- IF S_IS_POSTABLE and rules|length -->
+		<button class="accordion-button w-25 bg-light shadow-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_permission" aria-expanded="false" aria-controls="collapse_permission"><i class="fa fa-shield fa-fw d-none d-md-inline" aria-hidden="true"></i> {L_FORUM_PERMISSIONS}</button>
+	<!-- ENDIF -->
+	</div>
+
+	<div class="accordion-flush mb-3 border border-top-0 shadow-sm" id="accordion_viewforum">
+	<!-- IF S_DISPLAY_ONLINE_LIST and U_VIEWONLINE -->
+		<div id="collapse_online" class="accordion-collapse collapse show" data-bs-parent="#accordion_viewforum">
+			<div class="accordion-body pb-1">
+				<p>{LOGGED_IN_USER_LIST}</p>
+			</div>
+		</div>
+	<!-- ENDIF -->
+	<!-- IF S_IS_POSTABLE and rules|length -->
+		<div id="collapse_permission" class="accordion-collapse collapse<!-- IF not (S_DISPLAY_ONLINE_LIST and U_VIEWONLINE) --> show<!-- ENDIF -->" data-bs-parent="#accordion_viewforum">
+			<div class="accordion-body">
+				<!-- BEGIN rules -->{rules.RULE}<br><!-- END rules -->
+			</div>
+		</div>
+	<!-- ENDIF -->
+	</div>
+<!-- ENDIF -->
+
+<script>
+// Add active class to the current button (highlight it)
+var header = document.getElementById("accordion_btn");
+var btns = header.getElementsByClassName("btn");
+for (var i = 0; i < btns.length; i++) {
+	btns[i].addEventListener("click", function() {
+	var current = document.getElementsByClassName("active");
+	current[0].className = current[0].className.replace(" active", "");
+	this.className += " active";
+	});
+}
+</script>
+
+<!-- INCLUDE overall_footer.html -->
+

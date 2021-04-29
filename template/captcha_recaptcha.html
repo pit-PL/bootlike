@@ -1,0 +1,17 @@
+<!-- IF S_RECAPTCHA_AVAILABLE -->
+	<noscript>
+		<div class="alert alert-info">{L_RECAPTCHA_NOSCRIPT}</div>
+	</noscript>
+	{% INCLUDEJS RECAPTCHA_SERVER ~ '.js?onload=phpbbRecaptchaOnLoad&hl=' ~ lang('RECAPTCHA_LANG') %}
+	{# The g-recaptcha class is used in JavaScript #}
+	<div class="card mb-3">
+		<div class="card-header bg-secondary text-white">
+			{L_CONFIRMATION}
+		</div>
+		<div class="card-body">	
+			<div class="g-recaptcha" data-sitekey="{RECAPTCHA_PUBKEY}" data-callback="phpbbRecaptchaOnSubmit" data-size="invisible" data-tabindex="<!-- IF $CAPTCHA_TAB_INDEX -->{$CAPTCHA_TAB_INDEX}<!-- ELSE -->10<!-- ENDIF -->"></div>
+		</div>
+	</div>
+<!-- ELSE -->
+<div class="alert alert-info">{L_RECAPTCHA_NOT_AVAILABLE}</div>
+<!-- ENDIF -->

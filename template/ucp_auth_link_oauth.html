@@ -1,0 +1,28 @@
+<!-- BEGIN oauth -->
+	<form id="ucp_oauth_{oauth.SERVICE_ID}" method="post" action="{S_UCP_ACTION}">
+		<p class="lead">{oauth.SERVICE_NAME}</p>
+
+		<!-- IF oauth.UNIQUE_ID -->
+			<dl class="row">
+				<dt class="col-lg-4 col-md-5 col-12">{L_UCP_AUTH_LINK_ID}{L_COLON}</dt>
+				<dd class="col-lg-8 col-md-7 col-12">{oauth.UNIQUE_ID}</dd>
+			</dl>
+			<dl class="row">
+				<dt class="col-lg-4 col-md-5 col-12 d-none d-md-block">&nbsp;</dt>
+				<dd class="col-lg-8 col-md-7 col-12"><input type="submit" name="submit" tabindex="6" value="{L_UCP_AUTH_LINK_UNLINK}" class="btn btn-success" /></dd>
+			</dl>
+		<!-- ELSE -->
+			<dl class="row">
+				<dt class="col-lg-4 col-md-5 col-12 d-none d-md-block">&nbsp;</dt>
+				<dd class="col-lg-8 col-md-7 col-12">{L_UCP_AUTH_LINK_ASK}</dd>
+			</dl>
+			<dl class="row">
+				<dt class="col-lg-4 col-md-5 col-12 d-none d-md-block">&nbsp;</dt>
+				<dd class="col-lg-8 col-md-7 col-12"><input type="submit" name="submit" tabindex="6" value="{L_UCP_AUTH_LINK_LINK}" class="btn btn-success" /></dd>
+			</dl>
+		<!-- ENDIF -->
+		{oauth.HIDDEN_FIELDS}
+		{S_HIDDEN_FIELDS}
+		{S_FORM_TOKEN}
+	</form>
+<!-- END oauth -->

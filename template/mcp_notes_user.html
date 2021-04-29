@@ -1,0 +1,141 @@
+<!-- INCLUDE mcp_header.html -->
+
+<form method="post" id="mcp" action="{U_POST_ACTION}">
+
+<div class="card mb-3">
+	<div class="card-header bg-secondary text-white">
+		{L_TITLE}
+	</div>
+	<div class="card-body pb-0">
+
+	<div class="card mb-3">
+		<div class="card-header bg-secondary">
+			<span class="badge bg-white">{USERNAME_FULL}</span>
+		</div>
+
+		<div class="card-body p-0">
+			<div class="row m-0">
+
+			<!-- IF AVATAR_IMG -->
+				<div class="postprofile col-lg-3 col-md-4<!-- IF not $PROFILES_ON_LEFT --> order-first order-md-2<!-- ENDIF --> bg2">
+					<div class="text-center p-3">{AVATAR_IMG}</div>
+				</div>
+			<!-- ENDIF -->
+
+				<div class="postbody<!-- IF AVATAR_IMG --> col-lg-9 col-md-8<!-- ELSE --> col-12<!-- ENDIF --> p-0<!-- IF not $PROFILES_ON_LEFT and AVATAR_IMG --> border-end<!-- ELSEIF AVATAR_IMG --> border-start<!-- ENDIF --> bg-light">
+				<hr class="d-md-none m-0">
+					<div class="px-3 py-2">
+						<dl class="row mb-0">
+						<!-- IF RANK_TITLE -->
+							<dt class="col-lg-4 col-md-5 col-12">{L_RANK}{L_COLON}</dt>
+							<dd class="col-lg-8 col-md-7 col-12">{RANK_TITLE}</dd>
+						<!-- ENDIF -->
+						<!-- IF RANK_IMG -->
+							<dt class="col-lg-4 col-md-5 col-12"><!-- IF RANK_TITLE -->&nbsp;<!-- ELSE -->{L_RANK}{L_COLON}<!-- ENDIF --></dt>
+							<dd class="col-lg-8 col-md-7 col-12">{RANK_IMG}</dd>
+						<!-- ENDIF -->
+							<dt class="col-lg-4 col-md-5 col-12">{L_JOINED}{L_COLON}</dt>
+							<dd class="col-lg-8 col-md-7 col-12">{JOINED}</dd>
+							<dt class="col-lg-4 col-md-5 col-12">{L_TOTAL_POSTS}{L_COLON}</dt>
+							<dd class="col-lg-8 col-md-7 col-12">{POSTS}</dd>
+							<dt class="col-lg-4 col-md-5 col-12">{L_WARNINGS}{L_COLON}</dt>
+							<dd class="col-lg-8 col-md-7 col-12">{WARNINGS}</dd>
+						</dl>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<div class="card mb-3">
+		<div class="card-header bg-secondary text-white">
+			{L_ADD_FEEDBACK}
+		</div>
+		<div class="card-body">
+			<p>{L_ADD_FEEDBACK_EXPLAIN}</p>
+			<textarea name="usernote" id="usernote" class="form-control" cols="40" rows="3"></textarea>
+		</div>
+
+		<div class="card-footer text-center">
+			{S_HIDDEN_FIELDS}
+			<button class="btn btn-danger me-1" type="reset" name="reset" value="{L_RESET}"><i class="fa fa-undo fa-fw" aria-hidden="true"></i> {L_RESET}</button>
+			<button class="btn btn-success" type="submit" name="action[add_feedback]" value="{L_SUBMIT}"><i class="fa fa-level-down fa-rotate-90 fa-fw" aria-hidden="true"></i> {L_SUBMIT}</button>
+			{S_FORM_TOKEN}
+		</div>
+	</div>
+
+	<div class="action-bar d-sm-flex justify-content-between p-0 mb-3 border bg-light shadow-sm">
+		<div class="d-flex">
+			<!-- INCLUDE display_options.html -->
+
+			<button class="btn dropdown-toggle btn-lg rounded-0" title="{L_SEARCH}" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-search fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_SEARCH}</span></button>
+			<div class="dropdown-menu dropdown-menu-start" role="search">
+				<div class="input-group px-2">
+					<input type="search" class="form-control" name="keywords" value="{S_KEYWORDS}" placeholder="{L_SEARCH_KEYWORDS}" />
+					<button type="submit" name="filter" class="btn btn-light border" title="{L_SEARCH}"><i class="fa fa-search fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_SEARCH}</span></button>
+				</div>
+			</div>
+		</div>
+
+		<div class="btn btn-lg d-none d-lg-block disabled fs-6 mt-1 text-nowrap">
+			{TOTAL_REPORTS} &bull; <span class="fw-normal">{PAGE_NUMBER}</span>
+		</div>
+
+		<div class="d-flex">
+		<!-- IF .pagination -->
+			<button class="btn dropdown-toggle btn-lg rounded-0" title="{L_JUMP_TO_PAGE}" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-clone fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_SEARCH}</span></button>
+			<div class="dropdown-menu dropdown-menu-end">
+				<div class="input-group px-2">
+					<!-- INCLUDE pagination.html -->
+				</div>
+			</div>
+		<!-- ELSE -->
+			&nbsp;
+		<!-- ENDIF -->
+		</div> 
+	</div>
+
+	<div class="card mb-3 border-top-0">
+		<div class="card-header d-none d-md-block bg-secondary text-light border-bottom-0">
+			<div class="row">
+				<div class="col-12<!-- IF S_CLEAR_ALLOWED --> col-md-6<!-- ELSE --> col-md-8<!-- ENDIF -->">{L_ACTION_NOTE}</div>
+				<div class="col-12 col-md-2 text-center">{L_MCP_NOTES_USER}</div>
+				<div class="col-12 col-md-2 text-center">{L_TIME}</div>
+			<!-- IF S_CLEAR_ALLOWED -->
+				<div class="col-12 col-md-2 text-center">{L_MARK}</div>
+			<!-- ENDIF -->
+			</div>
+		</div>
+		<div class="card-body p-0">
+		<!-- BEGIN usernotes -->
+			<div class="row align-items-center border-top m-0<!-- IF usernotes.S_ROW_COUNT is even --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
+				<div class="col-12 col-md-6 py-2"><span class="badge bg-secondary d-md-none">{L_ACTION_NOTE}{L_COLON}</span> {usernotes.ACTION}</div>
+				<div class="col-12 col-md-2 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_MCP_NOTES_USER}{L_COLON}</span> {usernotes.REPORT_BY} <br class="d-none d-md-block" />{usernotes.IP}</div>
+				<div class="col-12 col-md-2 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_TIME}{L_COLON}</span> {usernotes.REPORT_AT}</div>
+			<!-- IF S_CLEAR_ALLOWED -->
+				<div class="col-12 col-md-2 d-sm-flex py-2 text-center">
+					<span class="badge bg-secondary d-md-none me-1">{L_MARK}{L_COLON}</span>
+					<div class="form-switch mx-md-auto"><input class="form-check-input" type="checkbox" name="marknote[]" id="note-{usernotes.ID}" value="{usernotes.ID}" /></div>
+				</div>
+			<!-- ENDIF -->
+				<div class="d-md-none<!-- IF not usernotes.S_LAST_ROW --> border border-2<!-- ENDIF -->"></div>
+			</div>
+		<!-- BEGINELSE -->
+			<div class="px-3 py-2 text-center bg2">{L_NO_ENTRIES}</div>
+		<!-- END usernotes -->
+		</div>
+	</div>
+
+	<!-- IF S_CLEAR_ALLOWED -->
+	<div class="action-bar d-sm-flex justify-content-end p-0 mb-3 border bg-light shadow-sm">
+		<input class="btn btn-lg rounded-0" type="submit" name="action[del_all]" value="{L_DELETE_ALL}" />
+		<input class="btn btn-lg rounded-0" type="submit" name="action[del_marked]" value="{L_DELETE_MARKED}" />
+		<a href="#" onclick="marklist('mcp', 'marknote', false); return false;" class="btn btn-lg rounded-0" title="{L_UNMARK_ALL}"><i class="fa fa-toggle-off fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_UNMARK_ALL}</span></a>
+		<a href="#" onclick="marklist('mcp', 'marknote', true); return false;" class="btn btn-lg rounded-0" title="{L_MARK_ALL}"><i class="fa fa-toggle-on fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_MARK_ALL}</span></a>
+	</div>
+	<!-- ENDIF -->
+
+</form>
+
+<!-- INCLUDE mcp_footer.html -->

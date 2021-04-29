@@ -1,0 +1,128 @@
+<!-- INCLUDE ucp_header.html -->
+
+<form id="ucp" method="post" action="{S_UCP_ACTION}"{S_FORM_ENCTYPE}>
+
+<div class="card mb-3">
+	<div class="card-header bg-secondary text-white">
+		{TITLE}
+	</div>
+	<div class="card-body pb-0">
+
+	<p>{TITLE_EXPLAIN}</p>
+
+<!-- IF MODE == 'notification_options' -->
+	<div class="card mb-3 border-top-0">
+		<div class="card-header d-none d-md-block bg-secondary text-light border-bottom-0">
+			<div class="row">
+				<div class="col-12 col-md-8">{L_NOTIFICATION_TYPE}</div>
+				<!-- BEGIN notification_methods -->
+					<div class="col-12 col-md-2 text-center">{notification_methods.NAME}</div>
+				<!-- END notification_methods -->
+			</div>
+		</div>
+		<div class="card-body p-0">
+		<!-- BEGIN notification_types -->
+			<!-- IF notification_types.GROUP_NAME -->
+				<div class="row align-items-center border-top m-0">
+					<div class="col-12 py-2<!-- IF notification_types.S_ROW_COUNT is even --> bg1<!-- ELSE --> bg2<!-- ENDIF -->"><strong>{notification_types.GROUP_NAME}</strong></div>
+				</div>
+			<!-- ELSE -->
+				<div class="row align-items-center border-top m-0<!-- IF notification_types.S_ROW_COUNT is even --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
+					<div class="col-12 col-md-8 py-2">
+						<span class="badge bg-secondary d-md-none me-1">{L_NOTIFICATION_TYPE}{L_COLON}</span> {notification_types.NAME}
+						<!-- IF notification_types.EXPLAIN --><div class="small text-muted mt-1">{notification_types.EXPLAIN}</div><!-- ENDIF -->
+					</div>
+					<!-- BEGIN notification_methods -->
+						<div class="col-12 col-md-2 py-2 text-md-center">
+							<span class="badge bg-secondary d-md-none me-1">{notification_methods.NAME}{L_COLON}</span>
+							<div class="form-switch mx-md-auto d-inline-block d-md-block"><input class="form-check-input" type="checkbox" name="{notification_types.TYPE}_{notification_types.notification_methods.METHOD}"<!-- IF notification_types.notification_methods.SUBSCRIBED --> checked="checked"<!-- ENDIF --><!-- IF not notification_types.notification_methods.AVAILABLE --> disabled="disabled"<!-- ENDIF --> /></div>
+						</div>
+					<!-- END notification_methods -->
+					<div class="d-md-none<!-- IF not notification_types.S_LAST_ROW --> border border-2<!-- ENDIF -->"></div>
+				</div>
+			<!-- ENDIF -->
+		<!-- END notification_types -->
+		</div>
+	</div>
+<!-- ELSE -->
+	<!-- IF .notification_list -->
+	<div class="action-bar d-sm-flex justify-content-between p-0 mb-3 border bg-light shadow-sm">
+		<div class="d-flex">&nbsp;</div>
+
+		<div class="btn btn-lg d-none d-lg-block disabled fs-6 mt-1 text-nowrap">
+			{L_NOTIFICATIONS} {TOTAL_COUNT} &bull; <span class="fw-normal">{PAGE_NUMBER}</span>
+		</div>
+
+		<div class="d-flex">
+		<!-- IF .pagination -->
+			<button class="btn dropdown-toggle btn-lg rounded-0" title="{L_JUMP_TO_PAGE}" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-clone fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_SEARCH}</span></button>
+			<div class="dropdown-menu dropdown-menu-end">
+				<div class="input-group px-2">
+					<!-- INCLUDE pagination.html -->
+				</div>
+			</div>
+		<!-- ELSE -->
+			&nbsp;
+		<!-- ENDIF -->
+
+		<!-- IF U_MARK_ALL -->
+			<a href="{U_MARK_ALL}" class="btn btn-lg rounded-0" title="{L_NOTIFICATIONS_MARK_ALL_READ}"><i class="fa fa-check fa-fw" aria-hidden="true"></i></a>
+		<!-- ENDIF -->
+		</div>
+	</div>
+
+	<div class="card mb-3">
+		<div class="card-header bg-secondary text-white">
+			<div class="row">
+				<div class="col-md-10 col-sm-9 col-9">{L_NOTIFICATIONS}</div>
+				<div class="col-md-2 col-sm-3 col-3 text-center">{L_MARK_READ}</div>
+			</div>
+		</div>
+
+		<!-- BEGIN notification_list -->
+		<div class="container-fluid row-item px-3 py-1 border-top notification-text<!-- IF notification_list.UNREAD --> alert-info<!-- ELSE --><!-- IF notification_list.S_ROW_COUNT is odd --> bg1<!-- ELSE --> bg2<!-- ENDIF --><!-- ENDIF --><!-- IF notification_list.STYLING --> {notification_list.STYLING}<!-- ENDIF -->">
+			<div class="row align-items-center">
+				<div class="col-md-10 col-sm-9 col-9">
+					<div class="float-start me-2">
+						<!-- IF notification_list.AVATAR -->{notification_list.AVATAR}<!-- ELSE --><img src="{ROOT_PATH}styles/bootlike/theme/images/no_avatar.gif" class="img-thumbnail" alt="{L_IMAGE}" /><!-- ENDIF -->
+					</div>
+					<!-- IF notification_list.URL --><a href="<!-- IF notification_list.UNREAD -->{notification_list.U_MARK_READ}<!-- ELSE -->{notification_list.URL}<!-- ENDIF -->"><!-- ENDIF -->
+					{notification_list.FORMATTED_TITLE}<!-- IF notification_list.REFERENCE --> {notification_list.REFERENCE}<!-- ENDIF --><br>
+					<!-- IF notification_list.URL --></a><!-- ENDIF -->
+					<!-- IF notification_list.FORUM -->{notification_list.FORUM}<br><!-- ENDIF -->
+					<!-- IF notification_list.REASON -->{notification_list.REASON}<br><!-- ENDIF -->
+					{notification_list.TIME}
+				</div>
+				<div class="col-md-2 col-sm-3 col-3 text-center">
+					<div class="form-switch mx-auto"><input class="form-check-input" type="checkbox" name="mark[]" value="{notification_list.NOTIFICATION_ID}"<!-- IF not notification_list.UNREAD --> disabled="disabled"<!-- ENDIF --> /></div>
+				</div>
+			</div>
+		</div>
+		<!-- END notification_list -->
+	</div>
+
+	<!-- ELSE -->
+		<div class="alert alert-info">
+			{L_NO_NOTIFICATIONS}
+		</div>
+	<!-- ENDIF -->
+
+<!-- ENDIF -->
+
+<!-- IF .notification_types or .notification_list -->
+	<div class="action-bar d-sm-flex justify-content-end p-0 mb-3 border bg-light shadow-sm">
+		<input type="hidden" name="form_time" value="{FORM_TIME}" />
+		{S_HIDDEN_FIELDS}
+		<input class="btn btn-lg rounded-0" type="submit" name="submit" title="<!-- IF MODE == 'notification_options' -->{L_SUBMIT}<!-- ELSE -->{L_MARK_READ}<!-- ENDIF -->" value="<!-- IF MODE == 'notification_options' -->{L_SUBMIT}<!-- ELSE -->{L_MARK_READ}<!-- ENDIF -->" />
+		<a href="#" onclick="$('#ucp input:checkbox').prop('checked', false); return false;" class="btn btn-lg rounded-0" title="{L_UNMARK_ALL}"><i class="fa fa-toggle-off fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_UNMARK_ALL}</span></a>
+		<a href="#" onclick="$('#ucp input:checkbox').prop('checked', true); return false;" class="btn btn-lg rounded-0" title="{L_MARK_ALL}"><i class="fa fa-toggle-on fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_MARK_ALL}</span></a>
+		{S_FORM_TOKEN}
+	</div>
+<!-- ENDIF -->
+
+	</div>
+</div>
+
+</form>
+
+<!-- INCLUDE ucp_footer.html -->

@@ -1,0 +1,228 @@
+<!-- INCLUDE overall_header.html -->
+
+<!-- EVENT search_body_form_before -->
+
+<form method="get" action="{S_SEARCH_ACTION}" data-focus="keywords">
+
+<div class="card mb-3">
+	<div class="card-header bg-secondary text-white">
+		{L_SEARCH}
+	</div>
+	<div class="card-body">
+		<!-- EVENT search_body_search_query_before -->
+		<!-- EVENT search_body_search_query_prepend -->
+		<div class="row">
+			<div class="col-12 col-md-6">
+				<label class="col-form-label d-block pt-0" for="keywords"><strong>{L_SEARCH_KEYWORDS}{L_COLON}</strong></label>
+				<div class="input-group">
+					<input type="search" class="form-control" name="keywords" id="keywords" size="40" title="{L_SEARCH_KEYWORDS}" />
+					<button class="btn btn-outline-info" type="button" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="{L_SEARCH_KEYWORDS_EXPLAIN}" data-bs-html="true"><i class="fa fa-info fa-fw" aria-hidden="true"></i></button>
+				</div>
+			</div>
+
+			<div class="col-12 col-md-6 mt-2 mt-md-0">
+				<label class="col-form-label d-block pt-0" for="author"><strong>{L_SEARCH_AUTHOR}{L_COLON}</strong></label>
+				<div class="input-group">
+					<input class="form-control" type="search" name="author" id="author" size="40" title="{L_SEARCH_AUTHOR}" />
+					<button class="btn btn-outline-info" type="button" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="{L_SEARCH_AUTHOR_EXPLAIN}"><i class="fa fa-info fa-fw" aria-hidden="true"></i></button>
+				</div>
+			</div>
+		</div>
+
+		<div class="row pt-2">
+			<div class="col-12 col-md-6">
+				<label class="col-form-label"><strong>{L_SEARCH_OPTIONS}{L_COLON}</strong></label>
+				<div class="input-group">
+					<div class="input-group-text border-primary border-end-0">
+						<input class="form-check-input mt-0" type="radio" name="terms" id="terms1" value="all" checked="checked" />
+					</div>
+					<label class="btn btn-outline-primary" for="terms1">{L_SEARCH_ALL_TERMS}</label>
+				</div>
+				<div class="input-group mt-2">
+					<div class="input-group-text border-primary border-end-0">
+						<input class="form-check-input mt-0" type="radio" name="terms" id="terms2" value="any" />
+					</div>
+					<label class="btn btn-outline-primary" for="terms2">{L_SEARCH_ANY_TERMS}</label>
+				</div>
+			</div>
+
+			<div class="col-12 col-md-6 mt-2 mt-md-0">
+				<label class="col-form-label d-block pt-0" for="show_results1"><strong>{L_DISPLAY_RESULTS}{L_COLON}</strong></label>
+				<div class="clearfix">
+					<div class="float-start mb-1">
+						<div class="input-group">
+							<div class="input-group-text border-primary border-end-0">
+								<input class="form-check-input mt-0" type="radio" name="sr" id="show_results1" value="posts" checked="checked" />
+							</div>
+							<label class="btn btn-outline-primary" for="show_results1">{L_POSTS}</label>
+						</div>
+					</div>
+					<div class="float-start ms-2">
+						<div class="input-group">
+							<div class="input-group-text border-primary border-end-0">
+								<input class="form-check-input mt-0" type="radio" name="sr" id="show_results2" value="topics" />
+							</div>
+							<label class="btn btn-outline-primary" for="show_results2">{L_TOPICS}</label>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- EVENT search_body_search_query_append -->
+		<!-- EVENT search_body_search_query_after -->
+		<hr>
+		<!-- EVENT search_body_search_options_before -->
+		<!-- EVENT search_body_search_options_prepend -->
+
+		<div class="row">
+			<div class="col-12 col-md-6">
+				<label class="col-form-label d-block pt-0" for="search_forum"><strong>{L_SEARCH_FORUMS}{L_COLON}</strong></label>
+				<select class="form-select" name="fid[]" id="search_forum" multiple="multiple" size="8" title="{L_SEARCH_FORUMS}">{S_FORUM_OPTIONS}</select>
+				<div class="small text-muted mb-1 fw-normal">{L_SEARCH_FORUMS_EXPLAIN}</div>
+			</div>
+
+			<div class="col-12 col-md-6 mt-2 mt-md-0">
+				<label class="col-form-label d-block pt-0" for="sf1"><strong>{L_SEARCH_WITHIN}{L_COLON}</strong></label>
+				<div class="input-group">
+					<div class="input-group-text border-primary border-end-0">
+						<input class="form-check-input mt-0" type="radio" name="sf" id="sf1" value="all" checked="checked" />
+					</div>
+					<label class="btn btn-outline-primary" for="sf1">{L_SEARCH_TITLE_MSG}</label>
+				</div>
+				<div class="input-group my-2">
+					<div class="input-group-text border-primary border-end-0">
+						<input class="form-check-input mt-0" type="radio" name="sf" id="sf2" value="msgonly" />
+					</div>
+					<label class="btn btn-outline-primary" for="sf2">{L_SEARCH_MSG_ONLY}</label>
+				</div>
+				<div class="input-group">
+					<div class="input-group-text border-primary border-end-0">
+						<input class="form-check-input mt-0" type="radio" name="sf" id="sf3" value="titleonly" />
+					</div>
+					<label class="btn btn-outline-primary" for="sf3">{L_SEARCH_TITLE_ONLY}</label>
+				</div>
+				<div class="input-group mt-2">
+					<div class="input-group-text border-primary border-end-0">
+						<input class="form-check-input mt-0" type="radio" name="sf" id="sf4" value="firstpost" />
+					</div>
+					<label class="btn btn-outline-primary" for="sf4">{L_SEARCH_FIRST_POST}</label>
+				</div>
+
+				<label class="col-form-label d-block pt-0 mt-3" for="sd"><strong>{L_RESULT_SORT}{L_COLON}</strong></label>
+				<div class="clearfix">
+					<div class="float-md-start mb-1 me-md-2">
+						{S_SELECT_SORT_KEY}
+					</div>
+					<div class="float-md-start mb-1 me-md-2">
+						<div class="input-group">
+							<div class="input-group-text border-primary border-end-0">
+								<input class="form-check-input mt-0" type="radio" name="sd" id="sa" value="a" />
+							</div>
+							<label class="btn btn-outline-primary" for="sa">{L_SORT_ASCENDING}</label>
+						</div>
+					</div>
+					<div class="float-md-start">
+						<div class="input-group">
+							<div class="input-group-text border-primary border-end-0">
+								<input class="form-check-input mt-0" type="radio" name="sd" id="sd" value="d" checked="checked" />
+							</div>
+							<label class="btn btn-outline-primary" for="sd">{L_SORT_DESCENDING}</label>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- EVENT search_body_search_options_append -->
+		<hr>
+		<!-- EVENT search_body_search_display_options_prepend -->
+
+		<div class="row">
+			<div class="col-12 col-md-3">
+				<label class="col-form-label d-block pt-0" for="search_child1"><strong>{L_SEARCH_SUBFORUMS}{L_COLON}</strong></label>
+				<div class="clearfix">
+					<div class="float-start mb-1">
+						<div class="input-group">
+							<div class="input-group-text border-primary border-end-0">
+								<input class="form-check-input mt-0" type="radio" name="sc" id="search_child1" value="1" checked="checked" />
+							</div>
+							<label class="btn btn-outline-primary" for="search_child1">{L_YES}</label>
+						</div>
+					</div>
+
+					<div class="float-start ms-2">
+						<div class="input-group">
+							<div class="input-group-text border-primary border-end-0">
+								<input class="form-check-input mt-0" type="radio" name="sc" id="search_child2" value="0" />
+							</div>
+							<label class="btn btn-outline-primary" for="search_child2">{L_NO}</label>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-12 col-md-6">
+				<label class="col-form-label d-block pt-0 mt-2 mt-md-0"><strong>{L_RETURN_FIRST}{L_COLON}</strong></label>
+				<div class="d-inline-block w-auto">
+					<div class="input-group">
+						<input class="form-control" id="ch" name="ch" type="number" value="{{ DEFAULT_RETURN_CHARS }}" min="0" max="9999" title="{{ lang('RETURN_FIRST') }}">
+						<span class="input-group-text">{{ lang('POST_CHARACTERS') }}</span>
+						<button class="btn btn-outline-info" type="button" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="{{ lang('RETURN_FIRST_EXPLAIN') }}"><i class="fa fa-info fa-fw" aria-hidden="true"></i></button>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-12 col-md-3">
+				<label class="col-form-label d-block pt-0 mt-2 mt-md-0"><strong>{L_RESULT_DAYS}{L_COLON}</strong></label>
+				{S_SELECT_SORT_DAYS}
+			</div>
+		</div>
+		<!-- EVENT search_body_search_display_options_append -->
+		<!-- EVENT search_body_search_options_after -->
+	</div>
+
+	<div class="card-footer">
+		{S_HIDDEN_FIELDS}
+		<div class="row">
+			<div class="col-12 col-lg-8 offset-lg-2">
+			<div class="d-md-flex text-center">
+				<button class="btn btn-danger w-50 me-md-3" type="reset" name="reset" value="{L_RESET}"><i class="fa fa-undo fa-fw" aria-hidden="true"></i> {L_RESET}</button>
+				<button class="btn btn-success w-50 mt-1 mt-md-0" type="submit" name="submit" value="{L_SEARCH}"><i class="fa fa-search fa-fw" aria-hidden="true"></i> {L_SEARCH}</button>
+			</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+</form>
+<!-- EVENT search_body_form_after -->
+
+<!-- EVENT search_body_recent_search_before -->
+<!-- IF .recentsearch -->
+<div class="col-md-12 col-lg-10 offset-lg-1">
+	<div class="card mb-3">
+		<div class="card-header bg-secondary text-white">
+			{L_RECENT_SEARCHES}
+		</div>
+		<!-- BEGIN recentsearch -->
+		<div class="container-fluid row-item px-3 py-1 border-top<!-- IF recentsearch.S_ROW_COUNT is even --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
+			<div class="row align-items-center ps-2 pm-2">
+				<div class="col-lg-8 col-md-7 col-sm-6">
+					<a href="{recentsearch.U_KEYWORDS}">{recentsearch.KEYWORDS}</a>
+				</div>
+				<div class="col-lg-4 col-md-5 col-sm-6">
+					{recentsearch.TIME}
+				</div>
+			</div>
+		</div>
+		<!-- BEGINELSE -->
+		<div class="card-body text-center">
+			<strong>{L_NO_RECENT_SEARCHES}</strong>
+		</div>
+		<!-- END recentsearch -->
+	</div>
+</div>
+<!-- ENDIF -->
+<!-- EVENT search_body_recent_search_after -->
+
+<!-- INCLUDE overall_footer.html -->

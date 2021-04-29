@@ -1,0 +1,149 @@
+<!-- INCLUDE mcp_header.html -->
+
+<script>
+	var ban_length = new Array();
+		ban_length[-1] = '';
+	var ban_reason = new Array();
+		ban_reason[-1] = '';
+	var ban_give_reason = new Array();
+		ban_give_reason[-1] = '';
+
+	<!-- BEGIN bans -->
+		ban_length['{bans.BAN_ID}'] = '{{ bans.A_LENGTH }}';
+		<!-- IF bans.A_REASON -->
+			ban_reason['{bans.BAN_ID}'] = '{{ bans.REASON | e('js') }}';
+		<!-- ENDIF -->
+		<!-- IF bans.A_GIVE_REASON -->
+			ban_give_reason['{bans.BAN_ID}'] = '{{ bans.GIVE_REASON | e('js') }}';
+		<!-- ENDIF -->
+	<!-- END bans -->
+
+	function display_details(option)
+	{
+		document.getElementById('unbanlength').innerHTML = ban_length[option];
+		if (option in ban_reason) {
+			document.getElementById('unbanreason').innerHTML = ban_reason[option];
+		} else {
+			document.getElementById('unbanreason').innerHTML = '';
+		}
+		if (option in ban_give_reason) {
+			document.getElementById('unbangivereason').innerHTML = ban_give_reason[option];
+		} else {
+			document.getElementById('unbangivereason').innerHTML = '';
+		}
+	}
+</script>
+
+<form id="mcp_ban" method="post" action="{U_ACTION}">
+
+<div class="card mb-3">
+	<div class="card-header bg-secondary text-white">
+		{L_TITLE}
+	</div>
+	<div class="card-body pb-0">
+
+	<p>{L_EXPLAIN}</p>
+
+	<!-- EVENT mcp_ban_fields_before -->
+	<dl class="row">
+		<dt class="col-lg-4 col-md-5 col-12 d-md-flex align-items-center"><label class="col-form-label" for="ban">{L_BAN_CELL}{L_COLON}</label></dt>
+		<dd class="col-lg-8 col-md-7 col-12">
+			<div class="row">
+				<div class="col-md-7 col-12">
+					<textarea class="form-control" name="ban" id="ban" cols="30" rows="3">{BAN_QUANTIFIER}</textarea>
+				</div>
+			<!-- IF S_USERNAME_BAN -->
+				<div class="col-md-5 col-12 mt-2 mt-md-0">
+					<a class="btn btn-secondary text-nowrap" href="{U_FIND_USERNAME}" onclick="find_username(this.href); return false;"><i class="fa fa-search fa-fw" aria-hidden="true"></i> {L_FIND_USERNAME}</a>
+				</div>
+			<!-- ENDIF -->
+			</div>
+		</dd>
+	</dl>
+	<dl class="row">
+		<dt class="col-lg-4 col-md-5 col-12"><label class="col-form-label" for="banlength">{L_BAN_LENGTH}{L_COLON}</label></dt>
+		<dd class="col-lg-8 col-md-7 col-12"><select class="form-select" name="banlength" id="banlength" onchange="if(this.value==-1){document.getElementById('banlengthother').style.display = 'block';}else{document.getElementById('banlengthother').style.display='none';}">{S_BAN_END_OPTIONS}</select></dd>
+		<dd id="banlengthother" style="display: none;"><label><input type="text" name="banlengthother" class="form-control" /><br><span>{L_YEAR_MONTH_DAY}</span></label></dd>
+	</dl>
+	<dl class="row">
+		<dt class="col-lg-4 col-md-5 col-12"><label class="col-form-label" for="banreason">{L_BAN_REASON}{L_COLON}</label></dt>
+		<dd class="col-lg-8 col-md-7 col-12"><input name="banreason" id="banreason" type="text" class="form-control" maxlength="255" /></dd>
+	</dl>
+	<dl class="row">
+		<dt class="col-lg-4 col-md-5 col-12"><label class="col-form-label" for="bangivereason">{L_BAN_GIVE_REASON}{L_COLON}</label></dt>
+		<dd class="col-lg-8 col-md-7 col-12"><input name="bangivereason" id="bangivereason" type="text" class="form-control" maxlength="255" /></dd>
+	</dl>
+
+	<hr>
+
+	<dl class="row">
+		<dt class="col-lg-4 col-md-5 col-12">
+			<label class="col-form-label" for="banexclude0">{L_BAN_EXCLUDE}{L_COLON}</label>
+			<div class="small text-muted fw-normal mb-1">{L_BAN_EXCLUDE_EXPLAIN}</div>
+		</dt>
+		<dd class="col-lg-8 col-md-7 col-12">
+			<input class="btn-check" type="radio" name="banexclude" id="banexclude1" value="1" />
+			<label class="btn btn-outline-success me-1" for="banexclude1">{L_YES}</label> 
+			<input class="btn-check" type="radio" name="banexclude" id="banexclude0" value="0" checked="checked" />
+			<label class="btn btn-outline-danger" for="banexclude0">{L_NO}</label>
+		</dd>
+	</dl>
+	<!-- EVENT mcp_ban_fields_after -->
+	</div>
+
+	<div class="card-footer text-center">
+		{S_HIDDEN_FIELDS}
+		<button class="btn btn-danger me-1" type="reset" name="reset" value="{L_RESET}"><i class="fa fa-undo fa-fw" aria-hidden="true"></i> {L_RESET}</button>
+		<button class="btn btn-success" type="submit" name="bansubmit" value="{L_SUBMIT}"><i class="fa fa-level-down fa-rotate-90 fa-fw" aria-hidden="true"></i> {L_SUBMIT}</button>
+		{S_FORM_TOKEN}
+	</div>
+</div>
+
+<div class="card mb-3">
+	<div class="card-header bg-secondary text-white">
+		{L_UNBAN_TITLE}
+	</div>
+	<div class="card-body pb-0">
+
+	<p>{L_UNBAN_EXPLAIN}</p>
+
+	<!-- IF S_BANNED_OPTIONS -->
+		<!-- EVENT mcp_ban_unban_before -->
+		<dl class="row">
+			<dt class="col-lg-4 col-md-5 col-12"><label class="col-form-label" for="unban">{L_BAN_CELL}{L_COLON}</label></dt>
+			<dd class="col-lg-8 col-md-7 col-12"><select class="form-select form-select" name="unban[]" id="unban" multiple="multiple" size="5" onchange="if (this.selectedIndex != -1) {display_details(this.options[this.selectedIndex].value);}">{BANNED_OPTIONS}</select></dd>
+		</dl>
+		<dl class="row">
+			<dt class="col-lg-4 col-md-5 col-12">{L_BAN_LENGTH}{L_COLON}</dt>
+			<dd class="col-lg-8 col-md-7 col-12"><strong id="unbanlength"></strong></dd>
+		</dl>
+		<dl class="row">
+			<dt class="col-lg-4 col-md-5 col-12">{L_BAN_REASON}{L_COLON}</dt>
+			<dd class="col-lg-8 col-md-7 col-12"><strong id="unbanreason"></strong></dd>
+		</dl>
+		<dl class="row">
+			<dt class="col-lg-4 col-md-5 col-12">{L_BAN_GIVE_REASON}{L_COLON}</dt>
+			<dd class="col-lg-8 col-md-7 col-12"><strong id="unbangivereason"></strong></dd>
+		</dl>
+		<!-- EVENT mcp_ban_unban_after -->
+	</div>
+
+	<div class="card-footer text-center">
+		{S_HIDDEN_FIELDS}
+		<button class="btn btn-danger me-1" type="reset" name="reset" value="{L_RESET}"><i class="fa fa-undo fa-fw" aria-hidden="true"></i> {L_RESET}</button>
+		<button class="btn btn-success" type="submit" name="unbansubmit" value="{L_SUBMIT}"><i class="fa fa-level-down fa-rotate-90 fa-fw" aria-hidden="true"></i> {L_SUBMIT}</button>
+	</div>
+</div>
+	<!-- ELSE -->
+
+	<div class="alert alert-info">
+		{L_NO_BAN_CELL}
+	</div>
+
+	</div>
+</div>
+
+	<!-- ENDIF -->
+</form>
+
+<!-- INCLUDE mcp_footer.html -->

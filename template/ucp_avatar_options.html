@@ -1,0 +1,44 @@
+
+	<!-- IF not S_AVATARS_ENABLED -->
+		<div class="alert alert-warning">{L_AVATAR_FEATURES_DISABLED}</div>
+	<!-- ENDIF -->
+
+	<!-- IF ERROR -->
+		<div class="alert alert-warning">{ERROR}</div>
+	<!-- ENDIF -->
+		<dl class="row">
+			<dt class="col-lg-4 col-md-5 col-12">
+				<label class="col-form-label">{L_CURRENT_IMAGE}{L_COLON}</label>
+				<div class="small text-muted fw-normal">{L_AVATAR_EXPLAIN}</div>
+			</dt>
+			<dd class="col-lg-8 col-md-7 col-12 mb-0">
+				<!-- IF AVATAR -->{AVATAR}<!-- ELSE --><img class="img-thumbnail" src="{ROOT_PATH}styles/bootlike/theme/images/no_avatar.gif" alt="{L_IMAGE}" /><!-- ENDIF -->
+				<div class="form-check form-switch mt-1">
+					<label class="form-check-label" for="avatar_delete"><input class="form-check-input" type="checkbox" name="avatar_delete" id="avatar_delete" /> {L_DELETE_AVATAR}</label>
+				</div>
+			</dd>
+		</dl>
+
+	<h5 class="card-title pb-1 text-capitalize">{L_AVATAR_SELECT}</h5>
+		<dl class="row">
+			<dt class="col-lg-4 col-md-5 col-12"><label class="col-form-label">{L_AVATAR_TYPE}{L_COLON}</label></dt>
+			<dd class="col-lg-8 col-md-7 col-12">
+				<select class="form-select" name="avatar_driver" id="avatar_driver" data-togglable-settings="true">
+					<!-- BEGIN avatar_drivers -->
+					<option value="{avatar_drivers.DRIVER}"<!-- IF avatar_drivers.SELECTED --> selected="selected"<!-- ENDIF --> data-toggle-setting="#avatar_option_{avatar_drivers.DRIVER}">{avatar_drivers.L_TITLE}</option>
+					<!-- END avatar_drivers -->
+				</select>
+			</dd>
+		</dl>
+	<div id="avatar_options">
+<!-- BEGIN avatar_drivers -->
+	<div id="avatar_option_{avatar_drivers.DRIVER}">
+	<noscript>
+	<h5 class="card-title pb-1 text-capitalize avatar_section_header">{avatar_drivers.L_TITLE}</h5>
+	</noscript>
+	<p class="alert alert-info">{avatar_drivers.L_EXPLAIN}</p>
+
+	{avatar_drivers.OUTPUT}
+	</div>
+<!-- END avatar_drivers -->
+	</div>

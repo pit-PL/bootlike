@@ -1,0 +1,26 @@
+<!-- INCLUDE simple_header.html -->
+
+<script>
+	var form_name = opener.form_name;
+	var text_name = opener.text_name;
+</script>
+<!-- INCLUDEJS {T_ASSETS_PATH}/javascript/editor.js -->
+
+<div class="card">
+	<div class="card-header bg-secondary text-white">
+		<a href="#" class="close" title="{L_CLOSE_WINDOW}" onclick="window.close(); return false;"><span class="text-danger" aria-hidden="true">&times;</span></a>
+		{L_SMILIES}
+	</div>
+	<div class="card-body">
+		<!-- BEGIN smiley --> 
+			<a href="#" onclick="initInsertions(); insert_text('{smiley.A_SMILEY_CODE}', true, true); return false;"><img src="{smiley.SMILEY_IMG}" class="m-1" width="{smiley.SMILEY_WIDTH}" height="{smiley.SMILEY_HEIGHT}" alt="{smiley.SMILEY_CODE}" title="{smiley.SMILEY_DESC}" /></a>&nbsp; 
+		<!-- END smiley -->
+
+		<!-- IF .pagination -->
+		<hr>
+		<!-- INCLUDE pagination.html -->
+		<!-- ENDIF -->
+	</div>
+</div>
+
+<!-- INCLUDE simple_footer.html -->

@@ -1,0 +1,59 @@
+<!-- INCLUDE ucp_header.html -->
+
+<form id="ucp" method="post" action="{S_UCP_ACTION}"{S_FORM_ENCTYPE}>
+
+<div class="card mb-3">
+	<div class="card-header bg-secondary text-white">
+		{L_TITLE}
+	</div>
+	<div class="card-body pb-0">
+
+	<p>{L_FOES_EXPLAIN}</p>
+
+	<!-- IF ERROR -->
+		<div class="alert alert-danger">{ERROR}</div>
+	<!-- ENDIF -->
+
+	<dl class="row">
+		<dt class="col-lg-4 col-md-5 col-12">
+			<label class="col-form-label"<!-- IF S_USERNAME_OPTIONS --> for="usernames"<!-- ENDIF -->>{L_YOUR_FOES}{L_COLON}</label>
+			<div class="small text-muted fw-normal">{L_YOUR_FOES_EXPLAIN}</div>
+		</dt>
+		<dd class="col-lg-8 col-md-7 col-12">
+			<!-- IF S_USERNAME_OPTIONS -->
+				<select class="form-select" name="usernames[]" id="usernames" multiple="multiple" size="5">{S_USERNAME_OPTIONS}</select>
+			<!-- ELSE -->
+					<label class="col-form-label">{L_NO_FOES}</label>
+			<!-- ENDIF -->
+		</dd>
+	</dl>
+	<dl class="row">
+		<dt class="col-lg-4 col-md-5 col-12">
+			<label class="col-form-label" for="add">{L_ADD_FOES}{L_COLON}</label>
+			<div class="small text-muted fw-normal">{L_ADD_FOES_EXPLAIN}</div>
+		</dt>
+		<dd class="col-lg-8 col-md-7 col-12">
+			<div class="row">
+				<div class="col-md-7 col-12">
+					<textarea class="form-control" name="add" id="add" rows="3" cols="30">{USERNAMES}</textarea>
+				</div>
+				<div class="col-md-5 col-12 mt-2 mt-md-0">
+					<a class="btn btn-secondary" href="{U_FIND_USERNAME}" onclick="find_username(this.href); return false;"><i class="fa fa-search fa-fw" aria-hidden="true"></i> {L_FIND_USERNAME}</a>
+				</div>
+			</div>
+		</dd>
+	</dl>
+
+	</div>
+
+	<div class="card-footer text-center">
+		{S_HIDDEN_FIELDS}
+		<button class="btn btn-danger me-1" type="reset" name="reset" value="{L_RESET}"><i class="fa fa-undo fa-fw" aria-hidden="true"></i> {L_RESET}</button>
+		<button class="btn btn-success" type="submit" name="submit" value="{L_SUBMIT}"><i class="fa fa-level-down fa-rotate-90 fa-fw" aria-hidden="true"></i> {L_SUBMIT}</button>
+		{S_FORM_TOKEN}
+	</div>
+</div>
+
+</form>
+
+<!-- INCLUDE ucp_footer.html -->

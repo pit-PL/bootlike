@@ -1,0 +1,44 @@
+<!-- IF S_AJAX_REQUEST -->
+<form action="{S_CONFIRM_ACTION}" method="post">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header bg-warning alert_title">
+				<h5>{MESSAGE_TITLE}</h5>
+				<a href="#" class="alert_close btn-close float-end" title="{L_CLOSE_WINDOW}"><span class="text-danger" aria-hidden="true"></span></a>
+			</div>
+			<div class="modal-body">
+				<p>{MESSAGE_TEXT}</p>
+			</div>
+			<div class="modal-footer">
+				<input class="btn btn-success w-100" type="button" name="confirm" value="{L_YES}" />
+			</div>
+		</div>
+	</div>
+</form>
+
+<!-- ELSE -->
+
+<!-- INCLUDE overall_header.html -->
+
+<form id="confirm" action="{S_CONFIRM_ACTION}" method="post">
+	<div class="col-md-12 col-lg-8 offset-lg-2">
+		<div class="card mb-3">
+			<div class="card-header bg-warning">
+				{MESSAGE_TITLE}
+			</div>
+			<div class="card-body">
+				<p>{MESSAGE_TEXT}</p>
+			</div>
+
+			<div class="card-footer text-center">
+				{S_HIDDEN_FIELDS}
+				<button class="btn btn-danger me-1" type="submit" name="cancel" value="{L_NO}"><i class="fa fa-minus fa-fw" aria-hidden="true"></i> {L_NO}</button>
+				<button class="btn btn-success" type="submit" name="confirm" value="{L_YES}"><i class="fa fa-plus fa-fw" aria-hidden="true"></i> {L_YES}</button>
+			</div>
+		</div>
+	</div>
+</form>
+
+<!-- INCLUDE overall_footer.html -->
+
+<!-- ENDIF -->

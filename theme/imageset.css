@@ -1,0 +1,151 @@
+/* Global imageset items */
+.row-item .folder:before, .row-item .folder:after {
+    position: absolute;
+	top: 50%;
+    left: 8px;
+	width: 39px;
+    padding: 4px 0;
+	transform: translateY(-50%);
+	cursor: default;
+	text-align: center;
+	font-size: 32px;
+	font-family: FontAwesome;
+	font-style: normal;
+	font-weight: normal;
+	-webkit-text-stroke: 1px #fff;
+}
+
+.rtl .row-item .folder:before, .rtl .row-item .folder:after {
+	right: 8px;
+}
+
+.row-item .folder:after {
+	margin-top: -16px;
+	margin-left: -16px;
+	font-size: 12px;
+}
+
+.forum_link .folder:before {
+	content: "\f0c1";
+}
+
+.forum_read .folder:before,
+.forum_unread .folder:before,
+.topic_read .folder:before,
+.topic_read_mine .folder:before,
+.topic_unread .folder:before,
+.topic_unread_mine .folder:before,
+.pm_read .folder:before,
+.pm_unread .folder:before {
+	content: "\f016";
+}
+
+.forum_read_locked .folder:before,
+.forum_unread_locked .folder:before,
+.topic_read_locked .folder:before,
+.topic_read_locked_mine .folder:before,
+.topic_unread_locked .folder:before,
+.topic_unread_locked_mine .folder:before,
+.sticky_read_locked .folder:before,
+.sticky_read_locked_mine .folder:before,
+.sticky_unread_locked .folder:before,
+.sticky_unread_locked_mine .folder:before,
+.announce_read_locked .folder:before,
+.announce_read_locked_mine .folder:before,
+.announce_unread_locked .folder:before,
+.announce_unread_locked_mine .folder:before,
+.global_read_locked .folder:before,
+.global_read_locked_mine .folder:before,
+.global_unread_locked .folder:before,
+.global_unread_locked_mine .folder:before  {
+	content: "\f023";
+}
+
+.forum_read_subforum .folder:before,
+.forum_unread_subforum .folder:before {
+	content: "\f0c5";
+}
+
+.topic_moved .folder:before {
+	content: "\f045";
+}
+
+.topic_read_hot .folder:before,
+.topic_read_hot_mine .folder:before,
+.topic_unread_hot .folder:before,
+.topic_unread_hot_mine .folder:before {
+	content: "\f06d";
+}
+
+.sticky_read .folder:before,
+.sticky_read_mine .folder:before,
+.sticky_unread .folder:before,
+.sticky_unread_mine .folder:before {
+	content: "\f08d";
+}
+
+.topic_read_mine .folder:after,
+.topic_read_hot_mine .folder:after,
+.topic_read_locked_mine .folder:after,
+.topic_unread_locked_mine .folder:after,
+.topic_unread_hot_mine .folder:after,
+.sticky_read_mine .folder:after,
+.sticky_read_locked_mine .folder:after,
+.sticky_unread_locked_mine .folder:after,
+.announce_read_mine .folder:after,
+.announce_read_locked_mine .folder:after,
+.announce_unread_mine .folder:after,
+.announce_unread_locked_mine .folder:after,
+.global_read_mine .folder:after,
+.global_read_locked_mine .folder:after,
+.global_unread_mine .folder:after,
+.global_unread_locked_mine .folder:after {
+	content: "\f005";
+}
+
+.global_read .folder:before,
+.global_read_mine .folder:before,
+.global_unread .folder:before,
+.global_unread_mine .folder:before,
+.announce_read .folder:before,
+.announce_read_mine .folder:before,
+.announce_unread .folder:before,
+.announce_unread_mine .folder:before {
+	content: "\f129";
+}
+
+.row-item .folder:before, .row-item .folder:after {
+	color: #5e96e9;
+}
+
+.forum_unread .folder:before,
+.topic_unread .folder:before,
+.topic_unread_mine .folder:before,
+.pm_unread .folder:before,
+.forum_unread_locked .folder:before,
+.topic_unread_locked .folder:before,
+.topic_unread_locked_mine .folder:before,
+.sticky_unread_locked .folder:before,
+.sticky_unread_locked_mine .folder:before,
+.announce_unread_locked .folder:before,
+.announce_unread_locked_mine .folder:before,
+.global_unread_locked .folder:before,
+.global_unread_locked_mine .folder:before,
+.forum_unread_subforum .folder:before,
+.topic_unread_hot .folder:before,
+.topic_unread_hot_mine .folder:before,
+.sticky_unread .folder:before,
+.sticky_unread_mine .folder:before,
+.global_unread .folder:before,
+.global_unread_mine .folder:before,
+.announce_unread .folder:before,
+.announce_unread_mine .folder:before,
+.topic_unread_locked_mine .folder:after,
+.topic_unread_hot_mine .folder:after,
+.sticky_unread_locked_mine .folder:after,
+.announce_unread_mine .folder:after,
+.announce_unread_locked_mine .folder:after,
+.global_unread_mine .folder:after,
+.global_unread_locked_mine .folder:after {
+	color: #C13B5B;
+}

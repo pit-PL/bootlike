@@ -1,0 +1,41 @@
+<div class="alert alert-info">
+	<strong>{L_POST_REVIEW}</strong><br>
+	{L_POST_REVIEW_EXPLAIN}
+</div>
+
+<!-- BEGIN post_review_row -->
+<!-- IF post_review_row.S_IGNORE_POST -->
+<div class="card mb-3">
+	<div class="card-body p-2">
+		{post_review_row.L_IGNORE_POST}
+	</div>
+</div>
+<!-- ELSE -->
+<div class="card mb-3">
+	<div class="card-header bg-secondary">
+		<a href="{post_review_row.U_MINI_POST}" class="text-white">{post_review_row.POST_SUBJECT}</a>
+	</div>
+	<div class="card-body bg-light">
+
+		<div class="postbody" id="ppr{post_review_row.POST_ID}">
+			<p><!-- IF S_IS_BOT --><i class="fa fa-file-o" aria-hidden="true"></i><!-- ELSE --><a href="{post_review_row.U_MINI_POST}" title="{L_POST}"><i class="fa fa-file-o" aria-hidden="true"></i><span class="visually-hidden">{L_POST}</span></a><!-- ENDIF --> {L_POST_BY_AUTHOR} <!-- EVENT posting_review_row_post_author_username_prepend --><strong>  {post_review_row.POST_AUTHOR_FULL}</strong><!-- EVENT posting_review_row_post_author_username_append --> &raquo; {post_review_row.POST_DATE}</p>
+			<div class="content">{post_review_row.MESSAGE}</div>
+
+			<!-- IF post_review_row.S_HAS_ATTACHMENTS -->
+				<div class="attachbox float-start">
+					<strong>{L_ATTACHMENTS}</strong>
+					<div class="bg-white border p-2">
+					<!-- BEGIN attachment -->
+						<!-- IF not attachment.S_FIRST_ROW --><hr><!-- ENDIF -->
+						{post_review_row.attachment.DISPLAY_ATTACHMENT}
+					<!-- END attachment -->
+					</div>
+				</div>
+				<div class="clearfix"></div>
+			<!-- ENDIF -->
+		</div>
+
+	</div>
+</div>
+<!-- ENDIF -->
+<!-- END post_review_row -->

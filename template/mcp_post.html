@@ -1,0 +1,405 @@
+<!-- INCLUDE mcp_header.html -->
+
+<div class="card mb-3">
+	<div class="card-header bg-secondary text-white">
+		<!-- IF S_PM -->{L_PM_REPORT_DETAILS}<!-- ELSE -->{L_REPORT_DETAILS}<!-- ENDIF -->
+	</div>
+	<div class="card-body pb-0">
+
+<!-- IF S_MCP_REPORT -->
+	<div id="report" class="card mb-3">
+		<div class="card-header bg-secondary text-white">
+			{L_REPORT_REASON}{L_COLON} {REPORT_REASON_TITLE}
+		</div>
+		<div class="card-body">
+			<div class="postbody">
+				<p>{L_REPORTED} {L_POST_BY_AUTHOR} {REPORTER_FULL} &laquo; {REPORT_DATE}</p>
+			<!-- IF S_REPORT_CLOSED -->
+				<p class="alert alert-info"><i class="fa fa-exclamation fa-fw" aria-hidden="true"></i> {L_REPORT_CLOSED}</p>
+			<!-- ENDIF -->
+				<div class="content">
+				<!-- IF REPORT_TEXT -->
+					{REPORT_TEXT}
+				<!-- ELSE -->
+					{REPORT_REASON_DESCRIPTION}
+				<!-- ENDIF -->
+				</div>
+			</div>
+		</div>
+
+		<form method="post" id="mcp_report" action="{S_CLOSE_ACTION}">
+			<div class="card-footer text-center">
+				{% EVENT mcp_post_report_buttons_top_before %}
+					<button class="btn btn-danger me-1" type="submit" name="action[delete]" value="{L_DELETE_REPORT}"><i class="fa fa-trash-o fa-fw" aria-hidden="true"></i> {L_DELETE_REPORT}</button>
+				<!-- IF not S_REPORT_CLOSED -->
+					<button class="btn btn-success" type="submit" name="action[close]" value="{L_CLOSE_REPORT}"><i class="fa fa-check fa-fw" aria-hidden="true"></i> {L_CLOSE_REPORT}</button>
+				<!-- ENDIF -->
+				{% EVENT mcp_post_report_buttons_top_after %}
+					<input type="hidden" name="report_id_list[]" value="{REPORT_ID}" />
+				{S_FORM_TOKEN}
+			</div>
+		</form>
+	</div>
+
+<!-- ELSE -->
+	<h5 class="card-title pb-1 text-capitalize">{L_POST_DETAILS}</h5>
+<!-- ENDIF -->
+
+<div class="card mb-3">
+	<div class="card-body bg-light p-0">
+
+	<div class="postbody">
+		<div class="postbody-before d-md-flex px-3 py-1 justify-content-between align-items-center bg-2 border-bottom">
+			<div>
+			<a href="{U_VIEW_POST}">{POST_SUBJECT}</a>
+				<div>
+				<!-- IF S_PM -->
+					<strong>{L_SENT_AT}{L_COLON}</strong> {POST_DATE} <strong>{L_PM_FROM}{L_COLON}</strong> {POST_AUTHOR_FULL}
+				<!-- ELSE -->
+					<i class="fa fa-file-o tip" title="{L_POST}" aria-hidden="true"></i> {L_POSTED} {L_POST_BY_AUTHOR} {POST_AUTHOR_FULL} &raquo; {POST_DATE}
+				<!-- ENDIF -->
+				</div>
+			</div>
+
+			<div id="expand">
+				<a href="#post_details" class="btn btn-secondary" onclick="viewableArea(getElementById('post_details'), true); var rev_text = getElementById('expand').getElementsByTagName('a').item(0).firstChild; if (rev_text.data.trim() == '{LA_EXPAND_VIEW}'){rev_text.data = '{LA_COLLAPSE_VIEW}'; } else if (rev_text.data.trim() == '{LA_COLLAPSE_VIEW}'){rev_text.data = '{LA_EXPAND_VIEW}';} return false;">{L_EXPAND_VIEW}</a>
+			<!-- IF U_EDIT -->
+				<a class="btn btn-secondary ms-1" href="{U_EDIT}" title="{L_EDIT_POST}"><i class="fa fa-pencil fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_EDIT_POST}</span></a>
+			<!-- ENDIF -->
+			</div>
+		</div>
+
+		<div class="px-3 py-2 bg1">
+		<!-- IF S_PM -->
+			<p>
+				<!-- IF S_TO_RECIPIENT --><strong>{L_TO}{L_COLON}</strong> <!-- BEGIN to_recipient --><!-- IF to_recipient.NAME_FULL -->{to_recipient.NAME_FULL}<!-- ELSE --><a href="{to_recipient.U_VIEW}"<!-- IF to_recipient.COLOUR --> style="color:{to_recipient.COLOUR};"<!-- ENDIF -->>{to_recipient.NAME}</a><!-- ENDIF -->&nbsp;<!-- END to_recipient --><br><!-- ENDIF -->
+				<!-- IF S_BCC_RECIPIENT --><strong>{L_BCC}{L_COLON}</strong> <!-- BEGIN bcc_recipient --><!-- IF bcc_recipient.NAME_FULL -->{bcc_recipient.NAME_FULL}<!-- ELSE --><a href="{bcc_recipient.U_VIEW}"<!-- IF bcc_recipient.COLOUR --> style="color:{bcc_recipient.COLOUR};"<!-- ENDIF -->>{bcc_recipient.NAME}</a><!-- ENDIF -->&nbsp;<!-- END bcc_recipient --><!-- ENDIF -->
+			</p>
+		<!-- ENDIF -->
+
+		<!-- IF S_POST_UNAPPROVED -->
+			<form method="post" id="mcp_approve" action="{U_APPROVE_ACTION}">
+
+			<div class="alert alert-warning">
+				<button class="btn btn-danger me-1" type="submit" value="{L_DISAPPROVE}" name="action[disapprove]"><i class="fa fa-thumbs-o-down fa-fw" aria-hidden="true"></i> {L_DISAPPROVE}</button>
+				<button class="btn btn-success" type="submit" value="{L_APPROVE}" name="action[approve]"><i class="fa fa-thumbs-o-up fa-fw" aria-hidden="true"></i> {L_APPROVE}</button>
+				<!-- IF not S_FIRST_POST --><input type="hidden" name="mode" value="unapproved_posts" /><!-- ENDIF -->
+				<input type="hidden" name="post_id_list[]" value="{POST_ID}" />
+				{S_FORM_TOKEN}
+			</div>
+			</form>
+		<!-- ELSEIF S_POST_DELETED -->
+			<form method="post" id="mcp_approve" action="{U_APPROVE_ACTION}">
+
+			<div class="alert alert-warning">
+				<!-- IF S_CAN_DELETE_POST --><input class="btn btn-danger" type="submit" value="{L_DELETE}" name="action[disapprove]" /> &nbsp;<!-- ENDIF -->
+				<input class="btn btn-success" type="submit" value="{L_RESTORE}" name="action[restore]" />
+				<!-- IF not S_FIRST_POST --><input type="hidden" name="mode" value="deleted_posts" /><!-- ENDIF -->
+				<input type="hidden" name="post_id_list[]" value="{POST_ID}" />
+				{S_FORM_TOKEN}
+			</div>
+			</form>
+		<!-- ENDIF -->
+
+		<!-- IF S_MESSAGE_REPORTED -->
+			<div class="alert alert-danger">
+				<a href="{U_MCP_REPORT}"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i><span class="visually-hidden">{L_TOPIC_REPORTED}</span> <strong>{L_MESSAGE_REPORTED}</strong></a>
+			</div>
+		<!-- ENDIF -->
+
+		{% EVENT mcp_post_text_before %}
+
+		<div id="post_details">
+			<p>{POST_PREVIEW}</p>
+		</div>
+
+		{% EVENT mcp_post_text_after %}
+
+		<!-- IF S_HAS_ATTACHMENTS -->
+			<div class="attachbox float-start">
+				<strong>{L_ATTACHMENTS}</strong>
+				<div class="bg-white border p-2">
+				<!-- BEGIN attachment -->
+					<!-- IF not attachment.S_FIRST_ROW --><hr><!-- ENDIF -->
+					{attachment.DISPLAY_ATTACHMENT}
+				<!-- END attachment -->
+				</div>
+			</div>
+			<div class="clearfix"></div>
+		<!-- ENDIF -->
+
+		<!-- IF DELETED_MESSAGE or DELETE_REASON -->
+			<div class="alert alert-danger">
+				{DELETED_MESSAGE}
+				<!-- IF DELETE_REASON --><br><strong>{L_REASON}{L_COLON}</strong> <em>{DELETE_REASON}</em><!-- ENDIF -->
+			</div>
+		<!-- ENDIF -->
+
+		<!-- IF SIGNATURE -->
+			<div id="sig{POST_ID}" class="small d-none d-md-block mt-2 mb-2 pt-1 border-top">{SIGNATURE}</div>
+		<!-- ENDIF -->
+		</div>
+	</div>
+
+	</div>
+</div>
+
+<!-- IF S_MCP_REPORT and S_CAN_VIEWIP -->
+	<p>
+	<!-- IF S_PM -->{L_THIS_PM_IP}<!-- ELSE -->{L_THIS_POST_IP}<!-- ENDIF -->{L_COLON} <!-- IF U_WHOIS -->
+		<a href="{U_WHOIS}"><!-- IF POST_IPADDR -->{POST_IPADDR}<!-- ELSE -->{POST_IP}<!-- ENDIF --></a> (<!-- IF POST_IPADDR -->{POST_IP}<!-- ELSE --><a href="{U_LOOKUP_IP}">{L_LOOKUP_IP}</a><!-- ENDIF -->)
+	<!-- ELSE -->
+		<!-- IF POST_IPADDR -->{POST_IPADDR} ({POST_IP})<!-- ELSE -->{POST_IP}<!-- IF U_LOOKUP_IP --> (<a href="{U_LOOKUP_IP}">{L_LOOKUP_IP}</a>)<!-- ENDIF --><!-- ENDIF -->
+	<!-- ENDIF -->
+	</p>
+<!-- ENDIF -->
+
+<!-- IF S_CAN_LOCK_POST or S_CAN_DELETE_POST or S_CAN_CHGPOSTER or S_MCP_POST_ADDITIONAL_OPTS -->
+	<div class="card mb-3">
+		<div class="card-header bg-secondary text-white">
+			{L_MOD_OPTIONS}
+		</div>
+		<div class="card-body">
+
+		<!-- IF S_CAN_CHGPOSTER -->
+			<form method="post" id="mcp_chgposter" action="{U_POST_ACTION}">
+
+			<!-- IF S_USER_SELECT -->
+			<dl class="row">
+				<dt class="col-lg-3 col-md-4 col-12"><label class="col-form-label">{L_CHANGE_POSTER}{L_COLON}</label></dt>
+				<dd class="col-lg-9 col-md-8 col-12">
+					<select class="form-select me-1" name="u">{S_USER_SELECT}</select>
+					<input class="btn btn-secondary" type="submit" name="action[chgposter_ip]" value="{L_CONFIRM}" />&nbsp;
+				</dd>
+			</dl>
+			<!-- ENDIF -->
+			<dl class="row">
+				<dt class="col-lg-3 col-md-4 col-12"><!-- IF S_USER_SELECT -->&nbsp;<!-- ELSE --><label class="col-form-label">{L_CHANGE_POSTER}{L_COLON}</label><!-- ENDIF --></dt>
+				<dd class="col-lg-9 col-md-8 col-12 w-auto">
+				<div class="input-group me-2">
+					<input class="form-control" type="text" name="username" value="" />
+					<input type="submit" class="btn btn-secondary" name="action[chgposter]" value="{L_CONFIRM}" />
+					<a href="{U_FIND_USERNAME}" class="btn btn-secondary" onclick="find_username(this.href); return false;">{L_FIND_USERNAME}</a>
+				</div>
+				</dd>
+			</dl>
+			{S_FORM_TOKEN}
+			</form>
+		<!-- ENDIF -->
+
+		<!-- EVENT mcp_post_additional_options -->
+
+		<!-- IF S_CAN_LOCK_POST or S_CAN_DELETE_POST -->
+			<form method="post" id="mcp" action="{U_MCP_ACTION}">
+
+			<dl class="row">
+				<dt class="col-lg-3 col-md-4 col-12"><label class="col-form-label">{L_MOD_OPTIONS}{L_COLON}</label></dt>
+				<dd class="col-lg-9 col-md-8 col-12">
+					<select class="form-select me-1" name="action">
+					<!-- IF S_CAN_LOCK_POST --><!-- IF S_POST_LOCKED --><option value="unlock_post">{L_UNLOCK_POST} [{L_UNLOCK_POST_EXPLAIN}]</option><!-- ELSE --><option value="lock_post">{L_LOCK_POST} [{L_LOCK_POST_EXPLAIN}]</option><!-- ENDIF --><!-- ENDIF -->
+					<!-- IF S_CAN_DELETE_POST --><option value="delete_post">{L_DELETE_POST}</option><!-- ENDIF -->
+					</select>
+					<button class="btn btn-success" type="submit" value="{L_SUBMIT}"><i class="fa fa-level-down fa-rotate-90 fa-fw" aria-hidden="true"></i> {L_SUBMIT}</button>
+				</dd>
+			</dl>
+			{S_FORM_TOKEN}
+			</form>
+		<!-- ENDIF -->
+
+		</div>
+	</div>
+<!-- ENDIF -->
+
+<!-- IF S_MCP_QUEUE or S_MCP_REPORT or RETURN_TOPIC -->
+	<ul class="breadcrumb">
+	<!-- IF S_MCP_QUEUE --><li class="breadcrumb-item">{RETURN_QUEUE}</li><li class="breadcrumb-item">{RETURN_TOPIC_SIMPLE}</li><li class="breadcrumb-item">{RETURN_POST}</li><!-- ELSEIF S_MCP_REPORT --><li class="breadcrumb-item">{RETURN_REPORTS}</li><!-- IF not S_PM --><li class="breadcrumb-item"><a href="{U_VIEW_POST}">{L_VIEW_POST}</a></li><li class="breadcrumb-item"><a href="{U_VIEW_TOPIC}">{L_VIEW_TOPIC}</a></li><li class="breadcrumb-item"><a href="{U_VIEW_FORUM}">{L_VIEW_FORUM}</a></li><!-- ENDIF --><!-- ELSE --><li class="breadcrumb-item">{RETURN_TOPIC}</li><!-- ENDIF -->
+	</ul>
+<!-- ENDIF -->
+
+<!-- IF S_MCP_QUEUE -->
+<!-- ELSE -->
+
+	<!-- IF S_SHOW_USER_NOTES -->
+		<div id="usernotes">
+
+			<form method="post" id="mcp_notes" action="{U_POST_ACTION}">
+
+			<!-- IF S_USER_NOTES -->
+			<div class="card mb-3">
+				<div class="card-header bg-secondary text-white">
+					{L_FEEDBACK}
+				</div>
+				<div class="card-body">
+
+				<!-- BEGIN usernotes -->
+					<strong>{L_REPORTED_BY}{L_COLON} {usernotes.REPORT_BY} &laquo; {usernotes.REPORT_AT}</strong>
+					<!-- IF S_CLEAR_ALLOWED --><div class="float-end"> <input class="form-check-input" type="checkbox" name="marknote[]" value="{usernotes.ID}" /></div><!-- ENDIF -->
+					<hr>
+					<div class="postbody">{usernotes.ACTION}</div>
+				<!-- END usernotes -->
+
+				</div>
+
+				<!-- IF S_CLEAR_ALLOWED -->
+				<div class="card-footer text-center">
+					<input class="btn btn-danger me-1" type="submit" name="action[del_all]" value="{L_DELETE_ALL}" />
+					<input class="btn btn-warning" type="submit" name="action[del_marked]" value="{L_DELETE_MARKED}" />
+				</div>
+				<!-- ENDIF -->
+			</div>
+			<!-- ENDIF -->
+
+			<div class="card mb-3">
+				<div class="card-header bg-secondary text-white">
+					{L_ADD_FEEDBACK}
+				</div>
+				<div class="card-body">
+
+				<p>{L_ADD_FEEDBACK_EXPLAIN}</p>
+
+				<textarea class="form-control" name="usernote" rows="4" cols="76"></textarea>
+
+				</div>
+				<div class="card-footer text-center">
+					<button class="btn btn-danger" type="reset" value="{L_RESET}"><i class="fa fa-undo fa-fw" aria-hidden="true"></i> {L_RESET}</button>
+					<button class="btn btn-success" type="submit" name="action[add_feedback]" value="{L_SUBMIT}"><i class="fa fa-level-down fa-rotate-90 fa-fw" aria-hidden="true"></i> {L_SUBMIT}</button>
+					{S_FORM_TOKEN}
+				</div>
+			</div>
+			
+			</form>
+
+		</div>
+	<!-- ENDIF -->
+
+	<!-- IF S_SHOW_REPORTS -->
+	<div id="reports" class="card mb-3">
+		<div class="card-header bg-secondary text-white">
+			{L_MCP_POST_REPORTS}
+		</div>
+		<div class="card-body">
+		<!-- BEGIN reports -->
+			<strong>{L_REPORTED_BY}{L_COLON} <!-- IF reports.U_REPORTER --><a href="{reports.U_REPORTER}">{reports.REPORTER}</a><!-- ELSE -->{reports.REPORTER}<!-- ENDIF --> &laquo; {reports.REPORT_TIME}</strong>
+			<p>{reports.REASON_TITLE}{L_COLON} {reports.REASON_DESC}<!-- IF reports.REPORT_TEXT --><br>{reports.REPORT_TEXT}<!-- ENDIF --></p>
+		<!-- END reports -->
+		</div>
+	</div>
+	<!-- ENDIF -->
+
+	<!-- IF S_CAN_VIEWIP and not S_MCP_REPORT -->
+		<div id="ip">
+
+			<p>
+				{L_THIS_POST_IP}{L_COLON} <!-- IF U_WHOIS -->
+				<a href="{U_WHOIS}"><!-- IF POST_IPADDR -->{POST_IPADDR}<!-- ELSE -->{POST_IP}<!-- ENDIF --></a> (<!-- IF POST_IPADDR -->{POST_IP}<!-- ELSE --><a href="{U_LOOKUP_IP}">{L_LOOKUP_IP}</a><!-- ENDIF -->)
+			<!-- ELSE -->
+				<!-- IF POST_IPADDR -->{POST_IPADDR} ({POST_IP})<!-- ELSE -->{POST_IP}<!-- IF U_LOOKUP_IP --> (<a href="{U_LOOKUP_IP}">{L_LOOKUP_IP}</a>)<!-- ENDIF --><!-- ENDIF -->
+			<!-- ENDIF -->
+			</p>
+
+			<div class="card mb-3 border-top-0">
+				<div class="card-header d-none d-md-block bg-secondary text-light border-bottom-0">
+					<div class="row">
+						<div class="col-12 col-md-10">{L_OTHER_USERS}</div>
+						<div class="col-12 col-md-2 text-center">{L_POSTS}</div>
+					</div>
+				</div>
+				<div class="card-body p-0">
+					<!-- BEGIN userrow -->
+					<div class="row align-items-center border-top m-0<!-- IF userrow.S_ROW_COUNT is even --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
+						<div class="col-12 col-md-10 py-2">
+							<span class="badge bg-secondary d-md-none">{L_OTHER_USERS}{L_COLON}</span>
+						<!-- IF userrow.U_PROFILE -->
+							<a href="{userrow.U_PROFILE}">{userrow.USERNAME}</a><!-- ELSE -->{userrow.USERNAME}
+						<!-- ENDIF -->
+						</div>
+						<div class="col-12 col-md-2 py-2 text-md-center">
+							<span class="badge bg-secondary d-md-none">{L_POSTS}{L_COLON}</span>
+							<a href="{userrow.U_SEARCHPOSTS}" title="{L_SEARCH_POSTS_BY} {userrow.USERNAME}">{userrow.NUM_POSTS}</a>
+						</div>
+						<div class="d-md-none<!-- IF not userrow.S_LAST_ROW --> border border-2<!-- ENDIF -->"></div>
+					</div>
+					<!-- BEGINELSE -->
+						<div class="px-3 py-2 text-center bg2">{L_NO_MATCHES_FOUND}</div>
+					<!-- END userrow -->
+				</div>
+			</div>
+
+			<!-- IF .pagination -->
+			<div class="action-bar d-sm-flex justify-content-end p-0 mb-3 border bg-light shadow-sm">
+				<div class="d-flex">
+					<button class="btn dropdown-toggle btn-lg rounded-0" title="{L_JUMP_TO_PAGE}" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-clone fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_SEARCH}</span></button>
+					<div class="dropdown-menu dropdown-menu-end">
+						<div class="input-group px-2">
+							<!-- INCLUDE pagination.html -->
+						</div>
+					</div>
+				</div> 
+			</div>
+			<!-- ENDIF -->
+
+			<div class="card mb-3 border-top-0">
+				<div class="card-header d-none d-md-block bg-secondary text-light border-bottom-0">
+					<div class="row">
+						<div class="col-12 col-md-10">{L_IPS_POSTED_FROM}</div>
+						<div class="col-12 col-md-2 text-center">{L_POSTS}</div>
+					</div>
+				</div>
+				<div class="card-body p-0">
+					<!-- BEGIN iprow -->
+					<div class="row align-items-center border-top m-0<!-- IF iprow.S_ROW_COUNT is even --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
+						<div class="col-12 col-md-10 py-2">
+							<span class="badge bg-secondary d-md-none">{L_IPS_POSTED_FROM}{L_COLON}</span>
+						<!-- IF iprow.HOSTNAME -->
+							<a href="{iprow.U_WHOIS}">{iprow.HOSTNAME}</a> ({iprow.IP})<!-- ELSE --><a href="{iprow.U_WHOIS}">{iprow.IP}</a> (<a href="{iprow.U_LOOKUP_IP}">{L_LOOKUP_IP}</a>)
+						<!-- ENDIF -->
+						</div>
+						<div class="col-12 col-md-2 py-2 text-md-center">
+							<span class="badge bg-secondary d-md-none">{L_POSTS}{L_COLON}</span>
+							{iprow.NUM_POSTS}
+						</div>
+						<div class="d-md-none<!-- IF not iprow.S_LAST_ROW --> border border-2<!-- ENDIF -->"></div>
+					</div>
+					<!-- BEGINELSE -->
+						<div class="px-3 py-2 text-center bg2">{L_NO_MATCHES_FOUND}</div>
+					<!-- END iprow -->
+				</div>
+			</div>
+
+			{% if U_LOOKUP_ALL %}
+				<p><a href="{U_LOOKUP_ALL}#ip">{L_LOOKUP_ALL}</a></p>
+			{% endif %}
+
+			<!-- IF .pagination_ips -->
+			<div class="clearfix mb-3">
+				<ul class="pagination float-end m-0">
+				<!-- BEGIN pagination_ips -->
+					<!-- IF pagination_ips.S_IS_PREV -->
+					<li class="page-item"><a class="page-link" href="{pagination_ips.PAGE_URL}" title="{L_PREVIOUS}" rel="prev" role="button"><i class="fa fa-chevron-{S_CONTENT_FLOW_BEGIN}" aria-hidden="true"></i><span class="visually-hidden">{L_PREVIOUS}</span></a></li>
+					<!-- ELSEIF pagination_ips.S_IS_CURRENT -->
+					<li class="page-itemactive"><span class="page-link">{pagination_ips.PAGE_NUMBER}</span></li>
+					<!-- ELSEIF pagination_ips.S_IS_ELLIPSIS -->
+					<li class="page-item disabled" role="separator"><span class="page-link">{L_ELLIPSIS}</span></li>
+					<!-- ELSEIF pagination_ips.S_IS_NEXT -->
+					<li class="page-item"><a class="page-link" href="{pagination_ips.PAGE_URL}" title="{L_NEXT}" rel="next" role="button"><i class="fa fa-chevron-{S_CONTENT_FLOW_END}" aria-hidden="true"></i><span class="visually-hidden">{L_NEXT}</span></a></li>
+					<!-- ELSE -->
+					<li class="page-item"><a class="page-link" href="{pagination_ips.PAGE_URL}" role="button">{pagination_ips.PAGE_NUMBER}</a></li>
+					<!-- ENDIF -->
+				<!-- END pagination_ips -->
+				</ul>
+			</div>
+			<!-- ENDIF -->
+
+		</div>
+	<!-- ENDIF -->
+
+<!-- ENDIF -->
+
+<!-- IF S_TOPIC_REVIEW -->
+	<!-- INCLUDE posting_topic_review.html -->
+<!-- ENDIF -->
+
+	</div>
+</div>
+
+<!-- INCLUDE mcp_footer.html -->

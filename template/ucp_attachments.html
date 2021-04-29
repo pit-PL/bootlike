@@ -1,0 +1,88 @@
+<!-- INCLUDE ucp_header.html -->
+
+<form id="ucp" method="post" action="{S_UCP_ACTION}"{S_FORM_ENCTYPE}>
+
+<div class="card mb-3">
+	<div class="card-header bg-secondary text-white">
+		{L_TITLE}
+	</div>
+	<div class="card-body pb-0">
+	
+	<p>{L_ATTACHMENTS_EXPLAIN}</p>
+
+	<!-- IF .attachrow -->
+<!-- IF S_ATTACHMENT_ROWS -->
+	<div class="action-bar d-sm-flex justify-content-between p-0 mb-3 border bg-light shadow-sm">
+		<div class="d-flex">
+			<!-- INCLUDE display_options.html -->
+		</div>
+
+		<div class="btn btn-lg d-none d-lg-block disabled fs-6 mt-1 text-nowrap">
+			{L_TITLE} &bull; <span class="fw-normal">{PAGE_NUMBER}</span>
+		</div>
+
+		<div class="d-flex">
+		<!-- IF .pagination --> 
+			<button class="btn dropdown-toggle btn-lg rounded-0" title="{L_JUMP_TO_PAGE}" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-clone fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_SEARCH}</span></button>
+			<div class="dropdown-menu dropdown-menu-end">
+				<div class="input-group px-2">
+					<!-- INCLUDE pagination.html -->
+				</div>
+			</div>
+		<!-- ELSE -->
+			&nbsp;
+		<!-- ENDIF -->
+		</div>
+	</div>
+<!-- ENDIF -->
+
+	<div class="card mb-3">
+		<div class="card-header bg-secondary text-white">
+			<div class="row">
+				<div class="col-md-6 col-sm-10 col-9">{L_FILENAME}</div>
+				<div class="col-md-4 d-none d-md-block">{L_POST_TIME}</div>
+				<div class="col-sm-2 col-3 text-center">{L_MARK}</div>
+			</div>
+		</div>
+
+		<!-- BEGIN attachrow -->
+		<div class="container-fluid row-item px-3 py-1 border-top<!-- IF attachrow.S_ROW_COUNT is odd --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
+			<div class="row align-items-center">
+				<div class="col-md-6 col-sm-10 col-9">
+					<a href="{attachrow.U_VIEW_ATTACHMENT}" class="topictitle attachment-filename ellipsis-text" title="{attachrow.FILENAME}">{attachrow.FILENAME}</a> ({attachrow.SIZE})<br>
+					<!-- IF attachrow.S_IN_MESSAGE -->{L_PM}{L_COLON} <!-- ELSE -->{L_TOPIC}{L_COLON} <!-- ENDIF --><a href="{attachrow.U_VIEW_TOPIC}">{attachrow.TOPIC_TITLE}</a>
+
+					<div class="d-none d-sm-block">{L_POST_TIME}{L_COLON} {attachrow.POST_TIME} &nbsp; <i class="fa fa-download" title="{L_DOWNLOADS}" aria-hidden="true"></i><span class="sr-only">{L_DOWNLOADS}</span> <span class="badge rounded-pill bg-secondary">{attachrow.DOWNLOAD_COUNT}</span></div>
+				</div>
+
+				<div class="col-md-4 d-none d-md-block">{attachrow.POST_TIME}</div>
+				<div class="col-sm-2 col-3 text-center">
+					<div class="form-switch mx-auto"><input class="form-check-input" type="checkbox" name="attachment[{attachrow.ATTACH_ID}]" value="1"{% if attachrow.S_LOCKED %} disabled title="{{ lang('ATTACHMENT_LOCKED') }}"{% endif %} /></div>
+				</div>
+			</div>
+		</div>
+		<!-- END attachrow -->
+	</div>
+
+	<!-- ELSE -->
+		<div class="alert alert-info">
+			{L_UCP_NO_ATTACHMENTS}
+		</div>
+	<!-- ENDIF -->
+	
+	<!-- IF S_ATTACHMENT_ROWS -->
+		<div class="action-bar d-sm-flex justify-content-end p-0 mb-3 border bg-light shadow-sm">
+		{S_FORM_TOKEN}
+			<input class="btn btn-lg rounded-0" type="submit" name="delete" value="{L_DELETE_MARKED}" />
+			<a href="#" onclick="marklist('ucp', 'attachment', false); return false;" class="btn btn-lg rounded-0" title="{L_UNMARK_ALL}"><i class="fa fa-toggle-off fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_UNMARK_ALL}</span></a>
+			<a href="#" onclick="marklist('ucp', 'attachment', true); return false;" class="btn btn-lg rounded-0" title="{L_MARK_ALL}"><i class="fa fa-toggle-on fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_MARK_ALL}</span></a>
+		{S_FORM_TOKEN}
+		</div>
+	<!-- ENDIF -->
+
+	</div>
+</div>
+
+</form>
+
+<!-- INCLUDE ucp_footer.html -->

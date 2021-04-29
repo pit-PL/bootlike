@@ -1,0 +1,61 @@
+<!-- INCLUDE ucp_header.html -->
+
+<form id="postform" method="post" action="{S_UCP_ACTION}"{S_FORM_ENCTYPE}>
+
+<div class="card mb-3">
+	<div class="card-header bg-secondary text-white">
+		{L_TITLE}
+	</div>
+	<div class="card-body pb-0">
+
+<!-- IF SIGNATURE_PREVIEW != '' -->
+	<div class="alert alert-info mb-3">{L_SIGNATURE_PREVIEW}</div>
+	<div class="small bg2 p-2 border-top">{SIGNATURE_PREVIEW}</div>
+	<hr>
+<!-- ENDIF -->
+
+	<p>{L_SIGNATURE_EXPLAIN}</p>
+
+	<div class="mb-3">
+	<!-- DEFINE $SIG_EDIT = 1 -->
+	<!-- INCLUDE posting_editor.html -->
+	</div>
+
+	</div>
+</div>
+
+	<div class="mb-3 text-center">
+		{S_HIDDEN_FIELDS}
+		<button class="btn btn-danger me-1" type="reset" name="reset"><i class="fa fa-undo fa-fw" aria-hidden="true"></i> {L_RESET}</button>
+		<button class="btn btn-secondary me-1" type="submit" name="preview"><i class="fa fa-eye fa-fw" aria-hidden="true"></i> {L_PREVIEW}</button>
+		<button class="btn btn-success me-1" type="submit" name="submit" value="{L_SUBMIT}"><i class="fa fa-level-down fa-rotate-90 fa-fw" aria-hidden="true"></i> {L_SUBMIT}</button>
+		{S_FORM_TOKEN}
+	</div>
+
+	<div class="card mb-3">
+		<div class="card-body pb-2">
+			{% EVENT ucp_profile_signature_posting_editor_options_prepend %}
+			<!-- IF S_BBCODE_ALLOWED -->
+			<div class="form-check form-switch">
+				<input class="form-check-input" type="checkbox" name="disable_bbcode" id="disable_bbcode"{S_BBCODE_CHECKED} />
+				<label class="form-check-label" for="disable_bbcode">{L_DISABLE_BBCODE}</label>
+			</div>
+			<!-- ENDIF -->
+			<!-- IF S_SMILIES_ALLOWED -->
+			<div class="form-check form-switch">
+				<input class="form-check-input" type="checkbox" name="disable_smilies" id="disable_smilies"{S_SMILIES_CHECKED} />
+				<label class="form-check-label" for="disable_smilies">{L_DISABLE_SMILIES}</label>
+			</div>
+			<!-- ENDIF -->
+			<!-- IF S_LINKS_ALLOWED -->
+			<div class="form-check form-switch">
+				<input class="form-check-input" type="checkbox" name="disable_magic_url" id="disable_magic_url"{S_MAGIC_URL_CHECKED} />
+				<label class="form-check-label" for="disable_magic_url">{L_DISABLE_MAGIC_URL}</label>
+			</div>
+			<!-- ENDIF -->
+		</div>
+	</div>
+
+</form>
+
+<!-- INCLUDE ucp_footer.html -->

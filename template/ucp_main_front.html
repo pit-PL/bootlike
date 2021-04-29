@@ -1,0 +1,91 @@
+<!-- INCLUDE ucp_header.html -->
+
+<div class="card mb-3">
+	<div class="card-header bg-secondary text-white">
+		{L_TITLE}
+	</div>
+	<div class="card-body">
+
+	<p>{L_UCP_WELCOME}</p>
+
+<!-- IF .topicrow -->
+	<div class="card mb-3">
+		<div class="card-header bg-dark border-bottom-0 text-light">
+			<div class="row">
+				<div class="col-lg-8 col-md-7 col-12">{L_IMPORTANT_NEWS}</div>
+				<div class="col-lg-4 col-md-5 d-none d-md-block">{L_LAST_POST}</div>
+			</div>
+		</div>
+
+		<!-- BEGIN topicrow -->
+		<div class="container-fluid row-item position-relative px-3 py-1 border-top {topicrow.TOPIC_IMG_STYLE}<!-- IF topicrow.S_ROW_COUNT is odd --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
+			<div class="row align-items-center">
+				<div class="col-lg-8 col-md-7 col-12 topic-folder folder">
+					<!-- IF topicrow.S_UNREAD_TOPIC --><a href="{topicrow.U_NEWEST_POST}" class="row-item-link"></a><!-- ENDIF -->
+
+					<!-- IF topicrow.S_UNREAD --><a href="{topicrow.U_NEWEST_POST}" class="badge bg-info" title="{L_VIEW_NEWEST_POST}"><i class="fa fa-file icon_topic_newest" aria-hidden="true"></i></a><!-- ENDIF -->
+					<!-- IF topicrow.TOPIC_ICON_IMG --><img src="{T_ICONS_PATH}{topicrow.TOPIC_ICON_IMG}" class="topic-icon" alt="{L_IMAGE}" /> <!-- ENDIF --><a href="{topicrow.U_VIEW_TOPIC}" class="topictitle">{topicrow.TOPIC_TITLE}</a><br>
+
+					<!-- IF .topicrow.pagination -->
+					<ul class="pagination">
+					<!-- BEGIN pagination -->
+						<!-- IF topicrow.pagination.S_IS_PREV -->
+						<!-- ELSEIF topicrow.pagination.S_IS_CURRENT --><li class="active"><span>{topicrow.pagination.PAGE_NUMBER}</span></li>
+						<!-- ELSEIF topicrow.pagination.S_IS_ELLIPSIS --><li class="ellipsis disabled"><span>{L_ELLIPSIS}</span></li>
+						<!-- ELSEIF topicrow.pagination.S_IS_NEXT -->
+						<!-- ELSE --><li><a href="{topicrow.pagination.PAGE_URL}">{topicrow.pagination.PAGE_NUMBER}</a></li>
+						<!-- ENDIF -->
+					<!-- END pagination -->
+					</ul>
+					<!-- ENDIF -->
+					<div class="d-none d-md-block">
+						<!-- IF topicrow.ATTACH_ICON_IMG --><span class="tip" title="{L_TOTAL_ATTACHMENTS}"><i class="fa fa-paperclip" aria-hidden="true"></i><span class="visually-hidden">{L_TOTAL_ATTACHMENTS}</span></span><!-- ENDIF -->
+						{L_POST_BY_AUTHOR} {topicrow.TOPIC_AUTHOR_FULL} &raquo; {topicrow.FIRST_POST_TIME}
+					</div>
+					<div class="d-md-none">
+						<!-- IF topicrow.ATTACH_ICON_IMG --><span class="tip" title="{L_TOTAL_ATTACHMENTS}"><i class="fa fa-paperclip" aria-hidden="true"></i><span class="visually-hidden">{L_TOTAL_ATTACHMENTS}</span></span><!-- ENDIF -->
+						{L_LAST_POST} {L_POST_BY_AUTHOR} {topicrow.LAST_POST_AUTHOR_FULL} &laquo; <a href="{topicrow.U_LAST_POST}" title="{L_GOTO_LAST_POST}">{topicrow.LAST_POST_TIME}</a>
+					</div>
+				</div>
+
+				<div class="col-lg-4 col-md-5 d-none d-md-block">
+					{L_POST_BY_AUTHOR} {topicrow.LAST_POST_AUTHOR_FULL}
+					<a href="{topicrow.U_LAST_POST}" title="{L_GOTO_LAST_POST}"><i class="fa fa-arrow-{S_CONTENT_FLOW_END}" aria-hidden="true"></i><span class="visually-hidden">{L_VIEW_LATEST_POST}</span></a> <br>{topicrow.LAST_POST_TIME}
+				</div>
+			</div>
+		</div>
+		<!-- END topicrow -->
+	</div>
+<!-- ENDIF -->
+
+	<h5 class="card-title pb-1 text-capitalize">{L_YOUR_DETAILS}</h5>
+
+<!-- EVENT ucp_main_front_user_activity_before -->
+	<dl class="row mb-0">
+	<!-- EVENT ucp_main_front_user_activity_prepend -->
+		<dt class="col-lg-4 col-md-5 col-12">{L_JOINED}{L_COLON}</dt>
+		<dd class="col-lg-8 col-md-7 col-12">{JOINED}</dd>
+		<dt class="col-lg-4 col-md-5 col-12">{L_LAST_ACTIVE}{L_COLON}</dt>
+		<dd class="col-lg-8 col-md-7 col-12">{LAST_VISIT_YOU}</dd>
+		<dt class="col-lg-4 col-md-5 col-12">{L_TOTAL_POSTS}{L_COLON}</dt>
+		<dd class="col-lg-8 col-md-7 col-12"><!-- IF POSTS_PCT -->{POSTS}<!-- IF S_DISPLAY_SEARCH --> | <strong><a href="{U_SEARCH_USER}">{L_SEARCH_YOUR_POSTS}</a></strong><!-- ENDIF --><br>({POSTS_DAY} / {POSTS_PCT})<!-- ELSE -->{POSTS}<!-- ENDIF --></dd>
+	<!-- IF ACTIVE_FORUM != '' -->
+		<dt class="col-lg-4 col-md-5 col-12">{L_ACTIVE_IN_FORUM}{L_COLON}</dt>
+		<dd class="col-lg-8 col-md-7 col-12"><strong><a href="{U_ACTIVE_FORUM}">{ACTIVE_FORUM}</a></strong><br>({ACTIVE_FORUM_POSTS} / {ACTIVE_FORUM_PCT})</dd>
+	<!-- ENDIF -->
+	<!-- IF ACTIVE_TOPIC != '' -->
+		<dt class="col-lg-4 col-md-5 col-12">{L_ACTIVE_IN_TOPIC}{L_COLON}</dt>
+		<dd class="col-lg-8 col-md-7 col-12"><strong><a href="{U_ACTIVE_TOPIC}">{ACTIVE_TOPIC}</a></strong><br>({ACTIVE_TOPIC_POSTS} / {ACTIVE_TOPIC_PCT})</dd>
+	<!-- ENDIF -->
+	<!-- IF WARNINGS -->
+		<dt class="col-lg-4 col-md-5 col-12">{L_YOUR_WARNINGS}{L_COLON}</dt>
+		<dd class="col-lg-8 col-md-7 col-12"><i class="fa fa-exclamation-triangle fa-fw text-red" aria-hidden="true"></i>  [{WARNINGS}]</dd>
+	<!-- ENDIF -->
+	<!-- EVENT ucp_main_front_user_activity_append -->
+	</dl>
+<!-- EVENT ucp_main_front_user_activity_after -->
+
+	</div>
+</div>
+
+<!-- INCLUDE ucp_footer.html -->

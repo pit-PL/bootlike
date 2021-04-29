@@ -1,0 +1,136 @@
+<!-- INCLUDE mcp_header.html -->
+
+<form id="mcp" method="post" action="{S_MCP_ACTION}">
+
+<div class="card mb-3">
+	<div class="card-header bg-secondary d-flex justify-content-between py-1 text-white">
+		<div class="mt-1">{L_TITLE}</div>
+
+		<div class="d-flex">
+			<label class="me-1" for="fo">{L_FORUM}{L_COLON}</label> <select class="form-select form-select-sm me-1" name="f" id="fo">{S_FORUM_OPTIONS}</select>
+			<input type="submit" name="sort" value="{L_GO}" class="btn btn-secondary btn-sm" />
+			{S_FORM_TOKEN}
+		</div>
+	</div>
+	<div class="card-body pb-0">
+
+	<p>{L_EXPLAIN}</p>
+
+	<!-- IF .postrow -->
+	<div class="action-bar d-sm-flex justify-content-between p-0 mb-3 border bg-light shadow-sm">
+		<div class="d-flex">
+			<!-- INCLUDE display_options.html -->
+		</div>
+
+		<div class="btn btn-lg d-none d-lg-block disabled fs-6 mt-1 text-nowrap">
+			{TOTAL} &bull; <span class="fw-normal">{PAGE_NUMBER}</span>
+		</div>
+
+		<div class="d-flex">
+		<!-- IF .pagination -->
+			<button class="btn dropdown-toggle btn-lg rounded-0" title="{L_JUMP_TO_PAGE}" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-clone fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_SEARCH}</span></button>
+			<div class="dropdown-menu dropdown-menu-end">
+				<div class="input-group px-2">
+					<!-- INCLUDE pagination.html -->
+				</div>
+			</div>
+		<!-- ELSE -->
+			&nbsp;
+		<!-- ENDIF -->
+		</div>
+	</div>
+
+	<div class="card mb-3">
+		<div class="card-header bg-secondary text-white">
+			<div class="row">
+				<div class="col-md-6 col-sm-10 col-9"><!-- IF S_TOPICS -->{L_TOPIC}<!-- ELSE -->{L_POST}<!-- ENDIF --></div>
+				<div class="col-md-4 d-none d-md-block"><!-- IF not S_TOPICS -->{L_TOPIC} &amp; <!-- ENDIF -->{L_FORUM}</div>
+				<div class="col-sm-2 col-3 text-center">{L_MARK}</div>
+			</div>
+		</div>
+
+		<!-- BEGIN postrow -->
+
+		<!-- IF postrow.S_DELETED_TOPIC -->
+		<div class="container-fluid row-item position-relative pt-1 pb-1 border-top">{L_DELETED_TOPIC}</div>
+		<!-- ELSE -->
+
+		<div class="container-fluid row-item px-3 py-1 border-top<!-- IF postrow.S_ROW_COUNT is odd --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
+			<div class="row align-items-center">
+				<div class="col-md-6 col-sm-10 col-9">
+					<a href="{postrow.U_VIEW_DETAILS}" class="topictitle">{postrow.POST_SUBJECT}</a><br>
+					<!-- IF postrow.S_HAS_ATTACHMENTS --> <span class="tip" title="{L_TOTAL_ATTACHMENTS}"><i class="fa fa-paperclip" aria-hidden="true"></i></span> <!-- ENDIF -->{L_POST_BY_AUTHOR} {postrow.POST_AUTHOR_FULL} &raquo; {postrow.POST_TIME}
+
+					<div class="d-md-none">
+					<!-- IF S_TOPICS -->
+						{L_FORUM}{L_COLON} <a href="{postrow.U_VIEWFORUM}">{postrow.FORUM_NAME}</a>
+					<!-- ELSE -->
+						{L_TOPIC}{L_COLON} <a href="{postrow.U_TOPIC}">{postrow.TOPIC_TITLE}</a><br>
+						{L_FORUM}{L_COLON} <a href="{postrow.U_VIEWFORUM}">{postrow.FORUM_NAME}</a>
+					<!-- ENDIF -->
+					</div>
+				</div>
+
+				<div class="col-md-4 d-none d-md-block">
+					<!-- IF S_TOPICS --><br><!-- ELSE -->{L_TOPIC}{L_COLON} <a href="{postrow.U_TOPIC}">{postrow.TOPIC_TITLE}</a> <br><!-- ENDIF -->
+					{L_FORUM}{L_COLON} <a href="{postrow.U_VIEWFORUM}">{postrow.FORUM_NAME}</a>
+				</div>
+				<div class="col-sm-2 col-3 text-center">
+					<div class="form-switch mx-auto">
+					<!-- IF S_TOPICS -->
+						 <input class="form-check-input" type="checkbox" name="topic_id_list[]" value="{postrow.TOPIC_ID}" />
+					<!-- ELSE -->
+						 <input class="form-check-input" type="checkbox" name="post_id_list[]" value="{postrow.POST_ID}" />
+					<!-- ENDIF -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- ENDIF -->
+		<!-- END postrow -->
+	</div>
+
+<!-- ELSE -->
+	<div class="alert alert-info">
+	<!-- IF S_RESTORE -->
+		<!-- IF S_TOPICS -->{L_NO_TOPICS_DELETED}<!-- ELSE -->{L_NO_POSTS_DELETED}<!-- ENDIF -->
+	<!-- ELSE -->
+		<!-- IF S_TOPICS -->{L_NO_TOPICS_QUEUE}<!-- ELSE -->{L_NO_POSTS_QUEUE}<!-- ENDIF -->
+	<!-- ENDIF -->
+	</div>
+<!-- ENDIF -->
+
+<!-- IF .postrow -->
+	<div class="action-bar d-sm-flex justify-content-<!-- IF TOPIC_ID -->between<!-- ELSE -->end<!-- ENDIF --> p-0 mb-3 border bg-light shadow-sm">
+		<!-- IF TOPIC_ID -->
+		<div class="form-switch d-flex ms-3 mt-1">
+			<label class="col-form-label"><input class="form-check-input" type="checkbox" name="t" value="{TOPIC_ID}" checked="checked" onClick="document.getElementById('mcp').submit()" /> {L_ONLY_TOPIC}</label>
+		</div>
+		<!-- ENDIF -->
+
+		<div class="d-flex">
+			<!-- IF S_RESTORE -->
+			<button class="btn btn-lg rounded-0" type="submit" name="action[delete]" value="{L_DELETE}" title="{L_DELETE}"><i class="fa fa-trash-o fa-fw" aria-hidden="true"></i></button>
+			<button class="btn btn-lg rounded-0" type="submit" name="action[restore]" value="{L_RESTORE}" title="{L_RESTORE}"><i class="fa fa-recycle fa-fw" aria-hidden="true"></i></button>
+			<!-- ELSE -->
+			<button class="btn btn-lg rounded-0" type="submit" name="action[disapprove]" value="{L_DISAPPROVE}" title="{L_DISAPPROVE}"><i class="fa fa-thumbs-o-down fa-fw" aria-hidden="true"></i></button>
+			<button class="btn btn-lg rounded-0" type="submit" name="action[approve]" value="{L_APPROVE}" title="{L_APPROVE}"><i class="fa fa-thumbs-o-up fa-fw" aria-hidden="true"></i></button>
+			<!-- ENDIF -->
+
+			<!-- IF S_TOPICS -->
+			<a href="#" onclick="marklist('mcp', 'topic_id_list', false); return false;" class="btn btn-lg rounded-0" title="{L_UNMARK_ALL}"><i class="fa fa-toggle-off fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_UNMARK_ALL}</span></a>
+			<a href="#" onclick="marklist('mcp', 'topic_id_list', true); return false;" class="btn btn-lg rounded-0" title="{L_MARK_ALL}"><i class="fa fa-toggle-on fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_MARK_ALL}</span></a>
+			<!-- ELSE -->
+			<a href="#" onclick="marklist('mcp', 'post_id_list', false); return false;" class="btn btn-lg rounded-0" title="{L_UNMARK_ALL}"><i class="fa fa-toggle-off fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_UNMARK_ALL}</span></a>
+			<a href="#" onclick="marklist('mcp', 'post_id_list', true); return false;" class="btn btn-lg rounded-0" title="{L_MARK_ALL}"><i class="fa fa-toggle-on fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_MARK_ALL}</span></a>
+			<!-- ENDIF -->
+		</div>
+	</div>
+<!-- ENDIF -->
+
+	</div>
+</div>
+
+</form>
+
+<!-- INCLUDE mcp_footer.html -->

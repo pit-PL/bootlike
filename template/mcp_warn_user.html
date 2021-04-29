@@ -1,0 +1,81 @@
+<!-- INCLUDE mcp_header.html -->
+
+<form method="post" id="mcp" action="{U_POST_ACTION}">
+
+<div class="card mb-3">
+	<div class="card-header bg-secondary text-white">
+		{L_WARN_USER}
+	</div>
+	<div class="card-body pb-0">
+
+	<div class="card mb-3">
+		<div class="card-header bg-secondary">
+			<span class="badge bg-white">{USERNAME_FULL}</span>
+		</div>
+		<div class="card-body p-0">
+			<div class="row m-0">
+			<hr class="d-md-none m-0">
+
+			<!-- IF AVATAR_IMG -->
+				<div class="postprofile col-lg-3 col-md-4<!-- IF not $PROFILES_ON_LEFT --> order-first order-md-2<!-- ENDIF --> bg2">
+					<div class="text-center p-3">{AVATAR_IMG}</div>
+				</div>
+			<!-- ENDIF -->
+
+				<div class="postbody<!-- IF AVATAR_IMG --> col-lg-9 col-md-8<!-- ELSE --> col-12<!-- ENDIF --> p-0<!-- IF not $PROFILES_ON_LEFT and AVATAR_IMG --> border-end<!-- ELSEIF AVATAR_IMG --> border-start<!-- ENDIF --> bg-light">
+					<div class="px-3 py-2">
+						<dl class="row mb-0">
+						<!-- IF RANK_TITLE -->
+							<dt class="col-lg-4 col-md-5 col-12">{L_RANK}{L_COLON}</dt>
+							<dd class="col-lg-8 col-md-7 col-12">{RANK_TITLE}</dd>
+						<!-- ENDIF -->
+						<!-- IF RANK_IMG -->
+							<dt class="col-lg-4 col-md-5 col-12"><!-- IF RANK_TITLE -->&nbsp;<!-- ELSE -->{L_RANK}{L_COLON}<!-- ENDIF --></dt>
+							<dd class="col-lg-8 col-md-7 col-12">{RANK_IMG}</dd>
+						<!-- ENDIF -->
+							<dt class="col-lg-4 col-md-5 col-12">{L_JOINED}{L_COLON}</dt>
+							<dd class="col-lg-8 col-md-7 col-12">{JOINED}</dd>
+							<dt class="col-lg-4 col-md-5 col-12">{L_TOTAL_POSTS}{L_COLON}</dt>
+							<dd class="col-lg-8 col-md-7 col-12">{POSTS}</dd>
+							<dt class="col-lg-4 col-md-5 col-12">{L_WARNINGS}{L_COLON}</dt>
+							<dd class="col-lg-8 col-md-7 col-12">{WARNINGS}</dd>
+						</dl>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- EVENT mcp_warn_user_add_warning_field_before -->
+
+	<div class="card mb-3">
+		<div class="card-header bg-secondary text-white">
+			{L_ADD_WARNING}
+		</div>
+		<div class="card-body">
+			<p>{L_ADD_WARNING_EXPLAIN}</p>
+
+			<textarea name="warning" id="warning" class="form-control" cols="40" rows="3"></textarea>
+			<!-- IF S_CAN_NOTIFY -->
+			<div class="form-check form-switch mt-2">
+				<input class="form-check-input" type="checkbox" id="notify_user" name="notify_user" checked="checked" />
+				<label for="notify_user" class="form-check-label">{L_NOTIFY_USER_WARN}</label>
+			</div>
+			<!-- ENDIF -->
+		</div>
+	</div>
+
+	<!-- EVENT mcp_warn_user_add_warning_field_after -->
+
+	</div>
+
+	<div class="card-footer text-center">
+		<button class="btn btn-danger me-1" type="reset" name="reset" value="{L_RESET}"><i class="fa fa-undo fa-fw" aria-hidden="true"></i> {L_RESET}</button>
+		<button class="btn btn-success" type="submit" name="action[add_warning]" value="{L_SUBMIT}"><i class="fa fa-level-down fa-rotate-90 fa-fw" aria-hidden="true"></i> {L_SUBMIT}</button>
+		{S_FORM_TOKEN}
+	</div>
+</div>
+
+</form>
+
+<!-- INCLUDE mcp_footer.html -->

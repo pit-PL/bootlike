@@ -1,0 +1,63 @@
+<!-- INCLUDE overall_header.html -->
+
+<h3 class="mb-3">{L_MCP}</h3>
+
+<!-- IF U_MCP -->
+	<ul class="breadcrumb" role="menubar">
+	<!-- IF U_ACP -->
+		<li class="breadcrumb-item"><a href="{U_ACP}" data-responsive-text="{L_ACP_SHORT}">{L_ACP}</a></li>
+	<!-- ENDIF -->
+		<li class="breadcrumb-item"><a href="{U_MCP}" data-responsive-text="{L_MCP_SHORT}">{L_MCP}</a></li>
+	<!-- IF U_MCP_FORUM -->
+		<li class="breadcrumb-item"><a href="{U_MCP_FORUM}">{L_MODERATE_FORUM}</a></li>
+	<!-- ENDIF -->
+	<!-- IF U_MCP_TOPIC -->
+		<li class="breadcrumb-item"><a href="{U_MCP_TOPIC}">{L_MODERATE_TOPIC}</a>
+	<!-- ENDIF -->
+	<!-- IF U_MCP_POST -->
+		<li class="breadcrumb-item"><a href="{U_MCP_POST}">{L_MODERATE_POST}</a></li>
+	<!-- ENDIF -->
+	</ul>
+<!-- ENDIF -->
+
+<ul class="nav nav-tabs nav-justified p-2 pb-0 bg-light border">
+	<!-- BEGIN l_block1 -->
+	<li class="nav-item"><a href="{l_block1.U_TITLE}" class="nav-link<!-- IF l_block1.S_SELECTED --> active<!-- ENDIF -->">{l_block1.L_TITLE}</a></li>
+	<!-- END l_block1 -->
+</ul>
+
+<div class="card mb-3 border-top-0">
+	<div class="card-body px-1 py-1 px-lg-3 px-md-2 py-lg-3 py-md-2 pb-lg-0">
+	<div class="row">
+
+	<div id="cp-menu" class="cp-menu col-lg-3 mb-3">
+		<div id="navigation" class="navigation" role="navigation">
+			<div class="list-group">
+			<!-- BEGIN l_block1 -->
+			<!-- IF l_block1.S_SELECTED -->
+				<!-- BEGIN l_block2 -->
+				<!-- IF l_block1.l_block2.S_SELECTED -->
+				<a class="list-group-item list-group-item-action rounded-0 active" href="{l_block1.l_block2.U_TITLE}">{l_block1.l_block2.L_TITLE}<!-- IF l_block1.l_block2.ADD_ITEM --> ({l_block1.l_block2.ADD_ITEM})<!-- ENDIF --></a>
+				<!-- ELSE -->
+				<a class="list-group-item list-group-item-action rounded-0" href="{l_block1.l_block2.U_TITLE}">{l_block1.l_block2.L_TITLE}<!-- IF l_block1.l_block2.ADD_ITEM --> ({l_block1.l_block2.ADD_ITEM})<!-- ENDIF --></a>
+				<!-- ENDIF -->
+				<!-- END l_block2 -->
+			<!-- ENDIF -->
+			<!-- END l_block1 -->
+			</div>
+		</div>
+	</div>
+
+	<div id="cp-main" class="col-lg-9">
+
+		<!-- IF MESSAGE -->
+		<div class="card bg-3">
+			<div class="card-header bg-secondary text-white">
+				{L_MESSAGE}
+			</div>
+			<div class="card-body">
+				<p class="alert alert-danger">{MESSAGE}</p>
+			<!-- BEGIN return_links -->{return_links.MESSAGE_LINK}<!-- END return_links -->
+			</div>
+		</div>
+		<!-- ENDIF -->

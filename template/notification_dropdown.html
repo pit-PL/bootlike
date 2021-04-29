@@ -1,0 +1,35 @@
+<ul id="notification_list" class="dropdown-menu dropdown-menu-end dropdown-contents">
+	<li class="nav-item text-center"><a href="{U_NOTIFICATION_SETTINGS}" class="dropdown-item">{L_SETTINGS}</a></li>
+	<li class="dropdown-divider m-0"></li>
+	<!-- IF not .notifications -->
+	<li class="nav-item notification-text text-center p-2">{L_NO_NOTIFICATIONS}</li>
+	<li class="dropdown-divider m-0"></li>
+	<!-- ENDIF -->
+
+	<!-- BEGIN notifications -->
+	<li class="nav-item dropdown notification-block<!-- IF notifications.UNREAD --> bg-info<!-- ENDIF --><!-- IF notifications.STYLING --> {notifications.STYLING}<!-- ENDIF -->"<!-- IF not notifications.URL --> style="padding: 0.25rem 1.5rem;"<!-- ENDIF -->>
+		<!-- IF notifications.URL -->
+			<a class="dropdown-item" href="<!-- IF notifications.UNREAD -->{notifications.U_MARK_READ}" data-real-url="{notifications.URL}<!-- ELSE -->{notifications.URL}<!-- ENDIF -->">
+		<!-- ENDIF -->
+			<div class="notification-text mx-1">
+				<div class="float-start mt-1 me-2" style="margin-{S_CONTENT_FLOW_BEGIN}: -0.8rem;"><!-- IF notifications.AVATAR -->{notifications.AVATAR}<!-- ELSE --><img src="{ROOT_PATH}styles/bootlike/theme/images/no_avatar.gif" class="img-thumbnail" alt="{L_IMAGE}" /><!-- ENDIF --></div>
+				<div class="notification-title text-wrap">{notifications.FORMATTED_TITLE}</div>
+				<!-- IF notifications.REFERENCE --><div class="notification-reference">{notifications.REFERENCE}</div><!-- ENDIF -->
+				<!-- IF notifications.FORUM --><div class="notification-reference">{notifications.FORUM}</div><!-- ENDIF -->
+				<!-- IF notifications.REASON --><div class="notification-reference">{notifications.REASON}</div><!-- ENDIF -->
+				<div class="small text-end"><small>{notifications.TIME}</small></div>
+			</div>
+		<!-- IF notifications.URL --></a><!-- ENDIF -->
+		<!-- IF notifications.UNREAD -->
+			<a class="btn btn-light mark_read" href="{notifications.U_MARK_READ}" data-ajax="notification.mark_read" title="{L_MARK_READ}"><i class="fa fa-check fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_MARK_READ}</span></a>
+		<!-- ENDIF -->
+	</li>
+	<li class="dropdown-divider m-0"></li>
+	<!-- END notifications -->
+
+	<li class="nav-item text-center"><a class="dropdown-item" href="{U_VIEW_ALL_NOTIFICATIONS}">{L_SEE_ALL}</a></li>
+	<!-- IF NOTIFICATIONS_COUNT -->
+	<li class="dropdown-divider m-0"></li>
+	<li id="mark_all_notifications" class="nav-item text-center"><a class="dropdown-item bg-info text-white" href="{U_MARK_ALL_NOTIFICATIONS}" data-ajax="notification.mark_all_read"><i class="fa fa-check fa-fw" aria-hidden="true"></i> {L_MARK_ALL_READ}</a></li>
+	<!-- ENDIF -->
+</ul>

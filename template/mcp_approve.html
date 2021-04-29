@@ -1,0 +1,92 @@
+<!-- IF S_AJAX_REQUEST -->
+
+	<h3>{MESSAGE_TITLE}</h3>
+	<p>{MESSAGE_TEXT}</p>
+
+	<!-- IF S_NOTIFY_POSTER -->
+		<label class="col-form-label"><input class="form-check-input" type="checkbox" name="notify_poster" checked="checked" /> <!-- IF S_APPROVE -->{L_NOTIFY_POSTER_APPROVAL}<!-- ELSE -->{L_NOTIFY_POSTER_DISAPPROVAL}<!-- ENDIF --></label>
+	<!-- ENDIF -->
+
+	<!-- IF not S_APPROVE and not S_RESTORE and .reason -->
+		<label class="col-form-label">
+			<strong>{L_DISAPPROVE_REASON}{L_COLON}</strong>
+			<select class="form-select" name="reason_id">
+				<!-- BEGIN reason --><option value="{reason.ID}"<!-- IF reason.S_SELECTED --> selected="selected"<!-- ENDIF -->>{reason.DESCRIPTION}</option><!-- END reason -->
+			</select>
+		</label>
+
+		<label class="col-form-label">
+			<strong>{L_MORE_INFO}{L_COLON}</strong><br><span>{L_CAN_LEAVE_BLANK}</span>
+			<textarea class="form-control" name="reason" id="reason" rows="4" cols="40">{REASON}</textarea>
+		</label>
+	<!-- ENDIF -->
+
+	<div class="text-center">
+		<input class="btn btn-danger me-1" type="button" name="cancel" value="{L_NO}" />
+		<input class="btn btn-success" type="button" name="confirm" value="{YES_VALUE}" />
+	</div>
+
+<!-- ELSE -->
+
+<!-- INCLUDE overall_header.html -->
+
+<form id="confirm" action="{S_CONFIRM_ACTION}" method="post">
+
+	<div class="col-md-12 col-lg-10 offset-lg-1">
+		<div class="card mb-3">
+			<div class="card-header bg-secondary text-white">
+				{MESSAGE_TITLE}
+			</div>
+			<div class="card-body pb-0">
+
+			{S_FORM_TOKEN}
+			<!-- IF ADDITIONAL_MSG --><div class="alert alert-danger">{ADDITIONAL_MSG}</div><!-- ENDIF -->
+
+			<!-- IF S_NOTIFY_POSTER -->
+				<dl class="row">
+					<dt class="col-lg-3 col-md-4 col-12 d-none d-md-block">&nbsp;</dt>
+					<dd class="col-lg-9 col-md-8 col-12">
+						<div class="form-switch">
+							<label class="form-check-label"><input class="form-check-input" type="checkbox" name="notify_poster" checked="checked" /> <!-- IF S_APPROVE -->{L_NOTIFY_POSTER_APPROVAL}<!-- ELSE -->{L_NOTIFY_POSTER_DISAPPROVAL}<!-- ENDIF --></label>
+						</div>
+					</dd>
+				</dl>
+			<!-- ENDIF -->
+
+			<!-- IF not S_APPROVE and not S_RESTORE and .reason -->
+				<dl class="row">
+					<dt class="col-lg-3 col-md-4 col-12"><label class="col-form-label">{L_DISAPPROVE_REASON}{L_COLON}</label></dt>
+					<dd class="col-lg-9 col-md-8 col-12">
+						<select class="form-select" name="reason_id">
+						<!-- BEGIN reason --><option value="{reason.ID}"<!-- IF reason.S_SELECTED --> selected="selected"<!-- ENDIF -->>{reason.DESCRIPTION}</option><!-- END reason -->
+						</select>
+					</dd>
+				</dl>
+				<dl class="row">
+					<dt class="col-lg-3 col-md-4 col-12">
+						<label class="col-form-label" for="reason">{L_MORE_INFO}{L_COLON}</label>
+						<div class="small text-muted fw-normal">{L_CAN_LEAVE_BLANK}</div>
+					</dt>
+					<dd class="col-lg-9 col-md-8 col-12"><textarea class="form-control" name="reason" id="reason" rows="4" cols="40">{REASON}</textarea></dd>
+				</dl>
+			<!-- ENDIF -->
+
+			<dl class="row">
+				<dt class="col-lg-3 col-md-4 col-12 d-none d-md-block">&nbsp;</dt>
+				<dd class="col-lg-9 col-md-8 col-12"><strong>{MESSAGE_TEXT}</strong></dd>
+			</dl>
+
+			</div>
+
+			<div class="card-footer text-center">
+				{S_HIDDEN_FIELDS}
+				<button class="btn btn-danger me-1" class="btn btn-danger me-1" type="submit" name="cancel" value="{L_NO}"><i class="fa fa-minus fa-fw" aria-hidden="true"></i> {L_NO}</button>
+				<button class="btn btn-success" type="submit" name="confirm" value="{YES_VALUE}"><i class="fa fa-plus fa-fw" aria-hidden="true"></i> {L_YES}</button>
+			</div>
+		</div>
+	</div>
+
+</form>
+
+<!-- INCLUDE overall_footer.html -->
+<!-- ENDIF -->

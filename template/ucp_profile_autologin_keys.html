@@ -1,0 +1,67 @@
+<!-- INCLUDE ucp_header.html -->
+
+<form id="ucp" method="post" action="{S_UCP_ACTION}"{S_FORM_ENCTYPE}>
+
+<div class="card mb-3">
+	<div class="card-header bg-secondary text-white">
+		{L_TITLE}
+	</div>
+	<div class="card-body">
+
+	<p>{L_PROFILE_AUTOLOGIN_KEYS}</p>
+
+	<!-- IF ERROR -->
+		<div class="alert alert-danger">{ERROR}</div>
+	<!-- ENDIF -->
+
+	<div class="card mb-3 border-top-0">
+		<div class="card-header d-none d-md-block bg-secondary text-light border-bottom-0">
+			<div class="row">
+					{% EVENT ucp_profile_autologin_keys_thead_key_before %}
+				<div class="col-12 col-md-3">{L_LOGIN_KEY}</div>
+					{% EVENT ucp_profile_autologin_keys_thead_key_after %}
+				<div class="col-12 col-md-2 text-md-center">{L_IP}</div>
+				<div class="col-12 col-md-5">{L_LOGIN_TIME}</div>
+					{% EVENT ucp_profile_autologin_keys_thead_mark_before %}
+				<div class="col-12 col-md-2 text-md-center">{L_MARK}</div>
+					{% EVENT ucp_profile_autologin_keys_thead_mark_after %}
+			</div>
+		</div>
+		<div class="card-body p-0">
+		<!-- BEGIN sessions -->
+			<div class="row align-items-center border-top m-0<!-- IF sessions.S_ROW_COUNT is even --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
+					{% EVENT ucp_profile_autologin_keys_tbody_key_before %}
+				<div class="col-12 col-md-3 py-2"><span class="badge bg-secondary d-md-none">{L_LOGIN_KEY}{L_COLON}</span> <label class="form-check-label" for="{sessions.KEY}">{sessions.KEY}</label></div>
+					{% EVENT ucp_profile_autologin_keys_tbody_key_after %}
+				<div class="col-12 col-md-2 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_IP}{L_COLON}</span> {sessions.IP}</div>
+				<div class="col-12 col-md-5 py-2"><span class="badge bg-secondary d-md-none">{L_LOGIN_TIME}{L_COLON}</span> {sessions.LOGIN_TIME}</div>
+					{% EVENT ucp_profile_autologin_keys_tbody_mark_before %}
+				<div class="col-12 col-md-2 d-sm-flex py-2">
+					<span class="badge bg-secondary d-md-none me-1">{L_MARK}{L_COLON}</span>
+					<div class="form-switch mx-md-auto"><input class="form-check-input" type="checkbox" name="keys[]" value="{sessions.KEY}" id="{sessions.KEY}" /></div>
+				</div>
+					{% EVENT ucp_profile_autologin_keys_tbody_mark_after %}
+				<div class="d-md-none<!-- IF not sessions.S_LAST_ROW --> border border-2<!-- ENDIF -->"></div>
+			</div>
+		<!-- BEGINELSE -->
+			<div class="px-3 py-2 text-center bg2">{L_PROFILE_NO_AUTOLOGIN_KEYS}</div>
+		<!-- END sessions -->
+		</div>
+	</div>
+
+<!-- IF .sessions -->
+	<div class="action-bar d-sm-flex justify-content-end p-0 border bg-light shadow-sm">
+		{S_HIDDEN_FIELDS}
+		<input class="btn btn-lg rounded-0" type="submit" name="submit" value="{L_DELETE_MARKED}" />
+		<a href="#" onclick="$('#ucp input:checkbox').prop('checked', false); return false;" class="btn btn-lg rounded-0" title="{L_UNMARK_ALL}"><i class="fa fa-toggle-off fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_UNMARK_ALL}</span></a>
+		<a href="#" onclick="$('#ucp input:checkbox').prop('checked', true); return false;" class="btn btn-lg rounded-0" title="{L_MARK_ALL}"><i class="fa fa-toggle-on fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_MARK_ALL}</span></a>
+		{S_FORM_TOKEN}
+	</div>
+<!-- ENDIF -->
+
+	</div>
+</div>
+
+</form>
+
+<!-- INCLUDE ucp_footer.html -->

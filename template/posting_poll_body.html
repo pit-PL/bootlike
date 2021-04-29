@@ -1,0 +1,77 @@
+<div class="col-md-12 col-lg-10 offset-lg-1">
+	<div  id="poll-panel" class="card mb-3">
+		<div class="card-body">
+
+		<!-- IF S_SHOW_POLL_BOX -->
+		<p>{L_ADD_POLL_EXPLAIN}</p>
+		<!-- ENDIF -->
+
+		<!-- IF S_POLL_DELETE -->
+			<div class="row mb-3">
+				<div class="col-lg-3 col-md-4 col-12"><label class="col-form-label" for="poll_delete"><strong>{L_POLL_DELETE}{L_COLON}</strong></label></div>
+				<div class="col-lg-9 col-md-8 col-12">
+					<div class="form-check form-switch">
+						<label class="col-form-label" for="poll_delete"><input class="form-check-input" type="checkbox" name="poll_delete" id="poll_delete"<!-- IF S_POLL_DELETE_CHECKED --> checked="checked"<!-- ENDIF --> /></label>
+					</div>
+				</div>
+			</div>
+		<!-- ENDIF -->
+
+		<!-- IF S_SHOW_POLL_BOX -->
+			<div class="row mb-3">
+				<div class="col-lg-3 col-md-4 col-12"><label class="col-form-label" for="poll_title"><strong>{{ lang('POLL_QUESTION') ~ lang('COLON') }}</strong></label></div>
+				<div class="col-lg-9 col-md-8 col-12">
+					<input class="form-control w-100" type="text" name="poll_title" id="poll_title" maxlength="100" value="{{ POLL_TITLE }}" />
+				</div>
+			</div>
+			<div class="row mb-3">
+				<div class="col-lg-3 col-md-4 col-12 d-md-flex align-items-center">
+					<div>
+						<label class="col-form-label" for="poll_option_text"><strong>{L_POLL_OPTIONS}{L_COLON}</strong></label>
+						<div class="small text-muted mb-1 fw-normal">{L_POLL_OPTIONS_EXPLAIN}</div>
+					</div>
+				</div>
+				<div class="col-lg-9 col-md-8 col-12">
+					<textarea class="form-control" name="poll_option_text" id="poll_option_text" rows="5" cols="35">{POLL_OPTIONS}</textarea>
+				</div>
+			</div>
+
+			<hr>
+
+			<div class="d-md-flex justify-content-md-between">
+				<div class="me-md-2">
+					<label class="d-block mb-2" for="poll_max_options"><strong>{L_POLL_MAX_OPTIONS}{L_COLON}</strong></label>
+					<div class="input-group">
+						<input class="form-control" type="number" min="0" max="999" name="poll_max_options" id="poll_max_options" value="{POLL_MAX_OPTIONS}" />
+						<button class="btn btn-outline-info" type="button" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="{L_POLL_MAX_OPTIONS_EXPLAIN}"><i class="fa fa-info fa-fw" aria-hidden="true"></i></button>
+					</div>
+				</div>
+
+				<div class="mt-2 mt-md-0 me-md-2">
+					<label class="d-block mb-2" for="poll_length"><strong>{L_POLL_FOR}{L_COLON}</strong></label>
+					<div class="input-group">
+						<input class="form-control" type="number" min="0" max="999" name="poll_length" id="poll_length" value="{POLL_LENGTH}" />
+						<span class="input-group-text">{L_DAYS}</span>
+						<button class="btn btn-outline-info" type="button" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="{L_POLL_FOR_EXPLAIN}"><i class="fa fa-info fa-fw" aria-hidden="true"></i></button>
+					</div>
+				</div>
+
+			<!-- IF S_POLL_VOTE_CHANGE -->
+				<div class="mt-2 mt-md-0">
+					<label class="d-block mb-2" for="poll_vote_change"><strong>{L_POLL_VOTE_CHANGE}{L_COLON}</strong></label></dt>
+					<div class="input-group">
+						<div class="input-group-text border-primary border-end-0">
+							<input class="form-check-input mt-0" type="checkbox" id="poll_vote_change" name="poll_vote_change"{VOTE_CHANGE_CHECKED} />
+						</div>
+						<label class="btn btn-outline-primary text-nowrap" for="poll_vote_change">{L_POLL_VOTE_CHANGE_EXPLAIN}</label>
+					</div>
+				</div>
+			<!-- ENDIF -->
+			</div>
+		<!-- ENDIF -->
+
+		<!-- EVENT posting_poll_body_options_after -->
+
+		</div>
+	</div>
+</div>

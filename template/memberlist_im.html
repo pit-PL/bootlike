@@ -1,0 +1,44 @@
+<!-- INCLUDE simple_header.html -->
+
+<form method="post" action="{S_IM_ACTION}">
+	<div class="col-md-12 col-lg-10 offset-lg-1">
+		<div class="card mb-3">
+			<div class="card-header bg-secondary text-white">
+				<a href="#" class="close" title="{L_CLOSE_WINDOW}" onclick="window.close(); return false;"><span class="text-danger" aria-hidden="true">&times;</span></a>
+				{L_SEND_IM}
+			</div>
+			<div class="card-body">
+
+				<p>{L_SEND_IM_EXPLAIN}</p>
+			<!-- IF S_SENT_JABBER -->
+				<p>{L_IM_SENT_JABBER}</p>
+			<!-- ENDIF -->
+
+				<dl class="row">
+					<dt class="col-lg-3 col-md-4 col-12"><label class="col-form-label">{L_IM_RECIPIENT}{L_COLON}</label></dt>
+					<dd class="col-lg-9 col-md-8 col-12"><label class="col-form-label">{USERNAME}</label><!-- IF S_NO_SEND_JABBER --> [ {IM_CONTACT} ]<!-- ENDIF --><!-- IF PRESENCE_IMG --> {PRESENCE_IMG}<!-- ENDIF --></dd>
+				</dl>
+
+			<!-- IF S_SEND_JABBER -->
+				<dl class="row">
+					<dt class="col-lg-3 col-md-4 col-12"><label class="col-form-label" for="message">{L_IM_MESSAGE}{L_COLON}</label></dt>
+					<dd class="col-lg-9 col-md-8 col-12"><textarea class="form-control" name="message" id="message" rows="5" cols="45"></textarea></dd>
+				</dl>
+				<dl class="row">
+					<dt class="col-lg-3 col-md-4 col-12 d-none d-md-block">&nbsp;</dt>
+					<dd class="col-lg-9 col-md-8 col-12"><input class="btn btn-success" name="submit" type="submit" value="{L_IM_SEND}" /></dd>
+				</dl>
+			<!-- ELSE IF S_NO_SEND_JABBER -->
+				<dl class="row">
+					<dt class="col-lg-3 col-md-4 col-12 d-none d-md-block">&nbsp;</dt>
+					<dd class="col-lg-9 col-md-8 col-12">{L_IM_NO_JABBER}</dd>
+				</dl>
+			<!-- ENDIF -->
+			{S_FORM_TOKEN}
+
+			</div>
+		</div>
+	</div>
+</form>
+
+<!-- INCLUDE simple_footer.html -->

@@ -1,0 +1,231 @@
+<!-- INCLUDE mcp_header.html -->
+
+<div class="card mb-3">
+	<div class="card-header bg-secondary">
+		<a href="{U_VIEW_TOPIC}" class="text-white">{L_TOPIC}{L_COLON} {TOPIC_TITLE}</a>
+	</div>
+	<div class="card-body pb-0">
+
+		<!-- IF S_MERGE_VIEW -->
+			<!-- DEFINE $SHOW_PANEL = 'merge-panel' -->
+		<!-- ELSEIF S_SPLIT_VIEW -->
+			<!-- DEFINE $SHOW_PANEL = 'split-panel' -->
+		<!-- ELSE -->
+			<!-- DEFINE $SHOW_PANEL = 'display-panel' -->
+		<!-- ENDIF -->
+
+		<div class="sub-panels clearfix" data-show-panel="{$SHOW_PANEL}" role="tablist">
+			<ul class="nav nav-pills float-end mb-1">
+				<li class="nav-item">
+					<a href="#minitabs" id="display-panel-tab" class="nav-link<!-- IF not S_MERGE_VIEW --> active<!-- ENDIF -->" data-subpanel="display-panel" role="tab" aria-controls="display-panel">{L_DISPLAY_OPTIONS}</a>
+				</li>
+				<li class="nav-item">
+					<a href="#minitabs" id="split-panel-tab" class="nav-link" data-subpanel="split-panel" role="tab" aria-controls="split-panel">{L_SPLIT_TOPIC}</a>
+				</li>
+				<li class="nav-item">
+					<a href="#minitabs" id="merge-panel-tab" class="nav-link<!-- IF not S_MERGE_VIEW --> active<!-- ENDIF -->" data-subpanel="merge-panel" role="tab" aria-controls="merge-panel">{L_MERGE_POSTS}</a>
+				</li>
+			</ul>
+		</div>
+
+		<form id="mcp" method="post" action="{S_MCP_ACTION}">
+
+		<div class="card mb-3">
+			<div class="card-body">
+
+			<div id="display-panel" role="tabpanel">
+				<dl class="row">
+					<dt class="col-lg-3 col-md-4 col-12"><label class="col-form-label" for="posts_per_page">{L_POSTS_PER_PAGE}{L_COLON}</label></dt>
+					<dd class="d-inline-block w-auto">
+						<div class="input-group">
+							<input class="form-control" type="number" min="0" max="999999" name="posts_per_page" id="posts_per_page" value="{POSTS_PER_PAGE}" />
+							<span class="input-group-text">{L_POSTS_PER_PAGE_EXPLAIN}</span>
+						</div>
+					</dd>
+				</dl>
+				<dl class="row">
+					<dt class="col-lg-3 col-md-4 col-12"><label class="col-form-label">{L_DISPLAY_POSTS}{L_COLON}</label></dt>
+					<dd class="col-lg-9 col-md-8 col-12">
+						{S_SELECT_SORT_DAYS}<label class="col-form-label ms-2">{L_SORT_BY}{L_COLON}</label> {S_SELECT_SORT_KEY} &nbsp;{S_SELECT_SORT_DIR}<input class="btn btn-secondary ms-2" type="submit" name="sort" value="{L_GO}" />
+					</dd>
+				</dl>
+			</div>
+
+		<!-- IF S_CAN_SPLIT -->
+			<div id="split-panel" role="tabpanel">
+				<p>{L_SPLIT_TOPIC_EXPLAIN}</p>
+
+				<!-- IF S_SHOW_TOPIC_ICONS -->
+				<dl class="row">
+					<dt class="col-lg-3 col-md-4 col-12"><label class="col-form-label" for="icon">{L_TOPIC_ICON}{L_COLON}</label></dt>
+					<dd class="col-lg-9 col-md-8 col-12">
+						<div class="input-group btn-radio-group" data-bs-toggle="buttons">
+							<label class="form-check-label btn btn-outline-secondary btn-radio" for="icon"><input class="btn-check" type="radio" name="icon" id="icon" value="0" checked="checked" tabindex="1" /><!-- IF S_SHOW_TOPIC_ICONS -->{L_NO_TOPIC_ICON}<!-- ELSE -->{L_NO_PM_ICON}<!-- ENDIF --></label>
+							<!-- BEGIN topic_icon --><label class="form-check-label btn btn-outline-secondary btn-radio" for="icon-{topic_icon.ICON_ID}" class="btn btn-outline-secondary btn-radio"><input class="btn-check" type="radio" name="icon" id="icon-{topic_icon.ICON_ID}" value="{topic_icon.ICON_ID}" {topic_icon.S_ICON_CHECKED} tabindex="1" /><img src="{topic_icon.ICON_IMG}" width="{topic_icon.ICON_WIDTH}" height="{topic_icon.ICON_HEIGHT}" alt="{topic_icon.ICON_ALT}" title="{topic_icon.ICON_ALT}" /></label><!-- END topic_icon -->
+						</div>
+					</dd>
+				</dl>
+				<!-- ENDIF -->
+
+				<!-- EVENT mcp_topic_options_before -->
+				<dl class="row">
+					<dt class="col-lg-3 col-md-4 col-12"><label class="col-form-label" for="subject">{L_SPLIT_SUBJECT}{L_COLON}</label></dt>
+					<dd class="col-lg-9 col-md-8 col-12"><input type="text" name="subject" id="subject" size="35" maxlength="124" tabindex="2" value="{SPLIT_SUBJECT}" title="{L_SPLIT_SUBJECT}" class="form-control" /></dd>
+				</dl>
+				<!-- EVENT mcp_topic_options_after -->
+				<dl class="row">
+					<dt class="col-lg-3 col-md-4 col-12"><label class="col-form-label">{L_SPLIT_FORUM}{L_COLON}</label></dt>
+					<dd class="col-lg-9 col-md-8 col-12"><select class="form-select" name="to_forum_id">{S_FORUM_SELECT}</select></dd>
+				</dl>
+			</div>
+		<!-- ENDIF -->
+
+		<!-- IF S_CAN_MERGE -->
+			<div id="merge-panel" role="tabpanel">
+				<p>{L_MERGE_TOPIC_EXPLAIN}</p>
+
+				<dl class="row">
+					<dt class="col-lg-3 col-md-4 col-12"><label class="col-form-label" for="to_topic_id">{L_MERGE_TOPIC_ID}{L_COLON}</label></dt>
+					<dd class="col-lg-8 col-md-7 col-12 w-auto">
+						<div class="input-group">
+							<input class="form-control" type="number" min="0" max="9999999999" name="to_topic_id" id="to_topic_id" value="{TO_TOPIC_ID}" />
+							<a href="{U_SELECT_TOPIC}" class="btn btn-secondary me-2">{L_SELECT_TOPIC}</a>
+						</div>
+					<!-- IF TO_TOPIC_INFO --><br>{TO_TOPIC_INFO}<!-- ENDIF -->
+					</dd>
+				</dl>
+			</div>
+		<!-- ENDIF -->
+
+			</div>
+		</div>
+
+		<div id="review" class="card mb-3">
+			<div class="card-header bg-secondary text-white">
+				<span class="float-end"><a href="#review" class="btn btn-secondary btn-sm btn-light py-0" onclick="viewableArea(getElementById('topicreview'), true); var rev_text = getElementById('review').getElementsByTagName('a').item(0).firstChild; if (rev_text.data == '{LA_EXPAND_VIEW}'){rev_text.data = '{LA_COLLAPSE_VIEW}'; } else if (rev_text.data == '{LA_COLLAPSE_VIEW}'){rev_text.data = '{LA_EXPAND_VIEW}'};">{L_EXPAND_VIEW}</a></span>
+				{L_TOPIC_REVIEW}{L_COLON} <!-- EVENT mcp_topic_topic_title_before -->{TOPIC_TITLE}<!-- EVENT mcp_topic_topic_title_after -->
+			</div>
+
+			<div id="topicreview" class="card-body pb-0 overflow-auto">
+				<!-- BEGIN postrow -->
+				<!-- EVENT mcp_topic_postrow_post_before -->
+				<div class="card mb-3<!-- IF postrow.S_POST_DELETED --> border-dark<!-- ENDIF --><!-- IF postrow.S_POST_UNAPPROVED --> border-success<!-- ENDIF --><!-- IF postrow.S_POST_REPORTED --> border-warning<!-- ENDIF -->">
+					<div class="card-body bg-light p-0">
+
+					<div class="postbody" id="pr{postrow.POST_ID}">
+						<div class="postbody-before d-flex px-3 py-1 justify-content-between align-items-center bg-2 border-bottom">
+						<!-- EVENT mcp_topic_postrow_post_details_before -->
+							<div>
+								<!-- EVENT mcp_topic_postrow_post_subject_before -->
+								<div>
+									<a href="{postrow.U_POST_DETAILS}">{postrow.POST_SUBJECT}</a>
+								</div>
+								<!-- EVENT mcp_topic_postrow_post_subject_after -->
+								<a href="{postrow.U_MINI_POST}" title="{postrow.MINI_POST}"><i class="fa fa-file-o" aria-hidden="true"></i><span class="visually-hidden">{L_POST}</span></a> {L_POSTED} {postrow.POST_DATE} {L_POST_BY_AUTHOR} {% EVENT mcp_topic_post_author_full_prepend %} <strong>{postrow.POST_AUTHOR_FULL}</strong> {% EVENT mcp_topic_post_author_full_append %}<!-- IF postrow.U_MCP_DETAILS --> [ <a href="{postrow.U_MCP_DETAILS}">{L_POST_DETAILS}</a> ]<!-- ENDIF -->
+							</div>
+
+							<div class="form-check form-switch">
+								<label class="form-check-label me-1" for="post_id_list_select_{postrow.POST_ID}" class="form-check-label btn btn-secondary me-2"><input class="form-check-input" title="{L_SELECT}" type="checkbox" id="post_id_list_select_{postrow.POST_ID}" name="post_id_list[]" value="{postrow.POST_ID}"<!-- IF postrow.S_CHECKED --> checked="checked"<!-- ENDIF --> /></label>
+								<a href="{postrow.U_POST_DETAILS}" title="{L_POST_DETAILS}" class="btn btn-secondary"><i class="fa fa-info fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_POST_DETAILS}</span></a>
+							</div>
+						<!-- EVENT mcp_topic_postrow_post_details_after -->
+						</div>
+
+						<div class="px-3 py-2 bg1">
+							<!-- IF postrow.S_POST_UNAPPROVED -->
+							<div class="alert alert-warning">
+								<a href="{postrow.U_MCP_APPROVE}"><strong>{L_POST_UNAPPROVED}</strong></a>
+							</div>
+							<!-- ENDIF -->
+
+							<!-- IF postrow.S_POST_DELETED -->
+							<div class="alert alert-warning">
+								<a href="{postrow.U_MCP_APPROVE}"><strong>{L_POST_DELETED}</strong></a>
+							</div>
+							<!-- ENDIF -->
+
+							<!-- IF postrow.S_POST_REPORTED -->
+							<div class="alert alert-warning">
+								<a href="{postrow.U_MCP_REPORT}"><strong>{L_POST_REPORTED}</strong></a>
+							</div>
+							<!-- ENDIF -->
+
+							<!-- EVENT mcp_topic_postrow_attachments_before -->
+
+							<div class="content" id="message_{postrow.POST_ID}">{postrow.MESSAGE}</div>
+
+							<!-- IF postrow.S_HAS_ATTACHMENTS -->
+								<div class="attachbox float-start">
+									<strong>{L_ATTACHMENTS}</strong>
+									<div class="bg-white border p-2">
+									<!-- BEGIN attachment -->
+										<!-- IF not attachment.S_FIRST_ROW --><hr><!-- ENDIF -->
+										{postrow.attachment.DISPLAY_ATTACHMENT}
+									<!-- END attachment -->
+									</div>
+								</div>
+								<div class="clearfix"></div>
+							<!-- ENDIF -->
+
+							<!-- EVENT mcp_topic_postrow_attachments_after -->
+						</div>
+					</div>
+
+					</div>
+				</div>
+				<!-- BEGINELSE -->
+				<div class="alert alert-info">
+					{{ lang('NO_POSTS_TIME_FRAME') }}
+				</div>
+				<!-- END postrow -->
+			</div>
+		</div>
+
+		<div class="action-bar d-sm-flex justify-content-between p-0 mb-3 border bg-light shadow-sm">
+			<div class="d-flex">&nbsp;</div>
+
+			<div class="btn btn-lg d-none d-lg-block disabled fs-6 mt-1 text-nowrap">
+				{TOTAL_POSTS} 	&bull; <span class="fw-normal">{PAGE_NUMBER}</span>
+			</div>
+
+			<div class="d-flex">
+			<!-- IF .pagination -->
+				<button class="btn dropdown-toggle btn-lg rounded-0" title="{L_JUMP_TO_PAGE}" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-clone fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_SEARCH}</span></button>
+				<div class="dropdown-menu dropdown-menu-end">
+					<div class="input-group px-2">
+						<!-- INCLUDE pagination.html -->
+					</div>
+				</div>
+			<!-- ENDIF -->
+				<a href="#" onclick="marklist('mcp', 'post', false); return false;" class="btn btn-lg rounded-0" title="{L_UNMARK_ALL}"><i class="fa fa-toggle-off fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_UNMARK_ALL}</span></a>
+				<a href="#" onclick="marklist('mcp', 'post', true); return false;" class="btn btn-lg rounded-0" title="{L_MARK_ALL}"><i class="fa fa-toggle-on fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_MARK_ALL}</span></a>
+			</div>
+		</div>
+
+		<div class="mb-3 text-end">
+			<div class="d-inline-block w-auto">
+				<div class="input-group">
+					<select class="form-select" name="action">
+						<option value="" selected="selected">{L_SELECT_ACTION}</option>
+						<!-- IF S_CAN_APPROVE --><option value="approve">{L_APPROVE_POSTS}</option><!-- ENDIF -->
+						<!-- IF S_CAN_LOCK --><option value="lock_post">{L_LOCK_POST_POSTS} [ {L_LOCK_POST_EXPLAIN} ]</option><option value="unlock_post">{L_UNLOCK_POST_POSTS}</option><!-- ENDIF -->
+						<!-- IF S_CAN_DELETE --><option value="delete_post">{L_DELETE_POSTS}</option><!-- ENDIF -->
+						<!-- IF S_CAN_RESTORE --><option value="restore">{L_RESTORE_POSTS}</option><!-- ENDIF -->
+						<!-- IF S_CAN_MERGE --><option value="merge_posts"<!-- IF S_MERGE_VIEW --> selected="selected"<!-- ENDIF -->>{L_MERGE_POSTS}</option><!-- ENDIF -->
+						<!-- IF S_CAN_SPLIT --><option value="split_all"<!-- IF S_SPLIT_VIEW --> selected="selected"<!-- ENDIF -->>{L_SPLIT_POSTS}</option><option value="split_beyond">{L_SPLIT_AFTER}</option><!-- ENDIF -->
+						<!-- IF S_CAN_SYNC --><option value="resync">{L_RESYNC}</option><!-- ENDIF -->
+					</select>
+					<button class="btn btn-success" type="submit" name="mcp_topic_submit" value="{L_SUBMIT}"><i class="fa fa-level-down fa-rotate-90 fa-fw" aria-hidden="true"></i> {L_SUBMIT}</button>
+				</div>
+			</div>
+		</div>
+
+		{S_HIDDEN_FIELDS}
+		{S_FORM_TOKEN}
+
+		</form>
+
+	</div>
+</div>
+
+<!-- INCLUDE mcp_footer.html -->

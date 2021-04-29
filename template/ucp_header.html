@@ -1,0 +1,89 @@
+<!-- INCLUDE overall_header.html -->
+
+<h2 class="ucp-title">{L_UCP}</h2>
+
+<ul class="nav nav-tabs nav-justified p-2 pb-0 bg-light border">
+	<!-- BEGIN t_block1 -->
+	<li class="nav-item"><a href="{t_block1.U_TITLE}" class="nav-link<!-- IF t_block1.S_SELECTED --> active<!-- ENDIF -->">{t_block1.L_TITLE}</a></li>
+	<!-- END t_block1 -->
+</ul>
+
+<!-- IF S_COMPOSE_PM -->
+<form id="postform" method="post" action="{S_POST_ACTION}"{S_FORM_ENCTYPE}>
+<!-- ENDIF -->
+
+<div class="card mb-3 border-top-0">
+	<div class="card-body px-1 py-1 px-lg-3 px-md-2 py-lg-3 py-md-2 pb-lg-0">
+	<div class="row">
+
+	<div id="cp-menu" class="cp-menu col-lg-3">
+		<div id="navigation" class="mb-3" role="navigation">
+			<div class="list-group">
+		<!-- IF S_PRIVMSGS -->
+			<!-- BEGIN t_block2 -->
+				<!-- IF S_PRIVMSGS and not t_block2.S_LAST_ROW -->
+					<!-- IF t_block2.S_SELECTED -->
+						<a class="list-group-item list-group-item-action rounded-0 active" href="{t_block2.U_TITLE}">{t_block2.L_TITLE}</a>
+					<!-- ELSE -->
+						<a class="list-group-item list-group-item-action rounded-0" href="{t_block2.U_TITLE}">{t_block2.L_TITLE}</a>
+					<!-- ENDIF -->
+				<!-- ENDIF -->
+			<!-- END t_block2 -->
+
+			<!-- BEGIN folder -->
+				<!-- IF folder.S_CUR_FOLDER -->
+					<a class="list-group-item list-group-item-action rounded-0 active" href="{folder.U_FOLDER}"><!-- IF folder.UNREAD_MESSAGES > 0 -->{folder.FOLDER_NAME} <strong class="badge bg-light text-dark">{folder.UNREAD_MESSAGES}</strong><!-- ELSE -->{folder.FOLDER_NAME}<!-- ENDIF --></a>
+				<!-- ELSE -->
+					<a class="list-group-item list-group-item-action rounded-0" href="{folder.U_FOLDER}"><!-- IF folder.UNREAD_MESSAGES > 0 -->{folder.FOLDER_NAME} <strong class="badge bg-primary">{folder.UNREAD_MESSAGES}</strong><!-- ELSE -->{folder.FOLDER_NAME}<!-- ENDIF --></a>
+				<!-- ENDIF -->
+			<!-- END folder -->
+		<!-- ENDIF -->
+
+		<!-- BEGIN t_block2 -->
+			<!-- IF (S_PRIVMSGS and t_block2.S_LAST_ROW) or not S_PRIVMSGS -->
+				<!-- IF t_block2.S_SELECTED -->
+					<a class="list-group-item list-group-item-action rounded-0 active" href="{t_block2.U_TITLE}">{t_block2.L_TITLE}</a>
+				<!-- ELSE -->
+					<a class="list-group-item list-group-item-action rounded-0" href="{t_block2.U_TITLE}">{t_block2.L_TITLE}</a>
+				<!-- ENDIF -->
+			<!-- ENDIF -->
+		<!-- END t_block2 -->
+			</div>
+		</div>
+
+		<!-- IF .friends_online -->
+		<div class="card mb-3">
+			<div class="card-header">{L_FRIENDS} {L_FRIENDS_ONLINE}</div>
+			<div class="card-body">
+			<!-- BEGIN friends_online -->
+				{% EVENT ucp_header_friends_online_username_full_prepend %}{friends_online.USERNAME_FULL}{% EVENT ucp_header_friends_online_username_full_append %} <!-- IF S_SHOW_PM_BOX --> <input type="submit" name="add_to[{friends_online.USER_ID}]" value="{L_ADD}" class="btn btn-success btn-sm" /><!-- ENDIF -->
+			<!-- END friends_online -->
+			</div>
+		</div>
+		<!-- ENDIF -->
+
+		<!-- IF .friends_offline -->
+		<div class="card mb-3">
+			<div class="card-header">{L_FRIENDS} {L_FRIENDS_OFFLINE}</div>
+			<div class="card-body">
+			<!-- BEGIN friends_offline -->
+				{% EVENT ucp_header_friends_offline_username_full_prepend %}{friends_offline.USERNAME_FULL}{% EVENT ucp_header_friends_offline_username_full_append %} <!-- IF S_SHOW_PM_BOX --><input type="submit" name="add_to[{friends_offline.USER_ID}]" value="{L_ADD}" class="btn btn-success btn-sm" /><!-- ENDIF -->
+			<!-- END friends_offline -->
+			</div>
+		</div>
+		<!-- ENDIF -->
+
+		<!-- IF S_SHOW_COLOUR_LEGEND -->
+		<div class="card mb-3">
+			<div class="card-header">{L_MESSAGE_COLOURS}</div>
+			<div class="card-body">
+			<!-- BEGIN pm_colour_info -->
+				<i class="fa fa-circle fs-5<!-- IF pm_colour_info.CLASS eq 'pm_message_reported_colour' --> text-danger<!-- ELSEIF pm_colour_info.CLASS eq 'pm_marked_colour' --> text-warning<!-- ELSEIF pm_colour_info.CLASS eq 'pm_replied_colour' --> text-secondary<!-- ELSEIF pm_colour_info.CLASS eq 'pm_friend_colour' --> text-primary<!-- ELSEIF pm_colour_info.CLASS eq 'pm_foe_colour' --> text-dark<!-- ENDIF -->" aria-hidden="true"></i> {pm_colour_info.LANG}<br>
+			<!-- END pm_colour_info -->
+			</div>
+		</div>
+		<!-- ENDIF -->
+
+	</div>
+
+	<div id="cp-main" class="col-lg-9">

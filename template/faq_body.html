@@ -1,0 +1,35 @@
+<!-- INCLUDE overall_header.html -->
+<div class="card mb-3">
+	<div class="card-header bg-secondary text-white">{L_FAQ_TITLE}</div>
+	<div class="card-body p-0">
+		<div class="row m-0">
+			<div class="col-12 col-lg-3 bg-light border-end">
+			<ul id="faq_links" class="navba nav nav-pills py-3">
+			<!-- BEGIN faq_block -->
+				<li class="nav-item dropdown w-100"><a class="nav-link dropdown-toggle text-wrap" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">{faq_block.BLOCK_TITLE}</a>
+					<ul class="dropdown-menu dropdown-menu-start mx-3">
+					<!-- BEGIN faq_row -->
+						<li><a class="dropdown-item" href="#f{faq_block.S_ROW_COUNT}r{faq_block.faq_row.S_ROW_COUNT}">{faq_block.faq_row.FAQ_QUESTION}</a></li>
+					<!-- END faq_row -->
+					</ul>
+				</li>
+				<!-- END faq_block -->
+			</ul>
+			</div>
+
+			<hr class="d-lg-none m-0">
+
+			<div class="col-12 col-lg-9 position-relative px-3" style="height: 450px; overflow-y: scroll;" data-bs-spy="scroll" data-bs-target="#faq_links" data-bs-offset="0" tabindex="0">
+			<!-- BEGIN faq_block -->
+				<h5 class="alert alert-primary my-3 p-2">{faq_block.BLOCK_TITLE}</h5>
+				<!-- BEGIN faq_row -->
+					<p id="f{faq_block.S_ROW_COUNT}r{faq_block.faq_row.S_ROW_COUNT}" class="mb-1"><strong>{faq_block.faq_row.FAQ_QUESTION}</strong></p>
+					<p class="m-0">{faq_block.faq_row.FAQ_ANSWER}</p>
+				<!-- IF not faq_block.faq_row.S_LAST_ROW --><hr><!-- ENDIF -->
+				<!-- END faq_row -->
+			<!-- END faq_block -->
+			</div>
+		</div>
+	</div>
+</div>
+<!-- INCLUDE overall_footer.html -->

@@ -1,0 +1,25 @@
+<!-- IF S_SIMPLE_MESSAGE -->
+	<!-- INCLUDE simple_header.html -->
+<!-- ELSE -->
+	<!-- INCLUDE overall_header.html -->
+<!-- ENDIF -->
+
+<div class="col-md-12 col-lg-8 offset-lg-2">
+	<div id="message" class="card mb-3">
+		<div class="card-header bg-secondary text-white">
+			{MESSAGE_TITLE}
+		</div>
+		<div class="card-body">
+			<p>{MESSAGE_TEXT}</p>
+		<!-- IF SCRIPT_NAME == "search" and not S_BOARD_DISABLED and not S_NO_SEARCH and L_RETURN_TO_SEARCH_ADV -->
+			<a href="{U_SEARCH}" accesskey="r"><i class="fa fa-angle-{S_CONTENT_FLOW_BEGIN} fa-fw icon-black" aria-hidden="true"></i> {L_GO_TO_SEARCH_ADV}</a>
+		<!-- ENDIF -->
+		</div>
+	</div>
+</div>
+
+<!-- IF S_SIMPLE_MESSAGE -->
+	<!-- INCLUDE simple_footer.html -->
+<!-- ELSE -->
+	<!-- INCLUDE overall_footer.html -->
+<!-- ENDIF -->

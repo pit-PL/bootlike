@@ -1,0 +1,86 @@
+<!-- IF S_AJAX_REQUEST -->
+	<form action="{S_CONFIRM_ACTION}" method="post">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header alert_title">
+					<h5>{MESSAGE_TITLE}</h5>
+					<a href="#" class="alert_close btn-close float-end" title="{L_CLOSE_WINDOW}"><span class="text-danger" aria-hidden="true"></span></a>
+				</div>
+				<div class="modal-body">
+					<p class="mb-3">{MESSAGE_TEXT}</p>
+
+				<!-- IF not S_SHADOW_TOPICS -->
+					<!-- IF not S_SOFTDELETED and S_ALLOWED_DELETE and S_ALLOWED_SOFTDELETE -->
+					<label class="fw-bold" for="delete_permanent">{L_DELETE_PERMANENTLY}{L_COLON}</label>
+					<div class="form-check form-switch mb-3">
+						<input class="form-check-input mt-2" id="delete_permanent" name="delete_permanent" type="checkbox" value="1" {S_CHECKED_PERMANENT} /><!-- IF S_TOPIC_MODE --> {DELETE_TOPIC_PERMANENTLY}<!-- ELSE --> {DELETE_POST_PERMANENTLY}<!-- ENDIF -->
+						<label class="form-check-label mt-1" for="delete_permanent"><!-- IF S_TOPIC_MODE -->{DELETE_TOPIC_PERMANENTLY_EXPLAIN}<!-- ELSE -->{DELETE_POST_PERMANENTLY_EXPLAIN}<!-- ENDIF --></label>
+					</div>
+					<!-- ENDIF -->
+					<label class="fw-bold mb-1" for="delete_reason">{L_DELETE_REASON}{L_COLON}</label>
+					<input class="form-control" id="delete_reason" name="delete_reason" type="text" value="" maxlength="120" size="45" />
+					<div class="form-text">{L_DELETE_REASON_EXPLAIN}</div>
+				<!-- ENDIF -->
+				</div>
+
+				<div class="modal-footer justify-content-center">
+					<input class="btn btn-danger me-1" type="button" name="cancel" value="{L_NO}" />
+					<input class="btn btn-success" type="button" name="confirm" value="{L_YES}" />
+				</div>
+			</div>
+		</div>
+	</form>
+<!-- ELSE -->
+
+<!-- INCLUDE overall_header.html -->
+
+<form id="confirm" action="{S_CONFIRM_ACTION}" method="post">
+	<div class="col-md-12 col-lg-8 offset-lg-2">
+		<div class="card mb-3">
+			<div class="card-header bg-danger text-white">
+				{MESSAGE_TITLE}
+			</div>
+			<div class="card-body pb-0">
+			<p>{MESSAGE_TEXT}</p>
+
+			<!-- IF not S_SHADOW_TOPICS -->
+				<!-- IF not S_SOFTDELETED and S_ALLOWED_DELETE and S_ALLOWED_SOFTDELETE -->
+				<dl class="row">
+					<dt class="col-lg-3 col-md-4 col-12"><label class="col-form-label" for="delete_permanent">{L_DELETE_PERMANENTLY}{L_COLON}</label></dt>
+					<dd class="col-lg-9 col-md-8 col-12">
+						<div class="form-switch">
+							<label class="col-form-label" for="delete_permanent">
+								<input id="delete_permanent" name="delete_permanent" class="form-check-input" type="checkbox" value="1" {S_CHECKED_PERMANENT} /><!-- IF S_TOPIC_MODE --> {DELETE_TOPIC_PERMANENTLY}<!-- ELSE --> {DELETE_POST_PERMANENTLY}<!-- ENDIF -->
+							</label>
+						</div>
+					</dd>
+				</dl>
+				<!-- ENDIF -->
+
+				{% EVENT confirm_delete_body_delete_reason_before %}
+
+				<dl class="row">
+					<dt class="col-lg-3 col-md-4 col-12">
+						<label class="col-form-label" for="delete_reason">{L_DELETE_REASON}{L_COLON}</label>
+					</dt>
+					<dd class="col-lg-9 col-md-8 col-12">
+						<div class="input-group">
+							<input type="text" name="delete_reason" id="delete_reason" value="" class="form-control" maxlength="120" size="45" />
+							<button class="btn btn-outline-info" type="button" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="{L_DELETE_REASON_EXPLAIN}" data-bs-html="true"><i class="fa fa-info fa-fw" aria-hidden="true"></i></button>
+						</div>
+					</dd>
+				</dl>
+			<!-- ENDIF -->
+			</div>
+
+			<div class="card-footer text-center">
+				{S_HIDDEN_FIELDS}
+				<button class="btn btn-danger me-1" type="submit" name="cancel" value="{L_NO}" /><i class="fa fa-minus fa-fw" aria-hidden="true"></i> {L_NO}</button>
+				<button class="btn btn-success" type="submit" name="confirm" value="{L_YES}" /><i class="fa fa-plus fa-fw" aria-hidden="true"></i> {L_YES}</button>
+			</div>
+		</div>
+	</div>
+</form>
+
+<!-- INCLUDE overall_footer.html -->
+<!-- ENDIF -->

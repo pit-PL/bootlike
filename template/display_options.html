@@ -1,0 +1,17 @@
+<div class="btn-group dropdown">
+	<button type="button" class="btn btn-lg dropdown-toggle rounded-0" data-bs-toggle="dropdown" aria-expanded="false" title="{L_SORT_OPTIONS}"><i class="fa fa-sort-amount-asc fa-fw" aria-hidden="true"></i></button>
+	<ul class="dropdown-menu dropdown-form display-options text-nowrap p-2">
+	<!-- IF S_SORT_OPTIONS -->
+		<li class="text-end mb-1"><label class="col-form-label">{L_SORT_BY}{L_COLON}</label> <select class="form-select" name="sk" id="sk">{S_SORT_OPTIONS}</select></li>
+		<li class="text-end mb-1"><label class="col-form-label">{L_SORT_DIRECTION}{L_COLON}</label> <select class="form-select" name="sd" id="sd">{S_ORDER_SELECT}</select></li>
+	<!-- ELSE -->
+		<li class="text-end mb-1"><label class="col-form-label">{L_DISPLAY}{L_COLON}</label> {S_SELECT_SORT_DAYS}</li>
+		<!-- IF S_SELECT_SORT_KEY -->
+		<li class="text-end mb-1"><label class="col-form-label">{L_SORT_BY}{L_COLON}</label> {S_SELECT_SORT_KEY}</li>
+		<li class="text-end mb-1"><label class="col-form-label">{L_SORT_DIRECTION}{L_COLON}</label> {S_SELECT_SORT_DIR}</li>
+		<!-- ENDIF -->
+	<!-- ENDIF -->
+		<li class="dropdown-divider"><li>
+		<li><input type="submit" class="btn btn-secondary btn-sm w-100" name="sort" value="{L_GO}" /></li>
+	</ul>
+</div>

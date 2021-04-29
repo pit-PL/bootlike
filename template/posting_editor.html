@@ -1,0 +1,247 @@
+	<!-- IF ERROR -->
+	<div class="alert alert-danger">{ERROR}</div>
+	<!-- ENDIF -->
+
+	{% EVENT posting_editor_topic_icons_before %}
+
+	<!-- IF S_SHOW_TOPIC_ICONS or S_SHOW_PM_ICONS -->
+	<dl class="row">
+		<dt class="col-lg-3 col-md-4 col-12"><label class="col-form-label" for="icon">{L_ICON}{L_COLON}</label></dt>
+		<dd class="col-lg-9 col-md-8 col-12">
+			{% EVENT posting_editor_topic_icons_prepend %}
+			<div class="input-group btn-radio-group" data-bs-toggle="buttons">
+				<label class="form-check-label btn btn-outline-secondary btn-radio" for="icon">
+					<input class="btn-check" type="radio" name="icon" id="icon" value="0" checked="checked" tabindex="1" /><!-- IF S_SHOW_TOPIC_ICONS -->{L_NO_TOPIC_ICON}<!-- ELSE -->{L_NO_PM_ICON}<!-- ENDIF -->
+				</label>
+				<!-- BEGIN topic_icon -->
+				<label class="form-check-label btn btn-outline-secondary btn-radio" for="icon-{topic_icon.ICON_ID}"><input class="btn-check" type="radio" name="icon" id="icon-{topic_icon.ICON_ID}" value="{topic_icon.ICON_ID}" {topic_icon.S_ICON_CHECKED} tabindex="1" /><img class="topic-icon" src="{topic_icon.ICON_IMG}" width="{topic_icon.ICON_WIDTH}" height="{topic_icon.ICON_HEIGHT}" alt="{topic_icon.ICON_ALT}" title="{topic_icon.ICON_ALT}" /></label>
+				<!-- END topic_icon -->
+			</div>
+			{% EVENT posting_editor_topic_icons_append %}
+		</dd>
+	</dl>
+	<!-- ENDIF -->
+
+	{% EVENT posting_editor_topic_icons_after %}
+
+	<!-- IF not S_PRIVMSGS and S_DISPLAY_USERNAME -->
+	<dl class="row">
+		<dt class="col-lg-3 col-md-4 col-12"><label class="col-form-label" for="username">{L_USERNAME}{L_COLON}</label></dt>
+		<dd class="col-lg-9 col-md-8 col-12">
+			<input class="form-control" type="text" tabindex="1" name="username" id="username" size="25" value="{USERNAME}" />
+		</dd>
+	</dl>
+	<!-- ENDIF -->
+
+	<!-- EVENT posting_editor_subject_before -->
+
+	<!-- IF S_POST_ACTION or S_PRIVMSGS or S_EDIT_DRAFT -->
+	<dl class="row">
+		<dt class="col-lg-3 col-md-4 col-12"><label class="col-form-label" for="subject">{L_SUBJECT}{L_COLON}</label></dt>
+		<dd class="col-lg-9 col-md-8 col-12">
+			<!-- EVENT posting_editor_subject_prepend -->
+			<input class="form-control w-100" type="text" name="subject" id="subject" size="40" maxlength="<!-- IF S_NEW_MESSAGE -->120<!-- ELSE -->124<!-- ENDIF -->" tabindex="2" value="{SUBJECT}{DRAFT_SUBJECT}" />
+			<!-- EVENT posting_editor_subject_append -->
+		</dd>
+	</dl>
+	<!-- IF CAPTCHA_TEMPLATE and S_CONFIRM_CODE -->
+		<!-- DEFINE $CAPTCHA_TAB_INDEX = 3 -->
+		<!-- INCLUDE {CAPTCHA_TEMPLATE} -->
+	<!-- ENDIF -->
+	<!-- ENDIF -->
+
+	<!-- EVENT posting_editor_subject_after -->
+
+	<!-- INCLUDE posting_buttons.html -->
+
+	<!-- EVENT posting_editor_message_before -->
+
+	<div id="message-box">
+		<textarea class="form-control rounded-0"<!-- IF S_UCP_ACTION and not S_PRIVMSGS and not S_EDIT_DRAFT --> name="signature" id="signature" style="height: 9em;"<!-- ELSE --> name="message" id="message"<!-- ENDIF --> rows="15" cols="76" tabindex="4" onselect="storeCaret(this);" onclick="storeCaret(this);" onkeyup="storeCaret(this);" onfocus="initInsertions();">{MESSAGE}{DRAFT_MESSAGE}{SIGNATURE}</textarea>
+	</div>
+	<!-- EVENT posting_editor_message_after -->
+
+<!-- IF $EXTRA_POSTING_OPTIONS eq 1 -->
+
+	<!-- IF not S_SHOW_DRAFTS -->
+		</div>
+	</div>
+	<!-- ENDIF -->
+
+	<!-- IF not S_SHOW_DRAFTS and not $SIG_EDIT eq 1 -->
+	<div class="text-center mb-3">
+		{S_HIDDEN_ADDRESS_FIELD}
+		{S_HIDDEN_FIELDS}
+		<!-- EVENT posting_editor_submit_buttons -->
+		<!-- IF S_HAS_DRAFTS --><button class="btn btn-secondary mt-1 me-1" type="submit" accesskey="d" tabindex="8" name="load" onclick="load_draft = true;"><i class="fa fa-spinner fa-fw" aria-hidden="true"></i> {L_LOAD_DRAFT}</button><!-- ENDIF -->
+		<!-- IF S_SAVE_ALLOWED --><button class="btn btn-secondary mt-1 me-1" type="submit" accesskey="k" tabindex="7" name="save"><i class="fa fa-floppy-o fa-fw" aria-hidden="true"></i>  {L_SAVE_DRAFT}</button><!-- ENDIF -->
+		<button class="btn btn-secondary mt-1 me-1" tabindex="5" name="preview"<!-- IF not S_PRIVMSGS --> onclick="document.getElementById('postform').action += '#preview';"<!-- ENDIF -->><i class="fa fa-eye fa-fw" aria-hidden="true"></i> {L_PREVIEW}</button>
+		<button class="btn btn-success mt-1 me-1 default-submit-action" type="submit" value="{L_SUBMIT}" accesskey="s" tabindex="6" name="post"><i class="fa fa-level-down fa-rotate-90 fa-fw" aria-hidden="true"></i> {L_SUBMIT}</button>
+	</div>
+	<!-- ENDIF -->
+
+	<!-- IF not S_PRIVMSGS and not S_SHOW_DRAFTS and not $SIG_EDIT eq 1 -->
+		<div id="tabs" class="sub-panels" data-show-panel="<!-- IF SHOW_PANEL -->{SHOW_PANEL}<!-- ELSE -->options-panel<!-- ENDIF -->" role="tablist">
+			<ul class="nav nav-pills mb-1">
+				<li class="nav-item"><a href="#tabs" id="options-panel-tab" class="nav-link active" data-subpanel="options-panel" role="tab" aria-controls="options-panel">{L_OPTIONS}</a></li>
+				<!-- IF S_SHOW_ATTACH_BOX and FILTERS -->
+					<li class="nav-item">
+						<a href="#tabs" id="attach-panel-tab" class="nav-link" data-subpanel="attach-panel" role="tab" aria-controls="attach-panel">{L_ATTACHMENTS}
+						</a>
+					</li>
+				<!-- ENDIF -->
+				<!-- IF S_SHOW_POLL_BOX || S_POLL_DELETE -->
+					<li class="nav-item">
+						<a href="#tabs" id="poll-panel-tab" class="nav-link" data-subpanel="poll-panel" role="tab" aria-controls="poll-panel">{L_ADD_POLL}</a>
+					</li>
+				<!-- ENDIF -->
+				<!-- EVENT posting_editor_add_panel_tab -->
+			</ul>
+		</div>
+	<!-- ENDIF -->
+
+	<!-- IF not S_SHOW_DRAFTS and not $SIG_EDIT eq 1 -->
+	<div id="options-panel" class="card mb-3">
+		<div class="card-body">
+			<div class="d-md-flex align-items-center justify-content-md-between">
+				<div>
+					<!-- EVENT posting_editor_options_prepend -->
+					<!-- IF S_BBCODE_ALLOWED -->
+					<div class="form-check form-switch">
+						<input class="form-check-input" type="checkbox" name="disable_bbcode" id="disable_bbcode"{S_BBCODE_CHECKED} />
+						<label class="form-check-label" for="disable_bbcode">{L_DISABLE_BBCODE}</label>
+					</div>
+					<!-- ENDIF -->
+					<!-- IF S_SMILIES_ALLOWED -->
+					<div class="form-check form-switch">
+						<input class="form-check-input" type="checkbox" name="disable_smilies" id="disable_smilies"{S_SMILIES_CHECKED} />
+						<label class="form-check-label" for="disable_smilies">{L_DISABLE_SMILIES}</label>
+					</div>
+					<!-- ENDIF -->
+					<!-- IF S_LINKS_ALLOWED -->
+					<div class="form-check form-switch">
+						<input class="form-check-input" type="checkbox" name="disable_magic_url" id="disable_magic_url"{S_MAGIC_URL_CHECKED} />
+						<label class="form-check-label" for="disable_magic_url">{L_DISABLE_MAGIC_URL}</label>
+					</div>
+					<!-- ENDIF -->
+					<!-- IF S_SIG_ALLOWED -->
+					<div class="form-check form-switch">
+						<input class="form-check-input" type="checkbox" name="attach_sig" id="attach_sig"{S_SIGNATURE_CHECKED} />
+						<label class="form-check-label" for="attach_sig">{L_ATTACH_SIG}</label>
+					</div>
+					<!-- ENDIF -->
+					<!-- IF S_NOTIFY_ALLOWED -->
+					<div class="form-check form-switch">
+						<input class="form-check-input" type="checkbox" name="notify" id="notify"{S_NOTIFY_CHECKED} />
+						<label class="form-check-label" for="notify">{L_NOTIFY_REPLY}</label>
+					</div>
+					<!-- ENDIF -->
+					<!-- IF S_LOCK_TOPIC_ALLOWED -->
+					<div class="form-check form-switch">
+						<input class="form-check-input" type="checkbox" name="lock_topic" id="lock_topic"{S_LOCK_TOPIC_CHECKED} />
+						<label class="form-check-label" for="lock_topic">{L_LOCK_TOPIC}</label>
+					</div>
+					<!-- ENDIF -->
+					<!-- IF S_LOCK_POST_ALLOWED -->
+					<div class="form-check form-switch">
+						<input class="form-check-input" type="checkbox" name="lock_post" id="lock_post"{S_LOCK_POST_CHECKED} />
+						<label class="form-check-label" for="lock_post">{L_LOCK_POST} [{L_LOCK_POST_EXPLAIN}]</label>
+					</div>
+					<!-- ENDIF -->
+				</div>
+
+				<div class="text-md-end">
+				<hr class="d-md-none">
+				<!-- EVENT posting_editor_smilies_before -->
+				<!-- EVENT posting_editor_smilies_after -->
+				<!-- IF BBCODE_STATUS -->
+					{BBCODE_STATUS}<br>
+					<!-- IF S_BBCODE_ALLOWED -->
+						{IMG_STATUS}<br>
+						{FLASH_STATUS}<br>
+						{URL_STATUS}<br>
+					<!-- ENDIF -->
+					{SMILIES_STATUS}
+				<!-- IF S_SHOW_SMILEY_LINK and S_SMILIES_ALLOWED -->
+					<a class="d-block" href="{U_MORE_SMILIES}" onclick="popup(this.href, 750, 350, '_phpbbsmilies'); return false;">{L_MORE_SMILIES}</a>
+				<!-- ENDIF -->
+				<!-- EVENT posting_editor_smilies_after -->
+				<!-- ENDIF -->
+				<!-- EVENT posting_editor_bbcode_status_after -->
+				<!-- IF S_EDIT_DRAFT || S_DISPLAY_REVIEW -->
+					<!-- IF S_EDIT_DRAFT --><a class="d-block" href="{S_UCP_ACTION}">{L_BACK_TO_DRAFTS}</a><!-- ENDIF -->
+					<!-- IF S_DISPLAY_REVIEW --><a class="d-block" href="#review">{L_TOPIC_REVIEW}</a><!-- ENDIF -->
+				<!-- ENDIF -->
+				</div>
+			</div>
+
+			<!-- IF S_TYPE_TOGGLE or S_TOPIC_TYPE_ANNOUNCE or S_TOPIC_TYPE_STICKY -->
+			<hr>
+			<!-- ENDIF -->
+
+		<!-- IF S_TYPE_TOGGLE or S_TOPIC_TYPE_ANNOUNCE or S_TOPIC_TYPE_STICKY -->
+			<div class="row">
+			<!-- IF S_TYPE_TOGGLE -->
+				<div class="col-md-6 col-12">
+					<label class="d-block mb-2" for="topic_type-0"><strong><!-- IF S_EDIT_POST -->{L_CHANGE_TOPIC_TO}<!-- ELSE -->{L_POST_TOPIC_AS}<!-- ENDIF -->{L_COLON}</strong></label>
+					<div class="input-group btn-radio-group" data-bs-toggle="buttons">
+					<!-- BEGIN topic_type -->
+						<label class="form-check-label btn btn-outline-secondary btn-radio" for="topic_type-{topic_type.VALUE}">
+							<input class="btn-check" type="radio" name="topic_type" id="topic_type-{topic_type.VALUE}" value="{topic_type.VALUE}"{topic_type.S_CHECKED} />{topic_type.L_TOPIC_TYPE}
+						</label>
+					<!-- END topic_type -->
+					</div>
+				</div>
+			<!-- ENDIF -->
+
+			<!-- IF S_TOPIC_TYPE_ANNOUNCE or S_TOPIC_TYPE_STICKY -->
+				<div class="col-md-6 col-12 mt-2 mt-md-0 w-auto">
+					<label class="d-block mb-2" for="topic_time_limit"><strong>{L_STICK_TOPIC_FOR}{L_COLON}</strong></label>
+					<div class="input-group">
+						<input class="form-control" type="number" min="0" max="999" name="topic_time_limit" id="topic_time_limit" value="{TOPIC_TIME_LIMIT}" />
+						<span class="input-group-text">{L_DAYS}</span>
+						<button class="btn btn-outline-info" type="button" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="{L_STICK_TOPIC_FOR_EXPLAIN}"><i class="fa fa-info fa-fw" aria-hidden="true"></i></button>
+					</div>
+				</div>
+			<!-- ENDIF -->
+			</div>
+		<!-- ENDIF -->
+
+			<!-- IF S_SOFTDELETE_ALLOWED or S_DELETE_ALLOWED -->
+			<hr>
+			<div class="row">
+				<div class="col-md-6 col-12">
+					<label class="d-block mb-2" for="delete"><strong>{L_DELETE_POST}{L_COLON}</strong></label>
+					<div class="input-group">
+						<div class="input-group-text border-primary border-end-0">
+							<input class="form-check-input mt-0" type="checkbox" name="delete" id="delete" {S_SOFTDELETE_CHECKED} />
+						</div>
+						<label class="btn btn-outline-primary text-nowrap" for="delete">{L_DELETE_POST_WARN}</label>
+					</div>
+				</div>
+			<!-- IF S_DELETE_ALLOWED and S_SOFTDELETE_ALLOWED -->
+				<div class="col-md-6 col-12 mt-2 mt-md-0">
+					<label class="d-block mb-2" for="delete"><strong>{L_DELETE_PERMANENTLY}{L_COLON}</strong></label>
+					<div class="input-group">
+						<div class="input-group-text border-primary border-end-0">
+							<input class="form-check-input mt-0" type="checkbox" name="delete_permanent" id="delete_permanent" />
+						</div>
+						<label class="btn btn-outline-primary text-nowrap" for="delete_permanent">{L_DELETE_POST_PERMANENTLY}</label>
+					</div>
+				</div>
+			<!-- ENDIF -->
+			</div>
+			<!-- ENDIF -->
+
+			<!-- IF S_EDIT_REASON -->
+			<hr>
+			<div class="row mb-0">
+				<div class="col">
+					<label class="d-block mb-2" for="edit_reason"><strong>{L_EDIT_REASON}{L_COLON}</strong></label>
+					<input class="form-control w-100" type="text" name="edit_reason" id="edit_reason" value="{EDIT_REASON}" />
+				</div>
+			</div>
+			<!-- ENDIF -->
+		<!-- ENDIF -->
+
+<!-- ENDIF -->

@@ -1,0 +1,131 @@
+
+<form method="post" action="{S_MODE_ACTION}" id="search_memberlist">
+
+<div class="card mb-2">
+	<div class="card-header bg-secondary text-white">
+		{L_FIND_USERNAME}
+	</div>
+	<div class="card-body">
+
+	<p>{L_FIND_USERNAME_EXPLAIN}</p>
+
+	<div class="row">
+	<!-- EVENT memberlist_search_fields_before -->
+		<div class="col-lg-6">
+		<dl class="row mb-3" style="overflow: visible;">
+			<dt class="col-lg-3 col-md-4 col-12">
+				<label class="col-form-label" for="username">{L_USERNAME}{L_COLON}</label>
+			</dt>
+			<dd class="col-lg-9 col-md-8 col-12">
+				<input class="form-control w-100" type="text" name="username" id="username" value="{USERNAME}"<!-- IF U_LIVE_SEARCH --> autocomplete="off" data-filter="phpbb.search.filter" data-ajax="member_search" data-min-length="3" data-url="{U_LIVE_SEARCH}" data-results="#user-search"<!-- ENDIF --> />
+				<!-- IF U_LIVE_SEARCH -->
+					<div id="user-search" style="display: none;">
+						<ol class="dropdown-contents search-results">
+							<li class="search-result-tpl"><span class="search-result"></span></li>
+						</ol>
+					</div>
+				<!-- ENDIF -->
+			</dd>
+		</dl>
+	<!-- IF S_EMAIL_SEARCH_ALLOWED -->
+		<dl class="row">
+			<dt class="col-lg-3 col-md-4 col-12">
+				<label class="col-form-label" for="email">{L_EMAIL}{L_COLON}</label>
+			</dt>
+			<dd class="col-lg-9 col-md-8 col-12">
+				<input class="form-control w-100" type="text" name="email" id="email" value="{EMAIL}" />
+			</dd>
+		</dl>
+	<!-- ENDIF -->
+	<!-- IF S_JABBER_ENABLED -->
+		<dl class="row">
+			<dt class="col-lg-3 col-md-4 col-12">
+				<label class="col-form-label" for="jabber">{L_JABBER}{L_COLON}</label>
+			</dt>
+			<dd class="col-lg-9 col-md-8 col-12">
+				<input class="form-control w-100" type="text" name="jabber" id="jabber" value="{JABBER}" />
+			</dd>
+		</dl>
+	<!-- ENDIF -->
+		<dl class="row">
+			<dt class="col-lg-3 col-md-4 col-12">
+				<label class="col-form-label" for="search_group_id">{L_GROUP}{L_COLON}</label>
+			</dt>
+			<dd class="col-lg-9 col-md-8 col-12">
+				<select class="form-select w-100" name="search_group_id" id="search_group_id">{S_GROUP_SELECT}</select>
+			</dd>
+		</dl>
+		<!-- EVENT memberlist_search_sorting_options_before -->
+		<dl class="row">
+			<dt class="col-lg-3 col-md-4 col-12">
+				<label class="col-form-label" for="sk">{L_SORT_BY}{L_COLON}</label>
+			</dt>
+			<dd class="col-lg-9 col-md-8 col-12">
+				<div class="input-group">
+					<select class="form-select w-50" name="sk" id="sk">{S_SORT_OPTIONS}</select>
+					<select class="form-select w-50" name="sd">{S_ORDER_SELECT}</select>
+				</div>
+			</dd>
+		</dl>
+		</div>
+
+		<div class="col-lg-6">
+		<dl class="row">
+			<dt class="col-lg-3 col-md-4 col-12">
+				<label class="col-form-label" for="joined">{L_JOINED}{L_COLON}</label>
+			</dt>
+			<dd class="col-lg-9 col-md-8 col-12">
+				<div class="input-group">
+					<select class="form-select w-50" name="joined_select">{S_JOINED_TIME_OPTIONS}</select>
+					<input class="form-control w-50" type="text" name="joined" id="joined" value="{JOINED}" />
+				</div>
+			</dd>
+		</dl>
+	<!-- IF S_VIEWONLINE -->
+		<dl class="row">
+			<dt class="col-lg-3 col-md-4 col-12">
+				<label class="col-form-label" for="active">{L_LAST_ACTIVE}{L_COLON}</label>
+			</dt>
+			<dd class="col-lg-9 col-md-8 col-12">
+				<div class="input-group">
+					<select class="form-select w-50" name="active_select">{S_ACTIVE_TIME_OPTIONS}</select>
+					<input class="form-control w-50" type="text" name="active" id="active" value="{ACTIVE}" />
+				</div>
+			</dd>
+		</dl>
+	<!-- ENDIF -->
+		<dl class="row">
+			<dt class="col-lg-3 col-md-4 col-12">
+				<label class="col-form-label" for="count">{L_POSTS}{L_COLON}</label>
+			</dt>
+			<dd class="col-lg-9 col-md-8 col-12">
+				<div class="input-group">
+					<select class="form-select w-50" name="count_select">{S_COUNT_OPTIONS}</select>
+					<input class="form-control w-50" type="number" min="0" name="count" id="count" value="{COUNT}" />
+				</div>
+			</dd>
+		</dl>
+	<!-- IF S_IP_SEARCH_ALLOWED -->
+		<dl class="row">
+			<dt class="col-lg-3 col-md-4 col-12">
+				<label class="col-form-label" for="ip">{L_POST_IP}{L_COLON}</label>
+			</dt>
+			<dd class="col-lg-9 col-md-8 col-12">
+				<input class="form-control w-100" type="text" name="ip" id="ip" value="{IP}" />
+			</dd>
+		</dl>
+	<!-- ENDIF -->
+		<!-- EVENT memberlist_search_fields_after -->
+		</div>
+	
+	</div>
+	</div>
+
+	<div class="card-footer text-center">
+		<button class="btn btn-danger me-1" type="reset" value="{L_RESET}" name="reset"><i class="fa fa-undo fa-fw" aria-hidden="true"></i> {L_RESET}</button>
+		<button class="btn btn-success" type="submit" name="submit" value="{L_SEARCH}"><i class="fa fa-search fa-fw" aria-hidden="true"></i> {L_SEARCH}</button>
+		{S_FORM_TOKEN}
+	</div>
+</div>
+
+</form>

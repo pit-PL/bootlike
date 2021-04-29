@@ -1,0 +1,10 @@
+<!-- BEGIN oauth -->
+<dl class="row">
+	<dt class="col-lg-3 col-md-4 col-12 d-none d-md-block">&nbsp;</dt>
+	<dd class="col-lg-9 col-md-8 col-12">
+	{% for oauth in oauth %}
+		<a href="{{ oauth.REDIRECT_URL }}" class="badge bg-primary">{{ oauth.SERVICE_NAME }}</a>
+	{% endfor %}
+	</dd>
+</dl>
+<!-- END oauth -->

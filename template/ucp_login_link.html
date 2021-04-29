@@ -1,0 +1,53 @@
+<!-- INCLUDE overall_header.html -->
+
+<div class="card">
+	<div class="card-header bg-secondary text-white">
+		{SITENAME} - {L_LOGIN_LINK}
+	</div>
+	<div class="card-body">
+
+		<p>{L_LOGIN_LINK_EXPLAIN}</p>
+
+	<!-- IF LOGIN_LINK_ERROR -->
+		<div class="alert alert-danger">{LOGIN_LINK_ERROR}</div>
+	<!-- ENDIF -->
+
+		<form action="{REGISTER_ACTION}" method="post" id="register">
+			{S_HIDDEN_FIELDS}
+			<input type="submit" name="register" tabindex="5" value="{L_REGISTER}" class="btn btn-secondary" />
+		</form>
+
+		<hr>
+
+		<h5 class="card-title pb-1 text-capitalize">{L_LOGIN}</h5>
+
+		<form action="{LOGIN_ACTION}" method="post" id="login">
+
+		<!-- IF LOGIN_ERROR -->
+			<div class="alert alert-danger">{LOGIN_ERROR}</div>
+		<!-- ENDIF -->
+			<dl class="row">
+				<dt class="col-lg-3 col-md-4 col-12"><label class="col-form-label" for="{USERNAME_CREDENTIAL}">{L_USERNAME}{L_COLON}</label></dt>
+				<dd class="col-lg-9 col-md-8 col-12"><input type="text" tabindex="1" name="{USERNAME_CREDENTIAL}" id="{USERNAME_CREDENTIAL}" size="25" value="{LOGIN_USERNAME}" class="form-control" /></dd>
+			</dl>
+			<dl class="row">
+				<dt class="col-lg-3 col-md-4 col-12"><label class="col-form-label" for="{PASSWORD_CREDENTIAL}">{L_PASSWORD}{L_COLON}</label></dt>
+				<dd class="col-lg-9 col-md-8 col-12"><input type="password" tabindex="2" id="{PASSWORD_CREDENTIAL}" name="{PASSWORD_CREDENTIAL}" size="25" class="form-control" autocomplete="off" /></dd>
+			</dl>
+			<!-- IF CAPTCHA_TEMPLATE and S_CONFIRM_CODE -->
+				<!-- DEFINE $CAPTCHA_TAB_INDEX = 3 -->
+				<!-- INCLUDE {CAPTCHA_TEMPLATE} -->
+			<!-- ENDIF -->
+
+			{S_LOGIN_REDIRECT}
+			<dl class="row">
+				<dt class="col-lg-3 col-md-4 col-12 d-none d-md-block">&nbsp;</dt>
+				<dd class="col-lg-9 col-md-8 col-12">{S_HIDDEN_FIELDS}<input type="submit" name="login" tabindex="4" value="{L_LOGIN}" class="btn btn-success" /></dd>
+			</dl>
+
+		</form>
+
+	</div>
+</div>
+
+<!-- INCLUDE overall_footer.html -->

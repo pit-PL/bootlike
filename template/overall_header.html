@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html dir="{S_CONTENT_DIRECTION}" lang="{S_USER_LANG}">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+{META}
+<title><!-- IF UNREAD_NOTIFICATIONS_COUNT -->({UNREAD_NOTIFICATIONS_COUNT}) <!-- ENDIF --><!-- IF not S_VIEWTOPIC and not S_VIEWFORUM -->{SITENAME} - <!-- ENDIF --><!-- IF S_IN_MCP -->{L_MCP} - <!-- ELSEIF S_IN_UCP -->{L_UCP} - <!-- ENDIF -->{PAGE_TITLE}<!-- IF S_VIEWTOPIC or S_VIEWFORUM --> - {SITENAME}<!-- ENDIF --></title>
+
+<!-- IF S_ENABLE_FEEDS -->
+	<!-- IF S_ENABLE_FEEDS_OVERALL --><link rel="alternate" type="application/atom+xml" title="{L_FEED} - {SITENAME}" href="{{ path('phpbb_feed_index') }}"><!-- ENDIF -->
+	<!-- IF S_ENABLE_FEEDS_NEWS --><link rel="alternate" type="application/atom+xml" title="{L_FEED} - {L_FEED_NEWS}" href="{{ path('phpbb_feed_news') }}"><!-- ENDIF -->
+	<!-- IF S_ENABLE_FEEDS_FORUMS --><link rel="alternate" type="application/atom+xml" title="{L_FEED} - {L_ALL_FORUMS}" href="{{ path('phpbb_feed_forums') }}"><!-- ENDIF -->
+	<!-- IF S_ENABLE_FEEDS_TOPICS --><link rel="alternate" type="application/atom+xml" title="{L_FEED} - {L_FEED_TOPICS_NEW}" href="{{ path('phpbb_feed_topics') }}"><!-- ENDIF -->
+	<!-- IF S_ENABLE_FEEDS_TOPICS_ACTIVE --><link rel="alternate" type="application/atom+xml" title="{L_FEED} - {L_FEED_TOPICS_ACTIVE}" href="{{ path('phpbb_feed_topics_active') }}"><!-- ENDIF -->
+	<!-- IF S_ENABLE_FEEDS_FORUM and S_FORUM_ID --><link rel="alternate" type="application/atom+xml" title="{L_FEED} - {L_FORUM} - {FORUM_NAME}" href="{{ path('phpbb_feed_forum', { forum_id : S_FORUM_ID } ) }}"><!-- ENDIF -->
+	<!-- IF S_ENABLE_FEEDS_TOPIC and S_TOPIC_ID --><link rel="alternate" type="application/atom+xml" title="{L_FEED} - {L_TOPIC} - {TOPIC_TITLE}" href="{{ path('phpbb_feed_topic', { topic_id : S_TOPIC_ID } ) }}"><!-- ENDIF -->
+	<!-- EVENT overall_header_feeds -->
+<!-- ENDIF -->
+
+<!-- IF U_CANONICAL -->
+<link rel="canonical" href="{U_CANONICAL}">
+<!-- ENDIF -->
+
+<!--
+	style name:	bootlike
+	author:		pit
+-->
+
+<!-- Displays poster profile on the left side 1 = yes -->
+<!-- Disable login popup window (traditional login method will be used) 1 = yes -->
+<!-- DEFINE $PROFILES_ON_LEFT = 0 -->
+<!-- DEFINE $LOGIN_POPUP_OFF = 0 -->
+
+<link href="{T_FONT_AWESOME_LINK}" rel="stylesheet">
+<link href="{T_STYLESHEET_LINK}" rel="stylesheet">
+
+<!-- IF S_CONTENT_DIRECTION eq 'rtl' -->
+<link href="{T_THEME_PATH}/bootstrap.rtl.min.css?assets_version={T_ASSETS_VERSION}" rel="stylesheet">
+<!-- ENDIF -->
+
+<!-- IF S_PLUPLOAD -->
+<link href="{ROOT_PATH}styles/bootlike/theme/plupload.css?assets_version={T_ASSETS_VERSION}" rel="stylesheet">
+<!-- ENDIF -->
+
+<!-- IF S_COOKIE_NOTICE -->
+<link href="{T_ASSETS_PATH}/cookieconsent/cookieconsent.min.css?assets_version={T_ASSETS_VERSION}" rel="stylesheet">
+<!-- ENDIF -->
+
+<!-- EVENT overall_header_head_append -->
+
+{$STYLESHEETS}
+
+<!-- EVENT overall_header_stylesheets_after -->
+
+</head>
+<body id="phpbb" class="nojs notouch section-{SCRIPT_NAME} {S_CONTENT_DIRECTION} {BODY_CLASS} bg-light">
+<button onclick="topFunction()" id="gototop" class="btn btn btn-link position-fixed" title="{L_BACK_TO_TOP}"><i class="fa fa-arrow-circle-up fa-3x" aria-hidden="true"></i></button> 
+
+<div class="container-xl px-1 px-md-2 px-lg-3">
+
+<!-- EVENT overall_header_body_before -->
+
+	<div class="navbar navbar-expand-md navbar-dark bg-dark mb-1 mb-md-0">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="<!-- IF U_SITE_HOME -->{U_SITE_HOME}<!-- ELSE -->{U_INDEX}<!-- ENDIF -->">{SITENAME}<span class="small"><!-- IF SITE_DESCRIPTION --> - {SITE_DESCRIPTION}<!-- ENDIF --></span></a>
+
+		<!-- EVENT overall_header_searchbox_before -->
+		<!-- IF S_DISPLAY_SEARCH and not S_IN_SEARCH -->
+			<form action="{U_SEARCH}" method="get" id="search">
+				<div id="search-box" class="d-none d-lg-block">
+				<div class="input-group">
+					<input class="form-control rounded-0" name="keywords" id="keywords" type="search" maxlength="128" title="{L_SEARCH_KEYWORDS}" size="20" value="{SEARCH_WORDS}" placeholder="{L_SEARCH_MINI}" />
+					<button class="btn btn-secondary rounded-0" type="submit" title="{L_SEARCH}"><i class="fa fa-search fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_SEARCH}</span></button>
+					<a href="{U_SEARCH}" class="btn btn-secondary rounded-0" title="{L_SEARCH_ADV}"><i class="fa fa-cog fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_SEARCH_ADV}</span></a>
+				</div>
+				{S_SEARCH_HIDDEN_FIELDS}
+				</div>
+				<a href="{U_SEARCH}" class="btn btn-secondary d-block d-lg-none" title="{L_SEARCH_ADV}"><i class="fa fa-cog fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_SEARCH_ADV}</span></a>
+			
+			</form>
+		<!-- ENDIF -->
+		<!-- EVENT overall_header_searchbox_after -->
+
+		</div>
+	</div>
+
+	<!-- EVENT overall_header_headerbar_before -->
+
+	<div class="header d-none d-md-block text-md-center text-lg-start" role="banner">
+		<a href="{% if U_SITE_HOME %}{{ U_SITE_HOME }}{% else %}{{ U_INDEX }}{% endif %}" class="logo d-inline-block" title="{% if U_SITE_HOME %}{{ L_SITE_HOME }}{% else %}{{ L_INDEX }}{% endif %}"><img src="{ROOT_PATH}styles/bootlike/theme/images/site_logo.png" alt="{L_IMAGE}" /></a>
+	</div>
+
+	<!-- EVENT overall_header_headerbar_after -->
+
+	<a href="#start_here" class="d-none">{L_SKIP}</a>
+
+	<!-- EVENT overall_header_navbar_before -->
+
+	<!-- INCLUDE navbar_header.html -->
+
+	<!-- EVENT overall_header_page_body_before -->
+
+	<a id="start_here" class="d-none"></a>
+
+	<div id="page-body" class="page-body mb-3 px-2 pt-3 px-lg-3 bg-white border" role="main">
+
+		<!-- IF S_BOARD_DISABLED and S_USER_LOGGED_IN and (U_MCP or U_ACP) -->
+		<div id="information" class="alert alert-info">
+			<strong>{L_INFORMATION}{L_COLON}</strong> {L_BOARD_DISABLED}
+		</div>
+		<!-- ENDIF -->
+
+		<!-- EVENT overall_header_content_before -->
+
+		<ul id="nav-breadcrumbs" class="breadcrumb" role="menubar">
+			{% set MICRODATA = 'itemtype="https://schema.org/ListItem" itemprop="itemListElement" itemscope' %}
+			{% set navlink_position = 1 %}
+
+			{% EVENT overall_header_breadcrumbs_before %}
+
+				{% if U_SITE_HOME %}
+					<li class="breadcrumb-item" {{ MICRODATA }}><a itemprop="item" href="{{ U_SITE_HOME }}" data-navbar-reference="home"><i class="fa fa-home fa-fw" aria-hidden="true"></i><span itemprop="name">{{ L_SITE_HOME }}</span></a><meta itemprop="position" content="{{ navlink_position }}{% set navlink_position = navlink_position + 1 %}" /></li>
+				{% endif %}
+
+				{% EVENT overall_header_breadcrumb_prepend %}
+					<li class="breadcrumb-item" {{ MICRODATA }}><a itemprop="item" href="{{ U_INDEX }}" accesskey="h" data-navbar-reference="index">{% if not U_SITE_HOME %}<i class="fa fa-home fa-fw"></i>{% endif %}<span itemprop="name">{{ L_INDEX }}</span></a><meta itemprop="position" content="{{ navlink_position }}{% set navlink_position = navlink_position + 1 %}" /></li>
+
+				{% for navlink in navlinks %}
+					{% set NAVLINK_NAME = navlink.BREADCRUMB_NAME | default(navlink.FORUM_NAME) %}
+					{% set NAVLINK_LINK = navlink.U_BREADCRUMB | default(navlink.U_VIEW_FORUM) %}
+
+					{% EVENT overall_header_navlink_prepend %}
+					<li class="breadcrumb-item" {{ MICRODATA }}{% if navlink.MICRODATA %} {{ navlink.MICRODATA }}{% endif %}><a itemprop="item" href="{{ NAVLINK_LINK }}"><span itemprop="name">{{ NAVLINK_NAME }}</span></a><meta itemprop="position" content="{{ navlink_position }}{% set navlink_position = navlink_position + 1 %}" /></li>
+					{% EVENT overall_header_navlink_append %}
+				{% endfor %}
+
+				{% EVENT overall_header_breadcrumb_append %}
+
+			{% EVENT overall_header_breadcrumbs_after %}
+		</ul>

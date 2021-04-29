@@ -1,0 +1,94 @@
+<!-- INCLUDE ucp_header.html -->
+
+<form id="ucp" method="post" action="{S_UCP_ACTION}"{S_FORM_ENCTYPE}>
+
+<div class="card mb-3">
+	<div class="card-header bg-secondary text-white">
+		{L_TITLE}
+	</div>
+	<div class="card-body pb-0">
+
+	<!-- IF S_FORCE_PASSWORD -->
+		<div class="alert alert-warning">{L_FORCE_PASSWORD_EXPLAIN}</div>
+	<!-- ENDIF -->
+
+	<!-- IF ERROR -->
+		<div class="alert alert-danger">{ERROR}</div>
+	<!-- ENDIF -->
+
+		<!-- EVENT ucp_profile_register_details_before -->
+		<dl class="row">
+			<dt class="col-lg-4 col-md-5 col-12">
+				<label<!-- IF S_CHANGE_USERNAME --> class="col-form-label" for="username"<!-- ENDIF -->>{L_USERNAME}{L_COLON}</label>
+			<!-- IF not S_CHANGE_USERNAME -->
+				<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="{L_USERNAME_EXPLAIN}"><i class="fa fa-info fa-fw" aria-hidden="true"></i></button>
+			<!-- ENDIF -->
+			</dt>
+			<dd class="col-lg-8 col-md-7 col-12 w-auto">
+			<!-- IF S_CHANGE_USERNAME -->
+				<div class="input-group">
+					<input class="form-control" type="text" name="username" id="username" value="{USERNAME}" title="{L_USERNAME}" />
+					<button class="btn btn-outline-info" type="button" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="{L_USERNAME_EXPLAIN}"><i class="fa fa-info fa-fw" aria-hidden="true"></i></button>
+				</div>
+			<!-- ELSE -->
+				<strong>{USERNAME}</strong>
+			<!-- ENDIF -->
+			</dd>
+		</dl>
+		<dl class="row">
+			<dt class="col-lg-4 col-md-5 col-12"><label class="col-form-label" for="email">{L_EMAIL_ADDRESS}{L_COLON}</label></dt>
+			<dd class="col-lg-8 col-md-7 col-12">
+			<!-- IF S_CHANGE_EMAIL --><input class="form-control" type="email" name="email" id="email" maxlength="100" value="{EMAIL}" title="{L_EMAIL_ADDRESS}" autocomplete="off" /><!-- ELSE --><strong>{EMAIL}</strong><!-- ENDIF -->
+			</dd>
+		</dl>
+		<!-- IF S_CHANGE_PASSWORD -->
+		<dl class="row">
+			<dt class="col-lg-4 col-md-5 col-12">
+				<label class="col-form-label" for="new_password">{L_NEW_PASSWORD}{L_COLON}</label>
+			</dt>
+			<dd class="col-lg-8 col-md-7 col-12 w-auto">
+				<div class="input-group">
+					<input class="form-control" type="password" name="new_password" id="new_password" maxlength="255" value="{NEW_PASSWORD}" title="{L_CHANGE_PASSWORD}" autocomplete="off" />
+					<button class="btn btn-outline-info" type="button" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="{L_CHANGE_PASSWORD_EXPLAIN}"><i class="fa fa-info fa-fw" aria-hidden="true"></i></button>
+				</div>
+			</dd>
+		</dl>
+		<dl class="row">
+			<dt class="col-lg-4 col-md-5 col-12">
+				<label class="col-form-label" for="password_confirm">{L_CONFIRM_PASSWORD}{L_COLON}</label>
+			</dt>
+			<dd class="col-lg-8 col-md-7 col-12 w-auto">
+				<div class="input-group">
+					<input class="form-control" type="password" name="password_confirm" id="password_confirm" maxlength="255" value="{PASSWORD_CONFIRM}" title="{L_CONFIRM_PASSWORD}" autocomplete="off" />
+					<button class="btn btn-outline-info" type="button" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="{L_CONFIRM_PASSWORD_EXPLAIN}"><i class="fa fa-info fa-fw" aria-hidden="true"></i></button>
+				</div>
+			</dd>
+		</dl>
+		<!-- ENDIF -->
+		<!-- EVENT ucp_profile_register_details_after -->
+
+		<dl class="row">
+			<dt class="col-lg-4 col-md-5 col-12">
+				<label class="col-form-label" for="cur_password">{L_CURRENT_PASSWORD}{L_COLON}</label>
+			</dt>
+			<dd class="col-lg-8 col-md-7 col-12 w-auto">
+				<div class="input-group">
+					<input class="form-control" type="password" name="cur_password" id="cur_password" maxlength="255" value="{CUR_PASSWORD}" title="{L_CURRENT_PASSWORD}" autocomplete="off" />
+					<button class="btn btn-outline-info" type="button" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="<!-- IF S_CHANGE_PASSWORD -->{L_CURRENT_CHANGE_PASSWORD_EXPLAIN}<!-- ELSE -->{L_CURRENT_PASSWORD_EXPLAIN}<!-- ENDIF -->"><i class="fa fa-info fa-fw" aria-hidden="true"></i></button>
+				</div>
+			</dd>
+		</dl>
+
+	</div>
+
+	<div class="card-footer text-center">
+		{S_HIDDEN_FIELDS}
+		<button class="btn btn-danger me-1" type="reset" name="reset" value="{L_RESET}"><i class="fa fa-undo fa-fw" aria-hidden="true"></i> {L_RESET}</button>
+		<button class="btn btn-success" type="submit" name="submit" value="{L_SUBMIT}"><i class="fa fa-level-down fa-rotate-90 fa-fw" aria-hidden="true"></i> {L_SUBMIT}</button>
+		{S_FORM_TOKEN}
+	</div>
+</div>
+
+</form>
+
+<!-- INCLUDE ucp_footer.html -->
