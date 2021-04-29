@@ -87,7 +87,8 @@
 	<div class="card mb-3">
 		<div class="card-header bg-dark border-bottom-0 text-light">
 			<div class="row">
-				<div class="col-lg-9 col-md-8 col-12">{L_TOPICS}</div>
+				<div class="col-lg-7 col-md-6 col-12">{L_TOPICS}</div>
+				<div class="col-md-2 d-none d-md-block text-center">{L_REPLIES}/{L_VIEWS}</div>
 				<div class="col-lg-3 col-md-4 d-none d-md-block">{L_LAST_POST}</div>
 				{% EVENT search_results_topic_header_lastpost_after %}
 			</div>
@@ -97,7 +98,7 @@
 		<!-- EVENT search_results_topic_before -->
 		<div class="container-fluid row-item position-relative py-1 border-top {searchresults.TOPIC_IMG_STYLE}<!-- IF searchresults.S_ROW_COUNT is even --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
 			<div class="row align-items-center" title="{searchresults.TOPIC_FOLDER_IMG_ALT}">
-				<div class="col-lg-9 col-md-8 col-12 folder">
+				<div class="col-lg-7 col-md-6 col-12 topic-folder folder">
 					<!-- IF searchresults.S_UNREAD_TOPIC and not S_IS_BOT --><a href="{searchresults.U_NEWEST_POST}" class="row-item-link"></a><!-- ENDIF -->
 
 					<!-- EVENT topiclist_row_prepend -->
@@ -128,15 +129,18 @@
 					{% EVENT topiclist_row_topic_by_author_after %}
 					<!-- EVENT topiclist_row_topic_title_after -->
 
-					<span class="text-nowrap"><i class="fa fa-comment-o ml-2" title="{L_REPLIES}" aria-hidden="true"></i><span class="sr-only">{L_REPLIES}</span> {searchresults.TOPIC_REPLIES} &nbsp; <i class="fa fa-eye ml-2" title="{L_VIEWS}" aria-hidden="true"></i><span class="sr-only">{L_VIEWS}</span> {searchresults.TOPIC_VIEWS}</span>
-
 					<div class="d-md-none">
 						{L_LAST_POST} {L_POST_BY_AUTHOR} <!-- EVENT search_results_last_post_author_username_prepend -->{searchresults.LAST_POST_AUTHOR_FULL}<!-- EVENT search_results_last_post_author_username_append --> &laquo; <a href="{searchresults.U_LAST_POST}" title="{L_GOTO_LAST_POST}"><time datetime="{searchresults.LAST_POST_TIME_RFC3339}">{searchresults.LAST_POST_TIME}</time></a>
 						<br>{L_POSTED} {L_IN} <a href="{searchresults.U_VIEW_FORUM}">{searchresults.FORUM_TITLE}</a>
+						<span class="text-nowrap ms-3"><i class="fa fa-comment-o ml-2" title="{L_REPLIES}" aria-hidden="true"></i><span class="sr-only">{L_REPLIES}</span> {searchresults.TOPIC_REPLIES} &nbsp; <i class="fa fa-eye ml-2" title="{L_VIEWS}" aria-hidden="true"></i><span class="sr-only">{L_VIEWS}</span> {searchresults.TOPIC_VIEWS}</span>
 					</div>
 					<!-- EVENT topiclist_row_append -->
 				</div>
 
+				<div class="col-md-2 d-none d-md-block text-center">
+					{searchresults.TOPIC_REPLIES}
+					<div class="small"><span class="small">{searchresults.TOPIC_VIEWS} {L_VIEWS}</span></div>
+				</div>
 				<div class="col-lg-3 col-md-4 d-none d-md-block">
 					{L_POST_BY_AUTHOR} <!-- EVENT search_results_topic_author_username_prepend -->{searchresults.TOPIC_AUTHOR_FULL}<!-- EVENT search_results_topic_author_username_append --> &raquo; <time datetime="{searchresults.FIRST_POST_TIME_RFC3339}">{searchresults.FIRST_POST_TIME}</time> &raquo; {L_IN} <a href="{searchresults.U_VIEW_FORUM}">{searchresults.FORUM_TITLE}</a>
 					<!-- IF not S_IS_BOT --><a href="{searchresults.U_LAST_POST}" title="{L_GOTO_LAST_POST}"><i class="fa fa-arrow-{S_CONTENT_FLOW_END}" aria-hidden="true"></i><span class="visually-hidden">{L_VIEW_LATEST_POST}</span></a> <!-- ENDIF -->
