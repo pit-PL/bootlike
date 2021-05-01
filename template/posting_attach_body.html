@@ -1,96 +1,98 @@
-<div id="attach-panel" class="card mb-3">
-	<div class="card-body">
+<div class="col-md-12 col-lg-10 offset-lg-1">
+	<div id="attach-panel" class="card mb-3">
+		<div class="card-body">
 
-	<p>{L_ADD_ATTACHMENT_EXPLAIN} <span class="hidden" id="drag-n-drop-message">{L_PLUPLOAD_DRAG_TEXTAREA}</span></p>
-	{% if MAX_ATTACHMENT_FILESIZE is not empty %}<p>{{ MAX_ATTACHMENT_FILESIZE }}</p>{% endif %}
+		<p>{L_ADD_ATTACHMENT_EXPLAIN} <span class="hidden" id="drag-n-drop-message">{L_PLUPLOAD_DRAG_TEXTAREA}</span></p>
+		{% if MAX_ATTACHMENT_FILESIZE is not empty %}<p>{{ MAX_ATTACHMENT_FILESIZE }}</p>{% endif %}
 
-	<div id="attach-panel-basic">
-	<dl class="row">
-		<dt class="col-lg-3 col-md-4 col-sm-12"><label class="col-form-label" for="fileupload">{L_FILENAME}{L_COLON}</label></dt>
-		<dd class="col-lg-9 col-md-8 col-sm-12">
-			<input type="file" name="fileupload" id="fileupload" class="btn btn-secondary" />
-			<input type="submit" name="add_file" value="{L_ADD_FILE}" onclick="upload = true;" class="btn btn-secondary" />
-		</dd>
-	</dl>
-	<dl class="row">
-		<dt class="col-lg-3 col-md-4 col-sm-12"><label class="col-form-label" for="filecomment">{L_FILE_COMMENT}{L_COLON}</label></dt>
-		<dd class="col-lg-9 col-md-8 col-sm-12">
-			<textarea name="filecomment" id="filecomment" rows="1" cols="40" class="form-control">{FILE_COMMENT}</textarea>
-		</dd>
-	</dl>
-	</div>
-
-	<div id="attach-panel-multi">
-		<button type="button" class="btn btn-secondary" id="add_files"><i class="fa fa-folder-open"></i> {L_PLUPLOAD_ADD_FILES}</button>
-	</div>
-
-	{% EVENT posting_attach_body_file_list_before %}
-
-	<div id="file-list-container" class="card mb-3 border-top-0"<!-- IF not .attach_row --> style="display: none;"<!-- ENDIF -->>
-		<div class="card-header d-none d-md-block bg-secondary text-light border-bottom-0">
-			<div class="row">
-				<div class="col-12 col-md-4">{L_PLUPLOAD_FILENAME}</div>
-				<div class="col-12 col-md-4">{L_FILE_COMMENT}</div>
-				<div class="col-12 col-md-2 text-center">{L_PLUPLOAD_SIZE}</div>
-				<div class="col-12 col-md-2 text-center">{L_PLUPLOAD_STATUS}</div>
-			</div>
+		<div id="attach-panel-basic">
+		<dl class="row">
+			<dt class="col-lg-3 col-md-4 col-sm-12"><label class="col-form-label" for="fileupload">{L_FILENAME}{L_COLON}</label></dt>
+			<dd class="col-lg-9 col-md-8 col-sm-12">
+				<input type="file" name="fileupload" id="fileupload" class="btn btn-secondary" />
+				<input type="submit" name="add_file" value="{L_ADD_FILE}" onclick="upload = true;" class="btn btn-secondary" />
+			</dd>
+		</dl>
+		<dl class="row">
+			<dt class="col-lg-3 col-md-4 col-sm-12"><label class="col-form-label" for="filecomment">{L_FILE_COMMENT}{L_COLON}</label></dt>
+			<dd class="col-lg-9 col-md-8 col-sm-12">
+				<textarea name="filecomment" id="filecomment" rows="1" cols="40" class="form-control">{FILE_COMMENT}</textarea>
+			</dd>
+		</dl>
 		</div>
-		<div id="file-list" class="card-body p-0">
-			<div id="attach-row-tpl" class="row attach-row align-items-center border-top m-0<!-- IF user_row.S_ROW_COUNT is even --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
-				<div class="col-12 col-md-4 py-2">
-					<span class="badge bg-secondary d-md-none">{L_PLUPLOAD_FILENAME}{L_COLON}</span>
-					<span class="file-name ellipsis-text"></span>
-					<span class="attach-controls">
-						<input type="button" value="{L_PLACE_INLINE}" class="btn btn-secondary hidden file-inline-bbcode me-1" />
-						<input type="button" value="{L_DELETE_FILE}" class="btn btn-danger file-delete" />
-					</span>
-					<span class="clear"></span>
-				</div>
-				<div class="col-12 col-md-4 py-2">
-					<span class="badge bg-secondary d-md-none mb-1">{L_FILE_COMMENT}{L_COLON}</span>
-					<textarea rows="1" cols="30" class="form-control"></textarea>
-				</div>
-				<div class="col-12 col-md-2 py-2 text-md-center">
-					<span class="badge bg-secondary d-md-none">{L_PLUPLOAD_SIZE}{L_COLON}</span>
-					<span class="file-size"></span>
-				</div>
-				<div class="col-12 col-md-2 py-2 text-md-center">
-					<span class="badge bg-secondary d-md-none">{L_PLUPLOAD_STATUS}{L_COLON}</span>
-					<span class="file-progress">
-						<span class="file-progress-bar"></span>
-					</span>
-					<span class="file-status"></span>
+
+		<div id="attach-panel-multi">
+			<button type="button" class="btn btn-secondary" id="add_files"><i class="fa fa-folder-open"></i> {L_PLUPLOAD_ADD_FILES}</button>
+		</div>
+
+		{% EVENT posting_attach_body_file_list_before %}
+
+		<div id="file-list-container" class="card mb-3 border-top-0"<!-- IF not .attach_row --> style="display: none;"<!-- ENDIF -->>
+			<div class="card-header d-none d-md-block bg-secondary text-light border-bottom-0">
+				<div class="row">
+					<div class="col-12 col-md-4">{L_PLUPLOAD_FILENAME}</div>
+					<div class="col-12 col-md-4">{L_FILE_COMMENT}</div>
+					<div class="col-12 col-md-2 text-center">{L_PLUPLOAD_SIZE}</div>
+					<div class="col-12 col-md-2 text-center">{L_PLUPLOAD_STATUS}</div>
 				</div>
 			</div>
-			{% EVENT posting_attach_body_attach_row_before %}
-			<!-- BEGIN attach_row -->
-				{% EVENT posting_attach_body_attach_row_prepend %}
-				<div class="row attach-row align-items-center border-top m-0<!-- IF attach_row.S_ROW_COUNT is even --> bg1<!-- ELSE --> bg2<!-- ENDIF -->" data-attach-id="{attach_row.ATTACH_ID}">
+			<div id="file-list" class="card-body p-0">
+				<div id="attach-row-tpl" class="row attach-row align-items-center border-top m-0<!-- IF user_row.S_ROW_COUNT is even --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
 					<div class="col-12 col-md-4 py-2">
-						<span class="file-name ellipsis-text"><a href="{attach_row.U_VIEW_ATTACHMENT}">{attach_row.FILENAME}</a></span>
-						{% EVENT posting_attach_body_attach_row_controls_prepend %}
+						<span class="badge bg-secondary d-md-none">{L_PLUPLOAD_FILENAME}{L_COLON}</span>
+						<span class="file-name ellipsis-text"></span>
 						<span class="attach-controls">
-							{% if S_BBCODE_ALLOWED and S_INLINE_ATTACHMENT_OPTIONS %}<input type="button" value="{{ lang('PLACE_INLINE') }}" class="btn btn-secondary file-inline-bbcode" />&nbsp;{% endif %}
-							<input type="submit" name="delete_file[{attach_row.ASSOC_INDEX}]" value="{L_DELETE_FILE}" class="btn btn-danger file-delete" />
+							<input type="button" value="{L_PLACE_INLINE}" class="btn btn-secondary hidden file-inline-bbcode me-1" />
+							<input type="button" value="{L_DELETE_FILE}" class="btn btn-danger file-delete" />
 						</span>
-						{% EVENT posting_attach_body_attach_row_controls_append %}
+						<span class="clear"></span>
 					</div>
 					<div class="col-12 col-md-4 py-2">
-						<textarea name="comment_list[{attach_row.ASSOC_INDEX}]" rows="1" cols="30" class="form-control">{attach_row.FILE_COMMENT}</textarea>
-						{attach_row.S_HIDDEN}
+						<span class="badge bg-secondary d-md-none mb-1">{L_FILE_COMMENT}{L_COLON}</span>
+						<textarea rows="1" cols="30" class="form-control"></textarea>
 					</div>
 					<div class="col-12 col-md-2 py-2 text-md-center">
-						<span class="file-size">{attach_row.FILESIZE}</span>
+						<span class="badge bg-secondary d-md-none">{L_PLUPLOAD_SIZE}{L_COLON}</span>
+						<span class="file-size"></span>
 					</div>
 					<div class="col-12 col-md-2 py-2 text-md-center">
-						<span class="file-status file-uploaded"></span>
+						<span class="badge bg-secondary d-md-none">{L_PLUPLOAD_STATUS}{L_COLON}</span>
+						<span class="file-progress">
+							<span class="file-progress-bar"></span>
+						</span>
+						<span class="file-status"></span>
 					</div>
 				</div>
-				{% EVENT posting_attach_body_attach_row_append %}
-			<!-- END attach_row -->
-			{% EVENT posting_attach_body_attach_row_after %}
+				{% EVENT posting_attach_body_attach_row_before %}
+				<!-- BEGIN attach_row -->
+					{% EVENT posting_attach_body_attach_row_prepend %}
+					<div class="row attach-row align-items-center border-top m-0<!-- IF attach_row.S_ROW_COUNT is even --> bg1<!-- ELSE --> bg2<!-- ENDIF -->" data-attach-id="{attach_row.ATTACH_ID}">
+						<div class="col-12 col-md-4 py-2">
+							<span class="file-name ellipsis-text"><a href="{attach_row.U_VIEW_ATTACHMENT}">{attach_row.FILENAME}</a></span>
+							{% EVENT posting_attach_body_attach_row_controls_prepend %}
+							<span class="attach-controls">
+								{% if S_BBCODE_ALLOWED and S_INLINE_ATTACHMENT_OPTIONS %}<input type="button" value="{{ lang('PLACE_INLINE') }}" class="btn btn-secondary file-inline-bbcode" />&nbsp;{% endif %}
+								<input type="submit" name="delete_file[{attach_row.ASSOC_INDEX}]" value="{L_DELETE_FILE}" class="btn btn-danger file-delete" />
+							</span>
+							{% EVENT posting_attach_body_attach_row_controls_append %}
+						</div>
+						<div class="col-12 col-md-4 py-2">
+							<textarea name="comment_list[{attach_row.ASSOC_INDEX}]" rows="1" cols="30" class="form-control">{attach_row.FILE_COMMENT}</textarea>
+							{attach_row.S_HIDDEN}
+						</div>
+						<div class="col-12 col-md-2 py-2 text-md-center">
+							<span class="file-size">{attach_row.FILESIZE}</span>
+						</div>
+						<div class="col-12 col-md-2 py-2 text-md-center">
+							<span class="file-status file-uploaded"></span>
+						</div>
+					</div>
+					{% EVENT posting_attach_body_attach_row_append %}
+				<!-- END attach_row -->
+				{% EVENT posting_attach_body_attach_row_after %}
+			</div>
 		</div>
-	</div>
-	{% EVENT posting_attach_body_file_list_after %}
+		{% EVENT posting_attach_body_file_list_after %}
+		</div>
 	</div>
 </div>
