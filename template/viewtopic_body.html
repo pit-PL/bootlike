@@ -408,16 +408,16 @@
 							<!-- EVENT viewtopic_body_postrow_content_after -->
 
 							<!-- IF postrow.S_HAS_ATTACHMENTS -->
-								<div class="attachbox float-start">
-									<strong>{L_ATTACHMENTS}</strong>
-									<div class="bg-white border p-2">
-									<!-- BEGIN attachment -->
-										<!-- IF not attachment.S_FIRST_ROW --><hr><!-- ENDIF -->
-										{postrow.attachment.DISPLAY_ATTACHMENT}
-									<!-- END attachment -->
+								<div class="my-1 text-uppercase">{L_ATTACHMENTS}</div>
+								<div class="row row-cols-lg-3 row-cols-md-2 row-cols-1">
+								<!-- BEGIN attachment -->
+									<div class="col mb-3 d-flex">
+										<div class="bg-white border border-2 p-2 mb-2 mb-lg-0 w-100">
+											{postrow.attachment.DISPLAY_ATTACHMENT}
+										</div>
 									</div>
+								<!-- END attachment -->
 								</div>
-								<div class="clearfix"></div>
 							<!-- ENDIF -->
 
 							<!-- EVENT viewtopic_body_postrow_post_notices_before -->
