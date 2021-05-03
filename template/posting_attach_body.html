@@ -37,7 +37,7 @@
 				</div>
 			</div>
 			<div id="file-list" class="card-body p-0">
-				<div id="attach-row-tpl" class="row attach-row align-items-center border-top m-0<!-- IF user_row.S_ROW_COUNT is even --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
+				<div id="attach-row-tpl" class="row attach-row align-items-center border-top m-0">
 					<div class="col-12 col-md-4 py-2">
 						<span class="badge bg-secondary d-md-none">{L_PLUPLOAD_FILENAME}{L_COLON}</span>
 						<span class="file-name ellipsis-text"></span>
@@ -55,6 +55,9 @@
 						<span class="file-size"></span>
 					</div>
 					<div class="col-12 col-md-2 py-2 text-md-center">
+						<div id="file-total-progress" class="file-total-progress m-0">
+							<div id="file-total-progress-bar" class="file-total-progress-bar bg-success"></div>
+						</div>
 						<span class="badge bg-secondary d-md-none">{L_PLUPLOAD_STATUS}{L_COLON}</span>
 						<span class="file-progress">
 							<span class="file-progress-bar"></span>
