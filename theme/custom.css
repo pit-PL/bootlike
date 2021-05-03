@@ -150,6 +150,15 @@ span.online {
 	max-height: 200px;
 }
 
+blockquote.blockquote {
+	border-left-width: 6px !important;
+}
+
+.rtl blockquote.blockquote {
+	border-left-width: 1px !important;
+	border-right-width: 6px !important;
+}
+
 blockquote:before {
 	font-family: FontAwesome;
 	font-size: 32px;
