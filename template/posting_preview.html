@@ -48,10 +48,10 @@
 
 				<!-- IF .attachment -->
 					<div class="my-1 text-uppercase">{L_ATTACHMENTS}</div>
-					<div class="row row-cols-lg-3 row-cols-md-2 row-cols-1">
+					<div class="row {$ATTACHMENT_COLUMNS}">
 					<!-- BEGIN attachment -->
 						<div class="col-12 mb-3 d-flex">
-							<div class="bg-white border border-2 p-2 w-100">
+							<div class="bg-white border border-2 p-2<!-- IF $ATTACHMENT_COLUMNS --> w-100<!-- ENDIF -->">
 								{attachment.DISPLAY_ATTACHMENT}
 							</div>
 						</div>
