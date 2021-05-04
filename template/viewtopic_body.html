@@ -111,11 +111,11 @@
 
 		<!-- IF S_CAN_VOTE or not S_DISPLAY_RESULTS -->
 		<div class="card-footer text-center">
-			<!-- IF S_CAN_VOTE -->
-			<input type="submit" name="update" value="{L_SUBMIT_VOTE}" class="btn btn-success" />
-			<!-- ENDIF -->
 			<!-- IF not S_DISPLAY_RESULTS -->
-			&nbsp;<a href="{U_VIEW_RESULTS}" class="btn btn-secondary">{L_VIEW_RESULTS}</a>
+			<a class="btn btn-secondary<!-- IF S_CAN_VOTE --> me-1<!-- ENDIF -->" href="{U_VIEW_RESULTS}"><i class="fa fa-eye fa-fw" aria-hidden="true"></i> {L_VIEW_RESULTS}</a>
+			<!-- ENDIF -->
+			<!-- IF S_CAN_VOTE -->
+			<button class="btn btn-success" type="submit" name="update" value="{L_SUBMIT_VOTE}"><i class="fa fa-level-down fa-rotate-90 fa-fw" aria-hidden="true"></i> {L_SUBMIT_VOTE}</button>
 			<!-- ENDIF -->
 		</div>
 		<!-- ENDIF -->
