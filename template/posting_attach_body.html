@@ -41,10 +41,13 @@
 					<div class="col-12 col-md-4 py-2">
 						<span class="badge bg-secondary d-md-none">{L_PLUPLOAD_FILENAME}{L_COLON}</span>
 						<span class="file-name ellipsis-text"></span>
-						<span class="attach-controls">
+						<span class="attach-controls mt-1">
 							<input type="button" value="{L_PLACE_INLINE}" class="btn btn-secondary hidden file-inline-bbcode me-1" />
 							<input type="button" value="{L_DELETE_FILE}" class="btn btn-danger file-delete" />
 						</span>
+						<div id="file-total-progress" class="file-progress progress w-100 m-0">
+							<div id="file-total-progress-bar" class="file-progress-bar progress-bar bg-info progress-bar-striped" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+						</div>	
 					</div>
 					<div class="col-12 col-md-4 py-2">
 						<span class="badge bg-secondary d-md-none mb-1">{L_FILE_COMMENT}{L_COLON}</span>
@@ -55,9 +58,6 @@
 						<span class="file-size"></span>
 					</div>
 					<div class="col-12 col-md-2 py-2 text-md-center">
-						<div id="file-total-progress" class="file-total-progress m-0">
-							<div id="file-total-progress-bar" class="file-total-progress-bar bg-success"></div>
-						</div>
 						<span class="badge bg-secondary d-md-none">{L_PLUPLOAD_STATUS}{L_COLON}</span>
 						<span class="file-progress">
 							<span class="file-progress-bar"></span>
