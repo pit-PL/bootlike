@@ -8,7 +8,7 @@
 	</div>
 	<div class="card-body pb-0">
 
-
+<!-- IF .topicrow -->
 	<!-- DEFINE $CUSTOM_JUMPBOX_CLASS = 1 -->
 	<div class="action-bar d-sm-flex justify-content-between p-0 mb-3 border bg-light shadow-sm">
 		<div class="d-flex">
@@ -35,7 +35,6 @@
 		</div>
 	</div>
 
-	<!-- IF .topicrow -->
 	<div class="card mb-3">
 		<div class="card-header bg-dark border-bottom-0 text-light">
 			<div class="row">
@@ -101,11 +100,6 @@
 		</div>
 		<!-- END topicrow -->
 	</div>
-	<!-- ELSE -->
-		<div class="alert alert-info">
-			{L_NO_TOPICS}
-		</div>
-	<!-- ENDIF -->
 
 	<!-- IF not S_MERGE_SELECT -->
 	<div class="action-bar d-sm-flex justify-content-end p-0 mb-3 border bg-light shadow-sm">
@@ -140,6 +134,11 @@
 	</div>
 	<!-- ENDIF -->
 
+<!-- ELSE -->
+	<div class="alert alert-info">
+		{L_NO_TOPICS}
+	</div>
+<!-- ENDIF -->
 	</div>
 </div>
 
