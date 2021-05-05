@@ -167,6 +167,10 @@ blockquote:before {
 	content: "\f10d";
 }
 
+.rtl blockquote:before {
+	display: inline-block;
+}
+
 blockquote.blockquote {
 	font-size: 0.875rem;
 }
