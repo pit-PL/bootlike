@@ -269,11 +269,6 @@ a.postlink:hover, a.postlink:focus {
 	z-index: 99;
 }
 
-.hiddenanchor {
-	position: absolute;
-	margin-top: -75px;
-}
-
 /* jQuery popups
 ---------------------------------------- */
 .phpbb_alert, #login-popup {
