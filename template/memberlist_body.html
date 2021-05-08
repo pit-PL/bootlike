@@ -58,7 +58,7 @@
 		<h3>{PAGE_TITLE}<!-- IF SEARCH_WORDS -->{L_COLON} <a href="{U_SEARCH_WORDS}">{SEARCH_WORDS}</a><!-- ENDIF --></h3>
 
 		<div class="input-group mb-3">
-			<!-- IF U_FIND_MEMBER and not S_SEARCH_USER --><a href="{U_FIND_MEMBER}" class="btn btn-outline-secondary btn-sm" id="member_search" data-alt-text="{L_HIDE_MEMBER_SEARCH}">{L_FIND_USERNAME}</a><!-- ELSEIF S_SEARCH_USER and U_HIDE_FIND_MEMBER and not S_IN_SEARCH_POPUP --><a href="{U_HIDE_FIND_MEMBER}" class="btn btn-outline-secondary btn-sm" id="member_search" data-alt-text="{L_FIND_USERNAME}">{L_HIDE_MEMBER_SEARCH}</a><!-- ENDIF -->
+			<!-- IF U_FIND_MEMBER and not S_SEARCH_USER --><a class="btn btn-outline-secondary btn-sm" href="{U_FIND_MEMBER}">{L_FIND_USERNAME}</a><!-- ELSEIF S_SEARCH_USER and U_HIDE_FIND_MEMBER and not S_IN_SEARCH_POPUP --><a class="btn btn-outline-secondary btn-sm" href="{U_HIDE_FIND_MEMBER}">{L_HIDE_MEMBER_SEARCH}</a><!-- ENDIF -->
 			<!-- BEGIN first_char -->
 				<a href="{first_char.U_SORT}" class="btn btn-outline-secondary btn-sm">{first_char.DESC}</a>
 			<!-- END first_char -->
