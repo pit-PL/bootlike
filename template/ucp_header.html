@@ -52,36 +52,32 @@
 		</div>
 
 		<!-- IF .friends_online -->
-		<div class="card mb-3">
-			<div class="card-header">{L_FRIENDS} {L_FRIENDS_ONLINE}</div>
-			<div class="card-body">
-			<!-- BEGIN friends_online -->
-				{% EVENT ucp_header_friends_online_username_full_prepend %}{friends_online.USERNAME_FULL}{% EVENT ucp_header_friends_online_username_full_append %} <!-- IF S_SHOW_PM_BOX --> <input type="submit" name="add_to[{friends_online.USER_ID}]" value="{L_ADD}" class="btn btn-success btn-sm" /><!-- ENDIF -->
-			<!-- END friends_online -->
-			</div>
-		</div>
+		<ul class="list-group mb-3">
+			<li class="list-group-item active">{L_FRIENDS} {L_FRIENDS_ONLINE}</li>
+		<!-- BEGIN friends_online -->
+			<li class="list-group-item d-flex justify-content-lg-between">{% EVENT ucp_header_friends_online_username_full_prepend %} {friends_online.USERNAME_FULL} {% EVENT ucp_header_friends_online_username_full_append %}<!-- IF S_SHOW_PM_BOX --><input class="btn btn-success btn-sm ms-2" type="submit" name="add_to[{friends_online.USER_ID}]" value="{L_ADD}" /><!-- ENDIF --></li>
+		<!-- END friends_online -->
+		</ul>
 		<!-- ENDIF -->
 
 		<!-- IF .friends_offline -->
-		<div class="card mb-3">
-			<div class="card-header">{L_FRIENDS} {L_FRIENDS_OFFLINE}</div>
-			<div class="card-body">
-			<!-- BEGIN friends_offline -->
-				{% EVENT ucp_header_friends_offline_username_full_prepend %}{friends_offline.USERNAME_FULL}{% EVENT ucp_header_friends_offline_username_full_append %} <!-- IF S_SHOW_PM_BOX --><input type="submit" name="add_to[{friends_offline.USER_ID}]" value="{L_ADD}" class="btn btn-success btn-sm" /><!-- ENDIF -->
-			<!-- END friends_offline -->
-			</div>
-		</div>
+		<ul class="list-group mb-3">
+			<li class="list-group-item active">{L_FRIENDS} {L_FRIENDS_OFFLINE}</li>
+		<!-- BEGIN friends_offline -->
+			<li class="list-group-item d-flex justify-content-lg-between">{% EVENT ucp_header_friends_offline_username_full_prepend %} {friends_offline.USERNAME_FULL} {% EVENT ucp_header_friends_offline_username_full_append %}<!-- IF S_SHOW_PM_BOX --><input class="btn btn-success btn-sm ms-2" type="submit" name="add_to[{friends_offline.USER_ID}]" value="{L_ADD}" /><!-- ENDIF --></li>
+		<!-- END friends_offline -->
+		</ul>
 		<!-- ENDIF -->
 
 		<!-- IF S_SHOW_COLOUR_LEGEND -->
-		<div class="card mb-3">
-			<div class="card-header">{L_MESSAGE_COLOURS}</div>
-			<div class="card-body">
-			<!-- BEGIN pm_colour_info -->
-				<i class="fa fa-circle fs-5<!-- IF pm_colour_info.CLASS eq 'pm_message_reported_colour' --> text-danger<!-- ELSEIF pm_colour_info.CLASS eq 'pm_marked_colour' --> text-warning<!-- ELSEIF pm_colour_info.CLASS eq 'pm_replied_colour' --> text-secondary<!-- ELSEIF pm_colour_info.CLASS eq 'pm_friend_colour' --> text-primary<!-- ELSEIF pm_colour_info.CLASS eq 'pm_foe_colour' --> text-dark<!-- ENDIF -->" aria-hidden="true"></i> {pm_colour_info.LANG}<br>
-			<!-- END pm_colour_info -->
-			</div>
-		</div>
+		<ul class="list-group mb-3">
+			<li class="list-group-item active">{L_MESSAGE_COLOURS}</li>
+		<!-- BEGIN pm_colour_info -->
+			<li class="list-group-item">
+				<i class="fa fa-circle fs-5 me-2<!-- IF pm_colour_info.CLASS eq 'pm_message_reported_colour' --> text-danger<!-- ELSEIF pm_colour_info.CLASS eq 'pm_marked_colour' --> text-warning<!-- ELSEIF pm_colour_info.CLASS eq 'pm_replied_colour' --> text-secondary<!-- ELSEIF pm_colour_info.CLASS eq 'pm_friend_colour' --> text-primary<!-- ELSEIF pm_colour_info.CLASS eq 'pm_foe_colour' --> text-dark<!-- ENDIF -->" aria-hidden="true"></i>{pm_colour_info.LANG}<br>
+			</li>
+		<!-- END pm_colour_info -->
+		</li>
 		<!-- ENDIF -->
 
 	</div>
