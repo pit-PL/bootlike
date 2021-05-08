@@ -31,20 +31,18 @@
 	<div class="row">
 
 	<div id="cp-menu" class="cp-menu col-lg-3 mb-3">
-		<div id="navigation" class="navigation" role="navigation">
-			<div class="list-group">
-			<!-- BEGIN l_block1 -->
-			<!-- IF l_block1.S_SELECTED -->
-				<!-- BEGIN l_block2 -->
-				<!-- IF l_block1.l_block2.S_SELECTED -->
-				<a class="list-group-item list-group-item-action rounded-0 active" href="{l_block1.l_block2.U_TITLE}">{l_block1.l_block2.L_TITLE}<!-- IF l_block1.l_block2.ADD_ITEM --> ({l_block1.l_block2.ADD_ITEM})<!-- ENDIF --></a>
-				<!-- ELSE -->
-				<a class="list-group-item list-group-item-action rounded-0" href="{l_block1.l_block2.U_TITLE}">{l_block1.l_block2.L_TITLE}<!-- IF l_block1.l_block2.ADD_ITEM --> ({l_block1.l_block2.ADD_ITEM})<!-- ENDIF --></a>
-				<!-- ENDIF -->
-				<!-- END l_block2 -->
+		<div id="navigation" class="list-group rounded-0" role="navigation">
+		<!-- BEGIN l_block1 -->
+		<!-- IF l_block1.S_SELECTED -->
+			<!-- BEGIN l_block2 -->
+			<!-- IF l_block1.l_block2.S_SELECTED -->
+			<a class="list-group-item list-group-item-action active" href="{l_block1.l_block2.U_TITLE}">{l_block1.l_block2.L_TITLE}<!-- IF l_block1.l_block2.ADD_ITEM --> ({l_block1.l_block2.ADD_ITEM})<!-- ENDIF --></a>
+			<!-- ELSE -->
+			<a class="list-group-item list-group-item-action" href="{l_block1.l_block2.U_TITLE}">{l_block1.l_block2.L_TITLE}<!-- IF l_block1.l_block2.ADD_ITEM --> ({l_block1.l_block2.ADD_ITEM})<!-- ENDIF --></a>
 			<!-- ENDIF -->
-			<!-- END l_block1 -->
-			</div>
+			<!-- END l_block2 -->
+		<!-- ENDIF -->
+		<!-- END l_block1 -->
 		</div>
 	</div>
 
