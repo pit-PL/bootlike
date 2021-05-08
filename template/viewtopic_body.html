@@ -384,9 +384,9 @@
 								<div class="alert alert-warning">
 									<strong>{L_POST_DELETED_ACTION}</strong>
 									<!-- IF postrow.S_DELETE_PERMANENT -->
-										<input class="btn btn-danger" type="submit" value="{L_DELETE}" name="action[delete]" />
+									<button class="btn btn-danger me-1" type="submit" value="{L_DELETE}" name="action[delete]"><i class="fa fa-trash-o fa-fw" aria-hidden="true"></i> {L_DELETE}</button>
 									<!-- ENDIF -->
-									<input class="btn btn-success" type="submit" value="{L_RESTORE}" name="action[restore]" />
+									<button class="btn btn-success" type="submit" value="{L_RESTORE}" name="action[restore]"><i class="fa fa-recycle fa-fw" aria-hidden="true"></i> {L_RESTORE}</button>
 									<input type="hidden" name="post_id_list[]" value="{postrow.POST_ID}" />
 									{S_FORM_TOKEN}
 								</div>
