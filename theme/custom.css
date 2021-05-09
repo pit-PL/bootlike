@@ -355,6 +355,7 @@ a.postlink:hover, a.postlink:focus {
 
 	.row-item .topic-folder.folder:before, .row-item .topic-folder.folder:after {
 		content: "";
+		background: none;
 	}
 
 	.notification-text {
