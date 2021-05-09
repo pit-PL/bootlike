@@ -10,7 +10,7 @@
 
 <!-- IF .topicrow -->
 	<!-- DEFINE $CUSTOM_JUMPBOX_CLASS = 1 -->
-	<div class="action-bar d-sm-flex justify-content-between p-0 mb-3 border bg-light shadow-sm">
+	<div class="action-bar d-sm-flex justify-content-between p-0 mb-3 border bg-light">
 		<div class="d-flex">
 			<!-- INCLUDE display_options.html -->
 		</div>
@@ -102,7 +102,7 @@
 	</div>
 
 	<!-- IF not S_MERGE_SELECT -->
-	<div class="action-bar d-sm-flex justify-content-end p-0 mb-3 border bg-light shadow-sm">
+	<div class="action-bar d-sm-flex justify-content-end p-0 mb-3 border bg-light">
 		<a href="#" onclick="marklist('mcp', 'topic_id_list', false); return false;" class="btn btn-lg rounded-0" title="{L_UNMARK_ALL}"><i class="fa fa-toggle-off fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_UNMARK_ALL}</span></a>
 		<a href="#" onclick="marklist('mcp', 'topic_id_list', true); return false;" class="btn btn-lg rounded-0" title="{L_MARK_ALL}"><i class="fa fa-toggle-on fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_MARK_ALL}</span></a>
 	{S_FORM_TOKEN}
