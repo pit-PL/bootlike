@@ -3,7 +3,7 @@
     position: absolute;
 	top: 50%;
     left: 8px;
-	width: 39px;
+	width: 59px;
     padding: 4px 0;
 	transform: translateY(-50%);
 	cursor: default;
@@ -12,11 +12,15 @@
 	font-family: FontAwesome;
 	font-style: normal;
 	font-weight: normal;
-	-webkit-text-stroke: 1px #fff;
+	border-radius: 50%;
 }
 
 .rtl .row-item .folder:before, .rtl .row-item .folder:after {
 	right: 8px;
+}
+
+.row-item .folder:before {
+	background-color: #e1e1e1;
 }
 
 .row-item .folder:after {
@@ -115,7 +119,8 @@
 }
 
 .row-item .folder:before, .row-item .folder:after {
-	color: #5e96e9;
+	color: #bbb;
+	text-shadow: 1px 1px 1px #fff;
 }
 
 .forum_unread .folder:before,
@@ -147,5 +152,5 @@
 .announce_unread_locked_mine .folder:after,
 .global_unread_mine .folder:after,
 .global_unread_locked_mine .folder:after {
-	color: #C13B5B;
+	color: #0d6efd;
 }
