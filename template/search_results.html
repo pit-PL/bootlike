@@ -142,9 +142,9 @@
 					<div class="small">{searchresults.TOPIC_VIEWS} {L_VIEWS}</div>
 				</div>
 				<div class="col-lg-3 col-md-4 d-none d-md-block">
-					{L_POST_BY_AUTHOR} <!-- EVENT search_results_topic_author_username_prepend -->{searchresults.TOPIC_AUTHOR_FULL}<!-- EVENT search_results_topic_author_username_append --> &raquo; <time datetime="{searchresults.FIRST_POST_TIME_RFC3339}">{searchresults.FIRST_POST_TIME}</time> &raquo; {L_IN} <a href="{searchresults.U_VIEW_FORUM}">{searchresults.FORUM_TITLE}</a>
-					<!-- IF not S_IS_BOT --><a href="{searchresults.U_LAST_POST}" title="{L_GOTO_LAST_POST}"><i class="fa fa-arrow-{S_CONTENT_FLOW_END}" aria-hidden="true"></i><span class="visually-hidden">{L_VIEW_LATEST_POST}</span></a> <!-- ENDIF -->
-					<br><time datetime="{searchresults.LAST_POST_TIME_RFC3339}">{searchresults.LAST_POST_TIME}</time>
+					{L_POST_BY_AUTHOR} <!-- EVENT search_results_topic_author_username_prepend --> {searchresults.TOPIC_AUTHOR_FULL} <!-- EVENT search_results_topic_author_username_append --><!-- IF not S_IS_BOT -->
+					<a href="{searchresults.U_LAST_POST}" title="{L_GOTO_LAST_POST}"><i class="fa fa-arrow-{S_CONTENT_FLOW_END}" aria-hidden="true"></i><span class="visually-hidden">{L_VIEW_LATEST_POST}</span></a> <!-- ENDIF --><br>
+					<time datetime="{searchresults.LAST_POST_TIME_RFC3339}">{searchresults.LAST_POST_TIME}</time>
 				</div>
 				{% EVENT search_results_topic_row_lastpost_after %}
 			</div>
