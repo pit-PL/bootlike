@@ -17,7 +17,7 @@
 	<p>{L_EXPLAIN}</p>
 
 	<!-- IF .postrow -->
-	<div class="action-bar d-sm-flex justify-content-between p-0 mb-3 border bg-light shadow-sm">
+	<div class="action-bar d-sm-flex justify-content-between p-0 mb-3 border bg-light">
 		<div class="d-flex">
 			<!-- INCLUDE display_options.html -->
 		</div>
@@ -101,7 +101,7 @@
 <!-- ENDIF -->
 
 <!-- IF .postrow -->
-	<div class="action-bar d-sm-flex justify-content-<!-- IF TOPIC_ID -->between<!-- ELSE -->end<!-- ENDIF --> p-0 mb-3 border bg-light shadow-sm">
+	<div class="action-bar d-sm-flex justify-content-<!-- IF TOPIC_ID -->between<!-- ELSE -->end<!-- ENDIF --> p-0 mb-3 border bg-light">
 		<!-- IF TOPIC_ID -->
 		<div class="form-switch d-flex ms-3 mt-1">
 			<label class="col-form-label"><input class="form-check-input" type="checkbox" name="t" value="{TOPIC_ID}" checked="checked" onClick="document.getElementById('mcp').submit()" /> {L_ONLY_TOPIC}</label>
