@@ -67,16 +67,20 @@ hr:after {
 }
 
 .row-item .folder {
-	padding-left: 55px;
+	padding-left: 75px;
 }
 
 .rtl .row-item .folder {
 	padding-left: 0;
-	padding-right: 55px;
+	padding-right: 75px;
 }
 
 .folder-height {
 	height: 100px;
+}
+
+.topic-folder, .content {
+	min-height: 4rem;
 }
 
 .row-item .forum-image img {
