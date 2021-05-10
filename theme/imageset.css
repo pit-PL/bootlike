@@ -3,8 +3,8 @@
     position: absolute;
 	top: 50%;
     left: 8px;
-	width: 48px;
-    padding: 3px 0;
+	width: 50px;
+    padding: 4px 0;
 	transform: translateY(-50%);
 	cursor: default;
 	text-align: center;
