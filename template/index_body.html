@@ -61,26 +61,26 @@
 		<div id="collapse_login" class="accordion-collapse collapse show" data-bs-parent="#accordion_index">
 			<div class="accordion-body">
 				<form method="post" action="{S_LOGIN_ACTION}">
-					<div class="row row-cols-md-auto gx-2">
-						<div class="col-12 mt-1 mt-xl-0">
+					<div class="row row-cols-md-auto gx-2 justify-content-center">
+						<div class="col-12 my-1">
 							<div class="input-group">
 								<span class="input-group-text">{L_USERNAME}</span>
-								<input class="form-control" type="text" tabindex="1" name="username" id="username" size="15" title="{L_USERNAME}" placeholder="{L_USERNAME}" />
+								<input class="form-control" type="text" tabindex="1" name="username" id="username" size="20" title="{L_USERNAME}" placeholder="{L_USERNAME}" />
 							</div>
 						</div>
-						<div class="col-12 mt-1 mt-xl-0">
+						<div class="col-12 my-1">
 							<div class="input-group">
 								<span class="input-group-text">{L_PASSWORD}</span>
-								<input class="form-control" type="password" tabindex="2" name="password" id="password" size="15" title="{L_PASSWORD}" autocomplete="off" placeholder="{L_PASSWORD}" />
+								<input class="form-control" type="password" tabindex="2" name="password" id="password" size="20" title="{L_PASSWORD}" autocomplete="off" placeholder="{L_PASSWORD}" />
 							</div>
 						</div>
 						<!-- IF U_SEND_PASSWORD -->
-						<div class="col-12 mt-1 mt-xl-0">
+						<div class="col-12 my-1">
 							<a class="btn btn-outline-secondary" href="{U_SEND_PASSWORD}">{L_FORGOT_PASS}</a>
 						</div>
 						<!-- ENDIF -->
 						<!-- IF S_AUTOLOGIN_ENABLED -->
-						<div class="col-12 mt-1 mt-xl-0">
+						<div class="col-12 my-1">
 							<div class="input-group">
 								<div class="input-group-text border-primary border-end-0">
 									<input class="form-check-input mt-0" type="checkbox" tabindex="4" name="autologin" id="autologin" autocomplete="off" />
@@ -89,7 +89,7 @@
 							</div>
 						</div>
 						<!-- ENDIF -->
-						<div class="col-12 mt-1 mt-xl-0">
+						<div class="col-12 my-1">
 							<button class="btn btn-success" type="submit" tabindex="5" name="login" value="{L_LOGIN}"><i class="fa fa-power-off fa-fw" aria-hidden="true"></i> {L_LOGIN}</button>
 						</div>
 						{S_LOGIN_REDIRECT}
