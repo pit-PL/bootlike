@@ -297,7 +297,7 @@
 							<ul class="dropdown-menu dropdown-menu-<!-- IF not $PROFILES_ON_LEFT -->end<!-- ELSE -->start<!-- ENDIF --> dropdown-contents">
 							<!-- BEGIN contact -->
 								<li>
-									<a href="<!-- IF postrow.contact.U_CONTACT -->{postrow.contact.U_CONTACT}<!-- ELSE -->{postrow.U_POST_AUTHOR}<!-- ENDIF -->" class="dropdown-item" title="{postrow.contact.NAME}"<!-- IF postrow.contact.ID eq 'jabber' --> onclick="popup(this.href, 750, 320); return false;"<!-- ENDIF -->>
+									<a class="dropdown-item" href="<!-- IF postrow.contact.U_CONTACT -->{postrow.contact.U_CONTACT}<!-- ELSE -->{postrow.U_POST_AUTHOR}<!-- ENDIF -->""<!-- IF postrow.contact.ID eq 'jabber' --> onclick="popup(this.href, 750, 320); return false;"<!-- ENDIF -->>
 									{% EVENT viewtopic_body_contact_icon_prepend %}
 										<span class="{postrow.contact.ID}-icon"><i class="fa fa-<!-- IF postrow.contact.ID eq 'pm' -->user<!-- ELSEIF postrow.contact.ID eq 'email' -->envelope<!-- ELSEIF postrow.contact.ID eq 'phpbb_website' -->globe<!-- ELSEIF postrow.contact.ID eq 'icon_contact_jabber' -->lightbulb-o<!-- ELSEIF postrow.contact.ID eq 'phpbb_yahoo' -->yahoo<!-- ELSEIF postrow.contact.ID eq 'phpbb_facebook' -->facebook-square<!-- ELSEIF postrow.contact.ID eq 'phpbb_twitter' -->twitter<!-- ELSEIF postrow.contact.ID eq 'phpbb_skype' -->skype<!-- ELSEIF postrow.contact.ID eq 'phpbb_youtube' -->youtube-play<!-- ELSEIF postrow.contact.ID eq 'phpbb_googleplus' -->google-plus<!-- ELSE -->comments<!-- ENDIF --> fa-fw"></i> {postrow.contact.NAME}</span>
 									{% EVENT viewtopic_body_contact_icon_append %}
