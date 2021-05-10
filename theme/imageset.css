@@ -3,12 +3,12 @@
     position: absolute;
 	top: 50%;
     left: 8px;
-	width: 59px;
-    padding: 4px 0;
+	width: 48px;
+    padding: 3px 0;
 	transform: translateY(-50%);
 	cursor: default;
 	text-align: center;
-	font-size: 32px;
+	font-size: 28px;
 	font-family: FontAwesome;
 	font-style: normal;
 	font-weight: normal;
