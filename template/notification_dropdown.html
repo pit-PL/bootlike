@@ -14,9 +14,9 @@
 			<div class="notification-text mx-1">
 				<div class="float-start mt-1 me-2" style="margin-{S_CONTENT_FLOW_BEGIN}: -0.8rem;"><!-- IF notifications.AVATAR -->{notifications.AVATAR}<!-- ELSE --><img src="{ROOT_PATH}styles/bootlike/theme/images/no_avatar.gif" class="img-thumbnail" alt="{L_IMAGE}" /><!-- ENDIF --></div>
 				<div class="notification-title text-wrap">{notifications.FORMATTED_TITLE}</div>
-				<!-- IF notifications.REFERENCE --><div class="notification-reference">{notifications.REFERENCE}</div><!-- ENDIF -->
-				<!-- IF notifications.FORUM --><div class="notification-reference">{notifications.FORUM}</div><!-- ENDIF -->
-				<!-- IF notifications.REASON --><div class="notification-reference">{notifications.REASON}</div><!-- ENDIF -->
+				<!-- IF notifications.REFERENCE --><div class="text-truncate">{notifications.REFERENCE}</div><!-- ENDIF -->
+				<!-- IF notifications.FORUM --><div class="text-truncate">{notifications.FORUM}</div><!-- ENDIF -->
+				<!-- IF notifications.REASON --><div class="text-truncate">{notifications.REASON}</div><!-- ENDIF -->
 				<div class="small text-end"><small>{notifications.TIME}</small></div>
 			</div>
 		<!-- IF notifications.URL --></a><!-- ENDIF -->
