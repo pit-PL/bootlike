@@ -2,7 +2,7 @@
 	<div class="container-fluid" role="navigation">
 	<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-collapse-header"><span class="navbar-toggler-icon"></span></button>
 		<div id="navbar-collapse-header" class="collapse navbar-collapse justify-content-between">
-			<ul class="navbar-nav mb-2 mb-lg-0 d-flex" role="menubar">
+			<ul class="navbar-nav mb-2 mb-md-0 d-flex" role="menubar">
 				<!-- EVENT navbar_header_quick_links_before -->
 
 				<li class="nav-item dropdown<!-- IF not S_DISPLAY_QUICK_LINKS and not S_DISPLAY_SEARCH --> d-none<!-- ENDIF -->">
@@ -44,10 +44,10 @@
 			<!-- EVENT overall_header_navigation_append -->
 			</ul>
 			
-			<ul class="navbar-nav mb-2 mb-lg-0 d-flex" role="menubar">
+			<ul class="navbar-nav mb-2 mb-md-0 d-flex" role="menubar">
 			<!-- IF S_REGISTERED_USER -->
 				<!-- IF S_NOTIFICATIONS_DISPLAY -->
-				<li class="nav-item dropdown">
+				<li class="nav-item dropdown ms-2 ms-lg-0">
 					<a href="#" id="notification_list_button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button">
 						<i class="fa fa-bell fa-fw position-relative" aria-hidden="true"><strong class="position-absolute top-0 start-0 translate-middle badge rounded-pill bg-danger<!-- IF not NOTIFICATIONS_COUNT --> d-none<!-- ENDIF -->">{NOTIFICATIONS_COUNT}</strong><span class="visually-hidden">{NOTIFICATIONS_COUNT}</span></i> {L_NOTIFICATIONS}
 					</a>
@@ -55,7 +55,7 @@
 				</li>
 				<!-- ENDIF -->
 
-				<li class="nav-item dropdown">
+				<li class="nav-item dropdown ms-2 ms-lg-0">
 					<a class="nav-link dropdown-toggle" href="#"<!-- IF PRIVATE_MESSAGE_COUNT --> title="{L_UNREAD_MESSAGES}"<!-- ENDIF --> role="button" data-bs-toggle="dropdown" aria-expanded="false">
 					<!-- IF S_DISPLAY_PM and PRIVATE_MESSAGE_COUNT -->
 						<i class="fa fa-inbox fa-fw position-relative" aria-hidden="true"><strong class="position-absolute top-0 start-0 translate-middle badge rounded-pill bg-danger<!-- IF not PRIVATE_MESSAGE_COUNT --> d-none<!-- ENDIF -->">{PRIVATE_MESSAGE_COUNT}</strong><span class="visually-hidden">{L_UNREAD_MESSAGES}</span></i>
