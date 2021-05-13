@@ -113,12 +113,6 @@ hr:after {
 	width: 350px;
 }
 
-.notification-reference {
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-}
-
 .notification-text img {
 	max-width: 50px;
 	height: auto;
