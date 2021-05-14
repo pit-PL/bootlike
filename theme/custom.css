@@ -203,15 +203,12 @@ blockquote.blockquote {
 
 #post_details, .dropdown-contents {
 	max-height: 300px;
+	overflow-y: auto;
 }
 
 #color_palette_placeholder td {
 	padding: 3px 1px;
 	border: 1px solid #f5f5f5;
-}
-
-.dropdown-contents {
-	overflow-y: auto;
 }
 
 select, select.form-select, input.form-control, input.inputbox {
