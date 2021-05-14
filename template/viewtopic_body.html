@@ -140,6 +140,12 @@
 		<!-- EVENT viewtopic_topic_tools_after -->
 		<!-- EVENT viewtopic_dropdown_top_custom -->
 
+		<!-- IF S_NUM_POSTS > 1 or .pagination -->
+			<form method="post" action="{S_TOPIC_ACTION}">
+			<!-- INCLUDE display_options.html -->
+			</form>
+		<!-- ENDIF -->
+
 		<!-- IF S_DISPLAY_SEARCHBOX -->
 			<form method="get" id="topic-search" action="{S_SEARCHBOX_ACTION}">
 				<button class="btn dropdown-toggle btn-lg rounded-0" title="{L_SEARCH}" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-search fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_SEARCH}</span></button>
