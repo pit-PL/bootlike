@@ -169,16 +169,18 @@
 			<!-- IF S_USER_SELECT -->
 			<dl class="row">
 				<dt class="col-lg-3 col-md-4 col-12"><label class="col-form-label">{L_CHANGE_POSTER}{L_COLON}</label></dt>
-				<dd class="col-lg-9 col-md-8 col-12">
-					<select class="form-select me-1" name="u">{S_USER_SELECT}</select>
-					<input class="btn btn-secondary" type="submit" name="action[chgposter_ip]" value="{L_CONFIRM}" />&nbsp;
+				<dd class="col-lg-9 col-md-8 col-12 w-auto">
+					<div class="input-group">
+						<select class="form-select" name="u">{S_USER_SELECT}</select>
+						<input class="btn btn-secondary" type="submit" name="action[chgposter_ip]" value="{L_CONFIRM}" />
+					</div>
 				</dd>
 			</dl>
 			<!-- ENDIF -->
 			<dl class="row">
 				<dt class="col-lg-3 col-md-4 col-12"><!-- IF S_USER_SELECT -->&nbsp;<!-- ELSE --><label class="col-form-label">{L_CHANGE_POSTER}{L_COLON}</label><!-- ENDIF --></dt>
 				<dd class="col-lg-9 col-md-8 col-12 w-auto">
-				<div class="input-group me-2">
+				<div class="input-group">
 					<input class="form-control" type="text" name="username" value="" />
 					<input type="submit" class="btn btn-secondary" name="action[chgposter]" value="{L_CONFIRM}" />
 					<a href="{U_FIND_USERNAME}" class="btn btn-secondary" onclick="find_username(this.href); return false;">{L_FIND_USERNAME}</a>
@@ -196,12 +198,14 @@
 
 			<dl class="row">
 				<dt class="col-lg-3 col-md-4 col-12"><label class="col-form-label">{L_MOD_OPTIONS}{L_COLON}</label></dt>
-				<dd class="col-lg-9 col-md-8 col-12">
-					<select class="form-select me-1" name="action">
-					<!-- IF S_CAN_LOCK_POST --><!-- IF S_POST_LOCKED --><option value="unlock_post">{L_UNLOCK_POST} [{L_UNLOCK_POST_EXPLAIN}]</option><!-- ELSE --><option value="lock_post">{L_LOCK_POST} [{L_LOCK_POST_EXPLAIN}]</option><!-- ENDIF --><!-- ENDIF -->
-					<!-- IF S_CAN_DELETE_POST --><option value="delete_post">{L_DELETE_POST}</option><!-- ENDIF -->
-					</select>
-					<button class="btn btn-success" type="submit" value="{L_SUBMIT}"><i class="fa fa-level-down fa-rotate-90 fa-fw" aria-hidden="true"></i> {L_SUBMIT}</button>
+				<dd class="col-lg-9 col-md-8 col-12 w-auto">
+					<div class="input-group">
+						<select class="form-select" name="action">
+						<!-- IF S_CAN_LOCK_POST --><!-- IF S_POST_LOCKED --><option value="unlock_post">{L_UNLOCK_POST} [{L_UNLOCK_POST_EXPLAIN}]</option><!-- ELSE --><option value="lock_post">{L_LOCK_POST} [{L_LOCK_POST_EXPLAIN}]</option><!-- ENDIF --><!-- ENDIF -->
+						<!-- IF S_CAN_DELETE_POST --><option value="delete_post">{L_DELETE_POST}</option><!-- ENDIF -->
+						</select>
+						<button class="btn btn-success" type="submit" value="{L_SUBMIT}"><i class="fa fa-level-down fa-rotate-90 fa-fw" aria-hidden="true"></i> {L_SUBMIT}</button>
+					</div>
 				</dd>
 			</dl>
 			{S_FORM_TOKEN}
