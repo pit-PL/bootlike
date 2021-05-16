@@ -4,23 +4,14 @@
 <!-- BEGIN forumrow -->
 
 	<!-- EVENT forumlist_body_category_header_before -->
-	<!-- IF forumrow.S_IS_CAT or forumrow.S_FIRST_ROW or forumrow.S_NO_CAT  -->
-		<div class="col-12 d-flex justify-content-between w-100">
+	<!-- IF forumrow.S_IS_CAT -->
 		<!-- EVENT forumlist_body_category_header_row_prepend -->
-			<h3><!-- IF forumrow.S_IS_CAT --><a href="{forumrow.U_VIEWFORUM}">{forumrow.FORUM_NAME}</a><!-- ELSE -->{L_FORUM}<!-- ENDIF --></h3>
-			<div class="d-flex">
+			<h3 class="w-100"><!-- IF forumrow.S_IS_CAT --><a href="{forumrow.U_VIEWFORUM}">{forumrow.FORUM_NAME}</a><!-- ELSE -->{L_FORUM}<!-- ENDIF --></h3>
+			<!-- IF SCRIPT_NAME eq "index" -->
 			<!-- EVENT index_body_markforums_before -->
-			<!-- IF SCRIPT_NAME eq "index" and forumrow.S_FIRST_ROW and U_MARK_FORUMS -->
-				<a href="{U_MARK_FORUMS}" title="{L_MARK_FORUMS_READ}" accesskey="m" data-ajax="mark_forums_read"><i class="fa fa-check fa-2x fa-fw" aria-hidden="true"></i></a>
-			<!-- ENDIF -->
 			<!-- EVENT index_body_markforums_after -->
-
-			<!-- IF SCRIPT_NAME eq "viewforum" and forumrow.S_FIRST_ROW and U_MARK_FORUMS -->
-				<a href="{U_MARK_FORUMS}" title="{L_MARK_SUBFORUMS_READ}" data-ajax="mark_forums_read"><i class="fa fa-check fa-2x fa-fw" aria-hidden="true"></i></a>
 			<!-- ENDIF -->
-		</div>
 		<!-- EVENT forumlist_body_category_header_row_append -->
-		</div>
 	<!-- ENDIF -->
 	<!-- EVENT forumlist_body_category_header_after -->
 
