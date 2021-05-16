@@ -140,4 +140,12 @@
 				{% EVENT overall_header_breadcrumb_append %}
 
 			{% EVENT overall_header_breadcrumbs_after %}
+
+			{% if U_MARK_FORUMS %}
+				{% if SCRIPT_NAME eq "index" and U_MARK_FORUMS %}
+					<li class="nav-item ms-auto"><a href="#"><a href="{U_MARK_FORUMS}" accesskey="m" data-ajax="mark_forums_read"><i class="fa fa-check fa-fw" aria-hidden="true"></i> {L_MARK_FORUMS_READ}</a></li>
+				{% elseif SCRIPT_NAME eq "viewforum" %}
+					<li class="nav-item ms-auto"><a href="{U_MARK_FORUMS}" data-ajax="mark_forums_read"><i class="fa fa-check fa-fw" aria-hidden="true"></i> {L_MARK_SUBFORUMS_READ}</a></li>
+				{% endif %}
+			{% endif %}
 		</ul>
