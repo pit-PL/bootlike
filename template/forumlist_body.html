@@ -1,11 +1,11 @@
 <!-- IF .forumrow -->
-<div class="container-xl p-0 mb-2">
-	<div class="row px-1">
+<div class="container-xl p-0">
+	<div class="row row-cols-lg-2 row-cols-md-2 row-cols-1">
 <!-- BEGIN forumrow -->
 
 	<!-- EVENT forumlist_body_category_header_before -->
 	<!-- IF forumrow.S_IS_CAT or forumrow.S_FIRST_ROW or forumrow.S_NO_CAT  -->
-		<div class="col-12 d-flex justify-content-between">
+		<div class="col-12 d-flex justify-content-between w-100">
 		<!-- EVENT forumlist_body_category_header_row_prepend -->
 			<h3><!-- IF forumrow.S_IS_CAT --><a href="{forumrow.U_VIEWFORUM}">{forumrow.FORUM_NAME}</a><!-- ELSE -->{L_FORUM}<!-- ENDIF --></h3>
 			<div class="d-flex">
@@ -25,7 +25,7 @@
 	<!-- EVENT forumlist_body_category_header_after -->
 
 	<!-- IF not forumrow.S_IS_CAT -->
-		<div class="col-lg-6 col-md-6 col-12 p-1 p-lg-2">
+		<div class="col-12 mb-3">
 		<!-- EVENT forumlist_body_forum_row_before -->
 			<div class="mark-forum bg1 border shadow-sm">
 				<div class="row-item position-relative p-2 {forumrow.FORUM_IMG_STYLE}"<!-- IF not forumrow.S_IS_LINK --> title="{forumrow.FORUM_FOLDER_IMG_ALT}"<!-- ENDIF -->>
