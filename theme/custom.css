@@ -109,10 +109,6 @@ hr:after {
 	display: block;
 }
 
-.notification-text {
-	width: 350px;
-}
-
 .notification-text img {
 	max-width: 50px;
 	height: auto;
