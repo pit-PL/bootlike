@@ -21,7 +21,11 @@
 <!-- ENDIF -->
 
 <!-- IF S_HAS_SUBFORUM -->
-	<!-- INCLUDE forumlist_body.html -->
+	<!-- IF $FORUM_ROW -->
+		<!-- INCLUDE forumrow_body.html -->
+	<!-- ELSE -->
+		<!-- INCLUDE forumlist_body.html -->
+	<!-- ENDIF -->
 <!-- ENDIF -->
 
 <!-- IF S_NO_READ_ACCESS -->
