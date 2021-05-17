@@ -1,0 +1,62 @@
+<div id="offcanvas_right" class="offcanvas offcanvas-<!-- IF $SIDEBAR_ON_LEFT -->start<!-- ELSE -->end<!-- ENDIF --> bg-light" tabindex="-1" aria-labelledby="offcanvas_right">
+	<div class="offcanvas-header">
+		<h5 class="offcanvas-title fw-bold">{CURRENT_USERNAME_SIMPLE}</h5>
+		<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="{L_CLOSE}"></button>
+	</div>
+	<div class="offcanvas-body">
+		<div class="mb-1 text-center fw-bold user-panel">{L_PROFILE}</div>
+		<ul class="list-group mb-3 border rounded-0 shadow-sm">
+			<!-- IF S_DISPLAY_PM -->
+			<li class="list-group-item p-0 border-0 text-center">
+				<a class="dropdown-item border-bottom" href="{U_PRIVATEMSGS}" role="menuitem">
+				<!-- IF PRIVATE_MESSAGE_COUNT -->
+					<div class="spinner-grow spinner-grow-sm text-danger" role="status"><span class="visually-hidden">{L_UNREAD_MESSAGES}</span></div>
+				<!-- ELSE -->
+					<i class="fa fa-inbox fa-fw position-relative" aria-hidden="true"></i>
+				<!-- ENDIF -->
+					{L_PRIVATE_MESSAGES}
+				</a>
+			</li>
+			<!-- ENDIF -->
+
+			<li class="list-group-item p-0  border-0">
+				<div class="row m-0 align-items-center">
+					<!-- IF CURRENT_USER_AVATAR -->
+					<div class="col-4 justify-content-center my-1 px-2 py-1 d-none d-md-flex">
+						<div class="img-thumbnail">{CURRENT_USER_AVATAR}</div>
+					</div>
+					<!-- ENDIF -->
+			
+					<div class="<!-- IF CURRENT_USER_AVATAR -->col-md-8<!-- ELSE -->col-12<!-- ENDIF --> px-2 py-1">
+					<!-- IF U_RESTORE_PERMISSIONS -->
+						<a href="{U_RESTORE_PERMISSIONS}" class="btn btn-secondary btn-sm w-100 my-1 text-truncate"><i class="fa fa-refresh fa-fw" aria-hidden="true"></i> {L_RESTORE_PERMISSIONS}</a>
+					<!-- ENDIF -->
+					
+					<!-- EVENT navbar_header_profile_list_before -->
+					
+						<a href="{U_PROFILE}" class="btn btn-secondary btn-sm w-100 my-1 text-truncate" role="menuitem"><i class="fa fa-sliders fa-fw" aria-hidden="true"></i> {L_PROFILE}</a>
+					<!-- IF U_USER_PROFILE -->
+						<a href="{U_USER_PROFILE}" class="btn btn-secondary btn-sm w-100 my-1 text-truncate" role="menuitem"><i class="fa fa-user fa-fw" aria-hidden="true"></i> {L_READ_PROFILE}</a>
+					<!-- ENDIF -->
+					
+					<!-- EVENT navbar_header_profile_list_after -->
+
+					<!-- IF U_MCP -->
+						<a href="{U_MCP}" class="btn btn-success btn-sm w-100 my-1 text-truncate" title="{L_MCP}" role="menuitem"><i class="fa fa-gavel fa-fw" aria-hidden="true"></i> {L_MCP_SHORT}</a>
+					<!-- ENDIF -->
+
+					<!-- IF U_ACP -->
+						<a href="{U_ACP}" class="btn btn-danger btn-sm w-100 my-1 rounded-top" title="{L_ACP}" role="menuitem"><i class="fa fa-cogs fa-fw" aria-hidden="true"></i> {L_ACP_SHORT}</a>
+					<!-- ENDIF -->
+					</div>
+				</div>
+			</li>
+			<li class="list-group-item p-0  border-0 text-center">
+				<a class="dropdown-item border-top" href="{U_LOGIN_LOGOUT}" accesskey="x" role="menuitem"><i class="fa fa-power-off fa-fw" aria-hidden="true"></i> {L_LOGIN_LOGOUT}</a>
+			</li>
+		</ul>
+
+		<div class="mb-1 text-center fw-bold">{L_NOTIFICATIONS}</div>
+		<!-- INCLUDE notification_dropdown.html -->
+	</div>
+</div>
