@@ -59,15 +59,46 @@
 						<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_contact" aria-expanded="false">{L_CONTACT}</button>
 					</h2>
 					<div id="collapse_contact" class="accordion-collapse collapse" data-bs-parent="#accordion_contact">
-						<div class="accordion-body">
+						<div class="accordion-body text-center">
 						<!-- EVENT memberlist_view_contact_before -->
-						<!-- IF U_EMAIL --><a href="{U_EMAIL}" title="{L_SEND_EMAIL_USER}"><i class="fa fa-envelope-o fa-fw" aria-hidden="true"></i></a><!-- ENDIF -->
-						<!-- IF U_PM --><a href="{U_PM}" title="{L_SEND_PRIVATE_MESSAGE}"><i class="fa fa-user fa-fw" aria-hidden="true"></i></a><!-- ENDIF -->
-						<!-- IF U_JABBER and S_JABBER_ENABLED --><a href="{U_JABBER}" title="{L_SEND_JABBER_MESSAGE}" onclick="popup(this.href, 750, 320); return false;"><i class="fa fa-lightbulb-o fa-fw" aria-hidden="true"></i></a><!-- ENDIF -->
+						<!-- IF U_EMAIL -->
+							<a class="d-inline-block m-1 text-decoration-none" href="{U_EMAIL}" title="{L_SEND_EMAIL_USER}">
+								<div class="p-1 rounded-circle alert-primary shadow-sm">
+									<div class="d-flex align-items-center justify-content-center rounded-circle border border-3 border-white fs-5 alert-primary" style="width: 48px; height: 48px;">
+										<i class="fa fa-envelope-o fa-fw" aria-hidden="true"></i>
+									</div>
+								</div>
+							</a>
+						<!-- ENDIF -->
+						<!-- IF U_PM -->
+							<a class="d-inline-block m-1 text-decoration-none" href="{U_PM}" title="{L_SEND_PRIVATE_MESSAGE}">
+								<div class="p-1 rounded-circle alert-primary shadow-sm">
+									<div class="d-flex align-items-center justify-content-center rounded-circle border border-3 border-white fs-5 alert-primary" style="width: 48px; height: 48px;">
+										<i class="fa fa-user fa-fw" aria-hidden="true"></i>
+									</div>
+								</div>
+							</a>
+						<!-- ENDIF -->
+						<!-- IF U_JABBER and S_JABBER_ENABLED -->
+							<a class="d-inline-block m-1 text-decoration-none" href="{U_JABBER}" title="{L_SEND_JABBER_MESSAGE}" onclick="popup(this.href, 750, 320); return false;">
+								<div class="p-1 rounded-circle alert-primary shadow-sm">
+									<div class="d-flex align-items-center justify-content-center rounded-circle border border-3 border-white fs-5 alert-primary" style="width: 48px; height: 48px;">
+										<i class="fa fa-lightbulb-o fa-fw" aria-hidden="true"></i>
+									</div>
+								</div>
+							</a>
+						<!-- ENDIF -->
+
 						<!-- EVENT memberlist_view_contact_custom_fields_before -->
 						<!-- BEGIN custom_fields -->
 							<!-- IF custom_fields.PROFILE_FIELD_CONTACT -->
-								<a href="{custom_fields.PROFILE_FIELD_CONTACT}" title="{custom_fields.PROFILE_FIELD_DESC}"><i class="fa fa-<!-- IF custom_fields.PROFILE_FIELD_NAME eq 'Website' -->globe<!-- ELSEIF custom_fields.PROFILE_FIELD_NAME eq 'ICQ' -->asterisk<!-- ELSEIF custom_fields.PROFILE_FIELD_NAME eq 'Yahoo Messenger' -->yahoo<!-- ELSEIF custom_fields.PROFILE_FIELD_NAME eq 'Facebook' -->facebook<!-- ELSEIF custom_fields.PROFILE_FIELD_NAME eq 'Twitter' -->twitter<!-- ELSEIF custom_fields.PROFILE_FIELD_NAME eq 'Skype' -->skype<!-- ELSEIF custom_fields.PROFILE_FIELD_NAME eq 'YouTube' -->youtube<!-- ENDIF --> fa-fw" aria-hidden="true"></i></a>
+								<a class="d-inline-block m-1 text-decoration-none" href="{custom_fields.PROFILE_FIELD_CONTACT}" title="{custom_fields.PROFILE_FIELD_DESC}">
+									<div class="p-1 rounded-circle alert-primary shadow-sm">
+										<div class="d-flex align-items-center justify-content-center rounded-circle border border-3 border-white fs-5 alert-primary" style="width: 48px; height: 48px;">
+											<i class="fa fa-<!-- IF custom_fields.PROFILE_FIELD_NAME eq 'Website' -->globe<!-- ELSEIF custom_fields.PROFILE_FIELD_NAME eq 'ICQ' -->asterisk<!-- ELSEIF custom_fields.PROFILE_FIELD_NAME eq 'Yahoo Messenger' -->yahoo<!-- ELSEIF custom_fields.PROFILE_FIELD_NAME eq 'Facebook' -->facebook<!-- ELSEIF custom_fields.PROFILE_FIELD_NAME eq 'Twitter' -->twitter<!-- ELSEIF custom_fields.PROFILE_FIELD_NAME eq 'Skype' -->skype<!-- ELSEIF custom_fields.PROFILE_FIELD_NAME eq 'YouTube' -->youtube<!-- ENDIF --> fa-fw" aria-hidden="true"></i>
+										</div>
+									</div>
+								</a>
 							<!-- ENDIF -->
 						<!-- END custom_fields -->
 						<!-- EVENT memberlist_view_contact_custom_fields_after -->
