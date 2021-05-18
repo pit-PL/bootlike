@@ -52,6 +52,35 @@
 				</div>
 
 			</div>
+
+			<div id="accordion_contact" class="accordion accordion-flush border-top">
+				<div class="accordion-item">
+					<h2 class="accordion-header">
+						<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_contact" aria-expanded="false">{L_CONTACT}</button>
+					</h2>
+					<div id="collapse_contact" class="accordion-collapse collapse" data-bs-parent="#accordion_contact">
+						<div class="accordion-body">
+						<!-- EVENT memberlist_view_contact_before -->
+						<!-- IF U_EMAIL --><a href="{U_EMAIL}" title="{L_SEND_EMAIL_USER}"><i class="fa fa-envelope-o fa-fw" aria-hidden="true"></i></a><!-- ENDIF -->
+						<!-- IF U_PM --><a href="{U_PM}" title="{L_SEND_PRIVATE_MESSAGE}"><i class="fa fa-user fa-fw" aria-hidden="true"></i></a><!-- ENDIF -->
+						<!-- IF U_JABBER and S_JABBER_ENABLED --><a href="{U_JABBER}" title="{L_SEND_JABBER_MESSAGE}" onclick="popup(this.href, 750, 320); return false;"><i class="fa fa-lightbulb-o fa-fw" aria-hidden="true"></i></a><!-- ENDIF -->
+						<!-- EVENT memberlist_view_contact_custom_fields_before -->
+						<!-- BEGIN custom_fields -->
+							<!-- IF custom_fields.PROFILE_FIELD_CONTACT -->
+								<a href="{custom_fields.PROFILE_FIELD_CONTACT}" title="{custom_fields.PROFILE_FIELD_DESC}"><i class="fa fa-<!-- IF custom_fields.PROFILE_FIELD_NAME eq 'Website' -->globe<!-- ELSEIF custom_fields.PROFILE_FIELD_NAME eq 'ICQ' -->asterisk<!-- ELSEIF custom_fields.PROFILE_FIELD_NAME eq 'Yahoo Messenger' -->yahoo<!-- ELSEIF custom_fields.PROFILE_FIELD_NAME eq 'Facebook' -->facebook<!-- ELSEIF custom_fields.PROFILE_FIELD_NAME eq 'Twitter' -->twitter<!-- ELSEIF custom_fields.PROFILE_FIELD_NAME eq 'Skype' -->skype<!-- ELSEIF custom_fields.PROFILE_FIELD_NAME eq 'YouTube' -->youtube<!-- ENDIF --> fa-fw" aria-hidden="true"></i></a>
+							<!-- ENDIF -->
+						<!-- END custom_fields -->
+						<!-- EVENT memberlist_view_contact_custom_fields_after -->
+						<!-- IF S_PROFILE_FIELD1 -->
+							<!-- NOTE: Use a construct like this to include admin defined profile fields. Replace FIELD1 with the name of your field. -->
+							{PROFILE_FIELD1_NAME}{L_COLON} {PROFILE_FIELD1_VALUE}
+						<!-- ENDIF -->
+						<!-- EVENT memberlist_view_contact_after -->
+						</div>
+					</div>
+				</div>
+			</div>
+
 		</div>
 	</div>
 
@@ -86,77 +115,43 @@
 				<!-- END custom_fields -->
 				<!-- EVENT memberlist_view_non_contact_custom_fields_after -->
 				</dl>
-			
+
 			</div>
+
+			<div id="accordion_user_statistics" class="accordion accordion-flush border-top">
+				<div class="accordion-item">
+					<h2 class="accordion-header">
+						<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_user_statistics" aria-expanded="false">{L_STATISTICS}</button>
+					</h2>
+					<div id="collapse_user_statistics" class="accordion-collapse collapse">
+						<div class="accordion-body">
+							<dl class="row mb-0">
+								<!-- EVENT memberlist_view_user_statistics_before -->
+								<dt class="col-lg-4 col-md-5 col-12">{L_JOINED}{L_COLON}</dt><dd class="col-lg-8 col-md-7 col-12">{JOINED}</dd>
+								<dt class="col-lg-4 col-md-5 col-12">{L_LAST_ACTIVE}{L_COLON}</dt><dd class="col-lg-8 col-md-7 col-12">{LAST_ACTIVE}</dd>
+								<!-- IF S_WARNINGS -->
+								<dt class="col-lg-4 col-md-5 col-12">{L_WARNINGS}{L_COLON}</dt>
+								<dd class="col-lg-8 col-md-7 col-12"><strong class="badge bg-warning">{WARNINGS}</strong><!-- IF U_NOTES or U_WARN --> [ <!-- IF U_NOTES --><a href="{U_NOTES}">{L_VIEW_NOTES}</a><!-- ENDIF --> <!-- IF U_WARN --><!-- IF U_NOTES --> | <!-- ENDIF --><a href="{U_WARN}">{L_WARN_USER}</a><!-- ENDIF --> ]<!-- ENDIF --></dd>
+								<!-- ENDIF -->
+								<dt class="col-lg-4 col-md-5 col-12">{L_TOTAL_POSTS}{L_COLON}</dt>
+									<dd class="col-lg-8 col-md-7 col-12">{POSTS}<!-- IF S_DISPLAY_SEARCH --> | <a href="{U_SEARCH_USER}">{L_SEARCH_USER_POSTS}</a><!-- ENDIF -->
+										<!-- IF POSTS_PCT --><br>({POSTS_PCT} / {POSTS_DAY})<!-- ENDIF -->
+										<!-- IF POSTS_IN_QUEUE and U_MCP_QUEUE --><br>(<a href="{U_MCP_QUEUE}">{L_POSTS_IN_QUEUE}</a>)<!-- ELSEIF POSTS_IN_QUEUE --><br>({L_POSTS_IN_QUEUE})<!-- ENDIF -->
+									</dd>
+								<!-- IF S_SHOW_ACTIVITY and POSTS -->
+									<dt class="col-lg-4 col-md-5 col-12">{L_ACTIVE_IN_FORUM}{L_COLON}</dt><dd class="col-lg-8 col-md-7 col-12"><!-- IF ACTIVE_FORUM != '' --><a href="{U_ACTIVE_FORUM}">{ACTIVE_FORUM}</a><br>({ACTIVE_FORUM_POSTS} / {ACTIVE_FORUM_PCT})<!-- ELSE --> - <!-- ENDIF --></dd>
+									<dt class="col-lg-4 col-md-5 col-12">{L_ACTIVE_IN_TOPIC}{L_COLON}</dt><dd class="col-lg-8 col-md-7 col-12"><!-- IF ACTIVE_TOPIC != '' --><a href="{U_ACTIVE_TOPIC}">{ACTIVE_TOPIC}</a><br>({ACTIVE_TOPIC_POSTS} / {ACTIVE_TOPIC_PCT})<!-- ELSE --> - <!-- ENDIF --></dd>
+								<!-- ENDIF -->
+								<!-- EVENT memberlist_view_user_statistics_after -->
+							</dl>
+						</div>
+					</div>
+				</div>
+			</div>
+
 		</div>
 	</div>
 </div>
-
-<!-- EVENT memberlist_view_contact_before -->
-
-<h5 class="card-title pb-1 text-capitalize">{L_CONTACT} {L_AND} {L_STATISTICS}</h5>
-
-<div class="row row-cols-lg-2">
-	<div class="col-12 d-flex">
-		<div class="card mb-3 w-100">
-			<div class="card-body">
-
-				<dl class="row mb-0">
-				<!-- IF U_EMAIL --><dt class="col-lg-4 col-md-5 col-12">{L_EMAIL_ADDRESS}{L_COLON}</dt><dd class="col-lg-8 col-md-7 col-12"><a href="{U_EMAIL}">{L_SEND_EMAIL_USER}</a></dd><!-- ENDIF -->
-				<!-- IF U_PM --><dt class="col-lg-4 col-md-5 col-12">{L_PM}{L_COLON}</dt><dd class="col-lg-8 col-md-7 col-12"><a href="{U_PM}">{L_SEND_PRIVATE_MESSAGE}</a></dd><!-- ENDIF -->
-				<!-- IF U_JABBER and S_JABBER_ENABLED --><dt class="col-lg-4 col-md-5 col-12">{L_JABBER}{L_COLON}</dt><dd class="col-lg-8 col-md-7 col-12"><a href="{U_JABBER}" onclick="popup(this.href, 750, 320); return false;">{L_SEND_JABBER_MESSAGE}</a></dd><!-- ELSEIF USER_JABBER --><dt class="col-lg-4 col-md-5 col-12">{L_JABBER}{L_COLON}</dt> <dd class="col-lg-8 col-md-7 col-12">{USER_JABBER}</dd><!-- ENDIF -->
-				<!-- EVENT memberlist_view_contact_custom_fields_before -->
-				<!-- BEGIN custom_fields -->
-					<!-- IF custom_fields.S_PROFILE_CONTACT -->
-						<dt class="col-lg-4 col-md-5 col-12">{custom_fields.PROFILE_FIELD_NAME}{L_COLON}</dt>
-						<!-- IF custom_fields.PROFILE_FIELD_CONTACT -->
-							<dd class="col-lg-8 col-md-7 col-12"><a href="{custom_fields.PROFILE_FIELD_CONTACT}">{custom_fields.PROFILE_FIELD_DESC}</a></dd>
-						<!-- ELSE -->
-							<dd class="col-lg-8 col-md-7 col-12"><!-- IF custom_fields.PROFILE_FIELD_VALUE -->{custom_fields.PROFILE_FIELD_VALUE}<!-- ELSE -->&nbsp;<!-- ENDIF --></dd>
-						<!-- ENDIF -->
-					<!-- ENDIF -->
-				<!-- END custom_fields -->
-				<!-- EVENT memberlist_view_contact_custom_fields_after -->
-				<!-- IF S_PROFILE_FIELD1 -->
-					<!-- NOTE: Use a construct like this to include admin defined profile fields. Replace FIELD1 with the name of your field. -->
-					<dt class="col-lg-4 col-md-5 col-12">{PROFILE_FIELD1_NAME}{L_COLON}</dt><dd class="col-lg-4 col-12">{PROFILE_FIELD1_VALUE}</dd>
-				<!-- ENDIF -->
-				</dl>
-
-			</div>
-		</div>
-	</div>
-
-	<div class="col-12 d-flex">
-		<div class="card mb-3 w-100">
-			<div class="card-body">
-
-				<dl class="row mb-0">
-					<!-- EVENT memberlist_view_user_statistics_before -->
-					<dt class="col-lg-4 col-md-5 col-12">{L_JOINED}{L_COLON}</dt><dd class="col-lg-8 col-md-7 col-12">{JOINED}</dd>
-					<dt class="col-lg-4 col-md-5 col-12">{L_LAST_ACTIVE}{L_COLON}</dt><dd class="col-lg-8 col-md-7 col-12">{LAST_ACTIVE}</dd>
-					<!-- IF S_WARNINGS -->
-					<dt class="col-lg-4 col-md-5 col-12">{L_WARNINGS}{L_COLON}</dt>
-					<dd class="col-lg-8 col-md-7 col-12"><strong class="badge bg-warning">{WARNINGS}</strong><!-- IF U_NOTES or U_WARN --> [ <!-- IF U_NOTES --><a href="{U_NOTES}">{L_VIEW_NOTES}</a><!-- ENDIF --> <!-- IF U_WARN --><!-- IF U_NOTES --> | <!-- ENDIF --><a href="{U_WARN}">{L_WARN_USER}</a><!-- ENDIF --> ]<!-- ENDIF --></dd>
-					<!-- ENDIF -->
-					<dt class="col-lg-4 col-md-5 col-12">{L_TOTAL_POSTS}{L_COLON}</dt>
-						<dd class="col-lg-8 col-md-7 col-12">{POSTS}<!-- IF S_DISPLAY_SEARCH --> | <a href="{U_SEARCH_USER}">{L_SEARCH_USER_POSTS}</a><!-- ENDIF -->
-							<!-- IF POSTS_PCT --><br>({POSTS_PCT} / {POSTS_DAY})<!-- ENDIF -->
-							<!-- IF POSTS_IN_QUEUE and U_MCP_QUEUE --><br>(<a href="{U_MCP_QUEUE}">{L_POSTS_IN_QUEUE}</a>)<!-- ELSEIF POSTS_IN_QUEUE --><br>({L_POSTS_IN_QUEUE})<!-- ENDIF -->
-						</dd>
-					<!-- IF S_SHOW_ACTIVITY and POSTS -->
-						<dt class="col-lg-4 col-md-5 col-12">{L_ACTIVE_IN_FORUM}{L_COLON}</dt><dd class="col-lg-8 col-md-7 col-12"><!-- IF ACTIVE_FORUM != '' --><a href="{U_ACTIVE_FORUM}">{ACTIVE_FORUM}</a><br>({ACTIVE_FORUM_POSTS} / {ACTIVE_FORUM_PCT})<!-- ELSE --> - <!-- ENDIF --></dd>
-						<dt class="col-lg-4 col-md-5 col-12">{L_ACTIVE_IN_TOPIC}{L_COLON}</dt><dd class="col-lg-8 col-md-7 col-12"><!-- IF ACTIVE_TOPIC != '' --><a href="{U_ACTIVE_TOPIC}">{ACTIVE_TOPIC}</a><br>({ACTIVE_TOPIC_POSTS} / {ACTIVE_TOPIC_PCT})<!-- ELSE --> - <!-- ENDIF --></dd>
-					<!-- ENDIF -->
-					<!-- EVENT memberlist_view_user_statistics_after -->
-				</dl>
-
-			</div>
-		</div>
-	</div>
-</div>
-
-<!-- EVENT memberlist_view_contact_after -->
 
 <!-- IF SIGNATURE -->
 <h5 class="card-title pb-1 text-capitalize">{L_SIGNATURE}</h5>
