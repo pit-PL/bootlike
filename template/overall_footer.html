@@ -124,6 +124,17 @@ function topFunction() {
 </script>
 
 <script>
+	var toHide = document.getElementsByClassName('user-panel');
+		for (var i=0; i<toHide.length; ++i) {
+			hideSecondWord(toHide[i]);
+	}
+
+	function hideSecondWord(elem) {
+		elem.innerHTML = elem.textContent.replace(/\w+ (\w+)/, function(s, c) {
+			return s.replace(c, '<span class="d-none">'+c+'</span>');
+		});
+	}
+
 	var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
 	var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
 		return new bootstrap.Tooltip(tooltipTriggerEl)
