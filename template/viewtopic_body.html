@@ -369,41 +369,34 @@
 						</div>
 
 						<div class="px-3 py-2 bg1">
-							<!-- IF postrow.S_POST_UNAPPROVED -->
-							<!-- IF postrow.S_CAN_APPROVE -->
-							<form method="post" class="mcp_approve" action="{postrow.U_APPROVE_ACTION}">
-								<div class="alert alert-warning">
+						<!-- IF postrow.S_POST_UNAPPROVED or postrow.S_POST_DELETED or postrow.S_POST_REPORTED -->
+							<div class="alert alert-warning">
+								<form method="post" class="mcp_approve" action="{postrow.U_APPROVE_ACTION}">
+								<!-- IF postrow.S_POST_UNAPPROVED -->
+								<!-- IF postrow.S_CAN_APPROVE -->
 									<strong>{L_POST_UNAPPROVED_ACTION}</strong>
 									<button class="btn btn-danger mx-1" type="submit" value="{L_DISAPPROVE}" name="action[disapprove]"><i class="fa fa-thumbs-o-down fa-fw" aria-hidden="true"></i> {L_DISAPPROVE}</button>
-									<button class="btn btn-success" type="submit" value="{L_APPROVE}" name="action[approve]"><i class="fa fa-thumbs-o-up fa-fw" aria-hidden="true"></i> {L_APPROVE}</button>
+									<button class="btn btn-success me-1" type="submit" value="{L_APPROVE}" name="action[approve]"><i class="fa fa-thumbs-o-up fa-fw" aria-hidden="true"></i> {L_APPROVE}</button>
 									<input type="hidden" name="post_id_list[]" value="{postrow.POST_ID}" />
 									{S_FORM_TOKEN}
-								</div>
-							</form>
-							<!-- ELSE -->
-								<div class="alert alert-warning">
+								<!-- ELSE -->
 									<i class="fa fa-exclamation fa-fw text-danger" aria-hidden="true"></i> <strong>{L_POST_UNAPPROVED_EXPLAIN}</strong>
-								</div>
-							<!-- ENDIF -->
-							<!-- ELSEIF postrow.S_POST_DELETED -->
-							<form method="post" class="mcp_approve" action="{postrow.U_APPROVE_ACTION}">
-								<div class="alert alert-warning">
+								<!-- ENDIF -->
+								<!-- ELSEIF postrow.S_POST_DELETED -->
 									<strong>{L_POST_DELETED_ACTION}</strong>
 									<!-- IF postrow.S_DELETE_PERMANENT -->
-									<button class="btn btn-danger me-1" type="submit" value="{L_DELETE}" name="action[delete]"><i class="fa fa-trash-o fa-fw" aria-hidden="true"></i> {L_DELETE}</button>
+									<button class="btn btn-danger mx-1" type="submit" value="{L_DELETE}" name="action[delete]"><i class="fa fa-trash-o fa-fw" aria-hidden="true"></i> {L_DELETE}</button>
 									<!-- ENDIF -->
-									<button class="btn btn-success" type="submit" value="{L_RESTORE}" name="action[restore]"><i class="fa fa-recycle fa-fw" aria-hidden="true"></i> {L_RESTORE}</button>
+									<button class="btn btn-success me-1" type="submit" value="{L_RESTORE}" name="action[restore]"><i class="fa fa-recycle fa-fw" aria-hidden="true"></i> {L_RESTORE}</button>
 									<input type="hidden" name="post_id_list[]" value="{postrow.POST_ID}" />
 									{S_FORM_TOKEN}
-								</div>
-							</form>
-							<!-- ENDIF -->
-
-							<!-- IF postrow.S_POST_REPORTED -->
-							<div class="alert alert-warning">
-								<a href="{postrow.U_MCP_REPORT}"><i class="fa fa-exclamation fa-fw icon-red" aria-hidden="true"></i> <strong>{L_POST_REPORTED}</strong></a>
+								<!-- ENDIF -->
+								<!-- IF postrow.S_POST_REPORTED -->
+									<a class="btn btn-info" href="{postrow.U_MCP_REPORT}"><i class="fa fa-exclamation fa-fw icon-red" aria-hidden="true"></i> {L_POST_REPORTED}</a>
+								<!-- ENDIF -->
+								</form>
 							</div>
-							<!-- ENDIF -->
+						<!-- ENDIF -->
 
 							<div class="content pb-2">{postrow.MESSAGE}</div>
 
