@@ -231,6 +231,7 @@
 <!-- EVENT viewtopic_body_poll_after -->
 
 <!-- BEGIN postrow -->
+
 	<!-- EVENT viewtopic_body_postrow_post_before -->
 	<!-- IF postrow.S_FIRST_UNREAD -->
 		<a id="unread" class="d-block"<!-- IF S_UNREAD_VIEW --> data-url="{postrow.U_MINI_POST}"<!-- ENDIF -->></a>
@@ -278,6 +279,7 @@
 						</div>
 					</div>
 
+				<!-- IF $PROFILE_POPUP_OFF -->
 					<!-- IF postrow.POSTER_POSTS != '' --><div class="d-none d-md-block"><strong>{L_POSTS}{L_COLON}</strong><!-- IF postrow.U_SEARCH !== '' --> <a href="{postrow.U_SEARCH}"><!-- ENDIF -->{postrow.POSTER_POSTS}<!-- IF postrow.U_SEARCH !== '' --></a><!-- ENDIF --></div><!-- ENDIF -->
 					<!-- IF postrow.POSTER_JOINED --><div class="d-none d-md-block"><strong>{L_JOINED}{L_COLON}</strong> {postrow.POSTER_JOINED}</div><!-- ENDIF -->
 					<!-- IF postrow.POSTER_WARNINGS --><div class="d-none d-md-block"><strong>{L_WARNINGS}{L_COLON}</strong> {postrow.POSTER_WARNINGS}</div><!-- ENDIF -->
@@ -314,6 +316,9 @@
 						</div>
 					<!-- ENDIF -->
 					<!-- EVENT viewtopic_body_contact_fields_after -->
+				<!-- ELSEIF .postrow.contact -->
+					<button type="button" class="btn btn-primary btn-sm w-100 mt-1" data-bs-toggle="modal" data-bs-target="#modal_post_{postrow.POST_ID}"><i class="fa fa-user-circle-o fa-fw" aria-hidden="true"></i> {L_READ_PROFILE}</button>
+				<!-- ENDIF -->
 				</div>
 
 				<div class="postbody col-lg-9 col-md-8 p-0<!-- IF not $PROFILES_ON_LEFT --> border-end<!-- ELSE --> border-start<!-- ENDIF --><!-- IF postrow.SIGNATURE --> bg-light<!-- ELSE --> bg1<!-- ENDIF -->">
@@ -454,6 +459,65 @@
 	</div>
 
 	<!-- EVENT viewtopic_body_postrow_post_after -->
+
+<!-- IF not $PROFILE_POPUP_OFF -->
+	<div id="modal_post_{postrow.POST_ID}" class="modal fade" tabindex="-1" role="dialog">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">{L_READ_PROFILE} - {postrow.POST_AUTHOR}</h5>
+					<button type="button" class="btn-close" title="{L_CLOSE_WINDOW}" data-bs-dismiss="modal" aria-label="{L_CLOSE_WINDOW}"></button>
+				</div>
+
+				<div class="modal-body bg-light">
+					<div class="row d-flex align-items-center">
+						<div class="col-4 d-flex align-items-center justify-content-center">
+						<!-- IF postrow.POSTER_AVATAR --><span class="img-thumbnail">{postrow.POSTER_AVATAR}</span><!-- ELSE --><img class="img-thumbnail rounded-circle" src="{ROOT_PATH}styles/bootlike/theme/images/no_avatar.gif" alt="{L_IMAGE}" /><!-- ENDIF -->
+						</div>
+						<div class="col-8">
+						<!-- IF postrow.POSTER_POSTS != '' --><div><strong>{L_POSTS}{L_COLON}</strong><!-- IF postrow.U_SEARCH !== '' --> <a href="{postrow.U_SEARCH}"><!-- ENDIF -->{postrow.POSTER_POSTS}<!-- IF postrow.U_SEARCH !== '' --></a><!-- ENDIF --></div><!-- ENDIF -->
+						<!-- IF postrow.POSTER_JOINED --><div><strong>{L_JOINED}{L_COLON}</strong> {postrow.POSTER_JOINED}</div><!-- ENDIF -->
+						<!-- IF postrow.POSTER_WARNINGS --><div class="d-flex justify-content-between"><strong>{L_WARNINGS}{L_COLON}</strong> {postrow.POSTER_WARNINGS}</div><!-- ENDIF -->
+
+						<!-- EVENT viewtopic_body_postrow_custom_fields_before -->
+						<!-- BEGIN custom_fields -->
+							<!-- IF not postrow.custom_fields.S_PROFILE_CONTACT -->
+								<div class="profile-custom-field profile-{postrow.custom_fields.PROFILE_FIELD_IDENT}"><strong>{postrow.custom_fields.PROFILE_FIELD_NAME}{L_COLON}</strong> {postrow.custom_fields.PROFILE_FIELD_VALUE}</div>
+							<!-- ENDIF -->
+						<!-- END custom_fields -->
+						<!-- EVENT viewtopic_body_postrow_custom_fields_after -->
+
+						<!-- IF postrow.S_PROFILE_FIELD1 -->
+							<!-- Use a construct like this to include admin defined profile fields. Replace FIELD1 with the name of your field. -->
+							<div><strong>{postrow.PROFILE_FIELD1_NAME}{L_COLON}</strong> {postrow.PROFILE_FIELD1_VALUE}</div>
+						<!-- ENDIF -->
+						</div>
+					</div>
+				</div>
+				
+				<div class="modal-footer justify-content-center">
+				<!-- EVENT viewtopic_body_contact_fields_before -->
+				<!-- IF not S_IS_BOT and .postrow.contact -->
+					<!-- BEGIN contact -->
+					{% EVENT viewtopic_body_contact_icon_prepend %}
+					<a class="d-inline-block m-1 text-decoration-none" href="<!-- IF postrow.contact.U_CONTACT -->{postrow.contact.U_CONTACT}<!-- ELSE -->{postrow.U_POST_AUTHOR}<!-- ENDIF -->"<!-- IF postrow.contact.ID eq 'jabber' --> onclick="popup(this.href, 750, 320); return false;"<!-- ENDIF --> title="{postrow.contact.NAME}">
+						<div class="p-1 rounded-circle alert-primary shadow-sm">
+							<div class="d-flex align-items-center justify-content-center rounded-circle border border-3 border-white fs-5 alert-primary" style="width: 48px; height: 48px;">
+								<i class="fa fa-<!-- IF postrow.contact.ID eq 'pm' -->user<!-- ELSEIF postrow.contact.ID eq 'email' -->envelope<!-- ELSEIF postrow.contact.ID eq 'phpbb_website' -->globe<!-- ELSEIF postrow.contact.ID eq 'icon_contact_jabber' -->lightbulb-o<!-- ELSEIF postrow.contact.ID eq 'phpbb_yahoo' -->yahoo<!-- ELSEIF postrow.contact.ID eq 'phpbb_facebook' -->facebook<!-- ELSEIF postrow.contact.ID eq 'phpbb_twitter' -->twitter<!-- ELSEIF postrow.contact.ID eq 'phpbb_skype' -->skype<!-- ELSEIF postrow.contact.ID eq 'phpbb_youtube' -->youtube<!-- ELSEIF postrow.contact.ID eq 'phpbb_googleplus' -->google-plus<!-- ELSEIF postrow.contact.ID eq 'phpbb_icq' -->asterisk<!-- ELSE -->comments<!-- ENDIF --> fa-fw"></i>
+							</div>
+						</div>
+					</a>
+					{% EVENT viewtopic_body_contact_icon_append %}
+					<!-- END contact -->
+				<!-- ENDIF -->
+				<!-- EVENT viewtopic_body_contact_fields_after -->
+				</div>
+
+			</div>
+		</div>
+	</div>
+<!-- ENDIF -->
+
 <!-- END postrow -->
 
 <!-- IF S_QUICK_REPLY -->
