@@ -256,7 +256,7 @@
 
 				<div id="profile{postrow.POST_ID}" class="postprofile col-lg-3 col-md-4<!-- IF not $PROFILES_ON_LEFT --> order-first order-md-2<!-- ENDIF --> px-3 pb-3 bg2">
 					<!-- IF postrow.S_ONLINE and not postrow.S_POST_HIDDEN -->
-						<span class="badge bg-success text-uppercase online d-none d-md-block mx-auto rounded-0 rounded-bottom">{L_ONLINE}</span>
+						<span class="badge bg-success text-uppercase online d-none d-md-block mx-auto rounded-0 rounded-bottom"><i class="fa fa-signal fa-fw" aria-hidden="true"></i> {L_ONLINE} <i class="fa fa-signal fa-flip-horizontal fa-fw" aria-hidden="true"></i></span>
 					<!-- ENDIF -->
 
 					<div class="text-center mb-2">
@@ -267,6 +267,12 @@
 						</div>
 						<!-- ENDIF -->
 						<!-- EVENT viewtopic_body_avatar_after -->
+
+					<!-- IF not $PROFILE_POPUP_OFF -->
+						<button class="btn btn-primary btn-sm position-relative d-block mx-auto mt-3 mb-1 float-end float-md-none" data-bs-toggle="modal" data-bs-target="#modal_post_{postrow.POST_ID}">
+							<i class="fa fa-user-circle-o fa-fw" aria-hidden="true"></i> {L_READ_PROFILE} <svg width="1em" height="1em" viewBox="0 0 16 16" class="position-absolute top-100 start-50 translate-middle mt-1 bi bi-caret-down-fill d-none d-md-inline-block" fill="#0d6efd" xmlns="http://www.w3.org/2000/svg"><path d="M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/></svg>
+						</button>
+					<!-- ENDIF -->
 
 						<div class="mt-1 float-start float-md-none">
 						<!-- EVENT viewtopic_body_post_author_before -->
@@ -316,8 +322,6 @@
 						</div>
 					<!-- ENDIF -->
 					<!-- EVENT viewtopic_body_contact_fields_after -->
-				<!-- ELSEIF .postrow.contact -->
-					<button type="button" class="btn btn-primary btn-sm float-end float-md-none mt-1" data-bs-toggle="modal" data-bs-target="#modal_post_{postrow.POST_ID}"><i class="fa fa-user-circle-o fa-fw" aria-hidden="true"></i> {L_READ_PROFILE}</button>
 				<!-- ENDIF -->
 				</div>
 
