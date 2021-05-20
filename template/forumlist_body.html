@@ -46,7 +46,7 @@
 								<time datetime="{forumrow.LAST_POST_TIME_RFC3339}">{forumrow.LAST_POST_TIME}</time> &raquo; {L_POST_BY_AUTHOR} <!-- EVENT forumlist_body_last_poster_username_prepend --> {forumrow.LAST_POSTER_FULL} <!-- EVENT forumlist_body_last_poster_username_append -->
 							<!-- ELSE -->
 								{% if forumrow.U_UNAPPROVED_TOPICS %}
-									{{ lang('TOPIC_UNAPPROVED_FORUM', forumrow.TOPICS) }}
+									<span class="badge bg-info text-dark">{{ lang('TOPIC_UNAPPROVED_FORUM', forumrow.TOPICS) }}</span>
 								{% endif %}
 						<!-- ENDIF -->
 							</div>
@@ -61,7 +61,11 @@
 				</div>
 
 				<div class="card-footer p-2">
-			<!-- IF forumrow.FORUM_DESC or (.forumrow.subforum and forumrow.S_LIST_SUBFORUMS) or (S_ENABLE_FEEDS and forumrow.S_FEED_ENABLED) or forumrow.U_UNAPPROVED_TOPICS or forumrow.U_UNAPPROVED_POSTS or forumrow.MODERATORS -->
+			<!-- IF (forumrow.FORUM_DESC or  forumrow.LAST_POST_TIME or (.forumrow.subforum and forumrow.S_LIST_SUBFORUMS) or (S_ENABLE_FEEDS and forumrow.S_FEED_ENABLED) or forumrow.U_UNAPPROVED_TOPICS or forumrow.U_UNAPPROVED_POSTS or forumrow.MODERATORS) and not S_IS_BOT -->
+				<!-- IF forumrow.LAST_POST_TIME -->
+					<a href="{forumrow.U_LAST_POST}" class="btn btn-outline-info btn-sm float-end ms-2" title="{L_VIEW_LATEST_POST}"><i class="fa fa-arrow-{S_CONTENT_FLOW_END} fa-fw"></i><span class="visually-hidden">{L_VIEW_LATEST_POST}</span></a>
+				<!-- ENDIF -->
+
 				<!-- IF not forumrow.S_IS_LINK and forumrow.FORUM_DESC -->
 					<button type="button" class="btn btn-outline-info btn-sm float-end ms-2" title="{L_INFORMATION}" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="{forumrow.FORUM_DESC}" data-bs-html="true"><i class="fa fa-info fa-fw" aria-hidden="true"></i><span class="visually-hidden">{forumrow.FORUM_DESC}</span></button>
 				<!-- ENDIF -->
@@ -100,10 +104,6 @@
 					<a href="{forumrow.U_UNAPPROVED_TOPICS}" class="btn btn-outline-info btn-sm float-end ms-2" title="{L_TOPICS_UNAPPROVED}"><i class="fa fa-flag fa-fw" aria-hidden="true"></i><span class="visually-hidden">{TOPICS_UNAPPROVED}</span></a>
 				<!-- ELSEIF forumrow.U_UNAPPROVED_POSTS -->
 					<a href="{forumrow.U_UNAPPROVED_POSTS}" class="btn btn-outline-info btn-sm float-end ms-2" title="{L_POSTS_UNAPPROVED_FORUM}"><i class="fa fa-flag fa-fw" aria-hidden="true"></i><span class="visually-hidden">{POSTS_UNAPPROVED_FORUM}</span></a>
-				<!-- ENDIF -->
-
-				<!-- IF forumrow.LAST_POST_TIME and not S_IS_BOT -->
-					<a href="{forumrow.U_LAST_POST}" class="btn btn-outline-info btn-sm float-end ms-2" title="{L_VIEW_LATEST_POST}"><i class="fa fa-arrow-{S_CONTENT_FLOW_END} fa-fw"></i><span class="visually-hidden">{L_VIEW_LATEST_POST}</span></a>
 				<!-- ENDIF -->
 			<!-- ENDIF -->
 
