@@ -464,7 +464,7 @@
 
 	<!-- EVENT viewtopic_body_postrow_post_after -->
 
-<!-- IF not $PROFILE_POPUP_OFF -->
+<!-- IF not ($PROFILE_POPUP_OFF and S_IS_BOT) -->
 	<div id="modal_post_{postrow.POST_ID}" class="modal fade" tabindex="-1" role="dialog">
 		<div class="modal-dialog modal-dialog-centered" role="document">
 			<div class="modal-content">
@@ -499,9 +499,9 @@
 					</div>
 				</div>
 				
+				<!-- IF .postrow.contact -->
 				<div class="modal-footer justify-content-center">
 				<!-- EVENT viewtopic_body_contact_fields_before -->
-				<!-- IF not S_IS_BOT and .postrow.contact -->
 					<!-- BEGIN contact -->
 					{% EVENT viewtopic_body_contact_icon_prepend %}
 					<a class="d-inline-block m-1 text-decoration-none" href="<!-- IF postrow.contact.U_CONTACT -->{postrow.contact.U_CONTACT}<!-- ELSE -->{postrow.U_POST_AUTHOR}<!-- ENDIF -->"<!-- IF postrow.contact.ID eq 'jabber' --> onclick="popup(this.href, 750, 320); return false;"<!-- ENDIF --> title="{postrow.contact.NAME}">
@@ -513,9 +513,9 @@
 					</a>
 					{% EVENT viewtopic_body_contact_icon_append %}
 					<!-- END contact -->
-				<!-- ENDIF -->
 				<!-- EVENT viewtopic_body_contact_fields_after -->
 				</div>
+				<!-- ENDIF -->
 
 			</div>
 		</div>
