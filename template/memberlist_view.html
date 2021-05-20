@@ -12,7 +12,7 @@
 			<div class="card-body text-center<!-- IF S_ONLINE --> pt-0<!-- ENDIF -->">
 
 			<!-- IF S_ONLINE -->
-				<span class="badge bg-success d-block text-uppercase online w-50 mb-2 mx-auto rounded-0 rounded-bottom">{L_ONLINE}</span>
+				<span class="badge bg-success d-block text-uppercase online w-50 mb-2 mx-auto rounded-0 rounded-bottom"><i class="fa fa-signal fa-fw" aria-hidden="true"></i> {L_ONLINE} <i class="fa fa-signal fa-flip-horizontal fa-fw" aria-hidden="true"></i></span>
 			<!-- ENDIF -->
 
 			<!-- IF AVATAR_IMG -->
@@ -65,7 +65,7 @@
 						<!-- IF U_EMAIL -->
 							<a class="d-inline-block m-1 text-decoration-none" href="{U_EMAIL}" title="{L_SEND_EMAIL_USER}">
 								<div class="p-1 rounded-circle alert-primary shadow-sm">
-									<div class="d-flex align-items-center justify-content-center rounded-circle border border-3 border-white fs-5 alert-primary" style="width: 48px; height: 48px;">
+									<div class="contact-button d-flex align-items-center justify-content-center rounded-circle border border-4 border-white fs-5 alert-primary" style="width: 48px; height: 48px;">
 										<i class="fa fa-envelope-o fa-fw" aria-hidden="true"></i>
 									</div>
 								</div>
@@ -74,7 +74,7 @@
 						<!-- IF U_PM -->
 							<a class="d-inline-block m-1 text-decoration-none" href="{U_PM}" title="{L_SEND_PRIVATE_MESSAGE}">
 								<div class="p-1 rounded-circle alert-primary shadow-sm">
-									<div class="d-flex align-items-center justify-content-center rounded-circle border border-3 border-white fs-5 alert-primary" style="width: 48px; height: 48px;">
+									<div class="contact-button d-flex align-items-center justify-content-center rounded-circle border border-4 border-white fs-5 alert-primary" style="width: 48px; height: 48px;">
 										<i class="fa fa-user fa-fw" aria-hidden="true"></i>
 									</div>
 								</div>
@@ -83,7 +83,7 @@
 						<!-- IF U_JABBER and S_JABBER_ENABLED -->
 							<a class="d-inline-block m-1 text-decoration-none" href="{U_JABBER}" title="{L_SEND_JABBER_MESSAGE}" onclick="popup(this.href, 750, 320); return false;">
 								<div class="p-1 rounded-circle alert-primary shadow-sm">
-									<div class="d-flex align-items-center justify-content-center rounded-circle border border-3 border-white fs-5 alert-primary" style="width: 48px; height: 48px;">
+									<div class="contact-button d-flex align-items-center justify-content-center rounded-circle border border-4 border-white fs-5 alert-primary" style="width: 48px; height: 48px;">
 										<i class="fa fa-lightbulb-o fa-fw" aria-hidden="true"></i>
 									</div>
 								</div>
@@ -95,7 +95,7 @@
 							<!-- IF custom_fields.PROFILE_FIELD_CONTACT -->
 								<a class="d-inline-block m-1 text-decoration-none" href="{custom_fields.PROFILE_FIELD_CONTACT}" title="{custom_fields.PROFILE_FIELD_DESC}">
 									<div class="p-1 rounded-circle alert-primary shadow-sm">
-										<div class="d-flex align-items-center justify-content-center rounded-circle border border-3 border-white fs-5 alert-primary" style="width: 48px; height: 48px;">
+										<div class="contact-button d-flex align-items-center justify-content-center rounded-circle border border-4 border-white fs-5 alert-primary" style="width: 48px; height: 48px;">
 											<i class="fa fa-<!-- IF custom_fields.PROFILE_FIELD_NAME eq 'Website' -->globe<!-- ELSEIF custom_fields.PROFILE_FIELD_NAME eq 'ICQ' -->asterisk<!-- ELSEIF custom_fields.PROFILE_FIELD_NAME eq 'Yahoo Messenger' -->yahoo<!-- ELSEIF custom_fields.PROFILE_FIELD_NAME eq 'Facebook' -->facebook<!-- ELSEIF custom_fields.PROFILE_FIELD_NAME eq 'Twitter' -->twitter<!-- ELSEIF custom_fields.PROFILE_FIELD_NAME eq 'Skype' -->skype<!-- ELSEIF custom_fields.PROFILE_FIELD_NAME eq 'YouTube' -->youtube<!-- ELSE -->comments<!-- ENDIF --> fa-fw" aria-hidden="true"></i>
 										</div>
 									</div>
