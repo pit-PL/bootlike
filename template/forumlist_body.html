@@ -75,14 +75,18 @@
 						<button class="btn btn-outline-info btn-sm dropdown-toggle" title="{forumrow.L_SUBFORUM_STR}" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						<i class="fa fa-files-o fa-fw"></i><span class="visually-hidden">{forumrow.L_SUBFORUM_STR}</span>
 						</button>
-						<div class="dropdown-menu dropdown-menu-end">
-						<!-- BEGIN subforum -->
-							<!-- EVENT forumlist_body_subforum_link_prepend -->
-							<a href="{forumrow.subforum.U_SUBFORUM}" class="dropdown-item subforum<!-- IF forumrow.subforum.S_UNREAD --> unread<!-- ELSE --> read<!-- ENDIF -->" title="<!-- IF forumrow.subforum.S_UNREAD -->{L_UNREAD_POSTS}<!-- ELSE -->{L_NO_UNREAD_POSTS}<!-- ENDIF -->">
-								<i class="fa<!-- IF forumrow.subforum.S_UNREAD --> fa-file<!-- ELSE --> fa-file-o<!-- ENDIF --> fa-fw" aria-hidden="true"></i> {forumrow.subforum.SUBFORUM_NAME}
-							</a>
-							<!-- EVENT forumlist_body_subforum_link_append -->
-						<!-- END subforum -->
+						<div class="dropdown-menu dropdown-menu-end<!-- IF $SUBFORUM_COLUMNS and $SUBFORUM_COLUMNS_NUMBER --> w-50<!-- ENDIF -->">
+							<div<!-- IF $SUBFORUM_COLUMNS --> class="row"<!-- ENDIF -->>
+							<!-- BEGIN subforum -->
+							<div<!-- IF $SUBFORUM_COLUMNS and $SUBFORUM_COLUMNS_NUMBER eq '3' --> class="col-lg-4 col-md-6"<!-- ENDIF --><!-- IF $SUBFORUM_COLUMNS and $SUBFORUM_COLUMNS_NUMBER eq '2' --> class="col-md-6"<!-- ENDIF -->>
+								<!-- EVENT forumlist_body_subforum_link_prepend -->
+								<a href="{forumrow.subforum.U_SUBFORUM}" class="dropdown-item subforum<!-- IF forumrow.subforum.S_UNREAD --> unread<!-- ELSE --> read<!-- ENDIF -->" title="<!-- IF forumrow.subforum.S_UNREAD -->{L_UNREAD_POSTS}<!-- ELSE -->{L_NO_UNREAD_POSTS}<!-- ENDIF -->">
+									<i class="fa<!-- IF forumrow.subforum.S_UNREAD --> fa-file<!-- ELSE --> fa-file-o<!-- ENDIF --> fa-fw" aria-hidden="true"></i> {forumrow.subforum.SUBFORUM_NAME}
+								</a>
+								<!-- EVENT forumlist_body_subforum_link_append -->
+							</div>
+							<!-- END subforum -->
+							</div>
 						</div>
 					</div>
 				<!-- ENDIF -->
