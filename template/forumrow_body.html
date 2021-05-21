@@ -41,11 +41,11 @@
 
 				<!-- IF .forumrow.subforum and forumrow.S_LIST_SUBFORUMS -->
 				<!-- EVENT forumlist_body_subforums_before -->
-					<div class="row<!-- IF $FORUM_ROW --> {$SUBFORUM_COLUMNS}<!-- ENDIF -->">
-						<strong class="d-block w-100">{forumrow.L_SUBFORUM_STR}{L_COLON}</strong>
+					<div class="row">
+						<strong>{forumrow.L_SUBFORUM_STR}{L_COLON}</strong>
 					<!-- BEGIN subforum -->
 						<!-- EVENT forumlist_body_subforum_link_prepend -->
-						<div class="col-auto">
+						<div class="<!-- IF $SUBFORUM_COLUMNS and $SUBFORUM_COLUMNS_NUMBER eq '3' -->col-lg-4 col-md-6<!-- ENDIF --><!-- IF $SUBFORUM_COLUMNS and $SUBFORUM_COLUMNS_NUMBER eq '2' -->col-md-6<!-- ENDIF --> col-auto" >
 							<a href="{forumrow.subforum.U_SUBFORUM}" class="subforum<!-- IF forumrow.subforum.S_UNREAD --> unread<!-- ELSE --> read<!-- ENDIF --><!-- IF $S_LAST_CELL --> text-uppercase<!-- ENDIF -->" title="<!-- IF forumrow.subforum.S_UNREAD -->{L_UNREAD_POSTS}<!-- ELSE -->{L_NO_UNREAD_POSTS}<!-- ENDIF -->">
 								<i class="fa<!-- IF forumrow.subforum.S_UNREAD --> fa-file<!-- ELSE --> fa-file-o<!-- ENDIF --> fa-fw" aria-hidden="true"></i> {forumrow.subforum.SUBFORUM_NAME}
 							</a>
@@ -56,15 +56,17 @@
 				<!-- EVENT forumlist_body_subforums_after -->
 				<!-- ENDIF -->
 
-				<!-- IF not S_IS_BOT -->
+				<!-- IF forumrow.CLICKS or forumrow.TOPICS and not S_IS_BOT -->
 					<div class="d-md-none">
 						<!-- IF forumrow.CLICKS -->
 							{L_REDIRECTS}{L_COLON} <strong>{forumrow.CLICKS}</strong>
 						<!-- ELSEIF not forumrow.S_IS_LINK and forumrow.TOPICS -->
-							{L_TOPICS}{L_COLON} <strong>{forumrow.TOPICS}</strong>
+							{L_TOPICS}{L_COLON} <strong class="me-2">{forumrow.TOPICS}</strong>
+							{L_POSTS}{L_COLON} <strong>{forumrow.POSTS}</strong>
 						<!-- ENDIF -->
 					</div>
 				<!-- ENDIF -->
+
 				</div>
 				<!-- IF forumrow.CLICKS -->
 					<div class="col-lg-3 col-md-4 ms-auto d-none d-md-block">{L_REDIRECTS}{L_COLON} {forumrow.CLICKS}</div>
