@@ -39,8 +39,12 @@
 		<dt class="col-lg-3 col-md-4 col-12"><label class="col-form-label">{L_TO_MASS}{L_COLON}</label></dt>
 		<dd class="col-lg-9 col-md-8 col-12">
 		<!-- BEGIN to_recipient -->
-			<!-- IF to_recipient.IS_GROUP --><a href="{to_recipient.U_VIEW}"><strong>{to_recipient.NAME}</strong></a><!-- ELSE -->{to_recipient.NAME_FULL}<!-- ENDIF -->
-			<!-- IF not S_EDIT_POST --><button class="btn btn-danger btn-sm" type="submit" name="remove_{to_recipient.TYPE}[{to_recipient.UG_ID}]" value="{L_REMOVE}" title="{L_REMOVE}"><i class="fa fa-minus fa-fw" aria-hidden="true"></i></button><!-- ENDIF -->
+			<div class="input-group float-start w-auto mb-1 me-2">
+				<span class="input-group-text"><!-- IF to_recipient.IS_GROUP --><a href="{to_recipient.U_VIEW}"><strong>{to_recipient.NAME}</strong></a><!-- ELSE -->{to_recipient.NAME_FULL}<!-- ENDIF --></span>
+			<!-- IF not S_EDIT_POST -->
+				<button class="btn btn-danger" type="submit" name="remove_{to_recipient.TYPE}[{to_recipient.UG_ID}]" value="{L_REMOVE}" title="{L_REMOVE}"><i class="fa fa-minus fa-fw" aria-hidden="true"></i></button>
+			<!-- ENDIF -->
+			</div>
 		<!-- END to_recipient -->
 		</dd>
 	</dl>
@@ -51,8 +55,12 @@
 		<dt class="col-lg-3 col-md-4 col-12"><label class="col-form-label">{L_BCC}{L_COLON}</label></dt>
 		<dd class="col-lg-9 col-md-8 col-12">
 		<!-- BEGIN bcc_recipient -->
-			<!-- IF bcc_recipient.IS_GROUP --><a href="{bcc_recipient.U_VIEW}" style="color: {{ bcc_recipient.COLOUR }}"><strong>{bcc_recipient.NAME}</strong></a><!-- ELSE -->{bcc_recipient.NAME_FULL}<!-- ENDIF -->
-			<!-- IF not S_EDIT_POST --><button class="btn btn-danger btn-sm" type="submit" name="remove_{bcc_recipient.TYPE}[{bcc_recipient.UG_ID}]" value="{L_REMOVE}" title="{L_REMOVE}"><i class="fa fa-minus fa-fw" aria-hidden="true"></i></button><!-- ENDIF -->
+			<div class="input-group float-start w-auto mb-1 me-2">
+				<span class="input-group-text"><!-- IF bcc_recipient.IS_GROUP --><a href="{bcc_recipient.U_VIEW}" style="color: {{ bcc_recipient.COLOUR }}"><strong>{bcc_recipient.NAME}</strong></a><!-- ELSE -->{bcc_recipient.NAME_FULL}<!-- ENDIF --></span>
+			<!-- IF not S_EDIT_POST -->
+				<button class="btn btn-danger" type="submit" name="remove_{bcc_recipient.TYPE}[{bcc_recipient.UG_ID}]" value="{L_REMOVE}" title="{L_REMOVE}"><i class="fa fa-minus fa-fw" aria-hidden="true"></i></button>
+			<!-- ENDIF -->
+			</div>
 		<!-- END bcc_recipient -->
 		</dd>
 	</dl>
