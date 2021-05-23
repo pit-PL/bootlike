@@ -2,13 +2,9 @@
 
 <form id="ucp" method="post" action="{S_UCP_ACTION}"{S_FORM_ENCTYPE}>
 
-<div class="card mb-3">
-	<div class="card-header bg-secondary text-white">
-		{L_TITLE}
-	</div>
-	<div class="card-body pb-0">
+	<h4 class="mb-3">{L_TITLE}</h4>
 
-	<p>{L_BOOKMARKS_EXPLAIN}</p>
+	<p class="alert alert-info">{L_BOOKMARKS_EXPLAIN}</p>
 
 <!-- IF S_NO_DISPLAY_BOOKMARKS -->
 	<div class="alert alert-warning">
@@ -16,6 +12,7 @@
 	</div>
 <!-- ELSE -->
 
+	<!-- IF TOTAL_TOPICS or .pagination -->
 	<div class="action-bar d-sm-flex justify-content-between p-0 mb-3 border bg-light">
 		<div class="d-flex">&nbsp;</div>
 
@@ -38,6 +35,7 @@
 		<!-- ENDIF -->
 		</div>
 	</div>
+	<!-- ENDIF -->
 
 <!-- IF .topicrow -->
 	<div class="card mb-3">
@@ -131,9 +129,6 @@
 	</div>
 <!-- ENDIF -->
 
-	</div>
-
-</div>
 </form>
 
 <!-- INCLUDE ucp_footer.html -->
