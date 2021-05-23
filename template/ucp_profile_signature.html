@@ -2,11 +2,7 @@
 
 <form id="postform" method="post" action="{S_UCP_ACTION}"{S_FORM_ENCTYPE}>
 
-<div class="card mb-3">
-	<div class="card-header bg-secondary text-white">
-		{L_TITLE}
-	</div>
-	<div class="card-body pb-0">
+	<h4 class="mb-3">{L_TITLE}</h4>
 
 <!-- IF SIGNATURE_PREVIEW != '' -->
 	<div class="alert alert-info mb-3">{L_SIGNATURE_PREVIEW}</div>
@@ -14,15 +10,12 @@
 	<hr>
 <!-- ENDIF -->
 
-	<p>{L_SIGNATURE_EXPLAIN}</p>
+	<p class="alert alert-info">{L_SIGNATURE_EXPLAIN}</p>
 
 	<div class="mb-3">
 	<!-- DEFINE $SIG_EDIT = 1 -->
 	<!-- INCLUDE posting_editor.html -->
 	</div>
-
-	</div>
-</div>
 
 	<div class="mb-3 text-center">
 		{S_HIDDEN_FIELDS}
