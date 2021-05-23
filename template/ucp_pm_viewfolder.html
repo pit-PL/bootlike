@@ -8,7 +8,7 @@
 	<form id="viewfolder" method="post" action="{S_PM_ACTION}">
 
 		<div class="card mb-3">
-			<div class="card-header bg-secondary text-white">
+			<div class="card-header">
 				{L_EXPORT_AS_CSV}
 			</div>
 			<div class="card-body">
@@ -49,8 +49,8 @@
 	<!-- ENDIF -->
 
 	<!-- IF .messagerow -->
-		<div class="card mb-3">
-		<div class="card-header bg-secondary text-white">
+		<div class="card mb-3 border-bottom-0">
+		<div class="card-header">
 			<div class="row">
 				<div class="col-md-10 col-sm-10 col-10">{L_MESSAGE}</div>
 				<div class="col-sm-2 col-2 text-center">{L_MARK}</div>
@@ -58,9 +58,9 @@
 		</div>
 
 		<!-- BEGIN messagerow -->
-			<div class="container-fluid row-item position-relative px-3 py-1 border-top {messagerow.FOLDER_IMG_STYLE}<!-- IF messagerow.S_ROW_COUNT is odd --> bg1<!-- ELSE --> bg2<!-- ENDIF --><!-- IF messagerow.S_PM_REPORTED --> border border-warning<!-- ENDIF -->">
+			<div class="container-fluid row-item position-relative px-3 py-1 border-bottom {messagerow.FOLDER_IMG_STYLE}<!-- IF messagerow.S_ROW_COUNT is odd --> bg2<!-- ELSE --> bg1<!-- ENDIF -->">
 				<div class="row align-items-center {messagerow.PM_CLASS}">
-					<div class="<!-- IF S_SHOW_RECIPIENTS or S_UNREAD --> col-md-7<!-- ELSE --> col-md-10<!-- ENDIF --> col-sm-10 col-10 topic-folder folder">
+					<div class="<!-- IF S_SHOW_RECIPIENTS or S_UNREAD --> col-md-7<!-- ELSE --> col-md-10<!-- ENDIF --> col-sm-10 col-10 topic-folder folder<!-- IF messagerow.S_PM_REPORTED --> folder-animation<!-- ENDIF -->">
 					<!-- IF messagerow.S_PM_UNREAD and not messagerow.S_PM_DELETED --><a href="{messagerow.U_VIEW_PM}" class="row-item-link"></a><!-- ENDIF -->
 
 					<!-- IF messagerow.S_PM_REPORTED --><a href="{messagerow.U_MCP_REPORT}" class="badge bg-warning" title="{L_PM_REPORTED}"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i><span class="visually-hidden">{L_PM_REPORTED}</span></a><!-- ENDIF -->
