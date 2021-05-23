@@ -1,11 +1,7 @@
 
 <form id="viewfolder" method="post" action="{S_PM_ACTION}">
 
-<div class="card mb-3">
-	<div class="card-header bg-secondary text-white">
-		{L_TITLE}<!-- IF CUR_FOLDER_NAME -->{L_COLON} {CUR_FOLDER_NAME}<!-- ENDIF -->
-	</div>
-	<div class="card-body px-1 py-1 px-lg-3 px-md-2 py-lg-3 py-md-2 pb-lg-0">
+	<h4 class="mb-3">{L_TITLE}<!-- IF CUR_FOLDER_NAME -->{L_COLON} {CUR_FOLDER_NAME}<!-- ENDIF --></h4>
 
 	<!-- IF FOLDER_STATUS and FOLDER_MAX_MESSAGES neq 0 --><p class="mb-1">{FOLDER_STATUS}</p>
 		<!-- IF FOLDER_PERCENT > 0 -->
