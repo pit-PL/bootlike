@@ -46,7 +46,15 @@
 				<dl class="row">
 					<dt class="col-lg-3 col-md-4 col-12"><label class="col-form-label">{L_DISPLAY_POSTS}{L_COLON}</label></dt>
 					<dd class="col-lg-9 col-md-8 col-12">
-						{S_SELECT_SORT_DAYS}<label class="col-form-label ms-2">{L_SORT_BY}{L_COLON}</label> {S_SELECT_SORT_KEY} &nbsp;{S_SELECT_SORT_DIR}<input class="btn btn-secondary ms-2" type="submit" name="sort" value="{L_GO}" />
+						<div class="float-start mb-1 me-2">{S_SELECT_SORT_DAYS}</div>
+						<div class="input-group float-start w-auto mb-1 me-2">
+							<div class="input-group-text">						
+								<label>{L_SORT_BY}{L_COLON}</label>
+							</div>
+							{S_SELECT_SORT_KEY}
+						</div>
+						<div class="float-start mb-1 me-2">{S_SELECT_SORT_DIR}</div>
+						<input class="btn btn-secondary float-start mb-1 me-2" type="submit" name="sort" value="{L_GO}" />
 					</dd>
 				</dl>
 			</div>
