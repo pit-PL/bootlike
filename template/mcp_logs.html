@@ -39,8 +39,8 @@
 		</div>
 	</div>
 
-	<div class="card mb-3 border-top-0">
-		<div class="card-header d-none d-md-block bg-secondary text-light border-bottom-0">
+	<div class="card mb-3 border-bottom-0">
+		<div class="card-header d-none d-md-block bg-secondary text-light">
 			<div class="row">
 				<div class="col-12<!-- IF S_CLEAR_ALLOWED --> col-md-6<!-- ELSE --> col-md-8<!-- ENDIF -->">{L_ACTION}</div>
 				<div class="col-12 col-md-2 text-center">{L_MCP_NOTES_USER}</div>
@@ -53,7 +53,7 @@
 		<div class="card-body p-0">
 		<!-- IF S_LOGS -->
 			<!-- BEGIN log -->
-			<div class="row align-items-center border-top m-0<!-- IF log.S_ROW_COUNT is even --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
+			<div class="row align-items-center border-bottom m-0<!-- IF log.S_ROW_COUNT is even --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
 				<div class="col-12 col-md-6 py-2"><span class="badge bg-secondary d-md-none">{L_ACTION}{L_COLON}</span> {log.ACTION}<br>{log.DATA}</div>
 				<div class="col-12 col-md-2 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_MCP_NOTES_USER}{L_COLON}</span> {log.USERNAME} <br class="d-none d-md-block" />{log.IP}</div>
 				<div class="col-12 col-md-2 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_TIME}{L_COLON}</span> {log.DATE}</div>
