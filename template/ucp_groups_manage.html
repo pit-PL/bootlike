@@ -110,7 +110,7 @@
 
 	<!-- IF .leader -->
 	<div class="card mb-3 border-bottom-0">
-		<div class="card-header d-none d-md-block bg-secondary text-light">
+		<div class="card-header d-none d-md-block">
 			<div class="row">
 				<div class="col-12 col-md-3">{L_GROUP_LEAD}</div>
 				<div class="col-12 col-md-3 text-md-center">{L_GROUP_DEFAULT}</div>
@@ -137,7 +137,7 @@
 	<!-- BEGIN member -->
 	<!-- IF member.S_PENDING -->
 	<div class="card mb-3 border-bottom-0">
-		<div class="card-header d-none d-md-block bg-secondary text-light">
+		<div class="card-header d-none d-md-block">
 			<div class="row">
 				<div class="col-12 col-md-3">{L_GROUP_PENDING}</div>
 				<div class="col-12 col-md-3 text-md-center">{L_GROUP_DEFAULT}</div>
@@ -153,7 +153,7 @@
 	</div>
 		<!-- ENDIF -->
 	<div class="card mb-3 border-bottom-0">
-		<div class="card-header d-none d-md-block bg-secondary text-light">
+		<div class="card-header d-none d-md-block">
 			<div class="row">
 				<div class="col-12 col-md-3">{L_GROUP_APPROVED}</div>
 				<div class="col-12 col-md-3 text-md-center">{L_GROUP_DEFAULT}</div>
@@ -164,7 +164,7 @@
 		</div>
 		<div class="card-body p-0">
 	<!-- ELSE -->
-		<div class="row align-items-center border-bottom m-0<!-- IF member.S_ROW_COUNT is even --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
+		<div class="row align-items-center border-bottom m-0<!-- IF member.S_ROW_COUNT is even --> bg2<!-- ELSE --> bg1<!-- ENDIF -->">
 			<div class="col-12 col-md-3 py-2"><span class="badge bg-secondary d-md-none">{L_GROUP_APPROVED}{L_COLON}</span> {member.USERNAME_FULL}</div>
 			<div class="col-12 col-md-3 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_GROUP_DEFAULT}{L_COLON}</span> <!-- IF member.S_GROUP_DEFAULT -->{L_YES}<!-- ELSE -->{L_NO}<!-- ENDIF --></div>
 			<div class="col-12 col-md-2 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_POSTS}{L_COLON}</span> {member.USER_POSTS}</div>
@@ -177,7 +177,7 @@
 	<!-- ENDIF -->
 	<!-- BEGINELSE -->
 	<div class="card mb-3">
-		<div class="card-header bg-secondary text-light">
+		<div class="card-header">
 			{L_MEMBERS}
 		</div>
 		<div class="card-body px-3 py-2">
@@ -218,7 +218,7 @@
 </div>
 
 <div class="card mb-3">
-	<div class="card-header bg-secondary text-white">
+	<div class="card-header">
 		{L_ADD_USERS}
 	</div>
 	<div class="card-body pb-0">
@@ -268,14 +268,14 @@
 
 	<!-- IF .leader -->
 	<div class="card mb-3">
-	<div class="card-header bg-secondary text-white">
+	<div class="card-header">
 		<div class="row">
 			<div class="col-lg-9 col-md-8 col-7">{L_GROUP_LEADER}</div>
 			<div class="col-lg-3 col-md-4 col-5">{L_OPTIONS}</div>
 		</div>
 	</div>
 		<!-- BEGIN leader -->
-		<div class="container-fluid row-item position-relative pt-1 pb-1 border-top<!-- IF attachrow.S_ROW_COUNT is odd --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
+		<div class="container-fluid row-item position-relative pt-1 pb-1 border-top<!-- IF attachrow.S_ROW_COUNT is odd --> bg2<!-- ELSE --> bg1<!-- ENDIF -->">
 			<div class="row align-items-center">
 				<div class="col-lg-9 col-md-8 col-7">
 					<a href="{leader.U_EDIT}" class="topictitle"<!-- IF leader.GROUP_COLOUR --> style="color: #{leader.GROUP_COLOUR};"<!-- ENDIF -->>{leader.GROUP_NAME}</a>
