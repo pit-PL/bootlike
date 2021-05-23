@@ -2,13 +2,9 @@
 
 <form id="ucp" method="post" action="{S_UCP_ACTION}"{S_FORM_ENCTYPE}>
 
-<div class="card mb-3">
-	<div class="card-header bg-secondary text-white">
-		{L_TITLE}
-	</div>
-	<div class="card-body">
+	<h4 class="mb-3">{L_TITLE}</h4>
 
-	<p>{L_PROFILE_AUTOLOGIN_KEYS}</p>
+	<p class="alert alert-info">{L_PROFILE_AUTOLOGIN_KEYS}</p>
 
 	<!-- IF ERROR -->
 		<div class="alert alert-danger">{ERROR}</div>
@@ -50,7 +46,7 @@
 	</div>
 
 <!-- IF .sessions -->
-	<div class="action-bar d-sm-flex justify-content-end p-0 border bg-light">
+	<div class="action-bar d-sm-flex justify-content-end p-0 mb-3 border bg-light">
 		{S_HIDDEN_FIELDS}
 		<input class="btn btn-lg rounded-0" type="submit" name="submit" value="{L_DELETE_MARKED}" />
 		<a href="#" onclick="$('#ucp input:checkbox').prop('checked', false); return false;" class="btn btn-lg rounded-0" title="{L_UNMARK_ALL}"><i class="fa fa-toggle-off fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_UNMARK_ALL}</span></a>
@@ -58,9 +54,6 @@
 		{S_FORM_TOKEN}
 	</div>
 <!-- ENDIF -->
-
-	</div>
-</div>
 
 </form>
 
