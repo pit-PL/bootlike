@@ -16,8 +16,8 @@
 		<p>{L_UNAPPROVED_TOTAL}</p>
 
 		<!-- IF .unapproved -->
-		<div class="card mb-3">
-		<div class="card-header bg-secondary text-white border-bottom-0">
+		<div class="card mb-3 border-bottom-0">
+		<div class="card-header bg-secondary text-white">
 			<div class="row">
 				<div class="col-md-6 col-sm-10 col-9">{L_VIEW_DETAILS}</div>
 				<div class="col-md-4 d-none d-md-block">{L_TOPIC} &amp; {L_FORUM}</div>
@@ -26,7 +26,7 @@
 		</div>
 
 			<!-- BEGIN unapproved -->
-			<div class="container-fluid row-item px-3 py-1 border-top<!-- IF unapproved.S_ROW_COUNT is odd --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
+			<div class="container-fluid row-item px-3 py-1 border-bottom<!-- IF unapproved.S_ROW_COUNT is odd --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
 				<div class="row align-items-center">
 					<div class="col-md-6 col-sm-10 col-9">
 						<a href="{unapproved.U_POST_DETAILS}" class="topictitle">{unapproved.SUBJECT}</a><br>
@@ -71,8 +71,8 @@
 		<p>{L_REPORTS_TOTAL}</p>
 
 		<!-- IF .report -->
-		<div class="card mb-3">
-		<div class="card-header bg-secondary text-white border-bottom-0">
+		<div class="card mb-3 border-bottom-0">
+		<div class="card-header bg-secondary text-white">
 			<div class="row">
 				<div class="col-lg-8 col-md-7 col-12">{L_VIEW_DETAILS}</div>
 				<div class="col-lg-4 col-md-5 d-none d-md-block">{L_REPORTER} &amp; {L_FORUM}</div>
@@ -80,7 +80,7 @@
 		</div>
 
 			<!-- BEGIN report -->
-			<div class="container-fluid row-item px-3 py-1 border-top<!-- IF report.S_ROW_COUNT is odd --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
+			<div class="container-fluid row-item px-3 py-1 border-bottom<!-- IF report.S_ROW_COUNT is odd --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
 				<div class="row position-relative align-items-center">
 					<div class="col-lg-8 col-md-7 col-12">
 						<a href="{report.U_POST_DETAILS}#reports" class="topictitle">{report.SUBJECT}</a><br>
@@ -111,8 +111,8 @@
 		<p>{L_PM_REPORTS_TOTAL}</p>
 
 		<!-- IF .pm_report -->
-		<div class="card mb-3">
-		<div class="card-header bg-secondary text-white border-bottom-0">
+		<div class="card mb-3 border-bottom-0">
+		<div class="card-header bg-secondary text-white">
 			<div class="row align-items-center">
 				<div class="col-lg-8 col-md-7 col-12">{L_VIEW_DETAILS}</div>
 				<div class="col-lg-4 col-md-5 d-none d-md-block">{L_REPORTER}</div>
@@ -120,7 +120,7 @@
 		</div>
 
 			<!-- BEGIN pm_report -->
-			<div class="container-fluid row-item px-3 py-1 border-top<!-- IF pm_report.S_ROW_COUNT is odd --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
+			<div class="container-fluid row-item px-3 py-1 border-bottom<!-- IF pm_report.S_ROW_COUNT is odd --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
 				<div class="row">
 					<div class="col-lg-8 col-md-7 col-12">
 						<a href="{pm_report.U_PM_DETAILS}" class="topictitle">{pm_report.PM_SUBJECT}</a><br>
@@ -148,8 +148,8 @@
 
 	<h5 class="card-title pb-1 text-capitalize">{L_LATEST_LOGS}</h5>
 
-	<div class="card mb-3 border-top-0">
-		<div class="card-header d-none d-md-block bg-secondary text-light border-bottom-0">
+	<div class="card mb-3 border-bottom-0">
+		<div class="card-header d-none d-md-block bg-secondary text-light">
 			<div class="row">
 				<div class="col-12 col-md-4">{L_ACTION}</div>
 				<div class="col-12 col-md-2 text-center">{L_USERNAME}</div>
@@ -160,7 +160,7 @@
 		</div>
 		<div class="card-body p-0">
 			<!-- BEGIN log -->
-			<div class="row align-items-center border-top m-0<!-- IF log.S_ROW_COUNT is even --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
+			<div class="row align-items-center border-bottom m-0<!-- IF log.S_ROW_COUNT is even --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
 				<div class="col-12 col-md-4 py-2"><span class="badge bg-secondary d-md-none">{L_ACTION}{L_COLON}</span> {log.ACTION}</div>
 				<div class="col-12 col-md-2 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_USERNAME}{L_COLON}</span> {log.USERNAME}</div>
 				<div class="col-12 col-md-2 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_IP}{L_COLON}</span> {log.IP}</div>
