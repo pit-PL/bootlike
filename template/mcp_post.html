@@ -305,8 +305,8 @@
 			<!-- ENDIF -->
 			</p>
 
-			<div class="card mb-3 border-top-0">
-				<div class="card-header d-none d-md-block bg-secondary text-light border-bottom-0">
+			<div class="card mb-3 border-bottom-0">
+				<div class="card-header d-none d-md-block bg-secondary text-light">
 					<div class="row">
 						<div class="col-12 col-md-10">{L_OTHER_USERS}</div>
 						<div class="col-12 col-md-2 text-center">{L_POSTS}</div>
@@ -314,7 +314,7 @@
 				</div>
 				<div class="card-body p-0">
 					<!-- BEGIN userrow -->
-					<div class="row align-items-center border-top m-0<!-- IF userrow.S_ROW_COUNT is even --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
+					<div class="row align-items-center border-bottom m-0<!-- IF userrow.S_ROW_COUNT is even --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
 						<div class="col-12 col-md-10 py-2">
 							<span class="badge bg-secondary d-md-none">{L_OTHER_USERS}{L_COLON}</span>
 						<!-- IF userrow.U_PROFILE -->
@@ -346,8 +346,8 @@
 			</div>
 			<!-- ENDIF -->
 
-			<div class="card mb-3 border-top-0">
-				<div class="card-header d-none d-md-block bg-secondary text-light border-bottom-0">
+			<div class="card mb-3 border-bottom-0">
+				<div class="card-header d-none d-md-block bg-secondary text-light">
 					<div class="row">
 						<div class="col-12 col-md-10">{L_IPS_POSTED_FROM}</div>
 						<div class="col-12 col-md-2 text-center">{L_POSTS}</div>
@@ -355,7 +355,7 @@
 				</div>
 				<div class="card-body p-0">
 					<!-- BEGIN iprow -->
-					<div class="row align-items-center border-top m-0<!-- IF iprow.S_ROW_COUNT is even --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
+					<div class="row align-items-center border-bottom m-0<!-- IF iprow.S_ROW_COUNT is even --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
 						<div class="col-12 col-md-10 py-2">
 							<span class="badge bg-secondary d-md-none">{L_IPS_POSTED_FROM}{L_COLON}</span>
 						<!-- IF iprow.HOSTNAME -->
