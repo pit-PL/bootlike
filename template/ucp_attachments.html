@@ -2,13 +2,9 @@
 
 <form id="ucp" method="post" action="{S_UCP_ACTION}"{S_FORM_ENCTYPE}>
 
-<div class="card mb-3">
-	<div class="card-header bg-secondary text-white">
-		{L_TITLE}
-	</div>
-	<div class="card-body pb-0">
+	<h4 class="mb-3">{L_TITLE}</h4>
 	
-	<p>{L_ATTACHMENTS_EXPLAIN}</p>
+	<p class="alert alert-info">{L_ATTACHMENTS_EXPLAIN}</p>
 
 	<!-- IF .attachrow -->
 <!-- IF S_ATTACHMENT_ROWS -->
@@ -79,9 +75,6 @@
 		{S_FORM_TOKEN}
 		</div>
 	<!-- ENDIF -->
-
-	</div>
-</div>
 
 </form>
 
