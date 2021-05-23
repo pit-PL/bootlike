@@ -7,8 +7,13 @@
 		<div class="mt-1">{L_TITLE}</div>
 
 		<div class="d-flex">
-			<label class="me-1" for="fo">{L_FORUM}{L_COLON}</label> <select class="form-select form-select-sm me-1" name="f" id="fo">{S_FORUM_OPTIONS}</select>
-			<input type="submit" name="sort" value="{L_GO}" class="btn btn-secondary btn-sm" />
+			<div class="input-group input-group-sm">
+				<div class="input-group-text">
+					<label for="fo">{L_FORUM}{L_COLON}</label>
+				</div>
+				<select class="form-select" name="f" id="fo">{S_FORUM_OPTIONS}</select>
+				<input type="submit" name="sort" value="{L_GO}" class="btn btn-secondary" />
+			</div>
 			{S_FORM_TOKEN}
 		</div>
 	</div>
