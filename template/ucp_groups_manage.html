@@ -3,8 +3,8 @@
 <form id="ucp" method="post" action="{S_UCP_ACTION}"{S_FORM_ENCTYPE}>
 
 <div class="card mb-3">
-	<div class="card-header bg-secondary text-white">
-		{L_USERGROUPS}<!-- IF GROUP_NAME --> :: <span class="badge bg-white"><span<!-- IF GROUP_COLOUR --> style="color: #{GROUP_COLOUR};"<!-- ENDIF -->>{GROUP_NAME}</span><!-- ENDIF --></span>
+	<div class="card-header">
+		{L_USERGROUPS}<!-- IF GROUP_NAME --> :: <span<!-- IF GROUP_COLOUR --> style="color: #{GROUP_COLOUR};"<!-- ENDIF -->>{GROUP_NAME}</span><!-- ENDIF -->
 	</div>
 	<div class="card-body pb-0">
 
@@ -12,7 +12,7 @@
 		<div class="alert alert-danger">{ERROR_MSG}</div>
 	<!-- ENDIF -->
 
-	<p>{L_GROUPS_EXPLAIN}</p>
+	<p class="alert alert-info">{L_GROUPS_EXPLAIN}</p>
 
 	<!-- IF S_EDIT -->
 		<h5 class="card-title pb-1 text-capitalize">{L_GROUP_DETAILS}</h5>
