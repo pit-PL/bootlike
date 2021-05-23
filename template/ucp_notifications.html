@@ -11,8 +11,8 @@
 	<p>{TITLE_EXPLAIN}</p>
 
 <!-- IF MODE == 'notification_options' -->
-	<div class="card mb-3 border-top-0">
-		<div class="card-header d-none d-md-block bg-secondary text-light border-bottom-0">
+	<div class="card mb-3 border-bottom-0">
+		<div class="card-header d-none d-md-block bg-secondary text-light">
 			<div class="row">
 				<div class="col-12 col-md-8">{L_NOTIFICATION_TYPE}</div>
 				<!-- BEGIN notification_methods -->
@@ -23,7 +23,7 @@
 		<div class="card-body p-0">
 		<!-- BEGIN notification_types -->
 			<!-- IF notification_types.GROUP_NAME -->
-				<div class="row align-items-center border-top m-0">
+				<div class="row align-items-center border-bottom m-0">
 					<div class="col-12 py-2<!-- IF notification_types.S_ROW_COUNT is even --> bg1<!-- ELSE --> bg2<!-- ENDIF -->"><strong>{notification_types.GROUP_NAME}</strong></div>
 				</div>
 			<!-- ELSE -->
