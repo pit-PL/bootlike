@@ -89,8 +89,8 @@
 <!-- ENDIF -->
 
 <!-- IF S_LEADERS_SET or not S_SHOW_GROUP or not .memberrow -->
-	<div id="memberlist" class="card mb-3 border-top-0">
-		<div class="card-header d-none d-md-block bg-dark text-light border-bottom-0">
+	<div id="memberlist" class="card mb-3 border-bottom-0">
+		<div class="card-header d-none d-md-block bg-dark text-light">
 		<div class="row">
 			<div class="col-12 col-md-3" data-dfn="{L_RANK}{L_COMMA_SEPARATOR}<!-- IF S_SHOW_GROUP and .memberrow -->{L_GROUP_LEADER}<!-- ELSE -->{L_USERNAME}<!-- ENDIF -->"><span class="d-none d-md-block float-end"><a href="{U_SORT_RANK}">{L_RANK}</a></span><a href="{U_SORT_USERNAME}"><!-- IF S_SHOW_GROUP and .memberrow -->{L_GROUP_LEADER}<!-- ELSE -->{L_USERNAME}<!-- ENDIF --></a></div>
 			<div class="col-12 col-md-2 col-lg-1 text-center"><a href="{U_SORT_POSTS}#memberlist">{L_POSTS}</a></div>
@@ -115,11 +115,11 @@
 	</div>
 <!-- ENDIF -->
 
-<div class="card mb-3 border-top-0">
-	<div class="card-header d-none d-md-block bg-dark text-light border-bottom-0">
+<div class="card mb-3 border-bottom-0">
+	<div class="card-header d-none d-md-block bg-dark text-light">
 		<div class="row">
 		<!-- IF not S_LEADERS_SET -->
-			<div class="col-12< col-md-3" data-dfn="{L_RANK}{L_COMMA_SEPARATOR}{L_USERNAME}"><span class="d-none d-md-block float-end"><a href="{U_SORT_RANK}">{L_RANK}</a></span><a href="{U_SORT_USERNAME}"><!-- IF S_SHOW_GROUP -->{L_GROUP_MEMBERS}<!-- ELSE -->{L_USERNAME}<!-- ENDIF --></a></div>
+			<div class="col-12 col-md-3" data-dfn="{L_RANK}{L_COMMA_SEPARATOR}{L_USERNAME}"><span class="d-none d-md-block float-end"><a href="{U_SORT_RANK}">{L_RANK}</a></span><a href="{U_SORT_USERNAME}"><!-- IF S_SHOW_GROUP -->{L_GROUP_MEMBERS}<!-- ELSE -->{L_USERNAME}<!-- ENDIF --></a></div>
 			<div class="col-12 col-md-2 col-lg-1 text-center"><a href="{U_SORT_POSTS}#memberlist">{L_POSTS}</a></div>
 			<div class="col-12<!-- IF U_SORT_ACTIVE --> col-md-3 col-lg-4 <!-- ELSE --> col-md-5 col-lg-6<!-- ENDIF --><!-- IF not memberrow.custom_fields --> d-none d-md-block<!-- ENDIF -->">{% for field in custom_fields %}{% if not loop.first %}{L_COMMA_SEPARATOR} {% endif %}{{ field.PROFILE_FIELD_NAME }}{% endfor %}</div>
 			<div class="col-12 col-md-2"><a href="{U_SORT_JOINED}#memberlist">{L_JOINED}</a></div>
@@ -143,7 +143,7 @@
 					<!-- DEFINE $S_MEMBER_HEADER = 1 -->
 				<!-- ENDIF -->
 			<!-- ENDIF -->
-		<div class="row align-items-center border-top m-0<!-- IF memberrow.S_INACTIVE --> text-muted<!-- ENDIF --><!-- IF memberrow.S_ROW_COUNT is even --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
+		<div class="row align-items-center border-bottom m-0<!-- IF memberrow.S_INACTIVE --> text-muted<!-- ENDIF --><!-- IF memberrow.S_ROW_COUNT is even --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
 			<div class="col-12 col-md-3 py-2 d-md-flex justify-content-md-between">
 				<div>
 					<span class="badge bg-secondary d-md-none">{L_USERNAME}{L_COLON}</span>
