@@ -2,13 +2,9 @@
 
 <form id="ucp" method="post" action="{S_UCP_ACTION}"{S_FORM_ENCTYPE}>
 
-<div class="card mb-3">
-	<div class="card-header bg-secondary text-white">
-		{TITLE}
-	</div>
-	<div class="card-body pb-0">
+	<h4 class="mb-3">{TITLE}</h4>
 
-	<p>{TITLE_EXPLAIN}</p>
+	<p class="alert alert-info">{TITLE_EXPLAIN}</p>
 
 <!-- IF MODE == 'notification_options' -->
 	<div class="card mb-3 border-bottom-0">
@@ -49,7 +45,7 @@
 	<div class="action-bar d-sm-flex justify-content-between p-0 mb-3 border bg-light">
 		<div class="d-flex">&nbsp;</div>
 
-		<div class="btn btn-lg d-none d-lg-block disabled fs-6 mt-1 text-nowrap">
+		<div class="btn btn-lg disabled fs-6 mt-1 text-nowrap">
 			{L_NOTIFICATIONS} {TOTAL_COUNT} &bull; <span class="fw-normal">{PAGE_NUMBER}</span>
 		</div>
 
@@ -119,9 +115,6 @@
 		{S_FORM_TOKEN}
 	</div>
 <!-- ENDIF -->
-
-	</div>
-</div>
 
 </form>
 
