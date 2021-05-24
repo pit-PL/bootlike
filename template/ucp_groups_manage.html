@@ -112,7 +112,7 @@
 
 	<!-- IF .leader -->
 	<div class="card mb-3 border-bottom-0">
-		<div class="card-header d-none d-md-block bg-secondary text-light">
+		<div class="card-header d-none d-md-block">
 			<div class="row">
 				<div class="col-12 col-md-3">{L_GROUP_LEAD}</div>
 				<div class="col-12 col-md-3 text-md-center">{L_GROUP_DEFAULT}</div>
@@ -139,7 +139,7 @@
 	<!-- BEGIN member -->
 	<!-- IF member.S_PENDING -->
 	<div class="card mb-3 border-bottom-0">
-		<div class="card-header d-none d-md-block bg-secondary text-light">
+		<div class="card-header d-none d-md-block">
 			<div class="row">
 				<div class="col-12 col-md-3">{L_GROUP_PENDING}</div>
 				<div class="col-12 col-md-3 text-md-center">{L_GROUP_DEFAULT}</div>
@@ -155,7 +155,7 @@
 	</div>
 		<!-- ENDIF -->
 	<div class="card mb-3 border-bottom-0">
-		<div class="card-header d-none d-md-block bg-secondary text-light">
+		<div class="card-header d-none d-md-block">
 			<div class="row">
 				<div class="col-12 col-md-3">{L_GROUP_APPROVED}</div>
 				<div class="col-12 col-md-3 text-md-center">{L_GROUP_DEFAULT}</div>
@@ -179,7 +179,7 @@
 	<!-- ENDIF -->
 	<!-- BEGINELSE -->
 	<div class="card mb-3">
-		<div class="card-header bg-secondary text-light">
+		<div class="card-header">
 			{L_MEMBERS}
 		</div>
 		<div class="card-body px-3 py-2">
@@ -217,7 +217,7 @@
 	</div>
 
 <div class="card mb-3">
-	<div class="card-header bg-secondary text-white">
+	<div class="card-header">
 		{L_ADD_USERS}
 	</div>
 	<div class="card-body pb-0">
@@ -257,8 +257,10 @@
 
 	</div>
 
-	<div class="card-footer text-center">
-		<button class="btn btn-success" type="submit" name="addusers" value="{L_SUBMIT}"><i class="fa fa-level-down fa-rotate-90 fa-fw" aria-hidden="true"></i> {L_SUBMIT}</button>
+	<div class="card-footer">
+		<div class="d-grid col-4 mx-auto">
+			<button class="btn btn-success" type="submit" name="addusers" value="{L_SUBMIT}"><i class="fa fa-level-down fa-rotate-90 fa-fw" aria-hidden="true"></i> {L_SUBMIT}</button>
+		</div>
 		{S_FORM_TOKEN}
 	</div>
 </div>
@@ -266,15 +268,15 @@
 <!-- ELSE -->
 
 	<!-- IF .leader -->
-	<div class="card mb-3">
-	<div class="card-header bg-secondary text-white">
+	<div class="card mb-3 border-bottom-0">
+	<div class="card-header">
 		<div class="row">
 			<div class="col-lg-9 col-md-8 col-7">{L_GROUP_LEADER}</div>
 			<div class="col-lg-3 col-md-4 col-5">{L_OPTIONS}</div>
 		</div>
 	</div>
 		<!-- BEGIN leader -->
-		<div class="container-fluid row-item position-relative pt-1 pb-1 border-top<!-- IF attachrow.S_ROW_COUNT is odd --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
+		<div class="container-fluid row-item position-relative pt-1 pb-1 border-bottom<!-- IF attachrow.S_ROW_COUNT is odd --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
 			<div class="row align-items-center">
 				<div class="col-lg-9 col-md-8 col-7">
 					<a href="{leader.U_EDIT}" class="topictitle"<!-- IF leader.GROUP_COLOUR --> style="color: #{leader.GROUP_COLOUR};"<!-- ENDIF -->>{leader.GROUP_NAME}</a>
