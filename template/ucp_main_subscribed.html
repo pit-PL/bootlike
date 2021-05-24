@@ -7,8 +7,8 @@
 	<div class="alert alert-info">{L_WATCHED_EXPLAIN}</div>
 
 	<!-- IF .forumrow -->
-		<div class="card mb-3">
-			<div class="card-header bg-secondary text-white">
+		<div class="card mb-3 border-bottom-0">
+			<div class="card-header">
 				<div class="row">
 					<div class="col-lg-7 col-md-6 col-sm-10 col-9">{L_WATCHED_FORUMS}</div>
 					<div class="col-lg-3 col-md-4 d-none d-md-block">{L_LAST_POST}</div>
@@ -17,7 +17,7 @@
 			</div>
 
 		<!-- BEGIN forumrow -->
-			<div class="container-fluid row-item position-relative px-3 py-1 border-top {forumrow.FORUM_IMG_STYLE}<!-- IF forumrow.S_ROW_COUNT is odd --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
+			<div class="container-fluid row-item position-relative px-3 py-1 border-bottom {forumrow.FORUM_IMG_STYLE}<!-- IF forumrow.S_ROW_COUNT is odd --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
 				<div class="row align-items-center" title="{forumrow.FORUM_FOLDER_IMG_ALT}">
 					<div class="col-lg-7 col-md-6 col-sm-10 col-9 topic-folder folder">
 						<!-- IF forumrow.S_UNREAD_FORUM --><a href="{forumrow.U_VIEWFORUM}" class="row-item-link"></a><!-- ENDIF -->
@@ -75,8 +75,8 @@
 		</div>
 	</div>
 
-	<div class="card mb-3">
-		<div class="card-header bg-secondary text-white">
+	<div class="card mb-3 border-bottom-0">
+		<div class="card-header">
 			<div class="row">
 				<div class="col-lg-7 col-md-6 col-sm-10 col-9">{L_WATCHED_TOPICS}</div>
 				<div class="col-lg-3 col-md-4 d-none d-md-block">{L_LAST_POST}</div>
@@ -85,7 +85,7 @@
 		</div>
 
 	<!-- BEGIN topicrow -->
-		<div class="container-fluid row-item position-relative px-3 py-1 border-top {topicrow.TOPIC_IMG_STYLE}<!-- IF topicrow.S_ROW_COUNT is even --> bg1<!-- ELSE --> bg2<!-- ENDIF --><!-- IF topicrow.S_TOPIC_REPORTED --> border border-warning<!-- ENDIF -->">
+		<div class="container-fluid row-item position-relative px-3 py-1 border-bottom {topicrow.TOPIC_IMG_STYLE}<!-- IF topicrow.S_ROW_COUNT is even --> bg1<!-- ELSE --> bg2<!-- ENDIF --><!-- IF topicrow.S_TOPIC_REPORTED --> border border-warning<!-- ENDIF -->">
 			<div class="row align-items-center" title="{topicrow.TOPIC_FOLDER_IMG_ALT}">
 				<div class="col-lg-7 col-md-6 col-sm-10 col-9 topic-folder folder">
 					<!-- IF topicrow.S_UNREAD_TOPIC --><a href="{topicrow.U_NEWEST_POST}" class="row-item-link"></a><!-- ENDIF -->
