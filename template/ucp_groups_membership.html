@@ -8,8 +8,8 @@
 
 	<!-- DEFINE $SHOW_BUTTONS = 0 -->
 	<!-- IF .leader -->
-	<div class="card mb-3">
-		<div class="card-header bg-secondary text-white">
+	<div class="card mb-3 border-bottom-0">
+		<div class="card-header">
 			<div class="row">
 				<div class="col-sm-10 col-9">{L_GROUP_LEADER}</div>
 				<div class="col-sm-2 col-3 text-center">{L_SELECT}</div>
@@ -20,7 +20,7 @@
 		<!-- IF not leader.GROUP_SPECIAL -->
 			<!-- DEFINE $SHOW_BUTTONS = 1 -->
 		<!-- ENDIF -->
-		<div class="container-fluid row-item px-3 py-1 border-top<!-- IF leader.S_ROW_COUNT is odd --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
+		<div class="container-fluid row-item px-3 py-1 border-bottom<!-- IF leader.S_ROW_COUNT is odd --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
 			<div class="row align-items-center">
 				<div class="col-md-10 col-sm-10 col-9">
 					<!-- IF S_CHANGE_DEFAULT --><input class="form-check-input" type="radio" title="{L_CHANGE_DEFAULT_GROUP}" name="default"<!-- IF leader.S_GROUP_DEFAULT --> checked="checked"<!-- ENDIF --> value="{leader.GROUP_ID}" /> <!-- ENDIF -->
@@ -37,8 +37,8 @@
 	<!-- ENDIF -->
 
 	<!-- IF .member -->
-	<div class="card mb-3">
-		<div class="card-header bg-secondary text-white">
+	<div class="card mb-3 border-bottom-0">
+		<div class="card-header">
 			<div class="row">
 				<div class="col-md-10 col-sm-10 col-9">{L_GROUP_MEMBER}</div>
 				<div class="col-sm-2 col-3 text-center">{L_SELECT}</div>
@@ -49,7 +49,7 @@
 		<!-- IF not member.GROUP_SPECIAL -->
 			<!-- DEFINE $SHOW_BUTTONS = 1 -->
 		<!-- ENDIF -->		
-		<div class="container-fluid row-item px-3 py-1 border-top<!-- IF member.S_ROW_COUNT is odd --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
+		<div class="container-fluid row-item px-3 py-1 border-bottom<!-- IF member.S_ROW_COUNT is odd --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
 			<div class="row align-items-center">
 				<div class="col-sm-10 col-9">
 					<!-- IF S_CHANGE_DEFAULT --><input class="form-check-input" type="radio" title="{L_CHANGE_DEFAULT_GROUP}" name="default"<!-- IF member.S_GROUP_DEFAULT --> checked="checked"<!-- ENDIF --> value="{member.GROUP_ID}" /> <!-- ENDIF -->
@@ -66,8 +66,8 @@
 	<!-- ENDIF -->
 
 <!-- IF .pending -->
-	<div class="card mb-3">
-		<div class="card-header bg-secondary text-white">
+	<div class="card mb-3 border-bottom-0">
+		<div class="card-header">
 			<div class="row">
 				<div class="col-sm-10 col-9">{L_GROUP_PENDING}</div>
 				<div class="col-sm-2 col-3 text-center">{L_SELECT}</div>
@@ -78,7 +78,7 @@
 		<!-- IF not pending.GROUP_SPECIAL -->
 			<!-- DEFINE $SHOW_BUTTONS = 1 -->
 		<!-- ENDIF -->			
-		<div class="container-fluid row-item px-3 py-1 border-top<!-- IF pending.S_ROW_COUNT is odd --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
+		<div class="container-fluid row-item px-3 py-1 border-bottom<!-- IF pending.S_ROW_COUNT is odd --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
 			<div class="row align-items-center">
 				<div class="col-sm-10 col-9">
 					<a href="{pending.U_VIEW_GROUP}" class="forumtitle"<!-- IF pending.GROUP_COLOUR --> style="color:#{pending.GROUP_COLOUR}"<!-- ENDIF -->>{pending.GROUP_NAME}</a>
@@ -93,8 +93,8 @@
 	</div>
 <!-- ENDIF -->
 <!-- IF .nonmember -->
-	<div class="card mb-3">
-		<div class="card-header bg-secondary text-white">
+	<div class="card mb-3 border-bottom-0">
+		<div class="card-header">
 			<div class="row">
 				<div class="col-sm-10 col-9">{L_GROUP_NONMEMBER}</div>
 				<div class="col-sm-2 col-3 text-center">{L_SELECT}</div>
@@ -105,7 +105,7 @@
 		<!-- IF nonmember.S_CAN_JOIN -->
 			<!-- DEFINE $SHOW_BUTTONS = 1 -->
 		<!-- ENDIF -->		
-		<div class="container-fluid row-item px-3 py-1 border-top<!-- IF nonmember.S_ROW_COUNT is odd --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
+		<div class="container-fluid row-item px-3 py-1 border-bottom<!-- IF nonmember.S_ROW_COUNT is odd --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
 			<div class="row align-items-center">
 				<div class="col-sm-10 col-9">
 					<a href="{nonmember.U_VIEW_GROUP}" class="forumtitle"<!-- IF nonmember.GROUP_COLOUR --> style="color:#{nonmember.GROUP_COLOUR}"<!-- ENDIF -->>{nonmember.GROUP_NAME}</a>
