@@ -1,15 +1,11 @@
 <!-- INCLUDE mcp_header.html -->
 
-<div class="card mb-3">
-	<div class="card-header bg-secondary text-white">
-		{L_WARN_USER}
-	</div>
-	<div class="card-body pb-0">
+	<h5 class="mb-3">{L_WARN_USER}</h5>
 
 	<form method="post" id="mcp" action="{U_POST_ACTION}">
 
 	<div class="card mb-3">
-		<div class="card-header bg-secondary text-white">
+		<div class="card-header">
 			{L_SELECT_USER}
 		</div>
 		<div class="card-body">
@@ -21,8 +17,10 @@
 			</div>
 		</div>
 
-		<div class="card-footer text-center">
-			<button class="btn btn-success" type="submit" name="submituser" value="{L_SUBMIT}"><i class="fa fa-level-down fa-rotate-90 fa-fw" aria-hidden="true"></i> {L_SUBMIT}</button>
+		<div class="card-footer">
+			<div class="d-grid col-4 mx-auto">
+				<button class="btn btn-success" type="submit" name="submituser" value="{L_SUBMIT}"><i class="fa fa-level-down fa-rotate-90 fa-fw" aria-hidden="true"></i> {L_SUBMIT}</button>
+			</div>
 			{S_FORM_TOKEN}
 		</div>
 	</div>
@@ -33,7 +31,7 @@
 
 	<!-- IF .highest -->
 		<div class="card mb-3 border-bottom-0">
-			<div class="card-header d-none d-md-block bg-secondary text-light">
+			<div class="card-header d-none d-md-block">
 				<div class="row">
 					<div class="col-12 col-md-4">{L_USERNAME}</div>
 					<div class="col-12 col-md-4 text-md-center">{L_LATEST_WARNING_TIME}</div>
@@ -63,7 +61,7 @@
 
 	<!-- IF .latest -->
 		<div class="card mb-3 border-bottom-0">
-			<div class="card-header d-none d-md-block bg-secondary text-light">
+			<div class="card-header d-none d-md-block">
 				<div class="row">
 					<div class="col-12 col-md-4">{L_USERNAME}</div>
 					<div class="col-12 col-md-4 text-md-center">{L_TIME}</div>
@@ -88,8 +86,5 @@
 			{L_NO_WARNINGS}
 		</div>
 	<!-- ENDIF -->
-
-	</div>
-</div>
 
 <!-- INCLUDE mcp_footer.html -->
