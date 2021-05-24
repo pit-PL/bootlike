@@ -2,11 +2,7 @@
 
 <form method="post" id="mcp" action="{U_POST_ACTION}">
 
-<div class="card mb-3">
-	<div class="card-header bg-secondary text-white">
-		{L_TITLE}
-	</div>
-	<div class="card-body pb-0">
+	<h5 class="mb-3">{L_TITLE}</h5>
 
 	<div class="action-bar d-sm-flex justify-content-between p-0 mb-3 border bg-light">
 		<div class="d-flex">
@@ -40,7 +36,7 @@
 	</div>
 
 	<div class="card mb-3 border-bottom-0">
-		<div class="card-header d-none d-md-block bg-secondary text-light">
+		<div class="card-header d-none d-md-block">
 			<div class="row">
 				<div class="col-12<!-- IF S_CLEAR_ALLOWED --> col-md-6<!-- ELSE --> col-md-8<!-- ENDIF -->">{L_ACTION}</div>
 				<div class="col-12 col-md-2 text-center">{L_MCP_NOTES_USER}</div>
@@ -86,9 +82,6 @@
 	<!-- ELSE -->
 			{S_FORM_TOKEN}
 	<!-- ENDIF -->
-
-	</div>
-</div>
 
 </form>
 
