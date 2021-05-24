@@ -2,74 +2,74 @@
 
 <form id="ucp" method="post" action="{S_UCP_ACTION}"{S_FORM_ENCTYPE}>
 
-<div class="card mb-3">
-	<div class="card-header bg-secondary text-white">
-		{L_USERGROUPS}<!-- IF GROUP_NAME --> :: <span class="badge bg-white"><span<!-- IF GROUP_COLOUR --> style="color: #{GROUP_COLOUR};"<!-- ENDIF -->>{GROUP_NAME}</span><!-- ENDIF --></span>
-	</div>
-	<div class="card-body pb-0">
+	<h5 class="mb-3">{L_USERGROUPS}<!-- IF GROUP_NAME --> :: <span<!-- IF GROUP_COLOUR --> style="color: #{GROUP_COLOUR};"<!-- ENDIF -->>{GROUP_NAME}</span><!-- ENDIF --></h5>
 
 	<!-- IF S_ERROR -->
 		<div class="alert alert-danger">{ERROR_MSG}</div>
 	<!-- ENDIF -->
 
-	<p>{L_GROUPS_EXPLAIN}</p>
+	<div class="alert alert-info">{L_GROUPS_EXPLAIN}</div>
 
 	<!-- IF S_EDIT -->
-		<h5 class="card-title pb-1 text-capitalize">{L_GROUP_DETAILS}</h5>
+	<div class="card mb-3">
+		<div class="card-header">{L_SETTINGS}</div>
+		<div class="card-body pb-0">
 
-		<dl class="row">
-			<dt class="col-lg-4 col-md-5 col-12">
-				<label class="col-form-label" for="group_name">{L_GROUP_NAME}{L_COLON}</label>
-			</dt>
-			<dd class="col-lg-8 col-md-7 col-12">
-			<!-- IF S_SPECIAL_GROUP -->
-				<label class="col-form-label"<!-- IF GROUP_COLOUR --> style="color: #{GROUP_COLOUR};"<!-- ENDIF -->>{GROUP_NAME}</label>
-				<input name="group_name" type="hidden" value="{GROUP_INTERNAL_NAME}" />
-			<!-- ELSE -->
-				<input name="group_name" type="text" id="group_name" value="{GROUP_INTERNAL_NAME}" class="form-control" />
-			<!-- ENDIF -->
-			</dd>
-		</dl>
-		<dl class="row">
-			<dt class="col-lg-4 col-md-5 col-12">
-				<label class="col-form-label" for="group_desc">{L_GROUP_DESC}{L_COLON}</label>
-			</dt>
-			<dd class="col-lg-8 col-md-7 col-12 mb-0">
-				<textarea class="form-control" id="group_desc" name="group_desc" rows="5" cols="45">{GROUP_DESC}</textarea>
-			</dd>
-		</dl>
-		<dl class="row">
-			<dt class="col-lg-4 col-md-5 col-12 d-none d-md-block">&nbsp;</dt>
-			<dd class="col-lg-8 col-md-7 col-12">
-				<div class="d-flex">
-					<div class="form-check form-switch">
-						<input class="form-check-input" type="checkbox" name="desc_parse_bbcode" id="desc_parse_bbcode"<!-- IF S_DESC_BBCODE_CHECKED --> checked="checked"<!-- ENDIF --> />
-						<label class="form-check-label me-2" for="desc_parse_bbcode">{L_PARSE_BBCODE}</label>
+			<h5 class="card-title pb-1 text-capitalize">{L_GROUP_DETAILS}</h5>
+
+			<dl class="row">
+				<dt class="col-lg-4 col-md-5 col-12">
+					<label class="col-form-label" for="group_name">{L_GROUP_NAME}{L_COLON}</label>
+				</dt>
+				<dd class="col-lg-8 col-md-7 col-12">
+				<!-- IF S_SPECIAL_GROUP -->
+					<label class="col-form-label"<!-- IF GROUP_COLOUR --> style="color: #{GROUP_COLOUR};"<!-- ENDIF -->>{GROUP_NAME}</label>
+					<input name="group_name" type="hidden" value="{GROUP_INTERNAL_NAME}" />
+				<!-- ELSE -->
+					<input name="group_name" type="text" id="group_name" value="{GROUP_INTERNAL_NAME}" class="form-control" />
+				<!-- ENDIF -->
+				</dd>
+			</dl>
+			<dl class="row">
+				<dt class="col-lg-4 col-md-5 col-12">
+					<label class="col-form-label" for="group_desc">{L_GROUP_DESC}{L_COLON}</label>
+				</dt>
+				<dd class="col-lg-8 col-md-7 col-12 mb-0">
+					<textarea class="form-control" id="group_desc" name="group_desc" rows="5" cols="45">{GROUP_DESC}</textarea>
+				</dd>
+			</dl>
+			<dl class="row">
+				<dt class="col-lg-4 col-md-5 col-12 d-none d-md-block">&nbsp;</dt>
+				<dd class="col-lg-8 col-md-7 col-12">
+					<div class="d-flex">
+						<div class="form-check form-switch">
+							<input class="form-check-input" type="checkbox" name="desc_parse_bbcode" id="desc_parse_bbcode"<!-- IF S_DESC_BBCODE_CHECKED --> checked="checked"<!-- ENDIF --> />
+							<label class="form-check-label me-2" for="desc_parse_bbcode">{L_PARSE_BBCODE}</label>
+						</div>
+						<div class="form-check form-switch">
+							<input class="form-check-input" type="checkbox" name="desc_parse_smilies" id="desc_parse_smilies"<!-- IF S_DESC_SMILIES_CHECKED --> checked="checked"<!-- ENDIF --> />
+							<label class="form-check-label me-2" for="desc_parse_smilies">{L_PARSE_SMILIES}</label>
+						</div>
+						<div class="form-check form-switch">
+							<input class="form-check-input" type="checkbox" name="desc_parse_urls" id="desc_parse_urls"<!-- IF S_DESC_URLS_CHECKED --> checked="checked"<!-- ENDIF --> />
+							<label class="form-check-label" for="desc_parse_urls">{L_PARSE_URLS}</label>
+						</div>
 					</div>
-					<div class="form-check form-switch">
-						<input class="form-check-input" type="checkbox" name="desc_parse_smilies" id="desc_parse_smilies"<!-- IF S_DESC_SMILIES_CHECKED --> checked="checked"<!-- ENDIF --> />
-						<label class="form-check-label me-2" for="desc_parse_smilies">{L_PARSE_SMILIES}</label>
-					</div>
-					<div class="form-check form-switch">
-						<input class="form-check-input" type="checkbox" name="desc_parse_urls" id="desc_parse_urls"<!-- IF S_DESC_URLS_CHECKED --> checked="checked"<!-- ENDIF --> />
-						<label class="form-check-label" for="desc_parse_urls">{L_PARSE_URLS}</label>
-					</div>
-				</div>
-			</dd>
-		</dl>
-		<!-- IF not S_SPECIAL_GROUP -->
-		<dl class="row">
-			<dt class="col-lg-4 col-md-5 col-12">
-				<label class="col-form-label" for="group_type1">{L_GROUP_TYPE}{L_COLON}</label>
-				<div class="small text-muted mb-1 fw-normal">{L_GROUP_TYPE_EXPLAIN}</div>
-			</dt>
-			<dd class="col-lg-8 col-md-7 col-12">
-				<label class="form-check-label me-2" for="group_type1"><input class="form-check-input" type="radio" class="form-check-input" name="group_type" id="group_type1" value="{GROUP_TYPE_FREE}"{GROUP_FREE} /> {L_GROUP_OPEN}</label> 
-				<label class="form-check-label me-2" for="group_type2"><input class="form-check-input" type="radio" class="form-check-input" name="group_type" id="group_type2" value="{GROUP_TYPE_OPEN}"{GROUP_OPEN} /> {L_GROUP_REQUEST}</label> 
-				<label class="form-check-label me-2" for="group_type3"><input class="form-check-input" type="radio" class="form-check-input" name="group_type" id="group_type3" value="{GROUP_TYPE_CLOSED}"{GROUP_CLOSED} /> {L_GROUP_CLOSED}</label> 
-				<label class="form-check-label me-2" for="group_type4"><input class="form-check-input" type="radio" class="form-check-input" name="group_type" id="group_type4" value="{GROUP_TYPE_HIDDEN}"{GROUP_HIDDEN} /> {L_GROUP_HIDDEN}</label>
-			</dd>
-		</dl>
+				</dd>
+			</dl>
+			<!-- IF not S_SPECIAL_GROUP -->
+			<dl class="row">
+				<dt class="col-lg-4 col-md-5 col-12">
+					<label class="col-form-label" for="group_type1">{L_GROUP_TYPE}{L_COLON}</label>
+					<div class="small text-muted mb-1 fw-normal">{L_GROUP_TYPE_EXPLAIN}</div>
+				</dt>
+				<dd class="col-lg-8 col-md-7 col-12">
+					<label class="form-check-label me-2" for="group_type1"><input class="form-check-input" type="radio" class="form-check-input" name="group_type" id="group_type1" value="{GROUP_TYPE_FREE}"{GROUP_FREE} /> {L_GROUP_OPEN}</label> 
+					<label class="form-check-label me-2" for="group_type2"><input class="form-check-input" type="radio" class="form-check-input" name="group_type" id="group_type2" value="{GROUP_TYPE_OPEN}"{GROUP_OPEN} /> {L_GROUP_REQUEST}</label> 
+					<label class="form-check-label me-2" for="group_type3"><input class="form-check-input" type="radio" class="form-check-input" name="group_type" id="group_type3" value="{GROUP_TYPE_CLOSED}"{GROUP_CLOSED} /> {L_GROUP_CLOSED}</label> 
+					<label class="form-check-label me-2" for="group_type4"><input class="form-check-input" type="radio" class="form-check-input" name="group_type" id="group_type4" value="{GROUP_TYPE_HIDDEN}"{GROUP_HIDDEN} /> {L_GROUP_HIDDEN}</label>
+				</dd>
+			</dl>
 		<!-- ELSE -->
 			<input name="group_type" type="hidden" value="{GROUP_TYPE_SPECIAL}" />
 		<!-- ENDIF -->
@@ -101,7 +101,9 @@
 
 		<div class="card-footer text-center">
 			{S_HIDDEN_FIELDS}
-			<button class="btn btn-success" type="submit" name="update" value="{L_SUBMIT}" /><i class="fa fa-level-down fa-rotate-90 fa-fw" aria-hidden="true"></i> {L_SUBMIT}</button>
+			<div class="d-grid col-4 mx-auto">
+				<button class="btn btn-success" type="submit" name="update" value="{L_SUBMIT}" /><i class="fa fa-level-down fa-rotate-90 fa-fw" aria-hidden="true"></i> {L_SUBMIT}</button>
+			</div>
 			{S_FORM_TOKEN}
 		</div>
 	</div>
@@ -213,9 +215,6 @@
 			<button class="btn btn-success" type="submit" name="update" value="{L_SUBMIT}"><i class="fa fa-level-down fa-rotate-90 fa-fw" aria-hidden="true"></i> {L_SUBMIT}</button>
 		</div>
 	</div>
-
-	</div>
-</div>
 
 <div class="card mb-3">
 	<div class="card-header bg-secondary text-white">
