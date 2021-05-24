@@ -64,7 +64,7 @@
 	<form method="post" action="{S_POLL_ACTION}" class="topic_poll">
 
 	<div class="card mb-3">
-		<div class="card-header bg-secondary text-white">
+		<div class="card-header">
 			<!-- EVENT viewtopic_body_poll_question_prepend -->
 			{POLL_QUESTION}
 			<!-- EVENT viewtopic_body_poll_question_append -->
@@ -128,7 +128,7 @@
 <!-- ENDIF -->
 
 <!-- IF not S_IS_BOT -->
-	<div class="action-bar d-md-flex justify-content-between p-0 mb-3 border bg-light shadow-sm">
+	<div class="action-bar d-md-flex justify-content-between p-0 mb-3 custom-border custom-bg-light shadow-sm">
 		<div class="d-flex">
 		<!-- EVENT viewtopic_buttons_top_before -->
 		<!-- IF S_DISPLAY_REPLY_INFO -->
@@ -161,7 +161,7 @@
 		</div>
 
 		<!-- IF TOTAL_POSTS or TOTAL_TOPICS -->
-		<div class="btn btn-lg d-none d-lg-block disabled fs-6 mt-1 text-nowrap">
+		<div class="btn btn-lg d-none d-lg-block disabled fs-6 mt-1 text-nowrap border-0">
 			{TOTAL_POSTS} &bull; <span class="fw-normal">{PAGE_NUMBER}</span>
 		</div>
 		<!-- ENDIF -->
@@ -325,13 +325,13 @@
 				<!-- ENDIF -->
 				</div>
 
-				<div class="postbody col-lg-9 col-md-8 p-0<!-- IF not $PROFILES_ON_LEFT --> border-end<!-- ELSE --> border-start<!-- ENDIF --><!-- IF postrow.SIGNATURE --> bg-light<!-- ELSE --> bg1<!-- ENDIF -->">
+				<div class="postbody col-lg-9 col-md-8 p-0<!-- IF not $PROFILES_ON_LEFT --> custom-border-end<!-- ELSE --> border-start<!-- ENDIF --><!-- IF postrow.SIGNATURE --> custom-bg-light<!-- ELSE --> bg1<!-- ENDIF -->">
 				<hr class="d-md-none m-0">
 
 					<div id="post_content{postrow.POST_ID}">
 						<!-- EVENT viewtopic_body_post_subject_before -->
 						<!-- EVENT viewtopic_body_postrow_post_details_before -->
-						<div class="postbody-before d-flex px-3 py-2 justify-content-between align-items-center bg-light border-bottom">
+						<div class="postbody-before d-flex px-3 py-2 justify-content-between align-items-center custom-bg-light custom-border-bottom">
 							<div>
 							<!-- IF postrow.POST_ICON_IMG --><img src="{T_ICONS_PATH}{postrow.POST_ICON_IMG}" width="{postrow.POST_ICON_IMG_WIDTH}" height="{postrow.POST_ICON_IMG_HEIGHT}" alt="{L_IMAGE}" /> <!-- ENDIF -->
 							<!-- IF postrow.POST_SUBJECT --><a href="{{ postrow.U_MINI_POST }}">{postrow.POST_SUBJECT}</a><br><!-- ENDIF -->
@@ -416,7 +416,7 @@
 								<div class="row {$ATTACHMENT_COLUMNS}">
 								<!-- BEGIN attachment -->
 									<div class="col-12 mb-3 d-flex">
-										<div class="bg-white border border-2 p-2<!-- IF $ATTACHMENT_COLUMNS --> w-100<!-- ENDIF -->">
+										<div class="custom-bg-white custom-border border-2 p-2<!-- IF $ATTACHMENT_COLUMNS --> w-100<!-- ENDIF -->">
 											{postrow.attachment.DISPLAY_ATTACHMENT}
 										</div>
 									</div>
@@ -447,7 +447,7 @@
 						</div>
 
 					<!-- IF postrow.SIGNATURE -->
-						<div id="sig{postrow.POST_ID}" class="postbody-after d-none d-md-block px-3 py-2 small border-top">{postrow.SIGNATURE}</div>
+						<div id="sig{postrow.POST_ID}" class="postbody-after d-none d-md-block px-3 py-2 small custom-border-top">{postrow.SIGNATURE}</div>
 					<!-- ENDIF -->
 					</div>
 				</div>
@@ -473,7 +473,7 @@
 					<button type="button" class="btn-close" title="{L_CLOSE_WINDOW}" data-bs-dismiss="modal" aria-label="{L_CLOSE_WINDOW}"></button>
 				</div>
 
-				<div class="modal-body bg-light<!-- IF not .postrow.contact --> rounded-bottom<!-- ENDIF -->">
+				<div class="modal-body custom-bg-light<!-- IF not .postrow.contact --> rounded-bottom<!-- ENDIF -->">
 					<div class="row d-flex align-items-center">
 						<div class="col-4 d-flex align-items-center justify-content-center">
 						<!-- IF postrow.POSTER_AVATAR --><span class="img-thumbnail">{postrow.POSTER_AVATAR}</span><!-- ELSE --><img class="img-thumbnail rounded-circle" src="{ROOT_PATH}styles/bootlike/theme/images/no_avatar.gif" alt="{L_IMAGE}" /><!-- ENDIF -->
@@ -506,7 +506,7 @@
 					{% EVENT viewtopic_body_contact_icon_prepend %}
 					<a class="d-inline-block m-1 text-decoration-none" href="<!-- IF postrow.contact.U_CONTACT -->{postrow.contact.U_CONTACT}<!-- ELSE -->{postrow.U_POST_AUTHOR}<!-- ENDIF -->"<!-- IF postrow.contact.ID eq 'jabber' --> onclick="popup(this.href, 750, 320); return false;"<!-- ENDIF --> title="{postrow.contact.NAME}">
 						<div class="p-1 rounded-circle alert-primary shadow-sm">
-							<div class="contact-button d-flex align-items-center justify-content-center rounded-circle border border-4 border-white fs-5 alert-primary" style="width: 48px; height: 48px;">
+							<div class="contact-button d-flex align-items-center justify-content-center rounded-circle custom-border border-4 border-white fs-5 alert-primary" style="width: 48px; height: 48px;">
 								<i class="fa fa-<!-- IF postrow.contact.ID eq 'pm' -->user<!-- ELSEIF postrow.contact.ID eq 'email' -->envelope<!-- ELSEIF postrow.contact.ID eq 'phpbb_website' -->globe<!-- ELSEIF postrow.contact.ID eq 'icon_contact_jabber' -->lightbulb-o<!-- ELSEIF postrow.contact.ID eq 'phpbb_yahoo' -->yahoo<!-- ELSEIF postrow.contact.ID eq 'phpbb_facebook' -->facebook<!-- ELSEIF postrow.contact.ID eq 'phpbb_twitter' -->twitter<!-- ELSEIF postrow.contact.ID eq 'phpbb_skype' -->skype<!-- ELSEIF postrow.contact.ID eq 'phpbb_youtube' -->youtube<!-- ELSEIF postrow.contact.ID eq 'phpbb_googleplus' -->google-plus<!-- ELSEIF postrow.contact.ID eq 'phpbb_icq' -->asterisk<!-- ELSE -->comments<!-- ENDIF --> fa-fw"></i>
 							</div>
 						</div>
@@ -535,11 +535,11 @@
 {% EVENT viewtopic_body_online_list_before %}
 
 <!-- IF S_DISPLAY_ONLINE_LIST and U_VIEWONLINE -->
-	<div id="accordion_btn" class="d-md-flex border shadow-sm text-nowrap">
+	<div id="accordion_btn" class="d-md-flex custom-border shadow-sm text-nowrap">
 		<button class="accordion-button shadow-none" type="button"><i class="fa fa-signal fa-fw" aria-hidden="true"></i> {L_WHO_IS_ONLINE}</button>
 	</div>
 
-	<div class="accordion-flush mb-3 border border-top-0 shadow-sm">
+	<div class="accordion-flush mb-3 custom-border border-top-0 shadow-sm">
 		<div class="accordion-body pb-1">
 			<p>{LOGGED_IN_USER_LIST}</p>
 		</div>
