@@ -37,12 +37,12 @@
 <form id="mcp_ban" method="post" action="{U_ACTION}">
 
 <div class="card mb-3">
-	<div class="card-header bg-secondary text-white">
+	<div class="card-header">
 		{L_TITLE}
 	</div>
 	<div class="card-body pb-0">
 
-	<p>{L_EXPLAIN}</p>
+	<div class="alert alert-info">{L_EXPLAIN}</div>
 
 	<!-- EVENT mcp_ban_fields_before -->
 	<dl class="row">
@@ -91,20 +91,22 @@
 	<!-- EVENT mcp_ban_fields_after -->
 	</div>
 
-	<div class="card-footer text-center">
+	<div class="card-footer">
 		{S_HIDDEN_FIELDS}
-		<button class="btn btn-success" type="submit" name="bansubmit" value="{L_SUBMIT}"><i class="fa fa-level-down fa-rotate-90 fa-fw" aria-hidden="true"></i> {L_SUBMIT}</button>
+		<div class="d-grid col-4 mx-auto">
+			<button class="btn btn-success" type="submit" name="bansubmit" value="{L_SUBMIT}"><i class="fa fa-level-down fa-rotate-90 fa-fw" aria-hidden="true"></i> {L_SUBMIT}</button>
+		</div>
 		{S_FORM_TOKEN}
 	</div>
 </div>
 
 <div class="card mb-3">
-	<div class="card-header bg-secondary text-white">
+	<div class="card-header">
 		{L_UNBAN_TITLE}
 	</div>
 	<div class="card-body pb-0">
 
-	<p>{L_UNBAN_EXPLAIN}</p>
+	<div class="alert alert-info">{L_UNBAN_EXPLAIN}</div>
 
 	<!-- IF S_BANNED_OPTIONS -->
 		<!-- EVENT mcp_ban_unban_before -->
