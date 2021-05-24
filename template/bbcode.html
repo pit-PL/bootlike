@@ -8,11 +8,11 @@
 <!-- BEGIN listitem --><li><!-- END listitem -->
 <!-- BEGIN listitem_close --></li><!-- END listitem_close -->
 
-<!-- BEGIN quote_username_open --><blockquote class="blockquote bg-white border ms-2 mt-2 mb-2 p-2 pt-0"><cite class="ms-2 fw-bold">{USERNAME} {L_WROTE} {L_COLON}</cite><!-- END quote_username_open -->
-<!-- BEGIN quote_open --><blockquote class="blockquote bg-white border ms-2 mt-2 mb-2 p-2 pt-0"><!-- END quote_open -->
+<!-- BEGIN quote_username_open --><blockquote class="blockquote custom-bg-white custom-border ms-2 mt-2 mb-2 p-2 pt-0"><cite class="ms-2 fw-bold">{USERNAME} {L_WROTE} {L_COLON}</cite><!-- END quote_username_open -->
+<!-- BEGIN quote_open --><blockquote class="blockquote custom-bg-white custom-border ms-2 mt-2 mb-2 p-2 pt-0"><!-- END quote_open -->
 <!-- BEGIN quote_close --></blockquote><!-- END quote_close -->
 <!-- BEGIN quote_extended -->
-<blockquote class="blockquote bg-white border ms-2 mt-2 mb-2 p-2 pt-0">
+<blockquote class="blockquote custom-bg-white custom-border ms-2 mt-2 mb-2 p-2 pt-0">
 	<xsl:if test="@post_url">
 		<xsl:attribute name="cite"><xsl:value-of select="@post_url"/></xsl:attribute>
 	</xsl:if>
@@ -50,7 +50,7 @@
 </blockquote>
 <!-- END quote_extended -->
 
-<!-- BEGIN code_open --><div class="codebox mt-2"><div class="d-flex justify-content-between my-1"><span class="text-uppercase">{L_CODE}</span> <a class="fw-bold" href="#" onclick="selectCode(this); return false;">{L_SELECT_ALL_CODE}</a></div><pre class="pre-scrollable bg-dark text-light border border-secondary mb-2 p-2"><code><!-- END code_open -->
+<!-- BEGIN code_open --><div class="codebox mt-2"><div class="d-flex justify-content-between my-1"><span class="text-uppercase">{L_CODE}</span> <a class="fw-bold" href="#" onclick="selectCode(this); return false;">{L_SELECT_ALL_CODE}</a></div><pre class="pre-scrollable custom-bg-dark custom-text-light border border-secondary mb-2 p-2"><code><!-- END code_open -->
 <!-- BEGIN code_close --></code></pre></div><!-- END code_close -->
 
 <!-- BEGIN inline_attachment_open --><div class="inline-attachment"><!-- END inline_attachment_open -->
