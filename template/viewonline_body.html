@@ -24,7 +24,7 @@
 </div>
 <!-- ENDIF -->
 
-<div id="team" class="card mb-3 border-bottom-0">
+<div id="team" class="card mb-3">
 	<div class="card-header d-none d-md-block bg-dark text-light">
 		<div class="row">
 			<div class="col-12 col-md-6"><a href="{U_SORT_USERNAME}">{L_USERNAME}</a></div>
@@ -34,7 +34,7 @@
 	</div>
 	<div class="card-body p-0">
 	<!-- BEGIN user_row -->
-		<div class="row align-items-center border-bottom m-0<!-- IF user_row.S_ROW_COUNT is even --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
+		<div class="row align-items-center border-top m-0<!-- IF user_row.S_ROW_COUNT is even --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
 			<div class="col-12 col-md-6 py-2 d-md-flex justify-content-md-between">
 				<div>
 					<span class="badge bg-secondary d-md-none">{L_USERNAME}{L_COLON}</span><!-- EVENT viewonline_body_username_prepend --> {user_row.USERNAME_FULL} <!-- EVENT viewonline_body_username_append -->
