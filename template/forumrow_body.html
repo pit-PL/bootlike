@@ -7,10 +7,10 @@
 	<!-- EVENT forumlist_body_category_header_before -->
 	<!-- IF forumrow.S_IS_CAT or forumrow.S_FIRST_ROW or forumrow.S_NO_CAT  -->
 		<div class="card mb-3">
-		<div class="card-header border-bottom-0">
+		<div class="card-header">
 		<!-- EVENT forumlist_body_category_header_row_prepend -->
 			<div class="row">
-				<div class="col-lg-7 col-md-6 col-12"><!-- IF forumrow.S_IS_CAT --><a href="{forumrow.U_VIEWFORUM}" class="text-white">{forumrow.FORUM_NAME}</a><!-- ELSE -->{L_FORUM}<!-- ENDIF --></div>
+				<div class="col-lg-7 col-md-6 col-12"><!-- IF forumrow.S_IS_CAT --><a href="{forumrow.U_VIEWFORUM}">{forumrow.FORUM_NAME}</a><!-- ELSE -->{L_FORUM}<!-- ENDIF --></div>
 				<div class="col-md-2 d-none d-md-block text-center">{L_TOPICS}/{L_POSTS}</div>
 				<div class="col-lg-3 col-md-4 d-none d-md-block">{L_LAST_POST}</div>
 			</div>
