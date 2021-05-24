@@ -60,10 +60,10 @@
 				<!-- EVENT ucp_pm_viewmessage_contact_fields_after -->
 			</div>
 
-			<div class="postbody col-lg-9 col-md-8 p-0<!-- IF not $PROFILES_ON_LEFT --> border-end<!-- ELSE --> border-start<!-- ENDIF --><!-- IF SIGNATURE --> bg-light<!-- ELSE --> bg1<!-- ENDIF -->">
+			<div class="postbody col-lg-9 col-md-8 p-0<!-- IF not $PROFILES_ON_LEFT --> custom-border-end<!-- ELSE --> border-start<!-- ENDIF --><!-- IF SIGNATURE --> custom-bg-light<!-- ELSE --> bg1<!-- ENDIF -->">
 			<hr class="d-md-none m-0">
 
-				<div class="postbody-before d-flex px-3 py-2 justify-content-between align-items-center bg-light border-bottom">
+				<div class="postbody-before d-flex px-3 py-2 justify-content-between align-items-center custom-bg-light custom-border-bottom">
 					<div>
 						{SUBJECT}<br>
 						<strong>{L_SENT_AT}{L_COLON}</strong> {SENT_DATE}
@@ -106,7 +106,7 @@
 					<!-- IF S_HAS_ATTACHMENTS -->
 						<div class="attachbox float-start mb-2">
 							<div class="my-1 text-uppercase">{L_ATTACHMENTS}</div>
-							<div class="bg-white border p-2">
+							<div class="custom-bg-white custom-border p-2">
 							<!-- BEGIN attachment -->
 								<!-- IF not attachment.S_FIRST_ROW --><hr><!-- ENDIF -->
 								{attachment.DISPLAY_ATTACHMENT}
@@ -129,7 +129,7 @@
 				</div>
 
 			<!-- IF SIGNATURE -->
-				<div id="sig{MESSAGE_ID}" class="postbody-after d-none d-md-block px-3 py-2 small border-top">{SIGNATURE}</div>
+				<div id="sig{MESSAGE_ID}" class="postbody-after d-none d-md-block px-3 py-2 small custom-border-top">{SIGNATURE}</div>
 			<!-- ENDIF -->
 			</div>
 		</div>
