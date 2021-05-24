@@ -8,7 +8,7 @@
 
 <!-- IF MODE == 'notification_options' -->
 	<div class="card mb-3 border-bottom-0">
-		<div class="card-header d-none d-md-block bg-secondary text-light">
+		<div class="card-header d-none d-md-block">
 			<div class="row">
 				<div class="col-12 col-md-8">{L_NOTIFICATION_TYPE}</div>
 				<!-- BEGIN notification_methods -->
@@ -67,8 +67,8 @@
 		</div>
 	</div>
 
-	<div class="card mb-3">
-		<div class="card-header bg-secondary text-white">
+	<div class="card mb-3 border-bottom-0">
+		<div class="card-header">
 			<div class="row">
 				<div class="col-md-10 col-sm-9 col-9">{L_NOTIFICATIONS}</div>
 				<div class="col-md-2 col-sm-3 col-3 text-center">{L_MARK_READ}</div>
@@ -76,7 +76,7 @@
 		</div>
 
 		<!-- BEGIN notification_list -->
-		<div class="container-fluid row-item px-3 py-1 border-top notification-text<!-- IF notification_list.UNREAD --> alert-info<!-- ELSE --><!-- IF notification_list.S_ROW_COUNT is odd --> bg1<!-- ELSE --> bg2<!-- ENDIF --><!-- ENDIF --><!-- IF notification_list.STYLING --> {notification_list.STYLING}<!-- ENDIF -->">
+		<div class="container-fluid row-item px-3 py-1 border-bottom notification-text<!-- IF notification_list.UNREAD --> alert-info<!-- ELSE --><!-- IF notification_list.S_ROW_COUNT is odd --> bg1<!-- ELSE --> bg2<!-- ENDIF --><!-- ENDIF --><!-- IF notification_list.STYLING --> {notification_list.STYLING}<!-- ENDIF -->">
 			<div class="row align-items-center">
 				<div class="col-md-10 col-sm-9 col-9">
 					<div class="float-start me-2">
