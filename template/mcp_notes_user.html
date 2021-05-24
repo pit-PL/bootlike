@@ -2,16 +2,10 @@
 
 <form method="post" id="mcp" action="{U_POST_ACTION}">
 
-<div class="card mb-3">
-	<div class="card-header bg-secondary text-white">
-		{L_TITLE}
-	</div>
-	<div class="card-body pb-0">
+	<h5 class="mb-3">{L_TITLE}</h5>
 
 	<div class="card mb-3">
-		<div class="card-header bg-secondary">
-			<span class="badge bg-white">{USERNAME_FULL}</span>
-		</div>
+		<div class="card-header">{USERNAME_FULL}</div>
 
 		<div class="card-body p-0">
 			<div class="row m-0">
@@ -49,7 +43,7 @@
 	</div>
 
 	<div class="card mb-3">
-		<div class="card-header bg-secondary text-white">
+		<div class="card-header">
 			{L_ADD_FEEDBACK}
 		</div>
 		<div class="card-body">
@@ -59,7 +53,9 @@
 
 		<div class="card-footer text-center">
 			{S_HIDDEN_FIELDS}
-			<button class="btn btn-success" type="submit" name="action[add_feedback]" value="{L_SUBMIT}"><i class="fa fa-level-down fa-rotate-90 fa-fw" aria-hidden="true"></i> {L_SUBMIT}</button>
+			<div class="d-grid col-4 mx-auto">
+				<button class="btn btn-success" type="submit" name="action[add_feedback]" value="{L_SUBMIT}"><i class="fa fa-level-down fa-rotate-90 fa-fw" aria-hidden="true"></i> {L_SUBMIT}</button>
+			</div>
 			{S_FORM_TOKEN}
 		</div>
 	</div>
@@ -96,7 +92,7 @@
 	</div>
 
 	<div class="card mb-3 border-bottom-0">
-		<div class="card-header d-none d-md-block bg-secondary text-light">
+		<div class="card-header d-none d-md-block">
 			<div class="row">
 				<div class="col-12<!-- IF S_CLEAR_ALLOWED --> col-md-6<!-- ELSE --> col-md-8<!-- ENDIF -->">{L_ACTION_NOTE}</div>
 				<div class="col-12 col-md-2 text-center">{L_MCP_NOTES_USER}</div>
