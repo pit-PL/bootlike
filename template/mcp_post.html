@@ -1,10 +1,6 @@
 <!-- INCLUDE mcp_header.html -->
 
-<div class="card mb-3">
-	<div class="card-header bg-secondary text-white">
-		<!-- IF S_PM -->{L_PM_REPORT_DETAILS}<!-- ELSE -->{L_REPORT_DETAILS}<!-- ENDIF -->
-	</div>
-	<div class="card-body pb-0">
+	<h5 class="mb-3"><!-- IF S_PM -->{L_PM_REPORT_DETAILS}<!-- ELSE -->{L_REPORT_DETAILS}<!-- ENDIF --></h5>
 
 <!-- IF S_MCP_REPORT -->
 	<div id="report" class="card mb-3">
@@ -160,7 +156,7 @@
 
 <!-- IF S_CAN_LOCK_POST or S_CAN_DELETE_POST or S_CAN_CHGPOSTER or S_MCP_POST_ADDITIONAL_OPTS -->
 	<div class="card mb-3">
-		<div class="card-header bg-secondary text-white">
+		<div class="card-header">
 			{L_MOD_OPTIONS}
 		</div>
 		<div class="card-body">
@@ -234,7 +230,7 @@
 
 			<!-- IF S_USER_NOTES -->
 			<div class="card mb-3">
-				<div class="card-header bg-secondary text-white">
+				<div class="card-header">
 					{L_FEEDBACK}
 				</div>
 				<div class="card-body">
@@ -258,12 +254,12 @@
 			<!-- ENDIF -->
 
 			<div class="card mb-3">
-				<div class="card-header bg-secondary text-white">
+				<div class="card-header">
 					{L_ADD_FEEDBACK}
 				</div>
 				<div class="card-body">
 
-				<p>{L_ADD_FEEDBACK_EXPLAIN}</p>
+				<div class="alert alert-info">{L_ADD_FEEDBACK_EXPLAIN}</div>
 
 				<textarea class="form-control" name="usernote" rows="4" cols="76"></textarea>
 
@@ -282,7 +278,7 @@
 
 	<!-- IF S_SHOW_REPORTS -->
 	<div id="reports" class="card mb-3">
-		<div class="card-header bg-secondary text-white">
+		<div class="card-header">
 			{L_MCP_POST_REPORTS}
 		</div>
 		<div class="card-body">
@@ -306,7 +302,7 @@
 			</p>
 
 			<div class="card mb-3 border-bottom-0">
-				<div class="card-header d-none d-md-block bg-secondary text-light">
+				<div class="card-header d-none d-md-block">
 					<div class="row">
 						<div class="col-12 col-md-10">{L_OTHER_USERS}</div>
 						<div class="col-12 col-md-2 text-center">{L_POSTS}</div>
@@ -347,7 +343,7 @@
 			<!-- ENDIF -->
 
 			<div class="card mb-3 border-bottom-0">
-				<div class="card-header d-none d-md-block bg-secondary text-light">
+				<div class="card-header d-none d-md-block">
 					<div class="row">
 						<div class="col-12 col-md-10">{L_IPS_POSTED_FROM}</div>
 						<div class="col-12 col-md-2 text-center">{L_POSTS}</div>
@@ -406,8 +402,5 @@
 <!-- IF S_TOPIC_REVIEW -->
 	<!-- INCLUDE posting_topic_review.html -->
 <!-- ENDIF -->
-
-	</div>
-</div>
 
 <!-- INCLUDE mcp_footer.html -->
