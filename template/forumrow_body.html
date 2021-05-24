@@ -7,7 +7,7 @@
 	<!-- EVENT forumlist_body_category_header_before -->
 	<!-- IF forumrow.S_IS_CAT or forumrow.S_FIRST_ROW or forumrow.S_NO_CAT  -->
 		<div class="card mb-3">
-		<div class="card-header">
+		<div class="card-header custom-bg-dark custom-text-light">
 		<!-- EVENT forumlist_body_category_header_row_prepend -->
 			<div class="row">
 				<div class="col-lg-7 col-md-6 col-12"><!-- IF forumrow.S_IS_CAT --><a href="{forumrow.U_VIEWFORUM}">{forumrow.FORUM_NAME}</a><!-- ELSE -->{L_FORUM}<!-- ENDIF --></div>
@@ -21,7 +21,7 @@
 
 	<!-- IF not forumrow.S_IS_CAT -->
 		<!-- EVENT forumlist_body_forum_row_before -->
-		<div class="container-fluid mark-forum row-item position-relative py-2 border-top<!-- IF forumrow.S_ROW_COUNT is odd --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
+		<div class="container-fluid mark-forum row-item position-relative py-2 custom-border-top<!-- IF forumrow.S_ROW_COUNT is odd --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
 		<!-- EVENT forumlist_body_forum_row_prepend -->
 			<div class="row align-items-center {forumrow.FORUM_IMG_STYLE}"<!-- IF not forumrow.S_IS_LINK --> title="{forumrow.FORUM_FOLDER_IMG_ALT}"<!-- ENDIF -->>
 				<div class="col-lg-7 col-md-6 col-12 folder row-folder-height<!-- IF forumrow.U_UNAPPROVED_TOPICS or forumrow.U_UNAPPROVED_POSTS --> folder-animation<!-- ENDIF -->">
