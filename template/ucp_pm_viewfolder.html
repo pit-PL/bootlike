@@ -50,7 +50,7 @@
 
 	<!-- IF .messagerow -->
 		<div class="card mb-3">
-		<div class="card-header">
+		<div class="card-header custom-bg-dark custom-text-light">
 			<div class="row">
 				<div class="col-md-10 col-sm-10 col-10">{L_MESSAGE}</div>
 				<div class="col-sm-2 col-2 text-center">{L_MARK}</div>
@@ -58,7 +58,7 @@
 		</div>
 
 		<!-- BEGIN messagerow -->
-			<div class="container-fluid row-item position-relative px-3 py-1 border-top {messagerow.FOLDER_IMG_STYLE}<!-- IF messagerow.S_ROW_COUNT is odd --> bg2<!-- ELSE --> bg1<!-- ENDIF -->">
+			<div class="container-fluid row-item position-relative px-3 py-1 custom-border-top {messagerow.FOLDER_IMG_STYLE}<!-- IF messagerow.S_ROW_COUNT is odd --> bg2<!-- ELSE --> bg1<!-- ENDIF -->">
 				<div class="row align-items-center {messagerow.PM_CLASS}">
 					<div class="<!-- IF S_SHOW_RECIPIENTS or S_UNREAD --> col-md-7<!-- ELSE --> col-md-10<!-- ENDIF --> col-sm-10 col-10 topic-folder folder<!-- IF messagerow.S_PM_REPORTED --> folder-animation<!-- ENDIF -->">
 					<!-- IF messagerow.S_PM_UNREAD and not messagerow.S_PM_DELETED --><a href="{messagerow.U_VIEW_PM}" class="row-item-link"></a><!-- ENDIF -->
@@ -116,7 +116,8 @@
 
 	<!-- IF FOLDER_CUR_MESSAGES neq 0 -->
 		<input type="hidden" name="cur_folder_id" value="{CUR_FOLDER_ID}" />
-		<div class="action-bar d-sm-flex justify-content-end p-0 mb-3 border bg-light">
+
+		<div class="action-bar d-sm-flex justify-content-end p-0 mb-3 custom-border custom-bg-light">
 			<a href="#" onclick="marklist('viewfolder', 'marked_msg', false); return false;" class="btn btn-lg rounded-0" title="{L_UNMARK_ALL}"><i class="fa fa-toggle-off fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_UNMARK_ALL}</span></a>
 			<a href="#" onclick="marklist('viewfolder', 'marked_msg', true); return false;" class="btn btn-lg rounded-0" title="{L_MARK_ALL}"><i class="fa fa-toggle-on fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_MARK_ALL}</span></a>
 		</div>
