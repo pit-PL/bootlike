@@ -30,7 +30,7 @@
 	<h5 class="card-title pb-1 text-capitalize">{L_MOST_WARNINGS}</h5>
 
 	<!-- IF .highest -->
-		<div class="card mb-3 border-bottom-0">
+		<div class="card mb-3">
 			<div class="card-header d-none d-md-block">
 				<div class="row">
 					<div class="col-12 col-md-4">{L_USERNAME}</div>
@@ -41,7 +41,7 @@
 			</div>
 			<div class="card-body p-0">
 			<!-- BEGIN highest -->
-				<div class="row align-items-center border-bottom m-0<!-- IF highest.S_ROW_COUNT is even --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
+				<div class="row align-items-center border-top m-0<!-- IF highest.S_ROW_COUNT is even --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
 					<div class="col-12 col-md-4 py-2"><span class="badge bg-secondary d-md-none">{L_USERNAME}{L_COLON}</span> {highest.USERNAME_FULL}</div>
 					<div class="col-12 col-md-4 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_LATEST_WARNING_TIME}{L_COLON}</span> {highest.WARNING_TIME}</div>
 					<div class="col-12 col-md-2 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_WARNINGS}{L_COLON}</span> {highest.WARNINGS}</div>
@@ -60,7 +60,7 @@
 	<h5 class="card-title pb-1 text-capitalize">{L_LATEST_WARNINGS}</h5>
 
 	<!-- IF .latest -->
-		<div class="card mb-3 border-bottom-0">
+		<div class="card mb-3">
 			<div class="card-header d-none d-md-block">
 				<div class="row">
 					<div class="col-12 col-md-4">{L_USERNAME}</div>
@@ -71,7 +71,7 @@
 			</div>
 			<div class="card-body p-0">
 			<!-- BEGIN latest -->
-				<div class="row align-items-center border-bottom m-0<!-- IF latest.S_ROW_COUNT is even --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
+				<div class="row align-items-center border-top m-0<!-- IF latest.S_ROW_COUNT is even --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
 					<div class="col-12 col-md-4 py-2"><span class="badge bg-secondary d-md-none">{L_USERNAME}{L_COLON}</span> {latest.USERNAME_FULL}</div>
 					<div class="col-12 col-md-4 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_TIME}{L_COLON}</span> {latest.WARNING_TIME}</div>
 					<div class="col-12 col-md-2 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_TOTAL_WARNINGS}{L_COLON}</span> {latest.WARNINGS}</div>
