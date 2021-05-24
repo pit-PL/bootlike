@@ -8,7 +8,7 @@
 
 	<!-- IF .forumrow -->
 		<div class="card mb-3">
-			<div class="card-header">
+			<div class="card-header custom-bg-dark custom-text-light">
 				<div class="row">
 					<div class="col-lg-7 col-md-6 col-sm-10 col-9">{L_WATCHED_FORUMS}</div>
 					<div class="col-lg-3 col-md-4 d-none d-md-block">{L_LAST_POST}</div>
@@ -54,7 +54,7 @@
 
 	<!-- IF .topicrow -->
 
-	<div class="action-bar d-sm-flex justify-content-between p-0 mb-3 border bg-light">
+	<div class="action-bar d-sm-flex justify-content-between p-0 mb-3 custom-border custom-bg-light">
 		<div class="d-flex">&nbsp;</div>
 
 		<div class="btn btn-lg disabled fs-6 mt-1 text-nowrap">
@@ -76,7 +76,7 @@
 	</div>
 
 	<div class="card mb-3">
-		<div class="card-header">
+		<div class="card-header custom-bg-dark custom-text-light">
 			<div class="row">
 				<div class="col-lg-7 col-md-6 col-sm-10 col-9">{L_WATCHED_TOPICS}</div>
 				<div class="col-lg-3 col-md-4 d-none d-md-block">{L_LAST_POST}</div>
@@ -142,7 +142,7 @@
 	<!-- ENDIF -->
 
 	<!-- IF .topicrow or .forumrow -->
-	<div class="action-bar d-sm-flex justify-content-end p-0 mb-3 border bg-light">
+	<div class="action-bar d-sm-flex justify-content-end p-0 mb-3 custom-border custom-bg-light">
 		<input class="btn btn-lg rounded-0" type="submit" name="unwatch" value="{L_UNWATCH_MARKED}" />
 		<a href="#" onclick="marklist('ucp', 't', false); marklist('ucp', 'f', false); return false;" class="btn btn-lg rounded-0" title="{L_UNMARK_ALL}"><i class="fa fa-toggle-off fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_UNMARK_ALL}</span></a>
 		<a href="#" onclick="marklist('ucp', 't', true); marklist('ucp', 'f', true); return false;" class="btn btn-lg rounded-0" title="{L_MARK_ALL}"><i class="fa fa-toggle-on fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_MARK_ALL}</span></a>
