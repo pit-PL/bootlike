@@ -10,7 +10,7 @@
 		<div class="alert alert-danger">{ERROR}</div>
 	<!-- ENDIF -->
 
-	<div class="card mb-3 border-bottom-0">
+	<div class="card mb-3">
 		<div class="card-header d-none d-md-block">
 			<div class="row">
 					{% EVENT ucp_profile_autologin_keys_thead_key_before %}
@@ -25,7 +25,7 @@
 		</div>
 		<div class="card-body p-0">
 		<!-- BEGIN sessions -->
-			<div class="row align-items-center border-bottom m-0<!-- IF sessions.S_ROW_COUNT is even --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
+			<div class="row align-items-center border-top m-0<!-- IF sessions.S_ROW_COUNT is even --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
 					{% EVENT ucp_profile_autologin_keys_tbody_key_before %}
 				<div class="col-12 col-md-3 py-2"><span class="badge bg-secondary d-md-none">{L_LOGIN_KEY}{L_COLON}</span> <label class="form-check-label" for="{sessions.KEY}">{sessions.KEY}</label></div>
 					{% EVENT ucp_profile_autologin_keys_tbody_key_after %}
