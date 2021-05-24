@@ -2,7 +2,7 @@
 
 <form id="mcp" method="post" action="{S_MCP_ACTION}">
 
-	<h5<!-- IF not S_PM --> class="d-flex justify-content-between"<!-- ENDIF -->>
+	<h4 class="mb-3<!-- IF not S_PM --> d-flex justify-content-between<!-- ENDIF -->">
 		<div>{L_TITLE}</div>
 
 		<!-- IF not S_PM -->
@@ -17,7 +17,7 @@
 			{S_FORM_TOKEN}
 		</div>
 		<!-- ENDIF -->
-	</h5>
+	</h4>
 	
 	<div class="alert alert-info">{L_EXPLAIN}</div>
 
