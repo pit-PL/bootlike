@@ -2,15 +2,11 @@
 
 <form method="post" id="mcp" action="{U_POST_ACTION}">
 
-<div class="card mb-3">
-	<div class="card-header bg-secondary text-white">
-		{L_MCP_WARN_POST}
-	</div>
-	<div class="card-body pb-0">
+	<h4 class="mb-3">{L_MCP_WARN_POST}</h4>
 
 	<div class="card mb-3">
-		<div class="card-header bg-secondary text-white">
-			<!-- IF USER_COLOR --><span class="badge bg-white"><span style="color: #{USER_COLOR}">{USERNAME}</span></span><!-- ELSE -->{USERNAME}<!-- ENDIF -->
+		<div class="card-header">
+			<!-- IF USER_COLOR --><span style="color: #{USER_COLOR}">{USERNAME}</span><!-- ELSE -->{USERNAME}<!-- ENDIF -->
 		</div>
 
 		<div class="card-body p-0">
@@ -48,7 +44,7 @@
 	</div>
 
 	<div class="card mb-3">
-		<div class="card-header bg-secondary text-white">
+		<div class="card-header">
 			{L_POST_DETAILS}
 		</div>
 		<div class="card-body bg-light">
@@ -61,11 +57,11 @@
 	<!-- EVENT mcp_warn_post_add_warning_field_before -->
 
 	<div class="card mb-3">
-		<div class="card-header bg-secondary text-white">
+		<div class="card-header">
 			{L_ADD_WARNING}
 		</div>
 		<div class="card-body">
-			<p>{L_ADD_WARNING_EXPLAIN}</p>
+			<div class="alert alert-info">{L_ADD_WARNING_EXPLAIN}</div>
 
 			<textarea name="warning" id="warning" class="form-control" cols="40" rows="3">{L_WARNING_POST_DEFAULT}</textarea>
 			<!-- IF S_CAN_NOTIFY -->
@@ -78,13 +74,11 @@
 
 	<!-- EVENT mcp_warn_post_add_warning_field_after -->
 
-	</div>
 
-	<div class="card-footer text-center">
+	<div class="d-grid col-4 mx-auto mb-3">
 		<button class="btn btn-success" type="submit" name="action[add_warning]" value="{L_SUBMIT}"><i class="fa fa-level-down fa-rotate-90 fa-fw" aria-hidden="true"></i> {L_SUBMIT}</button>
 		{S_FORM_TOKEN}
 	</div>
-</div>
 
 </form>
 
