@@ -1,10 +1,6 @@
 <!-- INCLUDE mcp_header.html -->
 
-<div class="card mb-3">
-	<div class="card-header bg-secondary text-white">
-		{PAGE_TITLE}
-	</div>
-	<div class="card-body pb-1">
+<h5 class="mb-3">{PAGE_TITLE}</h5>
 
 <!-- EVENT mcp_front_latest_unapproved_before -->
 
@@ -17,7 +13,7 @@
 
 		<!-- IF .unapproved -->
 		<div class="card mb-3 border-bottom-0">
-		<div class="card-header bg-secondary text-white">
+		<div class="card-header">
 			<div class="row">
 				<div class="col-md-6 col-sm-10 col-9">{L_VIEW_DETAILS}</div>
 				<div class="col-md-4 d-none d-md-block">{L_TOPIC} &amp; {L_FORUM}</div>
@@ -72,7 +68,7 @@
 
 		<!-- IF .report -->
 		<div class="card mb-3 border-bottom-0">
-		<div class="card-header bg-secondary text-white">
+		<div class="card-header">
 			<div class="row">
 				<div class="col-lg-8 col-md-7 col-12">{L_VIEW_DETAILS}</div>
 				<div class="col-lg-4 col-md-5 d-none d-md-block">{L_REPORTER} &amp; {L_FORUM}</div>
@@ -112,7 +108,7 @@
 
 		<!-- IF .pm_report -->
 		<div class="card mb-3 border-bottom-0">
-		<div class="card-header bg-secondary text-white">
+		<div class="card-header">
 			<div class="row align-items-center">
 				<div class="col-lg-8 col-md-7 col-12">{L_VIEW_DETAILS}</div>
 				<div class="col-lg-4 col-md-5 d-none d-md-block">{L_REPORTER}</div>
@@ -149,7 +145,7 @@
 	<h5 class="card-title pb-1 text-capitalize">{L_LATEST_LOGS}</h5>
 
 	<div class="card mb-3 border-bottom-0">
-		<div class="card-header d-none d-md-block bg-secondary text-light">
+		<div class="card-header d-none d-md-block">
 			<div class="row">
 				<div class="col-12 col-md-4">{L_ACTION}</div>
 				<div class="col-12 col-md-2 text-center">{L_USERNAME}</div>
@@ -180,8 +176,5 @@
 <!-- ENDIF -->
 
 <!-- EVENT mcp_front_latest_logs_after -->
-
-	</div>
-</div>
 
 <!-- INCLUDE mcp_footer.html -->
