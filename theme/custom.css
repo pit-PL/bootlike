@@ -58,14 +58,6 @@ hr:after {
 	font-weight: bold;
 }
 
-.bg1 {
-	background-color: #fcfcfc;
-}
-
-.bg2 {
-	background-color: #f2f2f2;
-}
-
 .row-item .folder {
 	padding-left: 66px;
 }
@@ -114,11 +106,6 @@ hr:after {
 	height: auto;
 }
 
-.action-bar .btn:hover, .accordion-button:hover, .accordion-button:not(.collapsed), .btn.bg-white:hover {
-	color: #0c63e4;
-	background-color: #eee !important;
-}
-
 .action-bar strong {
 	font-weight: normal;
 }
@@ -139,10 +126,6 @@ span.online {
 	box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
 }
 
-.contact-button:hover {
-	border-color: #cfe2ff !important;
-}
-
 .codebox pre {
 	overflow: auto;
 	max-height: 200px;
@@ -161,7 +144,6 @@ blockquote:before {
 	font-family: FontAwesome;
 	font-size: 32px;
 	filter: alpha(opacity=10);
-	opacity: .1;
 	content: "\f10d";
 }
 
