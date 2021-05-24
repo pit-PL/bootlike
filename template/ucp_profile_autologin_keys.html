@@ -4,14 +4,14 @@
 
 	<h4 class="mb-3">{L_TITLE}</h4>
 
-	<p class="alert alert-info">{L_PROFILE_AUTOLOGIN_KEYS}</p>
+	<div class="alert alert-info">{L_PROFILE_AUTOLOGIN_KEYS}</div>
 
 	<!-- IF ERROR -->
 		<div class="alert alert-danger">{ERROR}</div>
 	<!-- ENDIF -->
 
 	<div class="card mb-3 border-bottom-0">
-		<div class="card-header d-none d-md-block bg-secondary text-light">
+		<div class="card-header d-none d-md-block">
 			<div class="row">
 					{% EVENT ucp_profile_autologin_keys_thead_key_before %}
 				<div class="col-12 col-md-3">{L_LOGIN_KEY}</div>
