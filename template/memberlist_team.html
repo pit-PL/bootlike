@@ -5,7 +5,7 @@
 <form method="post" action="{S_MODE_ACTION}">
 
 <!-- BEGIN group -->
-<div id="team" class="card mb-3 border-bottom-0">
+<div id="team" class="card mb-3">
 	<div class="card-header d-none d-md-block bg-dark text-light">
 		<div class="row">
 			<div class="col-12<!-- IF S_DISPLAY_MODERATOR_FORUMS --> col-md-4<!-- ELSE --> col-md-6<!-- ENDIF -->" data-dfn="{L_RANK}{L_COMMA_SEPARATOR}{L_USERNAME}"><span class="rank-img hidden-xs pull-{S_CONTENT_FLOW_END}">{L_RANK}&nbsp;</span><!-- IF group.U_GROUP --><a href="{group.U_GROUP}">{group.GROUP_NAME}</a><!-- ELSE -->{group.GROUP_NAME}<!-- ENDIF --></div>
@@ -17,7 +17,7 @@
 	</div>
 	<div class="card-body p-0">
 <!-- BEGIN user -->
-	<div class="row align-items-center border-bottom m-0<!-- IF group.user.S_INACTIVE --> fst-italic<!-- ENDIF --><!-- IF user.S_ROW_COUNT is even --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
+	<div class="row align-items-center border-top m-0<!-- IF group.user.S_INACTIVE --> fst-italic<!-- ENDIF --><!-- IF user.S_ROW_COUNT is even --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
 		<div class="col-12<!-- IF S_DISPLAY_MODERATOR_FORUMS --> col-md-4<!-- ELSE --> col-md-6<!-- ENDIF --> py-2 d-md-flex justify-content-md-between">
 			<div>
 				<!-- EVENT memberlist_team_username_prepend -->
