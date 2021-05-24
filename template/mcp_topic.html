@@ -1,6 +1,6 @@
 <!-- INCLUDE mcp_header.html -->
 
-<h5 class="mb-3"><a href="{U_VIEW_TOPIC}">{L_TOPIC}{L_COLON} {TOPIC_TITLE}</a></h5>
+<h4 class="mb-3"><a href="{U_VIEW_TOPIC}">{L_TOPIC}{L_COLON} {TOPIC_TITLE}</a></h4>
 
 	<!-- IF S_MERGE_VIEW -->
 		<!-- DEFINE $SHOW_PANEL = 'merge-panel' -->
@@ -57,7 +57,7 @@
 
 	<!-- IF S_CAN_SPLIT -->
 		<div id="split-panel" role="tabpanel">
-			<p>{L_SPLIT_TOPIC_EXPLAIN}</p>
+			<div class="alert alert-info">{L_SPLIT_TOPIC_EXPLAIN}</div>
 
 			<!-- IF S_SHOW_TOPIC_ICONS -->
 			<dl class="row">
@@ -86,7 +86,7 @@
 
 	<!-- IF S_CAN_MERGE -->
 		<div id="merge-panel" role="tabpanel">
-			<p>{L_MERGE_TOPIC_EXPLAIN}</p>
+			<div class="alert alert-info">{L_MERGE_TOPIC_EXPLAIN}</div>
 
 			<dl class="row">
 				<dt class="col-lg-3 col-md-4 col-12"><label class="col-form-label" for="to_topic_id">{L_MERGE_TOPIC_ID}{L_COLON}</label></dt>
