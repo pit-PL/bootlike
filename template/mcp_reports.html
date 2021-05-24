@@ -2,9 +2,8 @@
 
 <form id="mcp" method="post" action="{S_MCP_ACTION}">
 
-<div class="card mb-3">
-	<div class="card-header bg-secondary<!-- IF not S_PM --> d-flex justify-content-between<!-- ENDIF --> py-1 text-white">
-		<div class="mt-1">{L_TITLE}</div>
+	<h5<!-- IF not S_PM --> class="d-flex justify-content-between"<!-- ENDIF -->>
+		<div>{L_TITLE}</div>
 
 		<!-- IF not S_PM -->
 		<div class="d-flex">
@@ -18,10 +17,9 @@
 			{S_FORM_TOKEN}
 		</div>
 		<!-- ENDIF -->
-	</div>
-	<div class="card-body pb-0">
+	</h5>
 	
-	<p>{L_EXPLAIN}</p>
+	<div class="alert alert-info">{L_EXPLAIN}</div>
 
 	<!-- IF .postrow -->
 	<div class="action-bar d-sm-flex justify-content-between p-0 mb-3 border bg-light">
@@ -120,9 +118,6 @@
 	</div>
 
 <!-- ENDIF -->
-
-	</div>
-</div>
 
 </form>
 
