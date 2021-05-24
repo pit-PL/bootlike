@@ -2,11 +2,7 @@
 
 <form method="post" id="mcp" action="{S_MCP_ACTION}">
 
-<div class="card mb-3">
-	<div class="card-header bg-secondary">
-		<a href="{U_VIEW_FORUM}" class="text-white">{L_FORUM}{L_COLON} {FORUM_NAME}</a>
-	</div>
-	<div class="card-body pb-0">
+	<h5 class="mb-3"><a href="{U_VIEW_FORUM}">{L_FORUM}{L_COLON} {FORUM_NAME}</a></h5>
 
 <!-- IF .topicrow -->
 	<!-- DEFINE $CUSTOM_JUMPBOX_CLASS = 1 -->
@@ -35,8 +31,8 @@
 		</div>
 	</div>
 
-	<div class="card mb-3">
-		<div class="card-header bg-dark border-bottom-0 text-light">
+	<div class="card mb-3 border-bottom-0">
+		<div class="card-header">
 			<div class="row">
 				<div class="<!-- IF S_MERGE_SELECT -->col-md-8<!-- ELSE -->col-md-6<!-- ENDIF --> col-sm-10 col-9">{L_TOPICS}</div>
 				<div class="col-md-4 d-none d-md-block">{L_LAST_POST}</div>
@@ -47,7 +43,7 @@
 		</div>
 
 		<!-- BEGIN topicrow -->
-		<div class="container-fluid row-item position-relative px-3 pt-1 pb-1 border-top {topicrow.TOPIC_IMG_STYLE}<!-- IF topicrow.S_ROW_COUNT is odd --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
+		<div class="container-fluid row-item position-relative px-3 pt-1 pb-1 border-bottom {topicrow.TOPIC_IMG_STYLE}<!-- IF topicrow.S_ROW_COUNT is odd --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
 			<div class="row align-items-center">
 				<div class="<!-- IF S_MERGE_SELECT --> col-md-8<!-- ELSE --> col-md-6<!-- ENDIF --> col-sm-10 col-9 topic-folder folder<!-- IF topicrow.S_TOPIC_REPORTED --> folder-animation<!-- ENDIF -->">
 					<!-- IF topicrow.S_UNREAD_TOPIC --><a href="{topicrow.U_NEWEST_POST}" class="row-item-link"></a><!-- ENDIF -->
@@ -143,8 +139,6 @@
 		{L_NO_TOPICS}
 	</div>
 <!-- ENDIF -->
-	</div>
-</div>
 
 </form>
 
