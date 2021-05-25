@@ -36,7 +36,7 @@
 				</div>
 			</div>
 			<div id="file-list" class="card-body p-0">
-				<div id="attach-row-tpl" class="row attach-row align-items-center border-top m-0">
+				<div id="attach-row-tpl" class="row attach-row align-items-center custom-border-top m-0">
 					<div class="col-12 col-md-4 py-2">
 						<span class="badge bg-secondary d-md-none">{L_PLUPLOAD_FILENAME}{L_COLON}</span>
 						<span class="file-name ellipsis-text"></span>
@@ -67,7 +67,7 @@
 				{% EVENT posting_attach_body_attach_row_before %}
 				<!-- BEGIN attach_row -->
 					{% EVENT posting_attach_body_attach_row_prepend %}
-					<div class="row attach-row align-items-center border-top m-0<!-- IF attach_row.S_ROW_COUNT is even --> bg1<!-- ELSE --> bg2<!-- ENDIF -->" data-attach-id="{attach_row.ATTACH_ID}">
+					<div class="row attach-row align-items-center custom-border-top m-0<!-- IF attach_row.S_ROW_COUNT is even --> bg1<!-- ELSE --> bg2<!-- ENDIF -->" data-attach-id="{attach_row.ATTACH_ID}">
 						<div class="col-12 col-md-4 py-2">
 							<span class="file-name ellipsis-text"><a href="{attach_row.U_VIEW_ATTACHMENT}">{attach_row.FILENAME}</a></span>
 							{% EVENT posting_attach_body_attach_row_controls_prepend %}
