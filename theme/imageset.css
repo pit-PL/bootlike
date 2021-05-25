@@ -19,10 +19,6 @@
 	right: 8px;
 }
 
-.row-item .folder:before {
-	background-color: #e1e1e1;
-}
-
 .row-item .folder-animation:before {
 	animation: pulse-animation 2s infinite;
 }
@@ -129,11 +125,6 @@
 .announce_unread .folder:before,
 .announce_unread_mine .folder:before {
 	content: "\f129";
-}
-
-.row-item .folder:before, .row-item .folder:after {
-	color: #bbb;
-	text-shadow: 1px 1px 1px #fff;
 }
 
 .forum_unread .folder:before,
