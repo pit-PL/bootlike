@@ -13,7 +13,7 @@
 <!-- ELSE -->
 
 	<!-- IF TOTAL_TOPICS or .pagination -->
-	<div class="action-bar d-sm-flex justify-content-between p-0 mb-3 border custom-bg-light">
+	<div class="action-bar d-sm-flex justify-content-between p-0 mb-3 custom-border custom-bg-light">
 		<div class="d-flex">&nbsp;</div>
 
 		<!-- IF TOTAL_TOPICS -->
@@ -50,7 +50,7 @@
 		</div>
 
 	<!-- BEGIN topicrow -->
-		<div class="container-fluid row-item position-relative px-3 py-1 border-top {topicrow.TOPIC_IMG_STYLE}<!-- IF topicrow.S_ROW_COUNT is odd --> bg1<!-- ELSE --> bg2<!-- ENDIF --><!-- IF topicrow.S_TOPIC_REPORTED --> border border-warning<!-- ENDIF -->">
+		<div class="container-fluid row-item position-relative px-3 py-1 custom-border-top {topicrow.TOPIC_IMG_STYLE}<!-- IF topicrow.S_ROW_COUNT is odd --> bg1<!-- ELSE --> bg2<!-- ENDIF --><!-- IF topicrow.S_TOPIC_REPORTED --> border border-warning<!-- ENDIF -->">
 			<div class="row align-items-center" title="{topicrow.TOPIC_FOLDER_IMG_ALT}">
 				<!-- IF topicrow.S_DELETED_TOPIC -->
 				<div class="icon alert-warning">
