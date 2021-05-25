@@ -118,7 +118,7 @@
 		<!-- IF S_HAS_ATTACHMENTS -->
 			<div class="attachbox float-start mb-2">
 				<div class="my-1 text-uppercase">{L_ATTACHMENTS}</div>
-				<div class="bg-white border p-2">
+				<div class="custom-bg-white custom-border p-2">
 				<!-- BEGIN attachment -->
 					<!-- IF not attachment.S_FIRST_ROW --><hr><!-- ENDIF -->
 					{attachment.DISPLAY_ATTACHMENT}
@@ -321,7 +321,7 @@
 							<span class="badge bg-secondary d-md-none">{L_POSTS}{L_COLON}</span>
 							<a href="{userrow.U_SEARCHPOSTS}" title="{L_SEARCH_POSTS_BY} {userrow.USERNAME}">{userrow.NUM_POSTS}</a>
 						</div>
-						<div class="d-md-none<!-- IF not userrow.S_LAST_ROW --> border border-2<!-- ENDIF -->"></div>
+						<div class="d-md-none<!-- IF not userrow.S_LAST_ROW --> custom-border border-2<!-- ENDIF -->"></div>
 					</div>
 					<!-- BEGINELSE -->
 						<div class="px-3 py-2 text-center bg2">{L_NO_MATCHES_FOUND}</div>
@@ -362,7 +362,7 @@
 							<span class="badge bg-secondary d-md-none">{L_POSTS}{L_COLON}</span>
 							{iprow.NUM_POSTS}
 						</div>
-						<div class="d-md-none<!-- IF not iprow.S_LAST_ROW --> border border-2<!-- ENDIF -->"></div>
+						<div class="d-md-none<!-- IF not iprow.S_LAST_ROW --> custom-border border-2<!-- ENDIF -->"></div>
 					</div>
 					<!-- BEGINELSE -->
 						<div class="px-3 py-2 text-center bg2">{L_NO_MATCHES_FOUND}</div>
