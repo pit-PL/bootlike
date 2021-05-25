@@ -16,7 +16,7 @@
 				</div>
 			<!-- ENDIF -->
 
-				<div class="postbody<!-- IF AVATAR_IMG --> col-lg-9 col-md-8<!-- ELSE --> col-12<!-- ENDIF --> p-0<!-- IF not $PROFILES_ON_LEFT and AVATAR_IMG --> border-end<!-- ELSEIF AVATAR_IMG --> border-start<!-- ENDIF --> bg-light">
+				<div class="postbody<!-- IF AVATAR_IMG --> col-lg-9 col-md-8<!-- ELSE --> col-12<!-- ENDIF --> p-0<!-- IF not $PROFILES_ON_LEFT and AVATAR_IMG --> custom-border-end<!-- ELSEIF AVATAR_IMG --> custom-border-start<!-- ENDIF --> custom-bg-light">
 				<hr class="d-md-none m-0">
 					<div class="px-3 py-2">
 						<dl class="row mb-0">
@@ -60,7 +60,7 @@
 		</div>
 	</div>
 
-	<div class="action-bar d-sm-flex justify-content-between p-0 mb-3 border bg-light">
+	<div class="action-bar d-sm-flex justify-content-between p-0 mb-3 custom-border custom-bg-light">
 		<div class="d-flex">
 			<!-- INCLUDE display_options.html -->
 
@@ -104,7 +104,7 @@
 		</div>
 		<div class="card-body p-0">
 		<!-- BEGIN usernotes -->
-			<div class="row align-items-center border-top m-0<!-- IF usernotes.S_ROW_COUNT is even --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
+			<div class="row align-items-center custom-border-top m-0<!-- IF usernotes.S_ROW_COUNT is even --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
 				<div class="col-12 col-md-6 py-2"><span class="badge bg-secondary d-md-none">{L_ACTION_NOTE}{L_COLON}</span> {usernotes.ACTION}</div>
 				<div class="col-12 col-md-2 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_MCP_NOTES_USER}{L_COLON}</span> {usernotes.REPORT_BY} <br class="d-none d-md-block" />{usernotes.IP}</div>
 				<div class="col-12 col-md-2 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_TIME}{L_COLON}</span> {usernotes.REPORT_AT}</div>
@@ -123,7 +123,7 @@
 	</div>
 
 	<!-- IF S_CLEAR_ALLOWED -->
-	<div class="action-bar d-sm-flex justify-content-end p-0 mb-3 border bg-light">
+	<div class="action-bar d-sm-flex justify-content-end p-0 mb-3 custom-border custom-bg-light">
 		<input class="btn btn-lg rounded-0" type="submit" name="action[del_all]" value="{L_DELETE_ALL}" />
 		<input class="btn btn-lg rounded-0" type="submit" name="action[del_marked]" value="{L_DELETE_MARKED}" />
 		<a href="#" onclick="marklist('mcp', 'marknote', false); return false;" class="btn btn-lg rounded-0" title="{L_UNMARK_ALL}"><i class="fa fa-toggle-off fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_UNMARK_ALL}</span></a>
