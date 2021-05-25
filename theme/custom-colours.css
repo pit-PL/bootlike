@@ -9,8 +9,6 @@
 .custom-border-start {border-left: 1px solid #dee2e6 !important;}
 .custom-border-end {border-right: 1px solid #dee2e6 !important;}
 .custom-border-white {border-color: #fff !important;}
-.border-2 {border-width: 2px !important;}
-.border-4 {border-width: 4px !important;}
 .bg1 {background-color: #fcfcfc;}
 .bg2 {background-color: #f2f2f2;}
 hr {background: linear-gradient(to right, #ccc, #555, #ccc);}
