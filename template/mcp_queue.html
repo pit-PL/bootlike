@@ -20,7 +20,7 @@
 	<div class="alert alert-info">{L_EXPLAIN}</div>
 
 	<!-- IF .postrow -->
-	<div class="action-bar d-sm-flex justify-content-between p-0 mb-3 border bg-light">
+	<div class="action-bar d-sm-flex justify-content-between p-0 mb-3 custom-border custom-bg-light">
 		<div class="d-flex">
 			<!-- INCLUDE display_options.html -->
 		</div>
@@ -55,7 +55,7 @@
 		<!-- BEGIN postrow -->
 
 		<!-- IF postrow.S_DELETED_TOPIC -->
-		<div class="container-fluid row-item position-relative pt-1 pb-1 border-top">{L_DELETED_TOPIC}</div>
+		<div class="container-fluid row-item position-relative pt-1 pb-1 custom-border-top">{L_DELETED_TOPIC}</div>
 		<!-- ELSE -->
 
 		<div class="container-fluid row-item px-3 py-1 border-top<!-- IF postrow.S_ROW_COUNT is odd --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
@@ -104,7 +104,7 @@
 <!-- ENDIF -->
 
 <!-- IF .postrow -->
-	<div class="action-bar d-sm-flex justify-content-<!-- IF TOPIC_ID -->between<!-- ELSE -->end<!-- ENDIF --> p-0 mb-3 border bg-light">
+	<div class="action-bar d-sm-flex justify-content-<!-- IF TOPIC_ID -->between<!-- ELSE -->end<!-- ENDIF --> p-0 mb-3 custom-border custom-bg-light">
 		<!-- IF TOPIC_ID -->
 		<div class="form-switch d-flex ms-3 mt-1">
 			<label class="col-form-label"><input class="form-check-input" type="checkbox" name="t" value="{TOPIC_ID}" checked="checked" onClick="document.getElementById('mcp').submit()" /> {L_ONLY_TOPIC}</label>
