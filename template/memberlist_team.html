@@ -17,7 +17,7 @@
 	</div>
 	<div class="card-body p-0">
 <!-- BEGIN user -->
-	<div class="row align-items-center border-top m-0<!-- IF group.user.S_INACTIVE --> fst-italic<!-- ENDIF --><!-- IF user.S_ROW_COUNT is even --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
+	<div class="row align-items-center custom-border-top m-0<!-- IF group.user.S_INACTIVE --> fst-italic<!-- ENDIF --><!-- IF user.S_ROW_COUNT is even --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
 		<div class="col-12<!-- IF S_DISPLAY_MODERATOR_FORUMS --> col-md-4<!-- ELSE --> col-md-6<!-- ENDIF --> py-2 d-md-flex justify-content-md-between">
 			<div>
 				<!-- EVENT memberlist_team_username_prepend -->
@@ -43,7 +43,7 @@
 		<div class="d-md-none<!-- IF not user.S_LAST_ROW --> custom-border border-2<!-- ENDIF -->"></div>
 	</div>
 <!-- BEGINELSE -->
-	<div class="px-3 py-2 text-center border-top bg2">{L_NO_MEMBERS}</div>
+	<div class="px-3 py-2 text-center custom-border-top bg2">{L_NO_MEMBERS}</div>
 <!-- END user -->
 	</div>
 </div>
