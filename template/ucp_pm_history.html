@@ -11,13 +11,13 @@
 		</script>
 		<!-- BEGIN history_row -->
 		<div class="card mb-3">
-			<div class="card-header bg-secondary">
+			<div class="card-header">
 				<a href="{history_row.U_VIEW_MESSAGE}" class="text-white"><!-- IF history_row.S_CURRENT_MSG --><mark>{history_row.SUBJECT}</mark><!-- ELSE -->{history_row.SUBJECT}<!-- ENDIF --></a>
 			</div>
-			<div class="card-body bg-light pt-2 pb-2">
+			<div class="card-body custom-bg-light pt-2 pb-2">
 
 			<div class="postbody" id="pr{history_row.MSG_ID}">
-				<div class="clearfix mb-2 pb-2 border-bottom">
+				<div class="clearfix mb-2 pb-2 custom-border-bottom">
 					<div class="float-start mt-2">
 						<i class="fa fa-file-o fa-fw tip" aria-hidden="true"></i> {L_MESSAGE_BY_AUTHOR} <!-- EVENT ucp_pm_history_row_message_author_username_prepend --> {history_row.MESSAGE_AUTHOR_FULL} <!-- EVENT ucp_pm_history_row_message_author_username_append --> &raquo; {L_SENT_AT}{L_COLON} <strong>{history_row.SENT_DATE}</strong>
 					</div>
