@@ -123,7 +123,7 @@
 		</div>
 		<div class="card-body p-0">
 		<!-- BEGIN leader -->
-			<div class="row align-items-center border-top m-0<!-- IF leader.S_ROW_COUNT is even --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
+			<div class="row align-items-center custom-border-top m-0<!-- IF leader.S_ROW_COUNT is even --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
 				<div class="col-12 col-md-3 py-2"><span class="badge bg-secondary d-md-none">{L_GROUP_LEAD}{L_COLON}</span> {leader.USERNAME_FULL}</div>
 				<div class="col-12 col-md-3 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_GROUP_DEFAULT}{L_COLON}</span> <!-- IF leader.S_GROUP_DEFAULT -->{L_YES}<!-- ELSE -->{L_NO}<!-- ENDIF --></div>
 				<div class="col-12 col-md-2 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_POSTS}{L_COLON}</span> {leader.USER_POSTS}</div>
@@ -166,7 +166,7 @@
 		</div>
 		<div class="card-body p-0">
 	<!-- ELSE -->
-		<div class="row align-items-center border-top m-0<!-- IF member.S_ROW_COUNT is even --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
+		<div class="row align-items-center custom-border-top m-0<!-- IF member.S_ROW_COUNT is even --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
 			<div class="col-12 col-md-3 py-2"><span class="badge bg-secondary d-md-none">{L_GROUP_APPROVED}{L_COLON}</span> {member.USERNAME_FULL}</div>
 			<div class="col-12 col-md-3 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_GROUP_DEFAULT}{L_COLON}</span> <!-- IF member.S_GROUP_DEFAULT -->{L_YES}<!-- ELSE -->{L_NO}<!-- ENDIF --></div>
 			<div class="col-12 col-md-2 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_POSTS}{L_COLON}</span> {member.USER_POSTS}</div>
