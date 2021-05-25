@@ -82,7 +82,7 @@
 		<!-- ENDIF -->
 	</div>
 
-	<select class="form-select custom-bg-white custom-text-light custom-border ms-1 my-1 rounded-0 bbcode-size" name="addbbcode20" onchange="bbfontstyle('[size=' + this.form.addbbcode20.options[this.form.addbbcode20.selectedIndex].value + ']', '[/size]');this.form.addbbcode20.selectedIndex = 2;" title="{L_BBCODE_F_HELP}">
+	<select class="form-select custom-bg-white custom-text-dark custom-border ms-1 my-1 rounded-0 bbcode-size" name="addbbcode20" onchange="bbfontstyle('[size=' + this.form.addbbcode20.options[this.form.addbbcode20.selectedIndex].value + ']', '[/size]');this.form.addbbcode20.selectedIndex = 2;" title="{L_BBCODE_F_HELP}">
 		<option value="50">{L_FONT_TINY}</option>
 		<option value="85">{L_FONT_SMALL}</option>
 		<option value="100" selected="selected">{L_FONT_NORMAL}</option>
@@ -96,7 +96,7 @@
 
 	<!-- EVENT posting_editor_buttons_custom_tags_before -->
 	<!-- IF .custom_tags -->
-	<select class="form-select custom-bg-white custom-text-light m-1 rounded-0 bbcode-custom" name="addbbcode_custom" onchange="bbstyle(this.form.addbbcode_custom.options[this.form.addbbcode_custom.selectedIndex].value*1);this.form.addbbcode_custom.selectedIndex = 0;">
+	<select class="form-select custom-bg-white custom-text-dark m-1 rounded-0 bbcode-custom" name="addbbcode_custom" onchange="bbstyle(this.form.addbbcode_custom.options[this.form.addbbcode_custom.selectedIndex].value*1);this.form.addbbcode_custom.selectedIndex = 0;">
 		<option value="{L_BBCODES}" selected="selected">{L_BBCODES}</option>
 		<!-- BEGIN custom_tags -->
 		<option value="{custom_tags.BBCODE_ID}" title="{{ custom_tags.BBCODE_HELPLINE }}">{custom_tags.BBCODE_TAG}</option>
