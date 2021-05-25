@@ -42,7 +42,7 @@
 	</div>
 <!-- ELSE -->
 	<!-- IF .notification_list -->
-	<div class="action-bar d-sm-flex justify-content-between p-0 mb-3 border bg-light">
+	<div class="action-bar d-sm-flex justify-content-between p-0 mb-3 custom-border custom-bg-light">
 		<div class="d-flex">&nbsp;</div>
 
 		<div class="btn btn-lg disabled fs-6 mt-1 text-nowrap border-0">
@@ -106,7 +106,7 @@
 <!-- ENDIF -->
 
 <!-- IF .notification_types or .notification_list -->
-	<div class="action-bar d-sm-flex justify-content-end p-0 mb-3 border bg-light">
+	<div class="action-bar d-sm-flex justify-content-end p-0 mb-3 custom-border custom-bg-light">
 		<input type="hidden" name="form_time" value="{FORM_TIME}" />
 		{S_HIDDEN_FIELDS}
 		<input class="btn btn-lg rounded-0" type="submit" name="submit" title="<!-- IF MODE == 'notification_options' -->{L_SUBMIT}<!-- ELSE -->{L_MARK_READ}<!-- ENDIF -->" value="<!-- IF MODE == 'notification_options' -->{L_SUBMIT}<!-- ELSE -->{L_MARK_READ}<!-- ENDIF -->" />
