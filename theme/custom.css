@@ -37,7 +37,6 @@ img {
 
 hr {
 	height: 2px;
-	background: linear-gradient(to right, #ccc, #555, #ccc);
 	text-align: center;
 }
 
@@ -47,7 +46,6 @@ hr:after {
 	position: relative;
 	top: -14px;
 	padding: 0 10px;
-	background: #fff;
 }
 
 .tip {
