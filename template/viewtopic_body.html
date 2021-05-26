@@ -132,7 +132,7 @@
 		<div class="d-flex">
 		<!-- EVENT viewtopic_buttons_top_before -->
 		<!-- IF S_DISPLAY_REPLY_INFO -->
-			<a href="{U_POST_REPLY_TOPIC}#postingbox" class="btn btn-lg rounded-0<!-- IF S_IS_LOCKED --> text-muted<!-- ENDIF -->"><i class="fa<!-- IF S_IS_LOCKED --> fa-lock<!-- ELSE --> fa-reply<!-- IF S_CONTENT_DIRECTION eq 'rtl' --> fa-flip-horizontal<!-- ENDIF --><!-- ENDIF --> fa-fw" aria-hidden="true"></i><span class="text-nowrap"> <!-- IF S_IS_LOCKED -->{L_BUTTON_TOPIC_LOCKED}<!-- ELSE -->{L_BUTTON_POST_REPLY}<!-- ENDIF --></span></a>
+			<a href="{U_POST_REPLY_TOPIC}#postingbox" class="btn btn-lg rounded-0 border-0<!-- IF S_IS_LOCKED --> text-muted<!-- ENDIF -->"><i class="fa<!-- IF S_IS_LOCKED --> fa-lock<!-- ELSE --> fa-reply<!-- IF S_CONTENT_DIRECTION eq 'rtl' --> fa-flip-horizontal<!-- ENDIF --><!-- ENDIF --> fa-fw" aria-hidden="true"></i><span class="text-nowrap"> <!-- IF S_IS_LOCKED -->{L_BUTTON_TOPIC_LOCKED}<!-- ELSE -->{L_BUTTON_POST_REPLY}<!-- ENDIF --></span></a>
 		<!-- ENDIF -->
 		<!-- EVENT viewtopic_buttons_top_after -->
 
@@ -148,7 +148,7 @@
 
 		<!-- IF S_DISPLAY_SEARCHBOX -->
 			<form method="get" id="topic-search" action="{S_SEARCHBOX_ACTION}">
-				<button class="btn dropdown-toggle btn-lg rounded-0" title="{L_SEARCH}" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-search fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_SEARCH}</span></button>
+				<button class="btn dropdown-toggle btn-lg rounded-0 border-0" title="{L_SEARCH}" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-search fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_SEARCH}</span></button>
 				<div class="dropdown-menu dropdown-menu-start" role="search">
 					<div class="input-group input-group px-2">
 						<input class="form-control" type="search" name="keywords" id="search_keywords" size="20" placeholder="{L_SEARCH_TOPIC}" />
@@ -168,13 +168,13 @@
 
 		<div class="d-flex">
 		<!-- IF S_VIEWTOPIC -->
-			<a href="{U_VIEW_FORUM}" class="btn btn-lg rounded-0" title="{L_RETURN_TO_FORUM}" accesskey="r"><i class="fa fa-chevron-{S_CONTENT_FLOW_BEGIN} fa-fw" aria-hidden="true"></i></a>
+			<a href="{U_VIEW_FORUM}" class="btn btn-lg rounded-0 border-0" title="{L_RETURN_TO_FORUM}" accesskey="r"><i class="fa fa-chevron-{S_CONTENT_FLOW_BEGIN} fa-fw" aria-hidden="true"></i></a>
 		<!-- ENDIF -->
 
 		<!-- IF .quickmod -->
 			<div class="d-flex">
 				<div id="quickmod" class="btn-group dropdown">
-					<button type="button" class="btn btn-lg dropdown-toggle rounded-0" data-bs-toggle="dropdown" aria-expanded="false" title="{L_QUICK_MOD}"><i class="fa fa-gavel fa-fw"></i><span class="visually-hidden">{L_QUICK_MOD}</span></button>
+					<button type="button" class="btn btn-lg dropdown-toggle rounded-0 border-0" data-bs-toggle="dropdown" aria-expanded="false" title="{L_QUICK_MOD}"><i class="fa fa-gavel fa-fw"></i><span class="visually-hidden">{L_QUICK_MOD}</span></button>
 					<ul class="dropdown-menu dropdown-menu-end dropdown-contents p-1">
 					<!-- BEGIN quickmod -->
 						<!-- DEFINE $QUICKMOD_AJAX = (quickmod.VALUE in ['lock', 'unlock', 'delete_topic', 'restore_topic', 'make_normal', 'make_sticky', 'make_announce', 'make_global']) -->
@@ -186,7 +186,7 @@
 		<!-- ENDIF -->
 
 		<!-- IF MODERATORS -->
-			<button class="btn dropdown-toggle btn-lg rounded-0" title="<!-- IF S_SINGLE_MODERATOR -->{L_MODERATOR}<!-- ELSE -->{L_MODERATORS}<!-- ENDIF -->" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			<button class="btn dropdown-toggle btn-lg rounded-0 border-0" title="<!-- IF S_SINGLE_MODERATOR -->{L_MODERATOR}<!-- ELSE -->{L_MODERATORS}<!-- ENDIF -->" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 			<i class="fa fa-user-secret fa-fw"></i><span class="visually-hidden">{forumrow.L_MODERATOR_STR}</span>
 			</button>
 			<div class="dropdown-menu dropdown-menu-end">
@@ -195,13 +195,13 @@
 		<!-- ENDIF -->
 
 		<!-- IF U_VIEW_UNREAD_POST -->
-			<a href="{U_VIEW_UNREAD_POST}" class="btn btn-lg rounded-0" title="{L_VIEW_UNREAD_POST}"><i class="fa fa-file" aria-hidden="true"></i></a>
+			<a href="{U_VIEW_UNREAD_POST}" class="btn btn-lg rounded-0 border-0" title="{L_VIEW_UNREAD_POST}"><i class="fa fa-file" aria-hidden="true"></i></a>
 		<!-- ENDIF -->
 
 		<!-- IF .pagination -->
 		<!-- IF BASE_URL and TOTAL_PAGES > 3 -->
 			<div class="dropdown-form">
-				<button class="btn dropdown-toggle btn-lg rounded-0" title="{L_JUMP_TO_PAGE}" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-clone fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_JUMP_TO_PAGE}</span></button>
+				<button class="btn dropdown-toggle btn-lg rounded-0 border-0" title="{L_JUMP_TO_PAGE}" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-clone fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_JUMP_TO_PAGE}</span></button>
 				<div class="dropdown-menu dropdown-menu-end p-2">
 					{L_JUMP_TO_PAGE}{L_COLON}
 					<div class="input-group my-2">
@@ -215,10 +215,10 @@
 
 		<!-- BEGIN pagination -->
 			<!-- IF pagination.S_IS_PREV -->
-				<a class="btn btn-lg rounded-0" href="{pagination.PAGE_URL}" title="{L_PREVIOUS}" rel="prev" role="button"><i class="fa fa-step-backward fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_PREVIOUS}</span></a>
+				<a class="btn btn-lg rounded-0 border-0" href="{pagination.PAGE_URL}" title="{L_PREVIOUS}" rel="prev" role="button"><i class="fa fa-step-backward fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_PREVIOUS}</span></a>
 			<!-- ENDIF -->
 			<!-- IF pagination.S_IS_NEXT -->
-				<a class="btn btn-lg rounded-0" href="{pagination.PAGE_URL}" title="{L_NEXT}" rel="next" role="button"><i class="fa fa-step-forward fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_NEXT}</span></a>
+				<a class="btn btn-lg rounded-0 border-0" href="{pagination.PAGE_URL}" title="{L_NEXT}" rel="next" role="button"><i class="fa fa-step-forward fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_NEXT}</span></a>
 			<!-- ENDIF -->
 		<!-- END pagination -->
 		<!-- ENDIF -->
