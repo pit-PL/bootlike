@@ -20,7 +20,7 @@
 
 		<!-- IF TOTAL_MATCHES > 0 -->
 			<form method="post" action="{S_SEARCH_ACTION}">
-				<button class="btn dropdown-toggle btn-lg rounded-0" title="{L_SEARCH}" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-search fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_SEARCH}</span></button>
+				<button class="btn dropdown-toggle btn-lg rounded-0 border-0" title="{L_SEARCH}" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-search fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_SEARCH}</span></button>
 				<div class="dropdown-menu dropdown-menu-start" role="search">
 					<div class="input-group px-2">
 						<input class="form-control" type="search" value="" name="add_keywords" id="add_keywords" size="20" placeholder="{L_SEARCH_IN_RESULTS}" />
@@ -40,15 +40,15 @@
 
 		<div class="d-flex">
 		<!-- IF SEARCH_TOPIC -->
-			<a href="{U_SEARCH_TOPIC}" class="btn btn-lg rounded-0" title="{L_RETURN_TO_TOPIC}" accesskey="r"><i class="fa fa-chevron-{S_CONTENT_FLOW_BEGIN} fa-fw" aria-hidden="true"></i></a>
+			<a href="{U_SEARCH_TOPIC}" class="btn btn-lg rounded-0 border-0" title="{L_RETURN_TO_TOPIC}" accesskey="r"><i class="fa fa-chevron-{S_CONTENT_FLOW_BEGIN} fa-fw" aria-hidden="true"></i></a>
 		<!-- ELSEIF S_SEARCH_ACTION -->
-			<a href="{U_SEARCH}" class="btn btn-lg rounded-0" title="{L_GO_TO_SEARCH_ADV}" accesskey="r"><i class="fa fa-chevron-{S_CONTENT_FLOW_BEGIN} fa-fw" aria-hidden="true"></i></a>
+			<a href="{U_SEARCH}" class="btn btn-lg rounded-0 border-0" title="{L_GO_TO_SEARCH_ADV}" accesskey="r"><i class="fa fa-chevron-{S_CONTENT_FLOW_BEGIN} fa-fw" aria-hidden="true"></i></a>
 		<!-- ENDIF -->
 
 		<!-- IF .pagination -->
 		<!-- IF BASE_URL and TOTAL_PAGES > 3 -->
 			<div class="dropdown-form">
-				<button class="btn dropdown-toggle btn-lg rounded-0" title="{L_JUMP_TO_PAGE}" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-clone fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_JUMP_TO_PAGE}</span></button>
+				<button class="btn dropdown-toggle btn-lg rounded-0 border-0" title="{L_JUMP_TO_PAGE}" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-clone fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_JUMP_TO_PAGE}</span></button>
 				<div class="dropdown-menu dropdown-menu-end p-2">
 					{L_JUMP_TO_PAGE}{L_COLON}
 					<div class="input-group my-2">
@@ -62,10 +62,10 @@
 
 		<!-- BEGIN pagination -->
 			<!-- IF pagination.S_IS_PREV -->
-				<a class="btn btn-lg rounded-0" href="{pagination.PAGE_URL}" title="{L_PREVIOUS}" rel="prev" role="button"><i class="fa fa-step-backward fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_PREVIOUS}</span></a>
+				<a class="btn btn-lg rounded-0 border-0" href="{pagination.PAGE_URL}" title="{L_PREVIOUS}" rel="prev" role="button"><i class="fa fa-step-backward fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_PREVIOUS}</span></a>
 			<!-- ENDIF -->
 			<!-- IF pagination.S_IS_NEXT -->
-				<a class="btn btn-lg rounded-0" href="{pagination.PAGE_URL}" title="{L_NEXT}" rel="next" role="button"><i class="fa fa-step-forward fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_NEXT}</span></a>
+				<a class="btn btn-lg rounded-0 border-0" href="{pagination.PAGE_URL}" title="{L_NEXT}" rel="next" role="button"><i class="fa fa-step-forward fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_NEXT}</span></a>
 			<!-- ENDIF -->
 		<!-- END pagination -->
 		<!-- ENDIF -->
@@ -101,7 +101,7 @@
 					<!-- EVENT topiclist_row_prepend -->
 					<!-- IF .searchresults.pagination -->
 					<div class="float-end">
-					<button class="btn dropdown-toggle btn-lg rounded-0" title="{L_JUMP_TO_PAGE}" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-clone fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_JUMP_TO_PAGE}</span></button>
+					<button class="btn dropdown-toggle btn-lg rounded-0 border-0" title="{L_JUMP_TO_PAGE}" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-clone fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_JUMP_TO_PAGE}</span></button>
 						<div class="dropdown-menu dropdown-menu-end p-2">
 							<ul class="pagination m-0">
 							<!-- BEGIN pagination -->
