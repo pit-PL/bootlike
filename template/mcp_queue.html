@@ -31,7 +31,7 @@
 
 		<div class="d-flex">
 		<!-- IF .pagination -->
-			<button class="btn dropdown-toggle btn-lg rounded-0" title="{L_JUMP_TO_PAGE}" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-clone fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_SEARCH}</span></button>
+			<button class="btn dropdown-toggle btn-lg rounded-0 border-0" title="{L_JUMP_TO_PAGE}" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-clone fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_SEARCH}</span></button>
 			<div class="dropdown-menu dropdown-menu-end">
 				<div class="input-group px-2">
 					<!-- INCLUDE pagination.html -->
@@ -113,19 +113,19 @@
 
 		<div class="d-flex">
 			<!-- IF S_RESTORE -->
-			<input class="btn btn-lg rounded-0" type="submit" name="action[delete]" value="{L_DELETE}" />
-			<input class="btn btn-lg rounded-0" type="submit" name="action[restore]" value="{L_RESTORE}" />
+			<input class="btn btn-lg rounded-0 border-0" type="submit" name="action[delete]" value="{L_DELETE}" />
+			<input class="btn btn-lg rounded-0 border-0" type="submit" name="action[restore]" value="{L_RESTORE}" />
 			<!-- ELSE -->
-			<button class="btn btn-lg rounded-0" type="submit" name="action[disapprove]" value="{L_DISAPPROVE}" title="{L_DISAPPROVE}"><i class="fa fa-thumbs-o-down fa-fw" aria-hidden="true"></i></button>
-			<button class="btn btn-lg rounded-0" type="submit" name="action[approve]" value="{L_APPROVE}" title="{L_APPROVE}"><i class="fa fa-thumbs-o-up fa-fw" aria-hidden="true"></i></button>
+			<button class="btn btn-lg rounded-0 border-0" type="submit" name="action[disapprove]" value="{L_DISAPPROVE}" title="{L_DISAPPROVE}"><i class="fa fa-thumbs-o-down fa-fw" aria-hidden="true"></i></button>
+			<button class="btn btn-lg rounded-0 border-0" type="submit" name="action[approve]" value="{L_APPROVE}" title="{L_APPROVE}"><i class="fa fa-thumbs-o-up fa-fw" aria-hidden="true"></i></button>
 			<!-- ENDIF -->
 
 			<!-- IF S_TOPICS -->
-			<a href="#" onclick="marklist('mcp', 'topic_id_list', false); return false;" class="btn btn-lg rounded-0" title="{L_UNMARK_ALL}"><i class="fa fa-toggle-off fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_UNMARK_ALL}</span></a>
-			<a href="#" onclick="marklist('mcp', 'topic_id_list', true); return false;" class="btn btn-lg rounded-0" title="{L_MARK_ALL}"><i class="fa fa-toggle-on fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_MARK_ALL}</span></a>
+			<a href="#" onclick="marklist('mcp', 'topic_id_list', false); return false;" class="btn btn-lg rounded-0 border-0" title="{L_UNMARK_ALL}"><i class="fa fa-toggle-off fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_UNMARK_ALL}</span></a>
+			<a href="#" onclick="marklist('mcp', 'topic_id_list', true); return false;" class="btn btn-lg rounded-0 border-0" title="{L_MARK_ALL}"><i class="fa fa-toggle-on fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_MARK_ALL}</span></a>
 			<!-- ELSE -->
-			<a href="#" onclick="marklist('mcp', 'post_id_list', false); return false;" class="btn btn-lg rounded-0" title="{L_UNMARK_ALL}"><i class="fa fa-toggle-off fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_UNMARK_ALL}</span></a>
-			<a href="#" onclick="marklist('mcp', 'post_id_list', true); return false;" class="btn btn-lg rounded-0" title="{L_MARK_ALL}"><i class="fa fa-toggle-on fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_MARK_ALL}</span></a>
+			<a href="#" onclick="marklist('mcp', 'post_id_list', false); return false;" class="btn btn-lg rounded-0 border-0" title="{L_UNMARK_ALL}"><i class="fa fa-toggle-off fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_UNMARK_ALL}</span></a>
+			<a href="#" onclick="marklist('mcp', 'post_id_list', true); return false;" class="btn btn-lg rounded-0 border-0" title="{L_MARK_ALL}"><i class="fa fa-toggle-on fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_MARK_ALL}</span></a>
 			<!-- ENDIF -->
 		</div>
 	</div>
