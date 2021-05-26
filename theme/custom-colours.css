@@ -8,7 +8,7 @@
 .custom-border-bottom {border-bottom: 1px solid #dee2e6 !important;}
 .custom-border-start {border-left: 1px solid #dee2e6 !important;}
 .custom-border-end {border-right: 1px solid #dee2e6 !important;}
-.custom-border-white {border-color: #fff !important;}
+.custom-border-white {border: 4px solid #fff !important;}
 .bg1 {background-color: #fcfcfc;}
 .bg2 {background-color: #f2f2f2;}
 hr {background: linear-gradient(to right, #ccc, #555, #ccc);}
