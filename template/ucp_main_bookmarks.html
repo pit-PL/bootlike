@@ -24,7 +24,7 @@
 
 		<div class="d-flex">
 		<!-- IF .pagination -->
-			<button class="btn dropdown-toggle btn-lg rounded-0" title="{L_JUMP_TO_PAGE}" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-clone fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_SEARCH}</span></button>
+			<button class="btn dropdown-toggle btn-lg rounded-0 border-0" title="{L_JUMP_TO_PAGE}" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-clone fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_SEARCH}</span></button>
 			<div class="dropdown-menu dropdown-menu-end">
 				<div class="input-group px-2">
 					<!-- INCLUDE pagination.html -->
@@ -64,7 +64,7 @@
 
 					<!-- IF .topicrow.pagination -->
 					<div class="float-end">
-					<button class="btn dropdown-toggle btn-lg rounded-0" title="{L_JUMP_TO_PAGE}" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-clone fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_JUMP_TO_PAGE}</span></button>
+					<button class="btn dropdown-toggle btn-lg rounded-0 border-0" title="{L_JUMP_TO_PAGE}" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-clone fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_JUMP_TO_PAGE}</span></button>
 						<div class="dropdown-menu dropdown-menu-end p-2">
 							<ul class="pagination m-0">
 						<!-- BEGIN pagination -->
@@ -122,9 +122,9 @@
 
 <!-- IF .topicrow and not S_NO_DISPLAY_BOOKMARKS -->
 	<div class="action-bar d-sm-flex justify-content-end p-0 mb-3 custom-border custom-bg-light">
-		<input class="btn btn-lg rounded-0" type="submit" name="unbookmark" value="{L_REMOVE_BOOKMARK_MARKED}" />
-		<a href="#" onclick="marklist('ucp', '', false); return false;" class="btn btn-lg rounded-0" title="{L_UNMARK_ALL}"><i class="fa fa-toggle-off fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_UNMARK_ALL}</span></a>
-		<a href="#" onclick="marklist('ucp', '', true); return false;" class="btn btn-lg rounded-0" title="{L_MARK_ALL}"><i class="fa fa-toggle-on fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_MARK_ALL}</span></a>
+		<input class="btn btn-lg rounded-0 border-0" type="submit" name="unbookmark" value="{L_REMOVE_BOOKMARK_MARKED}" />
+		<a href="#" onclick="marklist('ucp', '', false); return false;" class="btn btn-lg rounded-0 border-0" title="{L_UNMARK_ALL}"><i class="fa fa-toggle-off fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_UNMARK_ALL}</span></a>
+		<a href="#" onclick="marklist('ucp', '', true); return false;" class="btn btn-lg rounded-0 border-0" title="{L_MARK_ALL}"><i class="fa fa-toggle-on fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_MARK_ALL}</span></a>
 	{S_FORM_TOKEN}
 	</div>
 <!-- ENDIF -->
