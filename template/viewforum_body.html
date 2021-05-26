@@ -83,7 +83,7 @@
 		<div class="d-flex">
 		<!-- IF S_DISPLAY_POST_INFO -->
 			<!-- EVENT viewforum_buttons_top_before -->
-			<a href="{U_POST_NEW_TOPIC}#postingbox" class="btn btn-lg rounded-0<!-- IF S_IS_LOCKED --> text-muted<!-- ENDIF --> text-nowrap"><i class="fa<!-- IF S_IS_LOCKED --> fa-lock<!-- ELSE --> fa-plus<!-- ENDIF --> fa-fw" aria-hidden="true"></i> <!-- IF S_IS_LOCKED -->{L_BUTTON_FORUM_LOCKED}<!-- ELSE -->{L_BUTTON_NEW_TOPIC}<!-- ENDIF --></a>
+			<a href="{U_POST_NEW_TOPIC}#postingbox" class="btn btn-lg rounded-0 border-0<!-- IF S_IS_LOCKED --> text-muted<!-- ENDIF --> text-nowrap"><i class="fa<!-- IF S_IS_LOCKED --> fa-lock<!-- ELSE --> fa-plus<!-- ENDIF --> fa-fw" aria-hidden="true"></i> <!-- IF S_IS_LOCKED -->{L_BUTTON_FORUM_LOCKED}<!-- ELSE -->{L_BUTTON_NEW_TOPIC}<!-- ENDIF --></a>
 			<!-- EVENT viewforum_buttons_top_after -->
 		<!-- ENDIF -->
 
@@ -107,7 +107,7 @@
 		<!-- ENDIF -->
 
 		<!-- IF U_WATCH_FORUM_LINK -->
-			<a href="{U_WATCH_FORUM_LINK}" class="btn btn-lg rounded-0" title="{S_WATCH_FORUM_TITLE}" data-ajax="toggle_link" data-toggle-class="icon fa <!-- IF S_WATCHING_FORUM -->fa-check-square-o<!-- ELSE -->fa-square-o<!-- ENDIF --> fa-fw" data-bs-toggle-text="{S_WATCH_FORUM_TOGGLE}" data-bs-toggle-url="{U_WATCH_FORUM_TOGGLE}"><i class="icon fa <!-- IF S_WATCHING_FORUM -->fa-square-o<!-- ELSE -->fa-check-square-o<!-- ENDIF --> fa-fw" aria-hidden="true"></i><span class="visually-hidden">{S_WATCH_FORUM_TITLE}</span></a>
+			<a href="{U_WATCH_FORUM_LINK}" class="btn btn-lg rounded-0 border-0" title="{S_WATCH_FORUM_TITLE}" data-ajax="toggle_link" data-toggle-class="icon fa <!-- IF S_WATCHING_FORUM -->fa-check-square-o<!-- ELSE -->fa-square-o<!-- ENDIF --> fa-fw" data-bs-toggle-text="{S_WATCH_FORUM_TOGGLE}" data-bs-toggle-url="{U_WATCH_FORUM_TOGGLE}"><i class="icon fa <!-- IF S_WATCHING_FORUM -->fa-square-o<!-- ELSE -->fa-check-square-o<!-- ENDIF --> fa-fw" aria-hidden="true"></i><span class="visually-hidden">{S_WATCH_FORUM_TITLE}</span></a>
 		<!-- ENDIF -->
 		</div>
 
@@ -119,7 +119,7 @@
 
 		<div class="d-flex">
 		<!-- IF S_VIEWFORUM -->
-			<a href="{U_INDEX}" class="btn btn-lg rounded-0" title="{L_RETURN_TO_INDEX}" accesskey="r"><i class="fa fa-chevron-{S_CONTENT_FLOW_BEGIN} fa-fw" aria-hidden="true"></i></a>
+			<a href="{U_INDEX}" class="btn btn-lg rounded-0 border-0" title="{L_RETURN_TO_INDEX}" accesskey="r"><i class="fa fa-chevron-{S_CONTENT_FLOW_BEGIN} fa-fw" aria-hidden="true"></i></a>
 		<!-- ENDIF -->
 
 		<!-- IF MODERATORS -->
@@ -148,16 +148,16 @@
 
 		<!-- BEGIN pagination -->
 			<!-- IF pagination.S_IS_PREV -->
-				<a class="btn btn-lg rounded-0" href="{pagination.PAGE_URL}" title="{L_PREVIOUS}" rel="prev" role="button"><i class="fa fa-step-backward fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_PREVIOUS}</span></a>
+				<a class="btn btn-lg rounded-0 border-0" href="{pagination.PAGE_URL}" title="{L_PREVIOUS}" rel="prev" role="button"><i class="fa fa-step-backward fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_PREVIOUS}</span></a>
 			<!-- ENDIF -->
 			<!-- IF pagination.S_IS_NEXT -->
-				<a class="btn btn-lg rounded-0" href="{pagination.PAGE_URL}" title="{L_NEXT}" rel="next" role="button"><i class="fa fa-step-forward fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_NEXT}</span></a>
+				<a class="btn btn-lg rounded-0 border-0" href="{pagination.PAGE_URL}" title="{L_NEXT}" rel="next" role="button"><i class="fa fa-step-forward fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_NEXT}</span></a>
 			<!-- ENDIF -->
 		<!-- END pagination -->
 		<!-- ENDIF -->
 
 		<!-- IF not topicrow.S_TOPIC_TYPE_SWITCH and U_MARK_TOPICS -->
-			<a href="{U_MARK_TOPICS}" class="btn btn-lg rounded-0" title="{L_MARK_TOPICS_READ}" accesskey="m" data-ajax="mark_topics_read"><i class="fa fa-check fa-fw" aria-hidden="true"></i></a>
+			<a href="{U_MARK_TOPICS}" class="btn btn-lg rounded-0 border-0" title="{L_MARK_TOPICS_READ}" accesskey="m" data-ajax="mark_topics_read"><i class="fa fa-check fa-fw" aria-hidden="true"></i></a>
 		<!-- ENDIF -->
 
 		</div>
