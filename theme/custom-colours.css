@@ -3,10 +3,10 @@
 .custom-bg-dark {background-color: #212529;}
 .custom-text-light {color: #f8f9fa;}
 .custom-text-dark {color: #212529;}
-.custom-border {border: 1px solid #dee2e6;}
-.custom-border-top {border-top: 1px solid #dee2e6;}
-.custom-border-bottom {border-bottom: 1px solid #dee2e6;}
-.custom-border-start {border-left: 1px solid #dee2e6;}
+.custom-border,
+.custom-border-top,
+.custom-border-bottom,
+.custom-border-start,
 .custom-border-end {border-right: 1px solid #dee2e6;}
 .custom-border-white {border: 4px solid #fff;}
 .bg1 {background-color: #fcfcfc;}
@@ -15,7 +15,10 @@ hr {background: linear-gradient(to right, #ccc, #555, #ccc);}
 hr:after {background: #fff;}
 .img-thumbnail {border-color: #dee2e6 !important;}
 .row-item .folder:before {background-color: #e1e1e1;}
-.row-item .folder:before, .row-item .folder:after {color: #bbb; text-shadow: 1px 1px 1px #fff;}
+.row-item .folder:before, .row-item .folder:after {
+	color: #bbb;
+	text-shadow: 1px 1px 1px #fff;
+}
 .contact-button:hover {border-color: #cfe2ff !important;}
 blockquote:before {opacity: .1;}
 .action-bar .btn:hover, .accordion-button:hover, .accordion-button:not(.collapsed), .btn.custom-bg-white:hover {
