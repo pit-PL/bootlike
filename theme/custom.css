@@ -27,7 +27,6 @@ div.card, div.card-header {
 
 .card-title {
 	border-bottom: 4px solid;
-	border-image: linear-gradient(to right, gray 40%, lightgray 40%, lightgray 75%) 4;
 }
 
 img {
