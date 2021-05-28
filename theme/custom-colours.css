@@ -30,5 +30,5 @@ hr:after {background: #fff;}
 blockquote:before {opacity: .1;}
 .action-bar .btn:hover, .accordion-button:hover, .accordion-button:not(.collapsed), .btn.custom-bg-white:hover {
 	color: #0c63e4;
-	background-color: #eee;
+	background-color: #fcfcfc;
 }
