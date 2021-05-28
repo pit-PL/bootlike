@@ -16,6 +16,7 @@
 .img-thumbnail {border-color: #dee2e6;}
 .custom-border-white {border: 4px solid #fff;}
 .contact-button:hover {border-color: #cfe2ff;}
+.bi-caret-down-fill {fill: #0d6efd;}
 .bg1 {background-color: #fcfcfc;}
 .bg2 {background-color: #f2f2f2;}
 .card-title {border-image: linear-gradient(to right, #6c757d 40%, #d3d3d3 40%, #d3d3d3 75%) 4;}
