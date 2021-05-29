@@ -26,6 +26,7 @@ hr:after {background: #fff;}
 .row-item .folder:before, .row-item .folder:after {
 	color: #bbb;
 	text-shadow: 1px 1px 1px #fff;
+	-webkit-text-stroke: 1px #ddd;
 }
 blockquote:before {opacity: .1;}
 .action-bar .btn:hover, .accordion-button:hover, .accordion-button:not(.collapsed), .btn.custom-bg-white:hover {
