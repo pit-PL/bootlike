@@ -1,7 +1,7 @@
 <div id="review" class="card mb-3">
-	<div class="card-header">
-		<span class="float-end"><a href="#review" class="btn btn-secondary btn-sm btn-secondary pt-0" onclick="viewableArea(getElementById('topicreview'), true); var rev_text = getElementById('review').getElementsByTagName('a').item(0).firstChild; if (rev_text.data == '{LA_EXPAND_VIEW}'){rev_text.data = '{LA_COLLAPSE_VIEW}'; } else if (rev_text.data == '{LA_COLLAPSE_VIEW}'){rev_text.data = '{LA_EXPAND_VIEW}'};">{L_EXPAND_VIEW}</a></span>
-		{L_MESSAGE_HISTORY}{L_COLON}
+	<div class="card-header d-flex align-items-center justify-content-between">
+		<div>{L_MESSAGE_HISTORY}{L_COLON}</div>
+		<a href="#review" class="btn btn-secondary btn-sm btn-secondary" onclick="viewableArea(getElementById('topicreview'), true); var rev_text = getElementById('review').getElementsByTagName('a').item(0).firstChild; if (rev_text.data == '{LA_EXPAND_VIEW}'){rev_text.data = '{LA_COLLAPSE_VIEW}'; } else if (rev_text.data == '{LA_COLLAPSE_VIEW}'){rev_text.data = '{LA_EXPAND_VIEW}'};">{L_EXPAND_VIEW}</a>
 	</div>
 
 	<!-- EVENT ucp_pm_history_review_before -->
