@@ -1,75 +1,74 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-3" role="navigation">
 	<div class="container-fluid">
 	<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-collapse-footer"><span class="navbar-toggler-icon"></span></button>
+		<div id="navbar-collapse-footer" class="collapse navbar-collapse d-lg-flex justify-content-lg-between">
+			<ul class="navbar-nav" role="menubar">
+				
+			<!-- IF U_SITE_HOME -->
+				{% apply spaceless %}
+				<li class="nav-item text-md-center">
+					<a class="nav-link" href="{U_SITE_HOME}" data-navbar-reference="home">
+						<i class="fa fa-university fa-fw" aria-hidden="true"></i> <span class="text-nowrap">{L_SITE_HOME}</span>
+					</a>
+				</li>
+				{% endapply %}
+			<!-- ENDIF -->
+				<!-- EVENT overall_footer_breadcrumb_prepend -->
+				{% apply spaceless %}
+				<li class="nav-item text-md-center">
+					<a class="nav-link" href="{U_INDEX}" data-navbar-reference="index">
+						<i class="fa fa-home fa-fw" aria-hidden="true"></i> <span class="text-nowrap">{L_INDEX}</span>
+					</a>
+				</li>
+				{% endapply %}
+				<!-- EVENT overall_footer_breadcrumb_append -->
+			</ul>
 
-	<div id="navbar-collapse-footer" class="collapse navbar-collapse d-lg-flex justify-content-lg-between">
-		<ul class="navbar-nav" role="menubar">
-			
-		<!-- IF U_SITE_HOME -->
-			{% apply spaceless %}
-			<li class="nav-item text-md-center">
-				<a class="nav-link" href="{U_SITE_HOME}" data-navbar-reference="home">
-					<i class="fa fa-university fa-fw" aria-hidden="true"></i> <span class="text-nowrap">{L_SITE_HOME}</span>
-				</a>
-			</li>
-			{% endapply %}
-		<!-- ENDIF -->
-			<!-- EVENT overall_footer_breadcrumb_prepend -->
-			{% apply spaceless %}
-			<li class="nav-item text-md-center">
-				<a class="nav-link" href="{U_INDEX}" data-navbar-reference="index">
-					<i class="fa fa-home fa-fw" aria-hidden="true"></i> <span class="text-nowrap">{L_INDEX}</span>
-				</a>
-			</li>
-			{% endapply %}
-			<!-- EVENT overall_footer_breadcrumb_append -->
-		</ul>
-
-		<ul class="navbar-nav" role="menubar">
-		<!-- IF U_CONTACT_US -->
-			<li class="nav-item text-md-center">
-				<a class="nav-link" href="{U_CONTACT_US}" role="menuitem">
-					<i class="fa fa-envelope fa-fw" aria-hidden="true"></i> <span class="text-nowrap">{L_CONTACT_US}</span>
-				</a>
-			</li>
-		<!-- ENDIF -->
-		<!-- EVENT overall_footer_teamlink_before -->
-		<!-- IF U_TEAM -->
-			<li class="nav-item text-md-center">
-				<a class="nav-link" href="{U_TEAM}" role="menuitem">
-					<i class="fa fa-shield fa-fw" aria-hidden="true"></i> <span class="text-nowrap">{L_THE_TEAM}</span>
-				</a>
-			</li>
-		<!-- ENDIF -->
-		<!-- EVENT overall_footer_teamlink_after -->
-		<!-- IF U_VIEWONLINE -->
-			<li class="nav-item text-md-center">
-				<a class="nav-link" href="{U_VIEWONLINE}">
-					<i class="fa fa-signal fa-fw" aria-hidden="true"></i> <span class="text-nowrap">{L_WHO_IS_ONLINE}</span>
-				</a>
-			</li>
-		<!-- ENDIF -->
-		<!-- IF S_DISPLAY_MEMBERLIST -->
-			<li class="nav-item text-md-center">
-				<a class="nav-link" href="{U_MEMBERLIST}" title="{L_MEMBERLIST_EXPLAIN}" role="menuitem">
-					<i class="fa fa-group fa-fw" aria-hidden="true"></i> <span class="text-nowrap">{L_MEMBERLIST}</span>
-				</a>
-			</li>
-		<!-- ENDIF -->
-		<!-- IF not S_IS_BOT -->
-			<li class="nav-item text-md-center">
-				<a class="nav-link" href="{U_DELETE_COOKIES}" data-ajax="true" data-refresh="true" role="menuitem">
-					<i class="fa fa-trash-o fa-fw" aria-hidden="true"></i> <span class="text-nowrap">{L_DELETE_COOKIES}</span>
-				</a>
-			</li>
-		<!-- ENDIF -->
-		<!-- IF S_DISPLAY_JUMPBOX -->
-			<li class="nav-item dropdown dropup text-md-center">
-				<a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-level-down fa-fw fa-rotate-270" aria-hidden="true"></i> <span class="text-nowrap">{L_JUMP_TO}</span></a>
-				<!-- INCLUDE jumpbox.html -->
-			</li>
-		<!-- ENDIF -->
-		</ul>
-	</div>
+			<ul class="navbar-nav" role="menubar">
+			<!-- IF U_CONTACT_US -->
+				<li class="nav-item text-md-center">
+					<a class="nav-link" href="{U_CONTACT_US}" role="menuitem">
+						<i class="fa fa-envelope fa-fw" aria-hidden="true"></i> <span class="text-nowrap">{L_CONTACT_US}</span>
+					</a>
+				</li>
+			<!-- ENDIF -->
+			<!-- EVENT overall_footer_teamlink_before -->
+			<!-- IF U_TEAM -->
+				<li class="nav-item text-md-center">
+					<a class="nav-link" href="{U_TEAM}" role="menuitem">
+						<i class="fa fa-shield fa-fw" aria-hidden="true"></i> <span class="text-nowrap">{L_THE_TEAM}</span>
+					</a>
+				</li>
+			<!-- ENDIF -->
+			<!-- EVENT overall_footer_teamlink_after -->
+			<!-- IF U_VIEWONLINE -->
+				<li class="nav-item text-md-center">
+					<a class="nav-link" href="{U_VIEWONLINE}">
+						<i class="fa fa-signal fa-fw" aria-hidden="true"></i> <span class="text-nowrap">{L_WHO_IS_ONLINE}</span>
+					</a>
+				</li>
+			<!-- ENDIF -->
+			<!-- IF S_DISPLAY_MEMBERLIST -->
+				<li class="nav-item text-md-center">
+					<a class="nav-link" href="{U_MEMBERLIST}" title="{L_MEMBERLIST_EXPLAIN}" role="menuitem">
+						<i class="fa fa-group fa-fw" aria-hidden="true"></i> <span class="text-nowrap">{L_MEMBERLIST}</span>
+					</a>
+				</li>
+			<!-- ENDIF -->
+			<!-- IF not S_IS_BOT -->
+				<li class="nav-item text-md-center">
+					<a class="nav-link" href="{U_DELETE_COOKIES}" data-ajax="true" data-refresh="true" role="menuitem">
+						<i class="fa fa-trash-o fa-fw" aria-hidden="true"></i> <span class="text-nowrap">{L_DELETE_COOKIES}</span>
+					</a>
+				</li>
+			<!-- ENDIF -->
+			<!-- IF S_DISPLAY_JUMPBOX -->
+				<li class="nav-item dropdown dropup text-md-center">
+					<a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-level-down fa-fw fa-rotate-270" aria-hidden="true"></i> <span class="text-nowrap">{L_JUMP_TO}</span></a>
+					<!-- INCLUDE jumpbox.html -->
+				</li>
+			<!-- ENDIF -->
+			</ul>
+		</div>
 	</div>
 </nav>
