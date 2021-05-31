@@ -13,16 +13,16 @@
 <!-- IF (S_DISPLAY_ONLINE_LIST or NEWEST_USER or (S_DISPLAY_BIRTHDAY_LIST and .birthdays) or not S_USER_LOGGED_IN) and not S_IS_BOT -->
 	<div id="accordion_btn" class="d-md-flex custom-border shadow-sm text-nowrap">
 	<!-- IF S_DISPLAY_ONLINE_LIST -->
-		<button class="accordion-button custom-bg-light shadow-none<!-- IF not S_USER_LOGGED_IN and $LOGIN_POPUP_OFF --> collapsed<!-- ENDIF -->" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_online" aria-expanded="true" aria-controls="collapse_online"><i class="fa fa-signal fa-fw" aria-hidden="true"></i> {L_WHO_IS_ONLINE}</button>
+		<button class="accordion-button bg2 shadow-none<!-- IF not S_USER_LOGGED_IN and $LOGIN_POPUP_OFF --> collapsed<!-- ENDIF -->" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_online" aria-expanded="true" aria-controls="collapse_online"><i class="fa fa-signal fa-fw" aria-hidden="true"></i> {L_WHO_IS_ONLINE}</button>
 	<!-- ENDIF -->
 	<!-- IF NEWEST_USER -->
-		<button class="accordion-button collapsed custom-bg-light shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_statistics" aria-expanded="false" aria-controls="collapse_statistics"><i class="fa fa-pie-chart fa-fw" aria-hidden="true"></i> {L_STATISTICS}</button>
+		<button class="accordion-button collapsed bg2 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_statistics" aria-expanded="false" aria-controls="collapse_statistics"><i class="fa fa-pie-chart fa-fw" aria-hidden="true"></i> {L_STATISTICS}</button>
 	<!-- ENDIF -->
 	<!-- IF S_DISPLAY_BIRTHDAY_LIST and .birthdays -->
-		<button class="accordion-button collapsed custom-bg-light shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_birthday" aria-expanded="false" aria-controls="collapse_birthday"><i class="fa fa-birthday-cake fa-fw" aria-hidden="true"></i> {L_BIRTHDAYS}</button>
+		<button class="accordion-button collapsed bg2 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_birthday" aria-expanded="false" aria-controls="collapse_birthday"><i class="fa fa-birthday-cake fa-fw" aria-hidden="true"></i> {L_BIRTHDAYS}</button>
 	<!-- ENDIF -->
 	<!-- IF not S_USER_LOGGED_IN and $LOGIN_POPUP_OFF -->
-		<button class="accordion-button custom-bg-light shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_login" aria-expanded="false" aria-controls="collapse_login"><i class="fa fa-power-off fa-fw" aria-hidden="true"></i> {L_LOGIN_LOGOUT}</button>
+		<button class="accordion-button bg2 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_login" aria-expanded="false" aria-controls="collapse_login"><i class="fa fa-power-off fa-fw" aria-hidden="true"></i> {L_LOGIN_LOGOUT}</button>
 	<!-- ENDIF -->
 	</div>
 
