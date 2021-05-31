@@ -18,7 +18,7 @@
 .contact-button:hover {border-color: #cfe2ff;}
 .bi-caret-down-fill {fill: #0d6efd;}
 .bg1 {background-color: #fcfcfc;}
-.bg2 {background-color: #f2f2f2;}
+.bg2, .action-bar .btn:hover, #format-buttons .btn:hover {background-color: #f2f2f2;}
 .card-title {border-image: linear-gradient(to right, #6c757d 40%, #d3d3d3 40%, #d3d3d3 75%) 4;}
 hr {background: linear-gradient(to right, #ccc, #555, #ccc);}
 hr:after {background: #fff;}
