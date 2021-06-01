@@ -77,7 +77,7 @@
 					<!-- EVENT viewtopic_body_poll_option_before -->
 					<!-- IF S_DISPLAY_RESULTS -->
 					<div class="float-end">
-					<!-- IF poll_option.POLL_OPTION_VOTED --><i class="fa fa-check tip" title="{L_POLL_VOTED_OPTION}"></i>  &nbsp;<!-- ENDIF -->
+					<!-- IF poll_option.POLL_OPTION_VOTED --><i class="fa fa-check" title="{L_POLL_VOTED_OPTION}"></i><span class="visually-hidden">{L_POLL_VOTED_OPTION}</span>  &nbsp;<!-- ENDIF -->
 					<!-- IF poll_option.POLL_OPTION_RESULT == 0 -->{L_NO_VOTES}<!-- ELSE -->{poll_option.POLL_OPTION_PERCENT}<!-- ENDIF -->
 					</div>
 					<!-- ENDIF -->
