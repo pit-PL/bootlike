@@ -25,17 +25,17 @@
 		<div class="card-body">
 			<div class="row">
 			<!-- IF AVATAR_IMG or RANK_IMG or GROUP_RANK -->
-				<div class="col-lg-3 col-md-4 col-12 text-center">
-					<!-- IF AVATAR_IMG --><p class="d-none d-md-block">{AVATAR_IMG}</p><!-- ENDIF -->
+				<div class="col-lg-3 col-md-4 col-12 d-flex align-items-center justify-content-center">
+					<!-- IF AVATAR_IMG --><div class="d-none d-md-block">{AVATAR_IMG}</div><!-- ENDIF -->
 					{% EVENT memberlist_body_group_rank_before %}
-					{% if RANK_IMG %}<p>{{ RANK_IMG }}/p>{% endif %}
+					{% if RANK_IMG %}<div class="mt-2">{{ RANK_IMG }}</div>{% endif %}
 					{% if GROUP_RANK %}
-					<p>
+					<div class="mt-2">
 						{% if not RANK_IMG %}
 							{{ lang('GROUP_RANK') ~ lang('COLON') }}
 						{% endif %}
 						{{ GROUP_RANK }}
-					</p>
+					</div>
 					{% endif %}
 					{% EVENT memberlist_body_group_rank_after %}
 				</div>
