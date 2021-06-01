@@ -60,7 +60,7 @@
 
 	<div class="navbar navbar-expand-md navbar-dark bg-dark mb-1 mb-md-0">
 		<div class="container-fluid px-3">
-			<a class="navbar-brand" href="<!-- IF U_SITE_HOME -->{U_SITE_HOME}<!-- ELSE -->{U_INDEX}<!-- ENDIF -->">{SITENAME}<span class="small"><!-- IF SITE_DESCRIPTION --> - {SITE_DESCRIPTION}<!-- ENDIF --></span></a>
+			<div class="navbar-brand">{SITENAME}<span class="small"><!-- IF SITE_DESCRIPTION --> - {SITE_DESCRIPTION}<!-- ENDIF --></span></div>
 
 		<!-- EVENT overall_header_searchbox_before -->
 		<!-- IF S_DISPLAY_SEARCH and not S_IN_SEARCH -->
@@ -84,8 +84,8 @@
 
 	<!-- EVENT overall_header_headerbar_before -->
 
-	<div class="header d-none d-md-block text-md-center text-lg-start" role="banner">
-		<a href="{% if U_SITE_HOME %}{{ U_SITE_HOME }}{% else %}{{ U_INDEX }}{% endif %}" class="logo d-inline-block" title="{% if U_SITE_HOME %}{{ L_SITE_HOME }}{% else %}{{ L_INDEX }}{% endif %}"><img src="{ROOT_PATH}styles/bootlike/theme/images/site_logo.png" alt="{L_IMAGE}" /></a>
+	<div class="header d-none d-md-block text-md-center text-lg-start position-relative" role="banner">
+		<a href="{% if U_SITE_HOME %}{{ U_SITE_HOME }}{% else %}{{ U_INDEX }}{% endif %}" class="logo d-inline-block<!-- IF $CLICKABLE_HEADER --> stretched-link<!-- ENDIF -->" title="{% if U_SITE_HOME %}{{ L_SITE_HOME }}{% else %}{{ L_INDEX }}{% endif %}"><!-- IF not $CLICKABLE_HEADER --><img src="{ROOT_PATH}styles/bootlike/theme/images/site_logo.png" alt="{L_IMAGE}" /><!-- ENDIF --></a>
 	</div>
 
 	<!-- EVENT overall_header_headerbar_after -->
