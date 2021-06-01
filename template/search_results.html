@@ -122,8 +122,8 @@
 					<!-- IF searchresults.S_TOPIC_REPORTED --><a href="{searchresults.U_MCP_REPORT}" class="badge bg-warning" title="{L_TOPIC_REPORTED}"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i><span class="visually-hidden">{L_TOPIC_REPORTED}</span></a><!-- ENDIF -->
 					<!-- IF searchresults.S_UNREAD_TOPIC and not S_IS_BOT --><a href="{searchresults.U_NEWEST_POST}" class="badge bg-info" title="{L_VIEW_NEWEST_POST}"><i class="fa fa-file icon_topic_newest" aria-hidden="true"></i><span class="visually-hidden">{L_NEW_POST}</span></a><!-- ENDIF -->
 					<!-- IF searchresults.TOPIC_ICON_IMG --><img src="{T_ICONS_PATH}{searchresults.TOPIC_ICON_IMG}" class="topic-icon" alt="{L_IMAGE}" /> <!-- ENDIF --><a href="{searchresults.U_VIEW_TOPIC}" class="topictitle">{searchresults.TOPIC_TITLE}</a><br>
-					<!-- IF searchresults.ATTACH_ICON_IMG --><span class="tip" title="{L_TOTAL_ATTACHMENTS}"><i class="fa fa-paperclip" aria-hidden="true"></i></span><!-- ENDIF -->
-					<!-- IF searchresults.S_HAS_POLL --><i class="fa fa-bar-chart tip" title="{L_TOPIC_POLL}" aria-hidden="true"></i><!-- ENDIF -->
+					<!-- IF searchresults.ATTACH_ICON_IMG --><i class="fa fa-paperclip" title="{L_TOTAL_ATTACHMENTS}" aria-hidden="true"></i><span class="visually-hidden">{L_TOTAL_ATTACHMENTS}</span><!-- ENDIF -->
+					<!-- IF searchresults.S_HAS_POLL --><i class="fa fa-bar-chart" title="{L_TOPIC_POLL}" aria-hidden="true"></i><span class="visually-hidden">{L_TOPIC_POLL}</span><!-- ENDIF -->
 					{% EVENT topiclist_row_topic_by_author_before %}
 					{L_POST_BY_AUTHOR} <!-- EVENT search_results_topic_author_username_prepend --> {searchresults.TOPIC_AUTHOR_FULL} <!-- EVENT search_results_topic_author_username_append --> &raquo; {searchresults.FIRST_POST_TIME} &raquo; {L_IN} <a href="{searchresults.U_VIEW_FORUM}">{searchresults.FORUM_TITLE}</a> &nbsp;
 					{% EVENT topiclist_row_topic_by_author_after %}
