@@ -73,14 +73,14 @@
 					<!-- EVENT mcp_forum_topic_title_after -->
 
 					<div>
-						<!-- IF topicrow.ATTACH_ICON_IMG --><span class="tip" title="{L_TOTAL_ATTACHMENTS}"><i class="fa fa-paperclip" aria-hidden="true"></i><span class="visually-hidden">{L_TOTAL_ATTACHMENTS}</span></span> <!-- ENDIF -->
+						<!-- IF topicrow.ATTACH_ICON_IMG --><i class="fa fa-paperclip" title="{L_TOTAL_ATTACHMENTS}" aria-hidden="true"></i><span class="visually-hidden">{L_TOTAL_ATTACHMENTS}</span><!-- ENDIF -->
 						{% EVENT topiclist_row_topic_by_author_before %}
 						{L_POST_BY_AUTHOR} {% EVENT mcp_forum_topic_author_username_prepend %}{topicrow.TOPIC_AUTHOR_FULL}{% EVENT mcp_forum_topic_author_username_append %} &raquo; {topicrow.FIRST_POST_TIME} &nbsp; <i class="fa fa-comment-o ml-2" title="{L_REPLIES}" aria-hidden="true"></i><span class="sr-only">{L_REPLIES}</span> {topicrow.REPLIES}
 						{% EVENT topiclist_row_topic_by_author_after %}
 					</div>
 
 					<div class="d-md-none">
-						<!-- IF topicrow.ATTACH_ICON_IMG --><span class="tip" title="{L_TOTAL_ATTACHMENTS}"><i class="fa fa-paperclip" aria-hidden="true"></i><span class="visually-hidden">{L_TOTAL_ATTACHMENTS}</span></span> <!-- ENDIF -->
+						<!-- IF topicrow.ATTACH_ICON_IMG --><i class="fa fa-paperclip" title="{L_TOTAL_ATTACHMENTS}" aria-hidden="true"></i><span class="visually-hidden">{L_TOTAL_ATTACHMENTS}</span><!-- ENDIF -->
 						{L_LAST_POST} {L_POST_BY_AUTHOR} {% EVENT mcp_forum_last_post_author_username_prepend %}{topicrow.LAST_POST_AUTHOR_FULL}{% EVENT mcp_forum_last_post_author_username_append %} &laquo; {topicrow.LAST_POST_TIME}<br>
 					</div>
 					<!-- EVENT topiclist_row_append -->
