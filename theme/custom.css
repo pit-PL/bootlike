@@ -47,10 +47,6 @@ hr:after {
 	padding: 0 10px;
 }
 
-.tip {
-	cursor: default;
-}
-
 .username-coloured {
 	font-weight: bold;
 }
