@@ -62,7 +62,7 @@
 			<div class="row align-items-center">
 				<div class="col-md-6 col-sm-10 col-9">
 					<a href="{postrow.U_VIEW_DETAILS}" class="topictitle">{postrow.POST_SUBJECT}</a><br>
-					<!-- IF postrow.S_HAS_ATTACHMENTS --><i class="fa fa-paperclip" title="{L_TOTAL_ATTACHMENTS}" aria-hidden="true"></i><!-- ENDIF -->
+					<!-- IF postrow.S_HAS_ATTACHMENTS --><i class="fa fa-paperclip" title="{L_TOTAL_ATTACHMENTS}" aria-hidden="true"></i><span class="visually-hidden">{L_TOTAL_ATTACHMENTS}</span><!-- ENDIF -->
 					{L_POST_BY_AUTHOR} {postrow.POST_AUTHOR_FULL} &raquo; {postrow.POST_TIME}
 
 					<div class="d-md-none">
