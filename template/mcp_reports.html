@@ -60,7 +60,8 @@
 			<!-- IF S_PM -->
 				<div class="col-md-6 col-sm-10 col-9">
 					<a href="{{ postrow.U_VIEW_DETAILS }}" class="topictitle">{{ postrow.PM_SUBJECT }}</a><br>
-					{% if postrow.ATTACH_ICON_IMG %}<span class="tip" title="{L_TOTAL_ATTACHMENTS}"><i class="fa fa-paperclip fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_TOTAL_ATTACHMENTS}</span></span>{% endif %} {L_MESSAGE_BY_AUTHOR} {postrow.PM_AUTHOR_FULL} &raquo; {postrow.PM_TIME}<br>
+					{% if postrow.ATTACH_ICON_IMG %}<i class="fa fa-paperclip fa-fw" title="{L_TOTAL_ATTACHMENTS}" aria-hidden="true"></i><span class="visually-hidden">{L_TOTAL_ATTACHMENTS}</span>{% endif %}
+					{L_MESSAGE_BY_AUTHOR} {postrow.PM_AUTHOR_FULL} &raquo; {postrow.PM_TIME}<br>
 					{L_MESSAGE_TO} {postrow.RECIPIENTS}
 
 					<div class="d-md-none">
@@ -74,7 +75,8 @@
 			<!-- ELSE -->
 				<div class="col-md-6 col-sm-10 col-9">
 					<a href="{{ postrow.U_VIEW_DETAILS }}" class="topictitle">{{ postrow.POST_SUBJECT }}</a><br>
-					{% if postrow.ATTACH_ICON_IMG %}<span class="tip" title="{L_TOTAL_ATTACHMENTS}"><i class="fa fa-paperclip" aria-hidden="true"></i><span class="visually-hidden">{L_TOTAL_ATTACHMENTS}</span></span>{% endif %} {L_POSTED} {L_POST_BY_AUTHOR} {postrow.POST_AUTHOR_FULL} &raquo; {postrow.POST_TIME}
+					{% if postrow.ATTACH_ICON_IMG %}<i class="fa fa-paperclip" title="{L_TOTAL_ATTACHMENTS}" aria-hidden="true"></i><span class="visually-hidden">{L_TOTAL_ATTACHMENTS}</span>{% endif %}
+					{L_POSTED} {L_POST_BY_AUTHOR} {postrow.POST_AUTHOR_FULL} &raquo; {postrow.POST_TIME}
 
 					<div class="d-md-none">
 						{L_REPORTER}{L_COLON} {postrow.REPORTER_FULL} &laquo; {postrow.REPORT_TIME}<br>
