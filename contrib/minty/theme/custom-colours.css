@@ -1,0 +1,36 @@
+.custom-bg-white {background-color: #fff;}
+.custom-bg-light {background-color: #f8f9fa;}
+.custom-bg-dark {background-color: #343a40;}
+.custom-text-light {color: #fff;}
+.custom-text-dark {color: #999;}
+.custom-border {border: 1px solid transparent;}
+.custom-border-top {border-top: 1px solid transparent;}
+.custom-border-bottom {border-bottom: 1px solid transparent;}
+.custom-border-start {border-left: 1px solid transparent;}
+.custom-border-end {border-right: 1px solid transparent;}
+.custom-border,
+.custom-border-top,
+.custom-border-bottom,
+.custom-border-start,
+.custom-border-end,
+.img-thumbnail {border-color: #dee2e6;}
+.custom-border-white {border: 4px solid #fff;}
+.contact-button:hover {border-color: #56cc9d;}
+.bi-caret-down-fill {fill: #78c2ad;}
+.bg1 {background-color: #fcfcfc;}
+.bg2, .action-bar .btn.btn-lg:hover, #format-buttons .btn:hover {background-color: #f2f2f2;}
+.card-title {border-image: linear-gradient(to right, #78c2ad 40%, #d3d3d3 40%, #d3d3d3 75%) 4;}
+hr {background: linear-gradient(to right, #eee, #777, #eee);}
+hr:after {background: #fff;}
+.row-item .folder:before {background-color: #e1e1e1;}
+.row-item .folder:before, .row-item .folder:after {
+	color: #bbb;
+	text-shadow: 1px 1px 1px #fff;
+	-webkit-text-stroke: 1px #ddd;
+}
+blockquote:before {opacity: .2;}
+.action-bar .btn {color: #999;}
+.action-bar .btn:hover, .accordion-button:hover, .accordion-button:not(.collapsed), .btn.custom-bg-white:hover {
+	color: #609b8a;
+	background-color: #fcfcfc;
+}
