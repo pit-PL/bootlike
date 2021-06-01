@@ -26,7 +26,8 @@
 				<div class="row align-items-center">
 					<div class="col-md-6 col-sm-10 col-9">
 						<a href="{unapproved.U_POST_DETAILS}" class="topictitle">{unapproved.SUBJECT}</a><br>
-						<!-- IF unapproved.ATTACH_ICON_IMG --><span class="tip" title="{L_TOTAL_ATTACHMENTS}"><i class="fa fa-paperclip" aria-hidden="true"></i><span class="visually-hidden">{L_TOTAL_ATTACHMENTS}</span></span> <!-- ENDIF -->{L_POSTED} {L_POST_BY_AUTHOR} {unapproved.AUTHOR_FULL} &raquo; {unapproved.POST_TIME}
+						<!-- IF unapproved.ATTACH_ICON_IMG --><i class="fa fa-paperclip" title="{L_TOTAL_ATTACHMENTS}" aria-hidden="true"></i><span class="visually-hidden">{L_TOTAL_ATTACHMENTS}</span><!-- ENDIF -->
+						{L_POSTED} {L_POST_BY_AUTHOR} {unapproved.AUTHOR_FULL} &raquo; {unapproved.POST_TIME}
 
 						<div class="d-md-none">
 							{L_TOPIC}{L_COLON} <a href="{unapproved.U_TOPIC}">{unapproved.TOPIC_TITLE}</a> [<a href="{unapproved.U_MCP_TOPIC}">{L_MODERATE}</a>]<br>
@@ -80,7 +81,8 @@
 				<div class="row position-relative align-items-center">
 					<div class="col-lg-8 col-md-7 col-12">
 						<a href="{report.U_POST_DETAILS}#reports" class="topictitle">{report.SUBJECT}</a><br>
-						<!-- IF report.ATTACH_ICON_IMG --> <span class="tip" title="{L_TOTAL_ATTACHMENTS}"><i class="fa fa-paperclip" aria-hidden="true"></i></span> <!-- ENDIF -->{L_POSTED} {L_POST_BY_AUTHOR} {report.AUTHOR_FULL} &raquo; {report.POST_TIME}
+						<!-- IF report.ATTACH_ICON_IMG --><i class="fa fa-paperclip" title="{L_TOTAL_ATTACHMENTS}" aria-hidden="true"></i><!-- ENDIF -->
+						{L_POSTED} {L_POST_BY_AUTHOR} {report.AUTHOR_FULL} &raquo; {report.POST_TIME}
 
 						<div class="d-md-none">
 							{L_REPORTED} {L_POST_BY_AUTHOR} {report.REPORTER_FULL} {L_REPORTED_ON_DATE} {{ report.REPORT_TIME }}<br>
@@ -120,7 +122,8 @@
 				<div class="row">
 					<div class="col-lg-8 col-md-7 col-12">
 						<a href="{pm_report.U_PM_DETAILS}" class="topictitle">{pm_report.PM_SUBJECT}</a><br>
-						<!-- IF pm_report.ATTACH_ICON_IMG --><span class="tip" title="{L_TOTAL_ATTACHMENTS}"><i class="fa fa-paperclip" aria-hidden="true"></i></span> <!-- ENDIF -->{L_MESSAGE_BY_AUTHOR} {pm_report.PM_AUTHOR_FULL} &raquo; {pm_report.PM_TIME}<br>
+						<!-- IF pm_report.ATTACH_ICON_IMG --><i class="fa fa-paperclip" title="{L_TOTAL_ATTACHMENTS}" aria-hidden="true"></i><!-- ENDIF -->
+						{L_MESSAGE_BY_AUTHOR} {pm_report.PM_AUTHOR_FULL} &raquo; {pm_report.PM_TIME}<br>
 						{L_MESSAGE_TO} {pm_report.RECIPIENTS}
 
 						<div class="d-md-none">
