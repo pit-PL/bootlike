@@ -20,6 +20,12 @@
 					<!-- ENDIF -->
 					<!-- EVENT ucp_pm_viewmessage_avatar_after -->
 
+					<!-- IF not $PROFILE_POPUP_OFF and U_MESSAGE_AUTHOR -->
+					<button class="btn btn-primary btn-sm position-relative d-block mx-auto mt-3 mb-1 float-end float-md-none" type="button" data-bs-toggle="modal" data-bs-target="#modal_message_{MESSAGE_ID}">
+						<i class="fa fa-user-circle-o fa-fw" aria-hidden="true"></i> {L_READ_PROFILE} <svg width="1em" height="1em" viewBox="0 0 16 16" class="position-absolute top-100 start-50 translate-middle mt-1 bi bi-caret-down-fill d-none d-md-inline-block" fill="#0d6efd" xmlns="http://www.w3.org/2000/svg"><path d="M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/></svg>
+					</button>
+					<!-- ENDIF -->
+
 					<div class="mt-1 float-start float-md-none">
 					{% EVENT ucp_pm_viewmessage_author_full_before %}
 						{MESSAGE_AUTHOR_FULL}<!-- IF S_ONLINE --> <i class="fa fa-circle text-success d-sm d-md-none" title="{L_ONLINE}" aria-hidden="true"></i><span class="visually-hidden">{L_ONLINE}</span><!-- ENDIF --><br>
@@ -30,8 +36,9 @@
 					<!-- EVENT ucp_pm_viewmessage_rank_after -->
 					</div>
 				</div>
-		
-				<div class="d-none d-md-block"><strong>{L_POSTS}{L_COLON}</strong> <!-- IF U_AUTHOR_POSTS != '' --><a href="{U_AUTHOR_POSTS}">{AUTHOR_POSTS}</a><!-- ELSE -->{AUTHOR_POSTS}<!-- ENDIF --></div>
+
+			<!-- IF $PROFILE_POPUP_OFF -->
+				<div><strong>{L_POSTS}{L_COLON}</strong> <!-- IF U_AUTHOR_POSTS != '' --><a href="{U_AUTHOR_POSTS}">{AUTHOR_POSTS}</a><!-- ELSE -->{AUTHOR_POSTS}<!-- ENDIF --></div>
 				<!-- IF AUTHOR_JOINED --><div class="d-none d-md-block"><strong>{L_JOINED}{L_COLON}</strong> {AUTHOR_JOINED}</div><!-- ENDIF -->
 		
 				<!-- EVENT ucp_pm_viewmessage_custom_fields_before -->
@@ -58,6 +65,7 @@
 				</div>
 				<!-- ENDIF -->
 				<!-- EVENT ucp_pm_viewmessage_contact_fields_after -->
+			<!-- ENDIF -->
 			</div>
 
 			<div class="postbody col-lg-9 col-md-8 p-0<!-- IF not $PROFILES_ON_LEFT --> custom-border-end<!-- ELSE --> custom-border-start<!-- ENDIF --><!-- IF SIGNATURE --> custom-bg-light<!-- ELSE --> bg1<!-- ENDIF -->">
@@ -169,5 +177,57 @@
 <!-- INCLUDE ucp_pm_message_footer.html -->
 
 <!-- IF S_DISPLAY_HISTORY --><!-- INCLUDE ucp_pm_history.html --><!-- ENDIF -->
+
+<!-- IF not ($PROFILE_POPUP_OFF) -->
+	<div id="modal_message_{MESSAGE_ID}" class="modal fade" tabindex="-1" role="dialog">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">{L_READ_PROFILE} - {MESSAGE_AUTHOR}</h5>
+					<button type="button" class="btn-close" title="{L_CLOSE_WINDOW}" data-bs-dismiss="modal" aria-label="{L_CLOSE_WINDOW}"></button>
+				</div>
+
+				<div class="modal-body custom-bg-light<!-- IF not .contact --> rounded-bottom<!-- ENDIF -->">
+					<div class="row d-flex align-items-center">
+						<div class="col-4 d-flex align-items-center justify-content-center">
+						<!-- IF AUTHOR_AVATAR --><span class="img-thumbnail">{AUTHOR_AVATAR}</span><!-- ELSE --><img class="img-thumbnail rounded-circle" src="{ROOT_PATH}styles/bootlike/theme/images/no_avatar.gif" alt="{L_IMAGE}" /><!-- ENDIF -->
+						</div>
+						<div class="col-8">
+						<div><strong>{L_POSTS}{L_COLON}</strong> <!-- IF U_AUTHOR_POSTS != '' --><a href="{U_AUTHOR_POSTS}">{AUTHOR_POSTS}</a><!-- ELSE -->{AUTHOR_POSTS}<!-- ENDIF --></div>
+						<!-- IF AUTHOR_JOINED --><div><strong>{L_JOINED}{L_COLON}</strong> {AUTHOR_JOINED}</div><!-- ENDIF -->
+
+						<!-- EVENT ucp_pm_viewmessage_custom_fields_before -->
+						<!-- BEGIN custom_fields -->
+							<!-- IF not custom_fields.S_PROFILE_CONTACT -->
+								<div class="profile-custom-field profile-{custom_fields.PROFILE_FIELD_IDENT} d-none d-md-block"><strong>{custom_fields.PROFILE_FIELD_NAME}{L_COLON}</strong> {custom_fields.PROFILE_FIELD_VALUE}</div>
+							<!-- ENDIF -->
+						<!-- END custom_fields -->
+						<!-- EVENT ucp_pm_viewmessage_custom_fields_after -->
+						</div>
+					</div>
+				</div>
+				
+				<!-- IF .contact -->
+				<div class="modal-footer justify-content-center">
+				<!-- EVENT ucp_pm_viewmessage_contact_fields_before -->
+					<!-- BEGIN contact -->
+					{% EVENT viewtopic_body_contact_icon_prepend %}
+					<a class="d-inline-block m-1 text-decoration-none" href="<!-- IF contact.U_CONTACT -->{contact.U_CONTACT}<!-- ELSE -->{postrow.U_POST_AUTHOR}<!-- ENDIF -->"<!-- IF contact.ID eq 'jabber' --> onclick="popup(this.href, 750, 320); return false;"<!-- ENDIF --> title="{contact.NAME}">
+						<div class="p-1 rounded-circle alert-primary shadow-sm">
+							<div class="contact-button d-flex align-items-center justify-content-center rounded-circle custom-border border-4 custom-border-white fs-5 alert-primary" style="width: 48px; height: 48px;">
+								<i class="fa fa-<!-- IF contact.ID eq 'pm' -->user<!-- ELSEIF contact.ID eq 'email' -->envelope<!-- ELSEIF contact.ID eq 'phpbb_website' -->globe<!-- ELSEIF contact.ID eq 'icon_contact_jabber' -->lightbulb-o<!-- ELSEIF contact.ID eq 'phpbb_yahoo' -->yahoo<!-- ELSEIF contact.ID eq 'phpbb_facebook' -->facebook<!-- ELSEIF contact.ID eq 'phpbb_twitter' -->twitter<!-- ELSEIF contact.ID eq 'phpbb_skype' -->skype<!-- ELSEIF contact.ID eq 'phpbb_youtube' -->youtube<!-- ELSEIF contact.ID eq 'phpbb_googleplus' -->google-plus<!-- ELSEIF contact.ID eq 'phpbb_icq' -->asterisk<!-- ELSE -->comments<!-- ENDIF --> fa-fw"></i>
+							</div>
+						</div>
+					</a>
+					{% EVENT viewtopic_body_contact_icon_append %}
+					<!-- END contact -->
+				<!-- EVENT ucp_pm_viewmessage_contact_fields_after -->
+				</div>
+				<!-- ENDIF -->
+
+			</div>
+		</div>
+	</div>
+<!-- ENDIF -->
 
 <!-- INCLUDE ucp_footer.html -->
