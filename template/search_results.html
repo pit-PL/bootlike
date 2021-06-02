@@ -95,7 +95,7 @@
 		<!-- EVENT search_results_topic_before -->
 		<div class="container-fluid row-item position-relative py-1 custom-border-top {searchresults.TOPIC_IMG_STYLE}<!-- IF searchresults.S_ROW_COUNT is even --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
 			<div class="row align-items-center" title="{searchresults.TOPIC_FOLDER_IMG_ALT}">
-				<div class="col-lg-7 col-md-6 col-12 topic-folder folder">
+				<div class="col-lg-7 col-md-6 col-12 topic-folder folder<!-- IF searchresults.S_TOPIC_UNAPPROVED or searchresults.S_POSTS_UNAPPROVED or searchresults.S_TOPIC_REPORTED --> folder-animation<!-- ENDIF -->">
 					<!-- IF searchresults.S_UNREAD_TOPIC and not S_IS_BOT --><a href="{searchresults.U_NEWEST_POST}" class="row-item-link"></a><!-- ENDIF -->
 
 					<!-- EVENT topiclist_row_prepend -->
