@@ -138,4 +138,4 @@ div.spacer { clear: both; }
 
 .codebox p { display: none; }
 
-.emoji.smilies { display: none; }
+.smilies { display: none !important; }
