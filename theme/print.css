@@ -138,9 +138,4 @@ div.spacer { clear: both; }
 
 .codebox p { display: none; }
 
-.emoji {
-	min-height: 18px;
-	min-width: 18px;
-	height: 1em;
-	width: 1em;
-}
+.emoji.smilies { display: none; }
