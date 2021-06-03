@@ -45,7 +45,7 @@
 						<strong>{forumrow.L_SUBFORUM_STR}{L_COLON}</strong>
 					<!-- BEGIN subforum -->
 						<!-- EVENT forumlist_body_subforum_link_prepend -->
-						<div class="<!-- IF $SUBFORUM_COLUMNS and $SUBFORUM_COLUMNS_NUMBER eq '3' -->col-lg-4 col-md-6<!-- ENDIF --><!-- IF $SUBFORUM_COLUMNS and $SUBFORUM_COLUMNS_NUMBER eq '2' -->col-md-6<!-- ENDIF --> col-auto" >
+						<div class="<!-- IF $SUBFORUM_COLUMNS and $SUBFORUM_COLUMNS_NUMBER eq 3 -->col-lg-4 col-md-6<!-- ENDIF --><!-- IF $SUBFORUM_COLUMNS and $SUBFORUM_COLUMNS_NUMBER eq 2 -->col-md-6<!-- ENDIF --> col-auto" >
 							<a href="{forumrow.subforum.U_SUBFORUM}" class="subforum<!-- IF forumrow.subforum.S_UNREAD --> unread<!-- ELSE --> read<!-- ENDIF --><!-- IF $S_LAST_CELL --> text-uppercase<!-- ENDIF -->" title="<!-- IF forumrow.subforum.S_UNREAD -->{L_UNREAD_POSTS}<!-- ELSE -->{L_NO_UNREAD_POSTS}<!-- ENDIF -->">
 								<i class="fa<!-- IF forumrow.subforum.S_UNREAD --> fa-file<!-- ELSE --> fa-file-o<!-- ENDIF --> fa-fw" aria-hidden="true"></i> {forumrow.subforum.SUBFORUM_NAME}
 							</a>
