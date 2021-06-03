@@ -22,16 +22,16 @@
 			<div class="content">{post_review_row.MESSAGE}</div>
 
 			<!-- IF post_review_row.S_HAS_ATTACHMENTS -->
-				<div class="attachbox float-start mb-2">
-					<div class="my-1 text-uppercase">{L_ATTACHMENTS}</div>
-					<div class="custom-bg-white custom-border p-2">
-					<!-- BEGIN attachment -->
-						<!-- IF not attachment.S_FIRST_ROW --><hr><!-- ENDIF -->
-						{post_review_row.attachment.DISPLAY_ATTACHMENT}
-					<!-- END attachment -->
+				<div class="my-1 text-uppercase">{L_ATTACHMENTS}</div>
+				<div class="row {$ATTACHMENT_COLUMNS}">
+				<!-- BEGIN attachment -->
+					<div class="col-12 mb-3 d-flex">
+						<div class="custom-bg-white custom-border border-2 p-2<!-- IF $ATTACHMENT_COLUMNS --> w-100<!-- ENDIF -->">
+							{post_review_row.attachment.DISPLAY_ATTACHMENT}
+						</div>
 					</div>
+				<!-- END attachment -->
 				</div>
-				<div class="clearfix"></div>
 			<!-- ENDIF -->
 		</div>
 
