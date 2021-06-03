@@ -44,10 +44,8 @@
 								<a href="{forumrow.U_LAST_POST}" title="{forumrow.LAST_POST_SUBJECT}" class="lastsubject">{forumrow.LAST_POST_SUBJECT_TRUNCATED}</a><br>
 							<!-- ENDIF -->
 								<time datetime="{forumrow.LAST_POST_TIME_RFC3339}">{forumrow.LAST_POST_TIME}</time> &raquo; {L_POST_BY_AUTHOR} <!-- EVENT forumlist_body_last_poster_username_prepend --> {forumrow.LAST_POSTER_FULL} <!-- EVENT forumlist_body_last_poster_username_append -->
-							<!-- ELSE -->
-								{% if forumrow.U_UNAPPROVED_TOPICS %}
-									<span class="badge bg-info text-dark">{{ lang('TOPIC_UNAPPROVED_FORUM', forumrow.TOPICS) }}</span>
-								{% endif %}
+							<!-- ELSEIF forumrow.U_UNAPPROVED_TOPICS -->
+								<span class="badge bg-info text-dark">{{ lang('TOPIC_UNAPPROVED_FORUM', forumrow.TOPICS) }}</span>
 						<!-- ENDIF -->
 							</div>
 
