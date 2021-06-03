@@ -24,6 +24,7 @@ select {border-color: #222;}
 .card-title {border-image: linear-gradient(to right, #272b30 40%, #909090 40%, #909090 75%) 4;}
 hr {background: linear-gradient(to right, #555, #ccc, #555);}
 hr:after {background: #32383e;}
+.attachbox hr:after {background: #596066;}
 .row-item .folder:before {background-color: #666;}
 .row-item .folder:before, .row-item .folder:after {
 	color: #333;
