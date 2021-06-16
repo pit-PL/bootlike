@@ -150,9 +150,8 @@
 	<div class="card mb-3">
 		<div class="card-header d-none d-md-block">
 			<div class="row">
-				<div class="col-12 col-md-4">{L_ACTION}</div>
-				<div class="col-12 col-md-2 text-center">{L_USERNAME}</div>
-				<div class="col-12 col-md-2 text-center">{L_IP}</div>
+				<div class="col-12 col-md-6">{L_ACTION}</div>
+				<div class="col-12 col-md-2 text-center">{L_MCP_NOTES_USER}</div>
 				<div class="col-12 col-md-2 text-center">{L_TOPIC}/<span class="text-lowercase">{L_LOGS}</span></div>
 				<div class="col-12 col-md-2 text-center">{L_TIME}</div>
 			</div>
@@ -160,9 +159,8 @@
 		<div class="card-body p-0">
 			<!-- BEGIN log -->
 			<div class="row align-items-center custom-border-top m-0<!-- IF log.S_ROW_COUNT is even --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
-				<div class="col-12 col-md-4 py-2"><span class="badge bg-secondary d-md-none">{L_ACTION}{L_COLON}</span> {log.ACTION}</div>
-				<div class="col-12 col-md-2 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_USERNAME}{L_COLON}</span> {log.USERNAME}</div>
-				<div class="col-12 col-md-2 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_IP}{L_COLON}</span> {log.IP}</div>
+				<div class="col-12 col-md-6 py-2"><span class="badge bg-secondary d-md-none">{L_ACTION}{L_COLON}</span> {log.ACTION}</div>
+				<div class="col-12 col-md-2 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_MCP_NOTES_USER}{L_COLON}</span> {log.USERNAME} <br class="d-none d-md-block" />{log.IP}</div>
 				<div class="col-12 col-md-2 py-2 text-md-center">
 					<span class="badge bg-secondary d-md-none">{L_TOPIC}/<span class="text-lowercase">{L_LOGS}</span>{L_COLON}</span>
 					<!-- IF log.U_VIEW_TOPIC --><a href="{log.U_VIEW_TOPIC}" title="{L_VIEW_TOPIC}">{L_VIEW_TOPIC}</a><br class="d-none d-md-block" /><!-- ENDIF -->
