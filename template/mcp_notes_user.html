@@ -106,7 +106,7 @@
 		<!-- BEGIN usernotes -->
 			<div class="row align-items-center custom-border-top m-0<!-- IF usernotes.S_ROW_COUNT is even --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
 				<div class="col-12 col-md-6 py-2"><span class="badge bg-secondary d-md-none">{L_ACTION_NOTE}{L_COLON}</span> {usernotes.ACTION}</div>
-				<div class="col-12 col-md-2 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_MCP_NOTES_USER}{L_COLON}</span> {usernotes.REPORT_BY} <br class="d-none d-md-block" />{usernotes.IP}</div>
+				<div class="col-12 col-md-2 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_MCP_NOTES_USER}{L_COLON}</span> {usernotes.REPORT_BY}<!-- IF not $HIDE_USER_IP or U_ACP --> <br class="d-none d-md-block" />{usernotes.IP}<!-- ENDIF --></div>
 				<div class="col-12 col-md-2 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_TIME}{L_COLON}</span> {usernotes.REPORT_AT}</div>
 			<!-- IF S_CLEAR_ALLOWED -->
 				<div class="col-12 col-md-2 d-sm-flex py-2 text-center">
