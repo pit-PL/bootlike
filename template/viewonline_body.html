@@ -43,7 +43,7 @@
 				<!-- ENDIF -->
 				</div>
 				<div>
-				<!-- IF user_row.USER_IP -->
+				<!-- IF user_row.USER_IP and (not $HIDE_USER_IP or U_ACP) -->
 					<span class="badge bg-secondary d-md-none">{L_IP}{L_COLON}</span> <span class="d-sm-none d-md-inline">{L_IP}{L_COLON}</span> <a href="{user_row.U_USER_IP}">{user_row.USER_IP}</a> <br class="d-sm-none d-md-block" /><a href="{user_row.U_WHOIS}" onclick="popup(this.href, 750, 500); return false;">{L_WHOIS}</a>
 				<!-- ELSE -->
 					&nbsp;
