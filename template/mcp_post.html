@@ -144,7 +144,7 @@
 	</div>
 </div>
 
-<!-- IF S_MCP_REPORT and S_CAN_VIEWIP -->
+<!-- IF S_MCP_REPORT and S_CAN_VIEWIP and (not $HIDE_USER_IP or U_ACP) -->
 	<p>
 	<!-- IF S_PM -->{L_THIS_PM_IP}<!-- ELSE -->{L_THIS_POST_IP}<!-- ENDIF -->{L_COLON} <!-- IF U_WHOIS -->
 		<a href="{U_WHOIS}"><!-- IF POST_IPADDR -->{POST_IPADDR}<!-- ELSE -->{POST_IP}<!-- ENDIF --></a> (<!-- IF POST_IPADDR -->{POST_IP}<!-- ELSE --><a href="{U_LOOKUP_IP}">{L_LOOKUP_IP}</a><!-- ENDIF -->)
@@ -293,6 +293,7 @@
 	<!-- IF S_CAN_VIEWIP and not S_MCP_REPORT -->
 		<div id="ip">
 
+		<!-- IF not $HIDE_USER_IP or U_ACP -->
 			<p>
 				{L_THIS_POST_IP}{L_COLON} <!-- IF U_WHOIS -->
 				<a href="{U_WHOIS}"><!-- IF POST_IPADDR -->{POST_IPADDR}<!-- ELSE -->{POST_IP}<!-- ENDIF --></a> (<!-- IF POST_IPADDR -->{POST_IP}<!-- ELSE --><a href="{U_LOOKUP_IP}">{L_LOOKUP_IP}</a><!-- ENDIF -->)
@@ -300,6 +301,7 @@
 				<!-- IF POST_IPADDR -->{POST_IPADDR} ({POST_IP})<!-- ELSE -->{POST_IP}<!-- IF U_LOOKUP_IP --> (<a href="{U_LOOKUP_IP}">{L_LOOKUP_IP}</a>)<!-- ENDIF --><!-- ENDIF -->
 			<!-- ENDIF -->
 			</p>
+		<!-- ENDIF -->
 
 			<div class="card mb-3">
 				<div class="card-header d-none d-md-block">
@@ -342,6 +344,7 @@
 			</div>
 			<!-- ENDIF -->
 
+			<!-- IF not $HIDE_USER_IP or U_ACP -->
 			<div class="card mb-3">
 				<div class="card-header d-none d-md-block">
 					<div class="row">
@@ -355,7 +358,9 @@
 						<div class="col-12 col-md-10 py-2">
 							<span class="badge bg-secondary d-md-none">{L_IPS_POSTED_FROM}{L_COLON}</span>
 						<!-- IF iprow.HOSTNAME -->
-							<a href="{iprow.U_WHOIS}">{iprow.HOSTNAME}</a> ({iprow.IP})<!-- ELSE --><a href="{iprow.U_WHOIS}">{iprow.IP}</a> (<a href="{iprow.U_LOOKUP_IP}">{L_LOOKUP_IP}</a>)
+							<a href="{iprow.U_WHOIS}">{iprow.HOSTNAME}</a> ({iprow.IP})
+						<!-- ELSE -->
+							<a href="{iprow.U_WHOIS}">{iprow.IP}</a> (<a href="{iprow.U_LOOKUP_IP}">{L_LOOKUP_IP}</a>)
 						<!-- ENDIF -->
 						</div>
 						<div class="col-12 col-md-2 py-2 text-md-center">
@@ -373,6 +378,7 @@
 			{% if U_LOOKUP_ALL %}
 				<p><a href="{U_LOOKUP_ALL}#ip">{L_LOOKUP_ALL}</a></p>
 			{% endif %}
+			<!-- ENDIF -->
 
 			<!-- IF .pagination_ips -->
 			<div class="clearfix mb-3">
