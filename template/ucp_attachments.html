@@ -37,7 +37,7 @@
 			<div class="row">
 				<div class="col-md-5 col-sm-10 col-9">{L_FILENAME}</div>
 				<div class="col-md-2 d-none d-md-block text-center">{L_DOWNLOADS}</div>
-				<div class="col-md-3 d-none d-md-block">{L_POST_TIME}</div>
+				<div class="col-md-3 d-none d-md-block text-center">{L_POST_TIME}</div>
 				<div class="col-sm-2 col-3 text-center">{L_MARK}</div>
 			</div>
 		</div>
@@ -53,7 +53,7 @@
 				</div>
 
 				<div class="col-md-2 d-none d-md-block text-center">{attachrow.DOWNLOAD_COUNT}</div>
-				<div class="col-md-3 d-none d-md-block">{attachrow.POST_TIME}</div>
+				<div class="col-md-3 d-none d-md-block text-center">{attachrow.POST_TIME}</div>
 				<div class="col-sm-2 col-3 text-center">
 					<div class="form-switch mx-auto"><input class="form-check-input" type="checkbox" name="attachment[{attachrow.ATTACH_ID}]" value="1"{% if attachrow.S_LOCKED %} disabled title="{{ lang('ATTACHMENT_LOCKED') }}"{% endif %} /></div>
 				</div>
