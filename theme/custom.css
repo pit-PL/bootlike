@@ -31,6 +31,7 @@ div.card, div.card-header {
 
 .card-title {
 	border-bottom: 4px solid;
+	border-image: linear-gradient(to right, #6c757d 40%, #d3d3d3 40%, #d3d3d3 75%) 4;
 }
 
 img {
@@ -41,6 +42,7 @@ img {
 hr {
 	height: 2px;
 	text-align: center;
+	background: linear-gradient(to right, #ccc, #555, #ccc);
 }
 
 hr:after {
@@ -49,10 +51,19 @@ hr:after {
 	position: relative;
 	top: -14px;
 	padding: 0 10px;
+	background: #fff;
 }
 
 .username-coloured {
 	font-weight: bold;
+}
+
+.bg1 {
+	background-color: #fbfbfb;
+}
+
+.bg2, .action-bar .btn.btn-lg:hover, #format-buttons .btn:hover {
+	background-color: #f2f2f2;
 }
 
 .row-item .folder {
@@ -123,33 +134,35 @@ span.online {
 	box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
 }
 
+.contact-button:hover {
+	border-color: #cfe2ff !important;
+}
+
 .codebox pre {
 	overflow: auto;
 	max-height: 200px;
 }
 
-blockquote.blockquote {
-	border-left-width: 6px !important;
+.card.blockquote {
+	font-size: 0.875rem;
+	border-left: 6px solid #dee2e6;
 }
 
-.rtl blockquote.blockquote {
-	border-left-width: 1px !important;
-	border-right-width: 6px !important;
+.rtl .card.blockquote {
+	border-left: 1px solid #dee2e6;
+	border-right: 6px solid #dee2e6;
 }
 
 blockquote:before {
 	font-family: FontAwesome;
 	font-size: 32px;
 	filter: alpha(opacity=10);
+	opacity: .1;
 	content: "\f10d";
 }
 
 .rtl blockquote:before {
 	display: inline-block;
-}
-
-blockquote.blockquote {
-	font-size: 0.875rem;
 }
 
 .blockquote .blockquote {
