@@ -49,18 +49,18 @@
 	<!-- ENDIF -->
 
 	<!-- IF .messagerow -->
-		<div class="card mb-3">
-		<div class="card-header">
-			<div class="row">
-				<div class="col-md-10 col-sm-10 col-10">{L_MESSAGE}</div>
-				<div class="col-sm-2 col-2 text-center">{L_MARK}</div>
+		<div class="card mb-3 pb-1">
+			<div class="card-header">
+				<div class="row">
+					<div class="col-md-10 col-sm-10 col-10">{L_MESSAGE}</div>
+					<div class="col-sm-2 col-2 text-center">{L_MARK}</div>
+				</div>
 			</div>
-		</div>
 
 		<!-- BEGIN messagerow -->
 			<div class="container-fluid row-item position-relative p-0 {messagerow.FOLDER_IMG_STYLE}">
 				<div class="mt-1 bg1">
-					<div class="row px-3 align-items-center {messagerow.PM_CLASS}">
+					<div class="row px-3 py-1 align-items-center {messagerow.PM_CLASS}">
 						<div class="<!-- IF S_SHOW_RECIPIENTS or S_UNREAD --> col-md-7<!-- ELSE --> col-md-10<!-- ENDIF --> col-sm-10 col-10 topic-folder folder<!-- IF messagerow.S_PM_REPORTED --> folder-animation<!-- ENDIF -->">
 						<!-- IF messagerow.S_PM_UNREAD and not messagerow.S_PM_DELETED --><a href="{messagerow.U_VIEW_PM}" class="row-item-link"></a><!-- ENDIF -->
 
