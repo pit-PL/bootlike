@@ -38,7 +38,7 @@
 	<!-- ENDIF -->
 
 <!-- IF .topicrow -->
-	<div class="card mb-3">
+	<div class="card mb-3 pb-1">
 		<div class="card-header custom-bg-dark custom-text-light">
 			<div class="row">
 				<div class="col-lg-7 col-md-6 col-sm-10 col-9">{L_BOOKMARKS}</div>
@@ -50,63 +50,65 @@
 		</div>
 
 	<!-- BEGIN topicrow -->
-		<div class="container-fluid row-item position-relative px-3 py-1 custom-border-top {topicrow.TOPIC_IMG_STYLE}<!-- IF topicrow.S_ROW_COUNT is odd --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
-			<div class="row align-items-center" title="{topicrow.TOPIC_FOLDER_IMG_ALT}">
-				<!-- IF topicrow.S_DELETED_TOPIC -->
-				<div class="icon alert-warning">
-					<div class="col-lg-10 float-start">
-						{L_DELETED_TOPIC}
+		<div class="container-fluid row-item position-relative p-0 {topicrow.TOPIC_IMG_STYLE}">
+			<div class="mt-1 bg1">
+				<div class="row px-3 align-items-center" title="{topicrow.TOPIC_FOLDER_IMG_ALT}">
+					<!-- IF topicrow.S_DELETED_TOPIC -->
+					<div class="icon alert-warning">
+						<div class="col-lg-10 float-start">
+							{L_DELETED_TOPIC}
+						</div>
+						<div class="col-sm-2 text-center"> <input class="form-check-input" type="checkbox" name="t[{topicrow.TOPIC_ID}]" id="t{topicrow.TOPIC_ID}" /></div>
 					</div>
-					<div class="col-sm-2 text-center"> <input class="form-check-input" type="checkbox" name="t[{topicrow.TOPIC_ID}]" id="t{topicrow.TOPIC_ID}" /></div>
-				</div>
-				<!-- ELSE -->
-				<div class="col-lg-7 col-md-6 col-sm-10 col-9 topic-folder folder<!-- IF topicrow.S_TOPIC_REPORTED --> folder-animation<!-- ENDIF -->">
+					<!-- ELSE -->
+					<div class="col-lg-7 col-md-6 col-sm-10 col-9 folder<!-- IF topicrow.S_TOPIC_REPORTED --> folder-animation<!-- ENDIF -->">
 
-					<!-- IF .topicrow.pagination -->
-					<div class="float-end">
-					<button class="btn dropdown-toggle btn-lg rounded-0 border-0" title="{L_JUMP_TO_PAGE}" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-clone fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_JUMP_TO_PAGE}</span></button>
-						<div class="dropdown-menu dropdown-menu-end p-2">
-							<ul class="pagination m-0">
-						<!-- BEGIN pagination -->
-							<!-- IF topicrow.pagination.S_IS_PREV -->
-							<!-- ELSEIF topicrow.pagination.S_IS_CURRENT -->
-								<li class="page-item-active"><span class="page-link" class="page-link">{topicrow.pagination.PAGE_NUMBER}</span></li>
-							<!-- ELSEIF topicrow.pagination.S_IS_ELLIPSIS -->
-								<li class="page-item disabled"><span class="page-link">{L_ELLIPSIS}</span></li>
-							<!-- ELSEIF topicrow.pagination.S_IS_NEXT -->
-							<!-- ELSE -->
-								<li class="page-item"><a href="{topicrow.pagination.PAGE_URL}" class="page-link">{topicrow.pagination.PAGE_NUMBER}</a></li>
-							<!-- ENDIF -->
-						<!-- END pagination -->
-							</ul>
+						<!-- IF .topicrow.pagination -->
+						<div class="float-end">
+						<button class="btn dropdown-toggle btn-lg rounded-0 border-0" title="{L_JUMP_TO_PAGE}" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-clone fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_JUMP_TO_PAGE}</span></button>
+							<div class="dropdown-menu dropdown-menu-end p-2">
+								<ul class="pagination m-0">
+							<!-- BEGIN pagination -->
+								<!-- IF topicrow.pagination.S_IS_PREV -->
+								<!-- ELSEIF topicrow.pagination.S_IS_CURRENT -->
+									<li class="page-item-active"><span class="page-link" class="page-link">{topicrow.pagination.PAGE_NUMBER}</span></li>
+								<!-- ELSEIF topicrow.pagination.S_IS_ELLIPSIS -->
+									<li class="page-item disabled"><span class="page-link">{L_ELLIPSIS}</span></li>
+								<!-- ELSEIF topicrow.pagination.S_IS_NEXT -->
+								<!-- ELSE -->
+									<li class="page-item"><a href="{topicrow.pagination.PAGE_URL}" class="page-link">{topicrow.pagination.PAGE_NUMBER}</a></li>
+								<!-- ENDIF -->
+							<!-- END pagination -->
+								</ul>
+							</div>
+						</div>
+						<!-- ENDIF -->
+
+						<!-- IF topicrow.S_TOPIC_UNAPPROVED or topicrow.S_POSTS_UNAPPROVED --><a href="{topicrow.U_MCP_QUEUE}" class="badge bg-success" title="{L_TOPIC_UNAPPROVED}"><i class="fa fa-flag" aria-hidden="true"></i><span class="visually-hidden">{L_TOPIC_UNAPPROVED}</span></a> <!-- ENDIF -->
+						<!-- IF topicrow.S_TOPIC_REPORTED --><a href="{topicrow.U_MCP_REPORT}" class="badge bg-warning" title="{L_TOPIC_REPORTED}"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i><span class="visually-hidden">{L_TOPIC_REPORTED}</span></a><!-- ENDIF -->
+						<!-- IF topicrow.S_UNREAD_TOPIC --><a href="{topicrow.U_NEWEST_POST}" class="badge bg-info" title="{L_VIEW_NEWEST_POST}"><i class="fa fa-file icon_topic_newest" aria-hidden="true"></i><span class="visually-hidden">{L_NEW_POST}</span></a><!-- ENDIF -->
+						<!-- IF topicrow.TOPIC_ICON_IMG --><img src="{T_ICONS_PATH}{topicrow.TOPIC_ICON_IMG}" class="topic-icon" alt="{L_IMAGE}" /> <!-- ENDIF --><a href="{topicrow.U_VIEW_TOPIC}" class="topictitle">{topicrow.TOPIC_TITLE}</a>
+
+						<div class="d-none d-md-block">
+							<!-- IF topicrow.ATTACH_ICON_IMG --><i class="fa fa-paperclip" title="{L_TOTAL_ATTACHMENTS}" aria-hidden="true"></i><span class="visually-hidden">{L_TOTAL_ATTACHMENTS}</span><!-- ENDIF -->
+							{L_POST_BY_AUTHOR} {topicrow.TOPIC_AUTHOR_FULL} &raquo; {topicrow.FIRST_POST_TIME}
+						</div>
+						<div class="d-md-none">
+							<!-- IF topicrow.ATTACH_ICON_IMG --><i class="fa fa-paperclip" title="{L_TOTAL_ATTACHMENTS}" aria-hidden="true"></i><span class="visually-hidden">{L_TOTAL_ATTACHMENTS}</span><!-- ENDIF -->
+							{L_LAST_POST} {L_POST_BY_AUTHOR} {topicrow.LAST_POST_AUTHOR_FULL} &laquo;
+							<a href="{topicrow.U_LAST_POST}" title="{L_GOTO_LAST_POST}">{topicrow.LAST_POST_TIME}</a>
 						</div>
 					</div>
+
+					<div class="col-lg-3 col-md-4 d-none d-md-block">
+						{L_POST_BY_AUTHOR} {topicrow.LAST_POST_AUTHOR_FULL}
+						<a class="float-end" href="{topicrow.U_LAST_POST}" title="{L_GOTO_LAST_POST}"><i class="fa fa-arrow-{S_CONTENT_FLOW_END} fs-2" aria-hidden="true"></i><span class="visually-hidden">{L_VIEW_LATEST_POST}</span></a> <br>{topicrow.LAST_POST_TIME}
+					</div>
+					<div class="col-sm-2 col-3 text-center">
+						<div class="form-switch mx-auto"><input class="form-check-input" type="checkbox" name="t[{topicrow.TOPIC_ID}]" id="t{topicrow.TOPIC_ID}" /></div>
+					</div>
 					<!-- ENDIF -->
-
-					<!-- IF topicrow.S_TOPIC_UNAPPROVED or topicrow.S_POSTS_UNAPPROVED --><a href="{topicrow.U_MCP_QUEUE}" class="badge bg-success" title="{L_TOPIC_UNAPPROVED}"><i class="fa fa-flag" aria-hidden="true"></i><span class="visually-hidden">{L_TOPIC_UNAPPROVED}</span></a> <!-- ENDIF -->
-					<!-- IF topicrow.S_TOPIC_REPORTED --><a href="{topicrow.U_MCP_REPORT}" class="badge bg-warning" title="{L_TOPIC_REPORTED}"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i><span class="visually-hidden">{L_TOPIC_REPORTED}</span></a><!-- ENDIF -->
-					<!-- IF topicrow.S_UNREAD_TOPIC --><a href="{topicrow.U_NEWEST_POST}" class="badge bg-info" title="{L_VIEW_NEWEST_POST}"><i class="fa fa-file icon_topic_newest" aria-hidden="true"></i><span class="visually-hidden">{L_NEW_POST}</span></a><!-- ENDIF -->
-					<!-- IF topicrow.TOPIC_ICON_IMG --><img src="{T_ICONS_PATH}{topicrow.TOPIC_ICON_IMG}" class="topic-icon" alt="{L_IMAGE}" /> <!-- ENDIF --><a href="{topicrow.U_VIEW_TOPIC}" class="topictitle">{topicrow.TOPIC_TITLE}</a>
-
-					<div class="d-none d-md-block">
-						<!-- IF topicrow.ATTACH_ICON_IMG --><i class="fa fa-paperclip" title="{L_TOTAL_ATTACHMENTS}" aria-hidden="true"></i><span class="visually-hidden">{L_TOTAL_ATTACHMENTS}</span><!-- ENDIF -->
-						{L_POST_BY_AUTHOR} {topicrow.TOPIC_AUTHOR_FULL} &raquo; {topicrow.FIRST_POST_TIME}
-					</div>
-					<div class="d-md-none">
-						<!-- IF topicrow.ATTACH_ICON_IMG --><i class="fa fa-paperclip" title="{L_TOTAL_ATTACHMENTS}" aria-hidden="true"></i><span class="visually-hidden">{L_TOTAL_ATTACHMENTS}</span><!-- ENDIF -->
-						{L_LAST_POST} {L_POST_BY_AUTHOR} {topicrow.LAST_POST_AUTHOR_FULL} &laquo;
-						<a href="{topicrow.U_LAST_POST}" title="{L_GOTO_LAST_POST}">{topicrow.LAST_POST_TIME}</a>
-					</div>
 				</div>
-
-				<div class="col-lg-3 col-md-4 d-none d-md-block">
-					{L_POST_BY_AUTHOR} {topicrow.LAST_POST_AUTHOR_FULL}
-					<a class="float-end" href="{topicrow.U_LAST_POST}" title="{L_GOTO_LAST_POST}"><i class="fa fa-arrow-{S_CONTENT_FLOW_END} fs-2" aria-hidden="true"></i><span class="visually-hidden">{L_VIEW_LATEST_POST}</span></a> <br>{topicrow.LAST_POST_TIME}
-				</div>
-				<div class="col-sm-2 col-3 text-center">
-					<div class="form-switch mx-auto"><input class="form-check-input" type="checkbox" name="t[{topicrow.TOPIC_ID}]" id="t{topicrow.TOPIC_ID}" /></div>
-				</div>
-				<!-- ENDIF -->
 			</div>
 		</div>
 	<!-- END topicrow -->
