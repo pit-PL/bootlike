@@ -46,12 +46,14 @@
 	</div>
 
 <!-- IF .sessions -->
-	<div class="action-bar d-sm-flex justify-content-end p-0 mb-3 custom-border custom-bg-light">
-		{S_HIDDEN_FIELDS}
-		<input class="btn btn-lg rounded-0 border-0" type="submit" name="submit" value="{L_DELETE_MARKED}" />
-		<a href="#" onclick="$('#ucp input:checkbox').prop('checked', false); return false;" class="btn btn-lg rounded-0 border-0" title="{L_UNMARK_ALL}"><i class="fa fa-toggle-off fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_UNMARK_ALL}</span></a>
-		<a href="#" onclick="$('#ucp input:checkbox').prop('checked', true); return false;" class="btn btn-lg rounded-0 border-0" title="{L_MARK_ALL}"><i class="fa fa-toggle-on fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_MARK_ALL}</span></a>
-		{S_FORM_TOKEN}
+	<div class="card mb-3">
+		<div class="action-bar d-sm-flex justify-content-end bg1">
+			{S_HIDDEN_FIELDS}
+			<input class="btn btn-lg rounded-0 border-0" type="submit" name="submit" value="{L_DELETE_MARKED}" />
+			<a href="#" onclick="$('#ucp input:checkbox').prop('checked', false); return false;" class="btn btn-lg rounded-0 border-0" title="{L_UNMARK_ALL}"><i class="fa fa-toggle-off fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_UNMARK_ALL}</span></a>
+			<a href="#" onclick="$('#ucp input:checkbox').prop('checked', true); return false;" class="btn btn-lg rounded-0 border-0" title="{L_MARK_ALL}"><i class="fa fa-toggle-on fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_MARK_ALL}</span></a>
+			{S_FORM_TOKEN}
+		</div>
 	</div>
 <!-- ENDIF -->
 
