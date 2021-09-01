@@ -6,7 +6,7 @@
 	<div id="post-{MESSAGE_ID}" class="card-body p-0">
 		<div class="row m-0">
 
-			<div id="profile{MESSAGE_ID}" class="postprofile col-lg-3 col-md-4<!-- IF not $PROFILES_ON_LEFT --> order-first order-md-2<!-- ENDIF --> px-3 pb-3 bg2">
+			<div id="profile{MESSAGE_ID}" class="postprofile col-lg-3 col-md-4<!-- IF not $PROFILES_ON_LEFT --> order-first order-md-2<!-- ENDIF --> px-3 pb-3 bg2 shadow">
 				<!-- IF S_ONLINE -->
 					<span class="badge bg-success text-uppercase online d-none d-md-block mx-auto rounded-0 rounded-bottom"><i class="fa fa-signal fa-fw" aria-hidden="true"></i> {L_ONLINE} <i class="fa fa-signal fa-flip-horizontal fa-fw" aria-hidden="true"></i></span>
 				<!-- ENDIF -->
@@ -68,10 +68,10 @@
 			<!-- ENDIF -->
 			</div>
 
-			<div class="postbody col-lg-9 col-md-8 p-0<!-- IF not $PROFILES_ON_LEFT --> custom-border-end<!-- ELSE --> custom-border-start<!-- ENDIF --><!-- IF SIGNATURE --> custom-bg-light<!-- ELSE --> bg1<!-- ENDIF -->">
+			<div class="postbody col-lg-9 col-md-8 p-0 bg2">
 			<hr class="d-md-none m-0">
 
-				<div class="postbody-before d-flex px-3 py-2 justify-content-between align-items-center custom-bg-light custom-border-bottom">
+				<div class="postbody-before d-flex px-3 py-2 justify-content-between align-items-center">
 					<div>
 						{SUBJECT}<br>
 						<strong>{L_SENT_AT}{L_COLON}</strong> {SENT_DATE}
@@ -114,11 +114,13 @@
 					<!-- IF S_HAS_ATTACHMENTS -->
 						<div class="attachbox float-start mb-2">
 							<div class="my-1 text-uppercase">{L_ATTACHMENTS}</div>
-							<div class="custom-bg-white custom-border p-2">
-							<!-- BEGIN attachment -->
-								<!-- IF not attachment.S_FIRST_ROW --><hr><!-- ENDIF -->
-								{attachment.DISPLAY_ATTACHMENT}
-							<!-- END attachment -->
+							<div class="card mb-3">
+								<div class="card-body p-2">
+								<!-- BEGIN attachment -->
+									<!-- IF not attachment.S_FIRST_ROW --><hr><!-- ENDIF -->
+									{attachment.DISPLAY_ATTACHMENT}
+								<!-- END attachment -->
+								</div>
 							</div>
 						</div>
 						<div class="clearfix"></div>
@@ -137,7 +139,7 @@
 				</div>
 
 			<!-- IF SIGNATURE -->
-				<div id="sig{MESSAGE_ID}" class="postbody-after d-none d-md-block px-3 py-2 small custom-border-top">{SIGNATURE}</div>
+				<div id="sig{MESSAGE_ID}" class="postbody-after d-none d-md-block px-3 py-2 small">{SIGNATURE}</div>
 			<!-- ENDIF -->
 			</div>
 		</div>
@@ -187,7 +189,7 @@
 					<button type="button" class="btn-close" title="{L_CLOSE_WINDOW}" data-bs-dismiss="modal" aria-label="{L_CLOSE_WINDOW}"></button>
 				</div>
 
-				<div class="modal-body custom-bg-light<!-- IF not .contact --> rounded-bottom<!-- ENDIF -->">
+				<div class="modal-body bg1<!-- IF not .contact --> rounded-bottom<!-- ENDIF -->">
 					<div class="row d-flex align-items-center">
 						<div class="col-4 d-flex align-items-center justify-content-center">
 						<!-- IF AUTHOR_AVATAR --><span class="img-thumbnail">{AUTHOR_AVATAR}</span><!-- ELSE --><img class="img-thumbnail rounded-circle" src="{ROOT_PATH}styles/bootlike/theme/images/no_avatar.gif" alt="{L_IMAGE}" /><!-- ENDIF -->
@@ -214,7 +216,7 @@
 					{% EVENT viewtopic_body_contact_icon_prepend %}
 					<a class="d-inline-block m-1 text-decoration-none" href="<!-- IF contact.U_CONTACT -->{contact.U_CONTACT}<!-- ELSE -->{postrow.U_POST_AUTHOR}<!-- ENDIF -->"<!-- IF contact.ID eq 'jabber' --> onclick="popup(this.href, 750, 320); return false;"<!-- ENDIF --> title="{contact.NAME}">
 						<div class="p-1 rounded-circle alert-primary shadow-sm">
-							<div class="contact-button d-flex align-items-center justify-content-center rounded-circle custom-border border-4 custom-border-white fs-5 alert-primary" style="width: 48px; height: 48px;">
+							<div class="contact-button d-flex align-items-center justify-content-center rounded-circle border border-4 border-white fs-5 alert-primary" style="width: 48px; height: 48px;">
 								<i class="fa fa-<!-- IF contact.ID eq 'pm' -->user<!-- ELSEIF contact.ID eq 'email' -->envelope<!-- ELSEIF contact.ID eq 'phpbb_website' -->globe<!-- ELSEIF contact.ID eq 'icon_contact_jabber' -->lightbulb-o<!-- ELSEIF contact.ID eq 'phpbb_yahoo' -->yahoo<!-- ELSEIF contact.ID eq 'phpbb_facebook' -->facebook<!-- ELSEIF contact.ID eq 'phpbb_twitter' -->twitter<!-- ELSEIF contact.ID eq 'phpbb_skype' -->skype<!-- ELSEIF contact.ID eq 'phpbb_youtube' -->youtube<!-- ELSEIF contact.ID eq 'phpbb_googleplus' -->google-plus<!-- ELSEIF contact.ID eq 'phpbb_icq' -->asterisk<!-- ELSE -->comments<!-- ENDIF --> fa-fw"></i>
 							</div>
 						</div>
