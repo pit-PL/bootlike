@@ -16,14 +16,15 @@
 				<!-- END notification_methods -->
 			</div>
 		</div>
-		<div class="mt-1 bg1">
+
 		<!-- BEGIN notification_types -->
+		<div class="mt-1 bg1">
 			<!-- IF notification_types.GROUP_NAME -->
-				<div class="row px-3 py-1 align-items-center m-0">
+				<div class="row px-3 py-2 align-items-center">
 					<div class="col-12"><strong>{notification_types.GROUP_NAME}</strong></div>
 				</div>
 			<!-- ELSE -->
-				<div class="row px-3 py-1 align-items-center m-0">
+				<div class="row px-3 py-2 align-items-center">
 					<div class="col-12 col-md-8">
 						<span class="badge bg-secondary d-md-none me-1">{L_NOTIFICATION_TYPE}{L_COLON}</span> {notification_types.NAME}
 						<!-- IF notification_types.EXPLAIN --><div class="small text-muted mt-1">{notification_types.EXPLAIN}</div><!-- ENDIF -->
@@ -37,8 +38,8 @@
 					<div class="d-md-none<!-- IF not notification_types.S_LAST_ROW --> custom-border border-2<!-- ENDIF -->"></div>
 				</div>
 			<!-- ENDIF -->
-		<!-- END notification_types -->
 		</div>
+		<!-- END notification_types -->
 	</div>
 <!-- ELSE -->
 	<!-- IF .notification_list -->
