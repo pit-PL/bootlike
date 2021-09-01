@@ -25,10 +25,10 @@
 	<!-- ELSE -->
 
 		<div class="card mb-3<!-- IF topic_review_row.POST_ID == REPORTED_POST_ID --> border-warning<!-- ENDIF -->">
-			<div class="card-body custom-bg-light p-0">
+			<div class="card-body p-0">
 
-				<div class="postbody" id="pr{topic_review_row.POST_ID}">
-					<div class="postbody-before d-sm-flex px-3 py-1 justify-content-between align-items-center bg-2 custom-border-bottom">
+				<div class="postbody bg2" id="pr{topic_review_row.POST_ID}">
+					<div class="postbody-before d-sm-flex px-3 py-1 justify-content-between align-items-center">
 						<div>
 						<a href="{topic_review_row.U_MINI_POST}">{topic_review_row.POST_SUBJECT}</a>
 							<div>
@@ -61,16 +61,18 @@
 						<!-- EVENT posting_topic_review_row_content_after -->
 
 						<!-- IF topic_review_row.S_HAS_ATTACHMENTS -->
-							<div class="attachbox float-start mb-2">
-								<div class="my-1 text-uppercase">{L_ATTACHMENTS}</div>
-								<div class="custom-bg-white custom-border p-2">
-								<!-- BEGIN attachment -->
-									<!-- IF not attachment.S_FIRST_ROW --><hr><!-- ENDIF -->
-									{topic_review_row.attachment.DISPLAY_ATTACHMENT}
-								<!-- END attachment -->
+							<div class="my-1 text-uppercase">{L_ATTACHMENTS}</div>
+							<div class="row<!-- IF $ATTACHMENT_COLUMNS eq 3 --> row-cols-lg-3 row-cols-md-2 row-cols-1<!-- ENDIF --><!-- IF $ATTACHMENT_COLUMNS eq 2 --> row-cols-lg-2 row-cols-1<!-- ENDIF -->">
+							<!-- BEGIN attachment -->
+								<div class="col d-flex">
+									<div class="card mb-3<!-- IF $ATTACHMENT_COLUMNS --> w-100<!-- ENDIF -->">
+										<div class="card-body p-2">
+											{topic_review_row.attachment.DISPLAY_ATTACHMENT}
+										</div>
+									</div>
 								</div>
+							<!-- END attachment -->
 							</div>
-							<div class="clearfix"></div>
 						<!-- ENDIF -->
 
 						<!-- IF topic_review_row.POSTER_QUOTE and topic_review_row.DECODED_MESSAGE -->
