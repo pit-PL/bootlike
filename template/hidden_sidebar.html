@@ -1,13 +1,13 @@
-<div id="offcanvas_right" class="offcanvas offcanvas-<!-- IF $SIDEBAR_ON_LEFT -->start<!-- ELSE -->end<!-- ENDIF --> custom-bg-light" tabindex="-1" aria-labelledby="offcanvas_right">
+<div id="offcanvas_right" class="offcanvas offcanvas-<!-- IF $SIDEBAR_ON_LEFT -->start<!-- ELSE -->end<!-- ENDIF -->" tabindex="-1" aria-labelledby="offcanvas_right">
 	<div class="offcanvas-header custom-bg-white custom-border-bottom">
 		<h5 class="offcanvas-title fw-bold">{CURRENT_USERNAME_SIMPLE}</h5>
 		<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="{L_CLOSE}"></button>
 	</div>
-	<div class="offcanvas-body">
+	<div class="offcanvas-body bg2">
 		<div class="mb-1 text-center fw-bold user-panel">{L_PROFILE}</div>
-		<ul class="list-group mb-3 custom-bg-white custom-border rounded-0 shadow-sm">
+		<ul class="list-group mb-3 rounded-0 shadow">
 			<!-- IF S_DISPLAY_PM -->
-			<li class="list-group-item p-0 border-0 text-center">
+			<li class="list-group-item p-0 text-center">
 				<a class="dropdown-item custom-border-bottom" href="{U_PRIVATEMSGS}" role="menuitem">
 				<!-- IF PRIVATE_MESSAGE_COUNT -->
 					<div class="spinner-grow spinner-grow-sm text-danger" role="status"><span class="visually-hidden">{L_UNREAD_MESSAGES}</span></div>
@@ -19,7 +19,7 @@
 			</li>
 			<!-- ENDIF -->
 
-			<li class="list-group-item p-0  border-0">
+			<li class="list-group-item p-0">
 				<div class="row m-0 align-items-center">
 					<!-- IF CURRENT_USER_AVATAR -->
 					<div class="col-4 justify-content-center my-1 px-2 py-1 d-none d-md-flex">
@@ -51,7 +51,7 @@
 					</div>
 				</div>
 			</li>
-			<li class="list-group-item p-0  border-0 text-center">
+			<li class="list-group-item p-0 text-center">
 				<a class="dropdown-item custom-border-top" href="{U_LOGIN_LOGOUT}" accesskey="x" role="menuitem"><i class="fa fa-power-off fa-fw" aria-hidden="true"></i> {L_LOGIN_LOGOUT}</a>
 			</li>
 		</ul>
