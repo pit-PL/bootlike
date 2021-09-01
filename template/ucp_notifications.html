@@ -43,28 +43,30 @@
 	</div>
 <!-- ELSE -->
 	<!-- IF .notification_list -->
-	<div class="action-bar d-sm-flex justify-content-between p-0 mb-3 custom-border custom-bg-light">
-		<div class="d-flex">&nbsp;</div>
+	<div class="card mb-3">
+		<div class="action-bar d-sm-flex justify-content-between bg1">
+			<div class="d-flex">&nbsp;</div>
 
-		<div class="btn btn-lg disabled fs-6 mt-1 text-nowrap border-0">
-			{L_NOTIFICATIONS} {TOTAL_COUNT} &bull; <span class="fw-normal">{PAGE_NUMBER}</span>
-		</div>
-
-		<div class="d-flex">
-		<!-- IF .pagination -->
-			<button class="btn dropdown-toggle btn-lg rounded-0 border-0" title="{L_JUMP_TO_PAGE}" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-clone fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_SEARCH}</span></button>
-			<div class="dropdown-menu dropdown-menu-end">
-				<div class="input-group px-2">
-					<!-- INCLUDE pagination.html -->
-				</div>
+			<div class="btn btn-lg disabled fs-6 mt-1 text-nowrap border-0">
+				{L_NOTIFICATIONS} {TOTAL_COUNT} &bull; <span class="fw-normal">{PAGE_NUMBER}</span>
 			</div>
-		<!-- ELSE -->
-			&nbsp;
-		<!-- ENDIF -->
 
-		<!-- IF U_MARK_ALL -->
-			<a href="{U_MARK_ALL}" class="btn btn-lg rounded-0 border-0" title="{L_NOTIFICATIONS_MARK_ALL_READ}"><i class="fa fa-check fa-fw" aria-hidden="true"></i></a>
-		<!-- ENDIF -->
+			<div class="d-flex">
+			<!-- IF .pagination -->
+				<button class="btn dropdown-toggle btn-lg rounded-0 border-0" title="{L_JUMP_TO_PAGE}" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-clone fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_SEARCH}</span></button>
+				<div class="dropdown-menu dropdown-menu-end">
+					<div class="input-group px-2">
+						<!-- INCLUDE pagination.html -->
+					</div>
+				</div>
+			<!-- ELSE -->
+				&nbsp;
+			<!-- ENDIF -->
+
+			<!-- IF U_MARK_ALL -->
+				<a href="{U_MARK_ALL}" class="btn btn-lg rounded-0 border-0" title="{L_NOTIFICATIONS_MARK_ALL_READ}"><i class="fa fa-check fa-fw" aria-hidden="true"></i></a>
+			<!-- ENDIF -->
+			</div>
 		</div>
 	</div>
 
@@ -109,13 +111,15 @@
 <!-- ENDIF -->
 
 <!-- IF .notification_types or .notification_list -->
-	<div class="action-bar d-sm-flex justify-content-end p-0 mb-3 custom-border custom-bg-light">
-		<input type="hidden" name="form_time" value="{FORM_TIME}" />
-		{S_HIDDEN_FIELDS}
-		<input class="btn btn-lg rounded-0 border-0" type="submit" name="submit" title="<!-- IF MODE == 'notification_options' -->{L_SUBMIT}<!-- ELSE -->{L_MARK_READ}<!-- ENDIF -->" value="<!-- IF MODE == 'notification_options' -->{L_SUBMIT}<!-- ELSE -->{L_MARK_READ}<!-- ENDIF -->" />
-		<a href="#" onclick="$('#ucp input:checkbox').prop('checked', false); return false;" class="btn btn-lg rounded-0 border-0" title="{L_UNMARK_ALL}"><i class="fa fa-toggle-off fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_UNMARK_ALL}</span></a>
-		<a href="#" onclick="$('#ucp input:checkbox').prop('checked', true); return false;" class="btn btn-lg rounded-0 border-0" title="{L_MARK_ALL}"><i class="fa fa-toggle-on fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_MARK_ALL}</span></a>
-		{S_FORM_TOKEN}
+	<div class="card mb-3">
+		<div class="action-bar d-sm-flex justify-content-end bg1">
+			<input type="hidden" name="form_time" value="{FORM_TIME}" />
+			{S_HIDDEN_FIELDS}
+			<input class="btn btn-lg rounded-0 border-0" type="submit" name="submit" title="<!-- IF MODE == 'notification_options' -->{L_SUBMIT}<!-- ELSE -->{L_MARK_READ}<!-- ENDIF -->" value="<!-- IF MODE == 'notification_options' -->{L_SUBMIT}<!-- ELSE -->{L_MARK_READ}<!-- ENDIF -->" />
+			<a href="#" onclick="$('#ucp input:checkbox').prop('checked', false); return false;" class="btn btn-lg rounded-0 border-0" title="{L_UNMARK_ALL}"><i class="fa fa-toggle-off fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_UNMARK_ALL}</span></a>
+			<a href="#" onclick="$('#ucp input:checkbox').prop('checked', true); return false;" class="btn btn-lg rounded-0 border-0" title="{L_MARK_ALL}"><i class="fa fa-toggle-on fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_MARK_ALL}</span></a>
+			{S_FORM_TOKEN}
+		</div>
 	</div>
 <!-- ENDIF -->
 
