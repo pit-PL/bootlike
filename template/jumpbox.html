@@ -1,7 +1,7 @@
 		<ul class="dropdown-menu dropdown-menu-end dropdown-contents p-1">
 	<!-- BEGIN jumpbox_forums -->
 		<!-- IF jumpbox_forums.FORUM_ID neq -1 -->
-			<li class="jumpbox"><a class="dropdown-item<!-- IF jumpbox_forums.S_IS_CAT --> custom-bg-dark custom-text-light<!-- ENDIF -->" href="{jumpbox_forums.LINK}"><!-- BEGIN level -->&nbsp; &nbsp;<!-- END level --><!-- IF jumpbox_forums.level --><!-- IF S_CONTENT_DIRECTION eq 'rtl' -->&#8626;<!-- ELSE -->&#8627;<!-- ENDIF --> &nbsp;<!-- ENDIF -->{jumpbox_forums.FORUM_NAME}</a></li>
+			<li class="jumpbox"><a class="dropdown-item<!-- IF jumpbox_forums.S_IS_CAT --> active<!-- ENDIF -->" href="{jumpbox_forums.LINK}"><!-- BEGIN level -->&nbsp; &nbsp;<!-- END level --><!-- IF jumpbox_forums.level --><!-- IF S_CONTENT_DIRECTION eq 'rtl' -->&#8626;<!-- ELSE -->&#8627;<!-- ENDIF --> &nbsp;<!-- ENDIF -->{jumpbox_forums.FORUM_NAME}</a></li>
 			<!-- IF not jumpbox_forums.S_LAST_ROW -->
 			<li class="dropdown-divider m-0"></li>
 			<!-- ENDIF -->
