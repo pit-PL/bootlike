@@ -8,7 +8,7 @@
 
 	<!-- DEFINE $SHOW_BUTTONS = 0 -->
 	<!-- IF .leader -->
-	<div class="card mb-3">
+	<div class="card mb-3 pb-1">
 		<div class="card-header">
 			<div class="row">
 				<div class="col-sm-10 col-9">{L_GROUP_LEADER}</div>
@@ -20,16 +20,18 @@
 		<!-- IF not leader.GROUP_SPECIAL -->
 			<!-- DEFINE $SHOW_BUTTONS = 1 -->
 		<!-- ENDIF -->
-		<div class="container-fluid row-item px-3 py-1 custom-border-top<!-- IF leader.S_ROW_COUNT is odd --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
-			<div class="row align-items-center">
-				<div class="col-md-10 col-sm-10 col-9">
-					<!-- IF S_CHANGE_DEFAULT --><input class="form-check-input" type="radio" title="{L_CHANGE_DEFAULT_GROUP}" name="default"<!-- IF leader.S_GROUP_DEFAULT --> checked="checked"<!-- ENDIF --> value="{leader.GROUP_ID}" /> <!-- ENDIF -->
-					<a href="{leader.U_VIEW_GROUP}" class="forumtitle"<!-- IF leader.GROUP_COLOUR --> style="color:#{leader.GROUP_COLOUR}"<!-- ENDIF -->>{leader.GROUP_NAME}</a>
-					<!-- IF leader.GROUP_DESC --><br>{leader.GROUP_DESC}<!-- ENDIF -->
-					<!-- IF not leader.GROUP_SPECIAL --><br><i>{leader.GROUP_STATUS}</i><!-- ENDIF -->
-				</div>
+		<div class="container-fluid row-item p-0">
+			<div class="mt-1 bg1">
+				<div class="row px-3 py-1 align-items-center">
+					<div class="col-md-10 col-sm-10 col-9">
+						<!-- IF S_CHANGE_DEFAULT --><input class="form-check-input" type="radio" title="{L_CHANGE_DEFAULT_GROUP}" name="default"<!-- IF leader.S_GROUP_DEFAULT --> checked="checked"<!-- ENDIF --> value="{leader.GROUP_ID}" /> <!-- ENDIF -->
+						<a href="{leader.U_VIEW_GROUP}" class="forumtitle"<!-- IF leader.GROUP_COLOUR --> style="color:#{leader.GROUP_COLOUR}"<!-- ENDIF -->>{leader.GROUP_NAME}</a>
+						<!-- IF leader.GROUP_DESC --><br>{leader.GROUP_DESC}<!-- ENDIF -->
+						<!-- IF not leader.GROUP_SPECIAL --><br><i>{leader.GROUP_STATUS}</i><!-- ENDIF -->
+					</div>
 
-				<div class="col-sm-2 col-3 text-center"><input class="form-check-input" type="radio" name="selected" value="{leader.GROUP_ID}" <!-- IF leader.GROUP_SPECIAL -->disabled="disabled"<!-- ENDIF --> /></div>
+					<div class="col-sm-2 col-3 text-center"><input class="form-check-input" type="radio" name="selected" value="{leader.GROUP_ID}" <!-- IF leader.GROUP_SPECIAL -->disabled="disabled"<!-- ENDIF --> /></div>
+				</div>
 			</div>
 		</div>
 		<!-- END leader -->
@@ -37,7 +39,7 @@
 	<!-- ENDIF -->
 
 	<!-- IF .member -->
-	<div class="card mb-3">
+	<div class="card mb-3 pb-1">
 		<div class="card-header">
 			<div class="row">
 				<div class="col-md-10 col-sm-10 col-9">{L_GROUP_MEMBER}</div>
@@ -49,16 +51,18 @@
 		<!-- IF not member.GROUP_SPECIAL -->
 			<!-- DEFINE $SHOW_BUTTONS = 1 -->
 		<!-- ENDIF -->		
-		<div class="container-fluid row-item px-3 py-1 custom-border-top<!-- IF member.S_ROW_COUNT is odd --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
-			<div class="row align-items-center">
-				<div class="col-sm-10 col-9">
-					<!-- IF S_CHANGE_DEFAULT --><input class="form-check-input" type="radio" title="{L_CHANGE_DEFAULT_GROUP}" name="default"<!-- IF member.S_GROUP_DEFAULT --> checked="checked"<!-- ENDIF --> value="{member.GROUP_ID}" /> <!-- ENDIF -->
-					<a href="{member.U_VIEW_GROUP}" class="forumtitle"<!-- IF member.GROUP_COLOUR --> style="color:#{member.GROUP_COLOUR}"<!-- ENDIF -->>{member.GROUP_NAME}</a>
-					<!-- IF member.GROUP_DESC --><br>{member.GROUP_DESC}<!-- ENDIF -->
-					<!-- IF not member.GROUP_SPECIAL --><br><i>{member.GROUP_STATUS}</i><!-- ENDIF -->
-				</div>
+		<div class="container-fluid row-item p-0">
+			<div class="mt-1 bg1">
+				<div class="row px-3 py-1 align-items-center">
+					<div class="col-sm-10 col-9">
+						<!-- IF S_CHANGE_DEFAULT --><input class="form-check-input" type="radio" title="{L_CHANGE_DEFAULT_GROUP}" name="default"<!-- IF member.S_GROUP_DEFAULT --> checked="checked"<!-- ENDIF --> value="{member.GROUP_ID}" /> <!-- ENDIF -->
+						<a href="{member.U_VIEW_GROUP}" class="forumtitle"<!-- IF member.GROUP_COLOUR --> style="color:#{member.GROUP_COLOUR}"<!-- ENDIF -->>{member.GROUP_NAME}</a>
+						<!-- IF member.GROUP_DESC --><br>{member.GROUP_DESC}<!-- ENDIF -->
+						<!-- IF not member.GROUP_SPECIAL --><br><i>{member.GROUP_STATUS}</i><!-- ENDIF -->
+					</div>
 
-				<div class="col-sm-2 col-3 text-center"><input class="form-check-input" type="radio" name="selected" value="{member.GROUP_ID}" <!-- IF member.GROUP_SPECIAL -->disabled="disabled"<!-- ENDIF --> /></div>
+					<div class="col-sm-2 col-3 text-center"><input class="form-check-input" type="radio" name="selected" value="{member.GROUP_ID}" <!-- IF member.GROUP_SPECIAL -->disabled="disabled"<!-- ENDIF --> /></div>
+				</div>
 			</div>
 		</div>
 		<!-- END member -->
@@ -66,7 +70,7 @@
 	<!-- ENDIF -->
 
 <!-- IF .pending -->
-	<div class="card mb-3">
+	<div class="card mb-3 pb-1">
 		<div class="card-header">
 			<div class="row">
 				<div class="col-sm-10 col-9">{L_GROUP_PENDING}</div>
@@ -78,22 +82,24 @@
 		<!-- IF not pending.GROUP_SPECIAL -->
 			<!-- DEFINE $SHOW_BUTTONS = 1 -->
 		<!-- ENDIF -->			
-		<div class="container-fluid row-item px-3 py-1 custom-border-top<!-- IF pending.S_ROW_COUNT is odd --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
-			<div class="row align-items-center">
-				<div class="col-sm-10 col-9">
-					<a href="{pending.U_VIEW_GROUP}" class="forumtitle"<!-- IF pending.GROUP_COLOUR --> style="color:#{pending.GROUP_COLOUR}"<!-- ENDIF -->>{pending.GROUP_NAME}</a>
-					<!-- IF pending.GROUP_DESC --><br>{pending.GROUP_DESC}<!-- ENDIF -->
-					<!-- IF not pending.GROUP_SPECIAL --><br><i>{pending.GROUP_STATUS}</i><!-- ENDIF -->
-				</div>
+		<div class="container-fluid row-item p-0">
+			<div class="mt-1 bg1">
+				<div class="row px-3 py-1 align-items-center">
+					<div class="col-sm-10 col-9">
+						<a href="{pending.U_VIEW_GROUP}" class="forumtitle"<!-- IF pending.GROUP_COLOUR --> style="color:#{pending.GROUP_COLOUR}"<!-- ENDIF -->>{pending.GROUP_NAME}</a>
+						<!-- IF pending.GROUP_DESC --><br>{pending.GROUP_DESC}<!-- ENDIF -->
+						<!-- IF not pending.GROUP_SPECIAL --><br><i>{pending.GROUP_STATUS}</i><!-- ENDIF -->
+					</div>
 
-				<div class="col-sm-2 col-3 text-center"><input class="form-check-input" type="radio" name="selected" value="{pending.GROUP_ID}" <!-- IF pending.GROUP_SPECIAL -->disabled="disabled"<!-- ENDIF --> /></div>
+					<div class="col-sm-2 col-3 text-center"><input class="form-check-input" type="radio" name="selected" value="{pending.GROUP_ID}" <!-- IF pending.GROUP_SPECIAL -->disabled="disabled"<!-- ENDIF --> /></div>
+				</div>
 			</div>
 		</div>
 		<!-- END pending -->
 	</div>
 <!-- ENDIF -->
 <!-- IF .nonmember -->
-	<div class="card mb-3">
+	<div class="card mb-3 pb-1">
 		<div class="card-header">
 			<div class="row">
 				<div class="col-sm-10 col-9">{L_GROUP_NONMEMBER}</div>
@@ -105,15 +111,17 @@
 		<!-- IF nonmember.S_CAN_JOIN -->
 			<!-- DEFINE $SHOW_BUTTONS = 1 -->
 		<!-- ENDIF -->		
-		<div class="container-fluid row-item px-3 py-1 custom-border-top<!-- IF nonmember.S_ROW_COUNT is odd --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
-			<div class="row align-items-center">
-				<div class="col-sm-10 col-9">
-					<a href="{nonmember.U_VIEW_GROUP}" class="forumtitle"<!-- IF nonmember.GROUP_COLOUR --> style="color:#{nonmember.GROUP_COLOUR}"<!-- ENDIF -->>{nonmember.GROUP_NAME}</a>
-					<!-- IF nonmember.GROUP_DESC --><br>{nonmember.GROUP_DESC}<!-- ENDIF -->
-					<!-- IF not nonmember.GROUP_SPECIAL --><br><i>{nonmember.GROUP_STATUS}</i><!-- ENDIF -->
-				</div>
+		<div class="container-fluid row-item p-0">
+			<div class="mt-1 bg1">
+				<div class="row px-3 py-1 align-items-center">
+					<div class="col-sm-10 col-9">
+						<a href="{nonmember.U_VIEW_GROUP}" class="forumtitle"<!-- IF nonmember.GROUP_COLOUR --> style="color:#{nonmember.GROUP_COLOUR}"<!-- ENDIF -->>{nonmember.GROUP_NAME}</a>
+						<!-- IF nonmember.GROUP_DESC --><br>{nonmember.GROUP_DESC}<!-- ENDIF -->
+						<!-- IF not nonmember.GROUP_SPECIAL --><br><i>{nonmember.GROUP_STATUS}</i><!-- ENDIF -->
+					</div>
 
-				<div class="col-sm-2 col-3 text-center"><input class="form-check-input" type="radio" name="selected" value="{nonmember.GROUP_ID}" <!-- IF not nonmember.S_CAN_JOIN -->disabled="disabled"<!-- ENDIF --> /></div>
+					<div class="col-sm-2 col-3 text-center"><input class="form-check-input" type="radio" name="selected" value="{nonmember.GROUP_ID}" <!-- IF not nonmember.S_CAN_JOIN -->disabled="disabled"<!-- ENDIF --> /></div>
+				</div>
 			</div>
 		</div>
 		<!-- END nonmember -->
