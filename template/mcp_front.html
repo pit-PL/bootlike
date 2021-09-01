@@ -12,7 +12,7 @@
 		<p>{L_UNAPPROVED_TOTAL}</p>
 
 		<!-- IF .unapproved -->
-		<div class="card mb-3">
+		<div class="card mb-3 pb-1">
 		<div class="card-header">
 			<div class="row">
 				<div class="col-md-6 col-sm-10 col-9">{L_VIEW_DETAILS}</div>
@@ -22,24 +22,26 @@
 		</div>
 
 			<!-- BEGIN unapproved -->
-			<div class="container-fluid row-item px-3 py-1 custom-border-top<!-- IF unapproved.S_ROW_COUNT is odd --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
-				<div class="row align-items-center">
-					<div class="col-md-6 col-sm-10 col-9">
-						<a href="{unapproved.U_POST_DETAILS}" class="topictitle">{unapproved.SUBJECT}</a><br>
-						<!-- IF unapproved.ATTACH_ICON_IMG --><i class="fa fa-paperclip" title="{L_TOTAL_ATTACHMENTS}" aria-hidden="true"></i><span class="visually-hidden">{L_TOTAL_ATTACHMENTS}</span><!-- ENDIF -->
-						{L_POSTED} {L_POST_BY_AUTHOR} {unapproved.AUTHOR_FULL} &raquo; {unapproved.POST_TIME}
+			<div class="container-fluid row-item p-0">
+				<div class="mt-1 bg1">
+					<div class="row px-3 py-1 align-items-center">
+						<div class="col-md-6 col-sm-10 col-9">
+							<a href="{unapproved.U_POST_DETAILS}" class="topictitle">{unapproved.SUBJECT}</a><br>
+							<!-- IF unapproved.ATTACH_ICON_IMG --><i class="fa fa-paperclip" title="{L_TOTAL_ATTACHMENTS}" aria-hidden="true"></i><span class="visually-hidden">{L_TOTAL_ATTACHMENTS}</span><!-- ENDIF -->
+							{L_POSTED} {L_POST_BY_AUTHOR} {unapproved.AUTHOR_FULL} &raquo; {unapproved.POST_TIME}
 
-						<div class="d-md-none">
+							<div class="d-md-none">
+								{L_TOPIC}{L_COLON} <a href="{unapproved.U_TOPIC}">{unapproved.TOPIC_TITLE}</a> [<a href="{unapproved.U_MCP_TOPIC}">{L_MODERATE}</a>]<br>
+								{L_FORUM}{L_COLON} <!-- IF unapproved.U_FORUM --><a href="{unapproved.U_FORUM}">{unapproved.FORUM_NAME}</a><!-- ELSE -->{unapproved.FORUM_NAME}<!-- ENDIF --><!-- IF unapproved.U_MCP_FORUM --> [<a href="{unapproved.U_MCP_FORUM}">{L_MODERATE}</a>]<!-- ENDIF -->
+							</div>
+						</div>
+
+						<div class="col-md-4 d-none d-md-block">
 							{L_TOPIC}{L_COLON} <a href="{unapproved.U_TOPIC}">{unapproved.TOPIC_TITLE}</a> [<a href="{unapproved.U_MCP_TOPIC}">{L_MODERATE}</a>]<br>
 							{L_FORUM}{L_COLON} <!-- IF unapproved.U_FORUM --><a href="{unapproved.U_FORUM}">{unapproved.FORUM_NAME}</a><!-- ELSE -->{unapproved.FORUM_NAME}<!-- ENDIF --><!-- IF unapproved.U_MCP_FORUM --> [<a href="{unapproved.U_MCP_FORUM}">{L_MODERATE}</a>]<!-- ENDIF -->
 						</div>
+						<div class="col-sm-2 col-3 text-center"><div class="form-switch mx-auto"><input class="form-check-input" type="checkbox" name="post_id_list[]" value="{unapproved.POST_ID}" /></div></div>
 					</div>
-
-					<div class="col-md-4 d-none d-md-block">
-						{L_TOPIC}{L_COLON} <a href="{unapproved.U_TOPIC}">{unapproved.TOPIC_TITLE}</a> [<a href="{unapproved.U_MCP_TOPIC}">{L_MODERATE}</a>]<br>
-						{L_FORUM}{L_COLON} <!-- IF unapproved.U_FORUM --><a href="{unapproved.U_FORUM}">{unapproved.FORUM_NAME}</a><!-- ELSE -->{unapproved.FORUM_NAME}<!-- ENDIF --><!-- IF unapproved.U_MCP_FORUM --> [<a href="{unapproved.U_MCP_FORUM}">{L_MODERATE}</a>]<!-- ENDIF -->
-					</div>
-					<div class="col-sm-2 col-3 text-center"><div class="form-switch mx-auto"><input class="form-check-input" type="checkbox" name="post_id_list[]" value="{unapproved.POST_ID}" /></div></div>
 				</div>
 			</div>
 			<!-- END unapproved -->
@@ -49,12 +51,14 @@
 	{S_FORM_TOKEN}
 
 	<!-- IF .unapproved -->
-	<div class="action-bar d-sm-flex justify-content-end p-0 mb-3 custom-border custom-bg-light">
-		{S_HIDDEN_FIELDS}
-		<button class="btn btn-lg rounded-0 border-0" type="submit" name="action[disapprove]" value="{L_DISAPPROVE}" title="{L_DISAPPROVE}"><i class="fa fa-thumbs-o-down fa-fw" aria-hidden="true"></i></button>
-		<button class="btn btn-lg rounded-0 border-0" type="submit" name="action[approve]" value="{L_APPROVE}" title="{L_APPROVE}"><i class="fa fa-thumbs-o-up fa-fw" aria-hidden="true"></i></button>
-		<a href="#" onclick="marklist('mcp_queue', 'post_id_list', false); return false;" class="btn btn-lg rounded-0 border-0" title="{L_UNMARK_ALL}"><i class="fa fa-toggle-off fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_UNMARK_ALL}</span></a>
-		<a href="#" onclick="marklist('mcp_queue', 'post_id_list', true); return false;" class="btn btn-lg rounded-0 border-0" title="{L_MARK_ALL}"><i class="fa fa-toggle-on fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_MARK_ALL}</span></a>
+	<div class="card mb-3">
+		<div class="action-bar d-sm-flex justify-content-end bg1">
+			{S_HIDDEN_FIELDS}
+			<button class="btn btn-lg rounded-0 border-0" type="submit" name="action[disapprove]" value="{L_DISAPPROVE}" title="{L_DISAPPROVE}"><i class="fa fa-thumbs-o-down fa-fw" aria-hidden="true"></i></button>
+			<button class="btn btn-lg rounded-0 border-0" type="submit" name="action[approve]" value="{L_APPROVE}" title="{L_APPROVE}"><i class="fa fa-thumbs-o-up fa-fw" aria-hidden="true"></i></button>
+			<a href="#" onclick="marklist('mcp_queue', 'post_id_list', false); return false;" class="btn btn-lg rounded-0 border-0" title="{L_UNMARK_ALL}"><i class="fa fa-toggle-off fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_UNMARK_ALL}</span></a>
+			<a href="#" onclick="marklist('mcp_queue', 'post_id_list', true); return false;" class="btn btn-lg rounded-0 border-0" title="{L_MARK_ALL}"><i class="fa fa-toggle-on fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_MARK_ALL}</span></a>
+		</div>
 	</div>
 	<!-- ENDIF -->
 		</form>
@@ -68,31 +72,33 @@
 		<p>{L_REPORTS_TOTAL}</p>
 
 		<!-- IF .report -->
-		<div class="card mb-3">
-		<div class="card-header">
-			<div class="row">
-				<div class="col-lg-8 col-md-7 col-12">{L_VIEW_DETAILS}</div>
-				<div class="col-lg-4 col-md-5 d-none d-md-block">{L_REPORTER} &amp; {L_FORUM}</div>
+		<div class="card mb-3 pb-1">
+			<div class="card-header">
+				<div class="row">
+					<div class="col-lg-8 col-md-7 col-12">{L_VIEW_DETAILS}</div>
+					<div class="col-lg-4 col-md-5 d-none d-md-block">{L_REPORTER} &amp; {L_FORUM}</div>
+				</div>
 			</div>
-		</div>
 
 			<!-- BEGIN report -->
-			<div class="container-fluid row-item px-3 py-1 custom-border-top<!-- IF report.S_ROW_COUNT is odd --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
-				<div class="row position-relative align-items-center">
-					<div class="col-lg-8 col-md-7 col-12">
-						<a href="{report.U_POST_DETAILS}#reports" class="topictitle">{report.SUBJECT}</a><br>
-						<!-- IF report.ATTACH_ICON_IMG --><i class="fa fa-paperclip" title="{L_TOTAL_ATTACHMENTS}" aria-hidden="true"></i><!-- ENDIF -->
-						{L_POSTED} {L_POST_BY_AUTHOR} {report.AUTHOR_FULL} &raquo; {report.POST_TIME}
+			<div class="container-fluid row-item p-0">
+				<div class="mt-1 bg1">
+					<div class="row px-3 py-1 position-relative align-items-center">
+						<div class="col-lg-8 col-md-7 col-12">
+							<a href="{report.U_POST_DETAILS}#reports" class="topictitle">{report.SUBJECT}</a><br>
+							<!-- IF report.ATTACH_ICON_IMG --><i class="fa fa-paperclip" title="{L_TOTAL_ATTACHMENTS}" aria-hidden="true"></i><!-- ENDIF -->
+							{L_POSTED} {L_POST_BY_AUTHOR} {report.AUTHOR_FULL} &raquo; {report.POST_TIME}
 
-						<div class="d-md-none">
-							{L_REPORTED} {L_POST_BY_AUTHOR} {report.REPORTER_FULL} {L_REPORTED_ON_DATE} {{ report.REPORT_TIME }}<br>
+							<div class="d-md-none">
+								{L_REPORTED} {L_POST_BY_AUTHOR} {report.REPORTER_FULL} {L_REPORTED_ON_DATE} {{ report.REPORT_TIME }}<br>
+								{L_FORUM}{L_COLON} <a href="{report.U_FORUM}">{report.FORUM_NAME}</a>
+							</div>
+						</div>
+
+						<div class="col-lg-4 col-md-5 d-none d-md-block">
+							{L_REPORTED} {L_POST_BY_AUTHOR} {report.REPORTER_FULL} {L_REPORTED_ON_DATE} {report.REPORT_TIME}<br>
 							{L_FORUM}{L_COLON} <a href="{report.U_FORUM}">{report.FORUM_NAME}</a>
 						</div>
-					</div>
-
-					<div class="col-lg-4 col-md-5 d-none d-md-block">
-						{L_REPORTED} {L_POST_BY_AUTHOR} {report.REPORTER_FULL} {L_REPORTED_ON_DATE} {report.REPORT_TIME}<br>
-						{L_FORUM}{L_COLON} <a href="{report.U_FORUM}">{report.FORUM_NAME}</a>
 					</div>
 				</div>
 			</div>
@@ -109,30 +115,32 @@
 		<p>{L_PM_REPORTS_TOTAL}</p>
 
 		<!-- IF .pm_report -->
-		<div class="card mb-3">
-		<div class="card-header">
-			<div class="row align-items-center">
-				<div class="col-lg-8 col-md-7 col-12">{L_VIEW_DETAILS}</div>
-				<div class="col-lg-4 col-md-5 d-none d-md-block">{L_REPORTER}</div>
+		<div class="card mb-3 pb-1">
+			<div class="card-header">
+				<div class="row align-items-center">
+					<div class="col-lg-8 col-md-7 col-12">{L_VIEW_DETAILS}</div>
+					<div class="col-lg-4 col-md-5 d-none d-md-block">{L_REPORTER}</div>
+				</div>
 			</div>
-		</div>
 
 			<!-- BEGIN pm_report -->
-			<div class="container-fluid row-item px-3 py-1 custom-border-top<!-- IF pm_report.S_ROW_COUNT is odd --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
-				<div class="row">
-					<div class="col-lg-8 col-md-7 col-12">
-						<a href="{pm_report.U_PM_DETAILS}" class="topictitle">{pm_report.PM_SUBJECT}</a><br>
-						<!-- IF pm_report.ATTACH_ICON_IMG --><i class="fa fa-paperclip" title="{L_TOTAL_ATTACHMENTS}" aria-hidden="true"></i><!-- ENDIF -->
-						{L_MESSAGE_BY_AUTHOR} {pm_report.PM_AUTHOR_FULL} &raquo; {pm_report.PM_TIME}<br>
-						{L_MESSAGE_TO} {pm_report.RECIPIENTS}
+			<div class="container-fluid row-item p-0">
+				<div class="mt-1 bg1">
+					<div class="row px-3 py-1 align-items-center">
+						<div class="col-lg-8 col-md-7 col-12">
+							<a href="{pm_report.U_PM_DETAILS}" class="topictitle">{pm_report.PM_SUBJECT}</a><br>
+							<!-- IF pm_report.ATTACH_ICON_IMG --><i class="fa fa-paperclip" title="{L_TOTAL_ATTACHMENTS}" aria-hidden="true"></i><!-- ENDIF -->
+							{L_MESSAGE_BY_AUTHOR} {pm_report.PM_AUTHOR_FULL} &raquo; {pm_report.PM_TIME}<br>
+							{L_MESSAGE_TO} {pm_report.RECIPIENTS}
 
-						<div class="d-md-none">
+							<div class="d-md-none">
+								{L_REPORTED} {L_POST_BY_AUTHOR} {pm_report.REPORTER_FULL} {L_REPORTED_ON_DATE} {pm_report.REPORT_TIME}
+							</div>
+						</div>
+
+						<div class="col-lg-4 col-md-5 d-none d-md-block">
 							{L_REPORTED} {L_POST_BY_AUTHOR} {pm_report.REPORTER_FULL} {L_REPORTED_ON_DATE} {pm_report.REPORT_TIME}
 						</div>
-					</div>
-
-					<div class="col-lg-4 col-md-5 d-none d-md-block">
-						{L_REPORTED} {L_POST_BY_AUTHOR} {pm_report.REPORTER_FULL} {L_REPORTED_ON_DATE} {pm_report.REPORT_TIME}
 					</div>
 				</div>
 			</div>
@@ -147,7 +155,7 @@
 
 	<h5 class="card-title pb-1 text-capitalize">{L_LATEST_LOGS}</h5>
 
-	<div class="card mb-3">
+	<div class="card mb-3 pb-1">
 		<div class="card-header d-none d-md-block">
 			<div class="row">
 				<div class="col-12 col-md-6">{L_ACTION}</div>
@@ -156,9 +164,9 @@
 				<div class="col-12 col-md-2 text-center">{L_TIME}</div>
 			</div>
 		</div>
-		<div class="card-body p-0">
 			<!-- BEGIN log -->
-			<div class="row align-items-center custom-border-top m-0<!-- IF log.S_ROW_COUNT is even --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
+		<div class="mt-1 bg1">
+			<div class="row px-3 py-1 align-items-center">
 				<div class="col-12 col-md-6 py-2"><span class="badge bg-secondary d-md-none">{L_ACTION}{L_COLON}</span> {log.ACTION}</div>
 				<div class="col-12 col-md-2 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_MCP_NOTES_USER}{L_COLON}</span> {log.USERNAME}<!-- IF not $HIDE_USER_IP or U_ACP --> <br class="d-none d-md-block" />{log.IP}<!-- ENDIF --></div>
 				<div class="col-12 col-md-2 py-2 text-md-center">
@@ -169,10 +177,10 @@
 				<div class="col-12 col-md-2 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_TIME}{L_COLON}</span> {log.TIME}</div>
 				<div class="d-md-none<!-- IF not log.S_LAST_ROW --> custom-border border-2<!-- ENDIF -->"></div>
 			</div>
+			</div>
 			<!-- BEGINELSE -->
-			<div class="px-3 py-2 text-center bg2">{L_NO_ENTRIES}</div>
+			<div class="px-3 py-2 text-center bg1">{L_NO_ENTRIES}</div>
 			<!-- END log -->
-		</div>
 	</div>
 <!-- ENDIF -->
 
