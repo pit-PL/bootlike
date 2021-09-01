@@ -16,10 +16,10 @@
 	<!-- EVENT forumlist_body_category_header_after -->
 
 	<!-- IF not forumrow.S_IS_CAT -->
-		<div class="col mb-3">
+		<div class="col">
 		<!-- EVENT forumlist_body_forum_row_before -->
-			<div class="mark-forum bg1 custom-border shadow-sm">
-				<div class="row-item position-relative p-2 {forumrow.FORUM_IMG_STYLE}"<!-- IF not forumrow.S_IS_LINK --> title="{forumrow.FORUM_FOLDER_IMG_ALT}"<!-- ENDIF -->>
+			<div class="card mb-3 mark-forumshadow-sm">
+				<div class="row-item position-relative p-2 bg1 {forumrow.FORUM_IMG_STYLE}"<!-- IF not forumrow.S_IS_LINK --> title="{forumrow.FORUM_FOLDER_IMG_ALT}"<!-- ENDIF -->>
 				<!-- EVENT forumlist_body_forum_row_prepend -->
 					<div class="folder folder-height<!-- IF forumrow.U_UNAPPROVED_TOPICS or forumrow.U_UNAPPROVED_POSTS --> folder-animation<!-- ENDIF --> overflow-hidden">
 						<!-- IF forumrow.S_UNREAD_FORUM --><a href="{forumrow.U_VIEWFORUM}" class="row-item-link"></a><!-- ENDIF -->
