@@ -100,7 +100,7 @@
 					<div class="dropdown-menu dropdown-menu-start" role="search">
 						<div class="input-group px-2">
 							<input type="search" name="keywords" id="search_keywords" size="20" placeholder="{L_SEARCH_FORUM}" class="form-control" />
-							<button type="submit" class="btn btn-light custom-border" title="{L_SEARCH}"><i class="fa fa-search fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_SEARCH}</span></button>
+							<button type="submit" class="btn btn-light" title="{L_SEARCH}"><i class="fa fa-search fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_SEARCH}</span></button>
 						</div>
 					</div>
 					{S_SEARCH_LOCAL_HIDDEN_FIELDS}
@@ -140,7 +140,7 @@
 						{L_JUMP_TO_PAGE}{L_COLON}
 						<div class="input-group my-2">
 							<input class="form-control" type="number" name="page-number" title="{L_JUMP_PAGE}" data-per-page="{PER_PAGE}" data-base-url="{BASE_URL|e('html_attr')}" data-start-name="{START_NAME}" />
-							<input class="btn btn-light custom-border" value="{L_GO}" type="button" />
+							<input class="btn btn-light" value="{L_GO}" type="button" />
 						</div>
 						<!-- INCLUDE pagination.html -->
 					</div>
@@ -176,7 +176,7 @@
 
 	<!-- IF topicrow.S_FIRST_ROW or not topicrow.S_TOPIC_TYPE_SWITCH -->
 		<div class="card mb-3 pb-1 shadow-sm">
-		<div class="card-header custom-bg-dark custom-text-light">
+		<div class="card-header">
 			<div class="row">
 				<div class="col-lg-7 col-md-6 col-12"<!-- IF S_DISPLAY_ACTIVE --> id="active_topics"<!-- ENDIF -->>
 				<!-- IF S_DISPLAY_ACTIVE -->{L_ACTIVE_TOPICS}<!-- ELSEIF topicrow.S_TOPIC_TYPE_SWITCH and (topicrow.S_POST_ANNOUNCE or topicrow.S_POST_GLOBAL) -->{L_ANNOUNCEMENTS}<!-- ELSE -->{L_TOPICS}<!-- ENDIF -->
