@@ -5,7 +5,7 @@
 	<p class="alert alert-info">{L_UCP_WELCOME}</p>
 
 <!-- IF .topicrow -->
-	<div class="card mb-3">
+	<div class="card mb-3 pb-1">
 		<div class="card-header custom-bg-dark custom-text-light">
 			<div class="row">
 				<div class="col-lg-8 col-md-7 col-12">{L_IMPORTANT_NEWS}</div>
@@ -14,39 +14,41 @@
 		</div>
 
 		<!-- BEGIN topicrow -->
-		<div class="container-fluid row-item position-relative px-3 py-1 custom-border-top {topicrow.TOPIC_IMG_STYLE}<!-- IF topicrow.S_ROW_COUNT is odd --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
-			<div class="row align-items-center">
-				<div class="col-lg-8 col-md-7 col-12 topic-folder folder">
-					<!-- IF topicrow.S_UNREAD_TOPIC --><a href="{topicrow.U_NEWEST_POST}" class="row-item-link"></a><!-- ENDIF -->
+		<div class="container-fluid row-item position-relative p-0 {topicrow.TOPIC_IMG_STYLE}">
+			<div class="mt-1 bg1">
+				<div class="row px-3 align-items-center">
+					<div class="col-lg-8 col-md-7 col-12 folder">
+						<!-- IF topicrow.S_UNREAD_TOPIC --><a href="{topicrow.U_NEWEST_POST}" class="row-item-link"></a><!-- ENDIF -->
 
-					<!-- IF topicrow.S_UNREAD --><a href="{topicrow.U_NEWEST_POST}" class="badge bg-info" title="{L_VIEW_NEWEST_POST}"><i class="fa fa-file icon_topic_newest" aria-hidden="true"></i></a><!-- ENDIF -->
-					<!-- IF topicrow.TOPIC_ICON_IMG --><img src="{T_ICONS_PATH}{topicrow.TOPIC_ICON_IMG}" class="topic-icon" alt="{L_IMAGE}" /> <!-- ENDIF --><a href="{topicrow.U_VIEW_TOPIC}" class="topictitle">{topicrow.TOPIC_TITLE}</a><br>
+						<!-- IF topicrow.S_UNREAD --><a href="{topicrow.U_NEWEST_POST}" class="badge bg-info" title="{L_VIEW_NEWEST_POST}"><i class="fa fa-file icon_topic_newest" aria-hidden="true"></i></a><!-- ENDIF -->
+						<!-- IF topicrow.TOPIC_ICON_IMG --><img src="{T_ICONS_PATH}{topicrow.TOPIC_ICON_IMG}" class="topic-icon" alt="{L_IMAGE}" /> <!-- ENDIF --><a href="{topicrow.U_VIEW_TOPIC}" class="topictitle">{topicrow.TOPIC_TITLE}</a><br>
 
-					<!-- IF .topicrow.pagination -->
-					<ul class="pagination">
-					<!-- BEGIN pagination -->
-						<!-- IF topicrow.pagination.S_IS_PREV -->
-						<!-- ELSEIF topicrow.pagination.S_IS_CURRENT --><li class="active"><span>{topicrow.pagination.PAGE_NUMBER}</span></li>
-						<!-- ELSEIF topicrow.pagination.S_IS_ELLIPSIS --><li class="ellipsis disabled"><span>{L_ELLIPSIS}</span></li>
-						<!-- ELSEIF topicrow.pagination.S_IS_NEXT -->
-						<!-- ELSE --><li><a href="{topicrow.pagination.PAGE_URL}">{topicrow.pagination.PAGE_NUMBER}</a></li>
+						<!-- IF .topicrow.pagination -->
+						<ul class="pagination">
+						<!-- BEGIN pagination -->
+							<!-- IF topicrow.pagination.S_IS_PREV -->
+							<!-- ELSEIF topicrow.pagination.S_IS_CURRENT --><li class="active"><span>{topicrow.pagination.PAGE_NUMBER}</span></li>
+							<!-- ELSEIF topicrow.pagination.S_IS_ELLIPSIS --><li class="ellipsis disabled"><span>{L_ELLIPSIS}</span></li>
+							<!-- ELSEIF topicrow.pagination.S_IS_NEXT -->
+							<!-- ELSE --><li><a href="{topicrow.pagination.PAGE_URL}">{topicrow.pagination.PAGE_NUMBER}</a></li>
+							<!-- ENDIF -->
+						<!-- END pagination -->
+						</ul>
 						<!-- ENDIF -->
-					<!-- END pagination -->
-					</ul>
-					<!-- ENDIF -->
-					<div class="d-none d-md-block">
-						<!-- IF topicrow.ATTACH_ICON_IMG --><i class="fa fa-paperclip" title="{L_TOTAL_ATTACHMENTS}" aria-hidden="true"></i><span class="visually-hidden">{L_TOTAL_ATTACHMENTS}</span><!-- ENDIF -->
-						{L_POST_BY_AUTHOR} {topicrow.TOPIC_AUTHOR_FULL} &raquo; {topicrow.FIRST_POST_TIME}
+						<div class="d-none d-md-block">
+							<!-- IF topicrow.ATTACH_ICON_IMG --><i class="fa fa-paperclip" title="{L_TOTAL_ATTACHMENTS}" aria-hidden="true"></i><span class="visually-hidden">{L_TOTAL_ATTACHMENTS}</span><!-- ENDIF -->
+							{L_POST_BY_AUTHOR} {topicrow.TOPIC_AUTHOR_FULL} &raquo; {topicrow.FIRST_POST_TIME}
+						</div>
+						<div class="d-md-none">
+							<!-- IF topicrow.ATTACH_ICON_IMG --><i class="fa fa-paperclip" title="{L_TOTAL_ATTACHMENTS}" aria-hidden="true"></i><span class="visually-hidden">{L_TOTAL_ATTACHMENTS}</span><!-- ENDIF -->
+							{L_LAST_POST} {L_POST_BY_AUTHOR} {topicrow.LAST_POST_AUTHOR_FULL} &laquo; <a href="{topicrow.U_LAST_POST}" title="{L_GOTO_LAST_POST}">{topicrow.LAST_POST_TIME}</a>
+						</div>
 					</div>
-					<div class="d-md-none">
-						<!-- IF topicrow.ATTACH_ICON_IMG --><i class="fa fa-paperclip" title="{L_TOTAL_ATTACHMENTS}" aria-hidden="true"></i><span class="visually-hidden">{L_TOTAL_ATTACHMENTS}</span><!-- ENDIF -->
-						{L_LAST_POST} {L_POST_BY_AUTHOR} {topicrow.LAST_POST_AUTHOR_FULL} &laquo; <a href="{topicrow.U_LAST_POST}" title="{L_GOTO_LAST_POST}">{topicrow.LAST_POST_TIME}</a>
-					</div>
-				</div>
 
-				<div class="col-lg-4 col-md-5 d-none d-md-block">
-					{L_POST_BY_AUTHOR} {topicrow.LAST_POST_AUTHOR_FULL}
-					<a class="float-end" href="{topicrow.U_LAST_POST}" title="{L_GOTO_LAST_POST}"><i class="fa fa-arrow-{S_CONTENT_FLOW_END} fs-2" aria-hidden="true"></i><span class="visually-hidden">{L_VIEW_LATEST_POST}</span></a> <br>{topicrow.LAST_POST_TIME}
+					<div class="col-lg-4 col-md-5 d-none d-md-block">
+						{L_POST_BY_AUTHOR} {topicrow.LAST_POST_AUTHOR_FULL}
+						<a class="float-end" href="{topicrow.U_LAST_POST}" title="{L_GOTO_LAST_POST}"><i class="fa fa-arrow-{S_CONTENT_FLOW_END} fs-2" aria-hidden="true"></i><span class="visually-hidden">{L_VIEW_LATEST_POST}</span></a> <br>{topicrow.LAST_POST_TIME}
+					</div>
 				</div>
 			</div>
 		</div>
