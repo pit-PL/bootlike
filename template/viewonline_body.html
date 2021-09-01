@@ -4,37 +4,39 @@
 <p>{TOTAL_GUEST_USERS_ONLINE}<!-- IF S_SWITCH_GUEST_DISPLAY --> &bull; <a href="{U_SWITCH_GUEST_DISPLAY}">{L_SWITCH_GUEST_DISPLAY}</a><!-- ENDIF --></p>
 
 <!-- IF TOTAL_PAGES > 1 -->
-<div class="action-bar d-sm-flex justify-content-between p-0 mb-3 custom-border custom-bg-light shadow-sm">
-	<div class="d-flex">&nbsp;</div>
+<div class="card mb-3">
+	<div class="action-bar d-sm-flex justify-content-between bg1">
+		<div class="d-flex">&nbsp;</div>
 
-	<div class="btn btn-lg disabled fs-6 mt-1 text-nowrap border-0">
-		<span class="fw-normal">{PAGE_NUMBER}</span>
-	</div>
-
-	<div class="d-flex">
-	<!-- IF .pagination -->
-		<button class="btn dropdown-toggle btn-lg rounded-0" title="{L_JUMP_TO_PAGE}" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-clone fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_SEARCH}</span></button>
-		<div class="dropdown-menu dropdown-menu-end">
-			<div class="input-group px-2">
-				<!-- INCLUDE pagination.html -->
-			</div>
+		<div class="btn btn-lg disabled fs-6 mt-1 text-nowrap border-0">
+			<span class="fw-normal">{PAGE_NUMBER}</span>
 		</div>
-	<!-- ENDIF -->
+
+		<div class="d-flex">
+		<!-- IF .pagination -->
+			<button class="btn dropdown-toggle btn-lg rounded-0" title="{L_JUMP_TO_PAGE}" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-clone fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_SEARCH}</span></button>
+			<div class="dropdown-menu dropdown-menu-end">
+				<div class="input-group px-2">
+					<!-- INCLUDE pagination.html -->
+				</div>
+			</div>
+		<!-- ENDIF -->
+		</div>
 	</div>
 </div>
 <!-- ENDIF -->
 
-<div id="team" class="card mb-3">
-	<div class="card-header d-none d-md-block custom-bg-dark custom-text-light">
+<div id="team" class="card mb-3 pb-1">
+	<div class="card-header d-none d-md-block">
 		<div class="row">
 			<div class="col-12 col-md-6"><a href="{U_SORT_USERNAME}">{L_USERNAME}</a></div>
 			<div class="col-12 col-md-3"><a href="{U_SORT_LOCATION}">{L_FORUM_LOCATION}</a></div>
 			<div class="col-12 col-md-3"><a href="{U_SORT_UPDATED}">{L_LAST_UPDATED}</a></div>
 		</div>
 	</div>
-	<div class="card-body p-0">
 	<!-- BEGIN user_row -->
-		<div class="row align-items-center custom-border-top m-0<!-- IF user_row.S_ROW_COUNT is even --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
+	<div class="mt-1 bg1">
+		<div class="row px-3 py-1 align-items-center">
 			<div class="col-12 col-md-6 py-2 d-md-flex justify-content-md-between">
 				<div>
 					<span class="badge bg-secondary d-md-none">{L_USERNAME}{L_COLON}</span><!-- EVENT viewonline_body_username_prepend --> {user_row.USERNAME_FULL} <!-- EVENT viewonline_body_username_append -->
@@ -60,10 +62,10 @@
 			</div>
 			<div class="d-md-none<!-- IF not user_row.S_LAST_ROW --> custom-border border-2<!-- ENDIF -->"></div>
 		</div>
+	</div>
 	<!-- BEGINELSE -->
 		<div class="px-3 py-2 text-center bg2">{L_NO_ONLINE_USERS}<!-- IF S_SWITCH_GUEST_DISPLAY --> &bull; <a href="{U_SWITCH_GUEST_DISPLAY}">{L_SWITCH_GUEST_DISPLAY}</a><!-- ENDIF --></div>
 	<!-- END user_row -->
-	</div>
 </div>
 
 <!-- IF LEGEND --><p>{L_LEGEND}{L_COLON} {LEGEND}</p><!-- ENDIF -->
