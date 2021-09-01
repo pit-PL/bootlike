@@ -79,87 +79,89 @@
 <!-- ENDIF -->
 
 <!-- IF (S_DISPLAY_POST_INFO or .pagination or TOTAL_POSTS or TOTAL_TOPICS) and not S_IS_BOT -->
-	<div class="action-bar d-sm-flex justify-content-between p-0 mb-3 custom-border custom-bg-light shadow-sm">
-		<div class="d-flex">
-		<!-- IF S_DISPLAY_POST_INFO -->
-			<!-- EVENT viewforum_buttons_top_before -->
-			<a href="{U_POST_NEW_TOPIC}#postingbox" class="btn btn-lg rounded-0 border-0 border-0<!-- IF S_IS_LOCKED --> text-muted<!-- ENDIF --> text-nowrap"><i class="fa<!-- IF S_IS_LOCKED --> fa-lock<!-- ELSE --> fa-plus<!-- ENDIF --> fa-fw" aria-hidden="true"></i> <!-- IF S_IS_LOCKED -->{L_BUTTON_FORUM_LOCKED}<!-- ELSE -->{L_BUTTON_NEW_TOPIC}<!-- ENDIF --></a>
-			<!-- EVENT viewforum_buttons_top_after -->
-		<!-- ENDIF -->
+	<div class="card mb-3 shadow-sm">
+		<div class="action-bar d-sm-flex justify-content-between bg1">
+			<div class="d-flex">
+			<!-- IF S_DISPLAY_POST_INFO -->
+				<!-- EVENT viewforum_buttons_top_before -->
+				<a href="{U_POST_NEW_TOPIC}#postingbox" class="btn btn-lg rounded-0 border-0 border-0<!-- IF S_IS_LOCKED --> text-muted<!-- ENDIF --> text-nowrap"><i class="fa<!-- IF S_IS_LOCKED --> fa-lock<!-- ELSE --> fa-plus<!-- ENDIF --> fa-fw" aria-hidden="true"></i> <!-- IF S_IS_LOCKED -->{L_BUTTON_FORUM_LOCKED}<!-- ELSE -->{L_BUTTON_NEW_TOPIC}<!-- ENDIF --></a>
+				<!-- EVENT viewforum_buttons_top_after -->
+			<!-- ENDIF -->
 
-		<!-- IF S_SELECT_SORT_DAYS -->
-			<form method="post" action="{S_FORUM_ACTION}">
-				<!-- INCLUDE display_options.html -->
-			</form>
-		<!-- ENDIF -->
+			<!-- IF S_SELECT_SORT_DAYS -->
+				<form method="post" action="{S_FORUM_ACTION}">
+					<!-- INCLUDE display_options.html -->
+				</form>
+			<!-- ENDIF -->
 
-		<!-- IF S_DISPLAY_SEARCHBOX and not topicrow.S_TOPIC_TYPE_SWITCH -->
-			<form method="get" id="forum-search" action="{S_SEARCHBOX_ACTION}">
-				<button class="btn dropdown-toggle btn-lg rounded-0 border-0 border-0" title="{L_SEARCH}" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-search fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_SEARCH}</span></button>
-				<div class="dropdown-menu dropdown-menu-start" role="search">
-					<div class="input-group px-2">
-						<input type="search" name="keywords" id="search_keywords" size="20" placeholder="{L_SEARCH_FORUM}" class="form-control" />
-						<button type="submit" class="btn btn-light custom-border" title="{L_SEARCH}"><i class="fa fa-search fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_SEARCH}</span></button>
+			<!-- IF S_DISPLAY_SEARCHBOX and not topicrow.S_TOPIC_TYPE_SWITCH -->
+				<form method="get" id="forum-search" action="{S_SEARCHBOX_ACTION}">
+					<button class="btn dropdown-toggle btn-lg rounded-0 border-0 border-0" title="{L_SEARCH}" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-search fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_SEARCH}</span></button>
+					<div class="dropdown-menu dropdown-menu-start" role="search">
+						<div class="input-group px-2">
+							<input type="search" name="keywords" id="search_keywords" size="20" placeholder="{L_SEARCH_FORUM}" class="form-control" />
+							<button type="submit" class="btn btn-light custom-border" title="{L_SEARCH}"><i class="fa fa-search fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_SEARCH}</span></button>
+						</div>
+					</div>
+					{S_SEARCH_LOCAL_HIDDEN_FIELDS}
+				</form>
+			<!-- ENDIF -->
+
+			<!-- IF U_WATCH_FORUM_LINK -->
+				<a href="{U_WATCH_FORUM_LINK}" class="btn btn-lg rounded-0 border-0 border-0" title="{S_WATCH_FORUM_TITLE}" data-ajax="toggle_link" data-toggle-class="icon fa <!-- IF S_WATCHING_FORUM -->fa-check-square-o<!-- ELSE -->fa-square-o<!-- ENDIF --> fa-fw" data-bs-toggle-text="{S_WATCH_FORUM_TOGGLE}" data-bs-toggle-url="{U_WATCH_FORUM_TOGGLE}"><i class="icon fa <!-- IF S_WATCHING_FORUM -->fa-square-o<!-- ELSE -->fa-check-square-o<!-- ENDIF --> fa-fw" aria-hidden="true"></i><span class="visually-hidden">{S_WATCH_FORUM_TITLE}</span></a>
+			<!-- ENDIF -->
+			</div>
+
+			<!-- IF TOTAL_TOPICS -->
+			<div class="btn btn-lg d-none d-lg-block disabled fs-6 mt-1 text-nowrap border-0">
+				{TOTAL_TOPICS} &bull; <span class="fw-normal">{PAGE_NUMBER}</span>
+			</div>
+			<!-- ENDIF -->
+
+			<div class="d-flex">
+			<!-- IF S_VIEWFORUM -->
+				<a href="{U_INDEX}" class="btn btn-lg rounded-0 border-0 border-0" title="{L_RETURN_TO_INDEX}" accesskey="r"><i class="fa fa-chevron-{S_CONTENT_FLOW_BEGIN} fa-fw" aria-hidden="true"></i></a>
+			<!-- ENDIF -->
+
+			<!-- IF MODERATORS -->
+				<button class="btn dropdown-toggle btn-lg rounded-0 border-0 border-0" title="<!-- IF S_SINGLE_MODERATOR -->{L_MODERATOR}<!-- ELSE -->{L_MODERATORS}<!-- ENDIF -->" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<i class="fa fa-user-secret fa-fw"></i><span class="visually-hidden">{forumrow.L_MODERATOR_STR}</span>
+				</button>
+				<div class="dropdown-menu dropdown-menu-end">
+					<div class="px-3">{MODERATORS}</div>
+				</div>
+			<!-- ENDIF -->
+
+			<!-- IF .pagination -->
+			<!-- IF BASE_URL and TOTAL_PAGES > 3 -->
+				<div class="dropdown-form">
+					<button class="btn dropdown-toggle btn-lg rounded-0 border-0 border-0" title="{L_JUMP_TO_PAGE}" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-clone fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_JUMP_TO_PAGE}</span></button>
+					<div class="dropdown-menu dropdown-menu-end p-2">
+						{L_JUMP_TO_PAGE}{L_COLON}
+						<div class="input-group my-2">
+							<input class="form-control" type="number" name="page-number" title="{L_JUMP_PAGE}" data-per-page="{PER_PAGE}" data-base-url="{BASE_URL|e('html_attr')}" data-start-name="{START_NAME}" />
+							<input class="btn btn-light custom-border" value="{L_GO}" type="button" />
+						</div>
+						<!-- INCLUDE pagination.html -->
 					</div>
 				</div>
-				{S_SEARCH_LOCAL_HIDDEN_FIELDS}
-			</form>
-		<!-- ENDIF -->
-
-		<!-- IF U_WATCH_FORUM_LINK -->
-			<a href="{U_WATCH_FORUM_LINK}" class="btn btn-lg rounded-0 border-0 border-0" title="{S_WATCH_FORUM_TITLE}" data-ajax="toggle_link" data-toggle-class="icon fa <!-- IF S_WATCHING_FORUM -->fa-check-square-o<!-- ELSE -->fa-square-o<!-- ENDIF --> fa-fw" data-bs-toggle-text="{S_WATCH_FORUM_TOGGLE}" data-bs-toggle-url="{U_WATCH_FORUM_TOGGLE}"><i class="icon fa <!-- IF S_WATCHING_FORUM -->fa-square-o<!-- ELSE -->fa-check-square-o<!-- ENDIF --> fa-fw" aria-hidden="true"></i><span class="visually-hidden">{S_WATCH_FORUM_TITLE}</span></a>
-		<!-- ENDIF -->
-		</div>
-
-		<!-- IF TOTAL_TOPICS -->
-		<div class="btn btn-lg d-none d-lg-block disabled fs-6 mt-1 text-nowrap border-0">
-			{TOTAL_TOPICS} &bull; <span class="fw-normal">{PAGE_NUMBER}</span>
-		</div>
-		<!-- ENDIF -->
-
-		<div class="d-flex">
-		<!-- IF S_VIEWFORUM -->
-			<a href="{U_INDEX}" class="btn btn-lg rounded-0 border-0 border-0" title="{L_RETURN_TO_INDEX}" accesskey="r"><i class="fa fa-chevron-{S_CONTENT_FLOW_BEGIN} fa-fw" aria-hidden="true"></i></a>
-		<!-- ENDIF -->
-
-		<!-- IF MODERATORS -->
-			<button class="btn dropdown-toggle btn-lg rounded-0 border-0 border-0" title="<!-- IF S_SINGLE_MODERATOR -->{L_MODERATOR}<!-- ELSE -->{L_MODERATORS}<!-- ENDIF -->" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			<i class="fa fa-user-secret fa-fw"></i><span class="visually-hidden">{forumrow.L_MODERATOR_STR}</span>
-			</button>
-			<div class="dropdown-menu dropdown-menu-end">
-				<div class="px-3">{MODERATORS}</div>
-			</div>
-		<!-- ENDIF -->
-
-		<!-- IF .pagination -->
-		<!-- IF BASE_URL and TOTAL_PAGES > 3 -->
-			<div class="dropdown-form">
-				<button class="btn dropdown-toggle btn-lg rounded-0 border-0 border-0" title="{L_JUMP_TO_PAGE}" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-clone fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_JUMP_TO_PAGE}</span></button>
-				<div class="dropdown-menu dropdown-menu-end p-2">
-					{L_JUMP_TO_PAGE}{L_COLON}
-					<div class="input-group my-2">
-						<input class="form-control" type="number" name="page-number" title="{L_JUMP_PAGE}" data-per-page="{PER_PAGE}" data-base-url="{BASE_URL|e('html_attr')}" data-start-name="{START_NAME}" />
-						<input class="btn btn-light custom-border" value="{L_GO}" type="button" />
-					</div>
-					<!-- INCLUDE pagination.html -->
-				</div>
-			</div>
-		<!-- ENDIF -->
-
-		<!-- BEGIN pagination -->
-			<!-- IF pagination.S_IS_PREV -->
-				<a class="btn btn-lg rounded-0 border-0 border-0" href="{pagination.PAGE_URL}" title="{L_PREVIOUS}" rel="prev" role="button"><i class="fa fa-step-backward fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_PREVIOUS}</span></a>
 			<!-- ENDIF -->
-			<!-- IF pagination.S_IS_NEXT -->
-				<a class="btn btn-lg rounded-0 border-0 border-0" href="{pagination.PAGE_URL}" title="{L_NEXT}" rel="next" role="button"><i class="fa fa-step-forward fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_NEXT}</span></a>
+
+			<!-- BEGIN pagination -->
+				<!-- IF pagination.S_IS_PREV -->
+					<a class="btn btn-lg rounded-0 border-0 border-0" href="{pagination.PAGE_URL}" title="{L_PREVIOUS}" rel="prev" role="button"><i class="fa fa-step-backward fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_PREVIOUS}</span></a>
+				<!-- ENDIF -->
+				<!-- IF pagination.S_IS_NEXT -->
+					<a class="btn btn-lg rounded-0 border-0 border-0" href="{pagination.PAGE_URL}" title="{L_NEXT}" rel="next" role="button"><i class="fa fa-step-forward fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_NEXT}</span></a>
+				<!-- ENDIF -->
+			<!-- END pagination -->
 			<!-- ENDIF -->
-		<!-- END pagination -->
-		<!-- ENDIF -->
 
-		<!-- IF not topicrow.S_TOPIC_TYPE_SWITCH and U_MARK_TOPICS -->
-			<a href="{U_MARK_TOPICS}" class="btn btn-lg rounded-0 border-0 border-0" title="{L_MARK_TOPICS_READ}" accesskey="m" data-ajax="mark_topics_read"><i class="fa fa-check fa-fw" aria-hidden="true"></i></a>
-		<!-- ENDIF -->
+			<!-- IF not topicrow.S_TOPIC_TYPE_SWITCH and U_MARK_TOPICS -->
+				<a href="{U_MARK_TOPICS}" class="btn btn-lg rounded-0 border-0 border-0" title="{L_MARK_TOPICS_READ}" accesskey="m" data-ajax="mark_topics_read"><i class="fa fa-check fa-fw" aria-hidden="true"></i></a>
+			<!-- ENDIF -->
 
+			</div>
 		</div>
 	</div>
 <!-- ENDIF -->
@@ -173,7 +175,7 @@
 	<!-- ENDIF -->
 
 	<!-- IF topicrow.S_FIRST_ROW or not topicrow.S_TOPIC_TYPE_SWITCH -->
-		<div class="card mb-3 shadow-sm">
+		<div class="card mb-3 pb-1 shadow-sm">
 		<div class="card-header custom-bg-dark custom-text-light">
 			<div class="row">
 				<div class="col-lg-7 col-md-6 col-12"<!-- IF S_DISPLAY_ACTIVE --> id="active_topics"<!-- ENDIF -->>
@@ -186,8 +188,9 @@
 	<!-- ENDIF -->
 
 		<!-- EVENT viewforum_body_topicrow_row_before -->
-		<div class="container-fluid row-item position-relative py-1 custom-border-top {topicrow.TOPIC_IMG_STYLE}<!-- IF topicrow.S_ROW_COUNT is odd --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
-			<div class="row align-items-center" title="{topicrow.TOPIC_FOLDER_IMG_ALT}">
+		<div class="container-fluid row-item position-relative p-0 {topicrow.TOPIC_IMG_STYLE}">
+			<div class="mt-1 bg1">
+			<div class="row px-3 align-items-center" title="{topicrow.TOPIC_FOLDER_IMG_ALT}">
 				<!-- EVENT viewforum_body_topic_row_prepend -->
 				<div class="col-lg-7 col-md-6 col-12 topic-folder folder<!-- IF topicrow.S_TOPIC_UNAPPROVED or topicrow.S_POSTS_UNAPPROVED or topicrow.S_TOPIC_REPORTED --> folder-animation<!-- ENDIF -->">
 				<!-- IF topicrow.S_UNREAD_TOPIC and not S_IS_BOT --><a href="{topicrow.U_NEWEST_POST}" class="row-item-link"></a><!-- ENDIF -->
@@ -255,6 +258,7 @@
 				</div>
 				<!-- EVENT viewforum_body_topic_row_append -->
 			</div>
+			</div>
 		</div>
 
 		<!-- EVENT viewforum_body_topic_row_after -->
@@ -278,32 +282,35 @@
 {% EVENT viewforum_body_online_list_before %}
 
 <!-- IF (S_DISPLAY_ONLINE_LIST and U_VIEWONLINE) or (S_IS_POSTABLE and rules|length) -->
-	<div class="d-md-flex custom-border shadow-sm text-nowrap">
-	<!-- IF S_DISPLAY_ONLINE_LIST and U_VIEWONLINE -->
-		<button class="accordion-button bg2 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_online" aria-expanded="true" aria-controls="collapse_online"><i class="fa fa-signal fa-fw" aria-hidden="true"></i> {L_WHO_IS_ONLINE}</button>
-	<!-- ENDIF -->
-	<!-- IF S_IS_POSTABLE and rules|length -->
-		<button class="accordion-button bg2 shadow-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_permission" aria-expanded="false" aria-controls="collapse_permission"><i class="fa fa-shield fa-fw" aria-hidden="true"></i> {L_FORUM_PERMISSIONS}</button>
-	<!-- ENDIF -->
-	</div>
+<div class="card mb-3 shadow-sm">
+	<div id="accordion_viewforum" class="accordion accordion-flush">
+		<!-- IF S_DISPLAY_ONLINE_LIST and U_VIEWONLINE -->
+		<div class="accordion-item">
+			<h2 class="accordion-header">
+				<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_online" aria-expanded="true" aria-controls="collapse_online"><i class="fa fa-signal fa-fw" aria-hidden="true"></i> {L_WHO_IS_ONLINE}</button>
+			</h2>
+			<div id="collapse_online" class="accordion-collapse collapse show" data-bs-parent="#accordion_viewforum">
+				<div class="accordion-body">
+					{LOGGED_IN_USER_LIST}
+				</div>
+			</div>
+		</div>
+		<!-- ENDIF -->
 
-	<div class="accordion-flush mb-3 bg1 custom-border border-top-0 shadow-sm" id="accordion_viewforum">
-	<!-- IF S_DISPLAY_ONLINE_LIST and U_VIEWONLINE -->
-		<div id="collapse_online" class="accordion-collapse collapse show" data-bs-parent="#accordion_viewforum">
-			<div class="accordion-body pb-1">
-				<p>{LOGGED_IN_USER_LIST}</p>
+		<!-- IF S_IS_POSTABLE and rules|length -->
+		<div class="accordion-item">
+			<h2 class="accordion-header">
+				<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_permission" aria-expanded="false" aria-controls="collapse_permission"><i class="fa fa-shield fa-fw" aria-hidden="true"></i> {L_FORUM_PERMISSIONS}</button>
+			</h2>
+			<div id="collapse_permission" class="accordion-collapse collapse<!-- IF not (S_DISPLAY_ONLINE_LIST and U_VIEWONLINE) --> show<!-- ENDIF -->" data-bs-parent="#accordion_viewforum">
+				<div class="accordion-body">
+					<!-- BEGIN rules -->{rules.RULE}<br><!-- END rules -->
+				</div>
 			</div>
 		</div>
-	<!-- ENDIF -->
-	<!-- IF S_IS_POSTABLE and rules|length -->
-		<div id="collapse_permission" class="accordion-collapse collapse<!-- IF not (S_DISPLAY_ONLINE_LIST and U_VIEWONLINE) --> show<!-- ENDIF -->" data-bs-parent="#accordion_viewforum">
-			<div class="accordion-body">
-				<!-- BEGIN rules -->{rules.RULE}<br><!-- END rules -->
-			</div>
-		</div>
-	<!-- ENDIF -->
+		<!-- ENDIF -->
 	</div>
+</div>
 <!-- ENDIF -->
 
 <!-- INCLUDE overall_footer.html -->
-
