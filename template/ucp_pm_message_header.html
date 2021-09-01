@@ -12,7 +12,8 @@
 	<!-- ENDIF -->
 
 	<!-- IF not S_IS_BOT -->
-		<div class="action-bar d-lg-flex justify-content-between p-0 mb-3 custom-border custom-bg-light">
+	<div class="card mb-3">
+		<div class="action-bar d-lg-flex justify-content-between bg1">
 			<div class="d-flex">
 			<!-- IF U_POST_REPLY_PM -->
 				<a class="btn btn-lg rounded-0 border-0 text-nowrap" href="{U_POST_REPLY_PM}"><i class="fa fa-reply fa-fw" aria-hidden="true"></i> {L_BUTTON_PM_REPLY}</a>
@@ -69,6 +70,7 @@
 			<!-- ENDIF -->
 			</div>
 		</div>
+	</div>
 	<!-- ENDIF -->
 
 	<!-- IF .pagination or FOLDER_CUR_MESSAGES neq 0 or (S_DISPLAY_HISTORY and (U_VIEW_PREVIOUS_HISTORY or U_VIEW_NEXT_HISTORY)) -->
