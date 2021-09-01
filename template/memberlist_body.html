@@ -89,7 +89,7 @@
 <!-- ENDIF -->
 
 <!-- IF S_LEADERS_SET or not S_SHOW_GROUP or not .memberrow -->
-	<div id="memberlist" class="card mb-3">
+	<div id="memberlist" class="card mb-3 pb-1">
 		<div class="card-header d-none d-md-block custom-bg-dark custom-text-light">
 		<div class="row">
 			<div class="col-12 col-md-3" data-dfn="{L_RANK}{L_COMMA_SEPARATOR}<!-- IF S_SHOW_GROUP and .memberrow -->{L_GROUP_LEADER}<!-- ELSE -->{L_USERNAME}<!-- ENDIF -->"><span class="d-none d-md-block float-end"><a href="{U_SORT_RANK}">{L_RANK}</a></span><a href="{U_SORT_USERNAME}"><!-- IF S_SHOW_GROUP and .memberrow -->{L_GROUP_LEADER}<!-- ELSE -->{L_USERNAME}<!-- ENDIF --></a></div>
@@ -102,20 +102,19 @@
 			{% EVENT memberlist_body_memberlist_after %}
 		</div>
 		</div>
-		<div class="card-body p-0">
 <!-- ENDIF -->
 		<!-- BEGIN memberrow -->
+		<div class="mt-1 bg1">
 			<!-- IF S_SHOW_GROUP -->
 				<!-- IF not memberrow.S_GROUP_LEADER and not $S_MEMBER_HEADER -->
 				<!-- IF S_LEADERS_SET and memberrow.S_FIRST_ROW -->
 					<div class="col">&nbsp;</div>
 				<!-- ENDIF -->
 <!-- IF S_LEADERS_SET -->
-		</div>
 	</div>
 <!-- ENDIF -->
 
-<div class="card mb-3">
+<div class="card mb-3 pb-1">
 	<div class="card-header d-none d-md-block custom-bg-dark custom-text-light">
 		<div class="row">
 		<!-- IF not S_LEADERS_SET -->
@@ -139,11 +138,12 @@
 		<!-- ENDIF -->
 		</div>
 	</div>
-	<div class="card-body p-0">
+	<div class="mt-1 bg1">
+
 					<!-- DEFINE $S_MEMBER_HEADER = 1 -->
 				<!-- ENDIF -->
 			<!-- ENDIF -->
-		<div class="row align-items-center custom-border-top m-0<!-- IF memberrow.S_INACTIVE --> text-muted<!-- ENDIF --><!-- IF memberrow.S_ROW_COUNT is even --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
+		<div class="row px-3 py-1 align-items-center<!-- IF memberrow.S_INACTIVE --> text-muted<!-- ENDIF -->">
 			<div class="col-12 col-md-3 py-2 d-md-flex justify-content-md-between">
 				<div>
 					<span class="badge bg-secondary d-md-none">{L_USERNAME}{L_COLON}</span>
@@ -187,10 +187,10 @@
 			{% EVENT memberlist_body_memberrow_after %}
 			<div class="d-md-none<!-- IF not memberrow.S_LAST_ROW --> custom-border border-2<!-- ENDIF -->"></div>
 		</div>
+	</div>
 		<!-- BEGINELSE -->
 		<div class="px-3 py-2 text-center bg2">{L_NO_MEMBERS}</div>
 		<!-- END memberrow -->
-	</div>
 </div>
 
 <!-- IF S_IN_SEARCH_POPUP and not S_SELECT_SINGLE -->
