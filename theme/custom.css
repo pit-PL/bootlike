@@ -67,12 +67,12 @@ hr:after {
 }
 
 .row-item .folder {
-	padding-left: 66px;
+	padding-left: 64px;
 }
 
 .rtl .row-item .folder {
 	padding-left: 0;
-	padding-right: 66px;
+	padding-right: 64px;
 }
 
 .folder-height {
