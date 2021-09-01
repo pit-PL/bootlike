@@ -96,11 +96,11 @@
 
 			<!-- IF S_DISPLAY_SEARCHBOX and not topicrow.S_TOPIC_TYPE_SWITCH -->
 				<form method="get" id="forum-search" action="{S_SEARCHBOX_ACTION}">
-					<button class="btn dropdown-toggle btn-lg rounded-0 border-0 border-0" title="{L_SEARCH}" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-search fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_SEARCH}</span></button>
+					<button class="btn dropdown-toggle btn-lg rounded-0 border-0" title="{L_SEARCH}" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-search fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_SEARCH}</span></button>
 					<div class="dropdown-menu dropdown-menu-start" role="search">
 						<div class="input-group px-2">
 							<input type="search" name="keywords" id="search_keywords" size="20" placeholder="{L_SEARCH_FORUM}" class="form-control" />
-							<button type="submit" class="btn btn-light" title="{L_SEARCH}"><i class="fa fa-search fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_SEARCH}</span></button>
+							<button type="submit" class="btn btn-light custom-border" title="{L_SEARCH}"><i class="fa fa-search fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_SEARCH}</span></button>
 						</div>
 					</div>
 					{S_SEARCH_LOCAL_HIDDEN_FIELDS}
@@ -135,7 +135,7 @@
 			<!-- IF .pagination -->
 			<!-- IF BASE_URL and TOTAL_PAGES > 3 -->
 				<div class="dropdown-form">
-					<button class="btn dropdown-toggle btn-lg rounded-0 border-0 border-0" title="{L_JUMP_TO_PAGE}" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-clone fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_JUMP_TO_PAGE}</span></button>
+					<button class="btn dropdown-toggle btn-lg rounded-0 border-0" title="{L_JUMP_TO_PAGE}" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-clone fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_JUMP_TO_PAGE}</span></button>
 					<div class="dropdown-menu dropdown-menu-end p-2">
 						{L_JUMP_TO_PAGE}{L_COLON}
 						<div class="input-group my-2">
