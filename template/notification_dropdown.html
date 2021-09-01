@@ -1,13 +1,11 @@
-<ul id="notification_list" class="list-group mb-3 custom-bg-white custom-border rounded-0 shadow-sm">
-	<li class="list-group-item p-0  border-0 text-center"><a href="{U_NOTIFICATION_SETTINGS}" class="dropdown-item">{L_SETTINGS}</a></li>
-	<li class="dropdown-divider m-0"></li>
+<ul id="notification_list" class="list-group mb-3 rounded-0 shadow">
+	<li class="list-group-item p-0 text-center"><a href="{U_NOTIFICATION_SETTINGS}" class="dropdown-item">{L_SETTINGS}</a></li>
 	<!-- IF not .notifications -->
-	<li class="list-group-item p-0  border-0 notification-text text-center p-2">{L_NO_NOTIFICATIONS}</li>
-	<li class="dropdown-divider m-0"></li>
+	<li class="list-group-item p-0 notification-text text-center p-2">{L_NO_NOTIFICATIONS}</li>
 	<!-- ENDIF -->
 
 	<!-- BEGIN notifications -->
-	<li class="list-group-item p-0 border-0 dropdown notification-block<!-- IF notifications.UNREAD --> bg-info<!-- ENDIF --><!-- IF notifications.STYLING eq 'notification-reported' or notifications.STYLING eq 'notification-disapproved' --> bg-warning<!-- ENDIF -->">
+	<li class="list-group-item p-0 dropdown notification-block<!-- IF notifications.UNREAD --> bg-info<!-- ENDIF --><!-- IF notifications.STYLING eq 'notification-reported' or notifications.STYLING eq 'notification-disapproved' --> bg-warning<!-- ENDIF -->">
 		<!-- IF notifications.URL -->
 		<a class="dropdown-item px-1" href="<!-- IF notifications.UNREAD -->{notifications.U_MARK_READ}" data-real-url="{notifications.URL}<!-- ELSE -->{notifications.URL}<!-- ENDIF -->">
 		<!-- ENDIF -->
@@ -30,12 +28,10 @@
 		<a class="btn btn-light mark_read" href="{notifications.U_MARK_READ}" data-ajax="notification.mark_read" title="{L_MARK_READ}"><i class="fa fa-check fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_MARK_READ}</span></a>
 		<!-- ENDIF -->
 	</li>
-	<li class="dropdown-divider m-0"></li>
 	<!-- END notifications -->
 
-	<li class="list-group-item p-0  border-0 text-center"><a class="dropdown-item" href="{U_VIEW_ALL_NOTIFICATIONS}">{L_SEE_ALL}</a></li>
+	<li class="list-group-item p-0 text-center"><a class="dropdown-item" href="{U_VIEW_ALL_NOTIFICATIONS}">{L_SEE_ALL}</a></li>
 	<!-- IF NOTIFICATIONS_COUNT -->
-	<li class="dropdown-divider m-0"></li>
-	<li id="mark_all_notifications" class="list-group-item p-0  border-0 text-center"><a class="dropdown-item bg-info text-dark" href="{U_MARK_ALL_NOTIFICATIONS}" data-ajax="notification.mark_all_read"><i class="fa fa-check fa-fw" aria-hidden="true"></i> {L_MARK_ALL_READ}</a></li>
+	<li id="mark_all_notifications" class="list-group-item p-0 text-center"><a class="dropdown-item bg-info text-dark" href="{U_MARK_ALL_NOTIFICATIONS}" data-ajax="notification.mark_all_read"><i class="fa fa-check fa-fw" aria-hidden="true"></i> {L_MARK_ALL_READ}</a></li>
 	<!-- ENDIF -->
 </ul>
