@@ -79,7 +79,7 @@ hr:after {
 	height: 100px;
 }
 
-.forum-folder, .topic-folder, .content {
+.folder, .content {
 	min-height: 4rem;
 }
 
