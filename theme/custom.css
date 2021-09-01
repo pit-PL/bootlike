@@ -62,7 +62,7 @@ hr:after {
 	background-color: #fbfbfb;
 }
 
-.bg2, .action-bar .btn.btn-lg:hover, #format-buttons .btn:hover {
+.bg2, .card.bg2, .action-bar .btn.btn-lg:hover, #format-buttons .btn:hover {
 	background-color: #f2f2f2;
 }
 
