@@ -195,25 +195,25 @@
 <!-- EVENT search_body_recent_search_before -->
 <!-- IF .recentsearch -->
 <div class="col-md-12 col-lg-10 offset-lg-1">
-	<div class="card mb-3">
+	<div class="card mb-3 pb-1">
 		<div class="card-header">
 			{L_RECENT_SEARCHES}
 		</div>
 		<!-- BEGIN recentsearch -->
-		<div class="container-fluid row-item px-3 py-1 custom-border-top<!-- IF recentsearch.S_ROW_COUNT is even --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
-			<div class="row align-items-center ps-2 pm-2">
-				<div class="col-lg-8 col-md-7 col-sm-6">
-					<a href="{recentsearch.U_KEYWORDS}">{recentsearch.KEYWORDS}</a>
-				</div>
-				<div class="col-lg-4 col-md-5 col-sm-6">
-					{recentsearch.TIME}
+		<div class="container-fluid row-item p-0">
+			<div class="mt-1 bg1">
+				<div class="row px-3 py-1 align-items-center">
+					<div class="col-lg-8 col-md-7 col-sm-6">
+						<a href="{recentsearch.U_KEYWORDS}">{recentsearch.KEYWORDS}</a>
+					</div>
+					<div class="col-lg-4 col-md-5 col-sm-6">
+						{recentsearch.TIME}
+					</div>
 				</div>
 			</div>
 		</div>
 		<!-- BEGINELSE -->
-		<div class="card-body px-3 py-2 text-center">
-			{L_NO_RECENT_SEARCHES}
-		</div>
+		<div class="mt-1 px-3 py-2 text-center bg1">{L_NO_RECENT_SEARCHES}</div>
 		<!-- END recentsearch -->
 	</div>
 </div>
