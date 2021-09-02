@@ -36,73 +36,85 @@
 </div>
 
 <!-- EVENT posting_editor_buttons_before -->
-<div id="format-buttons" class="btn-group btn-toolbar custom-bg-light custom-border border-bottom-0" role="group">
-	<div class="btn-group custom-border ms-1 my-1" role="group">
-		<button type="button" class="btn custom-bg-white custom-text-dark bbcode-b" accesskey="b" name="addbbcode0" value=" B " onclick="bbstyle(0)" title="{L_BBCODE_B_HELP}"><i class="fa fa-bold fa-fw" aria-hidden="true"></i></button>
-		<button type="button" class="btn custom-bg-white custom-text-dark bbcode-i" accesskey="i" name="addbbcode2" value=" i " onclick="bbstyle(2)" title="{L_BBCODE_I_HELP}"><i class="fa fa-italic fa-fw" aria-hidden="true"></i></button>
-		<button type="button" class="btn custom-bg-white custom-text-dark bbcode-u" accesskey="u" name="addbbcode4" value=" u " onclick="bbstyle(4)" title="{L_BBCODE_U_HELP}"><i class="fa fa-underline fa-fw" aria-hidden="true"></i></button>
-	</div>
+<div class="card border-bottom-0">
+	<div id="format-buttons" class="btn-group btn-toolbar bg1" role="group">
+		<div class="card ms-1 my-1">
+			<div class="btn-group" role="group">
+				<button type="button" class="btn bbcode-b" accesskey="b" name="addbbcode0" value=" B " onclick="bbstyle(0)" title="{L_BBCODE_B_HELP}"><i class="fa fa-bold fa-fw" aria-hidden="true"></i></button>
+				<button type="button" class="btn bbcode-i" accesskey="i" name="addbbcode2" value=" i " onclick="bbstyle(2)" title="{L_BBCODE_I_HELP}"><i class="fa fa-italic fa-fw" aria-hidden="true"></i></button>
+				<button type="button" class="btn bbcode-u" accesskey="u" name="addbbcode4" value=" u " onclick="bbstyle(4)" title="{L_BBCODE_U_HELP}"><i class="fa fa-underline fa-fw" aria-hidden="true"></i></button>
+			</div>
+		</div>
 
-	<div class="btn-group custom-border ms-1 my-1" role="group">
-		<button type="button" class="btn custom-bg-white custom-text-dark bbcode-list" accesskey="l" name="addbbcode10" value="List" onclick="bbstyle(10)" title="{L_BBCODE_L_HELP}"><i class="fa fa-list fa-fw" aria-hidden="true"></i></button>
-		<button type="button" class="btn custom-bg-white custom-text-dark bbcode-list-" accesskey="o" name="addbbcode12" value="List=" onclick="bbstyle(12)" title="{L_BBCODE_O_HELP}"><i class="fa fa-list-ol fa-fw" aria-hidden="true"></i></button>
-		<button type="button" class="btn custom-bg-white custom-text-dark bbcode-asterisk" accesskey="y" name="addlistitem" value="[*]" onclick="bbstyle(-1)" title="{L_BBCODE_LISTITEM_HELP}"><i class="fa fa-asterisk fa-fw" aria-hidden="true"></i></button>
-	</div>
+		<div class="card ms-1 my-1">
+			<div class="btn-group" role="group">
+				<button type="button" class="btn bbcode-list" accesskey="l" name="addbbcode10" value="List" onclick="bbstyle(10)" title="{L_BBCODE_L_HELP}"><i class="fa fa-list fa-fw" aria-hidden="true"></i></button>
+				<button type="button" class="btn bbcode-list-" accesskey="o" name="addbbcode12" value="List=" onclick="bbstyle(12)" title="{L_BBCODE_O_HELP}"><i class="fa fa-list-ol fa-fw" aria-hidden="true"></i></button>
+				<button type="button" class="btn bbcode-asterisk" accesskey="y" name="addlistitem" value="[*]" onclick="bbstyle(-1)" title="{L_BBCODE_LISTITEM_HELP}"><i class="fa fa-asterisk fa-fw" aria-hidden="true"></i></button>
+			</div>
+		</div>
 
-	<div class="btn-group custom-border ms-1 my-1" role="group">
-		<!-- IF S_BBCODE_QUOTE -->
-		<button type="button" class="btn custom-bg-white custom-text-dark bbcode-quote" accesskey="q" name="addbbcode6" value="Quote" onclick="bbstyle(6)" title="{L_BBCODE_Q_HELP}"><i class="fa fa-quote-left fa-fw" aria-hidden="true"></i></button>
-		<!-- ENDIF -->
-		<button type="button" class="btn custom-bg-white custom-text-dark bbcode-code" accesskey="c" name="addbbcode8" value="Code" onclick="bbstyle(8)" title="{L_BBCODE_C_HELP}"><i class="fa fa-code fa-fw" aria-hidden="true"></i></button>
-	</div>
+		<div class="card ms-1 my-1">
+			<div class="btn-group" role="group">
+				<!-- IF S_BBCODE_QUOTE -->
+				<button type="button" class="btn bbcode-quote" accesskey="q" name="addbbcode6" value="Quote" onclick="bbstyle(6)" title="{L_BBCODE_Q_HELP}"><i class="fa fa-quote-left fa-fw" aria-hidden="true"></i></button>
+				<!-- ENDIF -->
+				<button type="button" class="btn bbcode-code" accesskey="c" name="addbbcode8" value="Code" onclick="bbstyle(8)" title="{L_BBCODE_C_HELP}"><i class="fa fa-code fa-fw" aria-hidden="true"></i></button>
+			</div>
+		</div>
 
-	<div class="btn-group custom-border ms-1 my-1" role="group">
-		<!-- IF S_BBCODE_IMG -->
-		<button type="button" class="btn custom-bg-white custom-text-dark bbcode-img" accesskey="p" name="addbbcode14" value="Img" onclick="bbstyle(14)" title="{L_BBCODE_P_HELP}"><i class="fa fa-image fa-fw" aria-hidden="true"></i></button>
-		<!-- ENDIF -->
-		<!-- IF S_LINKS_ALLOWED -->
-		<button type="button" class="btn custom-bg-white custom-text-dark bbcode-url" accesskey="w" name="addbbcode16" value="URL" onclick="bbstyle(16)" title="{L_BBCODE_W_HELP}"><i class="fa fa-link fa-fw" aria-hidden="true"></i></button>
-		<!-- ENDIF -->
-		<!-- IF S_BBCODE_FLASH -->
-		<button type="button" class="btn custom-bg-white custom-text-dark bbcode-flash" accesskey="d" name="addbbcode18" value="Flash" onclick="bbstyle(18)" title="{L_BBCODE_D_HELP}"><i class="fa fa-flash fa-fw" aria-hidden="true"></i></button>
-		<!-- ENDIF -->
-	</div>
+		<div class="card ms-1 my-1">
+			<div class="btn-group" role="group">
+				<!-- IF S_BBCODE_IMG -->
+				<button type="button" class="btn bbcode-img" accesskey="p" name="addbbcode14" value="Img" onclick="bbstyle(14)" title="{L_BBCODE_P_HELP}"><i class="fa fa-image fa-fw" aria-hidden="true"></i></button>
+				<!-- ENDIF -->
+				<!-- IF S_LINKS_ALLOWED -->
+				<button type="button" class="btn bbcode-url" accesskey="w" name="addbbcode16" value="URL" onclick="bbstyle(16)" title="{L_BBCODE_W_HELP}"><i class="fa fa-link fa-fw" aria-hidden="true"></i></button>
+				<!-- ENDIF -->
+				<!-- IF S_BBCODE_FLASH -->
+				<button type="button" class="btn bbcode-flash" accesskey="d" name="addbbcode18" value="Flash" onclick="bbstyle(18)" title="{L_BBCODE_D_HELP}"><i class="fa fa-flash fa-fw" aria-hidden="true"></i></button>
+				<!-- ENDIF -->
+			</div>
+		</div>
 
-	<div class="btn-group custom-border ms-1 my-1" role="group">
-		<button type="button" class="btn custom-bg-white custom-text-dark bbcode-color" name="bbpalette" id="bbpalette" value="{L_FONT_COLOR}" onclick="change_palette();" title="{L_BBCODE_S_HELP}"><i class="fa fa-paint-brush fa-fw" aria-hidden="true"></i></button>
-		<!-- IF S_SMILIES_ALLOWED and .smiley -->
-		<button type="button" class="btn custom-bg-white custom-text-dark rounded-0 dropdown-toggle bbcode-smile" data-bs-toggle="dropdown" aria-expanded="false" title="{L_SMILES}"><i class="fa fa-smile-o fa-fw" aria-hidden="true"></i></button>
-		<ul id="smiley-box" class="dropdown-menu dropdown-menu-end dropdown-form p-2">
-			<li style="width: 165px;">
-			<!-- BEGIN smiley -->
-				<a href="#" onclick="insert_text('{smiley.A_SMILEY_CODE}', true); return false;"><img src="{smiley.SMILEY_IMG}" class="m-1" width="{smiley.SMILEY_WIDTH}" height="{smiley.SMILEY_HEIGHT}" alt="{smiley.SMILEY_CODE}" title="{smiley.SMILEY_DESC}" /></a>
-			<!-- END smiley -->
-			</li>
-		</ul>
-		<!-- ENDIF -->
-	</div>
+		<div class="card ms-1 my-1">
+			<div class="btn-group" role="group">
+				<button type="button" class="btn bbcode-color" name="bbpalette" id="bbpalette" value="{L_FONT_COLOR}" onclick="change_palette();" title="{L_BBCODE_S_HELP}"><i class="fa fa-paint-brush fa-fw" aria-hidden="true"></i></button>
+				<!-- IF S_SMILIES_ALLOWED and .smiley -->
+				<button type="button" class="btn rounded-0 dropdown-toggle bbcode-smile" data-bs-toggle="dropdown" aria-expanded="false" title="{L_SMILES}"><i class="fa fa-smile-o fa-fw" aria-hidden="true"></i></button>
+				<ul id="smiley-box" class="dropdown-menu dropdown-menu-end dropdown-form p-2">
+					<li style="width: 165px;">
+					<!-- BEGIN smiley -->
+						<a href="#" onclick="insert_text('{smiley.A_SMILEY_CODE}', true); return false;"><img src="{smiley.SMILEY_IMG}" class="m-1" width="{smiley.SMILEY_WIDTH}" height="{smiley.SMILEY_HEIGHT}" alt="{smiley.SMILEY_CODE}" title="{smiley.SMILEY_DESC}" /></a>
+					<!-- END smiley -->
+					</li>
+				</ul>
+				<!-- ENDIF -->
+			</div>
+		</div>
 
-	<select class="form-select custom-bg-white custom-text-dark custom-text-dark custom-border ms-1 my-1 rounded-0 bbcode-size" name="addbbcode20" onchange="bbfontstyle('[size=' + this.form.addbbcode20.options[this.form.addbbcode20.selectedIndex].value + ']', '[/size]');this.form.addbbcode20.selectedIndex = 2;" title="{L_BBCODE_F_HELP}">
-		<option value="50">{L_FONT_TINY}</option>
-		<option value="85">{L_FONT_SMALL}</option>
-		<option value="100" selected="selected">{L_FONT_NORMAL}</option>
-		<!-- IF not MAX_FONT_SIZE or MAX_FONT_SIZE >= 150 -->
-			<option value="150">{L_FONT_LARGE}</option>
-			<!-- IF not MAX_FONT_SIZE or MAX_FONT_SIZE >= 200 -->
-				<option value="200">{L_FONT_HUGE}</option>
+		<select class="form-select ms-1 my-1 rounded-0 bbcode-size" name="addbbcode20" onchange="bbfontstyle('[size=' + this.form.addbbcode20.options[this.form.addbbcode20.selectedIndex].value + ']', '[/size]');this.form.addbbcode20.selectedIndex = 2;" title="{L_BBCODE_F_HELP}">
+			<option value="50">{L_FONT_TINY}</option>
+			<option value="85">{L_FONT_SMALL}</option>
+			<option value="100" selected="selected">{L_FONT_NORMAL}</option>
+			<!-- IF not MAX_FONT_SIZE or MAX_FONT_SIZE >= 150 -->
+				<option value="150">{L_FONT_LARGE}</option>
+				<!-- IF not MAX_FONT_SIZE or MAX_FONT_SIZE >= 200 -->
+					<option value="200">{L_FONT_HUGE}</option>
+				<!-- ENDIF -->
 			<!-- ENDIF -->
-		<!-- ENDIF -->
-	</select>
+		</select>
 
-	<!-- EVENT posting_editor_buttons_custom_tags_before -->
-	<!-- IF .custom_tags -->
-	<select class="form-select custom-bg-white custom-text-dark custom-text-dark custom-border m-1 rounded-0 bbcode-custom" name="addbbcode_custom" onchange="bbstyle(this.form.addbbcode_custom.options[this.form.addbbcode_custom.selectedIndex].value*1);this.form.addbbcode_custom.selectedIndex = 0;">
-		<option value="{L_BBCODES}" selected="selected">{L_BBCODES}</option>
-		<!-- BEGIN custom_tags -->
-		<option value="{custom_tags.BBCODE_ID}" title="{{ custom_tags.BBCODE_HELPLINE }}">{custom_tags.BBCODE_TAG}</option>
-		<!-- END custom_tags -->
-	</select>
-	<!-- ENDIF -->
+		<!-- EVENT posting_editor_buttons_custom_tags_before -->
+		<!-- IF .custom_tags -->
+		<select class="form-select m-1 rounded-0 bbcode-custom" name="addbbcode_custom" onchange="bbstyle(this.form.addbbcode_custom.options[this.form.addbbcode_custom.selectedIndex].value*1);this.form.addbbcode_custom.selectedIndex = 0;">
+			<option value="{L_BBCODES}" selected="selected">{L_BBCODES}</option>
+			<!-- BEGIN custom_tags -->
+			<option value="{custom_tags.BBCODE_ID}" title="{{ custom_tags.BBCODE_HELPLINE }}">{custom_tags.BBCODE_TAG}</option>
+			<!-- END custom_tags -->
+		</select>
+		<!-- ENDIF -->
+	</div>
 </div>
 <!-- EVENT posting_editor_buttons_after -->
 <!-- ENDIF -->
