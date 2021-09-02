@@ -11,14 +11,10 @@
 		</script>
 		<!-- BEGIN history_row -->
 		<div class="card mb-3">
-			<div class="card-header">
-				<a href="{history_row.U_VIEW_MESSAGE}" class="text-white"><!-- IF history_row.S_CURRENT_MSG --><mark>{history_row.SUBJECT}</mark><!-- ELSE -->{history_row.SUBJECT}<!-- ENDIF --></a>
-			</div>
-			<div class="card-body custom-bg-light p-0">
-
-			<div id="pr{history_row.MSG_ID}" class="postbody">
-				<div class="postbody-before d-sm-flex px-3 py-1 justify-content-between align-items-center bg-2 custom-border-bottom">
+			<div id="pr{history_row.MSG_ID}" class="postbody bg2">
+				<div class="postbody-before d-sm-flex px-3 py-1 justify-content-between align-items-center">
 					<div>
+						<a href="{history_row.U_VIEW_MESSAGE}"><!-- IF history_row.S_CURRENT_MSG --><mark>{history_row.SUBJECT}</mark><!-- ELSE -->{history_row.SUBJECT}<!-- ENDIF --></a><br>
 						<i class="fa fa-file-o fa-fw" aria-hidden="true"></i> {L_MESSAGE_BY_AUTHOR} <!-- EVENT ucp_pm_history_row_message_author_username_prepend --> {history_row.MESSAGE_AUTHOR_FULL} <!-- EVENT ucp_pm_history_row_message_author_username_append --> &raquo; {L_SENT_AT}{L_COLON} <strong>{history_row.SENT_DATE}</strong>
 					</div>
 
@@ -44,7 +40,6 @@
 				<div id="message_{history_row.MSG_ID}" style="display: none;">{history_row.DECODED_MESSAGE}</div>
 			</div>
 
-			</div>
 		</div>
 		<!-- END history_row -->
 	</div>
