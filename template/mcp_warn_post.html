@@ -13,11 +13,11 @@
 			<div class="row m-0">
 
 			<!-- IF AVATAR_IMG -->
-				<div class="postprofile col-lg-3 col-md-4<!-- IF not $PROFILES_ON_LEFT --> order-first order-md-2<!-- ENDIF --> bg2">
+				<div class="postprofile col-lg-3 col-md-4<!-- IF not $PROFILES_ON_LEFT --> order-first order-md-2<!-- ENDIF --> bg2 shadow">
 					<div class="text-center p-3">{AVATAR_IMG}</div>
 				</div>
 			<!-- ENDIF -->
-				<div class="postbody<!-- IF AVATAR_IMG --> col-lg-9 col-md-8<!-- ELSE --> col-12<!-- ENDIF --> p-0<!-- IF not $PROFILES_ON_LEFT and AVATAR_IMG --> custom-border-end<!-- ELSEIF AVATAR_IMG --> custom-border-start<!-- ENDIF --> custom-bg-light">
+				<div class="postbody<!-- IF AVATAR_IMG --> col-lg-9 col-md-8<!-- ELSE --> col-12<!-- ENDIF --> p-0 bg1">
 				<hr class="d-md-none m-0">
 
 					<div class="px-3 py-2">
@@ -47,8 +47,8 @@
 		<div class="card-header">
 			{L_POST_DETAILS}
 		</div>
-		<div class="card-body custom-bg-light">
-			<div class="postbody">
+		<div class="card-body">
+			<div class="postbody bg1">
 				<div class="content">{POST}</div>
 			</div>
 		</div>
