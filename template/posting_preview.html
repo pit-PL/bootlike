@@ -35,11 +35,11 @@
 	<div class="card-body p-0">
 		<div class="row m-0">
 
-			<div class="postprofile col-lg-3 col-md-4<!-- IF not $PROFILES_ON_LEFT --> order-first order-md-2<!-- ENDIF --> bg2">
-				<div class="text-center p-3"><img class="img-thumbnail" src="{ROOT_PATH}styles/bootlike/theme/images/no_avatar.gif" alt="{L_IMAGE}" /></div>
+			<div class="postprofile col-lg-3 col-md-4<!-- IF not $PROFILES_ON_LEFT --> order-first order-md-2<!-- ENDIF --> bg2 shadow">
+				<div class="text-center p-3"><img class="img-thumbnail rounded-circle" src="{ROOT_PATH}styles/bootlike/theme/images/no_avatar.gif" alt="{L_IMAGE}" /></div>
 			</div>
 
-			<div class="postbody col-lg-9 col-md-8 col-12 p-0<!-- IF not $PROFILES_ON_LEFT --> custom-border-end<!-- ELSE --> custom-border-start<!-- ENDIF --><!-- IF PREVIEW_SIGNATURE --> custom-bg-light<!-- ELSE --> bg1<!-- ENDIF -->">
+			<div class="postbody col-lg-9 col-md-8 col-12 p-0 bg2">
 			<hr class="d-md-none m-0">
 
 				<div class="px-3 py-2 bg1">
@@ -50,9 +50,11 @@
 					<div class="my-1 text-uppercase">{L_ATTACHMENTS}</div>
 					<div class="row<!-- IF $ATTACHMENT_COLUMNS eq 3 --> row-cols-lg-3 row-cols-md-2 row-cols-1<!-- ENDIF --><!-- IF $ATTACHMENT_COLUMNS eq 2 --> row-cols-lg-2 row-cols-1<!-- ENDIF -->">
 					<!-- BEGIN attachment -->
-						<div class="col mb-3 d-flex">
-							<div class="custom-bg-white custom-border border-2 p-2<!-- IF $ATTACHMENT_COLUMNS --> w-100<!-- ENDIF -->">
-								{attachment.DISPLAY_ATTACHMENT}
+						<div class="col d-flex">
+							<div class="card mb-3<!-- IF $ATTACHMENT_COLUMNS --> w-100<!-- ENDIF -->">
+								<div class="card-body p-2">
+									{attachment.DISPLAY_ATTACHMENT}
+								</div>
 							</div>
 						</div>
 					<!-- END attachment -->
