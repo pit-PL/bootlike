@@ -20,6 +20,11 @@
 			<!-- ENDIF -->
 
 			<!-- EVENT memberlist_view_username_prepend -->
+			<!-- IF not $PROFILE_POPUP_OFF -->
+				<button class="btn btn-primary btn-sm position-relative d-block mx-auto mt-3 mb-1" type="button" data-bs-toggle="modal" data-bs-target="#modal_post_{postrow.POST_ID}">
+					<i class="fa fa-user-circle-o fa-fw" aria-hidden="true"></i> {L_READ_PROFILE} <svg width="1em" height="1em" viewBox="0 0 16 16" class="position-absolute top-100 start-50 translate-middle mt-1 bi bi-caret-down-fill" fill="#0d6efd" xmlns="http://www.w3.org/2000/svg"><path d="M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/></svg>
+				</button>
+			<!-- ENDIF -->
 				<span<!-- IF USER_COLOR --> style="color: {USER_COLOR}; font-weight: bold;"<!-- ENDIF -->>{USERNAME}</span><br>
 			<!-- EVENT memberlist_view_username_append -->
 			<!-- EVENT memberlist_view_rank_avatar_before -->
@@ -53,7 +58,7 @@
 
 			</div>
 
-			<!-- IF U_EMAIL or U_PM or (U_JABBER and S_JABBER_ENABLED) or custom_fields.PROFILE_FIELD_CONTACT -->
+			<!-- IF (U_EMAIL or U_PM or (U_JABBER and S_JABBER_ENABLED) or custom_fields.PROFILE_FIELD_CONTACT) and $PROFILE_POPUP_OFF -->
 			<div id="accordion_contact" class="accordion accordion-flush">
 				<div class="accordion-item">
 					<h2 class="accordion-header">
@@ -151,6 +156,7 @@
 
 			</div>
 
+			<!-- IF $PROFILE_POPUP_OFF -->
 			<div id="accordion_user_statistics" class="accordion accordion-flush">
 				<div class="accordion-item">
 					<h2 class="accordion-header">
@@ -181,6 +187,7 @@
 					</div>
 				</div>
 			</div>
+			<!-- ENDIF -->
 
 		</div>
 	</div>
@@ -199,5 +206,91 @@
 </form>
 
 <!-- EVENT memberlist_view_content_append -->
+
+<!-- IF not ($PROFILE_POPUP_OFF and S_IS_BOT) -->
+	<div id="modal_post_{postrow.POST_ID}" class="modal fade" tabindex="-1" role="dialog">
+		<div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">{L_READ_PROFILE} - {USERNAME}</h5>
+					<button type="button" class="btn-close" title="{L_CLOSE_WINDOW}" data-bs-dismiss="modal" aria-label="{L_CLOSE_WINDOW}"></button>
+				</div>
+
+				<div class="modal-body bg1">
+					<dl class="row mb-0">
+						<!-- EVENT memberlist_view_user_statistics_before -->
+						<dt class="col-lg-4 col-md-5 col-12">{L_JOINED}{L_COLON}</dt><dd class="col-lg-8 col-md-7 col-12">{JOINED}</dd>
+						<dt class="col-lg-4 col-md-5 col-12">{L_LAST_ACTIVE}{L_COLON}</dt><dd class="col-lg-8 col-md-7 col-12">{LAST_ACTIVE}</dd>
+						<!-- IF S_WARNINGS -->
+						<dt class="col-lg-4 col-md-5 col-12">{L_WARNINGS}{L_COLON}</dt>
+						<dd class="col-lg-8 col-md-7 col-12"><strong class="badge bg-warning">{WARNINGS}</strong><!-- IF U_NOTES or U_WARN --> [ <!-- IF U_NOTES --><a href="{U_NOTES}">{L_VIEW_NOTES}</a><!-- ENDIF --> <!-- IF U_WARN --><!-- IF U_NOTES --> | <!-- ENDIF --><a href="{U_WARN}">{L_WARN_USER}</a><!-- ENDIF --> ]<!-- ENDIF --></dd>
+						<!-- ENDIF -->
+						<dt class="col-lg-4 col-md-5 col-12">{L_TOTAL_POSTS}{L_COLON}</dt>
+							<dd class="col-lg-8 col-md-7 col-12">{POSTS}<!-- IF S_DISPLAY_SEARCH --> | <a href="{U_SEARCH_USER}">{L_SEARCH_USER_POSTS}</a><!-- ENDIF -->
+								<!-- IF POSTS_PCT --><br>({POSTS_PCT} / {POSTS_DAY})<!-- ENDIF -->
+								<!-- IF POSTS_IN_QUEUE and U_MCP_QUEUE --><br>(<a href="{U_MCP_QUEUE}">{L_POSTS_IN_QUEUE}</a>)<!-- ELSEIF POSTS_IN_QUEUE --><br>({L_POSTS_IN_QUEUE})<!-- ENDIF -->
+							</dd>
+						<!-- IF S_SHOW_ACTIVITY and POSTS -->
+							<dt class="col-lg-4 col-md-5 col-12">{L_ACTIVE_IN_FORUM}{L_COLON}</dt><dd class="col-lg-8 col-md-7 col-12"><!-- IF ACTIVE_FORUM != '' --><a href="{U_ACTIVE_FORUM}">{ACTIVE_FORUM}</a><br>({ACTIVE_FORUM_POSTS} / {ACTIVE_FORUM_PCT})<!-- ELSE --> - <!-- ENDIF --></dd>
+							<dt class="col-lg-4 col-md-5 col-12">{L_ACTIVE_IN_TOPIC}{L_COLON}</dt><dd class="col-lg-8 col-md-7 col-12"><!-- IF ACTIVE_TOPIC != '' --><a href="{U_ACTIVE_TOPIC}">{ACTIVE_TOPIC}</a><br>({ACTIVE_TOPIC_POSTS} / {ACTIVE_TOPIC_PCT})<!-- ELSE --> - <!-- ENDIF --></dd>
+						<!-- ENDIF -->
+						<!-- EVENT memberlist_view_user_statistics_after -->
+					</dl>
+				</div>
+				
+				<div class="modal-footer justify-content-center">
+				<!-- EVENT memberlist_view_contact_before -->
+				<!-- IF U_EMAIL -->
+					<a class="d-inline-block m-1 text-decoration-none" href="{U_EMAIL}" title="{L_SEND_EMAIL_USER}">
+						<div class="p-1 rounded-circle alert-primary shadow-sm">
+							<div class="contact-button d-flex align-items-center justify-content-center rounded-circle border border-4 border-white fs-5 alert-primary" style="width: 48px; height: 48px;">
+								<i class="fa fa-envelope-o fa-fw" aria-hidden="true"></i>
+							</div>
+						</div>
+					</a>
+				<!-- ENDIF -->
+				<!-- IF U_PM -->
+					<a class="d-inline-block m-1 text-decoration-none" href="{U_PM}" title="{L_SEND_PRIVATE_MESSAGE}">
+						<div class="p-1 rounded-circle alert-primary shadow-sm">
+							<div class="contact-button d-flex align-items-center justify-content-center rounded-circle border border-4 border-white fs-5 alert-primary" style="width: 48px; height: 48px;">
+								<i class="fa fa-user fa-fw" aria-hidden="true"></i>
+							</div>
+						</div>
+					</a>
+				<!-- ENDIF -->
+				<!-- IF U_JABBER and S_JABBER_ENABLED -->
+					<a class="d-inline-block m-1 text-decoration-none" href="{U_JABBER}" title="{L_SEND_JABBER_MESSAGE}" onclick="popup(this.href, 750, 320); return false;">
+						<div class="p-1 rounded-circle alert-primary shadow-sm">
+							<div class="contact-button d-flex align-items-center justify-content-center rounded-circle border border-4 border-white fs-5 alert-primary" style="width: 48px; height: 48px;">
+								<i class="fa fa-lightbulb-o fa-fw" aria-hidden="true"></i>
+							</div>
+						</div>
+					</a>
+				<!-- ENDIF -->
+
+				<!-- EVENT memberlist_view_contact_custom_fields_before -->
+				<!-- BEGIN custom_fields -->
+					<!-- IF custom_fields.PROFILE_FIELD_CONTACT -->
+						<a class="d-inline-block m-1 text-decoration-none" href="{custom_fields.PROFILE_FIELD_CONTACT}" title="{custom_fields.PROFILE_FIELD_DESC}">
+							<div class="p-1 rounded-circle alert-primary shadow-sm">
+								<div class="contact-button d-flex align-items-center justify-content-center rounded-circle border border-4 border-white fs-5 alert-primary" style="width: 48px; height: 48px;">
+									<i class="fa fa-<!-- IF custom_fields.PROFILE_FIELD_NAME eq 'Website' -->globe<!-- ELSEIF custom_fields.PROFILE_FIELD_NAME eq 'ICQ' -->asterisk<!-- ELSEIF custom_fields.PROFILE_FIELD_NAME eq 'Yahoo Messenger' -->yahoo<!-- ELSEIF custom_fields.PROFILE_FIELD_NAME eq 'Facebook' -->facebook<!-- ELSEIF custom_fields.PROFILE_FIELD_NAME eq 'Twitter' -->twitter<!-- ELSEIF custom_fields.PROFILE_FIELD_NAME eq 'Skype' -->skype<!-- ELSEIF custom_fields.PROFILE_FIELD_NAME eq 'YouTube' -->youtube<!-- ELSE -->comments<!-- ENDIF --> fa-fw" aria-hidden="true"></i>
+								</div>
+							</div>
+						</a>
+					<!-- ENDIF -->
+				<!-- END custom_fields -->
+				<!-- EVENT memberlist_view_contact_custom_fields_after -->
+				<!-- IF S_PROFILE_FIELD1 -->
+					<!-- NOTE: Use a construct like this to include admin defined profile fields. Replace FIELD1 with the name of your field. -->
+					{PROFILE_FIELD1_NAME}{L_COLON} {PROFILE_FIELD1_VALUE}
+				<!-- ENDIF -->
+				<!-- EVENT memberlist_view_contact_after -->
+				</div>
+
+			</div>
+		</div>
+	</div>
+<!-- ENDIF -->
 
 <!-- INCLUDE overall_footer.html -->
