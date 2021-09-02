@@ -5,7 +5,7 @@
 	{L_LOAD_DRAFT_EXPLAIN}
 </div>
 
-<div class="card mb-3">
+<div class="card mb-3 pb-1">
 	<div class="card-header bg-secondary border-bottom-0 text-light">
 		<div class="row">
 			<div class="col-lg-9 col-md-8 col-12">{L_LOAD_DRAFT}</div>
@@ -14,19 +14,21 @@
 	</div>
 
 	<!-- BEGIN draftrow -->
-	<div class="container-fluid row-item px-3 py-1 custom-border-top<!-- IF draftrow.S_ROW_COUNT is even --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
-		<div class="row align-items-center">
-			<div class="col-lg-9 col-md-8 col-12">
-				<a class="topictitle" href="{draftrow.U_INSERT}#postform" title="{L_LOAD_DRAFT}">{draftrow.DRAFT_SUBJECT}</a><br>
-				<!-- IF not S_PRIVMSGS --><!-- IF draftrow.S_LINK_TOPIC -->{L_TOPIC}{L_COLON} <a href="{draftrow.U_VIEW}">{draftrow.TITLE}</a>
-				<!-- ELSEIF draftrow.S_LINK_FORUM -->{L_FORUM}{L_COLON} <a href="{draftrow.U_VIEW}">{draftrow.TITLE}</a>
-				<!-- ELSE -->{L_NO_TOPIC_FORUM}<!-- ENDIF --><!-- ENDIF -->
-				<div class="d-md-none">
-					{L_SAVE_DATE}{L_COLON} {draftrow.DATE}
+	<div class="container-fluid row-item p-0">
+		<div class="mt-1 bg1">
+			<div class="row px-3 py-1 align-items-center">
+				<div class="col-lg-9 col-md-8 col-12">
+					<a class="topictitle" href="{draftrow.U_INSERT}#postform" title="{L_LOAD_DRAFT}">{draftrow.DRAFT_SUBJECT}</a><br>
+					<!-- IF not S_PRIVMSGS --><!-- IF draftrow.S_LINK_TOPIC -->{L_TOPIC}{L_COLON} <a href="{draftrow.U_VIEW}">{draftrow.TITLE}</a>
+					<!-- ELSEIF draftrow.S_LINK_FORUM -->{L_FORUM}{L_COLON} <a href="{draftrow.U_VIEW}">{draftrow.TITLE}</a>
+					<!-- ELSE -->{L_NO_TOPIC_FORUM}<!-- ENDIF --><!-- ENDIF -->
+					<div class="d-md-none">
+						{L_SAVE_DATE}{L_COLON} {draftrow.DATE}
+					</div>
 				</div>
-			</div>
 
-			<div class="col-lg-3 col-md-4 d-none d-md-block">{draftrow.DATE}</div>
+				<div class="col-lg-3 col-md-4 d-none d-md-block">{draftrow.DATE}</div>
+			</div>
 		</div>
 	</div>
 	<!-- END draftrow -->
