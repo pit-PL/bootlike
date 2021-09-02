@@ -42,10 +42,10 @@
 <!-- ENDIF -->
 
 <div class="card mb-3">
-	<div class="card-body custom-bg-light p-0">
+	<div class="card-body p-0">
 
-	<div class="postbody">
-		<div class="postbody-before d-md-flex px-3 py-1 justify-content-between align-items-center bg-2 custom-border-bottom">
+	<div class="postbody bg2">
+		<div class="postbody-before d-md-flex px-3 py-1 justify-content-between align-items-center">
 			<div>
 			<a href="{U_VIEW_POST}">{POST_SUBJECT}</a>
 				<div>
@@ -116,11 +116,13 @@
 		<!-- IF S_HAS_ATTACHMENTS -->
 			<div class="attachbox float-start mb-2">
 				<div class="my-1 text-uppercase">{L_ATTACHMENTS}</div>
-				<div class="custom-bg-white custom-border p-2">
-				<!-- BEGIN attachment -->
-					<!-- IF not attachment.S_FIRST_ROW --><hr><!-- ENDIF -->
-					{attachment.DISPLAY_ATTACHMENT}
-				<!-- END attachment -->
+				<div class="card mb-3">
+					<div class="card-body p-2">
+					<!-- BEGIN attachment -->
+						<!-- IF not attachment.S_FIRST_ROW --><hr><!-- ENDIF -->
+						{attachment.DISPLAY_ATTACHMENT}
+					<!-- END attachment -->
+					</div>
 				</div>
 			</div>
 			<div class="clearfix"></div>
@@ -135,7 +137,7 @@
 
 		</div>
 	<!-- IF SIGNATURE -->
-		<div id="sig{POST_ID}" class="postbody-after d-none d-md-block px-3 py-2 small custom-border-top">{SIGNATURE}</div>
+		<div id="sig{POST_ID}" class="postbody-after d-none d-md-block px-3 py-2 small">{SIGNATURE}</div>
 	<!-- ENDIF -->
 	</div>
 
@@ -301,16 +303,17 @@
 			</p>
 		<!-- ENDIF -->
 
-			<div class="card mb-3">
+			<div class="card mb-3 pb-1">
 				<div class="card-header d-none d-md-block">
 					<div class="row">
 						<div class="col-12 col-md-10">{L_OTHER_USERS}</div>
 						<div class="col-12 col-md-2 text-center">{L_POSTS}</div>
 					</div>
 				</div>
-				<div class="card-body p-0">
-					<!-- BEGIN userrow -->
-					<div class="row align-items-center custom-border-top m-0<!-- IF userrow.S_ROW_COUNT is even --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
+
+				<!-- BEGIN userrow -->
+				<div class="mt-1 bg1">
+					<div class="row px-3 py-1 align-items-center">
 						<div class="col-12 col-md-10 py-2">
 							<span class="badge bg-secondary d-md-none">{L_OTHER_USERS}{L_COLON}</span>
 						<!-- IF userrow.U_PROFILE -->
@@ -323,36 +326,38 @@
 						</div>
 						<div class="d-md-none<!-- IF not userrow.S_LAST_ROW --> custom-border border-2<!-- ENDIF -->"></div>
 					</div>
-					<!-- BEGINELSE -->
-						<div class="px-3 py-2 text-center bg2">{L_NO_MATCHES_FOUND}</div>
-					<!-- END userrow -->
 				</div>
+			<!-- BEGINELSE -->
+				<div class="mt-1 px-3 py-2 text-center bg1">{L_NO_MATCHES_FOUND}</div>
+			<!-- END userrow -->
 			</div>
 
 			<!-- IF .pagination -->
-			<div class="action-bar d-sm-flex justify-content-end p-0 mb-3 custom-border custom-bg-light">
-				<div class="d-flex">
-					<button class="btn dropdown-toggle btn-lg rounded-0" title="{L_JUMP_TO_PAGE}" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-clone fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_SEARCH}</span></button>
-					<div class="dropdown-menu dropdown-menu-end">
-						<div class="input-group px-2">
-							<!-- INCLUDE pagination.html -->
+			<div class="card mb-3">
+				<div class="action-bar d-sm-flex justify-content-end bg1">
+					<div class="d-flex">
+						<button class="btn dropdown-toggle btn-lg rounded-0" title="{L_JUMP_TO_PAGE}" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-clone fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_SEARCH}</span></button>
+						<div class="dropdown-menu dropdown-menu-end">
+							<div class="input-group px-2">
+								<!-- INCLUDE pagination.html -->
+							</div>
 						</div>
-					</div>
-				</div> 
+					</div> 
+				</div>
 			</div>
 			<!-- ENDIF -->
 
 			<!-- IF not $HIDE_USER_IP or U_ACP -->
-			<div class="card mb-3">
+			<div class="card mb-3 pb-1">
 				<div class="card-header d-none d-md-block">
 					<div class="row">
 						<div class="col-12 col-md-10">{L_IPS_POSTED_FROM}</div>
 						<div class="col-12 col-md-2 text-center">{L_POSTS}</div>
 					</div>
 				</div>
-				<div class="card-body p-0">
 					<!-- BEGIN iprow -->
-					<div class="row align-items-center custom-border-top m-0<!-- IF iprow.S_ROW_COUNT is even --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
+				<div class="mt-1 bg1">
+					<div class="row px-3 py-1 align-items-center">
 						<div class="col-12 col-md-10 py-2">
 							<span class="badge bg-secondary d-md-none">{L_IPS_POSTED_FROM}{L_COLON}</span>
 						<!-- IF iprow.HOSTNAME -->
@@ -367,10 +372,10 @@
 						</div>
 						<div class="d-md-none<!-- IF not iprow.S_LAST_ROW --> custom-border border-2<!-- ENDIF -->"></div>
 					</div>
-					<!-- BEGINELSE -->
-						<div class="px-3 py-2 text-center bg2">{L_NO_MATCHES_FOUND}</div>
-					<!-- END iprow -->
 				</div>
+			<!-- BEGINELSE -->
+				<div class="mt-1 px-3 py-2 text-center bg2">{L_NO_MATCHES_FOUND}</div>
+			<!-- END iprow -->
 			</div>
 
 			{% if U_LOOKUP_ALL %}
