@@ -154,7 +154,7 @@
 		</div>
 	</div>
 		<!-- ENDIF -->
-	<div class="card mb-3">
+	<div class="card mb-3 pb-1">
 		<div class="card-header d-none d-md-block">
 			<div class="row">
 				<div class="col-12 col-md-3">{L_GROUP_APPROVED}</div>
@@ -179,17 +179,16 @@
 		</div>
 	<!-- ENDIF -->
 	<!-- BEGINELSE -->
-	<div class="card mb-3">
+	<div class="card mb-3 pb-1">
 		<div class="card-header">
 			{L_MEMBERS}
 		</div>
-		<div class="card-body px-3 py-2 text-center">
-			{L_GROUPS_NO_MEMBERS}
+		<div class="mt-1 px-3 py-2 text-center bg1">{L_GROUPS_NO_MEMBERS}</div>
 	<!-- END member -->
 	</div>
 
 	<div class="card mb-3">
-		<div class="action-bar d-sm-flex justify-content-between bg1">
+		<div class="action-bar d-sm-flex justify-content-end bg1">
 		<!-- IF .pagination -->
 		<!-- IF BASE_URL and TOTAL_PAGES > 3 -->
 			<div class="dropdown-form">
