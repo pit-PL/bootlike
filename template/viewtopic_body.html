@@ -327,13 +327,13 @@
 				<!-- ENDIF -->
 				</div>
 
-				<div class="postbody col-lg-9 col-md-8 p-0 bg2">
+				<div class="postbody col-lg-9 col-md-8 p-0<!-- IF postrow.SIGNATURE --> bg2<!-- ELSE --> bg1<!-- ENDIF -->">
 				<hr class="d-md-none m-0">
 
 					<div id="post_content{postrow.POST_ID}">
 						<!-- EVENT viewtopic_body_post_subject_before -->
 						<!-- EVENT viewtopic_body_postrow_post_details_before -->
-						<div class="postbody-before d-flex px-3 py-2 justify-content-between align-items-center">
+						<div class="postbody-before d-flex px-3 py-2 justify-content-between align-items-center bg2">
 							<div>
 							<!-- IF postrow.POST_ICON_IMG --><img src="{T_ICONS_PATH}{postrow.POST_ICON_IMG}" width="{postrow.POST_ICON_IMG_WIDTH}" height="{postrow.POST_ICON_IMG_HEIGHT}" alt="{L_IMAGE}" /> <!-- ENDIF -->
 							<!-- IF postrow.POST_SUBJECT --><a href="{{ postrow.U_MINI_POST }}">{postrow.POST_SUBJECT}</a><br><!-- ENDIF -->
