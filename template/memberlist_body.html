@@ -92,7 +92,7 @@
 
 <!-- IF S_LEADERS_SET or not S_SHOW_GROUP or not .memberrow -->
 	<div id="memberlist" class="card mb-3 pb-1">
-		<div class="card-header d-none d-md-block custom-bg-dark custom-text-light">
+		<div class="card-header d-none d-md-block">
 		<div class="row">
 			<div class="col-12 col-md-3" data-dfn="{L_RANK}{L_COMMA_SEPARATOR}<!-- IF S_SHOW_GROUP and .memberrow -->{L_GROUP_LEADER}<!-- ELSE -->{L_USERNAME}<!-- ENDIF -->"><span class="d-none d-md-block float-end"><a href="{U_SORT_RANK}">{L_RANK}</a></span><a href="{U_SORT_USERNAME}"><!-- IF S_SHOW_GROUP and .memberrow -->{L_GROUP_LEADER}<!-- ELSE -->{L_USERNAME}<!-- ENDIF --></a></div>
 			<div class="col-12 col-md-2 col-lg-1 text-center"><a href="{U_SORT_POSTS}#memberlist">{L_POSTS}</a></div>
@@ -117,7 +117,7 @@
 <!-- ENDIF -->
 
 <div class="card mb-3 pb-1">
-	<div class="card-header d-none d-md-block custom-bg-dark custom-text-light">
+	<div class="card-header d-none d-md-block">
 		<div class="row">
 		<!-- IF not S_LEADERS_SET -->
 			<div class="col-12 col-md-3" data-dfn="{L_RANK}{L_COMMA_SEPARATOR}{L_USERNAME}"><span class="d-none d-md-block float-end"><a href="{U_SORT_RANK}">{L_RANK}</a></span><a href="{U_SORT_USERNAME}"><!-- IF S_SHOW_GROUP -->{L_GROUP_MEMBERS}<!-- ELSE -->{L_USERNAME}<!-- ENDIF --></a></div>
