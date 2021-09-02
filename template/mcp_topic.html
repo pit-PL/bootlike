@@ -114,10 +114,10 @@
 			<!-- BEGIN postrow -->
 			<!-- EVENT mcp_topic_postrow_post_before -->
 			<div class="card mb-3<!-- IF postrow.S_POST_DELETED --> border-dark<!-- ENDIF --><!-- IF postrow.S_POST_UNAPPROVED --> border-success<!-- ENDIF --><!-- IF postrow.S_POST_REPORTED --> border-warning<!-- ENDIF -->">
-				<div class="card-body custom-bg-light p-0">
+				<div class="card-body p-0">
 
-				<div class="postbody" id="pr{postrow.POST_ID}">
-					<div class="postbody-before d-flex px-3 py-1 justify-content-between align-items-center bg-2 custom-border-bottom">
+				<div class="postbody bg2" id="pr{postrow.POST_ID}">
+					<div class="postbody-before d-flex px-3 py-1 justify-content-between align-items-center">
 					<!-- EVENT mcp_topic_postrow_post_details_before -->
 						<div>
 							<!-- EVENT mcp_topic_postrow_post_subject_before -->
@@ -161,11 +161,13 @@
 						<!-- IF postrow.S_HAS_ATTACHMENTS -->
 							<div class="attachbox float-start mb-2">
 								<div class="my-1 text-uppercase">{L_ATTACHMENTS}</div>
-								<div class="custom-bg-white custom-border p-2">
-								<!-- BEGIN attachment -->
-									<!-- IF not attachment.S_FIRST_ROW --><hr><!-- ENDIF -->
-									{postrow.attachment.DISPLAY_ATTACHMENT}
-								<!-- END attachment -->
+								<div class="card mb-3">
+									<div class="card-body p-2">
+									<!-- BEGIN attachment -->
+										<!-- IF not attachment.S_FIRST_ROW --><hr><!-- ENDIF -->
+										{postrow.attachment.DISPLAY_ATTACHMENT}
+									<!-- END attachment -->
+									</div>
 								</div>
 							</div>
 							<div class="clearfix"></div>
@@ -185,24 +187,26 @@
 		</div>
 	</div>
 
-	<div class="action-bar d-sm-flex justify-content-between p-0 mb-3 custom-border custom-bg-light">
-		<div class="d-flex">&nbsp;</div>
+	<div class="card mb-3">
+		<div class="action-bar d-sm-flex justify-content-between bg1">
+			<div class="d-flex">&nbsp;</div>
 
-		<div class="btn btn-lg disabled fs-6 mt-1 text-nowrap border-0">
-			{TOTAL_POSTS} 	&bull; <span class="fw-normal">{PAGE_NUMBER}</span>
-		</div>
-
-		<div class="d-flex">
-		<!-- IF .pagination -->
-			<button class="btn dropdown-toggle btn-lg rounded-0 border-0" title="{L_JUMP_TO_PAGE}" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-clone fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_SEARCH}</span></button>
-			<div class="dropdown-menu dropdown-menu-end">
-				<div class="input-group px-2">
-					<!-- INCLUDE pagination.html -->
-				</div>
+			<div class="btn btn-lg disabled fs-6 mt-1 text-nowrap border-0">
+				{TOTAL_POSTS} 	&bull; <span class="fw-normal">{PAGE_NUMBER}</span>
 			</div>
-		<!-- ENDIF -->
-			<a href="#" onclick="marklist('mcp', 'post', false); return false;" class="btn btn-lg rounded-0 border-0" title="{L_UNMARK_ALL}"><i class="fa fa-toggle-off fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_UNMARK_ALL}</span></a>
-			<a href="#" onclick="marklist('mcp', 'post', true); return false;" class="btn btn-lg rounded-0 border-0" title="{L_MARK_ALL}"><i class="fa fa-toggle-on fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_MARK_ALL}</span></a>
+
+			<div class="d-flex">
+			<!-- IF .pagination -->
+				<button class="btn dropdown-toggle btn-lg rounded-0 border-0" title="{L_JUMP_TO_PAGE}" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-clone fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_SEARCH}</span></button>
+				<div class="dropdown-menu dropdown-menu-end">
+					<div class="input-group px-2">
+						<!-- INCLUDE pagination.html -->
+					</div>
+				</div>
+			<!-- ENDIF -->
+				<a href="#" onclick="marklist('mcp', 'post', false); return false;" class="btn btn-lg rounded-0 border-0" title="{L_UNMARK_ALL}"><i class="fa fa-toggle-off fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_UNMARK_ALL}</span></a>
+				<a href="#" onclick="marklist('mcp', 'post', true); return false;" class="btn btn-lg rounded-0 border-0" title="{L_MARK_ALL}"><i class="fa fa-toggle-on fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_MARK_ALL}</span></a>
+			</div>
 		</div>
 	</div>
 
