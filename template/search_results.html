@@ -10,70 +10,72 @@
 <!-- EVENT search_results_header_after -->
 
 <!-- IF not S_IS_BOT -->
-	<div class="action-bar d-sm-flex justify-content-between p-0 mb-3 custom-border custom-bg-light shadow-sm">
-		<div class="d-flex">
-		<!-- IF .searchresults and (S_SELECT_SORT_DAYS or S_SELECT_SORT_KEY) -->
-			<form method="post" action="{S_SEARCH_ACTION}">
-				<!-- INCLUDE display_options.html -->
-			</form>
-		<!-- ENDIF -->
+	<div class="card mb-3">
+		<div class="action-bar d-sm-flex justify-content-between bg1 shadow-sm">
+			<div class="d-flex">
+			<!-- IF .searchresults and (S_SELECT_SORT_DAYS or S_SELECT_SORT_KEY) -->
+				<form method="post" action="{S_SEARCH_ACTION}">
+					<!-- INCLUDE display_options.html -->
+				</form>
+			<!-- ENDIF -->
 
-		<!-- IF TOTAL_MATCHES > 0 -->
-			<form method="post" action="{S_SEARCH_ACTION}">
-				<button class="btn dropdown-toggle btn-lg rounded-0 border-0" title="{L_SEARCH}" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-search fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_SEARCH}</span></button>
-				<div class="dropdown-menu dropdown-menu-start" role="search">
-					<div class="input-group px-2">
-						<input class="form-control" type="search" value="" name="add_keywords" id="add_keywords" size="20" placeholder="{L_SEARCH_IN_RESULTS}" />
-						<button type="submit" class="btn btn-light custom-border" title="{L_SEARCH}"><i class="fa fa-search fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_SEARCH}</span></button>
+			<!-- IF TOTAL_MATCHES > 0 -->
+				<form method="post" action="{S_SEARCH_ACTION}">
+					<button class="btn dropdown-toggle btn-lg rounded-0 border-0" title="{L_SEARCH}" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-search fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_SEARCH}</span></button>
+					<div class="dropdown-menu dropdown-menu-start" role="search">
+						<div class="input-group px-2">
+							<input class="form-control" type="search" value="" name="add_keywords" id="add_keywords" size="20" placeholder="{L_SEARCH_IN_RESULTS}" />
+							<button type="submit" class="btn btn-secondary" title="{L_SEARCH}"><i class="fa fa-search fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_SEARCH}</span></button>
+						</div>
 					</div>
-				</div>
-			</form>
-		<!-- ENDIF -->
-		<!-- EVENT search_results_searchbox_after -->
-		</div>
-
-		<!-- IF SEARCH_MATCHES or PAGE_NUMBER -->
-		<div class="btn btn-lg d-none d-lg-block disabled fs-6 mt-1 text-nowrap border-0">
-			{SEARCH_MATCHES} &bull; <span class="fw-normal">{PAGE_NUMBER}</span>
-		</div>
-		<!-- ENDIF -->
-
-		<div class="d-flex">
-		<!-- IF SEARCH_TOPIC -->
-			<a href="{U_SEARCH_TOPIC}" class="btn btn-lg rounded-0 border-0" title="{L_RETURN_TO_TOPIC}" accesskey="r"><i class="fa fa-chevron-{S_CONTENT_FLOW_BEGIN} fa-fw" aria-hidden="true"></i></a>
-		<!-- ELSEIF S_SEARCH_ACTION -->
-			<a href="{U_SEARCH}" class="btn btn-lg rounded-0 border-0" title="{L_GO_TO_SEARCH_ADV}" accesskey="r"><i class="fa fa-chevron-{S_CONTENT_FLOW_BEGIN} fa-fw" aria-hidden="true"></i></a>
-		<!-- ENDIF -->
-
-		<!-- IF .pagination -->
-		<!-- IF BASE_URL and TOTAL_PAGES > 3 -->
-			<div class="dropdown-form">
-				<button class="btn dropdown-toggle btn-lg rounded-0 border-0" title="{L_JUMP_TO_PAGE}" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-clone fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_JUMP_TO_PAGE}</span></button>
-				<div class="dropdown-menu dropdown-menu-end p-2">
-					{L_JUMP_TO_PAGE}{L_COLON}
-					<div class="input-group my-2">
-						<input type="number" name="text" title="{L_JUMP_PAGE}" class="form-control" data-per-page="{PER_PAGE}" data-base-url="{BASE_URL|e('html_attr')}" data-start-name="{START_NAME}" />
-						<input class="btn btn-light custom-border" value="{L_GO}" type="button" />
-					</div>
-					<!-- INCLUDE pagination.html -->
-				</div>
+				</form>
+			<!-- ENDIF -->
+			<!-- EVENT search_results_searchbox_after -->
 			</div>
-		<!-- ENDIF -->
 
-		<!-- BEGIN pagination -->
-			<!-- IF pagination.S_IS_PREV -->
-				<a class="btn btn-lg rounded-0 border-0" href="{pagination.PAGE_URL}" title="{L_PREVIOUS}" rel="prev" role="button"><i class="fa fa-step-backward fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_PREVIOUS}</span></a>
+			<!-- IF SEARCH_MATCHES or PAGE_NUMBER -->
+			<div class="btn btn-lg d-none d-lg-block disabled fs-6 mt-1 text-nowrap border-0">
+				{SEARCH_MATCHES} &bull; <span class="fw-normal">{PAGE_NUMBER}</span>
+			</div>
 			<!-- ENDIF -->
-			<!-- IF pagination.S_IS_NEXT -->
-				<a class="btn btn-lg rounded-0 border-0" href="{pagination.PAGE_URL}" title="{L_NEXT}" rel="next" role="button"><i class="fa fa-step-forward fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_NEXT}</span></a>
+
+			<div class="d-flex">
+			<!-- IF SEARCH_TOPIC -->
+				<a href="{U_SEARCH_TOPIC}" class="btn btn-lg rounded-0 border-0" title="{L_RETURN_TO_TOPIC}" accesskey="r"><i class="fa fa-chevron-{S_CONTENT_FLOW_BEGIN} fa-fw" aria-hidden="true"></i></a>
+			<!-- ELSEIF S_SEARCH_ACTION -->
+				<a href="{U_SEARCH}" class="btn btn-lg rounded-0 border-0" title="{L_GO_TO_SEARCH_ADV}" accesskey="r"><i class="fa fa-chevron-{S_CONTENT_FLOW_BEGIN} fa-fw" aria-hidden="true"></i></a>
 			<!-- ENDIF -->
-		<!-- END pagination -->
-		<!-- ENDIF -->
 
-		<!-- IF U_MARK_ALL_READ -->
-			<a href="{U_MARK_ALL_READ}" class="btn btn-lg" title="{L_MARK_ALL_READ}" accesskey="m"><i class="fa fa-check" aria-hidden="true"></i></a>
-		<!-- ENDIF -->
+			<!-- IF .pagination -->
+			<!-- IF BASE_URL and TOTAL_PAGES > 3 -->
+				<div class="dropdown-form">
+					<button class="btn dropdown-toggle btn-lg rounded-0 border-0" title="{L_JUMP_TO_PAGE}" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-clone fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_JUMP_TO_PAGE}</span></button>
+					<div class="dropdown-menu dropdown-menu-end p-2">
+						{L_JUMP_TO_PAGE}{L_COLON}
+						<div class="input-group my-2">
+							<input type="number" name="text" title="{L_JUMP_PAGE}" class="form-control" data-per-page="{PER_PAGE}" data-base-url="{BASE_URL|e('html_attr')}" data-start-name="{START_NAME}" />
+							<input class="btn btn-secondary" value="{L_GO}" type="button" />
+						</div>
+						<!-- INCLUDE pagination.html -->
+					</div>
+				</div>
+			<!-- ENDIF -->
 
+			<!-- BEGIN pagination -->
+				<!-- IF pagination.S_IS_PREV -->
+					<a class="btn btn-lg rounded-0 border-0" href="{pagination.PAGE_URL}" title="{L_PREVIOUS}" rel="prev" role="button"><i class="fa fa-step-backward fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_PREVIOUS}</span></a>
+				<!-- ENDIF -->
+				<!-- IF pagination.S_IS_NEXT -->
+					<a class="btn btn-lg rounded-0 border-0" href="{pagination.PAGE_URL}" title="{L_NEXT}" rel="next" role="button"><i class="fa fa-step-forward fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_NEXT}</span></a>
+				<!-- ENDIF -->
+			<!-- END pagination -->
+			<!-- ENDIF -->
+
+			<!-- IF U_MARK_ALL_READ -->
+				<a href="{U_MARK_ALL_READ}" class="btn btn-lg" title="{L_MARK_ALL_READ}" accesskey="m"><i class="fa fa-check" aria-hidden="true"></i></a>
+			<!-- ENDIF -->
+
+			</div>
 		</div>
 	</div>
 <!-- ENDIF -->
@@ -81,8 +83,8 @@
 <!-- IF S_SHOW_TOPICS -->
 
 	<!-- IF .searchresults -->
-	<div class="card mb-3">
-		<div class="card-header custom-bg-dark custom-text-light">
+	<div class="card mb-3 pb-1">
+		<div class="card-header">
 			<div class="row">
 				<div class="col-lg-7 col-md-6 col-12">{L_TOPICS}</div>
 				<div class="col-md-2 d-none d-md-block text-center">{L_REPLIES}/{L_VIEWS}</div>
@@ -93,64 +95,66 @@
 
 	<!-- BEGIN searchresults -->
 		<!-- EVENT search_results_topic_before -->
-		<div class="container-fluid row-item position-relative py-1 custom-border-top {searchresults.TOPIC_IMG_STYLE}<!-- IF searchresults.S_ROW_COUNT is even --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
-			<div class="row align-items-center" title="{searchresults.TOPIC_FOLDER_IMG_ALT}">
-				<div class="col-lg-7 col-md-6 col-12 topic-folder folder<!-- IF searchresults.S_TOPIC_UNAPPROVED or searchresults.S_POSTS_UNAPPROVED or searchresults.S_TOPIC_REPORTED --> folder-animation<!-- ENDIF -->">
-					<!-- IF searchresults.S_UNREAD_TOPIC and not S_IS_BOT --><a href="{searchresults.U_NEWEST_POST}" class="row-item-link"></a><!-- ENDIF -->
+		<div class="container-fluid row-item position-relative p-0 {searchresults.TOPIC_IMG_STYLE}">
+			<div class="mt-1 bg1">
+				<div class="row px-3 py-1 align-items-center" title="{searchresults.TOPIC_FOLDER_IMG_ALT}">
+					<div class="col-lg-7 col-md-6 col-12 topic-folder folder<!-- IF searchresults.S_TOPIC_UNAPPROVED or searchresults.S_POSTS_UNAPPROVED or searchresults.S_TOPIC_REPORTED --> folder-animation<!-- ENDIF -->">
+						<!-- IF searchresults.S_UNREAD_TOPIC and not S_IS_BOT --><a href="{searchresults.U_NEWEST_POST}" class="row-item-link"></a><!-- ENDIF -->
 
-					<!-- EVENT topiclist_row_prepend -->
-					<!-- IF .searchresults.pagination -->
-					<div class="float-end">
-					<button class="btn dropdown-toggle btn-lg rounded-0 border-0" title="{L_JUMP_TO_PAGE}" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-clone fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_JUMP_TO_PAGE}</span></button>
-						<div class="dropdown-menu dropdown-menu-end p-2">
-							<ul class="pagination m-0">
-							<!-- BEGIN pagination -->
-								<!-- IF searchresults.pagination.S_IS_PREV -->
-								<!-- ELSEIF searchresults.pagination.S_IS_CURRENT --><li class="page-item active"><span class="page-link">{searchresults.pagination.PAGE_NUMBER}</span></li>
-								<!-- ELSEIF searchresults.pagination.S_IS_ELLIPSIS --><li class="page-item disabled"><span class="page-link">{L_ELLIPSIS}</span></li>
-								<!-- ELSEIF searchresults.pagination.S_IS_NEXT -->
-								<!-- ELSE --><li class="page-item"><a href="{searchresults.pagination.PAGE_URL}" class="page-link">{searchresults.pagination.PAGE_NUMBER}</a></li>
-								<!-- ENDIF -->
-							<!-- END pagination -->
-							</ul>
+						<!-- EVENT topiclist_row_prepend -->
+						<!-- IF .searchresults.pagination -->
+						<div class="float-end">
+						<button class="btn dropdown-toggle btn-lg rounded-0 border-0" title="{L_JUMP_TO_PAGE}" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-clone fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_JUMP_TO_PAGE}</span></button>
+							<div class="dropdown-menu dropdown-menu-end p-2">
+								<ul class="pagination m-0">
+								<!-- BEGIN pagination -->
+									<!-- IF searchresults.pagination.S_IS_PREV -->
+									<!-- ELSEIF searchresults.pagination.S_IS_CURRENT --><li class="page-item active"><span class="page-link">{searchresults.pagination.PAGE_NUMBER}</span></li>
+									<!-- ELSEIF searchresults.pagination.S_IS_ELLIPSIS --><li class="page-item disabled"><span class="page-link">{L_ELLIPSIS}</span></li>
+									<!-- ELSEIF searchresults.pagination.S_IS_NEXT -->
+									<!-- ELSE --><li class="page-item"><a href="{searchresults.pagination.PAGE_URL}" class="page-link">{searchresults.pagination.PAGE_NUMBER}</a></li>
+									<!-- ENDIF -->
+								<!-- END pagination -->
+								</ul>
+							</div>
 						</div>
+						<!-- ENDIF -->
+
+						<!-- IF searchresults.S_TOPIC_UNAPPROVED or searchresults.S_POSTS_UNAPPROVED --><a href="{searchresults.U_MCP_QUEUE}" class="badge bg-success" title="<!-- IF searchresults.S_TOPIC_UNAPPROVED -->{L_TOPIC_UNAPPROVED}<!-- ELSE -->{L_POSTS_UNAPPROVED}<!-- ENDIF -->"><i class="fa fa-flag" aria-hidden="true"></i><span class="visually-hidden">{L_TOPIC_UNAPPROVED}</span></a><!-- ENDIF -->
+						<!-- IF searchresults.S_TOPIC_DELETED --><a href="{searchresults.U_MCP_QUEUE}" class="badge bg-secondary" title="{L_TOPIC_DELETED}"><i class="fa fa-recycle" aria-hidden="true"></i><span class="visually-hidden">{L_TOPIC_DELETED}</span></a><!-- ENDIF -->
+						<!-- IF searchresults.S_TOPIC_REPORTED --><a href="{searchresults.U_MCP_REPORT}" class="badge bg-warning" title="{L_TOPIC_REPORTED}"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i><span class="visually-hidden">{L_TOPIC_REPORTED}</span></a><!-- ENDIF -->
+						<!-- IF searchresults.S_UNREAD_TOPIC and not S_IS_BOT --><a href="{searchresults.U_NEWEST_POST}" class="badge bg-info" title="{L_VIEW_NEWEST_POST}"><i class="fa fa-file icon_topic_newest" aria-hidden="true"></i><span class="visually-hidden">{L_NEW_POST}</span></a><!-- ENDIF -->
+						<!-- IF searchresults.TOPIC_ICON_IMG --><img src="{T_ICONS_PATH}{searchresults.TOPIC_ICON_IMG}" class="topic-icon" alt="{L_IMAGE}" /> <!-- ENDIF --><a href="{searchresults.U_VIEW_TOPIC}" class="topictitle">{searchresults.TOPIC_TITLE}</a><br>
+
+						<div class="d-none d-md-block">
+							<!-- IF searchresults.ATTACH_ICON_IMG --><i class="fa fa-paperclip" title="{L_TOTAL_ATTACHMENTS}" aria-hidden="true"></i><span class="visually-hidden">{L_TOTAL_ATTACHMENTS}</span><!-- ENDIF -->
+							<!-- IF searchresults.S_HAS_POLL --><i class="fa fa-bar-chart" title="{L_TOPIC_POLL}" aria-hidden="true"></i><span class="visually-hidden">{L_TOPIC_POLL}</span><!-- ENDIF -->
+							{% EVENT topiclist_row_topic_by_author_before %}
+							{L_POST_BY_AUTHOR} <!-- EVENT search_results_topic_author_username_prepend --> {searchresults.TOPIC_AUTHOR_FULL} <!-- EVENT search_results_topic_author_username_append --> &raquo; {searchresults.FIRST_POST_TIME} &raquo; {L_IN} <a href="{searchresults.U_VIEW_FORUM}">{searchresults.FORUM_TITLE}</a> &nbsp;
+							{% EVENT topiclist_row_topic_by_author_after %}
+						</div>
+
+						<!-- EVENT topiclist_row_topic_title_after -->
+
+						<div class="d-md-none">
+							{L_LAST_POST} {L_POST_BY_AUTHOR} <!-- EVENT search_results_last_post_author_username_prepend --> {searchresults.LAST_POST_AUTHOR_FULL} <!-- EVENT search_results_last_post_author_username_append --> &laquo; <a href="{searchresults.U_LAST_POST}" title="{L_GOTO_LAST_POST}"><time datetime="{searchresults.LAST_POST_TIME_RFC3339}">{searchresults.LAST_POST_TIME}</time></a>
+							<br>{L_POSTED} {L_IN} <a href="{searchresults.U_VIEW_FORUM}">{searchresults.FORUM_TITLE}</a>
+							<span class="text-nowrap ms-3"><i class="fa fa-comment-o ml-2" title="{L_REPLIES}" aria-hidden="true"></i><span class="sr-only">{L_REPLIES}</span> {searchresults.TOPIC_REPLIES} &nbsp; <i class="fa fa-eye ml-2" title="{L_VIEWS}" aria-hidden="true"></i><span class="sr-only">{L_VIEWS}</span> {searchresults.TOPIC_VIEWS}</span>
+						</div>
+						<!-- EVENT topiclist_row_append -->
 					</div>
-					<!-- ENDIF -->
 
-					<!-- IF searchresults.S_TOPIC_UNAPPROVED or searchresults.S_POSTS_UNAPPROVED --><a href="{searchresults.U_MCP_QUEUE}" class="badge bg-success" title="<!-- IF searchresults.S_TOPIC_UNAPPROVED -->{L_TOPIC_UNAPPROVED}<!-- ELSE -->{L_POSTS_UNAPPROVED}<!-- ENDIF -->"><i class="fa fa-flag" aria-hidden="true"></i><span class="visually-hidden">{L_TOPIC_UNAPPROVED}</span></a><!-- ENDIF -->
-					<!-- IF searchresults.S_TOPIC_DELETED --><a href="{searchresults.U_MCP_QUEUE}" class="badge bg-secondary" title="{L_TOPIC_DELETED}"><i class="fa fa-recycle" aria-hidden="true"></i><span class="visually-hidden">{L_TOPIC_DELETED}</span></a><!-- ENDIF -->
-					<!-- IF searchresults.S_TOPIC_REPORTED --><a href="{searchresults.U_MCP_REPORT}" class="badge bg-warning" title="{L_TOPIC_REPORTED}"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i><span class="visually-hidden">{L_TOPIC_REPORTED}</span></a><!-- ENDIF -->
-					<!-- IF searchresults.S_UNREAD_TOPIC and not S_IS_BOT --><a href="{searchresults.U_NEWEST_POST}" class="badge bg-info" title="{L_VIEW_NEWEST_POST}"><i class="fa fa-file icon_topic_newest" aria-hidden="true"></i><span class="visually-hidden">{L_NEW_POST}</span></a><!-- ENDIF -->
-					<!-- IF searchresults.TOPIC_ICON_IMG --><img src="{T_ICONS_PATH}{searchresults.TOPIC_ICON_IMG}" class="topic-icon" alt="{L_IMAGE}" /> <!-- ENDIF --><a href="{searchresults.U_VIEW_TOPIC}" class="topictitle">{searchresults.TOPIC_TITLE}</a><br>
-
-					<div class="d-none d-md-block">
-						<!-- IF searchresults.ATTACH_ICON_IMG --><i class="fa fa-paperclip" title="{L_TOTAL_ATTACHMENTS}" aria-hidden="true"></i><span class="visually-hidden">{L_TOTAL_ATTACHMENTS}</span><!-- ENDIF -->
-						<!-- IF searchresults.S_HAS_POLL --><i class="fa fa-bar-chart" title="{L_TOPIC_POLL}" aria-hidden="true"></i><span class="visually-hidden">{L_TOPIC_POLL}</span><!-- ENDIF -->
-						{% EVENT topiclist_row_topic_by_author_before %}
-						{L_POST_BY_AUTHOR} <!-- EVENT search_results_topic_author_username_prepend --> {searchresults.TOPIC_AUTHOR_FULL} <!-- EVENT search_results_topic_author_username_append --> &raquo; {searchresults.FIRST_POST_TIME} &raquo; {L_IN} <a href="{searchresults.U_VIEW_FORUM}">{searchresults.FORUM_TITLE}</a> &nbsp;
-						{% EVENT topiclist_row_topic_by_author_after %}
+					<div class="col-md-2 d-none d-md-block text-center">
+						{searchresults.TOPIC_REPLIES}
+						<div class="small">{searchresults.TOPIC_VIEWS} {L_VIEWS}</div>
 					</div>
-
-					<!-- EVENT topiclist_row_topic_title_after -->
-
-					<div class="d-md-none">
-						{L_LAST_POST} {L_POST_BY_AUTHOR} <!-- EVENT search_results_last_post_author_username_prepend --> {searchresults.LAST_POST_AUTHOR_FULL} <!-- EVENT search_results_last_post_author_username_append --> &laquo; <a href="{searchresults.U_LAST_POST}" title="{L_GOTO_LAST_POST}"><time datetime="{searchresults.LAST_POST_TIME_RFC3339}">{searchresults.LAST_POST_TIME}</time></a>
-						<br>{L_POSTED} {L_IN} <a href="{searchresults.U_VIEW_FORUM}">{searchresults.FORUM_TITLE}</a>
-						<span class="text-nowrap ms-3"><i class="fa fa-comment-o ml-2" title="{L_REPLIES}" aria-hidden="true"></i><span class="sr-only">{L_REPLIES}</span> {searchresults.TOPIC_REPLIES} &nbsp; <i class="fa fa-eye ml-2" title="{L_VIEWS}" aria-hidden="true"></i><span class="sr-only">{L_VIEWS}</span> {searchresults.TOPIC_VIEWS}</span>
+					<div class="col-lg-3 col-md-4 d-none d-md-block">
+						{L_POST_BY_AUTHOR} <!-- EVENT search_results_topic_author_username_prepend --> {searchresults.LAST_POST_AUTHOR_FULL} <!-- EVENT search_results_topic_author_username_append --><!-- IF not S_IS_BOT -->
+						<a class="float-end" href="{searchresults.U_LAST_POST}" title="{L_GOTO_LAST_POST}"><i class="fa fa-arrow-{S_CONTENT_FLOW_END} fs-2" aria-hidden="true"></i><span class="visually-hidden">{L_VIEW_LATEST_POST}</span></a> <!-- ENDIF --><br>
+						<time datetime="{searchresults.LAST_POST_TIME_RFC3339}">{searchresults.LAST_POST_TIME}</time>
 					</div>
-					<!-- EVENT topiclist_row_append -->
+					{% EVENT search_results_topic_row_lastpost_after %}
 				</div>
-
-				<div class="col-md-2 d-none d-md-block text-center">
-					{searchresults.TOPIC_REPLIES}
-					<div class="small">{searchresults.TOPIC_VIEWS} {L_VIEWS}</div>
-				</div>
-				<div class="col-lg-3 col-md-4 d-none d-md-block">
-					{L_POST_BY_AUTHOR} <!-- EVENT search_results_topic_author_username_prepend --> {searchresults.LAST_POST_AUTHOR_FULL} <!-- EVENT search_results_topic_author_username_append --><!-- IF not S_IS_BOT -->
-					<a class="float-end" href="{searchresults.U_LAST_POST}" title="{L_GOTO_LAST_POST}"><i class="fa fa-arrow-{S_CONTENT_FLOW_END} fs-2" aria-hidden="true"></i><span class="visually-hidden">{L_VIEW_LATEST_POST}</span></a> <!-- ENDIF --><br>
-					<time datetime="{searchresults.LAST_POST_TIME_RFC3339}">{searchresults.LAST_POST_TIME}</time>
-				</div>
-				{% EVENT search_results_topic_row_lastpost_after %}
 			</div>
 		</div>
 		<!-- EVENT search_results_topic_after -->
@@ -179,7 +183,7 @@
 		<div class="card-body p-0">
 			<div class="row m-0">
 
-				<div class="postprofile col-lg-3 col-md-4<!-- IF not $PROFILES_ON_LEFT --> order-first order-md-2<!-- ENDIF --> px-3 py-2 bg2">
+				<div class="postprofile col-lg-3 col-md-4<!-- IF not $PROFILES_ON_LEFT --> order-first order-md-2<!-- ENDIF --> px-3 py-2 bg2 shadow">
 				<!-- EVENT search_results_postprofile_before -->
 					<div class="mb-2">{L_POST_BY_AUTHOR} <!-- EVENT search_results_post_author_username_prepend --> {searchresults.POST_AUTHOR_FULL}<!-- EVENT search_results_post_author_username_append --></div>
 					<div>{searchresults.POST_DATE}</div>
@@ -191,10 +195,10 @@
 				<!-- EVENT search_results_postprofile_after -->
 				</div>
 
-				<div class="postbody col-lg-9 col-md-8 p-0<!-- IF not $PROFILES_ON_LEFT --> custom-border-end<!-- ELSE --> custom-border-start<!-- ENDIF --> bg1">
+				<div class="postbody col-lg-9 col-md-8 p-0 bg1">
 				<hr class="d-md-none m-0">
 					{% EVENT search_results_post_subject_before %}
-					<div class="postbody-before d-flex px-3 py-2 justify-content-between align-items-center custom-bg-light custom-border-bottom">
+					<div class="postbody-before d-flex px-3 py-2 justify-content-between align-items-center bg2">
 						<a href="{searchresults.U_VIEW_POST}">{searchresults.POST_SUBJECT}</a>
 						<a href="{searchresults.U_VIEW_POST}" class="btn btn-secondary ms-2 text-nowrap">{L_JUMP_TO_POST} <i class="fa fa-chevron-{S_CONTENT_FLOW_END} fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_JUMP_TO_POST}</span></a>
 					</div>
