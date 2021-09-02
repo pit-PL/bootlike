@@ -139,7 +139,7 @@
 }
 
 .row-item .folder:before, .row-item .folder:after {
-	color: #5e96e9;
+	color: #999;
 }
 
 .forum_unread .folder:before,
