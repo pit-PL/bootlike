@@ -7,7 +7,7 @@
 	<!-- BEGIN notifications -->
 	<li class="list-group-item p-0 dropdown notification-block">
 		<!-- IF notifications.URL -->
-		<a class="dropdown-item px-1" href="<!-- IF notifications.UNREAD -->{notifications.U_MARK_READ}" data-real-url="{notifications.URL}<!-- ELSE -->{notifications.URL}<!-- ENDIF -->"<!-- IF notifications.UNREAD --> bg-info<!-- ENDIF --><!-- IF notifications.STYLING eq 'notification-reported' or notifications.STYLING eq 'notification-disapproved' --> bg-warning<!-- ENDIF -->>
+		<a class="dropdown-item px-1" href="<!-- IF notifications.UNREAD -->{notifications.U_MARK_READ}" data-real-url="{notifications.URL}<!-- ELSE -->{notifications.URL}<!-- ENDIF -->">
 		<!-- ENDIF -->
 		<div class="row px-2 align-items-center">
 			<div class="col-3 justify-content-center d-flex">
