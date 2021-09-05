@@ -216,7 +216,7 @@
 					<button type="button" class="btn-close" title="{L_CLOSE_WINDOW}" data-bs-dismiss="modal" aria-label="{L_CLOSE_WINDOW}"></button>
 				</div>
 
-				<div class="modal-body bg1">
+				<div class="modal-body bg1<!-- IF not (U_EMAIL or U_PM or (U_JABBER and S_JABBER_ENABLED) or custom_fields.PROFILE_FIELD_CONTACT) --> rounded-bottom<!-- ENDIF -->">
 					<dl class="row mb-0">
 						<!-- EVENT memberlist_view_user_statistics_before -->
 						<dt class="col-lg-4 col-md-5 col-12">{L_JOINED}{L_COLON}</dt><dd class="col-lg-8 col-md-7 col-12">{JOINED}</dd>
@@ -237,7 +237,8 @@
 						<!-- EVENT memberlist_view_user_statistics_after -->
 					</dl>
 				</div>
-				
+
+			<!-- IF U_EMAIL or U_PM or (U_JABBER and S_JABBER_ENABLED) or custom_fields.PROFILE_FIELD_CONTACT -->
 				<div class="modal-footer justify-content-center">
 				<!-- EVENT memberlist_view_contact_before -->
 				<!-- IF U_EMAIL -->
@@ -287,7 +288,7 @@
 				<!-- ENDIF -->
 				<!-- EVENT memberlist_view_contact_after -->
 				</div>
-
+			<!-- ENDIF -->
 			</div>
 		</div>
 	</div>
