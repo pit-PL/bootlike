@@ -5,7 +5,7 @@
 	<!-- ENDIF -->
 
 	<!-- BEGIN notifications -->
-	<li class="list-group-item p-0 dropdown notification-block">
+	<li class="list-group-item p-0 dropdown notification-block<!-- IF notifications.UNREAD --> bg-info<!-- ENDIF -->">
 		<!-- IF notifications.URL -->
 		<a class="dropdown-item px-1" href="<!-- IF notifications.UNREAD -->{notifications.U_MARK_READ}" data-real-url="{notifications.URL}<!-- ELSE -->{notifications.URL}<!-- ENDIF -->">
 		<!-- ENDIF -->
@@ -15,7 +15,7 @@
 			</div>
 			<div class="col-9 p-0 pe-2">
 				<div class="notification-text">
-					<div class="notification-title text-wrap<!-- IF notifications.UNREAD --> text-info<!-- ENDIF --><!-- IF notifications.STYLING eq 'notification-reported' or notifications.STYLING eq 'notification-disapproved' --> text-warning<!-- ENDIF -->">{notifications.FORMATTED_TITLE}</div>
+					<div class="notification-title text-wrap<!-- IF notifications.UNREAD or notifications.STYLING eq 'notification-reported' or notifications.STYLING eq 'notification-disapproved' --> text-danger<!-- ENDIF -->">{notifications.FORMATTED_TITLE}</div>
 					<!-- IF notifications.REFERENCE --><div class="text-truncate">{notifications.REFERENCE}</div><!-- ENDIF -->
 					<!-- IF notifications.FORUM --><div class="text-truncate">{notifications.FORUM}</div><!-- ENDIF -->
 					<!-- IF notifications.REASON --><div class="text-truncate">{notifications.REASON}</div><!-- ENDIF -->
