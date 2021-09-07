@@ -1,4 +1,7 @@
 @import url("../../bootlike/theme/custom.css");
 @import url("../../bootlike/theme/imageset.css");
 @import url("bootstrap.min.css");
-@import url("custom-colours.css?hash=1034bac3");
+.bg1 {background-color: #42484e;}
+.bg2, .card.bg2, .action-bar .btn.btn-lg:hover, #format-buttons .btn:hover {background-color: #33373b;}
+.card.blockquote {border-color: #222;}
+.bi-caret-down-fill {fill: #222;}
