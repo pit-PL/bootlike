@@ -508,7 +508,7 @@
 				<!-- EVENT viewtopic_body_contact_fields_before -->
 					<!-- BEGIN contact -->
 					{% EVENT viewtopic_body_contact_icon_prepend %}
-					<a class="d-inline-block m-1 text-decoration-none" href="<!-- IF postrow.contact.U_CONTACT -->{postrow.contact.U_CONTACT}<!-- ELSE -->{postrow.U_POST_AUTHOR}<!-- ENDIF -->"<!-- IF postrow.contact.ID eq 'jabber' --> onclick="popup(this.href, 750, 320); return false;"<!-- ENDIF --> title="{postrow.contact.NAME}">
+					<a class="text-decoration-none" href="<!-- IF postrow.contact.U_CONTACT -->{postrow.contact.U_CONTACT}<!-- ELSE -->{postrow.U_POST_AUTHOR}<!-- ENDIF -->"<!-- IF postrow.contact.ID eq 'jabber' --> onclick="popup(this.href, 750, 320); return false;"<!-- ENDIF --> title="{postrow.contact.NAME}">
 						<div class="p-1 rounded-circle alert-primary shadow-sm">
 							<div class="contact-button d-flex align-items-center justify-content-center rounded-circle border border-4 border-white fs-5 alert-primary" style="width: 48px; height: 48px;">
 								<i class="fa fa-<!-- IF postrow.contact.ID eq 'pm' -->user<!-- ELSEIF postrow.contact.ID eq 'email' -->envelope<!-- ELSEIF postrow.contact.ID eq 'phpbb_website' -->globe<!-- ELSEIF postrow.contact.ID eq 'icon_contact_jabber' -->lightbulb-o<!-- ELSEIF postrow.contact.ID eq 'phpbb_yahoo' -->yahoo<!-- ELSEIF postrow.contact.ID eq 'phpbb_facebook' -->facebook<!-- ELSEIF postrow.contact.ID eq 'phpbb_twitter' -->twitter<!-- ELSEIF postrow.contact.ID eq 'phpbb_skype' -->skype<!-- ELSEIF postrow.contact.ID eq 'phpbb_youtube' -->youtube<!-- ELSEIF postrow.contact.ID eq 'phpbb_googleplus' -->google-plus<!-- ELSEIF postrow.contact.ID eq 'phpbb_icq' -->asterisk<!-- ELSE -->comments<!-- ENDIF --> fa-fw"></i>
