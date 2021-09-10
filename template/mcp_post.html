@@ -117,16 +117,16 @@
 
 		<!-- IF S_HAS_ATTACHMENTS -->
 			<div class="my-1 text-uppercase">{L_ATTACHMENTS}</div>
-				<div class="row<!-- IF $ATTACHMENT_COLUMNS eq 3 --> row-cols-lg-3 row-cols-md-2 row-cols-1<!-- ELSEIF $ATTACHMENT_COLUMNS eq 2 --> row-cols-lg-2 row-cols-1<!-- ELSE --> flex-column<!-- ENDIF -->">
-				<!-- BEGIN attachment -->
-					<div class="col d-flex">
-						<div class="card mb-3<!-- IF $ATTACHMENT_COLUMNS --> w-100<!-- ENDIF -->">
-							<div class="card-body p-2">
-								{attachment.DISPLAY_ATTACHMENT}
-							</div>
+			<div class="row<!-- IF $ATTACHMENT_COLUMNS eq 3 --> row-cols-lg-3 row-cols-md-2 row-cols-1<!-- ELSEIF $ATTACHMENT_COLUMNS eq 2 --> row-cols-lg-2 row-cols-1<!-- ELSE --> flex-column<!-- ENDIF -->">
+			<!-- BEGIN attachment -->
+				<div class="col d-flex">
+					<div class="card mb-3<!-- IF $ATTACHMENT_COLUMNS --> w-100<!-- ENDIF -->">
+						<div class="card-body p-2">
+							{attachment.DISPLAY_ATTACHMENT}
 						</div>
 					</div>
-				<!-- END attachment -->
+				</div>
+			<!-- END attachment -->
 			</div>
 		<!-- ENDIF -->
 
