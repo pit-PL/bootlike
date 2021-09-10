@@ -300,7 +300,7 @@
 		<!-- IF S_IS_POSTABLE and rules|length -->
 		<div class="accordion-item">
 			<h2 class="accordion-header">
-				<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_permission" aria-expanded="false" aria-controls="collapse_permission"><i class="fa fa-shield fa-fw" aria-hidden="true"></i> {L_FORUM_PERMISSIONS}</button>
+				<button class="accordion-button<!-- IF S_DISPLAY_ONLINE_LIST and U_VIEWONLINE --> collapsed<!-- ENDIF -->" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_permission" aria-expanded="false" aria-controls="collapse_permission"><i class="fa fa-shield fa-fw" aria-hidden="true"></i> {L_FORUM_PERMISSIONS}</button>
 			</h2>
 			<div id="collapse_permission" class="accordion-collapse collapse<!-- IF not (S_DISPLAY_ONLINE_LIST and U_VIEWONLINE) --> show<!-- ENDIF -->" data-bs-parent="#accordion_viewforum">
 				<div class="accordion-body">
