@@ -450,9 +450,11 @@
 							<!-- EVENT viewtopic_body_postrow_post_content_footer -->
 						</div>
 
+						{% EVENT viewtopic_body_postrow_signature_before %}
 					<!-- IF postrow.SIGNATURE -->
 						<div id="sig{postrow.POST_ID}" class="postbody-after d-none d-md-block px-3 py-2 small">{postrow.SIGNATURE}</div>
 					<!-- ENDIF -->
+						{% EVENT viewtopic_body_postrow_signature_after %}
 					</div>
 				</div>
 
