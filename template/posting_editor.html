@@ -83,11 +83,12 @@
 	<!-- IF not S_PRIVMSGS and not S_SHOW_DRAFTS and not $SIG_EDIT eq 1 -->
 		<div id="tabs" class="sub-panels" data-show-panel="<!-- IF SHOW_PANEL -->{SHOW_PANEL}<!-- ELSE -->options-panel<!-- ENDIF -->" role="tablist">
 			<ul class="nav nav-pills mb-1">
-				<li class="nav-item me-1"><a href="#tabs" id="options-panel-tab" class="nav-link active" data-subpanel="options-panel" role="tab" aria-controls="options-panel">{L_OPTIONS}</a></li>
+				<li class="nav-item me-1">
+					<a href="#tabs" id="options-panel-tab" class="nav-link active" data-subpanel="options-panel" role="tab" aria-controls="options-panel">{L_OPTIONS}</a>
+				</li>
 			<!-- IF S_SHOW_ATTACH_BOX and FILTERS -->
 				<li class="nav-item me-1">
-					<a href="#tabs" id="attach-panel-tab" class="nav-link" data-subpanel="attach-panel" role="tab" aria-controls="attach-panel">{L_ATTACHMENTS}
-					</a>
+					<a href="#tabs" id="attach-panel-tab" class="nav-link" data-subpanel="attach-panel" role="tab" aria-controls="attach-panel">{L_ADD_ATTACHMENT}</a>
 				</li>
 			<!-- ENDIF -->
 			<!-- IF S_SHOW_POLL_BOX || S_POLL_DELETE -->
