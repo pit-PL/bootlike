@@ -197,13 +197,30 @@
 
 			<div class="d-flex">
 			<!-- IF .pagination -->
-				<button class="btn dropdown-toggle btn-lg rounded-0 border-0" title="{L_JUMP_TO_PAGE}" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-clone fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_SEARCH}</span></button>
-				<div class="dropdown-menu dropdown-menu-end">
-					<div class="input-group px-2">
+			<!-- IF BASE_URL and TOTAL_PAGES > 3 -->
+				<div class="dropdown-form">
+					<button class="btn dropdown-toggle btn-lg rounded-0 border-0" title="{L_JUMP_TO_PAGE}" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-clone fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_SEARCH}</span></button>
+					<div class="dropdown-menu dropdown-menu-end p-2">
+						{L_JUMP_TO_PAGE}{L_COLON}
+						<div class="input-group my-2">
+							<input class="form-control" type="number" name="page-number" title="{L_JUMP_PAGE}" data-per-page="{PER_PAGE}" data-base-url="{BASE_URL|e('html_attr')}" data-start-name="{START_NAME}" />
+							<input class="btn btn-secondary" value="{L_GO}" type="button" />
+						</div>
 						<!-- INCLUDE pagination.html -->
 					</div>
 				</div>
 			<!-- ENDIF -->
+
+			<!-- BEGIN pagination -->
+				<!-- IF pagination.S_IS_PREV -->
+					<a class="btn btn-lg rounded-0 border-0" href="{pagination.PAGE_URL}" title="{L_PREVIOUS}" rel="prev" role="button"><i class="fa fa-step-backward fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_PREVIOUS}</span></a>
+				<!-- ENDIF -->
+				<!-- IF pagination.S_IS_NEXT -->
+					<a class="btn btn-lg rounded-0 border-0" href="{pagination.PAGE_URL}" title="{L_NEXT}" rel="next" role="button"><i class="fa fa-step-forward fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_NEXT}</span></a>
+				<!-- ENDIF -->
+			<!-- END pagination -->
+			<!-- ENDIF -->
+
 				<a href="#" onclick="marklist('mcp', 'post', false); return false;" class="btn btn-lg rounded-0 border-0" title="{L_UNMARK_ALL}"><i class="fa fa-toggle-off fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_UNMARK_ALL}</span></a>
 				<a href="#" onclick="marklist('mcp', 'post', true); return false;" class="btn btn-lg rounded-0 border-0" title="{L_MARK_ALL}"><i class="fa fa-toggle-on fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_MARK_ALL}</span></a>
 			</div>
