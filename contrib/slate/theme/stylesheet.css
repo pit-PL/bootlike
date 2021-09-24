@@ -4,7 +4,7 @@
 .bg1 {background-color: #42484e;}
 .bg2, .card.bg2, .action-bar .btn.btn-lg:hover, #format-buttons .btn:hover {background-color: #33373b;}
 .row-item .folder:before {background-color: #666;}
-.row-item .folder:before, .row-item .folder:after {color: #333; text-shadow: 1px 1px 1px #444; -webkit-text-stroke: 1px #666;}
+.row-item .folder:before, .row-item .folder:after {text-shadow: 1px 1px 1px #444; -webkit-text-stroke: 1px #555;}
 .card.blockquote {border-color: #222;}
 .contact-button:hover {border-color: #3a3f44 !important;}
 .border-white, .img-thumbnail {border-color: #666 !important;}
