@@ -485,7 +485,7 @@
 						<!-- IF postrow.POSTER_AVATAR -->{postrow.POSTER_AVATAR}</span><!-- ELSE --><img class="img-thumbnail rounded-circle" src="{ROOT_PATH}styles/bootlike/theme/images/no_avatar.gif" alt="{L_IMAGE}" /><!-- ENDIF -->
 						</div>
 						<div class="col-8">
-						<!-- IF postrow.POSTER_POSTS != '' --><div><strong>{L_POSTS}{L_COLON}</strong><!-- IF postrow.U_SEARCH !== '' --> <a href="{postrow.U_SEARCH}"><!-- ENDIF -->{postrow.POSTER_POSTS}<!-- IF postrow.U_SEARCH !== '' --></a><!-- ENDIF --></div><!-- ENDIF -->
+						<!-- IF postrow.POSTER_POSTS != '' --><div><strong>{L_POSTS}{L_COLON}</strong> <!-- IF postrow.U_SEARCH !== '' --><a href="{postrow.U_SEARCH}"><!-- ENDIF -->{postrow.POSTER_POSTS}<!-- IF postrow.U_SEARCH !== '' --></a><!-- ENDIF --></div><!-- ENDIF -->
 						<!-- IF postrow.POSTER_JOINED --><div><strong>{L_JOINED}{L_COLON}</strong> {postrow.POSTER_JOINED}</div><!-- ENDIF -->
 						<!-- IF postrow.POSTER_WARNINGS --><div><strong>{L_WARNINGS}{L_COLON}</strong> {postrow.POSTER_WARNINGS}</div><!-- ENDIF -->
 
