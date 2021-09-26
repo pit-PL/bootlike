@@ -278,15 +278,13 @@
 		</div>
 	</div>
 	<!-- BEGIN leader -->
-		<div class="mt-1 bg1">
-			<div class="row px-3 py-1 align-items-center">
-				<div class="col-lg-9 col-md-8 col-7">
-					<a href="{leader.U_EDIT}" class="topictitle"<!-- IF leader.GROUP_COLOUR --> style="color: #{leader.GROUP_COLOUR};"<!-- ENDIF -->>{leader.GROUP_NAME}</a>
-					<!-- IF leader.GROUP_DESC --><span class="form-text">{leader.GROUP_DESC}</span><!-- ENDIF -->
-				</div>
-	
-				<div class="col-lg-3 col-md-4 col-5"><a href="{leader.U_EDIT}" >{L_EDIT}</a><br><a href="{leader.U_LIST}">{L_GROUP_LIST}</a></div>
+		<div class="row m-0 mt-1 py-1 align-items-center bg1">
+			<div class="col-lg-9 col-md-8 col-7">
+				<a href="{leader.U_EDIT}" class="topictitle"<!-- IF leader.GROUP_COLOUR --> style="color: #{leader.GROUP_COLOUR};"<!-- ENDIF -->>{leader.GROUP_NAME}</a>
+				<!-- IF leader.GROUP_DESC --><span class="form-text">{leader.GROUP_DESC}</span><!-- ENDIF -->
 			</div>
+		
+			<div class="col-lg-3 col-md-4 col-5"><a href="{leader.U_EDIT}" >{L_EDIT}</a><br><a href="{leader.U_LIST}">{L_GROUP_LIST}</a></div>
 		</div>
 	<!-- END leader -->
 	</div>
