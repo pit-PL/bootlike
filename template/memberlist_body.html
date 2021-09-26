@@ -65,26 +65,24 @@
 		</div>
 
 	<!-- IF TOTAL_PAGES > 1 -->
-	<div class="card mb-3">
 		<div class="action-bar d-sm-flex justify-content-between bg1 shadow-sm">
-				<div class="d-flex">&nbsp;</div>
+			<div class="d-flex">&nbsp;</div>
 
-				<div class="btn btn-lg disabled fs-6 mt-1 text-nowrap border-0">
-					{TOTAL_USERS} &bull; <span class="fw-normal">{PAGE_NUMBER}</span>
-				</div>
+			<div class="btn btn-lg disabled fs-6 mt-1 text-nowrap border-0">
+				{TOTAL_USERS} &bull; <span class="fw-normal">{PAGE_NUMBER}</span>
+			</div>
 
-				<div class="d-flex">
-				<!-- IF .pagination -->
-					<button class="btn dropdown-toggle btn-lg rounded-0 border-0" title="{L_JUMP_TO_PAGE}" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-clone fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_SEARCH}</span></button>
-					<div class="dropdown-menu dropdown-menu-end">
-						<div class="input-group px-2">
-							<!-- INCLUDE pagination.html -->
-						</div>
+			<div class="d-flex">
+			<!-- IF .pagination -->
+				<button class="btn dropdown-toggle btn-lg rounded-0 border-0" title="{L_JUMP_TO_PAGE}" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-clone fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_SEARCH}</span></button>
+				<div class="dropdown-menu dropdown-menu-end">
+					<div class="input-group px-2">
+						<!-- INCLUDE pagination.html -->
 					</div>
-				<!-- ELSE -->
-					&nbsp;
-				<!-- ENDIF -->
 				</div>
+			<!-- ELSE -->
+				&nbsp;
+			<!-- ENDIF -->
 			</div>
 		</div>
 	<!-- ENDIF -->
@@ -106,11 +104,10 @@
 		</div>
 <!-- ENDIF -->
 		<!-- BEGIN memberrow -->
-		<div class="mt-1 bg1">
 			<!-- IF S_SHOW_GROUP -->
 				<!-- IF not memberrow.S_GROUP_LEADER and not $S_MEMBER_HEADER -->
 				<!-- IF S_LEADERS_SET and memberrow.S_FIRST_ROW -->
-					<div class="col">&nbsp;</div>
+					<div class="mt-1 px-3 py-2 bg-1">&nbsp;</div>
 				<!-- ENDIF -->
 <!-- IF S_LEADERS_SET -->
 	</div>
@@ -140,12 +137,10 @@
 		<!-- ENDIF -->
 		</div>
 	</div>
-	<div class="mt-1 bg1">
-
 					<!-- DEFINE $S_MEMBER_HEADER = 1 -->
 				<!-- ENDIF -->
 			<!-- ENDIF -->
-		<div class="row px-3 py-1 align-items-center<!-- IF memberrow.S_INACTIVE --> text-muted<!-- ENDIF -->">
+		<div class="row m-0 mt-1 px-3 py-1 align-items-center bg1<!-- IF memberrow.S_INACTIVE --> text-muted<!-- ENDIF -->">
 			<div class="col-12 col-md-3 py-2 d-md-flex justify-content-md-between">
 				<div>
 					<span class="badge bg-secondary d-md-none">{L_USERNAME}{L_COLON}</span>
@@ -188,7 +183,6 @@
 		<!-- ENDIF -->
 			{% EVENT memberlist_body_memberrow_after %}
 		</div>
-	</div>
 		<!-- BEGINELSE -->
 		<div class="mt-1 px-3 py-2 text-center bg1">{L_NO_MEMBERS}</div>
 		<!-- END memberrow -->
