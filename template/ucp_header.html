@@ -53,7 +53,7 @@
 
 		<!-- IF .friends_online -->
 		<ul class="list-group mb-3">
-			<li class="list-group-item  active">{L_FRIENDS} {L_FRIENDS_ONLINE}</li>
+			<li class="list-group-item active">{L_FRIENDS} {L_FRIENDS_ONLINE}</li>
 		<!-- BEGIN friends_online -->
 			<li class="list-group-item d-flex align-items-center justify-content-lg-between">{% EVENT ucp_header_friends_online_username_full_prepend %} {friends_online.USERNAME_FULL} {% EVENT ucp_header_friends_online_username_full_append %}<!-- IF S_SHOW_PM_BOX --><button class="btn btn-success ms-2" type="submit" name="add_to[{friends_online.USER_ID}]" value="{L_ADD}"><i class="fa fa-plus fa-fw" aria-hidden="true"></i> {L_ADD}</button><!-- ENDIF --></li>
 		<!-- END friends_online -->
