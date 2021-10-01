@@ -95,10 +95,10 @@
 						<!-- ENDIF -->
 						<div class="col-sm-2 col-2 form-check d-flex align-items-center justify-content-between">
 							<div class="form-switch">
-								<input class="form-check-input mt-0" type="checkbox" name="marked_msg_id[]" value="{messagerow.MESSAGE_ID}" />
+								<input class="form-check-input" type="checkbox" name="marked_msg_id[]" value="{messagerow.MESSAGE_ID}" />
 							</div>
 						<!-- IF messagerow.PM_CLASS -->
-							<i class="fa fa-circle fs-5<!-- IF messagerow.PM_CLASS eq 'pm_message_reported_colour' --> text-danger<!-- ELSEIF messagerow.PM_CLASS eq 'pm_marked_colour' --> text-warning<!-- ELSEIF messagerow.PM_CLASS eq 'pm_replied_colour' --> text-secondary<!-- ELSEIF messagerow.PM_CLASS eq 'pm_friend_colour' --> text-primary<!-- ELSEIF messagerow.PM_CLASS eq 'pm_foe_colour' --> text-dark<!-- ENDIF -->" aria-hidden="true"></i>
+							<i class="fa fa-circle fs-5 mt-1<!-- IF messagerow.PM_CLASS eq 'pm_message_reported_colour' --> text-danger<!-- ELSEIF messagerow.PM_CLASS eq 'pm_marked_colour' --> text-warning<!-- ELSEIF messagerow.PM_CLASS eq 'pm_replied_colour' --> text-secondary<!-- ELSEIF messagerow.PM_CLASS eq 'pm_friend_colour' --> text-primary<!-- ELSEIF messagerow.PM_CLASS eq 'pm_foe_colour' --> text-dark<!-- ENDIF -->" aria-hidden="true"></i>
 						<!-- ENDIF -->
 						</div>
 					</div>
