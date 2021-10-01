@@ -10,13 +10,13 @@
 				<textarea class="form-control" id="username_list" name="username_list" cols="30" rows="3" tabindex="1"></textarea>
 			</div>
 			<div class="col-md-5 col-12">
-				<div class="btn-group me-1 mt-2 mt-md-0">
-					<input class="btn btn-secondary" type="submit" name="add_to" value="{L_ADD}" tabindex="1" />
-					<input class="btn btn-secondary" type="submit" name="add_bcc" value="{L_ADD_BCC}" tabindex="1" />
+				<div class="btn-group mt-2 mt-md-0">
+					<button class="btn btn-secondary" type="submit" name="add_to" title="{L_ADD}" title="{L_ADD}" tabindex="1"><i class="fa fa-plus fa-fw" aria-hidden="true"></i></button>
+					<button class="btn btn-secondary" type="submit" name="add_bcc" title="{L_ADD_BCC}" tabindex="1"><i class="fa fa-plus fa-fw" aria-hidden="true"></i> {L_BCC}</button>
+					<!-- EVENT posting_pm_header_find_username_before -->
+					<a class="btn btn-secondary" href="{U_FIND_USERNAME}" onclick="find_username(this.href); return false;" title="{L_FIND_USERNAME}"><i class="fa fa-search fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_FIND_USERNAME}</span></a>
+					<!-- EVENT posting_pm_header_find_username_after -->
 				</div>
-				<!-- EVENT posting_pm_header_find_username_before -->
-				<a class="btn btn-secondary mt-2 text-nowrap" href="{U_FIND_USERNAME}" onclick="find_username(this.href); return false;">{L_FIND_USERNAME}</a>
-				<!-- EVENT posting_pm_header_find_username_after -->
 			</div>
 			</div>
 		</dd>
