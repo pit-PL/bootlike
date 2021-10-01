@@ -350,10 +350,6 @@ a.postlink:hover, a.postlink:focus {
 		max-width: 50px;		
 	}
 
-	div.postbody {
-		border: none !important;
-	}
-
 	.jumpbox a {
 		max-width: 460px;
 		overflow: hidden;
