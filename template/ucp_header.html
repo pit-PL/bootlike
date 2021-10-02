@@ -33,9 +33,9 @@
 	
 		<!-- BEGIN folder -->
 			<!-- IF folder.S_CUR_FOLDER -->
-				<a class="list-group-item list-group-item-action active" href="{folder.U_FOLDER}"><!-- IF folder.UNREAD_MESSAGES > 0 -->{folder.FOLDER_NAME} <strong class="badge bg-light text-dark">{folder.UNREAD_MESSAGES}</strong><!-- ELSE -->{folder.FOLDER_NAME}<!-- ENDIF --></a>
+				<a class="list-group-item list-group-item-action active d-flex align-items-center justify-content-lg-between" href="{folder.U_FOLDER}"><!-- IF folder.UNREAD_MESSAGES > 0 -->{folder.FOLDER_NAME} <strong class="badge bg-light text-dark ms-2">{folder.UNREAD_MESSAGES}</strong><!-- ELSE -->{folder.FOLDER_NAME}<!-- ENDIF --></a>
 			<!-- ELSE -->
-				<a class="list-group-item list-group-item-action" href="{folder.U_FOLDER}"><!-- IF folder.UNREAD_MESSAGES > 0 -->{folder.FOLDER_NAME} <strong class="badge bg-primary">{folder.UNREAD_MESSAGES}</strong><!-- ELSE -->{folder.FOLDER_NAME}<!-- ENDIF --></a>
+				<a class="list-group-item list-group-item-action d-flex align-items-center justify-content-lg-between" href="{folder.U_FOLDER}"><!-- IF folder.UNREAD_MESSAGES > 0 -->{folder.FOLDER_NAME} <strong class="badge bg-primary ms-2">{folder.UNREAD_MESSAGES}</strong><!-- ELSE -->{folder.FOLDER_NAME}<!-- ENDIF --></a>
 			<!-- ENDIF -->
 		<!-- END folder -->
 	<!-- ENDIF -->
