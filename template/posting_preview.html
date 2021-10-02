@@ -26,12 +26,6 @@
 
 <!-- ENDIF -->
 
-	<div class="card-header">
-		<div class="row justify-content-start">
-			<div class="<!-- IF $PROFILES_ON_LEFT -->col-lg-9 offset-lg-3 col-md-8 offset-md-4<!-- ENDIF --> col-12">{L_PREVIEW}{L_COLON} {PREVIEW_SUBJECT}</div>
-		</div>
-	</div>
-
 	<div class="card-body p-0">
 		<div class="row m-0">
 
@@ -41,6 +35,10 @@
 
 			<div class="postbody col-lg-9 col-md-8 col-12 p-0 bg2">
 			<hr class="d-md-none m-0">
+
+				<div class="postbody-before p-3 bg2">
+					{L_PREVIEW}{L_COLON} {PREVIEW_SUBJECT}
+				</div>
 
 				<div class="px-3 py-2 bg1">
 					<div class="content">{PREVIEW_MESSAGE}</div>
