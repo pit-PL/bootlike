@@ -12,31 +12,42 @@
 </div>
 <!-- ELSE -->
 <div class="card mb-3">
-	<div class="card-header">
-		<a href="{post_review_row.U_MINI_POST}">{post_review_row.POST_SUBJECT}</a>
-	</div>
-	<div class="card-body bg1">
+	<div class="card-body p-0">
+		<div class="row m-0">
 
-		<div class="postbody" id="ppr{post_review_row.POST_ID}">
-			<p><!-- IF S_IS_BOT --><i class="fa fa-file-o" aria-hidden="true"></i><!-- ELSE --><a href="{post_review_row.U_MINI_POST}" title="{L_POST}"><i class="fa fa-file-o" aria-hidden="true"></i><span class="visually-hidden">{L_POST}</span></a><!-- ENDIF --> {L_POST_BY_AUTHOR} <!-- EVENT posting_review_row_post_author_username_prepend --><strong>  {post_review_row.POST_AUTHOR_FULL}</strong><!-- EVENT posting_review_row_post_author_username_append --> &raquo; {post_review_row.POST_DATE}</p>
-			<div class="content">{post_review_row.MESSAGE}</div>
+			<div class="postprofile col-lg-3 col-md-4<!-- IF not $PROFILES_ON_LEFT --> order-first order-md-2<!-- ENDIF --> bg2 shadow">
+				<div class="text-center p-3"><img class="img-thumbnail rounded-circle" src="{ROOT_PATH}styles/bootlike/theme/images/no_avatar.gif" alt="{L_IMAGE}" /></div>
+			</div>
 
-			<!-- IF post_review_row.S_HAS_ATTACHMENTS -->
-				<div class="my-1 text-uppercase">{L_ATTACHMENTS}</div>
-				<div class="row<!-- IF $ATTACHMENT_COLUMNS eq 3 --> row-cols-lg-3 row-cols-md-2 row-cols-1<!-- ENDIF --><!-- IF $ATTACHMENT_COLUMNS eq 2 --> row-cols-lg-2 row-cols-1<!-- ENDIF -->">
-				<!-- BEGIN attachment -->
-					<div class="col d-flex">
-						<div class="card mb-3<!-- IF $ATTACHMENT_COLUMNS --> w-100<!-- ENDIF -->">
-							<div class="card-body p-2">
-								{post_review_row.attachment.DISPLAY_ATTACHMENT}
+			<div id="ppr{post_review_row.POST_ID}" class="postbody col-lg-9 col-md-8 col-12 p-0 bg1">
+			<hr class="d-md-none m-0">
+
+				<div class="postbody-before px-3 py-2 bg2">
+					<a class="d-block" href="{post_review_row.U_MINI_POST}">{post_review_row.POST_SUBJECT}</a>
+					<a href="{post_review_row.U_MINI_POST}" title="{L_POST}"><i class="fa fa-file-o" aria-hidden="true"></i></a> {L_POST_BY_AUTHOR} <!-- EVENT posting_review_row_post_author_username_prepend --> <strong>{post_review_row.POST_AUTHOR_FULL}</strong> <!-- EVENT posting_review_row_post_author_username_append --> &raquo; {post_review_row.POST_DATE}
+				</div>
+
+				<div class="px-3 py-2">
+					<div class="content">{post_review_row.MESSAGE}</div>
+
+				<!-- IF post_review_row.S_HAS_ATTACHMENTS -->
+					<div class="my-1 text-uppercase">{L_ATTACHMENTS}</div>
+					<div class="row<!-- IF $ATTACHMENT_COLUMNS eq 3 --> row-cols-lg-3 row-cols-md-2 row-cols-1<!-- ENDIF --><!-- IF $ATTACHMENT_COLUMNS eq 2 --> row-cols-lg-2 row-cols-1<!-- ENDIF -->">
+					<!-- BEGIN attachment -->
+						<div class="col d-flex">
+							<div class="card mb-3<!-- IF $ATTACHMENT_COLUMNS --> w-100<!-- ENDIF -->">
+								<div class="card-body p-2">
+									{post_review_row.attachment.DISPLAY_ATTACHMENT}
+								</div>
 							</div>
 						</div>
+					<!-- END attachment -->
 					</div>
-				<!-- END attachment -->
+				<!-- ENDIF -->
 				</div>
-			<!-- ENDIF -->
-		</div>
+			</div>
 
+		</div>
 	</div>
 </div>
 <!-- ENDIF -->
