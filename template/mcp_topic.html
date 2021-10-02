@@ -113,7 +113,7 @@
 		<div id="topicreview" class="card-body pb-0 overflow-auto">
 			<!-- BEGIN postrow -->
 			<!-- EVENT mcp_topic_postrow_post_before -->
-			<div class="card mb-3<!-- IF postrow.S_POST_DELETED --> border-dark<!-- ENDIF --><!-- IF postrow.S_POST_UNAPPROVED --> border-success<!-- ENDIF --><!-- IF postrow.S_POST_REPORTED --> border-warning<!-- ENDIF -->">
+			<div class="card mb-3<!-- IF postrow.S_POST_UNAPPROVED --> border-success<!-- ELSEIF postrow.S_POST_REPORTED --> border-warning<!-- ELSEIF postrow.S_POST_DELETED --> border-dark<!-- ENDIF -->">
 				<div class="card-body p-0">
 
 				<div class="postbody bg2" id="pr{postrow.POST_ID}">
@@ -136,23 +136,21 @@
 					</div>
 
 					<div class="px-3 py-2 bg1">
-						<!-- IF postrow.S_POST_UNAPPROVED -->
+					<!-- IF postrow.S_POST_UNAPPROVED or postrow.S_POST_DELETED or postrow.S_POST_REPORTED -->
 						<div class="alert alert-warning">
-							<a href="{postrow.U_MCP_APPROVE}"><strong>{L_POST_UNAPPROVED}</strong></a>
-						</div>
+						<!-- IF postrow.S_POST_UNAPPROVED -->
+							<a class="btn btn-warning me-1" href="{postrow.U_MCP_APPROVE}">{L_POST_UNAPPROVED}</a>
 						<!-- ENDIF -->
 
 						<!-- IF postrow.S_POST_DELETED -->
-						<div class="alert alert-warning">
-							<a href="{postrow.U_MCP_APPROVE}"><strong>{L_POST_DELETED}</strong></a>
-						</div>
+							<a class="btn btn-warning me-1" href="{postrow.U_MCP_APPROVE}">{L_POST_DELETED}</a>
 						<!-- ENDIF -->
 
 						<!-- IF postrow.S_POST_REPORTED -->
-						<div class="alert alert-warning">
-							<a href="{postrow.U_MCP_REPORT}"><strong>{L_POST_REPORTED}</strong></a>
-						</div>
+							<a class="btn btn-warning me-1" href="{postrow.U_MCP_REPORT}">{L_POST_REPORTED}</a>
 						<!-- ENDIF -->
+						</div>
+					<!-- ENDIF -->
 
 						<!-- EVENT mcp_topic_postrow_attachments_before -->
 
