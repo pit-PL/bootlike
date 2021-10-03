@@ -72,14 +72,3 @@
 		</div>
 	</div>
 	<!-- ENDIF -->
-
-	<!-- IF .pagination or FOLDER_CUR_MESSAGES neq 0 or (S_DISPLAY_HISTORY and (U_VIEW_PREVIOUS_HISTORY or U_VIEW_NEXT_HISTORY)) -->
-		<div class="clearfix mb-3">
-		<!-- IF S_DISPLAY_HISTORY and (U_VIEW_PREVIOUS_HISTORY or U_VIEW_NEXT_HISTORY) -->
-			<div class="btn-group float-end">
-			<!-- IF U_VIEW_PREVIOUS_HISTORY --><a href="{U_VIEW_PREVIOUS_HISTORY}" class="btn btn-outline-secondary"><i class="fa fa-chevron-{S_CONTENT_FLOW_BEGIN}"></i> {L_VIEW_PREVIOUS_HISTORY}</a><!-- ENDIF -->
-			<!-- IF U_VIEW_NEXT_HISTORY --><a href="{U_VIEW_NEXT_HISTORY}" class="btn btn-outline-secondary">{L_VIEW_NEXT_HISTORY} <i class="fa fa-chevron-{S_CONTENT_FLOW_END}"></i></a><!-- ENDIF -->
-			</div>
-		<!-- ENDIF -->
-		</div>
-	<!-- ENDIF -->
