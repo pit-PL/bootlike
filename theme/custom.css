@@ -268,15 +268,6 @@ a.postlink:hover, a.postlink:focus {
 	width: 600px;
 }
 
-@media (max-width: 767px)
-{
-	.phpbb_alert, #login-popup {
-		top: 0;
-		width: auto;
-		margin: 10px;
-	}
-}
-
 .darkenwrapper {
 	display: none;
 	z-index: 44;
@@ -345,6 +336,10 @@ a.postlink:hover, a.postlink:focus {
 		width: auto;
 	}
 
+	div.postprofile {
+		box-shadow: none !important;
+	}
+
 	.avatar img {
 		max-height: 50px;
 		max-width: 50px;		
@@ -354,6 +349,12 @@ a.postlink:hover, a.postlink:focus {
 		max-width: 460px;
 		overflow: hidden;
 		text-overflow: ellipsis;
+	}
+
+	.phpbb_alert, #login-popup {
+		top: 0;
+		width: auto;
+		margin: 10px;
 	}
 }
 
