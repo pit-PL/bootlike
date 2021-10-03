@@ -2,6 +2,17 @@
 
 <!-- INCLUDE ucp_pm_message_header.html -->
 
+<!-- IF S_DISPLAY_HISTORY and (U_VIEW_PREVIOUS_HISTORY or U_VIEW_NEXT_HISTORY) -->
+<div class="clearfix mb-3">
+	<!-- IF U_VIEW_PREVIOUS_HISTORY -->
+	<a class="btn btn-outline-secondary float-start" href="{U_VIEW_PREVIOUS_HISTORY}" title="{L_VIEW_PREVIOUS_HISTORY}"><i class="fa fa-chevron-{S_CONTENT_FLOW_BEGIN} fa-fw" aria-hidden="true"></i> {L_VIEW_PREVIOUS_HISTORY}</a>
+	<!-- ENDIF -->
+	<!-- IF U_VIEW_NEXT_HISTORY -->
+	<a class="btn btn-outline-secondary float-end" href="{U_VIEW_NEXT_HISTORY}" title="{L_VIEW_NEXT_HISTORY}">{L_VIEW_NEXT_HISTORY} <i class="fa fa-chevron-{S_CONTENT_FLOW_END} fa-fw" aria-hidden="true"></i></a>
+	<!-- ENDIF -->
+</div>
+<!-- ENDIF -->
+
 <div class="card mb-3">
 	<div id="post-{MESSAGE_ID}" class="card-body p-0">
 		<div class="row m-0">
@@ -84,16 +95,16 @@
 						<div class="btn-group">
 						<!-- EVENT ucp_pm_viewmessage_post_buttons_before -->
 						<!-- IF U_EDIT -->
-							<a href="{U_EDIT}" title="{L_POST_EDIT_PM}" class="btn btn-secondary"><i class="fa fa-pencil fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_BUTTON_EDIT}</span></a>
+							<a class="btn btn-secondary" href="{U_EDIT}" title="{L_POST_EDIT_PM}"><i class="fa fa-pencil fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_BUTTON_EDIT}</span></a>
 						<!-- ENDIF -->
 						<!-- IF U_DELETE -->
-							<a href="{U_DELETE}" title="{L_DELETE_MESSAGE}" class="btn btn-danger"><i class="fa fa-times  fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_BUTTON_DELETE}</span></a>
+							<a class="btn btn-danger" href="{U_DELETE}" title="{L_DELETE_MESSAGE}"><i class="fa fa-times  fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_BUTTON_DELETE}</span></a>
 						<!-- ENDIF -->
 						<!-- IF U_REPORT -->
-							<a href="{U_REPORT}" title="{L_REPORT_PM}" class="btn btn-secondary"><i class="fa fa-exclamation fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_BUTTON_REPORT}</span></a>
+							<a class="btn btn-secondary" href="{U_REPORT}" title="{L_REPORT_PM}"><i class="fa fa-exclamation fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_BUTTON_REPORT}</span></a>
 						<!-- ENDIF -->
 						<!-- IF U_QUOTE -->
-							<a href="{U_QUOTE}" title="{L_POST_QUOTE_PM}" class="btn btn-secondary"><i class="fa fa-quote-{S_CONTENT_FLOW_BEGIN} fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_BUTTON_QUOTE}</span></a>
+							<a class="btn btn-secondary" href="{U_QUOTE}" title="{L_POST_QUOTE_PM}"><i class="fa fa-quote-{S_CONTENT_FLOW_BEGIN} fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_BUTTON_QUOTE}</span></a>
 						<!-- ENDIF -->
 						<!-- EVENT ucp_pm_viewmessage_post_buttons_after -->
 						</div>
@@ -148,21 +159,6 @@
 </div>
 
 <!-- EVENT ucp_pm_viewmessage_options_before -->
-
-<!-- IF S_DISPLAY_HISTORY and (U_VIEW_PREVIOUS_HISTORY or U_VIEW_NEXT_HISTORY) -->
-<div class="card mb-3">
-	<div class="action-bar d-lg-flex justify-content-end bg1">
-		<div class="d-flex">
-	<!-- IF U_VIEW_PREVIOUS_HISTORY -->
-	<a class="btn btn-lg rounded-0 border-0 text-nowrap" href="{U_VIEW_PREVIOUS_HISTORY}">{L_VIEW_PREVIOUS_HISTORY}</a>
-	<!-- ENDIF -->
-	<!-- IF U_VIEW_NEXT_HISTORY -->
-	<a class="btn btn-lg rounded-0 border-0 text-nowrap" href="{U_VIEW_NEXT_HISTORY}">{L_VIEW_NEXT_HISTORY}</a>
-	<!-- ENDIF -->
-		</div>
-	</div>
-</div>
-<!-- ENDIF -->
 
 <!-- IF not S_UNREAD and not S_SPECIAL_FOLDER or S_MARK_OPTIONS -->
 <div class="d-md-flex justify-content-between mb-3">
