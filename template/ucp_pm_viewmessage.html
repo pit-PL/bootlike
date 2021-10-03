@@ -149,7 +149,22 @@
 
 <!-- EVENT ucp_pm_viewmessage_options_before -->
 
-<!-- IF S_VIEW_MESSAGE -->
+<!-- IF S_DISPLAY_HISTORY and (U_VIEW_PREVIOUS_HISTORY or U_VIEW_NEXT_HISTORY) -->
+<div class="card mb-3">
+	<div class="action-bar d-lg-flex justify-content-end bg1">
+		<div class="d-flex">
+	<!-- IF U_VIEW_PREVIOUS_HISTORY -->
+	<a class="btn btn-lg rounded-0 border-0 text-nowrap" href="{U_VIEW_PREVIOUS_HISTORY}">{L_VIEW_PREVIOUS_HISTORY}</a>
+	<!-- ENDIF -->
+	<!-- IF U_VIEW_NEXT_HISTORY -->
+	<a class="btn btn-lg rounded-0 border-0 text-nowrap" href="{U_VIEW_NEXT_HISTORY}">{L_VIEW_NEXT_HISTORY}</a>
+	<!-- ENDIF -->
+		</div>
+	</div>
+</div>
+<!-- ENDIF -->
+
+<!-- IF not S_UNREAD and not S_SPECIAL_FOLDER or S_MARK_OPTIONS -->
 <div class="d-md-flex justify-content-between mb-3">
 	<!-- IF not S_UNREAD and not S_SPECIAL_FOLDER -->
 	<div>
