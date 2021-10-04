@@ -5,9 +5,9 @@
 	<!-- ENDIF -->
 
 	<!-- BEGIN notifications -->
-	<li class="list-group-item p-0 dropdown notification-block">
+	<li class="list-group-item p-0 dropdown notification-block<!-- IF notifications.UNREAD --> bg-info<!-- ENDIF -->">
 		<!-- IF notifications.URL -->
-		<a class="dropdown-item px-1<!-- IF notifications.UNREAD --> bg-info<!-- ENDIF -->" href="<!-- IF notifications.UNREAD -->{notifications.U_MARK_READ}" data-real-url="{notifications.URL}<!-- ELSE -->{notifications.URL}<!-- ENDIF -->">
+		<a class="dropdown-item px-1" href="<!-- IF notifications.UNREAD -->{notifications.U_MARK_READ}" data-real-url="{notifications.URL}<!-- ELSE -->{notifications.URL}<!-- ENDIF -->">
 		<!-- ENDIF -->
 		<div class="row px-2 align-items-center">
 			<div class="col-3 justify-content-center d-flex">
