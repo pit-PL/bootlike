@@ -10,10 +10,10 @@
 		<a class="dropdown-item px-1" href="<!-- IF notifications.UNREAD -->{notifications.U_MARK_READ}" data-real-url="{notifications.URL}<!-- ELSE -->{notifications.URL}<!-- ENDIF -->">
 		<!-- ENDIF -->
 		<div class="row px-2 align-items-center">
-			<div class="col-3 justify-content-center d-flex">
+			<div class="col-md-3 pe-0 justify-content-center d-none d-md-flex">
 				<!-- IF notifications.AVATAR -->{notifications.AVATAR}<!-- ELSE --><img src="{ROOT_PATH}styles/bootlike/theme/images/no_avatar.gif" class="img-thumbnail" alt="{L_IMAGE}" /><!-- ENDIF -->
 			</div>
-			<div class="col-9 p-0 pe-2">
+			<div class="col-md-9 col-12">
 				<div class="notification-text">
 					<div class="notification-title text-wrap<!-- IF notifications.UNREAD or notifications.STYLING eq 'notification-reported' or notifications.STYLING eq 'notification-disapproved' --> text-danger<!-- ENDIF -->">{notifications.FORMATTED_TITLE}</div>
 					<!-- IF notifications.REFERENCE --><div class="text-truncate">{notifications.REFERENCE}</div><!-- ENDIF -->
