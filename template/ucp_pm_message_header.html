@@ -6,7 +6,7 @@
 	<!-- IF FOLDER_STATUS and FOLDER_MAX_MESSAGES neq 0 --><p class="mb-1">{FOLDER_STATUS}</p>
 		<!-- IF FOLDER_PERCENT > 0 -->
 		<div class="progress mb-3" style="height: 8px;">
-			<div class="progress-bar<!-- IF FOLDER_PERCENT < 40 --> bg-success<!-- ELSEIF FOLDER_PERCENT < 70 --> bg-info<!-- ELSEIF FOLDER_PERCENT < 90 --> bg-warning<!-- ELSE --> bg-danger progress-bar-striped progress-bar-animated<!-- ENDIF -->" style="width: {FOLDER_PERCENT}%;" role="progressbar" aria-valuenow="{FOLDER_PERCENT}" aria-valuemin="0" aria-valuemax="100"></div>
+			<div class="progress-bar<!-- IF FOLDER_PERCENT < 70 --> bg-info<!-- ELSEIF FOLDER_PERCENT < 90 --> bg-warning<!-- ELSE --> bg-danger progress-bar-striped progress-bar-animated<!-- ENDIF -->" style="width: {FOLDER_PERCENT}%;" role="progressbar" aria-valuenow="{FOLDER_PERCENT}" aria-valuemin="0" aria-valuemax="100"></div>
 		</div>
 		<!-- ENDIF -->
 	<!-- ENDIF -->
