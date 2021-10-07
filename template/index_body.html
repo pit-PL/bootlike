@@ -11,102 +11,95 @@
 <!-- EVENT index_body_stat_blocks_before -->
 
 <!-- IF (S_DISPLAY_ONLINE_LIST or NEWEST_USER or (S_DISPLAY_BIRTHDAY_LIST and .birthdays) or not S_USER_LOGGED_IN) and not S_IS_BOT -->
-<div class="card mb-3 shadow-sm">
-	<div id="accordion_index" class="accordion accordion-flush">
-
+<div class="mb-3">
+	<ul class="nav nav-tabs" role="tablist">
 	<!-- IF S_DISPLAY_ONLINE_LIST -->
-		<div class="accordion-item">
-			<h2 class="accordion-header">
-				<button class="accordion-button<!-- IF not S_USER_LOGGED_IN and $LOGIN_POPUP_OFF --> collapsed<!-- ENDIF -->" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_online" aria-expanded="true" aria-controls="collapse_online"><i class="fa fa-signal fa-fw" aria-hidden="true"></i> {L_WHO_IS_ONLINE}</button>
-			</h2>
-			<div id="collapse_online" class="accordion-collapse collapse<!-- IF S_USER_LOGGED_IN or (not S_USER_LOGGED_IN and not $LOGIN_POPUP_OFF) --> show<!-- ENDIF -->" data-bs-parent="#accordion_index">
-				<div class="accordion-body">
-				<!-- EVENT index_body_block_online_prepend -->
-					<p>{TOTAL_USERS_ONLINE} ({L_ONLINE_EXPLAIN})<br>{RECORD_USERS}</p>
-				<!-- IF U_VIEWONLINE -->
-					<p class="m-0">{LOGGED_IN_USER_LIST}<!-- IF LEGEND --><br>{L_LEGEND}{L_COLON} {LEGEND}<!-- ENDIF --></p>
-				<!-- ENDIF -->
-				<!-- EVENT index_body_block_online_append -->
-				</div>
-			</div>
+		<li class="nav-item d-md-grid col-md-3 text-center">
+			<a class="nav-item nav-link<!-- IF S_USER_LOGGED_IN or (not S_USER_LOGGED_IN and not $LOGIN_POPUP_OFF) --> active<!-- ENDIF -->" data-bs-toggle="tab" href="#nav_online" role="tab" aria-controls="nav_online" aria-selected="true"><i class="fa fa-signal fa-fw d-none d-md-inline-block" aria-hidden="true"></i> {L_WHO_IS_ONLINE}</a>
+		</li>
+	<!-- ENDIF -->
+	<!-- IF NEWEST_USER -->
+		<li class="nav-item d-md-grid col-md-3 text-center">
+			<a class="nav-item nav-link" data-bs-toggle="tab" href="#nav_statistics" role="tab" aria-controls="nav-statistics" aria-selected="false"><i class="fa fa-pie-chart fa-fw d-none d-md-inline-block" aria-hidden="true"></i> {L_STATISTICS}</a>
+		</li>
+	<!-- ENDIF -->
+	<!-- IF S_DISPLAY_BIRTHDAY_LIST and .birthdays -->
+		<li class="nav-item d-md-grid col-md-3 text-center">
+			<a class="nav-item nav-link" data-bs-toggle="tab" href="#nav_birthday" role="tab" aria-controls="nav-birthday" aria-selected="false"><i class="fa fa-birthday-cake fa-fw d-none d-md-inline-block" aria-hidden="true"></i> {L_BIRTHDAYS}</a>
+		</li>
+	<!-- ENDIF -->
+	<!-- IF not S_USER_LOGGED_IN and $LOGIN_POPUP_OFF -->
+		<li class="nav-item d-md-grid col-md-3 text-center">
+			<a class="nav-item nav-link active" data-bs-toggle="tab" href="#nav_login" role="tab" aria-controls="nav-login" aria-selected="false"><i class="fa fa-power-off fa-fw d-none d-md-inline-block" aria-hidden="true"></i> {L_LOGIN_LOGOUT}</a>
+		</li>
+	<!-- ENDIF -->
+	</ul>
+
+	<div class="card tab-content p-3 border-top-0 shadow-sm">
+	<!-- IF S_DISPLAY_ONLINE_LIST -->
+		<div class="tab-pane fade<!-- IF S_USER_LOGGED_IN or (not S_USER_LOGGED_IN and not $LOGIN_POPUP_OFF) --> show active<!-- ENDIF -->" id="nav_online" role="tabpanel" aria-labelledby="nav_online-tab">
+		<!-- EVENT index_body_block_online_prepend -->
+			<p<!-- IF not S_USER_LOGGED_IN --> class="m-0"<!-- ENDIF -->>{TOTAL_USERS_ONLINE} ({L_ONLINE_EXPLAIN})<br>{RECORD_USERS}</p>
+		<!-- IF U_VIEWONLINE -->
+			<p class="m-0">{LOGGED_IN_USER_LIST}<!-- IF LEGEND --><br>{L_LEGEND}{L_COLON} {LEGEND}<!-- ENDIF --></p>
+		<!-- ENDIF -->
+		<!-- EVENT index_body_block_online_append -->
 		</div>
 	<!-- ENDIF -->
 	<!-- IF NEWEST_USER -->
-		<div class="accordion-item">
-			<h2 class="accordion-header">
-				<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_statistics" aria-expanded="false" aria-controls="collapse_statistics"><i class="fa fa-pie-chart fa-fw" aria-hidden="true"></i> {L_STATISTICS}</button>
-			</h2>
-			<div id="collapse_statistics" class="accordion-collapse collapse" data-bs-parent="#accordion_index">
-				<div class="accordion-body">
-					<!-- EVENT index_body_block_stats_prepend -->
-					{TOTAL_POSTS} &bull; {TOTAL_TOPICS} &bull; {TOTAL_USERS} &bull; {NEWEST_USER}
-					<!-- EVENT index_body_block_stats_append -->
-				</div>
-			</div>
+		<div class="tab-pane fade" id="nav_statistics" role="tabpanel" aria-labelledby="nav_statistics-tab">
+		<!-- EVENT index_body_block_stats_prepend -->
+			{TOTAL_POSTS} &bull; {TOTAL_TOPICS} &bull; {TOTAL_USERS} &bull; {NEWEST_USER}
+		<!-- EVENT index_body_block_stats_append -->
 		</div>
 	<!-- ENDIF -->
 	<!-- IF S_DISPLAY_BIRTHDAY_LIST and .birthdays -->
-		<div class="accordion-item">
-			<h2 class="accordion-header">
-				<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_birthday" aria-expanded="false" aria-controls="collapse_birthday"><i class="fa fa-birthday-cake fa-fw" aria-hidden="true"></i> {L_BIRTHDAYS}</button>
-			</h2>
-			<div id="collapse_birthday" class="accordion-collapse collapse" data-bs-parent="#accordion_index">
-				<div class="accordion-body">
-					<!-- EVENT index_body_block_birthday_prepend -->
-					<!-- IF .birthdays -->{L_CONGRATULATIONS}{L_COLON} <strong><!-- BEGIN birthdays -->{birthdays.USERNAME}<!-- IF birthdays.AGE !== '' --> ({birthdays.AGE})<!-- ENDIF --><!-- IF not birthdays.S_LAST_ROW -->, <!-- ENDIF --><!-- END birthdays --></strong><!-- ELSE -->{L_NO_BIRTHDAYS}<!-- ENDIF -->
-					<!-- EVENT index_body_block_birthday_append -->
-				</div>
-			</div>
+		<div class="tab-pane fade" id="nav_birthday" role="tabpanel" aria-labelledby="nav_birthday-tab">
+		<!-- EVENT index_body_block_birthday_prepend -->
+		<!-- IF .birthdays -->{L_CONGRATULATIONS}{L_COLON} <strong><!-- BEGIN birthdays -->{birthdays.USERNAME}<!-- IF birthdays.AGE !== '' --> ({birthdays.AGE})<!-- ENDIF --><!-- IF not birthdays.S_LAST_ROW -->, <!-- ENDIF --><!-- END birthdays --></strong><!-- ELSE -->{L_NO_BIRTHDAYS}<!-- ENDIF -->
+		<!-- EVENT index_body_block_birthday_append -->
 		</div>
 	<!-- ENDIF -->
 	<!-- IF not S_USER_LOGGED_IN and $LOGIN_POPUP_OFF -->
-		<div class="accordion-item">
-			<h2 class="accordion-header">
-				<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_login" aria-expanded="false" aria-controls="collapse_login"><i class="fa fa-power-off fa-fw" aria-hidden="true"></i> {L_LOGIN_LOGOUT}</button>
-			</h2>
-			<div id="collapse_login" class="accordion-collapse collapse show" data-bs-parent="#accordion_index">
-				<div class="accordion-body">
-					<form method="post" action="{S_LOGIN_ACTION}">
-						<div class="row g-2">
-							<div class="col-auto">
-								<div class="input-group">
-									<span class="input-group-text"><i class="fa fa-user fa-fw" aria-hidden="true"></i></span>
-									<input class="form-control" type="text" tabindex="1" name="username" id="username" size="20" title="{L_USERNAME}" placeholder="{L_USERNAME}" />
-								</div>
-							</div>
-							<div class="col-auto">
-								<div class="input-group">
-									<span class="input-group-text"><i class="fa fa-lock fa-fw" aria-hidden="true"></i></span>
-									<input class="form-control" type="password" tabindex="2" name="password" id="password" size="20" title="{L_PASSWORD}" autocomplete="off" placeholder="{L_PASSWORD}" />
-								</div>
-							</div>
-							<!-- IF U_SEND_PASSWORD -->
-							<div class="col-auto">
-								<a class="btn btn-outline-secondary" href="{U_SEND_PASSWORD}">{L_FORGOT_PASS}</a>
-							</div>
-							<!-- ENDIF -->
-							<!-- IF S_AUTOLOGIN_ENABLED -->
-							<div class="col-auto">
-								<div class="input-group">
-									<div class="input-group-text border-primary border-end-0">
-										<input class="form-check-input mt-0" type="checkbox" tabindex="4" name="autologin" id="autologin" checked />
-									</div>
-									<label class="btn btn-outline-primary" for="autologin">{L_LOG_ME_IN}</label>
-								</div>
-							</div>
-							<!-- ENDIF -->
-							<div class="col-auto">
-								<button class="btn btn-success" type="submit" tabindex="5" name="login" value="{L_LOGIN}"><i class="fa fa-power-off fa-fw" aria-hidden="true"></i> {L_LOGIN}</button>
-							</div>
-							{S_LOGIN_REDIRECT}
-							{S_FORM_TOKEN_LOGIN}
+		<div class="tab-pane fade show active" id="nav_login" role="tabpanel" aria-labelledby="nav-login-tab">
+			<form method="post" action="{S_LOGIN_ACTION}">
+				<div class="row g-2">
+					<div class="col-auto">
+						<div class="input-group">
+							<span class="input-group-text"><i class="fa fa-user fa-fw" aria-hidden="true"></i></span>
+							<input class="form-control" type="text" tabindex="1" name="username" id="username" size="20" title="{L_USERNAME}" placeholder="{L_USERNAME}" />
 						</div>
-					</form>
+					</div>
+					<div class="col-auto">
+						<div class="input-group">
+							<span class="input-group-text"><i class="fa fa-lock fa-fw" aria-hidden="true"></i></span>
+							<input class="form-control" type="password" tabindex="2" name="password" id="password" size="20" title="{L_PASSWORD}" autocomplete="off" placeholder="{L_PASSWORD}" />
+						</div>
+					</div>
+					<!-- IF U_SEND_PASSWORD -->
+					<div class="col-auto">
+						<a class="btn btn-outline-secondary" href="{U_SEND_PASSWORD}">{L_FORGOT_PASS}</a>
+					</div>
+					<!-- ENDIF -->
+					<!-- IF S_AUTOLOGIN_ENABLED -->
+					<div class="col-auto">
+						<div class="input-group">
+							<div class="input-group-text border-primary border-end-0">
+								<input class="form-check-input mt-0" type="checkbox" tabindex="4" name="autologin" id="autologin" checked />
+							</div>
+							<label class="btn btn-outline-primary" for="autologin">{L_LOG_ME_IN}</label>
+						</div>
+					</div>
+					<!-- ENDIF -->
+					<div class="col-auto">
+						<button class="btn btn-success" type="submit" tabindex="5" name="login" value="{L_LOGIN}"><i class="fa fa-power-off fa-fw" aria-hidden="true"></i> {L_LOGIN}</button>
+					</div>
+					{S_LOGIN_REDIRECT}
+					{S_FORM_TOKEN_LOGIN}
 				</div>
-			</div>
+			</form>
 		</div>
 	<!-- ENDIF -->
-
 	</div>
 </div>
 <!-- ENDIF -->
