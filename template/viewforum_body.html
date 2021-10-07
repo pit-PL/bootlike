@@ -282,33 +282,31 @@
 {% EVENT viewforum_body_online_list_before %}
 
 <!-- IF (S_DISPLAY_ONLINE_LIST and U_VIEWONLINE) or (S_IS_POSTABLE and rules|length) -->
-<div class="card mb-3 shadow-sm">
-	<div id="accordion_viewforum" class="accordion accordion-flush">
-		<!-- IF S_DISPLAY_ONLINE_LIST and U_VIEWONLINE -->
-		<div class="accordion-item">
-			<h2 class="accordion-header">
-				<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_online" aria-expanded="true" aria-controls="collapse_online"><i class="fa fa-signal fa-fw" aria-hidden="true"></i> {L_WHO_IS_ONLINE}</button>
-			</h2>
-			<div id="collapse_online" class="accordion-collapse collapse show" data-bs-parent="#accordion_viewforum">
-				<div class="accordion-body">
-					{LOGGED_IN_USER_LIST}
-				</div>
-			</div>
-		</div>
-		<!-- ENDIF -->
+<div class="mb-3">
+	<ul class="nav nav-tabs" role="tablist">
+	<!-- IF S_DISPLAY_ONLINE_LIST -->
+		<li class="nav-item d-md-grid col-md-3 text-center">
+			<a class="nav-item nav-link active" data-bs-toggle="tab" href="#nav_online" role="tab" aria-controls="nav_online" aria-selected="true"><i class="fa fa-signal fa-fw d-none d-md-inline-block" aria-hidden="true"></i> {L_WHO_IS_ONLINE}</a>
+		</li>
+	<!-- ENDIF -->
+	<!-- IF S_IS_POSTABLE and rules|length -->
+		<li class="nav-item d-md-grid col-md-3 text-center">
+			<a class="nav-item nav-link" data-bs-toggle="tab" href="#nav_permission" role="tab" aria-controls="nav-permission" aria-selected="false"><i class="fa fa-shield fa-fw d-none d-md-inline-block" aria-hidden="true"></i> {L_FORUM_PERMISSIONS}</a>
+		</li>
+	<!-- ENDIF -->
+	</ul>
 
-		<!-- IF S_IS_POSTABLE and rules|length -->
-		<div class="accordion-item">
-			<h2 class="accordion-header">
-				<button class="accordion-button<!-- IF S_DISPLAY_ONLINE_LIST and U_VIEWONLINE --> collapsed<!-- ENDIF -->" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_permission" aria-expanded="false" aria-controls="collapse_permission"><i class="fa fa-shield fa-fw" aria-hidden="true"></i> {L_FORUM_PERMISSIONS}</button>
-			</h2>
-			<div id="collapse_permission" class="accordion-collapse collapse<!-- IF not (S_DISPLAY_ONLINE_LIST and U_VIEWONLINE) --> show<!-- ENDIF -->" data-bs-parent="#accordion_viewforum">
-				<div class="accordion-body">
-					<!-- BEGIN rules -->{rules.RULE}<br><!-- END rules -->
-				</div>
-			</div>
+	<div class="card tab-content p-3 border-top-0 shadow-sm">
+	<!-- IF S_DISPLAY_ONLINE_LIST -->
+		<div class="tab-pane fade show active" id="nav_online" role="tabpanel" aria-labelledby="nav_online-tab">
+			{LOGGED_IN_USER_LIST}
 		</div>
-		<!-- ENDIF -->
+	<!-- ENDIF -->
+	<!-- IF S_IS_POSTABLE and rules|length -->
+		<div class="tab-pane fade" id="nav_permission" role="tabpanel" aria-labelledby="nav_permission-tab">
+		<!-- BEGIN rules -->{rules.RULE}<br><!-- END rules -->
+		</div>
+	<!-- ENDIF -->
 	</div>
 </div>
 <!-- ENDIF -->
