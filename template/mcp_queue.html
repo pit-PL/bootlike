@@ -58,44 +58,40 @@
 
 		<!-- IF postrow.S_DELETED_TOPIC -->
 		<div class="container-fluid row-item position-relative p-0">
-			<div class="mt-1 bg1">
-				<div class="row px-3 py-1 align-items-center">
-					{L_DELETED_TOPIC}
-				</div>
+			<div class="row m-0 mt-1 p-1 align-items-center bg1">
+				{L_DELETED_TOPIC}
 			</div>
 		</div>
 		<!-- ELSE -->
 
 		<div class="container-fluid row-item p-0">
-			<div class="mt-1 bg1">
-				<div class="row px-3 py-1 align-items-center">
-					<div class="col-md-6 col-sm-10 col-9">
-						<a href="{postrow.U_VIEW_DETAILS}" class="topictitle">{postrow.POST_SUBJECT}</a><br>
-						<!-- IF postrow.S_HAS_ATTACHMENTS --><i class="fa fa-paperclip" title="{L_TOTAL_ATTACHMENTS}" aria-hidden="true"></i><span class="visually-hidden">{L_TOTAL_ATTACHMENTS}</span><!-- ENDIF -->
-						{L_POST_BY_AUTHOR} {postrow.POST_AUTHOR_FULL} &raquo; {postrow.POST_TIME}
-
-						<div class="d-md-none">
-						<!-- IF S_TOPICS -->
-							{L_FORUM}{L_COLON} <a href="{postrow.U_VIEWFORUM}">{postrow.FORUM_NAME}</a>
-						<!-- ELSE -->
-							{L_TOPIC}{L_COLON} <a href="{postrow.U_TOPIC}">{postrow.TOPIC_TITLE}</a><br>
-							{L_FORUM}{L_COLON} <a href="{postrow.U_VIEWFORUM}">{postrow.FORUM_NAME}</a>
-						<!-- ENDIF -->
-						</div>
-					</div>
-
-					<div class="col-md-4 d-none d-md-block">
-						<!-- IF S_TOPICS --><br><!-- ELSE -->{L_TOPIC}{L_COLON} <a href="{postrow.U_TOPIC}">{postrow.TOPIC_TITLE}</a> <br><!-- ENDIF -->
+			<div class="row m-0 mt-1 p-1 align-items-center bg1">
+				<div class="col-md-6 col-sm-10 col-9">
+					<a href="{postrow.U_VIEW_DETAILS}" class="topictitle">{postrow.POST_SUBJECT}</a><br>
+					<!-- IF postrow.S_HAS_ATTACHMENTS --><i class="fa fa-paperclip" title="{L_TOTAL_ATTACHMENTS}" aria-hidden="true"></i><span class="visually-hidden">{L_TOTAL_ATTACHMENTS}</span><!-- ENDIF -->
+					{L_POST_BY_AUTHOR} {postrow.POST_AUTHOR_FULL} &raquo; {postrow.POST_TIME}
+			
+					<div class="d-md-none">
+					<!-- IF S_TOPICS -->
 						{L_FORUM}{L_COLON} <a href="{postrow.U_VIEWFORUM}">{postrow.FORUM_NAME}</a>
+					<!-- ELSE -->
+						{L_TOPIC}{L_COLON} <a href="{postrow.U_TOPIC}">{postrow.TOPIC_TITLE}</a><br>
+						{L_FORUM}{L_COLON} <a href="{postrow.U_VIEWFORUM}">{postrow.FORUM_NAME}</a>
+					<!-- ENDIF -->
 					</div>
-					<div class="col-sm-2 col-3 text-center">
-						<div class="form-switch mx-auto">
-						<!-- IF S_TOPICS -->
-							 <input class="form-check-input" type="checkbox" name="topic_id_list[]" value="{postrow.TOPIC_ID}" />
-						<!-- ELSE -->
-							 <input class="form-check-input" type="checkbox" name="post_id_list[]" value="{postrow.POST_ID}" />
-						<!-- ENDIF -->
-						</div>
+				</div>
+			
+				<div class="col-md-4 d-none d-md-block">
+					<!-- IF S_TOPICS --><br><!-- ELSE -->{L_TOPIC}{L_COLON} <a href="{postrow.U_TOPIC}">{postrow.TOPIC_TITLE}</a> <br><!-- ENDIF -->
+					{L_FORUM}{L_COLON} <a href="{postrow.U_VIEWFORUM}">{postrow.FORUM_NAME}</a>
+				</div>
+				<div class="col-sm-2 col-3 text-center">
+					<div class="form-switch mx-auto">
+					<!-- IF S_TOPICS -->
+						 <input class="form-check-input" type="checkbox" name="topic_id_list[]" value="{postrow.TOPIC_ID}" />
+					<!-- ELSE -->
+						 <input class="form-check-input" type="checkbox" name="post_id_list[]" value="{postrow.POST_ID}" />
+					<!-- ENDIF -->
 					</div>
 				</div>
 			</div>
