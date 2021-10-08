@@ -313,19 +313,17 @@
 					</div>
 				</div>
 
-				<!-- BEGIN userrow -->
-				<div class="mt-1 bg1">
-					<div class="row px-3 py-1 align-items-center">
-						<div class="col-12 col-md-10 py-2">
-							<span class="badge bg-secondary d-md-none">{L_OTHER_USERS}{L_COLON}</span>
-						<!-- IF userrow.U_PROFILE -->
-							<a href="{userrow.U_PROFILE}">{userrow.USERNAME}</a><!-- ELSE -->{userrow.USERNAME}
-						<!-- ENDIF -->
-						</div>
-						<div class="col-12 col-md-2 py-2 text-md-center">
-							<span class="badge bg-secondary d-md-none">{L_POSTS}{L_COLON}</span>
-							<a href="{userrow.U_SEARCHPOSTS}" title="{L_SEARCH_POSTS_BY} {userrow.USERNAME}">{userrow.NUM_POSTS}</a>
-						</div>
+			<!-- BEGIN userrow -->
+				<div class="row m-0 mt-1 p-1 align-items-center bg1">
+					<div class="col-12 col-md-10 py-2">
+						<span class="badge bg-secondary d-md-none">{L_OTHER_USERS}{L_COLON}</span>
+					<!-- IF userrow.U_PROFILE -->
+						<a href="{userrow.U_PROFILE}">{userrow.USERNAME}</a><!-- ELSE -->{userrow.USERNAME}
+					<!-- ENDIF -->
+					</div>
+					<div class="col-12 col-md-2 py-2 text-md-center">
+						<span class="badge bg-secondary d-md-none">{L_POSTS}{L_COLON}</span>
+						<a href="{userrow.U_SEARCHPOSTS}" title="{L_SEARCH_POSTS_BY} {userrow.USERNAME}">{userrow.NUM_POSTS}</a>
 					</div>
 				</div>
 			<!-- BEGINELSE -->
@@ -356,21 +354,19 @@
 						<div class="col-12 col-md-2 text-center">{L_POSTS}</div>
 					</div>
 				</div>
-					<!-- BEGIN iprow -->
-				<div class="mt-1 bg1">
-					<div class="row px-3 py-1 align-items-center">
-						<div class="col-12 col-md-10 py-2">
-							<span class="badge bg-secondary d-md-none">{L_IPS_POSTED_FROM}{L_COLON}</span>
-						<!-- IF iprow.HOSTNAME -->
-							<a href="{iprow.U_WHOIS}">{iprow.HOSTNAME}</a> ({iprow.IP})
-						<!-- ELSE -->
-							<a href="{iprow.U_WHOIS}">{iprow.IP}</a> (<a href="{iprow.U_LOOKUP_IP}">{L_LOOKUP_IP}</a>)
-						<!-- ENDIF -->
-						</div>
-						<div class="col-12 col-md-2 py-2 text-md-center">
-							<span class="badge bg-secondary d-md-none">{L_POSTS}{L_COLON}</span>
-							{iprow.NUM_POSTS}
-						</div>
+			<!-- BEGIN iprow -->
+				<div class="row m-0 mt-1 p-1 align-items-center bg1">
+					<div class="col-12 col-md-10 py-2">
+						<span class="badge bg-secondary d-md-none">{L_IPS_POSTED_FROM}{L_COLON}</span>
+					<!-- IF iprow.HOSTNAME -->
+						<a href="{iprow.U_WHOIS}">{iprow.HOSTNAME}</a> ({iprow.IP})
+					<!-- ELSE -->
+						<a href="{iprow.U_WHOIS}">{iprow.IP}</a> (<a href="{iprow.U_LOOKUP_IP}">{L_LOOKUP_IP}</a>)
+					<!-- ENDIF -->
+					</div>
+					<div class="col-12 col-md-2 py-2 text-md-center">
+						<span class="badge bg-secondary d-md-none">{L_POSTS}{L_COLON}</span>
+						{iprow.NUM_POSTS}
 					</div>
 				</div>
 			<!-- BEGINELSE -->
