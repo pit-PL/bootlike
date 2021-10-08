@@ -39,13 +39,13 @@ img {
 	height: auto;
 }
 
-hr {
+hr.fancyhr {
 	height: 2px;
 	text-align: center;
 	background: linear-gradient(to right, #ccc, #555, #ccc);
 }
 
-hr:after {
+hr.fancyhr:after {
 	content: "\2022 \2022 \2022";
 	display: inline-block;
 	position: relative;
@@ -314,15 +314,6 @@ a.postlink:hover, a.postlink:focus {
 }
 
 @media (max-width: 767.98px) {
-	hr {
-		height: 1px;
-		background: none;
-	}
-
-	hr:after {
-		display: none;
-	}
-
 	.row-item .topic-folder {
 		padding-left: 5px;
 	}
