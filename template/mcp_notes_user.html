@@ -104,23 +104,21 @@
 			<!-- ENDIF -->
 			</div>
 		</div>
-		<!-- BEGIN usernotes -->
-		<div class="mt-1 bg1">
-			<div class="row px-3 py-1 align-items-center">
-				<div class="col-12 col-md-6 py-2"><span class="badge bg-secondary d-md-none">{L_ACTION_NOTE}{L_COLON}</span> {usernotes.ACTION}</div>
-				<div class="col-12 col-md-2 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_MCP_NOTES_USER}{L_COLON}</span> {usernotes.REPORT_BY}<!-- IF not $HIDE_USER_IP or U_ACP --> <br class="d-none d-md-block" />{usernotes.IP}<!-- ENDIF --></div>
-				<div class="col-12 col-md-2 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_TIME}{L_COLON}</span> {usernotes.REPORT_AT}</div>
-			<!-- IF S_CLEAR_ALLOWED -->
-				<div class="col-12 col-md-2 d-sm-flex py-2 text-center">
-					<span class="badge bg-secondary d-md-none me-1">{L_MARK}{L_COLON}</span>
-					<div class="form-switch mx-md-auto"><input class="form-check-input" type="checkbox" name="marknote[]" id="note-{usernotes.ID}" value="{usernotes.ID}" /></div>
-				</div>
-			<!-- ENDIF -->
+	<!-- BEGIN usernotes -->
+		<div class="row m-0 mt-1 p-1 align-items-center bg1">
+			<div class="col-12 col-md-6 py-2"><span class="badge bg-secondary d-md-none">{L_ACTION_NOTE}{L_COLON}</span> {usernotes.ACTION}</div>
+			<div class="col-12 col-md-2 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_MCP_NOTES_USER}{L_COLON}</span> {usernotes.REPORT_BY}<!-- IF not $HIDE_USER_IP or U_ACP --> <br class="d-none d-md-block" />{usernotes.IP}<!-- ENDIF --></div>
+			<div class="col-12 col-md-2 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_TIME}{L_COLON}</span> {usernotes.REPORT_AT}</div>
+		<!-- IF S_CLEAR_ALLOWED -->
+			<div class="col-12 col-md-2 d-sm-flex py-2 text-center">
+				<span class="badge bg-secondary d-md-none me-1">{L_MARK}{L_COLON}</span>
+				<div class="form-switch mx-md-auto"><input class="form-check-input" type="checkbox" name="marknote[]" id="note-{usernotes.ID}" value="{usernotes.ID}" /></div>
 			</div>
+		<!-- ENDIF -->
 		</div>
-		<!-- BEGINELSE -->
-			<div class="mt-1 px-3 py-2 text-center bg1">{L_NO_ENTRIES}</div>
-		<!-- END usernotes -->
+	<!-- BEGINELSE -->
+		<div class="mt-1 px-3 py-2 text-center bg1">{L_NO_ENTRIES}</div>
+	<!-- END usernotes -->
 	</div>
 
 	<!-- IF S_CLEAR_ALLOWED -->
