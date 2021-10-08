@@ -46,56 +46,54 @@
 
 		<!-- BEGIN topicrow -->
 		<div class="container-fluid row-item position-relative p-0 {topicrow.TOPIC_IMG_STYLE}">
-			<div class="mt-1 bg1">
-				<div class="row px-3 py-1 align-items-center">
-					<div class="<!-- IF S_MERGE_SELECT --> col-md-8<!-- ELSE --> col-md-6<!-- ENDIF --> col-sm-10 col-9 topic-folder folder<!-- IF topicrow.S_TOPIC_REPORTED --> folder-animation<!-- ENDIF -->">
-						<!-- IF topicrow.S_UNREAD_TOPIC --><a href="{topicrow.U_NEWEST_POST}" class="row-item-link"></a><!-- ENDIF -->
-
-						<!-- IF .topicrow.pagination -->
-						<ul class="pagination pagination-sm float-end">
-						<!-- BEGIN pagination -->
-							<!-- IF topicrow.pagination.S_IS_PREV -->
-							<!-- ELSEIF topicrow.pagination.S_IS_CURRENT --><li class="active"><span>{topicrow.pagination.PAGE_NUMBER}</span></li>
-							<!-- ELSEIF topicrow.pagination.S_IS_ELLIPSIS --><li class="ellipsis"><span>{L_ELLIPSIS}</span></li>
-							<!-- ELSEIF topicrow.pagination.S_IS_NEXT -->
-							<!-- ELSE --><li><a href="{topicrow.pagination.PAGE_URL}">{topicrow.pagination.PAGE_NUMBER}</a></li>
-							<!-- ENDIF -->
-						<!-- END pagination -->
-						</ul>
+			<div class="row m-0 mt-1 p-1 align-items-center bg1">
+				<div class="<!-- IF S_MERGE_SELECT --> col-md-8<!-- ELSE --> col-md-6<!-- ENDIF --> col-sm-10 col-9 topic-folder folder<!-- IF topicrow.S_TOPIC_REPORTED --> folder-animation<!-- ENDIF -->">
+					<!-- IF topicrow.S_UNREAD_TOPIC --><a href="{topicrow.U_NEWEST_POST}" class="row-item-link"></a><!-- ENDIF -->
+			
+					<!-- IF .topicrow.pagination -->
+					<ul class="pagination pagination-sm float-end">
+					<!-- BEGIN pagination -->
+						<!-- IF topicrow.pagination.S_IS_PREV -->
+						<!-- ELSEIF topicrow.pagination.S_IS_CURRENT --><li class="active"><span>{topicrow.pagination.PAGE_NUMBER}</span></li>
+						<!-- ELSEIF topicrow.pagination.S_IS_ELLIPSIS --><li class="ellipsis"><span>{L_ELLIPSIS}</span></li>
+						<!-- ELSEIF topicrow.pagination.S_IS_NEXT -->
+						<!-- ELSE --><li><a href="{topicrow.pagination.PAGE_URL}">{topicrow.pagination.PAGE_NUMBER}</a></li>
 						<!-- ENDIF -->
-
-						<!-- EVENT topiclist_row_prepend -->
-						<!-- IF topicrow.S_SELECT_TOPIC --><a href="{topicrow.U_SELECT_TOPIC}" class="badge bg-primary" title="{L_SELECT_MERGE}">{L_SELECT_MERGE}</a><!-- ENDIF -->
-						<!-- EVENT mcp_forum_topic_title_before -->
-						<!-- IF topicrow.S_MOVED_TOPIC and S_CAN_DELETE --><a href="{topicrow.U_DELETE_TOPIC}" class="badge bg-warning" title="{L_DELETE_SHADOW_TOPIC}">{L_DELETE_SHADOW_TOPIC}</a><!-- ENDIF -->
-						<!-- IF topicrow.S_TOPIC_UNAPPROVED or topicrow.S_POSTS_UNAPPROVED --><a href="{topicrow.U_MCP_QUEUE}" class="badge bg-success" title="<!-- IF topicrow.S_TOPIC_UNAPPROVED -->{L_TOPIC_UNAPPROVED}<!-- ELSE -->{L_POSTS_UNAPPROVED}<!-- ENDIF -->"><i class="fa fa-flag" aria-hidden="true"></i><span class="visually-hidden">{L_TOPIC_UNAPPROVED}</span></a><!-- ENDIF -->
-						<!-- IF topicrow.S_TOPIC_DELETED or topicrow.S_POSTS_DELETED --><a href="{topicrow.U_MCP_QUEUE}" class="badge bg-secondary" title="{L_TOPIC_DELETED}"><i class="fa fa-recycle" aria-hidden="true"></i><span class="visually-hidden">{L_TOPIC_DELETED}</span></a><!-- ENDIF -->
-						<!-- IF topicrow.S_TOPIC_REPORTED --><a href="{topicrow.U_MCP_REPORT}" class="badge bg-warning" title="{L_TOPIC_REPORTED}"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i><span class="visually-hidden">{L_TOPIC_REPORTED}</span></a><!-- ENDIF -->
-
-						<!-- IF topicrow.TOPIC_ICON_IMG --><img src="{T_ICONS_PATH}{topicrow.TOPIC_ICON_IMG}" alt="{L_IMAGE}" width="{topicrow.TOPIC_ICON_IMG_WIDTH}" height="{topicrow.TOPIC_ICON_IMG_HEIGHT}" /> <!-- ENDIF --><a href="{topicrow.U_VIEW_TOPIC}" class="topictitle">{topicrow.TOPIC_TITLE}</a>
-						<!-- EVENT mcp_forum_topic_title_after -->
-
-						<div>
-							<!-- IF topicrow.ATTACH_ICON_IMG --><i class="fa fa-paperclip" title="{L_TOTAL_ATTACHMENTS}" aria-hidden="true"></i><span class="visually-hidden">{L_TOTAL_ATTACHMENTS}</span><!-- ENDIF -->
-							{% EVENT topiclist_row_topic_by_author_before %}
-							{L_POST_BY_AUTHOR} {% EVENT mcp_forum_topic_author_username_prepend %}{topicrow.TOPIC_AUTHOR_FULL}{% EVENT mcp_forum_topic_author_username_append %} &raquo; {topicrow.FIRST_POST_TIME} &nbsp; <i class="fa fa-comment-o ml-2" title="{L_REPLIES}" aria-hidden="true"></i><span class="sr-only">{L_REPLIES}</span> {topicrow.REPLIES}
-							{% EVENT topiclist_row_topic_by_author_after %}
-						</div>
-
-						<div class="d-md-none">
-							<!-- IF topicrow.ATTACH_ICON_IMG --><i class="fa fa-paperclip" title="{L_TOTAL_ATTACHMENTS}" aria-hidden="true"></i><span class="visually-hidden">{L_TOTAL_ATTACHMENTS}</span><!-- ENDIF -->
-							{L_LAST_POST} {L_POST_BY_AUTHOR} {% EVENT mcp_forum_last_post_author_username_prepend %}{topicrow.LAST_POST_AUTHOR_FULL}{% EVENT mcp_forum_last_post_author_username_append %} &laquo; {topicrow.LAST_POST_TIME}<br>
-						</div>
-						<!-- EVENT topiclist_row_append -->
-					</div>
-
-					<div class="col-md-4 d-none d-md-block">{L_POST_BY_AUTHOR} {% EVENT mcp_forum_last_post_author_username_prepend %}{topicrow.LAST_POST_AUTHOR_FULL}{% EVENT mcp_forum_last_post_author_username_append %}<br>{topicrow.LAST_POST_TIME}</div>
-					<!-- IF not S_MERGE_SELECT -->
-					<div class="col-sm-2 col-3 text-center">
-						<!-- IF not topicrow.S_MOVED_TOPIC --><div class="form-switch mx-auto"><input class="form-check-input" type="checkbox" name="topic_id_list[]" value="{topicrow.TOPIC_ID}"<!-- IF topicrow.S_TOPIC_CHECKED --> checked="checked"<!-- ENDIF --> /></div><!-- ELSE -->&nbsp;<!-- ENDIF -->
-					</div>
+					<!-- END pagination -->
+					</ul>
 					<!-- ENDIF -->
+			
+					<!-- EVENT topiclist_row_prepend -->
+					<!-- IF topicrow.S_SELECT_TOPIC --><a href="{topicrow.U_SELECT_TOPIC}" class="badge bg-primary" title="{L_SELECT_MERGE}">{L_SELECT_MERGE}</a><!-- ENDIF -->
+					<!-- EVENT mcp_forum_topic_title_before -->
+					<!-- IF topicrow.S_MOVED_TOPIC and S_CAN_DELETE --><a href="{topicrow.U_DELETE_TOPIC}" class="badge bg-warning" title="{L_DELETE_SHADOW_TOPIC}">{L_DELETE_SHADOW_TOPIC}</a><!-- ENDIF -->
+					<!-- IF topicrow.S_TOPIC_UNAPPROVED or topicrow.S_POSTS_UNAPPROVED --><a href="{topicrow.U_MCP_QUEUE}" class="badge bg-success" title="<!-- IF topicrow.S_TOPIC_UNAPPROVED -->{L_TOPIC_UNAPPROVED}<!-- ELSE -->{L_POSTS_UNAPPROVED}<!-- ENDIF -->"><i class="fa fa-flag" aria-hidden="true"></i><span class="visually-hidden">{L_TOPIC_UNAPPROVED}</span></a><!-- ENDIF -->
+					<!-- IF topicrow.S_TOPIC_DELETED or topicrow.S_POSTS_DELETED --><a href="{topicrow.U_MCP_QUEUE}" class="badge bg-secondary" title="{L_TOPIC_DELETED}"><i class="fa fa-recycle" aria-hidden="true"></i><span class="visually-hidden">{L_TOPIC_DELETED}</span></a><!-- ENDIF -->
+					<!-- IF topicrow.S_TOPIC_REPORTED --><a href="{topicrow.U_MCP_REPORT}" class="badge bg-warning" title="{L_TOPIC_REPORTED}"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i><span class="visually-hidden">{L_TOPIC_REPORTED}</span></a><!-- ENDIF -->
+			
+					<!-- IF topicrow.TOPIC_ICON_IMG --><img src="{T_ICONS_PATH}{topicrow.TOPIC_ICON_IMG}" alt="{L_IMAGE}" width="{topicrow.TOPIC_ICON_IMG_WIDTH}" height="{topicrow.TOPIC_ICON_IMG_HEIGHT}" /> <!-- ENDIF --><a href="{topicrow.U_VIEW_TOPIC}" class="topictitle">{topicrow.TOPIC_TITLE}</a>
+					<!-- EVENT mcp_forum_topic_title_after -->
+			
+					<div>
+						<!-- IF topicrow.ATTACH_ICON_IMG --><i class="fa fa-paperclip" title="{L_TOTAL_ATTACHMENTS}" aria-hidden="true"></i><span class="visually-hidden">{L_TOTAL_ATTACHMENTS}</span><!-- ENDIF -->
+						{% EVENT topiclist_row_topic_by_author_before %}
+						{L_POST_BY_AUTHOR} {% EVENT mcp_forum_topic_author_username_prepend %}{topicrow.TOPIC_AUTHOR_FULL}{% EVENT mcp_forum_topic_author_username_append %} &raquo; {topicrow.FIRST_POST_TIME} &nbsp; <i class="fa fa-comment-o ml-2" title="{L_REPLIES}" aria-hidden="true"></i><span class="sr-only">{L_REPLIES}</span> {topicrow.REPLIES}
+						{% EVENT topiclist_row_topic_by_author_after %}
+					</div>
+			
+					<div class="d-md-none">
+						<!-- IF topicrow.ATTACH_ICON_IMG --><i class="fa fa-paperclip" title="{L_TOTAL_ATTACHMENTS}" aria-hidden="true"></i><span class="visually-hidden">{L_TOTAL_ATTACHMENTS}</span><!-- ENDIF -->
+						{L_LAST_POST} {L_POST_BY_AUTHOR} {% EVENT mcp_forum_last_post_author_username_prepend %}{topicrow.LAST_POST_AUTHOR_FULL}{% EVENT mcp_forum_last_post_author_username_append %} &laquo; {topicrow.LAST_POST_TIME}<br>
+					</div>
+					<!-- EVENT topiclist_row_append -->
 				</div>
+			
+				<div class="col-md-4 d-none d-md-block">{L_POST_BY_AUTHOR} {% EVENT mcp_forum_last_post_author_username_prepend %}{topicrow.LAST_POST_AUTHOR_FULL}{% EVENT mcp_forum_last_post_author_username_append %}<br>{topicrow.LAST_POST_TIME}</div>
+				<!-- IF not S_MERGE_SELECT -->
+				<div class="col-sm-2 col-3 text-center">
+					<!-- IF not topicrow.S_MOVED_TOPIC --><div class="form-switch mx-auto"><input class="form-check-input" type="checkbox" name="topic_id_list[]" value="{topicrow.TOPIC_ID}"<!-- IF topicrow.S_TOPIC_CHECKED --> checked="checked"<!-- ENDIF --> /></div><!-- ELSE -->&nbsp;<!-- ENDIF -->
+				</div>
+				<!-- ENDIF -->
 			</div>
 		</div>
 		<!-- END topicrow -->
