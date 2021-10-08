@@ -34,37 +34,35 @@
 			<div class="col-12 col-md-3"><a href="{U_SORT_UPDATED}">{L_LAST_UPDATED}</a></div>
 		</div>
 	</div>
-	<!-- BEGIN user_row -->
-	<div class="mt-1 bg1">
-		<div class="row px-3 py-1 align-items-center">
-			<div class="col-12 col-md-6 py-2 d-md-flex justify-content-md-between">
-				<div>
-					<span class="badge bg-secondary d-md-none">{L_USERNAME}{L_COLON}</span><!-- EVENT viewonline_body_username_prepend --> {user_row.USERNAME_FULL} <!-- EVENT viewonline_body_username_append -->
-				<!-- IF user_row.USER_BROWSER -->
-					<br>{user_row.USER_BROWSER}
-				<!-- ENDIF -->
-				</div>
-				<div>
-				<!-- IF user_row.USER_IP and (not $HIDE_USER_IP or U_ACP) -->
-					<span class="badge bg-secondary d-md-none">{L_IP}{L_COLON}</span> <span class="d-sm-none d-md-inline">{L_IP}{L_COLON}</span> <a href="{user_row.U_USER_IP}">{user_row.USER_IP}</a> <br class="d-sm-none d-md-block" /><a href="{user_row.U_WHOIS}" onclick="popup(this.href, 750, 500); return false;">{L_WHOIS}</a>
-				<!-- ELSE -->
-					&nbsp;
-				<!-- ENDIF -->
-				</div>
+<!-- BEGIN user_row -->
+	<div class="row m-0 mt-1 p-1 align-items-center bg1">
+		<div class="col-12 col-md-6 py-2 d-md-flex justify-content-md-between">
+			<div>
+				<span class="badge bg-secondary d-md-none">{L_USERNAME}{L_COLON}</span><!-- EVENT viewonline_body_username_prepend --> {user_row.USERNAME_FULL} <!-- EVENT viewonline_body_username_append -->
+			<!-- IF user_row.USER_BROWSER -->
+				<br>{user_row.USER_BROWSER}
+			<!-- ENDIF -->
 			</div>
-			<div class="col-12 col-md-3 py-2">
-				<span class="badge bg-secondary d-md-none">{L_FORUM_LOCATION}{L_COLON}</span> 
-				<a href="{user_row.U_FORUM_LOCATION}">{user_row.FORUM_LOCATION}</a>
-			</div>
-			<div class="col-12 col-md-3 py-2">
-				<span class="badge bg-secondary d-md-none">{L_LAST_UPDATED}{L_COLON}</span> 
-				{user_row.LASTUPDATE}
+			<div>
+			<!-- IF user_row.USER_IP and (not $HIDE_USER_IP or U_ACP) -->
+				<span class="badge bg-secondary d-md-none">{L_IP}{L_COLON}</span> <span class="d-sm-none d-md-inline">{L_IP}{L_COLON}</span> <a href="{user_row.U_USER_IP}">{user_row.USER_IP}</a> <br class="d-sm-none d-md-block" /><a href="{user_row.U_WHOIS}" onclick="popup(this.href, 750, 500); return false;">{L_WHOIS}</a>
+			<!-- ELSE -->
+				&nbsp;
+			<!-- ENDIF -->
 			</div>
 		</div>
+		<div class="col-12 col-md-3 py-2">
+			<span class="badge bg-secondary d-md-none">{L_FORUM_LOCATION}{L_COLON}</span> 
+			<a href="{user_row.U_FORUM_LOCATION}">{user_row.FORUM_LOCATION}</a>
+		</div>
+		<div class="col-12 col-md-3 py-2">
+			<span class="badge bg-secondary d-md-none">{L_LAST_UPDATED}{L_COLON}</span> 
+			{user_row.LASTUPDATE}
+		</div>
 	</div>
-	<!-- BEGINELSE -->
-		<div class="mt-1 px-3 py-2 text-center bg2">{L_NO_ONLINE_USERS}<!-- IF S_SWITCH_GUEST_DISPLAY --> &bull; <a href="{U_SWITCH_GUEST_DISPLAY}">{L_SWITCH_GUEST_DISPLAY}</a><!-- ENDIF --></div>
-	<!-- END user_row -->
+<!-- BEGINELSE -->
+	<div class="mt-1 px-3 py-2 text-center bg2">{L_NO_ONLINE_USERS}<!-- IF S_SWITCH_GUEST_DISPLAY --> &bull; <a href="{U_SWITCH_GUEST_DISPLAY}">{L_SWITCH_GUEST_DISPLAY}</a><!-- ENDIF --></div>
+<!-- END user_row -->
 </div>
 
 <!-- IF LEGEND --><p>{L_LEGEND}{L_COLON} {LEGEND}</p><!-- ENDIF -->
