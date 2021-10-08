@@ -69,14 +69,26 @@
 	<!-- ENDIF -->
 
 	<!-- IF not S_SHOW_DRAFTS and not $SIG_EDIT eq 1 -->
-	<div class="text-center mb-3">
+	<div class="row justify-content-center mb-3 gx-3 gy-1">
 		{S_HIDDEN_ADDRESS_FIELD}
 		{S_HIDDEN_FIELDS}
 		<!-- EVENT posting_editor_submit_buttons -->
-		<!-- IF S_HAS_DRAFTS --><button class="btn btn-secondary mt-1 me-1" type="submit" accesskey="d" tabindex="8" name="load" onclick="load_draft = true;"><i class="fa fa-spinner fa-fw" aria-hidden="true"></i> {L_LOAD_DRAFT}</button><!-- ENDIF -->
-		<!-- IF S_SAVE_ALLOWED --><button class="btn btn-secondary mt-1 me-1" type="submit" accesskey="k" tabindex="7" name="save"><i class="fa fa-floppy-o fa-fw" aria-hidden="true"></i>  {L_SAVE_DRAFT}</button><!-- ENDIF -->
-		<button class="btn btn-secondary mt-1 me-1" tabindex="5" name="preview"<!-- IF not S_PRIVMSGS --> onclick="document.getElementById('postform').action += '#preview';"<!-- ENDIF -->><i class="fa fa-eye fa-fw" aria-hidden="true"></i> {L_PREVIEW}</button>
-		<button class="btn btn-success mt-1 me-1 default-submit-action" type="submit" value="{L_SUBMIT}" accesskey="s" tabindex="6" name="post"><i class="fa fa-level-down fa-rotate-90 fa-fw" aria-hidden="true"></i> {L_SUBMIT}</button>
+		<!-- IF S_HAS_DRAFTS -->
+		<div class="col-md-3 col-12">
+			<button class="btn btn-secondary w-100" type="submit" accesskey="d" tabindex="8" name="load" onclick="load_draft = true;"><i class="fa fa-spinner fa-fw" aria-hidden="true"></i> {L_LOAD_DRAFT}</button>
+		</div>
+		<!-- ENDIF -->
+		<!-- IF S_SAVE_ALLOWED -->
+		<div class="col-md-3 col-12">
+			<button class="btn btn-secondary w-100" type="submit" accesskey="k" tabindex="7" name="save"><i class="fa fa-floppy-o fa-fw" aria-hidden="true"></i>  {L_SAVE_DRAFT}</button>
+		</div>
+		<!-- ENDIF -->
+		<div class="col-md-3 col-12">
+			<button class="btn btn-secondary w-100 tabindex="5" name="preview"<!-- IF not S_PRIVMSGS --> onclick="document.getElementById('postform').action += '#preview';"<!-- ENDIF -->><i class="fa fa-eye fa-fw" aria-hidden="true"></i> {L_PREVIEW}</button>
+		</div>
+		<div class="col-md-3 col-12">
+			<button class="btn btn-success w-100 default-submit-action" type="submit" value="{L_SUBMIT}" accesskey="s" tabindex="6" name="post"><i class="fa fa-level-down fa-rotate-90 fa-fw" aria-hidden="true"></i> {L_SUBMIT}</button>
+		</div>
 	</div>
 	<!-- ENDIF -->
 
