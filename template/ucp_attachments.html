@@ -46,20 +46,18 @@
 
 		<!-- BEGIN attachrow -->
 		<div class="container-fluid row-item p-0">
-			<div class="mt-1 bg1">
-				<div class="row px-3 py-1 align-items-center">
-					<div class="col-md-5 col-sm-10 col-9">
-						<a href="{attachrow.U_VIEW_ATTACHMENT}" class="topictitle attachment-filename ellipsis-text" title="{attachrow.FILENAME}">{attachrow.FILENAME}</a> &nbsp; <span class="badge bg-info text-dark">{attachrow.SIZE}</span><br>
-						<!-- IF attachrow.S_IN_MESSAGE -->{L_PM}{L_COLON} <!-- ELSE -->{L_TOPIC}{L_COLON} <!-- ENDIF --><a href="{attachrow.U_VIEW_TOPIC}">{attachrow.TOPIC_TITLE}</a>
-
-						<div class="d-md-none">{L_POST_TIME}{L_COLON} {attachrow.POST_TIME} &nbsp; <i class="fa fa-download" title="{L_DOWNLOADS}" aria-hidden="true"></i><span class="sr-only">{L_DOWNLOADS}</span> {attachrow.DOWNLOAD_COUNT}</div>
-					</div>
-
-					<div class="col-md-2 d-none d-md-block text-center">{attachrow.DOWNLOAD_COUNT}</div>
-					<div class="col-md-3 d-none d-md-block text-center">{attachrow.POST_TIME}</div>
-					<div class="col-sm-2 col-3 text-center">
-						<div class="form-switch mx-auto"><input class="form-check-input" type="checkbox" name="attachment[{attachrow.ATTACH_ID}]" value="1"{% if attachrow.S_LOCKED %} disabled title="{{ lang('ATTACHMENT_LOCKED') }}"{% endif %} /></div>
-					</div>
+			<div class="row m-0 mt-1 p-1 align-items-center bg1">
+				<div class="col-md-5 col-sm-10 col-9">
+					<a href="{attachrow.U_VIEW_ATTACHMENT}" class="topictitle attachment-filename ellipsis-text" title="{attachrow.FILENAME}">{attachrow.FILENAME}</a> &nbsp; <span class="badge bg-info text-dark">{attachrow.SIZE}</span><br>
+					<!-- IF attachrow.S_IN_MESSAGE -->{L_PM}{L_COLON} <!-- ELSE -->{L_TOPIC}{L_COLON} <!-- ENDIF --><a href="{attachrow.U_VIEW_TOPIC}">{attachrow.TOPIC_TITLE}</a>
+			
+					<div class="d-md-none">{L_POST_TIME}{L_COLON} {attachrow.POST_TIME} &nbsp; <i class="fa fa-download" title="{L_DOWNLOADS}" aria-hidden="true"></i><span class="sr-only">{L_DOWNLOADS}</span> {attachrow.DOWNLOAD_COUNT}</div>
+				</div>
+			
+				<div class="col-md-2 d-none d-md-block text-center">{attachrow.DOWNLOAD_COUNT}</div>
+				<div class="col-md-3 d-none d-md-block text-center">{attachrow.POST_TIME}</div>
+				<div class="col-sm-2 col-3 text-center">
+					<div class="form-switch mx-auto"><input class="form-check-input" type="checkbox" name="attachment[{attachrow.ATTACH_ID}]" value="1"{% if attachrow.S_LOCKED %} disabled title="{{ lang('ATTACHMENT_LOCKED') }}"{% endif %} /></div>
 				</div>
 			</div>
 		</div>
