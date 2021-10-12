@@ -6,6 +6,7 @@
 .row-item .folder:before {background-color: #666;}
 .row-item .folder:before, .row-item .folder:after {text-shadow: 1px 1px 1px #444; -webkit-text-stroke: 1px #555;}
 .card.blockquote {border-color: #222;}
+select, input.inputbox {padding-top: 0.75rem; padding-bottom: 0.75rem;}
 .contact-button:hover {border-color: #3a3f44 !important;}
 .border-white, .img-thumbnail {border-color: #666 !important;}
 .fancyhr {background: linear-gradient(to right, #555, #ccc, #555);}
