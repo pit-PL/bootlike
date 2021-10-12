@@ -8,4 +8,6 @@
 .card.blockquote {border-color: #222;}
 .contact-button:hover {border-color: #3a3f44 !important;}
 .border-white, .img-thumbnail {border-color: #666 !important;}
+.fancyhr {background: linear-gradient(to right, #555, #ccc, #555);}
+.fancyhr:after {background: #32383e;}
 .bi-caret-down-fill {fill: #222;}
