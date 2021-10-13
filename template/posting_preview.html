@@ -26,21 +26,21 @@
 
 <!-- ENDIF -->
 
-	<div class="card-body p-0">
+	<div class="card-body p-0 shadow-sm">
 		<div class="row m-0">
 
 			<div class="postprofile col-lg-3 col-md-4<!-- IF not $PROFILES_ON_LEFT --> order-first order-md-2<!-- ENDIF --> bg2 shadow">
 				<div class="text-center p-3"><img class="img-thumbnail rounded-circle" src="{ROOT_PATH}styles/bootlike/theme/images/no_avatar.gif" alt="{L_IMAGE}" /></div>
 			</div>
 
-			<div class="postbody col-lg-9 col-md-8 col-12 p-0 bg2">
+			<div class="postbody col-lg-9 col-md-8 col-12 p-0<!-- IF PREVIEW_SIGNATURE --> bg2<!-- ELSE --> bg1<!-- ENDIF --> bg2">
 			<hr class="d-md-none m-0">
 
-				<div class="postbody-before p-3 bg2">
+				<div class="postbody-before mb-1 p-3 bg2 shadow-sm">
 					{L_PREVIEW}{L_COLON} {PREVIEW_SUBJECT}
 				</div>
 
-				<div class="px-3 py-2 bg1">
+				<div class="px-3 py-2 bg1<!-- IF PREVIEW_SIGNATURE --> mb-1 shadow-sm<!-- ENDIF -->">
 					<div class="content">{PREVIEW_MESSAGE}</div>
 					<!-- EVENT posting_preview_content_after -->
 
