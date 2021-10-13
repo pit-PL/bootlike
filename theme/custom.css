@@ -2,29 +2,6 @@ html {
 	height: 101%;
 }
 
-.header {
-	height: 240px;
-	background-color: #f2f2f2;
-	background-image: url(./images/bg_header_left.png), url(./images/bg_header_right.png);
-	background-position: 0 0, 100% 0;
-	background-repeat: no-repeat, no-repeat;
-	background-size: auto, auto;
-}
-
-.rtl .header {
-	background-image: url(./images/bg_header_left_rtl.png), url(./images/bg_header_right_rtl.png);
-}
-
-.logo {
-	margin-top: 60px;
-	margin-left: 300px;
-}
-
-.rtl .logo {
-	margin-left: 0;
-	margin-right: 300px;
-}
-
 div.card, div.card-header {
 	border-radius: 0 !important;
 }
@@ -39,13 +16,13 @@ img {
 	height: auto;
 }
 
-hr.fancyhr {
+.fancyhr {
 	height: 2px;
 	text-align: center;
-	background: linear-gradient(to right, #ddd, #555, #ddd);
+	background: linear-gradient(to right, #ccc, #555, #ccc);
 }
 
-hr.fancyhr:after {
+.fancyhr:after {
 	content: "\2022 \2022 \2022";
 	display: inline-block;
 	position: relative;
