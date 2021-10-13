@@ -310,7 +310,7 @@
 					<!-- IF not S_IS_BOT and .postrow.contact -->
 						<div class="btn-group dropdown float-end float-md-none mt-2">
 							<button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">{L_CONTACT}</button>
-							<ul class="dropdown-menu dropdown-menu-<!-- IF not $PROFILES_ON_LEFT -->end<!-- ELSE -->start<!-- ENDIF --> dropdown-contents">
+							<ul class="dropdown-menu dropdown-menu-<!-- IF not $PROFILES_ON_LEFT -->end<!-- ELSE -->start<!-- ENDIF --> dropdown-contents p-1">
 							<!-- BEGIN contact -->
 								<li>
 									<a class="dropdown-item" href="<!-- IF postrow.contact.U_CONTACT -->{postrow.contact.U_CONTACT}<!-- ELSE -->{postrow.U_POST_AUTHOR}<!-- ENDIF -->"<!-- IF postrow.contact.ID eq 'jabber' --> onclick="popup(this.href, 750, 320); return false;"<!-- ENDIF -->>
