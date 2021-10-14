@@ -1,8 +1,16 @@
 <!-- INCLUDE overall_header.html -->
 
+<div class="col-12 d-flex justify-content-between mb-2">
 <!-- EVENT viewforum_forum_title_before -->
-<h3><!-- EVENT viewforum_forum_name_prepend --><a href="{U_VIEW_FORUM}">{FORUM_NAME}</a><!-- EVENT viewforum_forum_name_append --></h3>
+	<h3><!-- EVENT viewforum_forum_name_prepend --><a href="{U_VIEW_FORUM}">{FORUM_NAME}</a><!-- EVENT viewforum_forum_name_append --></h3>
 <!-- EVENT viewforum_forum_title_after -->
+
+	<!-- IF U_WATCH_FORUM_LINK -->
+	<div class="text-end">
+		<a class="btn btn-primary" href="{U_WATCH_FORUM_LINK}" title="{S_WATCH_FORUM_TITLE}" data-ajax="toggle_link" data-toggle-class="icon fa <!-- IF S_WATCHING_FORUM -->fa-check-square-o<!-- ELSE -->fa-square-o<!-- ENDIF --> fa-fw" data-bs-toggle-text="{S_WATCH_FORUM_TOGGLE}" data-bs-toggle-url="{U_WATCH_FORUM_TOGGLE}"><i class="icon fa <!-- IF S_WATCHING_FORUM -->fa-square-o<!-- ELSE -->fa-check-square-o<!-- ENDIF --> fa-fw" aria-hidden="true"></i><span class="visually-hidden">{S_WATCH_FORUM_TITLE}</span></a>
+	</div>
+	<!-- ENDIF -->
+</div>
 
 <!-- NOTE: remove the "d-none" when you want to have the forum description on the forum body -->
 <!-- IF FORUM_DESC -->
@@ -118,10 +126,6 @@
 			<div class="d-flex">
 			<!-- IF S_VIEWFORUM -->
 				<a href="{U_INDEX}" class="btn btn-lg rounded-0 border-0 border-0" title="{L_RETURN_TO_INDEX}" accesskey="r"><i class="fa fa-chevron-{S_CONTENT_FLOW_BEGIN} fa-fw" aria-hidden="true"></i></a>
-			<!-- ENDIF -->
-
-			<!-- IF U_WATCH_FORUM_LINK -->
-				<a href="{U_WATCH_FORUM_LINK}" class="btn btn-lg rounded-0 border-0 border-0" title="{S_WATCH_FORUM_TITLE}" data-ajax="toggle_link" data-toggle-class="icon fa <!-- IF S_WATCHING_FORUM -->fa-check-square-o<!-- ELSE -->fa-square-o<!-- ENDIF --> fa-fw" data-bs-toggle-text="{S_WATCH_FORUM_TOGGLE}" data-bs-toggle-url="{U_WATCH_FORUM_TOGGLE}"><i class="icon fa <!-- IF S_WATCHING_FORUM -->fa-square-o<!-- ELSE -->fa-check-square-o<!-- ENDIF --> fa-fw" aria-hidden="true"></i><span class="visually-hidden">{S_WATCH_FORUM_TITLE}</span></a>
 			<!-- ENDIF -->
 
 			<!-- IF MODERATORS -->
