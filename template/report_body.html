@@ -13,7 +13,9 @@
 				<!-- IF ERROR --><div class="alert alert-danger">{ERROR}</div><!-- ENDIF -->
 				<dl class="row">
 					<dt class="col-lg-3 col-md-4 col-12"><label class="col-form-label" for="reason_id">{L_REASON}{L_COLON}</label></dt>
-					<dd class="col-lg-9 col-md-8 col-12"><select class="form-select" name="reason_id" id="reason_id"><!-- BEGIN reason --><option value="{reason.ID}"<!-- IF reason.S_SELECTED --> selected="selected"<!-- ENDIF -->>{reason.DESCRIPTION}</option><!-- END reason --></select></dd>
+					<dd class="col-lg-9 col-md-8 col-12">
+						<select class="form-select w-100" name="reason_id" id="reason_id"><!-- BEGIN reason --><option value="{reason.ID}"<!-- IF reason.S_SELECTED --> selected="selected"<!-- ENDIF -->>{reason.DESCRIPTION}</option><!-- END reason --></select>
+					</dd>
 				</dl>
 				<!-- IF S_CAN_NOTIFY -->
 				<dl class="row">
