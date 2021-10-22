@@ -15,7 +15,7 @@
 			</div>
 			<div class="col-md-9 col-12">
 				<div class="notification-text">
-					<div class="notification-title text-wrap<!-- IF notifications.UNREAD or notifications.STYLING eq 'notification-reported' or notifications.STYLING eq 'notification-disapproved' --> text-danger<!-- ENDIF -->">{notifications.FORMATTED_TITLE}</div>
+					<div class="notification-title text-wrap<!-- IF notifications.STYLING eq 'notification-reported' or notifications.STYLING eq 'notification-disapproved' --> text-danger<!-- ENDIF -->">{notifications.FORMATTED_TITLE}</div>
 					<!-- IF notifications.REFERENCE --><div class="text-truncate">{notifications.REFERENCE}</div><!-- ENDIF -->
 					<!-- IF notifications.FORUM --><div class="text-truncate">{notifications.FORUM}</div><!-- ENDIF -->
 					<!-- IF notifications.REASON --><div class="text-truncate">{notifications.REASON}</div><!-- ENDIF -->
