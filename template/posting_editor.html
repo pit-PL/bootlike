@@ -161,6 +161,18 @@
 						<label class="form-check-label" for="lock_post">{L_LOCK_POST} [{L_LOCK_POST_EXPLAIN}]</label>
 					</div>
 					<!-- ENDIF -->
+					<!-- IF S_SOFTDELETE_ALLOWED -->
+					<div class="form-check form-switch">
+						<input class="form-check-input" type="checkbox" name="delete" id="delete" {S_SOFTDELETE_CHECKED} />
+						<label class="form-check-label" for="delete">{L_DELETE_POST_WARN}</label>
+					</div>
+					<!-- ENDIF -->
+					<!-- IF S_DELETE_ALLOWED -->
+					<div class="form-check form-switch">
+						<input class="form-check-input" type="checkbox" name="delete_permanent" id="delete_permanent" />
+						<label class="form-check-label" for="delete_permanent">{L_DELETE_POST_PERMANENTLY}</label>
+					</div>
+					<!-- ENDIF -->
 				</div>
 
 				<div class="text-md-end">
@@ -219,33 +231,6 @@
 			<!-- ENDIF -->
 			</div>
 		<!-- ENDIF -->
-
-			<!-- IF S_SOFTDELETE_ALLOWED or S_DELETE_ALLOWED -->
-			<hr class="fancyhr">
-
-			<div class="row">
-				<div class="col-md-6 col-12">
-					<label class="d-block mb-2" for="delete"><strong>{L_DELETE_POST}{L_COLON}</strong></label>
-					<div class="input-group">
-						<div class="input-group-text border-primary border-end-0">
-							<input class="form-check-input mt-0" type="checkbox" name="delete" id="delete" {S_SOFTDELETE_CHECKED} />
-						</div>
-						<label class="btn btn-outline-primary text-nowrap" for="delete">{L_DELETE_POST_WARN}</label>
-					</div>
-				</div>
-			<!-- IF S_DELETE_ALLOWED and S_SOFTDELETE_ALLOWED -->
-				<div class="col-md-6 col-12 mt-2 mt-md-0">
-					<label class="d-block mb-2" for="delete"><strong>{L_DELETE_PERMANENTLY}{L_COLON}</strong></label>
-					<div class="input-group">
-						<div class="input-group-text border-primary border-end-0">
-							<input class="form-check-input mt-0" type="checkbox" name="delete_permanent" id="delete_permanent" />
-						</div>
-						<label class="btn btn-outline-primary text-nowrap" for="delete_permanent">{L_DELETE_POST_PERMANENTLY}</label>
-					</div>
-				</div>
-			<!-- ENDIF -->
-			</div>
-			<!-- ENDIF -->
 
 			<!-- IF S_EDIT_REASON -->
 			<hr class="fancyhr">
