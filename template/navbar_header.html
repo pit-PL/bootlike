@@ -20,7 +20,7 @@
 						<form action="{U_SEARCH}" method="get" id="search">
 							<div id="search-box" class="collapse">
 							<div class="input-group input-group-sm">
-								<input class="form-control border-start-0 border-start-0 rounded-0" name="keywords" id="keywords" type="search" maxlength="128" size="40" value="{SEARCH_WORDS}" placeholder="{L_SEARCH_KEYWORDS}" />
+								<input class="form-control border-start-0 rounded-0" name="keywords" id="keywords" type="search" maxlength="128" size="40" value="{SEARCH_WORDS}" placeholder="{L_SEARCH_KEYWORDS}" />
 								<button class="btn btn-secondary border-end-0 rounded-0" type="submit" title="{L_SEARCH}"><i class="fa fa-check fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_SEARCH}</span></button>
 							</div>
 							{S_SEARCH_HIDDEN_FIELDS}
@@ -44,7 +44,7 @@
 			<!-- IF not S_IS_BOT and (S_DISPLAY_MEMBERLIST or U_TEAM) -->
 					<li class="dropdown-divider m-0"></li>
 				<!-- IF S_DISPLAY_MEMBERLIST -->
-					<li class="nav-item"><a href="{U_MEMBERLIST}" class="dropdown-item" role="menuitem"><i class="fa fa-group fa-fw" aria-hidden="true"></i> {L_MEMBERLIST}</a></li>
+					<li><a href="{U_MEMBERLIST}" class="dropdown-item" role="menuitem"><i class="fa fa-group fa-fw" aria-hidden="true"></i> {L_MEMBERLIST}</a></li>
 				<!-- ENDIF -->
 				<!-- IF U_TEAM -->
 					<li><a href="{U_TEAM}" class="dropdown-item" role="menuitem"><i class="fa fa-shield fa-fw" aria-hidden="true"></i> {L_THE_TEAM}</a></li>
