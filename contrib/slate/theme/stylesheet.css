@@ -3,12 +3,13 @@
 @import url("bootstrap.min.css");
 .bg1 {background-color: #42484e;}
 .bg2, .card.bg2, .action-bar .btn.btn-lg:hover, #format-buttons .btn:hover {background-color: #33373b;}
+.navbar-light a {color: #fff !important;}
 .row-item .folder:before {background-color: #666;}
 .row-item .folder:before, .row-item .folder:after {text-shadow: 1px 1px 1px #444; -webkit-text-stroke: 1px #555;}
-#format-buttons .form-select, .card.blockquote {border-color: #141719;}
-#format-buttons .form-select, .fancyhr:after {background: #32383e;}
+.card.blockquote{border-color: #222 !important;}
 select, input.inputbox {padding-top: 0.75rem; padding-bottom: 0.75rem;}
-.contact-button:hover {border-color: #3a3f44 !important;}
+.border, .contact-button:hover {border-color: #3a3f44 !important;}
 .border-white, .img-thumbnail {border-color: #666 !important;}
 .fancyhr {background: linear-gradient(to right, #555, #ccc, #555);}
-.bi-caret-down-fill {fill: #141719;}
+.fancyhr:after {background: #32383e;}
+.bi-caret-down-fill {fill: #222;}
