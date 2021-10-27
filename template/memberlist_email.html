@@ -8,7 +8,7 @@
 			<div class="card-header">
 				<!-- IF S_CONTACT_ADMIN-->{L_CONTACT_ADMIN}<!-- ELSEIF S_SEND_USER -->{L_SEND_EMAIL_USER}<!-- ELSE -->{L_EMAIL_TOPIC}<!-- ENDIF -->
 			</div>
-			<div class="card-body pt-2">
+			<div class="card-body">
 
 				<!-- IF CONTACT_INFO -->
 				<div class="alert alert-info small">{CONTACT_INFO}</div>
@@ -20,7 +20,7 @@
 
 				<div class="row">
 
-					<div class="col-lg-4 col-md-5 col-12">
+					<div class="col-lg-5 col-md-6 col-12">
 					<!-- IF S_SEND_USER -->
 						<label class="col-form-label"><strong>{L_RECIPIENT}</strong></label> - {USERNAME_FULL}
 
@@ -57,7 +57,7 @@
 					<!-- ENDIF -->
 					</div>
 
-					<div class="col-lg-8 col-md-7 col-12">
+					<div class="col-lg-7 col-md-6 col-12">
 						<label class="col-form-label d-block" for="message"><strong>{L_MESSAGE}</strong></label>
 						<textarea class="form-control" name="message" id="message" rows="10" cols="76" tabindex="4" placeholder="{L_EMAIL_BODY_EXPLAIN}">{MESSAGE}</textarea>
 					</div>
