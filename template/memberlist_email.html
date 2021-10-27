@@ -8,91 +8,61 @@
 			<div class="card-header">
 				<!-- IF S_CONTACT_ADMIN-->{L_CONTACT_ADMIN}<!-- ELSEIF S_SEND_USER -->{L_SEND_EMAIL_USER}<!-- ELSE -->{L_EMAIL_TOPIC}<!-- ENDIF -->
 			</div>
-			<div class="card-body pb-0">
+			<div class="card-body pt-2">
 
-			<!-- IF CONTACT_INFO -->
-			<div class="alert alert-info small">{CONTACT_INFO}</div>
-			<!-- ENDIF -->
-
-			<!-- IF ERROR_MESSAGE -->
-			<div class="alert alert-danger">{ERROR_MESSAGE}</div>
-			<!-- ENDIF -->
-
-			<!-- IF S_SEND_USER -->
-				<dl class="row">
-					<dt class="col-lg-3 col-md-4 col-12"><label class="col-form-label">{L_RECIPIENT}{L_COLON}</label></dt>
-					<dd class="col-lg-9 col-md-8 col-12">
-						<label class="col-form-label">{USERNAME_FULL}</label>
-					</dd>
-				</dl>
-				<dl class="row">
-					<dt class="col-lg-3 col-md-4 col-12"><label class="col-form-label" for="subject">{L_SUBJECT}{L_COLON}</label></dt>
-					<dd class="col-lg-9 col-md-8 col-12">
-						<input class="form-control w-100" type="text" name="subject" id="subject" tabindex="1" value="{SUBJECT}" />
-					</dd>
-				</dl>
-			<!-- ELSEIF S_CONTACT_ADMIN-->
-				<dl class="row">
-					<dt class="col-lg-3 col-md-4 col-12"><label class="col-form-label">{L_RECIPIENT}{L_COLON}</label></dt>
-					<dd class="col-lg-9 col-md-8 col-12"><label class="col-form-label">{L_ADMINISTRATOR}</label></dd>
-				</dl>
-				<!-- IF not S_IS_REGISTERED -->
-				<dl class="row">
-					<dt class="col-lg-3 col-md-4 col-12"><label class="col-form-label" for="email">{L_SENDER_EMAIL_ADDRESS}{L_COLON}</label></dt>
-					<dd class="col-lg-9 col-md-8 col-12">
-						<input class="form-control w-100" type="text" name="email" id="email" maxlength="100" tabindex="1" value="{EMAIL}" />
-					</dd>
-				</dl>
-				<dl class="row">
-					<dt class="col-lg-3 col-md-4 col-12"><label class="col-form-label" for="name">{L_SENDER_NAME}{L_COLON}</label></dt>
-					<dd class="col-lg-9 col-md-8 col-12">
-						<input class="form-control w-100" type="text" name="name" id="name" tabindex="2" value="{NAME}" />
-					</dd>
-				</dl>
+				<!-- IF CONTACT_INFO -->
+				<div class="alert alert-info small">{CONTACT_INFO}</div>
 				<!-- ENDIF -->
-				<dl class="row">
-					<dt class="col-lg-3 col-md-4 col-12"><label class="col-form-label" for="subject">{L_SUBJECT}{L_COLON}</label></dt>
-					<dd class="col-lg-9 col-md-8 col-12">
+
+				<!-- IF ERROR_MESSAGE -->
+				<div class="alert alert-danger">{ERROR_MESSAGE}</div>
+				<!-- ENDIF -->
+
+				<div class="row">
+
+					<div class="col-lg-4 col-md-5 col-12">
+					<!-- IF S_SEND_USER -->
+						<label class="col-form-label"><strong>{L_RECIPIENT}</strong></label> - {USERNAME_FULL}
+
+						<label class="col-form-label d-block" for="subject"><strong>{L_SUBJECT}</strong></label>
+						<input class="form-control w-100" type="text" name="subject" id="subject" tabindex="1" value="{SUBJECT}" />
+					<!-- ELSEIF S_CONTACT_ADMIN-->
+						<label class="col-form-label"><strong>{L_RECIPIENT}</strong></label> - {L_ADMINISTRATOR}
+
+						<!-- IF not S_IS_REGISTERED -->
+						<label class="col-form-label d-block" for="email"><strong>{L_SENDER_EMAIL_ADDRESS}</strong></label>
+						<input class="form-control w-100" type="text" name="email" id="email" maxlength="100" tabindex="1" value="{EMAIL}" />
+
+						<label class="col-form-label d-block" for="name"><strong>{L_SENDER_NAME}</strong></label>
+						<input class="form-control w-100" type="text" name="name" id="name" tabindex="2" value="{NAME}" />
+						<!-- ENDIF -->
+						<label class="col-form-label d-block" for="subject"><strong>{L_SUBJECT}</strong></label>
 						<input class="form-control w-100" type="text" name="subject" id="subject" tabindex="3" value="{SUBJECT}" />
-					</dd>
-				</dl>
-			<!-- ELSE -->
-				<dl class="row">
-					<dt class="col-lg-3 col-md-4 col-12"><label class="col-form-label" for="email">{L_EMAIL_ADDRESS}{L_COLON}</label></dt>
-					<dd class="col-lg-9 col-md-8 col-12">
+					<!-- ELSE -->
+						<label class="col-form-label d-block" for="email"><strong>{L_EMAIL_ADDRESS}</strong></label>
 						<input class="form-control w-100" type="email" name="email" id="email" maxlength="100" tabindex="2" value="{EMAIL}" />
-					</dd>
-				</dl>
-				<dl class="row">
-					<dt class="col-lg-3 col-md-4 col-12"><label class="col-form-label" for="name">{L_REAL_NAME}{L_COLON}</label></dt>
-					<dd class="col-lg-9 col-md-8 col-12">
+
+						<label class="col-form-label d-block" for="name"><strong>{L_REAL_NAME}</strong></label>
 						<input class="form-control w-100" type="text" name="name" id="name" tabindex="3" value="{NAME}" />
-					</dd>
-				</dl>
-				<dl class="row">
-					<dt class="col-lg-3 col-md-4 col-12">
-						<label class="col-form-label" for="lang">{L_DEST_LANG}{L_COLON}</label>
+
+						<label class="col-form-label" for="lang"><strong>{L_DEST_LANG}</strong></label>
 						<div class="small text-muted mb-1 fw-normal">{L_DEST_LANG_EXPLAIN}</div>
-					</dt>
-					<dd class="col-lg-9 col-md-8 col-12"><select class="form-select" name="lang">{S_LANG_OPTIONS}</select></dd>
-				</dl>
-			<!-- ENDIF -->
-				<dl class="row">
-					<dt class="col-lg-3 col-md-4 col-12">
-						<div>
-							<label class="col-form-label" for="message">{L_MESSAGE_BODY}{L_COLON}</label>
-							<div class="small text-muted mb-1 fw-normal">{L_EMAIL_BODY_EXPLAIN}</div>
-						</div>
-					</dt>
-					<dd class="col-lg-9 col-md-8 col-12">
-						<textarea class="form-control" name="message" id="message" rows="10" cols="76" tabindex="4">{MESSAGE}</textarea>
+						<select class="form-select" name="lang">{S_LANG_OPTIONS}</select>
+					<!-- ENDIF -->
+
 					<!-- IF S_REGISTERED_USER -->
-						<div class="form-check form-switch mt-1">
+						<div class="form-check form-switch mt-3">
 							<label class="form-check-label" for="cc_sender"><input class="form-check-input" type="checkbox" name="cc_sender" id="cc_sender" value="1" checked="checked" tabindex="5" /> {L_CC_SENDER}</label>
 						</div>
 					<!-- ENDIF -->
-					</dd>
-				</dl>
+					</div>
+
+					<div class="col-lg-8 col-md-7 col-12">
+						<label class="col-form-label d-block" for="message"><strong>{L_MESSAGE}</strong></label>
+						<textarea class="form-control" name="message" id="message" rows="10" cols="76" tabindex="4" placeholder="{L_EMAIL_BODY_EXPLAIN}">{MESSAGE}</textarea>
+					</div>
+
+				</div>
 
 			</div>
 
