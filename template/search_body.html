@@ -13,7 +13,7 @@
 		<!-- EVENT search_body_search_query_prepend -->
 		<div class="row">
 			<div class="col-12 col-md-6">
-				<label class="col-form-label d-block pt-0" for="keywords"><strong>{L_SEARCH_KEYWORDS}{L_COLON}</strong></label>
+				<label class="col-form-label d-block pt-0" for="keywords"><strong>{L_SEARCH_KEYWORDS}</strong></label>
 				<div class="input-group">
 					<input type="search" class="form-control" name="keywords" id="keywords" size="40" title="{L_SEARCH_KEYWORDS}" />
 					<button class="btn btn-outline-info" type="button" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="{L_SEARCH_KEYWORDS_EXPLAIN}" data-bs-html="true"><i class="fa fa-info fa-fw" aria-hidden="true"></i></button>
@@ -21,7 +21,7 @@
 			</div>
 
 			<div class="col-12 col-md-6 mt-2 mt-md-0">
-				<label class="col-form-label d-block pt-0" for="author"><strong>{L_SEARCH_AUTHOR}{L_COLON}</strong></label>
+				<label class="col-form-label d-block pt-0" for="author"><strong>{L_SEARCH_AUTHOR}</strong></label>
 				<div class="input-group">
 					<input class="form-control" type="search" name="author" id="author" size="40" title="{L_SEARCH_AUTHOR}" />
 					<button class="btn btn-outline-info" type="button" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="{L_SEARCH_AUTHOR_EXPLAIN}"><i class="fa fa-info fa-fw" aria-hidden="true"></i></button>
@@ -31,7 +31,7 @@
 
 		<div class="row pt-2">
 			<div class="col-12 col-md-6">
-				<label class="col-form-label"><strong>{L_SEARCH_OPTIONS}{L_COLON}</strong></label>
+				<label class="col-form-label"><strong>{L_SEARCH_OPTIONS}</strong></label>
 				<div class="input-group">
 					<div class="input-group-text border-primary border-end-0">
 						<input class="form-check-input mt-0" type="radio" name="terms" id="terms1" value="all" checked="checked" />
@@ -47,7 +47,7 @@
 			</div>
 
 			<div class="col-12 col-md-6 mt-2 mt-md-0">
-				<label class="col-form-label d-block pt-0" for="show_results1"><strong>{L_DISPLAY_RESULTS}{L_COLON}</strong></label>
+				<label class="col-form-label d-block pt-0" for="show_results1"><strong>{L_DISPLAY_RESULTS}</strong></label>
 				<div class="input-group">
 					<div class="input-group-text border-primary border-end-0">
 						<input class="form-check-input mt-0" type="radio" name="sr" id="show_results1" value="posts" checked="checked" />
@@ -70,13 +70,13 @@
 
 		<div class="row">
 			<div class="col-12 col-md-6">
-				<label class="col-form-label d-block pt-0" for="search_forum"><strong>{L_SEARCH_FORUMS}{L_COLON}</strong></label>
+				<label class="col-form-label d-block pt-0" for="search_forum"><strong>{L_SEARCH_FORUMS}</strong></label>
 				<select class="form-select" name="fid[]" id="search_forum" multiple="multiple" size="8" title="{L_SEARCH_FORUMS}">{S_FORUM_OPTIONS}</select>
 				<div class="small text-muted mb-1 fw-normal">{L_SEARCH_FORUMS_EXPLAIN}</div>
 			</div>
 
 			<div class="col-12 col-md-6 mt-2 mt-md-0">
-				<label class="col-form-label d-block pt-0" for="sf1"><strong>{L_SEARCH_WITHIN}{L_COLON}</strong></label>
+				<label class="col-form-label d-block pt-0" for="sf1"><strong>{L_SEARCH_WITHIN}</strong></label>
 				<div class="input-group">
 					<div class="input-group-text border-primary border-end-0">
 						<input class="form-check-input mt-0" type="radio" name="sf" id="sf1" value="all" checked="checked" />
@@ -102,7 +102,7 @@
 					<label class="btn btn-outline-primary" for="sf4">{L_SEARCH_FIRST_POST}</label>
 				</div>
 
-				<label class="col-form-label d-block pt-0 mt-3" for="sd"><strong>{L_RESULT_SORT}{L_COLON}</strong></label>
+				<label class="col-form-label d-block pt-0 mt-3" for="sd"><strong>{L_RESULT_SORT}</strong></label>
 				<div class="clearfix">
 					<div class="float-md-start mb-1 me-md-2">
 						{S_SELECT_SORT_KEY}
@@ -133,7 +133,7 @@
 
 		<div class="row">
 			<div class="col-12 col-md-3">
-				<label class="col-form-label d-block pt-0" for="search_child1"><strong>{L_SEARCH_SUBFORUMS}{L_COLON}</strong></label>
+				<label class="col-form-label d-block pt-0" for="search_child1"><strong>{L_SEARCH_SUBFORUMS}</strong></label>
 				<div class="clearfix">
 					<div class="float-start me-2 mb-1">
 						<div class="input-group">
@@ -156,7 +156,7 @@
 			</div>
 
 			<div class="col-12 col-md-6">
-				<label class="col-form-label d-block pt-0 mt-2 mt-md-0"><strong>{L_RETURN_FIRST}{L_COLON}</strong></label>
+				<label class="col-form-label d-block pt-0 mt-2 mt-md-0"><strong>{L_RETURN_FIRST}</strong></label>
 				<div class="d-inline-block w-auto">
 					<div class="input-group">
 						<input class="form-control" id="ch" name="ch" type="number" value="{{ DEFAULT_RETURN_CHARS }}" min="0" max="9999" title="{{ lang('RETURN_FIRST') }}">
@@ -167,7 +167,7 @@
 			</div>
 
 			<div class="col-12 col-md-3">
-				<label class="col-form-label d-block pt-0 mt-2 mt-md-0"><strong>{L_RESULT_DAYS}{L_COLON}</strong></label>
+				<label class="col-form-label d-block pt-0 mt-2 mt-md-0"><strong>{L_RESULT_DAYS}</strong></label>
 				{S_SELECT_SORT_DAYS}
 			</div>
 		</div>
