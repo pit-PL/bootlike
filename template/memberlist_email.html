@@ -22,28 +22,30 @@
 
 					<div class="col-lg-5 col-md-6 col-12">
 					<!-- IF S_SEND_USER -->
-						<label class="col-form-label"><strong>{L_RECIPIENT}</strong></label> - {USERNAME_FULL}
-
 						<label class="col-form-label d-block" for="subject"><strong>{L_SUBJECT}</strong></label>
 						<input class="form-control w-100" type="text" name="subject" id="subject" tabindex="1" value="{SUBJECT}" />
+
+						<label class="col-form-label"><strong>{L_RECIPIENT}</strong></label> - {USERNAME_FULL}
 					<!-- ELSEIF S_CONTACT_ADMIN-->
 						<label class="col-form-label"><strong>{L_RECIPIENT}</strong></label> - {L_ADMINISTRATOR}
 
 						<!-- IF not S_IS_REGISTERED -->
-						<label class="col-form-label d-block" for="email"><strong>{L_SENDER_EMAIL_ADDRESS}</strong></label>
-						<input class="form-control w-100" type="text" name="email" id="email" maxlength="100" tabindex="1" value="{EMAIL}" />
+						<label class="col-form-label d-block" for="subject"><strong>{L_SUBJECT}</strong></label>
+						<input class="form-control w-100" type="text" name="subject" id="subject" tabindex="3" value="{SUBJECT}" />
 
 						<label class="col-form-label d-block" for="name"><strong>{L_SENDER_NAME}</strong></label>
 						<input class="form-control w-100" type="text" name="name" id="name" tabindex="2" value="{NAME}" />
-						<!-- ENDIF -->
-						<label class="col-form-label d-block" for="subject"><strong>{L_SUBJECT}</strong></label>
-						<input class="form-control w-100" type="text" name="subject" id="subject" tabindex="3" value="{SUBJECT}" />
-					<!-- ELSE -->
-						<label class="col-form-label d-block" for="email"><strong>{L_EMAIL_ADDRESS}</strong></label>
-						<input class="form-control w-100" type="email" name="email" id="email" maxlength="100" tabindex="2" value="{EMAIL}" />
 
+						<label class="col-form-label d-block" for="email"><strong>{L_SENDER_EMAIL_ADDRESS}</strong></label>
+						<input class="form-control w-100" type="text" name="email" id="email" maxlength="100" tabindex="1" value="{EMAIL}" />
+						<!-- ENDIF -->
+
+					<!-- ELSE -->
 						<label class="col-form-label d-block" for="name"><strong>{L_REAL_NAME}</strong></label>
 						<input class="form-control w-100" type="text" name="name" id="name" tabindex="3" value="{NAME}" />
+
+						<label class="col-form-label d-block" for="email"><strong>{L_EMAIL_ADDRESS}</strong></label>
+						<input class="form-control w-100" type="email" name="email" id="email" maxlength="100" tabindex="2" value="{EMAIL}" />
 
 						<label class="col-form-label" for="lang"><strong>{L_DEST_LANG}</strong></label>
 						<div class="small text-muted mb-1 fw-normal">{L_DEST_LANG_EXPLAIN}</div>
