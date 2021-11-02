@@ -2,6 +2,10 @@ html {
 	height: 101%;
 }
 
+.card.header {
+	background: #fff url("./images/bg_header.jpg") no-repeat 50% 0;
+}
+
 div.card, div.card-header {
 	border-radius: 0 !important;
 }
