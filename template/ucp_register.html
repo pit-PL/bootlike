@@ -91,7 +91,7 @@
 		<dl class="row">
 			<dt class="col-lg-4 col-md-5 col-12">
 				<label class="col-form-label"<!-- IF profile_fields.FIELD_ID --> for="{profile_fields.FIELD_ID}"<!-- ENDIF -->>{profile_fields.LANG_NAME}{L_COLON}</label><!-- IF profile_fields.S_REQUIRED --><i class="fa fa-asterisk text-info ms-2"></i><!-- ENDIF -->
-				<!-- IF profile_fields.LANG_EXPLAIN --><div class="small text-muted fw-normal">{profile_fields.LANG_EXPLAIN}</div><!-- ENDIF -->
+				<!-- IF profile_fields.LANG_EXPLAIN --><span class="small text-muted fw-normal d-block">{profile_fields.LANG_EXPLAIN}</span><!-- ENDIF -->
 			</dt>
 			<dd class="col-lg-8 col-md-7 col-12">{profile_fields.FIELD}<!-- IF profile_fields.ERROR --><br><span class="text-danger">{profile_fields.ERROR}</span><!-- ENDIF --></dd>
 		</dl>
