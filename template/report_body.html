@@ -24,10 +24,12 @@
 						<div class="small text-muted fw-normal mb-1">{L_REPORT_NOTIFY_EXPLAIN}</div>
 					</dt>
 					<dd class="col-lg-9 col-md-8 col-12">
-						<input class="btn-check" type="radio" name="notify" id="notify1" value="1" <!-- IF not S_NOTIFY -->checked="checked"<!-- ENDIF --> />
-						<label class="btn btn-outline-success me-1" for="notify1">{L_YES}</label>
-						<input class="btn-check" type="radio" name="notify" id="notify0" value="0" <!-- IF S_NOTIFY -->checked="checked"<!-- ENDIF --> />
-						<label class="btn btn-outline-danger" for="notify0">{L_NO}</label>
+						<div class="btn-group" role="group">
+							<input class="btn-check" type="radio" name="notify" id="notify1" value="1" <!-- IF not S_NOTIFY -->checked="checked"<!-- ENDIF --> />
+							<label class="btn btn-outline-success" for="notify1">{L_YES}</label>
+							<input class="btn-check" type="radio" name="notify" id="notify0" value="0" <!-- IF S_NOTIFY -->checked="checked"<!-- ENDIF --> />
+							<label class="btn btn-outline-danger" for="notify0">{L_NO}</label>
+						</div>
 					</dd>
 				</dl>
 				<!-- ENDIF -->
