@@ -110,7 +110,7 @@
 				<div class="col-sm-10 col-9">
 					<a href="{nonmember.U_VIEW_GROUP}" class="forumtitle"<!-- IF nonmember.GROUP_COLOUR --> style="color:#{nonmember.GROUP_COLOUR}"<!-- ENDIF -->>{nonmember.GROUP_NAME}</a>
 					<!-- IF nonmember.GROUP_DESC --><br>{nonmember.GROUP_DESC}<!-- ENDIF -->
-					<!-- IF not nonmember.GROUP_SPECIAL --><br><i>{nonmember.GROUP_STATUS}</i><!-- ENDIF -->
+					<!-- IF not nonmember.GROUP_SPECIAL --><br><span class="badge bg-info text-dark">{nonmember.GROUP_STATUS}</span><!-- ENDIF -->
 				</div>
 			
 				<div class="col-sm-2 col-3 text-center"><input class="form-check-input" type="radio" name="selected" value="{nonmember.GROUP_ID}" <!-- IF not nonmember.S_CAN_JOIN -->disabled="disabled"<!-- ENDIF --> /></div>
