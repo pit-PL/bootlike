@@ -15,19 +15,23 @@
 	<dl class="row">
 		<dt class="col-lg-4 col-md-5 col-12"><label class="col-form-label" for="viewemail0">{L_SHOW_EMAIL}{L_COLON}</label></dt>
 		<dd class="col-lg-8 col-md-7 col-12">
-			<input class="btn-check" type="radio" name="viewemail" id="viewemail1" value="1"<!-- IF S_VIEW_EMAIL --> checked="checked"<!-- ENDIF --> />
-			<label class="btn btn-outline-success me-1" for="viewemail1">{L_YES}</label>
-			<input class="btn-check" type="radio" name="viewemail" id="viewemail0" value="0"<!-- IF not S_VIEW_EMAIL --> checked="checked"<!-- ENDIF --> />
-			<label class="btn btn-outline-danger" for="viewemail0">{L_NO}</label>
+			<div class="btn-group" role="group">
+				<input class="btn-check" type="radio" name="viewemail" id="viewemail1" value="1"<!-- IF S_VIEW_EMAIL --> checked="checked"<!-- ENDIF --> />
+				<label class="btn btn-outline-success" for="viewemail1">{L_YES}</label>
+				<input class="btn-check" type="radio" name="viewemail" id="viewemail0" value="0"<!-- IF not S_VIEW_EMAIL --> checked="checked"<!-- ENDIF --> />
+				<label class="btn btn-outline-danger" for="viewemail0">{L_NO}</label>
+			</div>
 		</dd>
 	</dl>
 	<dl class="row">
 		<dt class="col-lg-4 col-md-5 col-12"><label class="col-form-label" for="massemail1">{L_ADMIN_EMAIL}{L_COLON}</label></dt>
 		<dd class="col-lg-8 col-md-7 col-12">
+		<div class="btn-group" role="group">
 			<input class="btn-check" type="radio" name="massemail" id="massemail1" value="1"<!-- IF S_MASS_EMAIL --> checked="checked"<!-- ENDIF --> />
-			<label class="btn btn-outline-success me-1" for="massemail1">{L_YES}</label>
+			<label class="btn btn-outline-success" for="massemail1">{L_YES}</label>
 			<input class="btn-check" type="radio" name="massemail" id="massemail0" value="0"<!-- IF not S_MASS_EMAIL --> checked="checked"<!-- ENDIF --> />
 			<label class="btn btn-outline-danger" for="massemail0">{L_NO}</label>
+		</div>
 		</dd>
 	</dl>
 	<dl class="row">
@@ -36,10 +40,12 @@
 			<span class="small text-muted fw-normal d-block mb-1">{L_ALLOW_PM_EXPLAIN}</span>
 		</dt>
 		<dd class="col-lg-8 col-md-7 col-12">
-			<input class="btn-check" type="radio" name="allowpm" id="allowpm1" value="1"<!-- IF S_ALLOW_PM --> checked="checked"<!-- ENDIF --> />
-			<label class="btn btn-outline-success me-1" for="allowpm1">{L_YES}</label>
-			<input class="btn-check" type="radio" name="allowpm" id="allowpm0" value="0"<!-- IF not S_ALLOW_PM --> checked="checked"<!-- ENDIF --> />
-			<label class="btn btn-outline-danger" for="allowpm0">{L_NO}</label>
+			<div class="btn-group" role="group">
+				<input class="btn-check" type="radio" name="allowpm" id="allowpm1" value="1"<!-- IF S_ALLOW_PM --> checked="checked"<!-- ENDIF --> />
+				<label class="btn btn-outline-success" for="allowpm1">{L_YES}</label>
+				<input class="btn-check" type="radio" name="allowpm" id="allowpm0" value="0"<!-- IF not S_ALLOW_PM --> checked="checked"<!-- ENDIF --> />
+				<label class="btn btn-outline-danger" for="allowpm0">{L_NO}</label>
+			</div>
 		</dd>
 	</dl>
 	<!-- IF S_CAN_HIDE_ONLINE -->
@@ -49,10 +55,12 @@
 			<span class="small text-muted fw-normal d-block mb-1">{L_HIDE_ONLINE_EXPLAIN}</span>
 		</dt>
 		<dd class="col-lg-8 col-md-7 col-12">
-			<input class="btn-check" type="radio" name="hideonline" id="hideonline1" value="1"<!-- IF S_HIDE_ONLINE --> checked="checked"<!-- ENDIF --> />
-			<label class="btn btn-outline-success me-1" for="hideonline1">{L_YES}</label>
-			<input class="btn-check" type="radio" name="hideonline" id="hideonline0" value="0"<!-- IF not S_HIDE_ONLINE --> checked="checked"<!-- ENDIF --> />
-			<label class="btn btn-outline-danger" for="hideonline0">{L_NO}</label>
+			<div class="btn-group" role="group">
+				<input class="btn-check" type="radio" name="hideonline" id="hideonline1" value="1"<!-- IF S_HIDE_ONLINE --> checked="checked"<!-- ENDIF --> />
+				<label class="btn btn-outline-success" for="hideonline1">{L_YES}</label>
+				<input class="btn-check" type="radio" name="hideonline" id="hideonline0" value="0"<!-- IF not S_HIDE_ONLINE --> checked="checked"<!-- ENDIF --> />
+				<label class="btn btn-outline-danger" for="hideonline0">{L_NO}</label>
+			</div>
 		</dd>
 	</dl>
 	<!-- ENDIF -->
