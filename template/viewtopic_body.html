@@ -110,13 +110,19 @@
 		</div>
 
 		<!-- IF S_CAN_VOTE or not S_DISPLAY_RESULTS -->
-		<div class="card-footer text-center">
-			<!-- IF not S_DISPLAY_RESULTS -->
-			<a class="btn btn-secondary<!-- IF S_CAN_VOTE --> me-1<!-- ENDIF -->" href="{U_VIEW_RESULTS}"><i class="fa fa-eye fa-fw" aria-hidden="true"></i> {L_VIEW_RESULTS}</a>
-			<!-- ENDIF -->
-			<!-- IF S_CAN_VOTE -->
-			<button class="btn btn-success" type="submit" name="update" value="{L_SUBMIT_VOTE}"><i class="fa fa-level-down fa-rotate-90 fa-fw" aria-hidden="true"></i> {L_SUBMIT_VOTE}</button>
-			<!-- ENDIF -->
+		<div class="card-footer">
+			<div class="row">
+				<!-- IF not S_DISPLAY_RESULTS -->
+				<div class="d-grid col-4 mx-auto">
+					<a class="btn btn-secondary" href="{U_VIEW_RESULTS}"><i class="fa fa-eye fa-fw" aria-hidden="true"></i> {L_VIEW_RESULTS}</a>
+				</div>
+				<!-- ENDIF -->
+				<!-- IF S_CAN_VOTE -->
+				<div class="d-grid col-4 mx-auto">
+					<button class="btn btn-success" type="submit" name="update" value="{L_SUBMIT_VOTE}"><i class="fa fa-level-down fa-rotate-90 fa-fw" aria-hidden="true"></i> {L_SUBMIT_VOTE}</button>
+				</div>
+				<!-- ENDIF -->
+			</div>
 		</div>
 		<!-- ENDIF -->
 
