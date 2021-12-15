@@ -38,7 +38,7 @@
 			</div>
 			<div class="card-body">
 				<!-- EVENT ucp_agreement_terms_before -->
-				<p>{% if S_SHOW_COPPA %}{{ lang('COPPA_BIRTHDAY') }}{% else %}{{ lang('TERMS_OF_USE') }}{% endif %}</p>
+				{% if S_SHOW_COPPA %}{{ lang('COPPA_BIRTHDAY') }}{% else %}{{ lang('TERMS_OF_USE') }}{% endif %}
 				<!-- EVENT ucp_agreement_terms_after -->
 			</div>
 
@@ -74,7 +74,7 @@
 			{{ SITENAME }} - {{ AGREEMENT_TITLE }}
 		</div>
 		<div class="card-body">
-			<p>{{ AGREEMENT_TEXT }}</p>
+			{{ AGREEMENT_TEXT }}
 		</div>
 	</div>
 </div>
