@@ -2,7 +2,7 @@
 @import url("../../bootlike/theme/imageset.css");
 @import url("bootstrap.min.css");
 .bg1 {background-color: #42484e;}
-.bg2, .card.bg2, .action-bar .btn.btn-lg:hover, #format-buttons .btn:hover {background-color: #33373b;}
+.bg2, .card.bg2, .action-bar .btn.btn-lg:hover, #format-buttons .btn:hover, .btn.tabs:hover {background-color: #33373b;}
 .navbar-light a {color: #fff !important;}
 .row-item .folder:before {background-color: #666;}
 .row-item .folder:before, .row-item .folder:after {text-shadow: 1px 1px 1px #444; -webkit-text-stroke: 1px #555;}
