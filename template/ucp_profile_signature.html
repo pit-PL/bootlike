@@ -2,12 +2,15 @@
 
 <form id="postform" method="post" action="{S_UCP_ACTION}"{S_FORM_ENCTYPE}>
 
-	<h4 class="mb-3">{L_TITLE}</h4>
+<h4 class="mb-3">{L_TITLE}</h4>
+
+<div class="col-md-12 col-lg-10 offset-lg-1">
 
 <!-- IF SIGNATURE_PREVIEW != '' -->
 	<div class="alert alert-info mb-3">{L_SIGNATURE_PREVIEW}</div>
-	<div class="small bg2 p-3">{SIGNATURE_PREVIEW}</div>
-	<hr class="fancyhr">
+	<div class="card mb-3">
+		<div class="card-body small bg2">{SIGNATURE_PREVIEW}</div>
+	</div>
 <!-- ENDIF -->
 
 	<div class="alert alert-info">{L_SIGNATURE_EXPLAIN}</div>
@@ -55,5 +58,7 @@
 	</div>
 
 </form>
+
+</div>
 
 <!-- INCLUDE ucp_footer.html -->
