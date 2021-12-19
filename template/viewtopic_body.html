@@ -63,71 +63,72 @@
 <!-- IF S_HAS_POLL -->
 	<form method="post" action="{S_POLL_ACTION}" class="topic_poll">
 
-	<div class="card mb-3">
-		<div class="card-header">
-			<!-- EVENT viewtopic_body_poll_question_prepend -->
-			{POLL_QUESTION}
-			<!-- EVENT viewtopic_body_poll_question_append -->
-		</div>
-		<div class="card-body">
-			<p>{L_POLL_LENGTH}<!-- IF S_CAN_VOTE and L_POLL_LENGTH --><br><!-- ENDIF --><!-- IF S_CAN_VOTE --><span class="poll_max_votes">{L_MAX_VOTES}</span><!-- ENDIF --></p>
-			<div class="row">
-				<div class="col-md-12 col-lg-10 offset-lg-1">
-				<!-- BEGIN poll_option -->
-					<!-- EVENT viewtopic_body_poll_option_before -->
-					<!-- IF S_DISPLAY_RESULTS -->
-					<div class="float-end">
-					<!-- IF poll_option.POLL_OPTION_VOTED --><i class="fa fa-check" title="{L_POLL_VOTED_OPTION}"></i><span class="visually-hidden">{L_POLL_VOTED_OPTION}</span>  &nbsp;<!-- ENDIF -->
-					<!-- IF poll_option.POLL_OPTION_RESULT == 0 -->{L_NO_VOTES}<!-- ELSE -->{poll_option.POLL_OPTION_PERCENT}<!-- ENDIF -->
-					</div>
-					<!-- ENDIF -->
+	<div class="col-md-12 col-lg-10 offset-lg-1">
+		<div class="card mb-3">
+			<div class="card-header">
+				<!-- EVENT viewtopic_body_poll_question_prepend -->
+				{POLL_QUESTION}
+				<!-- EVENT viewtopic_body_poll_question_append -->
+			</div>
+			<div class="card-body">
+			<!-- IF S_CAN_VOTE or L_POLL_LENGTH -->
+				<p>{L_POLL_LENGTH}<!-- IF S_CAN_VOTE and L_POLL_LENGTH --><br><!-- ENDIF --><!-- IF S_CAN_VOTE --><span class="poll_max_votes">{L_MAX_VOTES}</span><!-- ENDIF --></p>
+			<!-- ENDIF -->
 
-					<!-- IF S_CAN_VOTE -->					
-					<div class="form-switch mb-1">
-						<!-- IF S_IS_MULTI_CHOICE --><input class="form-check-input" type="checkbox" name="vote_id[]" id="vote_{poll_option.POLL_OPTION_ID}" value="{poll_option.POLL_OPTION_ID}"<!-- IF poll_option.POLL_OPTION_VOTED --> checked="checked"<!-- ENDIF --> /><!-- ELSE --><input class="form-check-input" type="radio" name="vote_id[]" id="vote_{poll_option.POLL_OPTION_ID}" value="{poll_option.POLL_OPTION_ID}"<!-- IF poll_option.POLL_OPTION_VOTED --> checked="checked"<!-- ENDIF --> /><!-- ENDIF -->
-						<label class="form-check-label" for="vote_{poll_option.POLL_OPTION_ID}">&nbsp;{poll_option.POLL_OPTION_CAPTION}</label>
-					</div>
-					<!-- ELSE -->
-						{poll_option.POLL_OPTION_CAPTION}
-					<!-- ENDIF -->
-
-					<div class="clearfix"></div>
-
-					<!-- IF S_DISPLAY_RESULTS -->
-					<div class="progress mb-3" style="height: 20px;">
-					<!-- IF poll_option.POLL_OPTION_RESULT != 0 --><div class="progress-bar<!-- IF poll_option.POLL_OPTION_PCT < 20 --> bg-success<!-- ELSEIF poll_option.POLL_OPTION_PCT < 40 --> bg-info<!-- ELSEIF poll_option.POLL_OPTION_PCT < 60 --> bg-warning<!-- ELSEIF poll_option.POLL_OPTION_PCT < 80 --> bg-danger<!-- ELSE --> bg-danger progress-bar-striped progress-bar-animated<!-- ENDIF -->" style="width:{poll_option.POLL_OPTION_PERCENT};" role="progressbar" aria-valuenow="{poll_option.POLL_OPTION_PCT}" aria-valuemin="0" aria-valuemax="100">{poll_option.POLL_OPTION_RESULT}</div><!-- ENDIF -->
-					</div>
-					<!-- ENDIF -->
-					<!-- EVENT viewtopic_body_poll_option_after -->
-				<!-- END poll_option -->
-
+			<!-- BEGIN poll_option -->
+				<!-- EVENT viewtopic_body_poll_option_before -->
 				<!-- IF S_DISPLAY_RESULTS -->
-					<p class="text-center mb-0">{L_TOTAL_VOTES}{L_COLON} {TOTAL_VOTES}</p>
+				<div class="float-end">
+				<!-- IF poll_option.POLL_OPTION_VOTED --><i class="fa fa-check" title="{L_POLL_VOTED_OPTION}"></i><span class="visually-hidden">{L_POLL_VOTED_OPTION}</span>  &nbsp;<!-- ENDIF -->
+				<!-- IF poll_option.POLL_OPTION_RESULT == 0 -->{L_NO_VOTES}<!-- ELSE -->{poll_option.POLL_OPTION_PERCENT}<!-- ENDIF -->
+				</div>
 				<!-- ENDIF -->
+			
+				<!-- IF S_CAN_VOTE -->					
+				<div class="form-switch mb-1">
+					<!-- IF S_IS_MULTI_CHOICE --><input class="form-check-input" type="checkbox" name="vote_id[]" id="vote_{poll_option.POLL_OPTION_ID}" value="{poll_option.POLL_OPTION_ID}"<!-- IF poll_option.POLL_OPTION_VOTED --> checked="checked"<!-- ENDIF --> /><!-- ELSE --><input class="form-check-input" type="radio" name="vote_id[]" id="vote_{poll_option.POLL_OPTION_ID}" value="{poll_option.POLL_OPTION_ID}"<!-- IF poll_option.POLL_OPTION_VOTED --> checked="checked"<!-- ENDIF --> /><!-- ENDIF -->
+					<label class="form-check-label" for="vote_{poll_option.POLL_OPTION_ID}">&nbsp;{poll_option.POLL_OPTION_CAPTION}</label>
+				</div>
+				<!-- ELSE -->
+					{poll_option.POLL_OPTION_CAPTION}
+				<!-- ENDIF -->
+			
+				<div class="clearfix"></div>
+			
+				<!-- IF S_DISPLAY_RESULTS -->
+				<div class="progress mb-3" style="height: 20px;">
+				<!-- IF poll_option.POLL_OPTION_RESULT != 0 --><div class="progress-bar<!-- IF poll_option.POLL_OPTION_PCT < 20 --> bg-success<!-- ELSEIF poll_option.POLL_OPTION_PCT < 40 --> bg-info<!-- ELSEIF poll_option.POLL_OPTION_PCT < 60 --> bg-warning<!-- ELSEIF poll_option.POLL_OPTION_PCT < 80 --> bg-danger<!-- ELSE --> bg-danger progress-bar-striped progress-bar-animated<!-- ENDIF -->" style="width:{poll_option.POLL_OPTION_PERCENT};" role="progressbar" aria-valuenow="{poll_option.POLL_OPTION_PCT}" aria-valuemin="0" aria-valuemax="100">{poll_option.POLL_OPTION_RESULT}</div><!-- ENDIF -->
+				</div>
+				<!-- ENDIF -->
+				<!-- EVENT viewtopic_body_poll_option_after -->
+			<!-- END poll_option -->
+			
+			<!-- IF S_DISPLAY_RESULTS -->
+				<p class="text-center mb-0">{L_TOTAL_VOTES}{L_COLON} {TOTAL_VOTES}</p>
+			<!-- ENDIF -->
 
+			</div>
+
+			<!-- IF S_CAN_VOTE or not S_DISPLAY_RESULTS -->
+			<div class="card-footer">
+				<div class="row">
+					<!-- IF not S_DISPLAY_RESULTS -->
+					<div class="d-grid col-4 mx-auto">
+						<a class="btn btn-secondary" href="{U_VIEW_RESULTS}"><i class="fa fa-eye fa-fw" aria-hidden="true"></i> <span class="text-nowrap">{L_VIEW_RESULTS}</span></a>
+					</div>
+					<!-- ENDIF -->
+					<!-- IF S_CAN_VOTE -->
+					<div class="d-grid col-4 mx-auto">
+						<button class="btn btn-success" type="submit" name="update" value="{L_SUBMIT_VOTE}"><i class="fa fa-level-down fa-rotate-90 fa-fw" aria-hidden="true"></i> <span class="text-nowrap">{L_SUBMIT_VOTE}</span></button>
+					</div>
+					<!-- ENDIF -->
 				</div>
 			</div>
-		</div>
+			<!-- ENDIF -->
 
-		<!-- IF S_CAN_VOTE or not S_DISPLAY_RESULTS -->
-		<div class="card-footer">
-			<div class="row">
-				<!-- IF not S_DISPLAY_RESULTS -->
-				<div class="d-grid col-4 mx-auto">
-					<a class="btn btn-secondary" href="{U_VIEW_RESULTS}"><i class="fa fa-eye fa-fw" aria-hidden="true"></i> <span class="text-nowrap">{L_VIEW_RESULTS}</span></a>
-				</div>
-				<!-- ENDIF -->
-				<!-- IF S_CAN_VOTE -->
-				<div class="d-grid col-4 mx-auto">
-					<button class="btn btn-success" type="submit" name="update" value="{L_SUBMIT_VOTE}"><i class="fa fa-level-down fa-rotate-90 fa-fw" aria-hidden="true"></i> <span class="text-nowrap">{L_SUBMIT_VOTE}</span></button>
-				</div>
-				<!-- ENDIF -->
-			</div>
+			{S_FORM_TOKEN}
+			{S_HIDDEN_FIELDS}
 		</div>
-		<!-- ENDIF -->
-
-		{S_FORM_TOKEN}
-		{S_HIDDEN_FIELDS}
 	</div>
 
 	</form>
