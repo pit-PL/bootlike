@@ -23,25 +23,23 @@
 <div class="card">
 	<div class="btn-group btn-toolbar bg1 d-flex justify-content-between">
 
-		<div class="card m-1">
-			<div class="btn-group action-bar" role="group">
-			<!-- BEGIN l_block1 -->
-				<a href="{l_block1.U_TITLE}" class="btn<!-- IF l_block1.S_SELECTED --> btn-primary<!-- ELSE --> tabs<!-- ENDIF --> rounded-0" title="{l_block1.L_TITLE}"><i class="fa<!-- IF l_block1.S_ROW_COUNT == 0 --> fa-home<!-- ELSEIF l_block1.S_ROW_COUNT == 1 --> fa-flag<!-- ELSEIF l_block1.S_ROW_COUNT == 2 --> fa-exclamation<!-- ELSEIF l_block1.S_ROW_COUNT == 3 --> fa-user<!-- ELSEIF l_block1.S_ROW_COUNT == 4 --> fa-exclamation-triangle<!-- ELSEIF l_block1.S_ROW_COUNT == 5 --> fa-file<!-- ELSEIF l_block1.S_ROW_COUNT == 6 --> fa-ban<!-- ELSE --> fa-folder-o<!-- ENDIF --> fa-fw d-md-none" aria-hidden="true"></i><span class="d-none d-md-inline" title="">{l_block1.L_TITLE}</span></a>
-				<!-- IF l_block1.S_SELECTED -->
-				<button type="button" class="btn btn-primary active dropdown-toggle dropdown-toggle-split rounded-0" data-bs-toggle="dropdown" aria-expanded="false"></button>
-				<!-- ENDIF -->
-			<!-- END l_block1 -->
-
-			<ul class="dropdown-menu">
-			<!-- BEGIN l_block1 -->
+		<div class="btn-group action-bar" role="group">
+		<!-- BEGIN l_block1 -->
+			<a href="{l_block1.U_TITLE}" class="btn<!-- IF l_block1.S_SELECTED --> btn-primary<!-- ELSE --> tabs<!-- ENDIF --> rounded-0" title="{l_block1.L_TITLE}"><i class="fa<!-- IF l_block1.S_ROW_COUNT == 0 --> fa-home<!-- ELSEIF l_block1.S_ROW_COUNT == 1 --> fa-flag<!-- ELSEIF l_block1.S_ROW_COUNT == 2 --> fa-exclamation<!-- ELSEIF l_block1.S_ROW_COUNT == 3 --> fa-user<!-- ELSEIF l_block1.S_ROW_COUNT == 4 --> fa-exclamation-triangle<!-- ELSEIF l_block1.S_ROW_COUNT == 5 --> fa-file<!-- ELSEIF l_block1.S_ROW_COUNT == 6 --> fa-ban<!-- ELSE --> fa-folder-o<!-- ENDIF --> fa-fw d-md-none" aria-hidden="true"></i><span class="d-none d-md-inline" title="">{l_block1.L_TITLE}</span></a>
 			<!-- IF l_block1.S_SELECTED -->
-				<!-- BEGIN l_block2 -->
-				<li><a class="dropdown-item<!-- IF l_block1.l_block2.S_SELECTED --> active<!-- ENDIF -->" href="{l_block1.l_block2.U_TITLE}">{l_block1.l_block2.L_TITLE}<!-- IF l_block1.l_block2.ADD_ITEM --> ({l_block1.l_block2.ADD_ITEM})<!-- ENDIF --></a></li>
-				<!-- END l_block2 -->
+			<button type="button" class="btn btn-primary active dropdown-toggle dropdown-toggle-split rounded-0" data-bs-toggle="dropdown" aria-expanded="false"></button>
 			<!-- ENDIF -->
-			<!-- END l_block1 -->
-			</ul>
-			</div>
+		<!-- END l_block1 -->
+
+		<ul class="dropdown-menu">
+		<!-- BEGIN l_block1 -->
+		<!-- IF l_block1.S_SELECTED -->
+			<!-- BEGIN l_block2 -->
+			<li><a class="dropdown-item<!-- IF l_block1.l_block2.S_SELECTED --> active<!-- ENDIF -->" href="{l_block1.l_block2.U_TITLE}">{l_block1.l_block2.L_TITLE}<!-- IF l_block1.l_block2.ADD_ITEM --> ({l_block1.l_block2.ADD_ITEM})<!-- ENDIF --></a></li>
+			<!-- END l_block2 -->
+		<!-- ENDIF -->
+		<!-- END l_block1 -->
+		</ul>
 		</div>
 
 	</div>
