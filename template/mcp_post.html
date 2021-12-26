@@ -27,15 +27,14 @@
 			<div class="card-footer">
 				<div class="row">
 					{% EVENT mcp_post_report_buttons_top_before %}
-					<div class="d-grid col-4 mx-auto">
 						<button class="btn btn-danger me-1" type="submit" name="action[delete]" value="{L_DELETE_REPORT}"><i class="fa fa-trash-o fa-fw" aria-hidden="true"></i> <span class="text-nowrap">{L_DELETE_REPORT}</span></button>
+						<button class="btn btn-danger" type="submit" name="action[delete]" value="{L_DELETE_REPORT}"><i class="fa fa-trash-o fa-fw" aria-hidden="true"></i> <span class="text-nowrap">{L_DELETE_REPORT}</span></button>
 					</div>
 					<!-- IF not S_REPORT_CLOSED -->
 					<div class="d-grid col-4 mx-auto">
 						<button class="btn btn-success" type="submit" name="action[close]" value="{L_CLOSE_REPORT}"><i class="fa fa-check fa-fw" aria-hidden="true"></i> <span class="text-nowrap">{L_CLOSE_REPORT}</span></button>
 					</div>
 					<!-- ENDIF -->
-
 					{% EVENT mcp_post_report_buttons_top_after %}
 					<input type="hidden" name="report_id_list[]" value="{REPORT_ID}" />
 					{S_FORM_TOKEN}
