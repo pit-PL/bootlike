@@ -58,7 +58,7 @@
 
 			</div>
 
-			<!-- IF (U_EMAIL or U_PM or (U_JABBER and S_JABBER_ENABLED) or custom_fields.PROFILE_FIELD_CONTACT) and $PROFILE_POPUP_OFF -->
+			<!-- IF S_USER_LOGGED_IN and $PROFILE_POPUP_OFF -->
 			<div id="accordion_contact" class="accordion accordion-flush">
 				<div class="accordion-item">
 					<h2 class="accordion-header">
@@ -216,7 +216,7 @@
 					<button type="button" class="btn-close" title="{L_CLOSE_WINDOW}" data-bs-dismiss="modal" aria-label="{L_CLOSE_WINDOW}"></button>
 				</div>
 
-				<div class="modal-body bg1<!-- IF not (U_EMAIL or U_PM or (U_JABBER and S_JABBER_ENABLED) or custom_fields.PROFILE_FIELD_CONTACT) --> rounded-bottom<!-- ENDIF -->">
+				<div class="modal-body bg1<!-- IF not S_USER_LOGGED_IN --> rounded-bottom<!-- ENDIF -->">
 					<dl class="row mb-0">
 						<!-- EVENT memberlist_view_user_statistics_before -->
 						<dt class="col-lg-4 col-md-5 col-12">{L_JOINED}{L_COLON}</dt><dd class="col-lg-8 col-md-7 col-12">{JOINED}</dd>
@@ -238,7 +238,7 @@
 					</dl>
 				</div>
 
-			<!-- IF U_EMAIL or U_PM or (U_JABBER and S_JABBER_ENABLED) or custom_fields.PROFILE_FIELD_CONTACT -->
+			<!-- IF S_USER_LOGGED_IN -->
 				<div class="modal-footer justify-content-center">
 				<!-- EVENT memberlist_view_contact_before -->
 				<!-- IF U_EMAIL -->
@@ -282,10 +282,6 @@
 					<!-- ENDIF -->
 				<!-- END custom_fields -->
 				<!-- EVENT memberlist_view_contact_custom_fields_after -->
-				<!-- IF S_PROFILE_FIELD1 -->
-					<!-- NOTE: Use a construct like this to include admin defined profile fields. Replace FIELD1 with the name of your field. -->
-					{PROFILE_FIELD1_NAME}{L_COLON} {PROFILE_FIELD1_VALUE}
-				<!-- ENDIF -->
 				<!-- EVENT memberlist_view_contact_after -->
 				</div>
 			<!-- ENDIF -->

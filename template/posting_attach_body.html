@@ -67,31 +67,29 @@
 
 		{% EVENT posting_attach_body_attach_row_before %}
 		<!-- BEGIN attach_row -->
-			<div class="mt-1 bg1">
-				{% EVENT posting_attach_body_attach_row_prepend %}
-				<div class="row px-3 py-1 attach-row align-items-center" data-attach-id="{attach_row.ATTACH_ID}">
-					<div class="col-12 col-md-4 py-2">
-						<span class="file-name ellipsis-text"><a href="{attach_row.U_VIEW_ATTACHMENT}">{attach_row.FILENAME}</a></span>
-						{% EVENT posting_attach_body_attach_row_controls_prepend %}
-						<span class="attach-controls">
-							{% if S_BBCODE_ALLOWED and S_INLINE_ATTACHMENT_OPTIONS %}<input class="btn btn-secondary btn-sm m-1 file-inline-bbcode" type="button" value="{{ lang('PLACE_INLINE') }}" />{% endif %}
-							<input class="btn btn-danger btn-sm file-delete" type="submit" name="delete_file[{attach_row.ASSOC_INDEX}]" value="{L_DELETE_FILE}" />
-						</span>
-						{% EVENT posting_attach_body_attach_row_controls_append %}
-					</div>
-					<div class="col-12 col-md-4 py-2">
-						<textarea name="comment_list[{attach_row.ASSOC_INDEX}]" rows="1" cols="30" class="form-control">{attach_row.FILE_COMMENT}</textarea>
-						{attach_row.S_HIDDEN}
-					</div>
-					<div class="col-12 col-md-2 py-2 text-md-center">
-						<span class="file-size">{attach_row.FILESIZE}</span>
-					</div>
-					<div class="col-12 col-md-2 py-2 text-md-center">
-						<span class="file-status file-uploaded"></span>
-					</div>
+			{% EVENT posting_attach_body_attach_row_prepend %}
+			<div class="row m-0 mt-1 p-1 align-items-center bg1" data-attach-id="{attach_row.ATTACH_ID}">
+				<div class="col-12 col-md-4 py-2">
+					<span class="file-name ellipsis-text"><a href="{attach_row.U_VIEW_ATTACHMENT}">{attach_row.FILENAME}</a></span>
+					{% EVENT posting_attach_body_attach_row_controls_prepend %}
+					<span class="attach-controls">
+						{% if S_BBCODE_ALLOWED and S_INLINE_ATTACHMENT_OPTIONS %}<input class="btn btn-secondary btn-sm m-1 file-inline-bbcode" type="button" value="{{ lang('PLACE_INLINE') }}" />{% endif %}
+						<input class="btn btn-danger btn-sm file-delete" type="submit" name="delete_file[{attach_row.ASSOC_INDEX}]" value="{L_DELETE_FILE}" />
+					</span>
+					{% EVENT posting_attach_body_attach_row_controls_append %}
 				</div>
-				{% EVENT posting_attach_body_attach_row_append %}
+				<div class="col-12 col-md-4 py-2">
+					<textarea name="comment_list[{attach_row.ASSOC_INDEX}]" rows="1" cols="30" class="form-control">{attach_row.FILE_COMMENT}</textarea>
+					{attach_row.S_HIDDEN}
+				</div>
+				<div class="col-12 col-md-2 py-2 text-md-center">
+					<span class="file-size">{attach_row.FILESIZE}</span>
+				</div>
+				<div class="col-12 col-md-2 py-2 text-md-center">
+					<span class="file-status file-uploaded"></span>
+				</div>
 			</div>
+			{% EVENT posting_attach_body_attach_row_append %}
 		<!-- END attach_row -->
 		{% EVENT posting_attach_body_attach_row_after %}
 		</div>

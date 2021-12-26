@@ -6,40 +6,42 @@
 <meta name="robots" content="noindex" />
 {META}
 <title>{SITENAME} &bull; {PAGE_TITLE}</title>
-
-<link href="{ROOT_PATH}styles/bootlike/theme/print.css" rel="stylesheet">
+<link href="{T_FONT_AWESOME_LINK}" rel="stylesheet">
+<link href="{ROOT_PATH}styles/bootlike/theme/stylesheet.css" rel="stylesheet">
+<style>
+a {color: #212529 !important;}
+.card.blockquote {border-width: 1px;}
+.codebox pre {max-height: 100%; white-space: pre-wrap;}
+.blockquote .blockquote, .blockquote .blockquote .blockquote {filter: brightness(100%);}
+</style>
 <!-- EVENT viewtopic_print_head_append -->
 </head>
-<body id="phpbb" class="{S_CONTENT_DIRECTION}">
-<div id="wrap" class="wrap">
-	<a id="top" class="top-anchor" accesskey="t"></a>
+<body class="{S_CONTENT_DIRECTION}">
+	<div class="container-fluid p-3">
 
-	<div id="page-header">
 		<h1>{SITENAME}</h1>
-		<p>{SITE_DESCRIPTION}<br><a href="{U_FORUM}">{U_FORUM}</a></p>
+		<div>{SITE_DESCRIPTION}</div>
+		<p><a href="{U_FORUM}">{U_FORUM}</a></p>
 
-		<h3>{TOPIC_TITLE}</h3>
+		<h4>{L_TOPIC_TITLE} - {TOPIC_TITLE}</h4>
 		<p><a href="{U_TOPIC}">{U_TOPIC}</a></p>
-	</div>
 
-	<div id="page-body" class="page-body">
-		<div class="page-number">{PAGE_NUMBER}</div>
+		<div class="my-2">{PAGE_NUMBER}</div>
 		<!-- BEGIN postrow -->
-			<div class="post">
-				<h3>{postrow.POST_SUBJECT}</h3>
-				<div class="date">{L_POSTED}{L_COLON} <strong>{postrow.POST_DATE}</strong></div>
-				<div class="author">{L_POST_BY_AUTHOR} <strong>{postrow.POST_AUTHOR}</strong></div>
-				<div class="content">{postrow.MESSAGE}</div>
+		<div class="card mb-3">
+			<div class="card-header col-12 d-flex justify-content-between bg-transparent">
+				{postrow.POST_SUBJECT} - {L_POST_BY_AUTHOR} {postrow.POST_AUTHOR}
+				<div>{L_POSTED}{L_COLON} {postrow.POST_DATE}</div>
 			</div>
-			<hr>
+			<div class="card-body">
+				<div>{postrow.MESSAGE}</div>
+			</div>
+		</div>
 		<!-- END postrow -->
-	</div>
 
-	<div id="page-footer" class="page-footer">
-		<div class="page-number">{S_TIMEZONE}<br>{PAGE_NUMBER}</div>
-		<div class="copyright">{{ CREDIT_LINE }}{% if TRANSLATION_INFO %}</br>{{ TRANSLATION_INFO }}{% endif %}</div>
+		<div>{S_TIMEZONE}<br>{PAGE_NUMBER}</div>
+		<div>{{ CREDIT_LINE }}{% if TRANSLATION_INFO %}</br>{{ TRANSLATION_INFO }}{% endif %}</div>
 	</div>
-</div>
 
 </body>
 </html>

@@ -23,25 +23,23 @@
 					{% EVENT ucp_profile_autologin_keys_thead_mark_after %}
 			</div>
 		</div>
-		<!-- BEGIN sessions -->
-		<div class="mt-1 bg1">
-			<div class="row px-3 py-1 align-items-center">
-					{% EVENT ucp_profile_autologin_keys_tbody_key_before %}
-				<div class="col-12 col-md-3 py-2"><span class="badge bg-secondary d-md-none">{L_LOGIN_KEY}{L_COLON}</span> <label class="form-check-label" for="{sessions.KEY}">{sessions.KEY}</label></div>
-					{% EVENT ucp_profile_autologin_keys_tbody_key_after %}
-				<div class="col-12 col-md-2 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_IP}{L_COLON}</span> {sessions.IP}</div>
-				<div class="col-12 col-md-5 py-2"><span class="badge bg-secondary d-md-none">{L_LOGIN_TIME}{L_COLON}</span> {sessions.LOGIN_TIME}</div>
-					{% EVENT ucp_profile_autologin_keys_tbody_mark_before %}
-				<div class="col-12 col-md-2 d-sm-flex py-2">
-					<span class="badge bg-secondary d-md-none me-1">{L_MARK}{L_COLON}</span>
-					<div class="form-switch mx-md-auto"><input class="form-check-input" type="checkbox" name="keys[]" value="{sessions.KEY}" id="{sessions.KEY}" /></div>
-				</div>
-					{% EVENT ucp_profile_autologin_keys_tbody_mark_after %}
+	<!-- BEGIN sessions -->
+		<div class="row m-0 mt-1 p-1 align-items-center bg1">
+				{% EVENT ucp_profile_autologin_keys_tbody_key_before %}
+			<div class="col-12 col-md-3 py-2"><span class="badge bg-secondary d-md-none">{L_LOGIN_KEY}{L_COLON}</span> <label class="form-check-label" for="{sessions.KEY}">{sessions.KEY}</label></div>
+				{% EVENT ucp_profile_autologin_keys_tbody_key_after %}
+			<div class="col-12 col-md-2 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_IP}{L_COLON}</span> {sessions.IP}</div>
+			<div class="col-12 col-md-5 py-2"><span class="badge bg-secondary d-md-none">{L_LOGIN_TIME}{L_COLON}</span> {sessions.LOGIN_TIME}</div>
+				{% EVENT ucp_profile_autologin_keys_tbody_mark_before %}
+			<div class="col-12 col-md-2 d-sm-flex py-2">
+				<span class="badge bg-secondary d-md-none me-1">{L_MARK}{L_COLON}</span>
+				<div class="form-switch mx-md-auto"><input class="form-check-input" type="checkbox" name="keys[]" value="{sessions.KEY}" id="{sessions.KEY}" /></div>
 			</div>
+				{% EVENT ucp_profile_autologin_keys_tbody_mark_after %}
 		</div>
-		<!-- BEGINELSE -->
+	<!-- BEGINELSE -->
 			<div class="mt-1 px-3 py-2 text-center bg1">{L_PROFILE_NO_AUTOLOGIN_KEYS}</div>
-		<!-- END sessions -->
+	<!-- END sessions -->
 	</div>
 
 <!-- IF .sessions -->

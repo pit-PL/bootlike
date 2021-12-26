@@ -56,45 +56,47 @@
 
 <div class="<!-- IF $FORUM_WIDTH_FULL -->container-fluid<!-- ELSEIF $FORUM_WIDTH_XXL -->container-xxl<!-- ELSE -->container-xl<!-- ENDIF --> px-1 px-md-2 px-lg-3">
 
-<!-- EVENT overall_header_body_before -->
+	<!-- EVENT overall_header_body_before -->
 
-	<div class="navbar navbar-expand-md navbar-dark bg-dark mb-1 mb-md-0">
-		<div class="container-fluid px-3">
-			<div class="navbar-brand">{SITENAME}<span class="small"><!-- IF SITE_DESCRIPTION --> - {SITE_DESCRIPTION}<!-- ENDIF --></span></div>
-
-		<!-- EVENT overall_header_searchbox_before -->
-		<!-- IF S_DISPLAY_SEARCH and not S_IN_SEARCH -->
-			<form action="{U_SEARCH}" method="get" id="search">
-				<div id="search-box" class="d-none d-lg-block">
-				<div class="input-group">
-					<input class="form-control rounded-0" name="keywords" id="keywords" type="search" maxlength="128" title="{L_SEARCH_KEYWORDS}" size="20" value="{SEARCH_WORDS}" placeholder="{L_SEARCH_MINI}" />
-					<button class="btn btn-secondary rounded-0" type="submit" title="{L_SEARCH}"><i class="fa fa-search fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_SEARCH}</span></button>
-					<a href="{U_SEARCH}" class="btn btn-secondary rounded-0" title="{L_SEARCH_ADV}"><i class="fa fa-cog fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_SEARCH_ADV}</span></a>
+	<div class="row m-0">
+		<div class="card<!-- IF $CLICKABLE_HEADER --> header<!-- ENDIF --> my-1 my-md-3 position-relative<!-- IF $CLICKABLE_HEADER --> d-none d-md-flex<!-- ENDIF -->" role="banner">
+			<div class="card-body p-1 p-md-2 p-lg-3"<!-- IF $CLICKABLE_HEADER and $BANNER_HEIGHT --> style="height: {$BANNER_HEIGHT}px;"<!-- ENDIF -->>
+				<!-- EVENT overall_header_headerbar_before -->
+				<div class="d-flex align-items-center justify-content-center justify-content-md-between">
+					<a class="logo d-none d-md-inline-block me-3<!-- IF $CLICKABLE_HEADER --> stretched-link<!-- ENDIF -->" href="{% if U_SITE_HOME %}{{ U_SITE_HOME }}{% else %}{{ U_INDEX }}{% endif %}" title="{% if U_SITE_HOME %}{{ L_SITE_HOME }}{% else %}{{ L_INDEX }}{% endif %}"><!-- IF not $CLICKABLE_HEADER --><img src="{ROOT_PATH}styles/bootlike/theme/images/site_logo.png" alt="{L_IMAGE}" /><!-- ENDIF --></a>
+					<!-- IF not $CLICKABLE_HEADER -->
+					<div>
+						<!-- EVENT overall_header_searchbox_before -->
+						<div class="my-3 d-none d-md-block text-center text-md-end">
+							<h1><!-- IF SITENAME -->{SITENAME}<!-- ELSE -->{BOARD_URL}<!-- ENDIF --></h1>
+						<!-- IF SITE_DESCRIPTION -->
+							<div class="lead">{SITE_DESCRIPTION}</div>
+						<!-- ENDIF -->
+						<!-- EVENT overall_header_searchbox_after -->
+						</div>
+					
+						<div class="text-end">
+							<a class="btn btn-primary btn-lg my-1 ms-1 shadow" href="{U_FAQ}" rel="help" title="{L_FAQ_EXPLAIN}" role="menuitem"><i class="fa fa-question fa-fw d-md-block mx-auto" aria-hidden="true"></i>{L_FAQ}</a>
+						<!-- IF not S_REGISTERED_USER and S_REGISTER_ENABLED and not (S_SHOW_COPPA or S_REGISTRATION) -->
+							<a class="btn btn-primary btn-lg my-1 ms-1 shadow" href="{U_REGISTER}" role="menuitem"><i class="fa fa-pencil-square-o fa-fw d-md-block mx-auto" aria-hidden="true"></i>{L_REGISTER}</a>
+						<!-- ENDIF -->
+						<!-- IF not S_USER_LOGGED_IN -->
+							<a class="btn btn-primary btn-lg my-1 ms-1 shadow"<!-- IF not $LOGIN_POPUP_OFF --> href="#" data-bs-toggle="modal" data-bs-target="#login-popup"<!-- ELSE --> href="{U_LOGIN_LOGOUT}"<!-- ENDIF --> title="{L_LOGIN_LOGOUT}" accesskey="x" role="menuitem"><i class="fa fa-power-off fa-fw d-md-block mx-auto" aria-hidden="true"></i>{L_LOGIN_LOGOUT}</a>
+						<!-- ENDIF -->
+						</div>
+					</div>
+					<!-- ENDIF -->
 				</div>
-				{S_SEARCH_HIDDEN_FIELDS}
-				</div>
-				<a href="{U_SEARCH}" class="btn btn-secondary d-block d-lg-none" title="{L_SEARCH_ADV}"><i class="fa fa-cog fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_SEARCH_ADV}</span></a>
-			
-			</form>
-		<!-- ENDIF -->
-		<!-- EVENT overall_header_searchbox_after -->
-
+				<!-- EVENT overall_header_headerbar_after -->
+			</div>
 		</div>
+
+		<!-- EVENT overall_header_navbar_before -->
+
+		<!-- INCLUDE navbar_header.html -->
 	</div>
-
-	<!-- EVENT overall_header_headerbar_before -->
-
-	<div class="header d-none d-md-block text-md-center text-lg-start position-relative" role="banner">
-		<a href="{% if U_SITE_HOME %}{{ U_SITE_HOME }}{% else %}{{ U_INDEX }}{% endif %}" class="logo d-inline-block<!-- IF $CLICKABLE_HEADER --> stretched-link<!-- ENDIF -->" title="{% if U_SITE_HOME %}{{ L_SITE_HOME }}{% else %}{{ L_INDEX }}{% endif %}"><!-- IF not $CLICKABLE_HEADER --><img src="{ROOT_PATH}styles/bootlike/theme/images/site_logo.png" alt="{L_IMAGE}" /><!-- ENDIF --></a>
-	</div>
-
-	<!-- EVENT overall_header_headerbar_after -->
 
 	<a href="#start_here" class="d-none">{L_SKIP}</a>
-
-	<!-- EVENT overall_header_navbar_before -->
-
-	<!-- INCLUDE navbar_header.html -->
 
 	<!-- EVENT overall_header_page_body_before -->
 

@@ -74,11 +74,17 @@
 				</dl>
 			</div>
 
-			<div class="card-footer text-center">
-			{S_HIDDEN_FIELDS}
-				<input type="submit" name="confirm" value="{YES_VALUE}" class="btn btn-success" />&nbsp; 
-				<input type="submit" name="cancel" value="{L_NO}" class="btn btn-danger" />
-			{S_FORM_TOKEN}
+			<div class="card-footer">
+				{S_HIDDEN_FIELDS}
+				<div class="row">
+					<div class="d-grid col-4 mx-auto">
+						<button class="btn btn-danger" type="submit" name="cancel" value="{L_NO}"><i class="fa fa-minus fa-fw" aria-hidden="true"></i> {L_NO}</button>
+					</div>
+					<div class="d-grid col-4 mx-auto">
+						<button type="submit" name="confirm" value="{YES_VALUE}" class="btn btn-success"><i class="fa fa-plus fa-fw" aria-hidden="true"></i> {YES_VALUE}</button>
+					</div>
+				</div>
+				{S_FORM_TOKEN}
 			</div>
 		</div>
 	</div>

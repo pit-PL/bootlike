@@ -13,7 +13,7 @@
 </div>
 <!-- ENDIF -->
 
-<div class="card mb-3">
+<div class="card mb-3 shadow-sm">
 	<div id="post-{MESSAGE_ID}" class="card-body p-0">
 		<div class="row m-0">
 
@@ -82,7 +82,7 @@
 			<div class="postbody col-lg-9 col-md-8 p-0<!-- IF SIGNATURE --> bg2<!-- ELSE --> bg1<!-- ENDIF -->">
 			<hr class="d-md-none m-0">
 
-				<div class="postbody-before d-flex px-3 py-2 justify-content-between align-items-center bg2">
+				<div class="postbody-before mb-1 d-flex px-3 py-2 justify-content-between align-items-center bg2 shadow-sm">
 					<div>
 						{SUBJECT}<br>
 						<strong>{L_SENT_AT}{L_COLON}</strong> {SENT_DATE}
@@ -113,7 +113,7 @@
 					<!-- EVENT ucp_pm_viewmessage_post_buttons_list_after -->
 				</div>
 
-				<div class="px-3 py-2 bg1">
+				<div class="px-3 py-2 bg1<!-- IF SIGNATURE --> mb-md-1 shadow-sm<!-- ENDIF -->">
 					<p class="author">
 						<strong>{L_PM_FROM}{L_COLON}</strong> {MESSAGE_AUTHOR_FULL}
 						<!-- IF S_TO_RECIPIENT --><br><strong>{L_TO}{L_COLON}</strong> <!-- BEGIN to_recipient --><!-- IF to_recipient.NAME_FULL -->{to_recipient.NAME_FULL}<!-- ELSE --><a href="{to_recipient.U_VIEW}"<!-- IF to_recipient.COLOUR --> style="color:{to_recipient.COLOUR};"<!-- ENDIF -->>{to_recipient.NAME}</a><!-- ENDIF -->&nbsp;<!-- END to_recipient --><!-- ENDIF -->

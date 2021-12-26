@@ -65,7 +65,9 @@
 				<dd class="col-lg-9 col-md-8 col-12">
 					<div class="input-group btn-radio-group" data-bs-toggle="buttons">
 						<label class="form-check-label btn btn-outline-secondary btn-radio" for="icon"><input class="btn-check" type="radio" name="icon" id="icon" value="0" checked="checked" tabindex="1" /><!-- IF S_SHOW_TOPIC_ICONS -->{L_NO_TOPIC_ICON}<!-- ELSE -->{L_NO_PM_ICON}<!-- ENDIF --></label>
-						<!-- BEGIN topic_icon --><label class="form-check-label btn btn-outline-secondary btn-radio" for="icon-{topic_icon.ICON_ID}" class="btn btn-outline-secondary btn-radio"><input class="btn-check" type="radio" name="icon" id="icon-{topic_icon.ICON_ID}" value="{topic_icon.ICON_ID}" {topic_icon.S_ICON_CHECKED} tabindex="1" /><img src="{topic_icon.ICON_IMG}" width="{topic_icon.ICON_WIDTH}" height="{topic_icon.ICON_HEIGHT}" alt="{topic_icon.ICON_ALT}" title="{topic_icon.ICON_ALT}" /></label><!-- END topic_icon -->
+						<!-- BEGIN topic_icon -->
+						<label class="form-check-label btn btn-outline-secondary btn-radio" for="icon-{topic_icon.ICON_ID}"><input class="btn-check" type="radio" name="icon" id="icon-{topic_icon.ICON_ID}" value="{topic_icon.ICON_ID}" {topic_icon.S_ICON_CHECKED} tabindex="1" /><img src="{topic_icon.ICON_IMG}" width="{topic_icon.ICON_WIDTH}" height="{topic_icon.ICON_HEIGHT}" alt="{topic_icon.ICON_ALT}" title="{topic_icon.ICON_ALT}" /></label>
+						<!-- END topic_icon -->
 					</div>
 				</dd>
 			</dl>
@@ -128,9 +130,14 @@
 							<a href="{postrow.U_MINI_POST}" title="{postrow.MINI_POST}"><i class="fa fa-file-o" aria-hidden="true"></i><span class="visually-hidden">{L_POST}</span></a> {L_POSTED} {postrow.POST_DATE} {L_POST_BY_AUTHOR} {% EVENT mcp_topic_post_author_full_prepend %} <strong>{postrow.POST_AUTHOR_FULL}</strong> {% EVENT mcp_topic_post_author_full_append %}<!-- IF postrow.U_MCP_DETAILS --> [ <a href="{postrow.U_MCP_DETAILS}">{L_POST_DETAILS}</a> ]<!-- ENDIF -->
 						</div>
 
-						<div class="form-check form-switch">
-							<label class="form-check-label me-1" for="post_id_list_select_{postrow.POST_ID}" class="form-check-label btn btn-secondary me-2"><input class="form-check-input" title="{L_SELECT}" type="checkbox" id="post_id_list_select_{postrow.POST_ID}" name="post_id_list[]" value="{postrow.POST_ID}"<!-- IF postrow.S_CHECKED --> checked="checked"<!-- ENDIF --> /></label>
-							<a href="{postrow.U_POST_DETAILS}" title="{L_POST_DETAILS}" class="btn btn-secondary"><i class="fa fa-info fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_POST_DETAILS}</span></a>
+						<div>
+							<div class="input-group">
+								<div class="input-group-text border-secondary border-end-0">
+									<input class="form-check-input mt-0" type="checkbox" id="post_id_list_select_{postrow.POST_ID}" name="post_id_list[]" value="{postrow.POST_ID}"<!-- IF postrow.S_CHECKED --> checked="checked"<!-- ENDIF --> />
+								</div>
+								<label class="btn btn-outline-secondary" for="post_id_list_select_{postrow.POST_ID}" class="form-check-label btn btn-secondary me-2">{L_SELECT}</label>
+								<a class="btn btn-secondary" href="{postrow.U_POST_DETAILS}" title="{L_POST_DETAILS}"><i class="fa fa-info fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_POST_DETAILS}</span></a>
+							</div>
 						</div>
 					<!-- EVENT mcp_topic_postrow_post_details_after -->
 					</div>

@@ -1,7 +1,7 @@
 <!-- INCLUDE overall_header.html -->
 
 <form action="{S_PROFILE_ACTION}" method="post" id="remind">
-	<div class="col-md-12 col-lg-10 offset-lg-1">
+	<div class="col-md-12 col-lg-8 offset-lg-2">
 		<div class="card mb-3">
 			<div class="card-header">
 				{L_SEND_PASSWORD}
@@ -30,10 +30,16 @@
 				</div>
 			</div>
 
-			<div class="card-footer text-center">
+			<div class="card-footer">
 				{S_HIDDEN_FIELDS}
-				<button class="btn btn-danger me-1" type="reset" name="reset" value="{L_RESET}"><i class="fa fa-undo fa-fw" aria-hidden="true"></i> {L_RESET}</button>
-				<button class="btn btn-success" type="submit" id="submit" name="submit" value="{L_SUBMIT}" tabindex="2"><i class="fa fa-level-down fa-rotate-90 fa-fw" aria-hidden="true"></i> {L_SUBMIT}</button>
+				<div class="row">
+					<div class="d-grid col-4 mx-auto">
+						<button class="btn btn-danger w-100" type="reset" name="reset" value="{L_RESET}"><i class="fa fa-undo fa-fw" aria-hidden="true"></i> {L_RESET}</button>
+					</div>
+					<div class="d-grid col-4 mx-auto">
+						<button class="btn btn-success w-100" type="submit" id="submit" name="submit" value="{L_SUBMIT}" tabindex="2"><i class="fa fa-level-down fa-rotate-90 fa-fw" aria-hidden="true"></i> {L_SUBMIT}</button>
+					</div>
+				</div>
 				{S_FORM_TOKEN}
 			</div>
 		</div>

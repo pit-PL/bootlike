@@ -18,7 +18,7 @@
 	<dl class="row">
 		<dt class="col-lg-4 col-md-5 col-12">
 			<label class="col-form-label"<!-- IF S_USERNAME_OPTIONS --> for="usernames"<!-- ENDIF -->>{L_YOUR_FRIENDS}{L_COLON}</label>
-			<div class="small text-muted fw-normal">{L_YOUR_FRIENDS_EXPLAIN}</div>
+			<span class="small text-muted fw-normal d-block mb-1">{L_YOUR_FRIENDS_EXPLAIN}</span>
 		</dt>
 		<dd class="col-lg-8 col-md-7 col-12">
 			<!-- IF S_USERNAME_OPTIONS -->
@@ -32,7 +32,7 @@
 	<dl class="row">
 		<dt class="col-lg-4 col-md-5 col-12">
 			<label class="col-form-label" for="add">{L_ADD_FRIENDS}{L_COLON}</label>
-			<div class="small text-muted fw-normal">{L_ADD_FRIENDS_EXPLAIN}</div>
+			<span class="small text-muted fw-normal d-block mb-1">{L_ADD_FRIENDS_EXPLAIN}</span>
 		</dt>
 		<dd class="col-lg-8 col-md-7 col-12">
 			<div class="row">
@@ -40,7 +40,7 @@
 					<textarea class="form-control" name="add" id="add" rows="3" cols="30">{USERNAMES}</textarea>
 				</div>
 				<div class="col-md-5 col-12 mt-2 mt-md-0">
-					<a class="btn btn-secondary" href="{U_FIND_USERNAME}" onclick="find_username(this.href); return false;"><i class="fa fa-search fa-fw" aria-hidden="true"></i> {L_FIND_USERNAME}</a>
+					<a class="btn btn-secondary" href="{U_FIND_USERNAME}" onclick="find_username(this.href); return false;" title="{L_FIND_USERNAME}"><i class="fa fa-search fa-fw" aria-hidden="true"></i></a>
 				</div>
 			</div>
 		</dd>

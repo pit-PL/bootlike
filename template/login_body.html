@@ -32,11 +32,11 @@
 
 			<!-- IF S_DISPLAY_FULL_LOGIN and (U_SEND_PASSWORD or U_RESEND_ACTIVATION) -->
 					<div class="d-xxl-flex justify-content-xxl-between mb-2">
-				<!-- IF U_RESEND_ACTIVATION -->
-						<a class="d-block" href="{U_RESEND_ACTIVATION}">{L_RESEND_ACTIVATION}</a>
-				<!-- ENDIF -->
 				<!-- IF U_SEND_PASSWORD -->
 						<a class="d-block" href="{U_SEND_PASSWORD}">{L_FORGOT_PASS}</a>
+				<!-- ENDIF -->
+				<!-- IF U_RESEND_ACTIVATION -->
+						<a class="d-block" href="{U_RESEND_ACTIVATION}">{L_RESEND_ACTIVATION}</a>
 				<!-- ENDIF -->
 					</div>
 			<!-- ENDIF -->
@@ -46,12 +46,12 @@
 				<!-- IF S_AUTOLOGIN_ENABLED -->
 						<div class="form-check form-switch">
 							<input class="form-check-input" type="checkbox" name="autologin" id="autologin" tabindex="4" />
-							<label class="form-check-label me-2" for="autologin">{L_LOG_ME_IN}</label>
+							<label class="form-check-label" for="autologin">{L_LOG_ME_IN}</label>
 						</div>
 				<!-- ENDIF -->
 						<div class="form-check form-switch">
 							<input class="form-check-input" type="checkbox" name="viewonline" id="viewonline" tabindex="5" />
-							<label class="form-check-label me-2" for="viewonline">{L_HIDE_ME}</label>
+							<label class="form-check-label" for="viewonline">{L_HIDE_ME}</label>
 						</div>
 					</div>
 			<!-- ENDIF -->
@@ -72,7 +72,7 @@
 
 			<!-- IF CAPTCHA_TEMPLATE and S_CONFIRM_CODE -->
 				<!-- DEFINE $CAPTCHA_TAB_INDEX = 3 -->
-			<hr>
+			<hr class="fancyhr">
 				<!-- INCLUDE {CAPTCHA_TEMPLATE} -->
 			<!-- ENDIF -->
 

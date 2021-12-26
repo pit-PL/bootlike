@@ -27,8 +27,8 @@
 		<div class="card mb-3<!-- IF topic_review_row.POST_ID == REPORTED_POST_ID --> border-warning<!-- ENDIF -->">
 			<div class="card-body p-0">
 
-				<div class="postbody bg2" id="pr{topic_review_row.POST_ID}">
-					<div class="postbody-before d-sm-flex px-3 py-1 justify-content-between align-items-center">
+				<div class="postbody bg1" id="pr{topic_review_row.POST_ID}">
+					<div class="postbody-before d-sm-flex px-3 py-1 justify-content-between align-items-center bg2 shadow-sm">
 						<div>
 						<a href="{topic_review_row.U_MINI_POST}">{topic_review_row.POST_SUBJECT}</a>
 							<div>
@@ -55,7 +55,7 @@
 					<!-- EVENT posting_topic_review_row_post_details_after -->
 					</div>
 
-					<div class="px-3 py-2 bg1">
+					<div class="px-3 py-2">
 						<div class="content">{topic_review_row.MESSAGE}</div>
 
 						<!-- EVENT posting_topic_review_row_content_after -->

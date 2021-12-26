@@ -1,4 +1,4 @@
-<div class="card mb-3" id="preview">
+<div id="preview" class="card mb-3 shadow-sm">
 
 <!-- IF S_HAS_POLL_OPTIONS -->
 	<div class="card-header">
@@ -22,7 +22,7 @@
 
 <!-- EVENT posting_preview_poll_after -->
 
-<div class="card mb-3">
+<div class="card mb-3 shadow-sm">
 
 <!-- ENDIF -->
 
@@ -33,14 +33,14 @@
 				<div class="text-center p-3"><img class="img-thumbnail rounded-circle" src="{ROOT_PATH}styles/bootlike/theme/images/no_avatar.gif" alt="{L_IMAGE}" /></div>
 			</div>
 
-			<div class="postbody col-lg-9 col-md-8 col-12 p-0 bg2">
+			<div class="postbody col-lg-9 col-md-8 col-12 p-0<!-- IF PREVIEW_SIGNATURE --> bg2<!-- ELSE --> bg1<!-- ENDIF -->">
 			<hr class="d-md-none m-0">
 
-				<div class="postbody-before p-3 bg2">
+				<div class="postbody-before mb-1 p-3 bg2 shadow-sm">
 					{L_PREVIEW}{L_COLON} {PREVIEW_SUBJECT}
 				</div>
 
-				<div class="px-3 py-2 bg1">
+				<div class="px-3 py-2 bg1<!-- IF PREVIEW_SIGNATURE --> mb-md-1 shadow-sm<!-- ENDIF -->">
 					<div class="content">{PREVIEW_MESSAGE}</div>
 					<!-- EVENT posting_preview_content_after -->
 

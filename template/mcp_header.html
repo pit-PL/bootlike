@@ -37,11 +37,7 @@
 		<!-- BEGIN l_block1 -->
 		<!-- IF l_block1.S_SELECTED -->
 			<!-- BEGIN l_block2 -->
-			<!-- IF l_block1.l_block2.S_SELECTED -->
-			<a class="list-group-item list-group-item-action active" href="{l_block1.l_block2.U_TITLE}">{l_block1.l_block2.L_TITLE}<!-- IF l_block1.l_block2.ADD_ITEM --> ({l_block1.l_block2.ADD_ITEM})<!-- ENDIF --></a>
-			<!-- ELSE -->
-			<a class="list-group-item list-group-item-action" href="{l_block1.l_block2.U_TITLE}">{l_block1.l_block2.L_TITLE}<!-- IF l_block1.l_block2.ADD_ITEM --> ({l_block1.l_block2.ADD_ITEM})<!-- ENDIF --></a>
-			<!-- ENDIF -->
+			<a class="list-group-item list-group-item-action<!-- IF l_block1.l_block2.S_SELECTED --> active<!-- ENDIF -->" href="{l_block1.l_block2.U_TITLE}">{l_block1.l_block2.L_TITLE}<!-- IF l_block1.l_block2.ADD_ITEM --> ({l_block1.l_block2.ADD_ITEM})<!-- ENDIF --></a>
 			<!-- END l_block2 -->
 		<!-- ENDIF -->
 		<!-- END l_block1 -->

@@ -23,30 +23,18 @@
 	<!-- IF S_PRIVMSGS -->
 		<!-- BEGIN t_block2 -->
 			<!-- IF S_PRIVMSGS and not t_block2.S_LAST_ROW -->
-				<!-- IF t_block2.S_SELECTED -->
-					<a class="list-group-item list-group-item-action active" href="{t_block2.U_TITLE}">{t_block2.L_TITLE}</a>
-				<!-- ELSE -->
-					<a class="list-group-item list-group-item-action" href="{t_block2.U_TITLE}">{t_block2.L_TITLE}</a>
-				<!-- ENDIF -->
+			<a class="list-group-item list-group-item-action<!-- IF t_block2.S_SELECTED --> active<!-- ENDIF -->" href="{t_block2.U_TITLE}">{t_block2.L_TITLE}</a>
 			<!-- ENDIF -->
 		<!-- END t_block2 -->
 	
 		<!-- BEGIN folder -->
-			<!-- IF folder.S_CUR_FOLDER -->
-				<a class="list-group-item list-group-item-action active d-flex align-items-center justify-content-lg-between" href="{folder.U_FOLDER}"><!-- IF folder.UNREAD_MESSAGES > 0 -->{folder.FOLDER_NAME} <strong class="badge bg-light text-dark ms-2">{folder.UNREAD_MESSAGES}</strong><!-- ELSE -->{folder.FOLDER_NAME}<!-- ENDIF --></a>
-			<!-- ELSE -->
-				<a class="list-group-item list-group-item-action d-flex align-items-center justify-content-lg-between" href="{folder.U_FOLDER}"><!-- IF folder.UNREAD_MESSAGES > 0 -->{folder.FOLDER_NAME} <strong class="badge bg-primary ms-2">{folder.UNREAD_MESSAGES}</strong><!-- ELSE -->{folder.FOLDER_NAME}<!-- ENDIF --></a>
-			<!-- ENDIF -->
+			<a class="list-group-item list-group-item-action<!-- IF folder.S_CUR_FOLDER --> active<!-- ENDIF --> d-flex align-items-center justify-content-lg-between" href="{folder.U_FOLDER}"><!-- IF folder.UNREAD_MESSAGES > 0 -->{folder.FOLDER_NAME} <strong class="badge<!-- IF folder.S_CUR_FOLDER --> bg-light text-dark<!-- ELSE --> bg-primary<!-- ENDIF --> ms-2">{folder.UNREAD_MESSAGES}</strong><!-- ELSE -->{folder.FOLDER_NAME}<!-- ENDIF --></a>
 		<!-- END folder -->
 	<!-- ENDIF -->
 	
 	<!-- BEGIN t_block2 -->
 		<!-- IF (S_PRIVMSGS and t_block2.S_LAST_ROW) or not S_PRIVMSGS -->
-			<!-- IF t_block2.S_SELECTED -->
-				<a class="list-group-item list-group-item-action active" href="{t_block2.U_TITLE}">{t_block2.L_TITLE}</a>
-			<!-- ELSE -->
-				<a class="list-group-item list-group-item-action" href="{t_block2.U_TITLE}">{t_block2.L_TITLE}</a>
-			<!-- ENDIF -->
+			<a class="list-group-item list-group-item-action<!-- IF t_block2.S_SELECTED --> active<!-- ENDIF -->" href="{t_block2.U_TITLE}">{t_block2.L_TITLE}</a>
 		<!-- ENDIF -->
 	<!-- END t_block2 -->
 		</div>

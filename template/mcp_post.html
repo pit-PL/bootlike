@@ -24,15 +24,21 @@
 		</div>
 
 		<form method="post" id="mcp_report" action="{S_CLOSE_ACTION}">
-			<div class="card-footer text-center">
-				{% EVENT mcp_post_report_buttons_top_before %}
-					<button class="btn btn-danger me-1" type="submit" name="action[delete]" value="{L_DELETE_REPORT}"><i class="fa fa-trash-o fa-fw" aria-hidden="true"></i> {L_DELETE_REPORT}</button>
-				<!-- IF not S_REPORT_CLOSED -->
-					<button class="btn btn-success" type="submit" name="action[close]" value="{L_CLOSE_REPORT}"><i class="fa fa-check fa-fw" aria-hidden="true"></i> {L_CLOSE_REPORT}</button>
-				<!-- ENDIF -->
-				{% EVENT mcp_post_report_buttons_top_after %}
+			<div class="card-footer">
+				<div class="row">
+					{% EVENT mcp_post_report_buttons_top_before %}
+					<div class="d-grid col-4 mx-auto">
+						<button class="btn btn-danger" type="submit" name="action[delete]" value="{L_DELETE_REPORT}"><i class="fa fa-trash-o fa-fw" aria-hidden="true"></i> <span class="text-nowrap">{L_DELETE_REPORT}</span></button>
+					</div>
+					<!-- IF not S_REPORT_CLOSED -->
+					<div class="d-grid col-4 mx-auto">
+						<button class="btn btn-success" type="submit" name="action[close]" value="{L_CLOSE_REPORT}"><i class="fa fa-check fa-fw" aria-hidden="true"></i> <span class="text-nowrap">{L_CLOSE_REPORT}</span></button>
+					</div>
+					<!-- ENDIF -->
+					{% EVENT mcp_post_report_buttons_top_after %}
 					<input type="hidden" name="report_id_list[]" value="{REPORT_ID}" />
-				{S_FORM_TOKEN}
+					{S_FORM_TOKEN}
+				</div>
 			</div>
 		</form>
 	</div>
@@ -313,19 +319,17 @@
 					</div>
 				</div>
 
-				<!-- BEGIN userrow -->
-				<div class="mt-1 bg1">
-					<div class="row px-3 py-1 align-items-center">
-						<div class="col-12 col-md-10 py-2">
-							<span class="badge bg-secondary d-md-none">{L_OTHER_USERS}{L_COLON}</span>
-						<!-- IF userrow.U_PROFILE -->
-							<a href="{userrow.U_PROFILE}">{userrow.USERNAME}</a><!-- ELSE -->{userrow.USERNAME}
-						<!-- ENDIF -->
-						</div>
-						<div class="col-12 col-md-2 py-2 text-md-center">
-							<span class="badge bg-secondary d-md-none">{L_POSTS}{L_COLON}</span>
-							<a href="{userrow.U_SEARCHPOSTS}" title="{L_SEARCH_POSTS_BY} {userrow.USERNAME}">{userrow.NUM_POSTS}</a>
-						</div>
+			<!-- BEGIN userrow -->
+				<div class="row m-0 mt-1 p-1 align-items-center bg1">
+					<div class="col-12 col-md-10 py-2">
+						<span class="badge bg-secondary d-md-none">{L_OTHER_USERS}{L_COLON}</span>
+					<!-- IF userrow.U_PROFILE -->
+						<a href="{userrow.U_PROFILE}">{userrow.USERNAME}</a><!-- ELSE -->{userrow.USERNAME}
+					<!-- ENDIF -->
+					</div>
+					<div class="col-12 col-md-2 py-2 text-md-center">
+						<span class="badge bg-secondary d-md-none">{L_POSTS}{L_COLON}</span>
+						<a href="{userrow.U_SEARCHPOSTS}" title="{L_SEARCH_POSTS_BY} {userrow.USERNAME}">{userrow.NUM_POSTS}</a>
 					</div>
 				</div>
 			<!-- BEGINELSE -->
@@ -356,21 +360,19 @@
 						<div class="col-12 col-md-2 text-center">{L_POSTS}</div>
 					</div>
 				</div>
-					<!-- BEGIN iprow -->
-				<div class="mt-1 bg1">
-					<div class="row px-3 py-1 align-items-center">
-						<div class="col-12 col-md-10 py-2">
-							<span class="badge bg-secondary d-md-none">{L_IPS_POSTED_FROM}{L_COLON}</span>
-						<!-- IF iprow.HOSTNAME -->
-							<a href="{iprow.U_WHOIS}">{iprow.HOSTNAME}</a> ({iprow.IP})
-						<!-- ELSE -->
-							<a href="{iprow.U_WHOIS}">{iprow.IP}</a> (<a href="{iprow.U_LOOKUP_IP}">{L_LOOKUP_IP}</a>)
-						<!-- ENDIF -->
-						</div>
-						<div class="col-12 col-md-2 py-2 text-md-center">
-							<span class="badge bg-secondary d-md-none">{L_POSTS}{L_COLON}</span>
-							{iprow.NUM_POSTS}
-						</div>
+			<!-- BEGIN iprow -->
+				<div class="row m-0 mt-1 p-1 align-items-center bg1">
+					<div class="col-12 col-md-10 py-2">
+						<span class="badge bg-secondary d-md-none">{L_IPS_POSTED_FROM}{L_COLON}</span>
+					<!-- IF iprow.HOSTNAME -->
+						<a href="{iprow.U_WHOIS}">{iprow.HOSTNAME}</a> ({iprow.IP})
+					<!-- ELSE -->
+						<a href="{iprow.U_WHOIS}">{iprow.IP}</a> (<a href="{iprow.U_LOOKUP_IP}">{L_LOOKUP_IP}</a>)
+					<!-- ENDIF -->
+					</div>
+					<div class="col-12 col-md-2 py-2 text-md-center">
+						<span class="badge bg-secondary d-md-none">{L_POSTS}{L_COLON}</span>
+						{iprow.NUM_POSTS}
 					</div>
 				</div>
 			<!-- BEGINELSE -->

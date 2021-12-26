@@ -69,14 +69,26 @@
 	<!-- ENDIF -->
 
 	<!-- IF not S_SHOW_DRAFTS and not $SIG_EDIT eq 1 -->
-	<div class="text-center mb-3">
+	<div class="row justify-content-center mb-3 gx-3 gy-1">
 		{S_HIDDEN_ADDRESS_FIELD}
 		{S_HIDDEN_FIELDS}
 		<!-- EVENT posting_editor_submit_buttons -->
-		<!-- IF S_HAS_DRAFTS --><button class="btn btn-secondary mt-1 me-1" type="submit" accesskey="d" tabindex="8" name="load" onclick="load_draft = true;"><i class="fa fa-spinner fa-fw" aria-hidden="true"></i> {L_LOAD_DRAFT}</button><!-- ENDIF -->
-		<!-- IF S_SAVE_ALLOWED --><button class="btn btn-secondary mt-1 me-1" type="submit" accesskey="k" tabindex="7" name="save"><i class="fa fa-floppy-o fa-fw" aria-hidden="true"></i>  {L_SAVE_DRAFT}</button><!-- ENDIF -->
-		<button class="btn btn-secondary mt-1 me-1" tabindex="5" name="preview"<!-- IF not S_PRIVMSGS --> onclick="document.getElementById('postform').action += '#preview';"<!-- ENDIF -->><i class="fa fa-eye fa-fw" aria-hidden="true"></i> {L_PREVIEW}</button>
-		<button class="btn btn-success mt-1 me-1 default-submit-action" type="submit" value="{L_SUBMIT}" accesskey="s" tabindex="6" name="post"><i class="fa fa-level-down fa-rotate-90 fa-fw" aria-hidden="true"></i> {L_SUBMIT}</button>
+		<!-- IF S_HAS_DRAFTS -->
+		<div class="col-md-3 col-12">
+			<button class="btn btn-secondary w-100" type="submit" accesskey="d" tabindex="8" name="load" onclick="load_draft = true;"><i class="fa fa-spinner fa-fw" aria-hidden="true"></i> {L_LOAD_DRAFT}</button>
+		</div>
+		<!-- ENDIF -->
+		<!-- IF S_SAVE_ALLOWED -->
+		<div class="col-md-3 col-12">
+			<button class="btn btn-secondary w-100" type="submit" accesskey="k" tabindex="7" name="save"><i class="fa fa-floppy-o fa-fw" aria-hidden="true"></i>  {L_SAVE_DRAFT}</button>
+		</div>
+		<!-- ENDIF -->
+		<div class="col-md-3 col-12">
+			<button class="btn btn-secondary w-100" tabindex="5" name="preview"<!-- IF not S_PRIVMSGS --> onclick="document.getElementById('postform').action += '#preview';"<!-- ENDIF -->><i class="fa fa-eye fa-fw" aria-hidden="true"></i> {L_PREVIEW}</button>
+		</div>
+		<div class="col-md-3 col-12">
+			<button class="btn btn-success w-100 default-submit-action" type="submit" value="{L_SUBMIT}" accesskey="s" tabindex="6" name="post"><i class="fa fa-level-down fa-rotate-90 fa-fw" aria-hidden="true"></i> {L_SUBMIT}</button>
+		</div>
 	</div>
 	<!-- ENDIF -->
 
@@ -149,10 +161,22 @@
 						<label class="form-check-label" for="lock_post">{L_LOCK_POST} [{L_LOCK_POST_EXPLAIN}]</label>
 					</div>
 					<!-- ENDIF -->
+					<!-- IF S_SOFTDELETE_ALLOWED -->
+					<div class="form-check form-switch">
+						<input class="form-check-input" type="checkbox" name="delete" id="delete" {S_SOFTDELETE_CHECKED} />
+						<label class="form-check-label" for="delete">{L_DELETE_POST_WARN}</label>
+					</div>
+					<!-- ENDIF -->
+					<!-- IF S_DELETE_ALLOWED -->
+					<div class="form-check form-switch">
+						<input class="form-check-input" type="checkbox" name="delete_permanent" id="delete_permanent" />
+						<label class="form-check-label" for="delete_permanent">{L_DELETE_POST_PERMANENTLY}</label>
+					</div>
+					<!-- ENDIF -->
 				</div>
 
 				<div class="text-md-end">
-				<hr class="d-md-none">
+				<hr class="fancyhr d-md-none">
 				<!-- EVENT posting_editor_smilies_before -->
 				<!-- EVENT posting_editor_smilies_after -->
 				<!-- IF BBCODE_STATUS -->
@@ -177,7 +201,7 @@
 			</div>
 
 			<!-- IF S_TYPE_TOGGLE or S_TOPIC_TYPE_ANNOUNCE or S_TOPIC_TYPE_STICKY -->
-			<hr>
+			<hr class="fancyhr">
 			<!-- ENDIF -->
 
 		<!-- IF S_TYPE_TOGGLE or S_TOPIC_TYPE_ANNOUNCE or S_TOPIC_TYPE_STICKY -->
@@ -208,34 +232,9 @@
 			</div>
 		<!-- ENDIF -->
 
-			<!-- IF S_SOFTDELETE_ALLOWED or S_DELETE_ALLOWED -->
-			<hr>
-			<div class="row">
-				<div class="col-md-6 col-12">
-					<label class="d-block mb-2" for="delete"><strong>{L_DELETE_POST}{L_COLON}</strong></label>
-					<div class="input-group">
-						<div class="input-group-text border-primary border-end-0">
-							<input class="form-check-input mt-0" type="checkbox" name="delete" id="delete" {S_SOFTDELETE_CHECKED} />
-						</div>
-						<label class="btn btn-outline-primary text-nowrap" for="delete">{L_DELETE_POST_WARN}</label>
-					</div>
-				</div>
-			<!-- IF S_DELETE_ALLOWED and S_SOFTDELETE_ALLOWED -->
-				<div class="col-md-6 col-12 mt-2 mt-md-0">
-					<label class="d-block mb-2" for="delete"><strong>{L_DELETE_PERMANENTLY}{L_COLON}</strong></label>
-					<div class="input-group">
-						<div class="input-group-text border-primary border-end-0">
-							<input class="form-check-input mt-0" type="checkbox" name="delete_permanent" id="delete_permanent" />
-						</div>
-						<label class="btn btn-outline-primary text-nowrap" for="delete_permanent">{L_DELETE_POST_PERMANENTLY}</label>
-					</div>
-				</div>
-			<!-- ENDIF -->
-			</div>
-			<!-- ENDIF -->
-
 			<!-- IF S_EDIT_REASON -->
-			<hr>
+			<hr class="fancyhr">
+
 			<div class="row mb-0">
 				<div class="col">
 					<label class="d-block mb-2" for="edit_reason"><strong>{L_EDIT_REASON}{L_COLON}</strong></label>

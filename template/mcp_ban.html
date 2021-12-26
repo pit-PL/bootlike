@@ -74,7 +74,7 @@
 		<dd class="col-lg-8 col-md-7 col-12"><input class="form-control w-100" name="bangivereason" id="bangivereason" type="text" maxlength="255" /></dd>
 	</dl>
 
-	<hr>
+	<hr class="fancyhr">
 
 	<dl class="row">
 		<dt class="col-lg-4 col-md-5 col-12">
@@ -82,10 +82,12 @@
 			<div class="small text-muted fw-normal mb-1">{L_BAN_EXCLUDE_EXPLAIN}</div>
 		</dt>
 		<dd class="col-lg-8 col-md-7 col-12">
-			<input class="btn-check" type="radio" name="banexclude" id="banexclude1" value="1" />
-			<label class="btn btn-outline-success me-1" for="banexclude1">{L_YES}</label> 
-			<input class="btn-check" type="radio" name="banexclude" id="banexclude0" value="0" checked="checked" />
-			<label class="btn btn-outline-danger" for="banexclude0">{L_NO}</label>
+			<div class="btn-group">
+				<input class="btn-check" type="radio" name="banexclude" id="banexclude1" value="1" />
+				<label class="btn btn-outline-success" for="banexclude1">{L_YES}</label> 
+				<input class="btn-check" type="radio" name="banexclude" id="banexclude0" value="0" checked="checked" />
+				<label class="btn btn-outline-danger" for="banexclude0">{L_NO}</label>
+			</div>
 		</dd>
 	</dl>
 	<!-- EVENT mcp_ban_fields_after -->

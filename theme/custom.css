@@ -2,27 +2,8 @@ html {
 	height: 101%;
 }
 
-.header {
-	height: 240px;
-	background-color: #f2f2f2;
-	background-image: url(./images/bg_header_left.png), url(./images/bg_header_right.png);
-	background-position: 0 0, 100% 0;
-	background-repeat: no-repeat, no-repeat;
-	background-size: auto, auto;
-}
-
-.rtl .header {
-	background-image: url(./images/bg_header_left_rtl.png), url(./images/bg_header_right_rtl.png);
-}
-
-.logo {
-	margin-top: 60px;
-	margin-left: 300px;
-}
-
-.rtl .logo {
-	margin-left: 0;
-	margin-right: 300px;
+.card.header {
+	background: #fff url("./images/bg_header.jpg") no-repeat 50% 0;
 }
 
 div.card, div.card-header {
@@ -39,13 +20,13 @@ img {
 	height: auto;
 }
 
-hr {
+.fancyhr {
 	height: 2px;
 	text-align: center;
 	background: linear-gradient(to right, #ccc, #555, #ccc);
 }
 
-hr:after {
+.fancyhr:after {
 	content: "\2022 \2022 \2022";
 	display: inline-block;
 	position: relative;
@@ -294,35 +275,12 @@ a.postlink:hover, a.postlink:focus {
 }
 
 @media (max-width: 991.98px) {
-	.header {
-		height: 160px;
-		background: #f2f2f2;
-	}
-	
-	.logo {
-		margin-left: 0;
-		margin-top: 20px;
-	}
-	
-	.rtl .logo {
-		margin-right: 0;
-	}
-
 	#color_palette_placeholder td:nth-child(2n) {
 		display: none;
 	}
 }
 
 @media (max-width: 767.98px) {
-	hr {
-		height: 1px;
-		background: none;
-	}
-
-	hr:after {
-		display: none;
-	}
-
 	.row-item .topic-folder {
 		padding-left: 5px;
 	}

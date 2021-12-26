@@ -16,7 +16,6 @@
 
 </script>
 
-
 <div class="col-md-12 col-lg-10 offset-lg-1">
 	<form method="post" action="{S_UCP_ACTION}" id="register">
 		<div class="d-flex justify-content-end mb-3">
@@ -32,7 +31,7 @@
 <!-- ENDIF -->
 
 <form method="post" action="{S_UCP_ACTION}" id="agreement">
-	<div class="col-md-12 col-lg-10 offset-lg-1">
+	<div class="col-md-12<!-- IF S_SHOW_COPPA --> col-lg-8 offset-lg-2<!-- ELSE --> col-lg-10 offset-lg-1<!-- ENDIF -->">
 		<div class="card mb-3">
 			<div class="card-header">
 				{{ SITENAME }} - {{ lang('REGISTRATION') }}

@@ -17,28 +17,26 @@
 			</div>
 		</div>
 
-		<!-- BEGIN notification_types -->
-		<div class="mt-1 bg1">
-			<!-- IF notification_types.GROUP_NAME -->
-				<div class="row px-3 py-2 align-items-center">
-					<div class="col-12"><strong>{notification_types.GROUP_NAME}</strong></div>
+	<!-- BEGIN notification_types -->
+		<!-- IF notification_types.GROUP_NAME -->
+			<div class="row m-0 mt-1 p-2 align-items-center bg1">
+				<div class="col-12"><strong>{notification_types.GROUP_NAME}</strong></div>
+			</div>
+		<!-- ELSE -->
+			<div class="row m-0 mt-1 p-2 align-items-center bg1">
+				<div class="col-12 col-md-8">
+					<span class="badge bg-secondary d-md-none me-1">{L_NOTIFICATION_TYPE}{L_COLON}</span> {notification_types.NAME}
+					<!-- IF notification_types.EXPLAIN --><div class="small text-muted mt-1">{notification_types.EXPLAIN}</div><!-- ENDIF -->
 				</div>
-			<!-- ELSE -->
-				<div class="row px-3 py-2 align-items-center">
-					<div class="col-12 col-md-8">
-						<span class="badge bg-secondary d-md-none me-1">{L_NOTIFICATION_TYPE}{L_COLON}</span> {notification_types.NAME}
-						<!-- IF notification_types.EXPLAIN --><div class="small text-muted mt-1">{notification_types.EXPLAIN}</div><!-- ENDIF -->
+				<!-- BEGIN notification_methods -->
+					<div class="col-12 col-md-2 text-md-center">
+						<span class="badge bg-secondary d-md-none me-1">{notification_methods.NAME}{L_COLON}</span>
+						<div class="form-switch mx-md-auto d-inline-block d-md-block"><input class="form-check-input" type="checkbox" name="{notification_types.TYPE}_{notification_types.notification_methods.METHOD}"<!-- IF notification_types.notification_methods.SUBSCRIBED --> checked="checked"<!-- ENDIF --><!-- IF not notification_types.notification_methods.AVAILABLE --> disabled="disabled"<!-- ENDIF --> /></div>
 					</div>
-					<!-- BEGIN notification_methods -->
-						<div class="col-12 col-md-2 text-md-center">
-							<span class="badge bg-secondary d-md-none me-1">{notification_methods.NAME}{L_COLON}</span>
-							<div class="form-switch mx-md-auto d-inline-block d-md-block"><input class="form-check-input" type="checkbox" name="{notification_types.TYPE}_{notification_types.notification_methods.METHOD}"<!-- IF notification_types.notification_methods.SUBSCRIBED --> checked="checked"<!-- ENDIF --><!-- IF not notification_types.notification_methods.AVAILABLE --> disabled="disabled"<!-- ENDIF --> /></div>
-						</div>
-					<!-- END notification_methods -->
-				</div>
-			<!-- ENDIF -->
-		</div>
-		<!-- END notification_types -->
+				<!-- END notification_methods -->
+			</div>
+		<!-- ENDIF -->
+	<!-- END notification_types -->
 	</div>
 <!-- ELSE -->
 	<!-- IF .notification_list -->

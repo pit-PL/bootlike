@@ -25,7 +25,9 @@
 				<!-- BEGIN faq_row -->
 					<p id="f{faq_block.S_ROW_COUNT}r{faq_block.faq_row.S_ROW_COUNT}" class="mb-1"><strong>{faq_block.faq_row.FAQ_QUESTION}</strong></p>
 					<p class="m-0">{faq_block.faq_row.FAQ_ANSWER}</p>
-				<!-- IF not faq_block.faq_row.S_LAST_ROW --><hr><!-- ENDIF -->
+				<!-- IF not faq_block.faq_row.S_LAST_ROW -->
+					<hr class="fancyhr">
+				<!-- ENDIF -->
 				<!-- END faq_row -->
 			<!-- END faq_block -->
 			</div>

@@ -23,25 +23,23 @@
 
 			<!-- BEGIN unapproved -->
 			<div class="container-fluid row-item p-0">
-				<div class="mt-1 bg1">
-					<div class="row px-3 py-1 align-items-center">
-						<div class="col-md-6 col-sm-10 col-9">
-							<a href="{unapproved.U_POST_DETAILS}" class="topictitle">{unapproved.SUBJECT}</a><br>
-							<!-- IF unapproved.ATTACH_ICON_IMG --><i class="fa fa-paperclip" title="{L_TOTAL_ATTACHMENTS}" aria-hidden="true"></i><span class="visually-hidden">{L_TOTAL_ATTACHMENTS}</span><!-- ENDIF -->
-							{L_POSTED} {L_POST_BY_AUTHOR} {unapproved.AUTHOR_FULL} &raquo; {unapproved.POST_TIME}
-
-							<div class="d-md-none">
-								{L_TOPIC}{L_COLON} <a href="{unapproved.U_TOPIC}">{unapproved.TOPIC_TITLE}</a> [<a href="{unapproved.U_MCP_TOPIC}">{L_MODERATE}</a>]<br>
-								{L_FORUM}{L_COLON} <!-- IF unapproved.U_FORUM --><a href="{unapproved.U_FORUM}">{unapproved.FORUM_NAME}</a><!-- ELSE -->{unapproved.FORUM_NAME}<!-- ENDIF --><!-- IF unapproved.U_MCP_FORUM --> [<a href="{unapproved.U_MCP_FORUM}">{L_MODERATE}</a>]<!-- ENDIF -->
-							</div>
-						</div>
-
-						<div class="col-md-4 d-none d-md-block">
+				<div class="row m-0 mt-1 p-1 align-items-center bg1">
+					<div class="col-md-6 col-sm-10 col-9">
+						<a href="{unapproved.U_POST_DETAILS}" class="topictitle">{unapproved.SUBJECT}</a><br>
+						<!-- IF unapproved.ATTACH_ICON_IMG --><i class="fa fa-paperclip" title="{L_TOTAL_ATTACHMENTS}" aria-hidden="true"></i><span class="visually-hidden">{L_TOTAL_ATTACHMENTS}</span><!-- ENDIF -->
+						{L_POSTED} {L_POST_BY_AUTHOR} {unapproved.AUTHOR_FULL} &raquo; {unapproved.POST_TIME}
+				
+						<div class="d-md-none">
 							{L_TOPIC}{L_COLON} <a href="{unapproved.U_TOPIC}">{unapproved.TOPIC_TITLE}</a> [<a href="{unapproved.U_MCP_TOPIC}">{L_MODERATE}</a>]<br>
 							{L_FORUM}{L_COLON} <!-- IF unapproved.U_FORUM --><a href="{unapproved.U_FORUM}">{unapproved.FORUM_NAME}</a><!-- ELSE -->{unapproved.FORUM_NAME}<!-- ENDIF --><!-- IF unapproved.U_MCP_FORUM --> [<a href="{unapproved.U_MCP_FORUM}">{L_MODERATE}</a>]<!-- ENDIF -->
 						</div>
-						<div class="col-sm-2 col-3 text-center"><div class="form-switch mx-auto"><input class="form-check-input" type="checkbox" name="post_id_list[]" value="{unapproved.POST_ID}" /></div></div>
 					</div>
+				
+					<div class="col-md-4 d-none d-md-block">
+						{L_TOPIC}{L_COLON} <a href="{unapproved.U_TOPIC}">{unapproved.TOPIC_TITLE}</a> [<a href="{unapproved.U_MCP_TOPIC}">{L_MODERATE}</a>]<br>
+						{L_FORUM}{L_COLON} <!-- IF unapproved.U_FORUM --><a href="{unapproved.U_FORUM}">{unapproved.FORUM_NAME}</a><!-- ELSE -->{unapproved.FORUM_NAME}<!-- ENDIF --><!-- IF unapproved.U_MCP_FORUM --> [<a href="{unapproved.U_MCP_FORUM}">{L_MODERATE}</a>]<!-- ENDIF -->
+					</div>
+					<div class="col-sm-2 col-3 text-center"><div class="form-switch mx-auto"><input class="form-check-input" type="checkbox" name="post_id_list[]" value="{unapproved.POST_ID}" /></div></div>
 				</div>
 			</div>
 			<!-- END unapproved -->
@@ -82,23 +80,21 @@
 
 			<!-- BEGIN report -->
 			<div class="container-fluid row-item p-0">
-				<div class="mt-1 bg1">
-					<div class="row px-3 py-1 position-relative align-items-center">
-						<div class="col-lg-8 col-md-7 col-12">
-							<a href="{report.U_POST_DETAILS}#reports" class="topictitle">{report.SUBJECT}</a><br>
-							<!-- IF report.ATTACH_ICON_IMG --><i class="fa fa-paperclip" title="{L_TOTAL_ATTACHMENTS}" aria-hidden="true"></i><!-- ENDIF -->
-							{L_POSTED} {L_POST_BY_AUTHOR} {report.AUTHOR_FULL} &raquo; {report.POST_TIME}
-
-							<div class="d-md-none">
-								{L_REPORTED} {L_POST_BY_AUTHOR} {report.REPORTER_FULL} {L_REPORTED_ON_DATE} {{ report.REPORT_TIME }}<br>
-								{L_FORUM}{L_COLON} <a href="{report.U_FORUM}">{report.FORUM_NAME}</a>
-							</div>
-						</div>
-
-						<div class="col-lg-4 col-md-5 d-none d-md-block">
-							{L_REPORTED} {L_POST_BY_AUTHOR} {report.REPORTER_FULL} {L_REPORTED_ON_DATE} {report.REPORT_TIME}<br>
+				<div class="row m-0 mt-1 p-1 align-items-center bg1">
+					<div class="col-lg-8 col-md-7 col-12">
+						<a href="{report.U_POST_DETAILS}#reports" class="topictitle">{report.SUBJECT}</a><br>
+						<!-- IF report.ATTACH_ICON_IMG --><i class="fa fa-paperclip" title="{L_TOTAL_ATTACHMENTS}" aria-hidden="true"></i><!-- ENDIF -->
+						{L_POSTED} {L_POST_BY_AUTHOR} {report.AUTHOR_FULL} &raquo; {report.POST_TIME}
+				
+						<div class="d-md-none">
+							{L_REPORTED} {L_POST_BY_AUTHOR} {report.REPORTER_FULL} {L_REPORTED_ON_DATE} {{ report.REPORT_TIME }}<br>
 							{L_FORUM}{L_COLON} <a href="{report.U_FORUM}">{report.FORUM_NAME}</a>
 						</div>
+					</div>
+				
+					<div class="col-lg-4 col-md-5 d-none d-md-block">
+						{L_REPORTED} {L_POST_BY_AUTHOR} {report.REPORTER_FULL} {L_REPORTED_ON_DATE} {report.REPORT_TIME}<br>
+						{L_FORUM}{L_COLON} <a href="{report.U_FORUM}">{report.FORUM_NAME}</a>
 					</div>
 				</div>
 			</div>
@@ -125,22 +121,20 @@
 
 			<!-- BEGIN pm_report -->
 			<div class="container-fluid row-item p-0">
-				<div class="mt-1 bg1">
-					<div class="row px-3 py-1 align-items-center">
-						<div class="col-lg-8 col-md-7 col-12">
-							<a href="{pm_report.U_PM_DETAILS}" class="topictitle">{pm_report.PM_SUBJECT}</a><br>
-							<!-- IF pm_report.ATTACH_ICON_IMG --><i class="fa fa-paperclip" title="{L_TOTAL_ATTACHMENTS}" aria-hidden="true"></i><!-- ENDIF -->
-							{L_MESSAGE_BY_AUTHOR} {pm_report.PM_AUTHOR_FULL} &raquo; {pm_report.PM_TIME}<br>
-							{L_MESSAGE_TO} {pm_report.RECIPIENTS}
-
-							<div class="d-md-none">
-								{L_REPORTED} {L_POST_BY_AUTHOR} {pm_report.REPORTER_FULL} {L_REPORTED_ON_DATE} {pm_report.REPORT_TIME}
-							</div>
-						</div>
-
-						<div class="col-lg-4 col-md-5 d-none d-md-block">
+				<div class="row m-0 mt-1 p-1 align-items-center bg1">
+					<div class="col-lg-8 col-md-7 col-12">
+						<a href="{pm_report.U_PM_DETAILS}" class="topictitle">{pm_report.PM_SUBJECT}</a><br>
+						<!-- IF pm_report.ATTACH_ICON_IMG --><i class="fa fa-paperclip" title="{L_TOTAL_ATTACHMENTS}" aria-hidden="true"></i><!-- ENDIF -->
+						{L_MESSAGE_BY_AUTHOR} {pm_report.PM_AUTHOR_FULL} &raquo; {pm_report.PM_TIME}<br>
+						{L_MESSAGE_TO} {pm_report.RECIPIENTS}
+				
+						<div class="d-md-none">
 							{L_REPORTED} {L_POST_BY_AUTHOR} {pm_report.REPORTER_FULL} {L_REPORTED_ON_DATE} {pm_report.REPORT_TIME}
 						</div>
+					</div>
+				
+					<div class="col-lg-4 col-md-5 d-none d-md-block">
+						{L_REPORTED} {L_POST_BY_AUTHOR} {pm_report.REPORTER_FULL} {L_REPORTED_ON_DATE} {pm_report.REPORT_TIME}
 					</div>
 				</div>
 			</div>
@@ -164,22 +158,20 @@
 				<div class="col-12 col-md-2 text-center">{L_TIME}</div>
 			</div>
 		</div>
-			<!-- BEGIN log -->
-		<div class="mt-1 bg1">
-			<div class="row px-3 py-1 align-items-center">
-				<div class="col-12 col-md-6 py-2"><span class="badge bg-secondary d-md-none">{L_ACTION}{L_COLON}</span> {log.ACTION}</div>
-				<div class="col-12 col-md-2 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_MCP_NOTES_USER}{L_COLON}</span> {log.USERNAME}<!-- IF not $HIDE_USER_IP or U_ACP --> <br class="d-none d-md-block" />{log.IP}<!-- ENDIF --></div>
-				<div class="col-12 col-md-2 py-2 text-md-center">
-					<span class="badge bg-secondary d-md-none">{L_TOPIC}/<span class="text-lowercase">{L_LOGS}</span>{L_COLON}</span>
-					<!-- IF log.U_VIEW_TOPIC --><a href="{log.U_VIEW_TOPIC}" title="{L_VIEW_TOPIC}">{L_VIEW_TOPIC}</a><br class="d-none d-md-block" /><!-- ENDIF -->
-					<!-- IF log.U_VIEWLOGS --><a href="{log.U_VIEWLOGS}">{L_VIEW_TOPIC_LOGS}</a><!-- ENDIF -->
-				</div>
-				<div class="col-12 col-md-2 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_TIME}{L_COLON}</span> {log.TIME}</div>
+		<!-- BEGIN log -->
+		<div class="row m-0 mt-1 p-1 align-items-center bg1">
+			<div class="col-12 col-md-6 py-2"><span class="badge bg-secondary d-md-none">{L_ACTION}{L_COLON}</span> {log.ACTION}</div>
+			<div class="col-12 col-md-2 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_MCP_NOTES_USER}{L_COLON}</span> {log.USERNAME}<!-- IF not $HIDE_USER_IP or U_ACP --> <br class="d-none d-md-block" />{log.IP}<!-- ENDIF --></div>
+			<div class="col-12 col-md-2 py-2 text-md-center">
+				<span class="badge bg-secondary d-md-none">{L_TOPIC}/<span class="text-lowercase">{L_LOGS}</span>{L_COLON}</span>
+				<!-- IF log.U_VIEW_TOPIC --><a href="{log.U_VIEW_TOPIC}" title="{L_VIEW_TOPIC}">{L_VIEW_TOPIC}</a><br class="d-none d-md-block" /><!-- ENDIF -->
+				<!-- IF log.U_VIEWLOGS --><a href="{log.U_VIEWLOGS}">{L_VIEW_TOPIC_LOGS}</a><!-- ENDIF -->
 			</div>
-			</div>
-			<!-- BEGINELSE -->
-			<div class="mt-1 px-3 py-2 text-center bg1">{L_NO_ENTRIES}</div>
-			<!-- END log -->
+			<div class="col-12 col-md-2 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_TIME}{L_COLON}</span> {log.TIME}</div>
+		</div>
+		<!-- BEGINELSE -->
+		<div class="mt-1 px-3 py-2 text-center bg1">{L_NO_ENTRIES}</div>
+		<!-- END log -->
 	</div>
 <!-- ENDIF -->
 

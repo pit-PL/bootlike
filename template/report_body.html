@@ -13,7 +13,9 @@
 				<!-- IF ERROR --><div class="alert alert-danger">{ERROR}</div><!-- ENDIF -->
 				<dl class="row">
 					<dt class="col-lg-3 col-md-4 col-12"><label class="col-form-label" for="reason_id">{L_REASON}{L_COLON}</label></dt>
-					<dd class="col-lg-9 col-md-8 col-12"><select class="form-select" name="reason_id" id="reason_id"><!-- BEGIN reason --><option value="{reason.ID}"<!-- IF reason.S_SELECTED --> selected="selected"<!-- ENDIF -->>{reason.DESCRIPTION}</option><!-- END reason --></select></dd>
+					<dd class="col-lg-9 col-md-8 col-12">
+						<select class="form-select mw-100" name="reason_id" id="reason_id"><!-- BEGIN reason --><option value="{reason.ID}"<!-- IF reason.S_SELECTED --> selected="selected"<!-- ENDIF -->>{reason.DESCRIPTION}</option><!-- END reason --></select>
+					</dd>
 				</dl>
 				<!-- IF S_CAN_NOTIFY -->
 				<dl class="row">
@@ -41,9 +43,15 @@
 				<!-- ENDIF -->
 			</div>
 
-			<div class="card-footer text-center">
-				<button class="btn btn-danger me-1" type="submit" name="cancel" value="{L_CANCEL}"><i class="fa fa-times fa-fw" aria-hidden="true"></i> {L_CANCEL}</button>
-				<button class="btn btn-success" type="submit" name="submit" value="{L_SUBMIT}"><i class="fa fa-level-down fa-rotate-90 fa-fw" aria-hidden="true"></i> {L_SUBMIT}</button>
+			<div class="card-footer">
+				<div class="row">
+					<div class="d-grid col-4 mx-auto">
+						<button class="btn btn-danger" type="submit" name="cancel" value="{L_CANCEL}"><i class="fa fa-times fa-fw" aria-hidden="true"></i> {L_CANCEL}</button>
+					</div>
+					<div class="d-grid col-4 mx-auto">
+						<button class="btn btn-success" type="submit" name="submit" value="{L_SUBMIT}"><i class="fa fa-level-down fa-rotate-90 fa-fw" aria-hidden="true"></i> {L_SUBMIT}</button>
+					</div>
+				</div>
 				{S_FORM_TOKEN}
 			</div>
 		</div>
