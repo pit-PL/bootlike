@@ -181,7 +181,7 @@
 		<div class="card-body p-0">
 			<div class="row m-0">
 
-				<div class="postprofile col-lg-3 col-md-4<!-- IF not $PROFILES_ON_LEFT --> order-first order-md-2<!-- ENDIF --> px-3 py-2 lh-lg bg2 shadow">
+				<div class="postprofile col-lg-3 col-md-4<!-- IF not $PROFILES_ON_LEFT --> order-first order-md-2<!-- ENDIF --> px-3 py-2 lh-lg bg2">
 				<!-- EVENT search_results_postprofile_before -->
 					<div class="mb-2">{L_POST_BY_AUTHOR} <!-- EVENT search_results_post_author_username_prepend --> {searchresults.POST_AUTHOR_FULL}<!-- EVENT search_results_post_author_username_append --></div>
 					<div>{searchresults.POST_DATE}</div>
@@ -194,12 +194,16 @@
 				</div>
 
 				<div class="postbody col-lg-9 col-md-8 p-0 bg1">
-				<hr class="d-md-none m-0">
+				<div class="vr h-100 float-<!-- IF not $PROFILES_ON_LEFT -->end<!-- ELSE -->start<!-- ENDIF --> d-none d-md-block"></div>
+				<div class="opacity-75 d-md-none"><hr class="m-0"></div>
+
 					{% EVENT search_results_post_subject_before %}
-					<div class="postbody-before mb-1 d-flex px-3 py-2 justify-content-between align-items-center bg2 shadow-sm">
+					<div class="postbody-before d-flex px-3 py-2 justify-content-between align-items-center bg2">
 						<a href="{searchresults.U_VIEW_POST}">{searchresults.POST_SUBJECT}</a>
 						<a href="{searchresults.U_VIEW_POST}" class="btn btn-secondary ms-2 text-nowrap">{L_JUMP_TO_POST} <i class="fa fa-chevron-{S_CONTENT_FLOW_END} fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_JUMP_TO_POST}</span></a>
 					</div>
+
+					<div class="opacity-50"><hr class="m-0"></div>
 
 					<div class="px-3 py-2">
 						<div class="content pb-2">{searchresults.MESSAGE}</div>
