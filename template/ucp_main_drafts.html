@@ -4,16 +4,18 @@
 
 	<h4 class="mb-3">{L_TITLE}</h4>
 
-	<p class="alert alert-info">{L_DRAFTS_EXPLAIN}</p>
+	<div class="col-md-12 col-lg-10 offset-lg-1">
+		<div class="alert alert-info">{L_DRAFTS_EXPLAIN}</div>
 
-<!-- IF S_EDIT_DRAFT -->
-	<!-- INCLUDE posting_editor.html -->
-	<div class="d-grid col-4 mx-auto my-3">
-		{S_HIDDEN_FIELDS}
-		<button class="btn btn-success" type="submit" name="submit" value="{L_SAVE}"><i class="fa fa-level-down fa-rotate-90 fa-fw" aria-hidden="true"></i> {L_SAVE}</button>
-		{S_FORM_TOKEN}
+	<!-- IF S_EDIT_DRAFT -->
+		<!-- INCLUDE posting_editor.html -->
+		<div class="d-grid col-4 mx-auto my-3">
+			{S_HIDDEN_FIELDS}
+			<button class="btn btn-success" type="submit" name="submit" value="{L_SAVE}"><i class="fa fa-level-down fa-rotate-90 fa-fw" aria-hidden="true"></i> {L_SAVE}</button>
+			{S_FORM_TOKEN}
+		</div>
+	<!-- ELSE -->
 	</div>
-<!-- ELSE -->
 
 	<!-- IF .draftrow -->
 		<div class="card mb-3 pb-1">
