@@ -226,10 +226,12 @@
 			<div class="small text-muted mb-1 fw-normal">{L_USER_GROUP_DEFAULT_EXPLAIN}</div>
 		</dt>
 		<dd class="col-lg-8 col-md-7 col-12">
-			<input class="btn-check" type="radio" name="default" id="default1" value="1" />
-			<label class="btn btn-outline-success me-1" for="default1">{L_YES}</label>
-			<input class="btn-check" type="radio" name="default" id="default0" value="0" checked="checked" />
-			<label class="btn btn-outline-danger" for="default0">{L_NO}</label>
+			<div class="btn-group" role="group">
+				<input class="btn-check" type="radio" name="default" id="default1" value="1" />
+				<label class="btn btn-outline-success" for="default1">{L_YES}</label>
+				<input class="btn-check" type="radio" name="default" id="default0" value="0" checked="checked" />
+				<label class="btn btn-outline-danger" for="default0">{L_NO}</label>
+			</div>
 		</dd>
 	</dl>
 	<dl class="row">
