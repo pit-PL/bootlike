@@ -29,7 +29,7 @@
 					</select>
 				</div>
 			</div>
-			<input class="btn btn-outline-secondary mt-2 w-100" type="button" id="tz_select_date_suggest" style="display: none;" timezone-preselect="<!-- IF S_TZ_PRESELECT -->true<!-- ELSE -->false<!-- ENDIF -->" data-l-suggestion="{L_TIMEZONE_DATE_SUGGESTION}" value="{L_TIMEZONE_DATE_SUGGESTION}" />
+			<input class="btn btn-outline-secondary mt-2<!-- IF not S_USER_LOGGED_IN --> w-100<!-- ELSE --> w-50<!-- ENDIF -->" type="button" id="tz_select_date_suggest" style="display: none;" timezone-preselect="<!-- IF S_TZ_PRESELECT -->true<!-- ELSE -->false<!-- ENDIF -->" data-l-suggestion="{L_TIMEZONE_DATE_SUGGESTION}" value="{L_TIMEZONE_DATE_SUGGESTION}" />
 		</div>
 		<!-- ENDIF -->
 		<!-- INCLUDEJS timezone.js -->
