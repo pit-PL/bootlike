@@ -13,3 +13,4 @@ select, input.inputbox {padding-top: 0.75rem; padding-bottom: 0.75rem;}
 .fancyhr {background: linear-gradient(to right, #555, #ccc, #555);}
 .fancyhr:after {background: #32383e;}
 .bi-caret-down-fill {fill: #222;}
+.border-end, .border-top, .border-start, .border-bottom {border-color: rgba(0,0,0,.6) !important;}
