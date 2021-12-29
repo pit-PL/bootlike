@@ -186,7 +186,7 @@
 				<div class="col-lg-7 col-md-6 col-12"<!-- IF S_DISPLAY_ACTIVE --> id="active_topics"<!-- ENDIF -->>
 				<!-- IF S_DISPLAY_ACTIVE -->{L_ACTIVE_TOPICS}<!-- ELSEIF topicrow.S_TOPIC_TYPE_SWITCH and (topicrow.S_POST_ANNOUNCE or topicrow.S_POST_GLOBAL) -->{L_ANNOUNCEMENTS}<!-- ELSE -->{L_TOPICS}<!-- ENDIF -->
 				</div>
-				<div class="col-md-2 d-none d-md-block text-center">{L_REPLIES}/{L_VIEWS}</div>
+				<div class="col-md-2 d-none d-md-block text-center">{L_REPLIES}</div>
 				<div class="col-lg-3 col-md-4 d-none d-md-block">{L_LAST_POST}</div>
 			</div>
 		</div>
@@ -253,7 +253,7 @@
 			
 				<div class="col-md-2 d-none d-md-block text-center">
 					{topicrow.REPLIES}
-					<div class="small">{topicrow.VIEWS} {L_VIEWS}</div>
+					<div class="small"><span class="small">{topicrow.VIEWS} {L_VIEWS}</span></div>
 				</div>
 				<div class="col-lg-3 col-md-4 d-none d-md-block">
 					{L_POST_BY_AUTHOR} <!-- EVENT viewforum_body_last_post_author_username_prepend --> {topicrow.LAST_POST_AUTHOR_FULL} <!-- EVENT viewforum_body_last_post_author_username_append -->
