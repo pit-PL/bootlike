@@ -334,8 +334,7 @@
 				<!-- ENDIF -->
 				</div>
 
-				<div class="postbody col-lg-9 col-md-8 p-0<!-- IF postrow.SIGNATURE --> bg2<!-- ELSE --> bg1<!-- ENDIF -->">
-				<div class="vr h-100 float-<!-- IF not $PROFILES_ON_LEFT -->end<!-- ELSE -->start<!-- ENDIF --> d-none d-md-block"></div>
+				<div class="postbody col-lg-9 col-md-8 p-0<!-- IF not $PROFILES_ON_LEFT --> border-end<!-- ELSE --> border-start<!-- ENDIF --><!-- IF postrow.SIGNATURE --> bg2<!-- ELSE --> bg1<!-- ENDIF -->">
 				<div class="opacity-75 d-md-none"><hr class="m-0"></div>
 
 					<div id="post_content{postrow.POST_ID}">
@@ -386,8 +385,6 @@
 					<!-- ENDIF -->
 					<!-- EVENT viewtopic_body_post_buttons_list_after -->
 						</div>
-
-						<div class="opacity-50"><hr class="m-0"></div>
 
 						<div class="px-3 py-2 bg1">
 						<!-- IF postrow.S_POST_UNAPPROVED or postrow.S_POST_DELETED or postrow.S_POST_REPORTED -->
@@ -462,8 +459,7 @@
 
 						{% EVENT viewtopic_body_postrow_signature_before %}
 					<!-- IF postrow.SIGNATURE -->
-						<div class="opacity-50 d-none d-md-block"><hr class="m-0"></div>
-						<div id="sig{postrow.POST_ID}" class="postbody-after d-none d-md-block px-3 py-2 small">{postrow.SIGNATURE}</div>
+						<div id="sig{postrow.POST_ID}" class="postbody-after d-none d-md-block px-3 py-2 border-top small">{postrow.SIGNATURE}</div>
 					<!-- ENDIF -->
 						{% EVENT viewtopic_body_postrow_signature_after %}
 					</div>
