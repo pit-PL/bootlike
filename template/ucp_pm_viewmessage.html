@@ -79,11 +79,10 @@
 			<!-- ENDIF -->
 			</div>
 
-			<div class="postbody col-lg-9 col-md-8 p-0<!-- IF SIGNATURE --> bg2<!-- ELSE --> bg1<!-- ENDIF -->">
-			<div class="vr h-100 float-<!-- IF not $PROFILES_ON_LEFT -->end<!-- ELSE -->start<!-- ENDIF --> d-none d-md-block"></div>
+			<div class="postbody col-lg-9 col-md-8 p-0<!-- IF SIGNATURE --> bg2<!-- ELSE --> bg1<!-- ENDIF --><!-- IF not $PROFILES_ON_LEFT --> border-end<!-- ELSE --> border-start<!-- ENDIF -->">
 			<div class="opacity-75 d-md-none"><hr class="m-0"></div>
 
-				<div class="postbody-before d-flex px-3 py-2 justify-content-between align-items-center bg2">
+				<div class="postbody-before d-flex px-3 py-2 justify-content-between align-items-center bg2 border-bottom">
 					<div>
 						{SUBJECT}<br>
 						<strong>{L_SENT_AT}{L_COLON}</strong> {SENT_DATE}
@@ -114,8 +113,6 @@
 					<!-- EVENT ucp_pm_viewmessage_post_buttons_list_after -->
 				</div>
 
-				<div class="opacity-50"><hr class="m-0"></div>
-
 				<div class="px-3 py-2 bg1">
 					<p class="author">
 						<strong>{L_PM_FROM}{L_COLON}</strong> {MESSAGE_AUTHOR_FULL}
@@ -126,18 +123,18 @@
 					<div class="content">{MESSAGE}</div>
 
 				<!-- IF S_HAS_ATTACHMENTS -->
-					<div class="my-1 text-uppercase">{L_ATTACHMENTS}</div>
-					<div class="row<!-- IF $ATTACHMENT_COLUMNS eq 3 --> row-cols-lg-3 row-cols-md-2 row-cols-1<!-- ELSEIF $ATTACHMENT_COLUMNS eq 2 --> row-cols-lg-2 row-cols-1<!-- ELSE --> flex-column<!-- ENDIF -->">
-					<!-- BEGIN attachment -->
-						<div class="col d-flex">
-							<div class="card mb-3<!-- IF $ATTACHMENT_COLUMNS --> w-100<!-- ENDIF -->">
-								<div class="card-body p-2">
-									{attachment.DISPLAY_ATTACHMENT}
-								</div>
+					<div class="attachbox float-start mb-2">
+						<div class="my-1 text-uppercase">{L_ATTACHMENTS}</div>
+						<div class="card mb-3">
+							<div class="card-body p-2">
+							<!-- BEGIN attachment -->
+								<!-- IF not attachment.S_FIRST_ROW --><hr><!-- ENDIF -->
+								{attachment.DISPLAY_ATTACHMENT}
+							<!-- END attachment -->
 							</div>
 						</div>
-					<!-- END attachment -->
 					</div>
+					<div class="clearfix"></div>
 				<!-- ENDIF -->
 
 				<!-- IF S_DISPLAY_NOTICE -->
@@ -153,8 +150,7 @@
 				</div>
 
 			<!-- IF SIGNATURE -->
-				<div class="opacity-75 d-none d-md-block"><hr class="m-0"></div>
-				<div id="sig{MESSAGE_ID}" class="postbody-after d-none d-md-block px-3 py-2 small">{SIGNATURE}</div>
+				<div id="sig{MESSAGE_ID}" class="postbody-after d-none d-md-block px-3 py-2 small border-top">{SIGNATURE}</div>
 			<!-- ENDIF -->
 			</div>
 		</div>
