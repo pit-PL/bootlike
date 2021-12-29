@@ -2,24 +2,26 @@
 
 <form method="post" id="mcp" action="{U_POST_ACTION}">
 
-<div class="card mb-3">
-	<div class="card-header">
-		{L_SELECT_USER}
-	</div>
-	<div class="card-body">
-		<div class="d-inline-block w-auto">
-			<div class="input-group">
-				<input name="username" id="username" type="text" placeholder="{L_SELECT_USER}" class="form-control" />
-				<a class="btn btn-secondary" href="{U_FIND_USERNAME}" onclick="find_username(this.href); return false;" title="{L_FIND_USERNAME}"><i class="fa fa-search fa-fw" aria-hidden="true"></i></a>
+<div class="col-md-12 col-lg-8 offset-lg-2">
+	<div class="card mb-3">
+		<div class="card-header">
+			{L_SELECT_USER}
+		</div>
+		<div class="card-body">
+			<div class="d-inline-block w-auto">
+				<div class="input-group">
+					<input name="username" id="username" type="text" placeholder="{L_SELECT_USER}" class="form-control" />
+					<a class="btn btn-secondary" href="{U_FIND_USERNAME}" onclick="find_username(this.href); return false;" title="{L_FIND_USERNAME}"><i class="fa fa-search fa-fw" aria-hidden="true"></i></a>
+				</div>
 			</div>
 		</div>
-	</div>
 
-	<div class="card-footer">
-		<div class="d-grid col-4 mx-auto">
-			<button class="btn btn-success" type="submit" name="submituser" value="{L_SUBMIT}"><i class="fa fa-level-down fa-rotate-90 fa-fw" aria-hidden="true"></i> {L_SUBMIT}</button>
+		<div class="card-footer">
+			<div class="d-grid col-4 mx-auto">
+				<button class="btn btn-success" type="submit" name="submituser" value="{L_SUBMIT}"><i class="fa fa-level-down fa-rotate-90 fa-fw" aria-hidden="true"></i> {L_SUBMIT}</button>
+			</div>
+			{S_FORM_TOKEN}
 		</div>
-		{S_FORM_TOKEN}
 	</div>
 </div>
 
