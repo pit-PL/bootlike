@@ -1,9 +1,10 @@
 <!-- INCLUDE mcp_header.html -->
 
-	<h4 class="mb-3">{L_WARN_USER}</h4>
+<h4 class="mb-3">{L_WARN_USER}</h4>
 
-	<form method="post" id="mcp" action="{U_POST_ACTION}">
+<form method="post" id="mcp" action="{U_POST_ACTION}">
 
+<div class="col-md-12 col-lg-8 offset-lg-2">
 	<div class="card mb-3">
 		<div class="card-header">
 			{L_SELECT_USER}
@@ -24,61 +25,62 @@
 			{S_FORM_TOKEN}
 		</div>
 	</div>
+</div>
 
-	</form>
+</form>
 
-	<h5 class="card-title pb-1 text-capitalize">{L_MOST_WARNINGS}</h5>
+<h5 class="card-title pb-1 text-capitalize">{L_MOST_WARNINGS}</h5>
 
-	<!-- IF .highest -->
-		<div class="card mb-3 pb-1">
-			<div class="card-header d-none d-md-block">
-				<div class="row">
-					<div class="col-12 col-md-4">{L_USERNAME}</div>
-					<div class="col-12 col-md-4 text-md-center">{L_LATEST_WARNING_TIME}</div>
-					<div class="col-12 col-md-2 text-md-center">{L_WARNINGS}</div>
-					<div class="col-12 col-md-2 text-md-center">&nbsp;</div>
-				</div>
+<!-- IF .highest -->
+	<div class="card mb-3 pb-1">
+		<div class="card-header d-none d-md-block">
+			<div class="row">
+				<div class="col-12 col-md-4">{L_USERNAME}</div>
+				<div class="col-12 col-md-4 text-md-center">{L_LATEST_WARNING_TIME}</div>
+				<div class="col-12 col-md-2 text-md-center">{L_WARNINGS}</div>
+				<div class="col-12 col-md-2 text-md-center">&nbsp;</div>
 			</div>
-			<!-- BEGIN highest -->
-			<div class="row m-0 mt-1 p-1 align-items-center bg1">
-				<div class="col-12 col-md-4 py-2"><span class="badge bg-secondary d-md-none">{L_USERNAME}{L_COLON}</span> {highest.USERNAME_FULL}</div>
-				<div class="col-12 col-md-4 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_LATEST_WARNING_TIME}{L_COLON}</span> {highest.WARNING_TIME}</div>
-				<div class="col-12 col-md-2 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_WARNINGS}{L_COLON}</span> {highest.WARNINGS}</div>
-				<div class="col-12 col-md-2 py-2 text-md-center"><a href="{highest.U_NOTES}">{L_VIEW_NOTES}</a></div>
-			</div>
-			<!-- END highest -->
 		</div>
-	<!-- ELSE -->
-		<div class="alert alert-info">
-			{L_NO_WARNINGS}
+		<!-- BEGIN highest -->
+		<div class="row m-0 mt-1 p-1 align-items-center bg1">
+			<div class="col-12 col-md-4 py-2"><span class="badge bg-secondary d-md-none">{L_USERNAME}{L_COLON}</span> {highest.USERNAME_FULL}</div>
+			<div class="col-12 col-md-4 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_LATEST_WARNING_TIME}{L_COLON}</span> {highest.WARNING_TIME}</div>
+			<div class="col-12 col-md-2 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_WARNINGS}{L_COLON}</span> {highest.WARNINGS}</div>
+			<div class="col-12 col-md-2 py-2 text-md-center"><a href="{highest.U_NOTES}">{L_VIEW_NOTES}</a></div>
 		</div>
-	<!-- ENDIF -->
+		<!-- END highest -->
+	</div>
+<!-- ELSE -->
+	<div class="alert alert-info">
+		{L_NO_WARNINGS}
+	</div>
+<!-- ENDIF -->
 
-	<h5 class="card-title pb-1 text-capitalize">{L_LATEST_WARNINGS}</h5>
+<h5 class="card-title pb-1 text-capitalize">{L_LATEST_WARNINGS}</h5>
 
-	<!-- IF .latest -->
-		<div class="card mb-3 pb-1">
-			<div class="card-header d-none d-md-block">
-				<div class="row">
-					<div class="col-12 col-md-4">{L_USERNAME}</div>
-					<div class="col-12 col-md-4 text-md-center">{L_TIME}</div>
-					<div class="col-12 col-md-2 text-md-center">{L_TOTAL_WARNINGS}</div>
-					<div class="col-12 col-md-2 text-md-center">&nbsp;</div>
-				</div>
+<!-- IF .latest -->
+	<div class="card mb-3 pb-1">
+		<div class="card-header d-none d-md-block">
+			<div class="row">
+				<div class="col-12 col-md-4">{L_USERNAME}</div>
+				<div class="col-12 col-md-4 text-md-center">{L_TIME}</div>
+				<div class="col-12 col-md-2 text-md-center">{L_TOTAL_WARNINGS}</div>
+				<div class="col-12 col-md-2 text-md-center">&nbsp;</div>
 			</div>
-			<!-- BEGIN latest -->
-			<div class="row m-0 mt-1 p-1 align-items-center bg1">
-				<div class="col-12 col-md-4 py-2"><span class="badge bg-secondary d-md-none">{L_USERNAME}{L_COLON}</span> {latest.USERNAME_FULL}</div>
-				<div class="col-12 col-md-4 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_TIME}{L_COLON}</span> {latest.WARNING_TIME}</div>
-				<div class="col-12 col-md-2 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_TOTAL_WARNINGS}{L_COLON}</span> {latest.WARNINGS}</div>
-				<div class="col-12 col-md-2 py-2 text-md-center"><a href="{latest.U_NOTES}">{L_VIEW_NOTES}</a></div>
-			</div>
-			<!-- END latest -->
 		</div>
-	<!-- ELSE -->
-		<div class="alert alert-info">
-			{L_NO_WARNINGS}
+		<!-- BEGIN latest -->
+		<div class="row m-0 mt-1 p-1 align-items-center bg1">
+			<div class="col-12 col-md-4 py-2"><span class="badge bg-secondary d-md-none">{L_USERNAME}{L_COLON}</span> {latest.USERNAME_FULL}</div>
+			<div class="col-12 col-md-4 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_TIME}{L_COLON}</span> {latest.WARNING_TIME}</div>
+			<div class="col-12 col-md-2 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_TOTAL_WARNINGS}{L_COLON}</span> {latest.WARNINGS}</div>
+			<div class="col-12 col-md-2 py-2 text-md-center"><a href="{latest.U_NOTES}">{L_VIEW_NOTES}</a></div>
 		</div>
-	<!-- ENDIF -->
+		<!-- END latest -->
+	</div>
+<!-- ELSE -->
+	<div class="alert alert-info">
+		{L_NO_WARNINGS}
+	</div>
+<!-- ENDIF -->
 
 <!-- INCLUDE mcp_footer.html -->
