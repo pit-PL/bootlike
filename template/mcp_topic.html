@@ -119,7 +119,7 @@
 				<div class="card-body p-0">
 
 				<div class="postbody bg2" id="pr{postrow.POST_ID}">
-					<div class="postbody-before d-flex px-3 py-1 justify-content-between align-items-center">
+					<div class="postbody-before d-flex px-3 py-1 border-bottom justify-content-between align-items-center">
 					<!-- EVENT mcp_topic_postrow_post_details_before -->
 						<div>
 							<!-- EVENT mcp_topic_postrow_post_subject_before -->
@@ -142,8 +142,6 @@
 					<!-- EVENT mcp_topic_postrow_post_details_after -->
 					</div>
 
-					<div class="opacity-50"><hr class="m-0"></div>
-
 					<div class="px-3 py-2 bg1">
 					<!-- IF postrow.S_POST_UNAPPROVED or postrow.S_POST_DELETED or postrow.S_POST_REPORTED -->
 						<div class="alert alert-warning">
@@ -163,7 +161,7 @@
 
 						<!-- EVENT mcp_topic_postrow_attachments_before -->
 
-						<div class="content" id="message_{postrow.POST_ID}">{postrow.MESSAGE}</div>
+						<div id="message_{postrow.POST_ID}" class="content pb-2">{postrow.MESSAGE}</div>
 
 						<!-- IF postrow.S_HAS_ATTACHMENTS -->
 							<div class="my-1 text-uppercase">{L_ATTACHMENTS}</div>
