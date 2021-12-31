@@ -82,7 +82,7 @@
 			<div class="postbody col-lg-9 col-md-8 p-0<!-- IF SIGNATURE --> bg2<!-- ELSE --> bg1<!-- ENDIF --><!-- IF not $PROFILES_ON_LEFT --> border-end<!-- ELSE --> border-start<!-- ENDIF -->">
 			<div class="opacity-75 d-md-none"><hr class="m-0"></div>
 
-				<div class="postbody-before d-flex px-3 py-2 justify-content-between align-items-center bg2 border-bottom">
+				<div class="postbody-before d-flex px-3 py-2 border-bottom justify-content-between align-items-center bg2">
 					<div>
 						{SUBJECT}<br>
 						<strong>{L_SENT_AT}{L_COLON}</strong> {SENT_DATE}
@@ -150,7 +150,7 @@
 				</div>
 
 			<!-- IF SIGNATURE -->
-				<div id="sig{MESSAGE_ID}" class="postbody-after d-none d-md-block px-3 py-2 small border-top">{SIGNATURE}</div>
+				<div id="sig{MESSAGE_ID}" class="postbody-after d-none d-md-block px-3 py-2 border-top small">{SIGNATURE}</div>
 			<!-- ENDIF -->
 			</div>
 		</div>
