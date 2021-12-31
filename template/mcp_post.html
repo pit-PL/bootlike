@@ -51,7 +51,7 @@
 	<div class="card-body p-0">
 
 	<div class="postbody bg2">
-		<div class="postbody-before d-md-flex px-3 py-1 justify-content-between align-items-center">
+		<div class="postbody-before d-md-flex px-3 py-1 border-bottom justify-content-between align-items-center">
 			<div>
 			<a href="{U_VIEW_POST}">{POST_SUBJECT}</a>
 				<div>
@@ -70,8 +70,6 @@
 			<!-- ENDIF -->
 			</div>
 		</div>
-
-		<div class="opacity-50"><hr class="m-0"></div>
 
 		<div class="px-3 py-2 bg1">
 		<!-- IF S_PM -->
@@ -147,8 +145,7 @@
 
 		</div>
 	<!-- IF SIGNATURE -->
-		<div class="opacity-50"><hr class="m-0"></div>
-		<div id="sig{POST_ID}" class="postbody-after d-none d-md-block px-3 py-2 small">{SIGNATURE}</div>
+		<div id="sig{POST_ID}" class="postbody-after d-none d-md-block px-3 py-2 border-top small">{SIGNATURE}</div>
 	<!-- ENDIF -->
 	</div>
 
