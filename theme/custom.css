@@ -56,10 +56,6 @@ img {
 	padding-right: 64px;
 }
 
-.folder-height {
-	height: 100px;
-}
-
 .folder, .content {
 	min-height: 4rem;
 }
