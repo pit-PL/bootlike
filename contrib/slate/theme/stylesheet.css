@@ -5,7 +5,7 @@
 .bg2, .card.bg2, .action-bar .btn.btn-lg:hover, #format-buttons .btn:hover, .btn.tabs:hover {background-color: #33373b;}
 .navbar-light a {color: #fff !important;}
 .row-item .folder:before {background-color: #666;}
-.row-item .folder:before, .row-item .folder:after {text-shadow: 1px 1px 1px #444; -webkit-text-stroke: 1px #555;}
+.row-item .folder:before, .row-item .folder:after {text-shadow: 1px 1px 1px #444; -webkit-text-stroke: 1px #555; border-color: #444;}
 .card.blockquote{border-color: #222 !important;}
 select, input.inputbox {padding-top: 0.75rem; padding-bottom: 0.75rem;}
 .border, .contact-button:hover {border-color: #3a3f44 !important;}
@@ -14,3 +14,11 @@ select, input.inputbox {padding-top: 0.75rem; padding-bottom: 0.75rem;}
 .fancyhr:after {background: #32383e;}
 .bi-caret-down-fill {fill: #222;}
 .border-end, .border-top, .border-start, .border-bottom {border-color: rgba(0,0,0,.6) !important;}
+@keyframes pulse-animation {
+	0% {
+		box-shadow: 0 0 0 0px rgba(243, 243, 243, 0.4);
+	}
+	100% {
+		box-shadow: 0 0 0 8px rgba(102, 102, 102, 0);
+	}
+}
