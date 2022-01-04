@@ -48,12 +48,12 @@ img {
 }
 
 .row-item .folder {
-	padding-left: 64px;
+	padding-left: 68px;
 }
 
 .rtl .row-item .folder {
 	padding-left: 0;
-	padding-right: 64px;
+	padding-right: 68px;
 }
 
 .folder, .content {
