@@ -263,7 +263,7 @@
 		<div class="card-body p-0">
 			<div class="row m-0">
 
-				<div id="profile{postrow.POST_ID}" class="postprofile col-lg-3 col-md-4<!-- IF not $PROFILES_ON_LEFT --> order-first order-md-2<!-- ENDIF --> px-3 pb-3 bg2">
+				<div id="profile{postrow.POST_ID}" class="postprofile col-lg-3 col-md-4<!-- IF $PROFILE_ON_RIGHT --> order-first order-md-2<!-- ENDIF --> px-3 pb-3 bg2">
 					<!-- IF postrow.S_ONLINE and not postrow.S_POST_HIDDEN -->
 						<span class="badge bg-success text-uppercase online d-none d-md-block mx-auto rounded-0 rounded-bottom"><i class="fa fa-signal fa-fw" aria-hidden="true"></i> {L_ONLINE} <i class="fa fa-signal fa-flip-horizontal fa-fw" aria-hidden="true"></i></span>
 					<!-- ENDIF -->
@@ -334,8 +334,8 @@
 				<!-- ENDIF -->
 				</div>
 
-				<div class="postbody col-lg-9 col-md-8 p-0<!-- IF not $PROFILES_ON_LEFT --> border-end<!-- ELSE --> border-start<!-- ENDIF --><!-- IF postrow.SIGNATURE --> bg2<!-- ELSE --> bg1<!-- ENDIF -->">
-				<div class="opacity-75 d-md-none"><hr class="m-0"></div>
+				<div class="postbody col-lg-9 col-md-8 p-0<!-- IF $PROFILE_ON_RIGHT --> border-end<!-- ELSE --> border-start<!-- ENDIF --><!-- IF postrow.SIGNATURE --> bg2<!-- ELSE --> bg1<!-- ENDIF -->">
+				<div class="opacity-50 d-md-none"><hr class="m-0"></div>
 
 					<div id="post_content{postrow.POST_ID}">
 						<!-- EVENT viewtopic_body_post_subject_before -->
