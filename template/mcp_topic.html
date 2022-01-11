@@ -10,15 +10,15 @@
 		<!-- DEFINE $SHOW_PANEL = 'display-panel' -->
 	<!-- ENDIF -->
 
-	<div class="sub-panels clearfix" data-show-panel="{$SHOW_PANEL}" role="tablist">
-		<ul class="nav nav-pills float-end mb-1">
-			<li class="nav-item ms-1">
+	<div class="sub-panels" data-show-panel="{$SHOW_PANEL}" role="tablist">
+		<ul class="nav nav-tabs p-2 pb-0 border bg2">
+			<li class="nav-item">
 				<a href="#minitabs" id="display-panel-tab" class="nav-link<!-- IF not S_MERGE_VIEW --> active<!-- ENDIF -->" data-subpanel="display-panel" role="tab" aria-controls="display-panel">{L_DISPLAY_OPTIONS}</a>
 			</li>
-			<li class="nav-item ms-1">
+			<li class="nav-item">
 				<a href="#minitabs" id="split-panel-tab" class="nav-link" data-subpanel="split-panel" role="tab" aria-controls="split-panel">{L_SPLIT_TOPIC}</a>
 			</li>
-			<li class="nav-item ms-1">
+			<li class="nav-item">
 				<a href="#minitabs" id="merge-panel-tab" class="nav-link<!-- IF not S_MERGE_VIEW --> active<!-- ENDIF -->" data-subpanel="merge-panel" role="tab" aria-controls="merge-panel">{L_MERGE_POSTS}</a>
 			</li>
 		</ul>
@@ -26,7 +26,7 @@
 
 	<form id="mcp" method="post" action="{S_MCP_ACTION}">
 
-	<div class="card mb-3">
+	<div class="card mb-3 border-top-0">
 		<div class="card-body">
 
 		<div id="display-panel" role="tabpanel">
