@@ -242,8 +242,8 @@
 					<!-- ENDIF -->
 					
 					<!-- IF topicrow.U_LAST_POST -->
-						<br>{L_LAST_POST} {L_POST_BY_AUTHOR} <!-- EVENT viewforum_body_last_post_author_username_prepend --> {topicrow.LAST_POST_AUTHOR_FULL}<!-- EVENT viewforum_body_last_post_author_username_append --> &laquo; <a href="{topicrow.U_LAST_POST}" title="{L_GOTO_LAST_POST}"><time datetime="{topicrow.LAST_POST_TIME_RFC3339}">{topicrow.LAST_POST_TIME}</time></a>
-						<a class="float-end lh-1" href="{topicrow.U_LAST_POST}" title="{L_GOTO_LAST_POST}"><i class="fa fa-arrow-{S_CONTENT_FLOW_END} fs-2" aria-hidden="true"></i><span class="visually-hidden">{L_VIEW_LATEST_POST}</span></a>&nbsp;
+						<br>{L_LAST_POST} {L_POST_BY_AUTHOR} <!-- EVENT viewforum_body_last_post_author_username_prepend --> {topicrow.LAST_POST_AUTHOR_FULL}<!-- EVENT viewforum_body_last_post_author_username_append --> &laquo; <time datetime="{topicrow.LAST_POST_TIME_RFC3339}">{topicrow.LAST_POST_TIME}</time>
+						<a class="float-end ms-2 lh-1" href="{topicrow.U_LAST_POST}" title="{L_GOTO_LAST_POST}"><i class="fa fa-arrow-{S_CONTENT_FLOW_END} fs-2" aria-hidden="true"></i><span class="visually-hidden">{L_VIEW_LATEST_POST}</span></a>
 					<!-- ENDIF -->
 					</div>
 					<!-- ENDIF -->
