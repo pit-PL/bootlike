@@ -19,7 +19,7 @@
 		<!-- BEGIN forumrow -->
 			<div class="container-fluid row-item position-relative p-0 {forumrow.FORUM_IMG_STYLE}">
 				<div class="row m-0 mt-1 p-1 align-items-center bg1" title="{forumrow.FORUM_FOLDER_IMG_ALT}">
-					<div class="col-lg-7 col-md-6 col-sm-10 col-9 folder">
+					<div class="col-lg-7 col-md-6 col-sm-10 col-9 folder hidden-folder">
 						<!-- IF forumrow.S_UNREAD_FORUM --><a href="{forumrow.U_VIEWFORUM}" class="row-item-link"></a><!-- ENDIF -->
 				
 						<a href="{forumrow.U_VIEWFORUM}" class="forumtitle">{forumrow.FORUM_NAME}</a><br>
@@ -89,7 +89,7 @@
 	<!-- BEGIN topicrow -->
 		<div class="container-fluid row-item position-relative p-0 {topicrow.TOPIC_IMG_STYLE}">
 			<div class="row m-0 mt-1 p-1 align-items-center bg1" title="{topicrow.TOPIC_FOLDER_IMG_ALT}">
-				<div class="col-lg-7 col-md-6 col-sm-10 col-9 folder<!-- IF topicrow.S_TOPIC_REPORTED --> folder-animation<!-- ENDIF -->">
+				<div class="col-lg-7 col-md-6 col-sm-10 col-9 folder<!-- IF topicrow.S_TOPIC_REPORTED --> folder-animation<!-- ENDIF --> hidden-folder">
 					<!-- IF topicrow.S_UNREAD_TOPIC --><a href="{topicrow.U_NEWEST_POST}" class="row-item-link"></a><!-- ENDIF -->
 			
 					<!-- IF .topicrow.pagination -->
