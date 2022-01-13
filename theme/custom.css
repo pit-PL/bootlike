@@ -277,11 +277,11 @@ a.postlink:hover, a.postlink:focus {
 }
 
 @media (max-width: 767.98px) {
-	.row-item .topic-folder {
+	.row-item .hidden-folder {
 		padding-left: 5px;
 	}
 
-	.row-item .topic-folder.folder:before, .row-item .topic-folder.folder:after {
+	.row-item .hidden-folder.folder:before, .row-item .hidden-folder.folder:after {
 		content: "";
 		background: none;
 	}
