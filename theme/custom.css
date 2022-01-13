@@ -292,10 +292,6 @@ a.postlink:hover, a.postlink:focus {
 		width: auto;
 	}
 
-	div.postprofile {
-		box-shadow: none !important;
-	}
-
 	.avatar img {
 		max-height: 50px;
 		max-width: 50px;		
