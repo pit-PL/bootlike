@@ -284,6 +284,8 @@ a.postlink:hover, a.postlink:focus {
 	.row-item .hidden-folder.folder:before, .row-item .hidden-folder.folder:after {
 		content: "";
 		background: none;
+		border: 0;
+		animation: none;
 	}
 
 	.notification-text {
