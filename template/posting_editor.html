@@ -93,18 +93,18 @@
 	<!-- ENDIF -->
 
 	<!-- IF not S_PRIVMSGS and not S_SHOW_DRAFTS and not $SIG_EDIT eq 1 -->
-		<div id="tabs" class="sub-panels" data-show-panel="<!-- IF SHOW_PANEL -->{SHOW_PANEL}<!-- ELSE -->options-panel<!-- ENDIF -->" role="tablist">
-			<ul class="nav nav-pills mb-1">
-				<li class="nav-item me-1">
+		<div class="sub-panels" data-show-panel="<!-- IF SHOW_PANEL -->{SHOW_PANEL}<!-- ELSE -->options-panel<!-- ENDIF -->" role="tablist">
+			<ul class="nav nav-tabs p-2 pb-0 border bg2">
+				<li class="nav-item">
 					<a href="#tabs" id="options-panel-tab" class="nav-link active" data-subpanel="options-panel" role="tab" aria-controls="options-panel">{L_OPTIONS}</a>
 				</li>
 			<!-- IF S_SHOW_ATTACH_BOX and FILTERS -->
-				<li class="nav-item me-1">
+				<li class="nav-item">
 					<a href="#tabs" id="attach-panel-tab" class="nav-link" data-subpanel="attach-panel" role="tab" aria-controls="attach-panel">{L_ATTACHMENTS}</a>
 				</li>
 			<!-- ENDIF -->
 			<!-- IF S_SHOW_POLL_BOX || S_POLL_DELETE -->
-				<li class="nav-item me-1">
+				<li class="nav-item">
 					<a href="#tabs" id="poll-panel-tab" class="nav-link" data-subpanel="poll-panel" role="tab" aria-controls="poll-panel">{L_ADD_POLL}</a>
 				</li>
 			<!-- ENDIF -->
@@ -114,7 +114,7 @@
 	<!-- ENDIF -->
 
 	<!-- IF not S_SHOW_DRAFTS and not $SIG_EDIT eq 1 -->
-	<div id="options-panel" class="card mb-3">
+	<div id="options-panel" class="card mb-3 border-top-0">
 		<div class="card-body">
 			<div class="d-md-flex align-items-center justify-content-md-between">
 				<div>
