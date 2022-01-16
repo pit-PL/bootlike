@@ -3,10 +3,12 @@
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header alert_title">
-					<h5>{MESSAGE_TEXT}</h5>
+					<h5>{MESSAGE_TITLE}</h5>>
 					<a href="#" class="alert_close btn-close float-end" title="{L_CLOSE_WINDOW}"><span class="text-danger" aria-hidden="true"></span></a>
 				</div>
 				<div class="modal-body">
+					<p class="mb-3">{MESSAGE_TEXT}</p>
+
 				<!-- IF not S_SHADOW_TOPICS -->
 					<!-- IF not S_SOFTDELETED and S_ALLOWED_DELETE and S_ALLOWED_SOFTDELETE -->
 					<label class="fw-bold" for="delete_permanent">{L_DELETE_PERMANENTLY}{L_COLON}</label>
@@ -36,9 +38,11 @@
 	<div class="col-md-12 col-lg-8 offset-lg-2">
 		<div class="card mb-3">
 			<div class="card-header bg-danger text-white">
-				{MESSAGE_TEXT}
+				{MESSAGE_TITLE}
 			</div>
 			<div class="card-body pb-0">
+				<p>{MESSAGE_TEXT}</p>
+
 			<!-- IF not S_SHADOW_TOPICS -->
 				<!-- IF not S_SOFTDELETED and S_ALLOWED_DELETE and S_ALLOWED_SOFTDELETE -->
 				<dl class="row">
