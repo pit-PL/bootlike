@@ -3,11 +3,11 @@
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header alert_title">
-					<h5>{MESSAGE_TITLE}</h5>>
+					<h5>{L_DELETE_TOPIC}</h5>
 					<a href="#" class="alert_close btn-close float-end" title="{L_CLOSE_WINDOW}"><span class="text-danger" aria-hidden="true"></span></a>
 				</div>
 				<div class="modal-body">
-					<p class="mb-3">{MESSAGE_TEXT}</p>
+					<p class="alert alert-danger py-1">{MESSAGE_TEXT}</p>
 
 				<!-- IF not S_SHADOW_TOPICS -->
 					<!-- IF not S_SOFTDELETED and S_ALLOWED_DELETE and S_ALLOWED_SOFTDELETE -->
@@ -23,9 +23,15 @@
 				<!-- ENDIF -->
 				</div>
 
-				<div class="modal-footer justify-content-center">
-					<input class="btn btn-danger me-1" type="button" name="cancel" value="{L_NO}" />
-					<input class="btn btn-success" type="button" name="confirm" value="{L_YES}" />
+				<div class="modal-footer">
+					<div class="row w-100">
+						<div class="col-12 col-md-6">
+							<input class="btn btn-danger w-100 mt-1 mt-md-0" type="button" name="cancel" value="{L_NO}" />
+						</div>
+						<div class="col-12 col-md-6">
+							<input class="btn btn-success w-100 mt-1 mt-md-0" type="button" name="confirm" value="{L_YES}" />
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
