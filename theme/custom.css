@@ -115,7 +115,7 @@ span.online {
 	border-color: #cfe2ff !important;
 }
 
-.codebox pre {
+.codebox pre, .blockquote:first-of-type {
 	overflow: auto;
 	max-height: 200px;
 }
