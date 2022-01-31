@@ -345,7 +345,7 @@
 						<div class="postbody-before d-flex px-3 py-2 border-bottom justify-content-between align-items-center bg2">
 							<div>
 							<!-- IF postrow.POST_ICON_IMG --><img src="{T_ICONS_PATH}{postrow.POST_ICON_IMG}" class="align-baseline" width="{postrow.POST_ICON_IMG_WIDTH}" height="{postrow.POST_ICON_IMG_HEIGHT}" alt="{L_IMAGE}" /> <!-- ENDIF -->
-							<!-- IF postrow.POST_SUBJECT --><a href="{{ postrow.U_MINI_POST }}">{postrow.POST_SUBJECT}</a><br><!-- ENDIF -->
+							<!-- IF postrow.POST_SUBJECT --><a class="h5 post-title" href="{{ postrow.U_MINI_POST }}">{postrow.POST_SUBJECT}</a><br><!-- ENDIF -->
 							<!-- IF S_IS_BOT -->
 								<i class="fa<!-- IF postrow.S_UNREAD_POST --> fa-file<!-- ELSE --> fa-file-o<!-- ENDIF --> fa-fw" aria-hidden="true"></i><span class="visually-hidden">{postrow.MINI_POST}</span>
 							<!-- ELSE -->
