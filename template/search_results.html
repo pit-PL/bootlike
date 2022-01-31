@@ -123,7 +123,7 @@
 					<!-- IF searchresults.S_TOPIC_DELETED --><a href="{searchresults.U_MCP_QUEUE}" class="badge bg-secondary" title="{L_TOPIC_DELETED}"><i class="fa fa-recycle" aria-hidden="true"></i><span class="visually-hidden">{L_TOPIC_DELETED}</span></a><!-- ENDIF -->
 					<!-- IF searchresults.S_TOPIC_REPORTED --><a href="{searchresults.U_MCP_REPORT}" class="badge bg-warning" title="{L_TOPIC_REPORTED}"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i><span class="visually-hidden">{L_TOPIC_REPORTED}</span></a><!-- ENDIF -->
 					<!-- IF searchresults.S_UNREAD_TOPIC and not S_IS_BOT --><a href="{searchresults.U_NEWEST_POST}" class="badge bg-info" title="{L_VIEW_NEWEST_POST}"><i class="fa fa-file icon_topic_newest" aria-hidden="true"></i><span class="visually-hidden">{L_NEW_POST}</span></a><!-- ENDIF -->
-					<!-- IF searchresults.TOPIC_ICON_IMG --><img src="{T_ICONS_PATH}{searchresults.TOPIC_ICON_IMG}" class="topic-icon align-baseline" alt="{L_IMAGE}" /> <!-- ENDIF --><a href="{searchresults.U_VIEW_TOPIC}" class="topictitle">{searchresults.TOPIC_TITLE}</a><br>
+					<!-- IF searchresults.TOPIC_ICON_IMG --><img src="{T_ICONS_PATH}{searchresults.TOPIC_ICON_IMG}" class="topic-icon align-baseline" alt="{L_IMAGE}" /> <!-- ENDIF --><a class="topic-title" href="{searchresults.U_VIEW_TOPIC}">{searchresults.TOPIC_TITLE}</a><br>
 			
 					<div class="d-none d-md-block">
 						<!-- IF searchresults.ATTACH_ICON_IMG --><i class="fa fa-paperclip" title="{L_TOTAL_ATTACHMENTS}" aria-hidden="true"></i><span class="visually-hidden">{L_TOTAL_ATTACHMENTS}</span><!-- ENDIF -->
