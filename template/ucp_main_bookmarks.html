@@ -88,7 +88,7 @@
 					<!-- IF topicrow.S_TOPIC_UNAPPROVED or topicrow.S_POSTS_UNAPPROVED --><a href="{topicrow.U_MCP_QUEUE}" class="badge bg-success" title="{L_TOPIC_UNAPPROVED}"><i class="fa fa-flag" aria-hidden="true"></i><span class="visually-hidden">{L_TOPIC_UNAPPROVED}</span></a> <!-- ENDIF -->
 					<!-- IF topicrow.S_TOPIC_REPORTED --><a href="{topicrow.U_MCP_REPORT}" class="badge bg-warning" title="{L_TOPIC_REPORTED}"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i><span class="visually-hidden">{L_TOPIC_REPORTED}</span></a><!-- ENDIF -->
 					<!-- IF topicrow.S_UNREAD_TOPIC --><a href="{topicrow.U_NEWEST_POST}" class="badge bg-info" title="{L_VIEW_NEWEST_POST}"><i class="fa fa-file icon_topic_newest" aria-hidden="true"></i><span class="visually-hidden">{L_NEW_POST}</span></a><!-- ENDIF -->
-					<!-- IF topicrow.TOPIC_ICON_IMG --><img src="{T_ICONS_PATH}{topicrow.TOPIC_ICON_IMG}" class="topic-icon align-baseline" alt="{L_IMAGE}" /> <!-- ENDIF --><a href="{topicrow.U_VIEW_TOPIC}" class="topictitle">{topicrow.TOPIC_TITLE}</a>
+					<!-- IF topicrow.TOPIC_ICON_IMG --><img src="{T_ICONS_PATH}{topicrow.TOPIC_ICON_IMG}" class="topic-icon align-baseline" alt="{L_IMAGE}" /> <!-- ENDIF --><a class="topic-title" href="{topicrow.U_VIEW_TOPIC}">{topicrow.TOPIC_TITLE}</a>
 			
 					<div class="d-none d-md-block">
 						<!-- IF topicrow.ATTACH_ICON_IMG --><i class="fa fa-paperclip" title="{L_TOTAL_ATTACHMENTS}" aria-hidden="true"></i><span class="visually-hidden">{L_TOTAL_ATTACHMENTS}</span><!-- ENDIF -->
