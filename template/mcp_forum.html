@@ -71,7 +71,7 @@
 					<!-- IF topicrow.S_TOPIC_DELETED or topicrow.S_POSTS_DELETED --><a href="{topicrow.U_MCP_QUEUE}" class="badge bg-secondary" title="{L_TOPIC_DELETED}"><i class="fa fa-recycle" aria-hidden="true"></i><span class="visually-hidden">{L_TOPIC_DELETED}</span></a><!-- ENDIF -->
 					<!-- IF topicrow.S_TOPIC_REPORTED --><a href="{topicrow.U_MCP_REPORT}" class="badge bg-warning" title="{L_TOPIC_REPORTED}"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i><span class="visually-hidden">{L_TOPIC_REPORTED}</span></a><!-- ENDIF -->
 			
-					<!-- IF topicrow.TOPIC_ICON_IMG --><img src="{T_ICONS_PATH}{topicrow.TOPIC_ICON_IMG}" alt="{L_IMAGE}" width="{topicrow.TOPIC_ICON_IMG_WIDTH}" height="{topicrow.TOPIC_ICON_IMG_HEIGHT}" /> <!-- ENDIF --><a href="{topicrow.U_VIEW_TOPIC}" class="topictitle">{topicrow.TOPIC_TITLE}</a>
+					<!-- IF topicrow.TOPIC_ICON_IMG --><img src="{T_ICONS_PATH}{topicrow.TOPIC_ICON_IMG}" alt="{L_IMAGE}" width="{topicrow.TOPIC_ICON_IMG_WIDTH}" height="{topicrow.TOPIC_ICON_IMG_HEIGHT}" /> <!-- ENDIF --><a class="topic-title" href="{topicrow.U_VIEW_TOPIC}">{topicrow.TOPIC_TITLE}</a>
 					<!-- EVENT mcp_forum_topic_title_after -->
 			
 					<div>
