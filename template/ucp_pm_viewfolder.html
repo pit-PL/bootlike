@@ -66,7 +66,7 @@
 					<!-- IF messagerow.S_PM_REPORTED --><a href="{messagerow.U_MCP_REPORT}" class="badge bg-warning" title="{L_PM_REPORTED}"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i><span class="visually-hidden">{L_PM_REPORTED}</span></a><!-- ENDIF -->
 				
 					<!-- IF messagerow.S_PM_DELETED -->
-						<a href="{messagerow.U_REMOVE_PM}" class="topictitle">{L_DELETE_MESSAGE}</a>
+						<a class="topic-title" href="{messagerow.U_REMOVE_PM}">{L_DELETE_MESSAGE}</a>
 						<br><span class="badge bg-secondary">{L_MESSAGE_REMOVED_FROM_OUTBOX}</span>
 					<!-- ELSE -->
 						<!-- IF messagerow.PM_ICON_URL and S_PM_ICONS --><img src="{messagerow.PM_ICON_URL}" class="topic-icon align-baseline" alt="{L_IMAGE}" /> <!-- ENDIF -->
