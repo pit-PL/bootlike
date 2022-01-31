@@ -70,7 +70,7 @@
 						<br><span class="badge bg-secondary">{L_MESSAGE_REMOVED_FROM_OUTBOX}</span>
 					<!-- ELSE -->
 						<!-- IF messagerow.PM_ICON_URL and S_PM_ICONS --><img src="{messagerow.PM_ICON_URL}" class="topic-icon align-baseline" alt="{L_IMAGE}" /> <!-- ENDIF -->
-						<a href="{messagerow.U_VIEW_PM}" class="topictitle">{messagerow.SUBJECT}</a>
+						<a class="topic-title" href="{messagerow.U_VIEW_PM}">{messagerow.SUBJECT}</a>
 					<!-- ENDIF -->
 					<!-- IF messagerow.S_AUTHOR_DELETED -->
 						<br><span class="badge bg-warning">{L_PM_FROM_REMOVED_AUTHOR}</span>
