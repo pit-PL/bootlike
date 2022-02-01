@@ -19,7 +19,7 @@
 	<div class="float-end"><a href="{U_MANAGE}" class="btn btn-info"><i class="fa fa-wrench  fa-fw" aria-hidden="true"></i> {L_MANAGE_GROUP}</a></div>
 	<!-- ENDIF -->
 	{% EVENT memberlist_body_group_name_before %}
-	<h3<!-- IF GROUP_COLOR --> style="color:#{GROUP_COLOR};"<!-- ENDIF -->>{GROUP_NAME}</h3>
+	<h3 class="page-title"<!-- IF GROUP_COLOR --> style="color:#{GROUP_COLOR};"<!-- ENDIF -->>{GROUP_NAME}</h3>
 	{% EVENT memberlist_body_group_name_after %}
 	<div class="card mt-3 mb-3">
 		<div class="card-body">
@@ -55,7 +55,7 @@
 	</div>
 <!-- ELSE -->
 		{% EVENT memberlist_body_page_title_before %}
-		<h3>{PAGE_TITLE}<!-- IF SEARCH_WORDS -->{L_COLON} <a href="{U_SEARCH_WORDS}">{SEARCH_WORDS}</a><!-- ENDIF --></h3>
+		<h3 class="page-title">{PAGE_TITLE}<!-- IF SEARCH_WORDS -->{L_COLON} <a href="{U_SEARCH_WORDS}">{SEARCH_WORDS}</a><!-- ENDIF --></h3>
 
 		<div class="card mb-3">
 			<div class="card-body p-2 bg1">
@@ -148,7 +148,7 @@
 			<!-- ENDIF -->
 		<div class="row m-0 mt-1 py-1 align-items-center bg1<!-- IF memberrow.S_INACTIVE --> text-muted<!-- ENDIF -->">
 			<div class="col-12 col-md-3 py-2 d-md-flex justify-content-md-between">
-				<div>
+				<div class="me-2">
 					<span class="badge bg-secondary d-md-none">{L_USERNAME}{L_COLON}</span>
 				<!-- IF S_IN_SEARCH_POPUP and not S_SELECT_SINGLE -->
 					<input class="form-check-input" type="checkbox" name="user" value="{memberrow.USERNAME}" />
