@@ -32,7 +32,7 @@
 							<!-- EVENT forumlist_body_forum_image_after -->
 						<!-- ENDIF -->
 
-							<a href="{forumrow.U_VIEWFORUM}" class="forumtitle lead">{forumrow.FORUM_NAME}</a>
+							<a class="forum-title lead" href="{forumrow.U_VIEWFORUM}">{forumrow.FORUM_NAME}</a>
 
 							<div class="mt-3">
 							<!-- IF forumrow.S_IS_LINK and forumrow.FORUM_DESC -->
@@ -41,7 +41,7 @@
 						<!-- IF forumrow.LAST_POST_TIME -->
 							<!-- IF forumrow.S_DISPLAY_SUBJECT -->
 								<!-- EVENT forumlist_body_last_post_title_prepend -->
-								<a href="{forumrow.U_LAST_POST}" title="{forumrow.LAST_POST_SUBJECT}" class="lastsubject">{forumrow.LAST_POST_SUBJECT_TRUNCATED}</a><br>
+								<a class="topic-title" href="{forumrow.U_LAST_POST}" title="{forumrow.LAST_POST_SUBJECT}">{forumrow.LAST_POST_SUBJECT_TRUNCATED}</a><br>
 							<!-- ENDIF -->
 								{L_POST_BY_AUTHOR} <!-- EVENT forumlist_body_last_poster_username_prepend --> {forumrow.LAST_POSTER_FULL} <!-- EVENT forumlist_body_last_poster_username_append --> &raquo; <time datetime="{forumrow.LAST_POST_TIME_RFC3339}">{forumrow.LAST_POST_TIME}</time>
 							<!-- ELSEIF forumrow.U_UNAPPROVED_TOPICS -->
