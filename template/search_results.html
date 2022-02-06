@@ -70,11 +70,6 @@
 				<!-- ENDIF -->
 			<!-- END pagination -->
 			<!-- ENDIF -->
-
-			<!-- IF U_MARK_ALL_READ -->
-				<a href="{U_MARK_ALL_READ}" class="btn btn-lg" title="{L_MARK_ALL_READ}" accesskey="m"><i class="fa fa-check" aria-hidden="true"></i></a>
-			<!-- ENDIF -->
-
 			</div>
 		</div>
 	</div>
@@ -223,6 +218,72 @@
 			{L_NO_SEARCH_RESULTS}
 		</div>
 	<!-- END searchresults -->
+<!-- ENDIF -->
+
+<!-- IF not S_IS_BOT -->
+	<div class="card mb-3">
+		<div class="action-bar d-sm-flex justify-content-between bg1 shadow-sm">
+			<div class="d-flex">
+			<!-- IF .searchresults and (S_SELECT_SORT_DAYS or S_SELECT_SORT_KEY) -->
+				<form method="post" action="{S_SEARCH_ACTION}">
+					<!-- INCLUDE display_options.html -->
+				</form>
+			<!-- ENDIF -->
+
+			<!-- IF TOTAL_MATCHES > 0 -->
+				<form method="post" action="{S_SEARCH_ACTION}">
+					<button class="btn dropdown-toggle btn-lg rounded-0 border-0" title="{L_SEARCH}" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-search fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_SEARCH}</span></button>
+					<div class="dropdown-menu dropdown-menu-start" role="search">
+						<div class="input-group px-2">
+							<input class="form-control" type="search" value="" name="add_keywords" id="add_keywords" size="20" placeholder="{L_SEARCH_IN_RESULTS}" />
+							<button type="submit" class="btn btn-secondary" title="{L_SEARCH}"><i class="fa fa-search fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_SEARCH}</span></button>
+						</div>
+					</div>
+				</form>
+			<!-- ENDIF -->
+			<!-- EVENT search_results_searchbox_after -->
+			</div>
+
+			<!-- IF SEARCH_MATCHES or PAGE_NUMBER -->
+			<div class="btn btn-lg d-none d-lg-block disabled fs-6 mt-1 text-nowrap border-0">
+				{SEARCH_MATCHES} &bull; <span class="fw-normal">{PAGE_NUMBER}</span>
+			</div>
+			<!-- ENDIF -->
+
+			<div class="d-flex">
+			<!-- IF SEARCH_TOPIC -->
+				<a href="{U_SEARCH_TOPIC}" class="btn btn-lg rounded-0 border-0" title="{L_RETURN_TO_TOPIC}" accesskey="r"><i class="fa fa-chevron-{S_CONTENT_FLOW_BEGIN} fa-fw" aria-hidden="true"></i></a>
+			<!-- ELSEIF S_SEARCH_ACTION -->
+				<a href="{U_SEARCH}" class="btn btn-lg rounded-0 border-0" title="{L_GO_TO_SEARCH_ADV}" accesskey="r"><i class="fa fa-chevron-{S_CONTENT_FLOW_BEGIN} fa-fw" aria-hidden="true"></i></a>
+			<!-- ENDIF -->
+
+			<!-- IF .pagination -->
+			<!-- IF BASE_URL and TOTAL_PAGES > 3 -->
+				<div class="dropdown-form">
+					<button class="btn dropdown-toggle btn-lg rounded-0 border-0" title="{L_JUMP_TO_PAGE}" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-clone fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_JUMP_TO_PAGE}</span></button>
+					<div class="dropdown-menu dropdown-menu-end p-2">
+						{L_JUMP_TO_PAGE}{L_COLON}
+						<div class="input-group my-2">
+							<input type="number" name="text" title="{L_JUMP_PAGE}" class="form-control" data-per-page="{PER_PAGE}" data-base-url="{BASE_URL|e('html_attr')}" data-start-name="{START_NAME}" />
+							<input class="btn btn-secondary" value="{L_GO}" type="button" />
+						</div>
+						<!-- INCLUDE pagination.html -->
+					</div>
+				</div>
+			<!-- ENDIF -->
+
+			<!-- BEGIN pagination -->
+				<!-- IF pagination.S_IS_PREV -->
+					<a class="btn btn-lg rounded-0 border-0" href="{pagination.PAGE_URL}" title="{L_PREVIOUS}" rel="prev" role="button"><i class="fa fa-step-backward fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_PREVIOUS}</span></a>
+				<!-- ENDIF -->
+				<!-- IF pagination.S_IS_NEXT -->
+					<a class="btn btn-lg rounded-0 border-0" href="{pagination.PAGE_URL}" title="{L_NEXT}" rel="next" role="button"><i class="fa fa-step-forward fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_NEXT}</span></a>
+				<!-- ENDIF -->
+			<!-- END pagination -->
+			<!-- ENDIF -->
+			</div>
+		</div>
+	</div>
 <!-- ENDIF -->
 
 	{% EVENT search_results_jumpbox_before %}
