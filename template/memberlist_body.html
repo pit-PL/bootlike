@@ -58,7 +58,7 @@
 		<h3 class="page-title">{PAGE_TITLE}<!-- IF SEARCH_WORDS -->{L_COLON} <a href="{U_SEARCH_WORDS}">{SEARCH_WORDS}</a><!-- ENDIF --></h3>
 
 		<div class="card mb-3">
-			<div class="card-body p-2 bg1">
+			<div class="card-body p-1 bg1">
 				<div class="d-lg-flex">
 				<!-- IF U_FIND_MEMBER and not S_SEARCH_USER -->
 					<a class="btn btn-outline-secondary border-0 btn-sm" href="{U_FIND_MEMBER}">{L_FIND_USERNAME}</a><!-- ELSEIF S_SEARCH_USER and U_HIDE_FIND_MEMBER and not S_IN_SEARCH_POPUP --><a class="btn btn-outline-secondary border-0 btn-sm" href="{U_HIDE_FIND_MEMBER}">{L_HIDE_MEMBER_SEARCH}</a>
@@ -97,7 +97,7 @@
 <!-- IF S_LEADERS_SET or not S_SHOW_GROUP or not .memberrow -->
 	<div id="memberlist" class="card mb-3 pb-1">
 		<div class="card-header d-none d-md-block">
-		<div class="row">
+		<div class="row align-items-center">
 			<div class="col-12 col-md-3" data-dfn="{L_RANK}{L_COMMA_SEPARATOR}<!-- IF S_SHOW_GROUP and .memberrow -->{L_GROUP_LEADER}<!-- ELSE -->{L_USERNAME}<!-- ENDIF -->"><span class="d-none d-md-block float-end"><a href="{U_SORT_RANK}">{L_RANK}</a></span><a href="{U_SORT_USERNAME}"><!-- IF S_SHOW_GROUP and .memberrow -->{L_GROUP_LEADER}<!-- ELSE -->{L_USERNAME}<!-- ENDIF --></a></div>
 			<div class="col-12 col-md-2 col-lg-1 text-center"><a href="{U_SORT_POSTS}#memberlist">{L_POSTS}</a></div>
 			<div class="col-12<!-- IF U_SORT_ACTIVE --> col-md-3 col-lg-4 <!-- ELSE --> col-md-5 col-lg-6<!-- ENDIF --><!-- IF not memberrow.custom_fields --> d-none d-md-block<!-- ENDIF -->"><!-- BEGIN custom_fields --><!-- IF not custom_fields.S_FIRST_ROW -->{L_COMMA_SEPARATOR} <!-- ENDIF -->{custom_fields.PROFILE_FIELD_NAME}<!-- END custom_fields --></div>
@@ -121,7 +121,7 @@
 
 <div class="card mb-3 pb-1">
 	<div class="card-header d-none d-md-block">
-		<div class="row">
+		<div class="row align-items-center">
 		<!-- IF not S_LEADERS_SET -->
 			<div class="col-12 col-md-3" data-dfn="{L_RANK}{L_COMMA_SEPARATOR}{L_USERNAME}"><span class="d-none d-md-block float-end"><a href="{U_SORT_RANK}">{L_RANK}</a></span><a href="{U_SORT_USERNAME}"><!-- IF S_SHOW_GROUP -->{L_GROUP_MEMBERS}<!-- ELSE -->{L_USERNAME}<!-- ENDIF --></a></div>
 			<div class="col-12 col-md-2 col-lg-1 text-center"><a href="{U_SORT_POSTS}#memberlist">{L_POSTS}</a></div>
