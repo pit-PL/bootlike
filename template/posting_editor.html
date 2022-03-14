@@ -209,9 +209,9 @@
 			<!-- IF S_TYPE_TOGGLE -->
 				<div class="col-md-6 col-12">
 					<label class="d-block mb-2" for="topic_type-0"><strong><!-- IF S_EDIT_POST -->{L_CHANGE_TOPIC_TO}<!-- ELSE -->{L_POST_TOPIC_AS}<!-- ENDIF -->{L_COLON}</strong></label>
-					<div class="input-group btn-radio-group" data-bs-toggle="buttons">
+					<div class="btn-radio-group" data-bs-toggle="buttons">
 					<!-- BEGIN topic_type -->
-						<label class="form-check-label btn btn-outline-secondary btn-radio" for="topic_type-{topic_type.VALUE}">
+						<label class="form-check-label btn btn-outline-secondary btn-radio border-0" for="topic_type-{topic_type.VALUE}">
 							<input class="btn-check" type="radio" name="topic_type" id="topic_type-{topic_type.VALUE}" value="{topic_type.VALUE}"{topic_type.S_CHECKED} />{topic_type.L_TOPIC_TYPE}
 						</label>
 					<!-- END topic_type -->
