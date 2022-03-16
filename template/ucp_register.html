@@ -74,15 +74,17 @@
 	<hr class="fancyhr">
 
 	<!-- EVENT ucp_register_options_before -->
-	<div class="row">
-		<div class="col-12 col-md-6">
-			<label class="col-form-label pt-0" for="lang"><strong>{L_LANGUAGE}{L_COLON}</strong></label>
-			<select class="form-select w-100 mt-1" name="lang" id="lang" onchange="change_language(this.value); return false;" tabindex="5" title="{L_LANGUAGE}">{S_LANG_OPTIONS}</select>
+		{% if S_LANG_OPTIONS %}
+		<div class="row">
+			<div class="col-12 col-md-6">
+				<label class="col-form-label pt-0" for="lang"><strong>{{ lang('LANGUAGE') ~ lang('COLON') }}</strong></label>
+				<select class="form-select w-100 mt-1" name="lang" id="lang" onchange="change_language(this.value); return false;" tabindex="6" title="{{ lang('LANGUAGE') }}">{{ S_LANG_OPTIONS }}</select>
+			</div>
+			<div class="col-12 col-md-6 mt-2 mt-md-0">
+				<!-- INCLUDE timezone_option.html -->
+			</div>
 		</div>
-		<div class="col-12 col-md-6 mt-2 mt-md-0">
-			<!-- INCLUDE timezone_option.html -->
-		</div>
-	</div>
+		{% endif %}
 
 	<!-- EVENT ucp_register_profile_fields_before -->
 	<!-- IF .profile_fields -->
