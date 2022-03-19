@@ -1,0 +1,240 @@
+<!-- BEGIN postrow -->
+
+	<!-- EVENT viewtopic_body_postrow_post_before -->
+	<!-- IF postrow.S_FIRST_UNREAD -->
+		<a id="unread" class="d-block"<!-- IF S_UNREAD_VIEW --> data-url="{postrow.U_MINI_POST}"<!-- ENDIF -->></a>
+	<!-- ENDIF -->
+	<!-- IF postrow.S_POST_HIDDEN -->
+	<div id="post_hidden{postrow.POST_ID}" class="card mb-3">
+		<div class="card-body ps-3 pt-2 pm-3 pb-2">
+		<!-- IF postrow.S_POST_DELETED -->
+			{postrow.L_POST_DELETED_MESSAGE}<br>
+			{postrow.L_POST_DISPLAY}
+		<!-- ELSEIF postrow.S_IGNORE_POST -->
+			{postrow.L_IGNORE_POST}<br>
+			{postrow.L_POST_DISPLAY}
+		<!-- ENDIF -->
+		</div>
+	</div>
+	<!-- ENDIF -->
+
+	<div id="p{postrow.POST_ID}" class="card<!-- IF postrow.S_POST_UNAPPROVED --> border-success<!-- ENDIF --><!-- IF postrow.S_UNREAD_POST --> border-info<!-- ENDIF --><!-- IF postrow.S_POST_REPORTED --> border-warning<!-- ENDIF --><!-- IF postrow.S_POST_HIDDEN --> border-dark<!-- ENDIF --> mb-2 mb-md-3 shadow-sm"<!-- IF postrow.S_POST_HIDDEN --> style="display: none;"<!-- ENDIF -->>
+		<div class="card-body p-0">
+			<div class="row m-0">
+
+				<div id="profile{postrow.POST_ID}" class="postprofile col-lg-3 col-md-4<!-- IF $PROFILE_ON_RIGHT --> order-first order-md-2<!-- ENDIF --> px-3 pb-3 bg2">
+					<!-- IF postrow.S_ONLINE and not postrow.S_POST_HIDDEN -->
+						<span class="badge bg-success text-uppercase online d-none d-md-block mx-auto rounded-0 rounded-bottom"><i class="fa fa-signal fa-fw" aria-hidden="true"></i> {L_ONLINE} <i class="fa fa-signal fa-flip-horizontal fa-fw" aria-hidden="true"></i></span>
+					<!-- ENDIF -->
+
+					<div class="text-center mb-2">
+						<!-- EVENT viewtopic_body_avatar_before -->
+						<!-- IF postrow.POSTER_AVATAR -->
+						<div class="mt-3 me-3 me-md-0 float-start float-md-none">
+						<!-- IF postrow.U_POST_AUTHOR --><a href="{postrow.U_POST_AUTHOR}" class="avatar">{postrow.POSTER_AVATAR}</a><!-- ELSE --><span class="avatar">{postrow.POSTER_AVATAR}</span><!-- ENDIF -->
+						</div>
+						<!-- ENDIF -->
+						<!-- EVENT viewtopic_body_avatar_after -->
+
+					<!-- IF not $PROFILE_POPUP_OFF and postrow.U_POST_AUTHOR -->
+						<button class="btn btn-primary btn-sm position-relative d-block mx-auto mt-3 mb-1 float-end float-md-none" type="button" data-bs-toggle="modal" data-bs-target="#modal_post_{postrow.POST_ID}">
+							<i class="fa fa-user-circle-o fa-fw" aria-hidden="true"></i> {L_READ_PROFILE} <svg width="1em" height="1em" viewBox="0 0 16 16" class="position-absolute top-100 start-50 translate-middle mt-1 bi bi-caret-down-fill d-none d-md-inline-block" fill="#0d6efd" xmlns="http://www.w3.org/2000/svg"><path d="M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/></svg>
+						</button>
+					<!-- ENDIF -->
+
+						<div class="mt-1 float-start float-md-none">
+						<!-- EVENT viewtopic_body_post_author_before -->
+						<!-- IF not postrow.U_POST_AUTHOR --><strong>{postrow.POST_AUTHOR_FULL}</strong><!-- ELSE -->{postrow.POST_AUTHOR_FULL}<!-- IF postrow.S_ONLINE and not postrow.S_POST_HIDDEN --> <i class="fa fa-circle text-success d-sm d-md-none" title="{L_ONLINE}" aria-hidden="true"></i><span class="visually-hidden">{L_ONLINE}</span><!-- ENDIF --><!-- ENDIF --><br>
+						<!-- EVENT viewtopic_body_post_author_after -->
+
+						<!-- EVENT viewtopic_body_postrow_rank_before -->
+						<!-- IF postrow.RANK_TITLE or postrow.RANK_IMG --><strong>{postrow.RANK_TITLE}</strong><!-- IF postrow.RANK_TITLE and postrow.RANK_IMG --><br><!-- ENDIF -->{postrow.RANK_IMG}<!-- ENDIF -->
+						<!-- EVENT viewtopic_body_postrow_rank_after -->
+						</div>
+					</div>
+
+				<!-- IF $PROFILE_POPUP_OFF -->
+					<!-- IF postrow.POSTER_POSTS != '' --><div class="d-none d-md-block"><strong>{L_POSTS}{L_COLON}</strong><!-- IF postrow.U_SEARCH !== '' --> <a href="{postrow.U_SEARCH}"><!-- ENDIF -->{postrow.POSTER_POSTS}<!-- IF postrow.U_SEARCH !== '' --></a><!-- ENDIF --></div><!-- ENDIF -->
+					<!-- IF postrow.POSTER_JOINED --><div class="d-none d-md-block"><strong>{L_JOINED}{L_COLON}</strong> {postrow.POSTER_JOINED}</div><!-- ENDIF -->
+					<!-- IF postrow.POSTER_WARNINGS --><div class="d-none d-md-block"><strong>{L_WARNINGS}{L_COLON}</strong> {postrow.POSTER_WARNINGS}</div><!-- ENDIF -->
+
+
+					<!-- IF postrow.S_PROFILE_FIELD1 -->
+						<!-- Use a construct like this to include admin defined profile fields. Replace FIELD1 with the name of your field. -->
+						<div class="d-none d-md-block"><strong>{postrow.PROFILE_FIELD1_NAME}{L_COLON}</strong> {postrow.PROFILE_FIELD1_VALUE}</div>
+					<!-- ENDIF -->
+
+					<!-- EVENT viewtopic_body_postrow_custom_fields_before -->
+					<!-- BEGIN custom_fields -->
+						<!-- IF not postrow.custom_fields.S_PROFILE_CONTACT -->
+							<div class="profile-custom-field profile-{postrow.custom_fields.PROFILE_FIELD_IDENT} d-none d-md-block"><strong>{postrow.custom_fields.PROFILE_FIELD_NAME}{L_COLON}</strong> {postrow.custom_fields.PROFILE_FIELD_VALUE}</div>
+						<!-- ENDIF -->
+					<!-- END custom_fields -->
+					<!-- EVENT viewtopic_body_postrow_custom_fields_after -->
+
+					<!-- EVENT viewtopic_body_contact_fields_before -->
+					<!-- IF not S_IS_BOT and .postrow.contact -->
+						<div class="btn-group dropdown float-end float-md-none mt-2">
+							<button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">{L_CONTACT}</button>
+							<ul class="dropdown-menu dropdown-menu-<!-- IF $PROFILE_ON_RIGHT -->end<!-- ELSE -->start<!-- ENDIF --> dropdown-contents p-1">
+							<!-- BEGIN contact -->
+								<li>
+									<a class="dropdown-item" href="<!-- IF postrow.contact.U_CONTACT -->{postrow.contact.U_CONTACT}<!-- ELSE -->{postrow.U_POST_AUTHOR}<!-- ENDIF -->"<!-- IF postrow.contact.ID eq 'jabber' --> onclick="popup(this.href, 750, 320); return false;"<!-- ENDIF -->>
+									{% EVENT viewtopic_body_contact_icon_prepend %}
+										<span class="{postrow.contact.ID}-icon"><i class="fa fa-<!-- IF postrow.contact.ID eq 'pm' -->user<!-- ELSEIF postrow.contact.ID eq 'email' -->envelope<!-- ELSEIF postrow.contact.ID eq 'phpbb_website' -->globe<!-- ELSEIF postrow.contact.ID eq 'icon_contact_jabber' -->lightbulb-o<!-- ELSEIF postrow.contact.ID eq 'phpbb_yahoo' -->yahoo<!-- ELSEIF postrow.contact.ID eq 'phpbb_facebook' -->facebook<!-- ELSEIF postrow.contact.ID eq 'phpbb_twitter' -->twitter<!-- ELSEIF postrow.contact.ID eq 'phpbb_skype' -->skype<!-- ELSEIF postrow.contact.ID eq 'phpbb_youtube' -->youtube<!-- ELSEIF postrow.contact.ID eq 'phpbb_googleplus' -->google-plus<!-- ELSEIF postrow.contact.ID eq 'phpbb_icq' -->asterisk<!-- ELSE -->comments<!-- ENDIF --> fa-fw"></i> {postrow.contact.NAME}</span>
+									{% EVENT viewtopic_body_contact_icon_append %}
+									</a>
+								</li>
+							<!-- END contact -->
+							</ul>
+						</div>
+					<!-- ENDIF -->
+					<!-- EVENT viewtopic_body_contact_fields_after -->
+				<!-- ENDIF -->
+				</div>
+
+				<div class="postbody col-lg-9 col-md-8 p-0<!-- IF $PROFILE_ON_RIGHT --> border-end<!-- ELSE --> border-start<!-- ENDIF --><!-- IF postrow.SIGNATURE and $SIGNATURE_IN_POST --> bg2<!-- ELSE --> bg1<!-- ENDIF -->">
+				<div class="opacity-50 d-md-none"><hr class="m-0"></div>
+
+					<div id="post_content{postrow.POST_ID}">
+						<!-- EVENT viewtopic_body_post_subject_before -->
+						<!-- EVENT viewtopic_body_postrow_post_details_before -->
+						<div class="postbody-before d-flex px-3 py-2 justify-content-between align-items-center border-bottom bg2">
+							<div>
+							<!-- IF postrow.POST_ICON_IMG --><img src="{T_ICONS_PATH}{postrow.POST_ICON_IMG}" class="align-baseline" width="{postrow.POST_ICON_IMG_WIDTH}" height="{postrow.POST_ICON_IMG_HEIGHT}" alt="{L_IMAGE}" /> <!-- ENDIF -->
+							<!-- IF postrow.POST_SUBJECT --><a class="post-title" href="{{ postrow.U_MINI_POST }}">{postrow.POST_SUBJECT}</a><br><!-- ENDIF -->
+							<!-- IF S_IS_BOT -->
+								<i class="fa<!-- IF postrow.S_UNREAD_POST --> fa-file<!-- ELSE --> fa-file-o<!-- ENDIF --> fa-fw" aria-hidden="true"></i><span class="visually-hidden">{postrow.MINI_POST}</span>
+							<!-- ELSE -->
+								<a class="unread" href="{postrow.U_MINI_POST}" title="{postrow.MINI_POST}"><i class="fa<!-- IF postrow.S_UNREAD_POST --> fa-file<!-- ELSE -->  fa-file-o<!-- ENDIF --> fa-fw" aria-hidden="true"></i><span class="visually-hidden">{postrow.MINI_POST}</span></a>
+							<!-- ENDIF -->
+								<time datetime="{postrow.POST_DATE_RFC3339}">{postrow.POST_DATE}</time>
+							</div>
+							<!-- EVENT viewtopic_body_postrow_post_details_after -->
+					
+					<!-- DEFINE $SHOW_POST_BUTTONS = (postrow.U_EDIT or postrow.U_DELETE or postrow.U_REPORT or postrow.U_WARN or postrow.U_INFO or postrow.U_QUOTE) -->
+					<!-- EVENT viewtopic_body_post_buttons_list_before -->
+					<!-- IF not S_IS_BOT -->
+						<!-- IF $SHOW_POST_BUTTONS -->
+							<div class="ms-2">
+								<div class="btn-group">
+								<!-- EVENT viewtopic_body_post_buttons_before -->
+								<!-- IF postrow.U_EDIT -->
+									<a href="{postrow.U_EDIT}#postingbox" title="{L_EDIT_POST}" class="btn btn-secondary"><i class="fa fa-pencil fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_BUTTON_EDIT}</span></a>
+								<!-- ENDIF -->
+								<!-- IF postrow.U_DELETE -->
+									<a href="{postrow.U_DELETE}" title="{L_DELETE_POST}" class="btn btn-danger"><i class="fa fa-times fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_BUTTON_DELETE}</span></a>
+								<!-- ENDIF -->
+								<!-- IF postrow.U_REPORT -->
+									<a href="{postrow.U_REPORT}" title="{L_REPORT_POST}" class="btn btn-secondary"><i class="fa fa-exclamation fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_BUTTON_REPORT}</span></a>
+								<!-- ENDIF -->
+								<!-- IF postrow.U_WARN -->
+									<a href="{postrow.U_WARN}" title="{L_WARN_USER}" class="btn btn-warning"><i class="fa fa-exclamation-triangle fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_BUTTON_WARN}</span></a>
+								<!-- ENDIF -->
+								<!-- IF postrow.U_INFO -->
+									<a href="{postrow.U_INFO}" title="{L_INFORMATION}" class="btn btn-secondary"><i class="fa fa-info fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_BUTTON_INFORMATION}</span></a>
+								<!-- ENDIF -->
+								<!-- IF postrow.U_QUOTE -->
+									<a href="{postrow.U_QUOTE}#postingbox" title="{L_REPLY_WITH_QUOTE}" class="btn btn-secondary"><i class="fa fa-quote-{S_CONTENT_FLOW_BEGIN} fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_BUTTON_QUOTE}</span></a>
+								<!-- ENDIF -->
+								<!-- EVENT viewtopic_body_post_buttons_after -->
+								</div>
+							</div>
+						<!-- ENDIF -->
+					<!-- ENDIF -->
+					<!-- EVENT viewtopic_body_post_buttons_list_after -->
+						</div>
+
+						<div class="px-3 py-2 bg1">
+						<!-- IF postrow.S_POST_UNAPPROVED or postrow.S_POST_DELETED or postrow.S_POST_REPORTED -->
+							<div class="alert alert-warning">
+								<form method="post" class="mcp_approve" action="{postrow.U_APPROVE_ACTION}">
+								<!-- IF postrow.S_POST_UNAPPROVED -->
+								<!-- IF postrow.S_CAN_APPROVE -->
+									<strong>{L_POST_UNAPPROVED_ACTION}</strong>
+									<button class="btn btn-danger mx-1" type="submit" value="{L_DISAPPROVE}" name="action[disapprove]"><i class="fa fa-thumbs-o-down fa-fw" aria-hidden="true"></i> {L_DISAPPROVE}</button>
+									<button class="btn btn-success me-1" type="submit" value="{L_APPROVE}" name="action[approve]"><i class="fa fa-thumbs-o-up fa-fw" aria-hidden="true"></i> {L_APPROVE}</button>
+									<input type="hidden" name="post_id_list[]" value="{postrow.POST_ID}" />
+									{S_FORM_TOKEN}
+								<!-- ELSE -->
+									<i class="fa fa-exclamation fa-fw text-danger" aria-hidden="true"></i> <strong>{L_POST_UNAPPROVED_EXPLAIN}</strong>
+								<!-- ENDIF -->
+								<!-- ELSEIF postrow.S_POST_DELETED -->
+									<strong>{L_POST_DELETED_ACTION}</strong>
+									<!-- IF postrow.S_DELETE_PERMANENT -->
+									<button class="btn btn-danger mx-1" type="submit" value="{L_DELETE}" name="action[delete]"><i class="fa fa-trash-o fa-fw" aria-hidden="true"></i> {L_DELETE}</button>
+									<!-- ENDIF -->
+									<button class="btn btn-success me-1" type="submit" value="{L_RESTORE}" name="action[restore]"><i class="fa fa-recycle fa-fw" aria-hidden="true"></i> {L_RESTORE}</button>
+									<input type="hidden" name="post_id_list[]" value="{postrow.POST_ID}" />
+									{S_FORM_TOKEN}
+								<!-- ENDIF -->
+								<!-- IF postrow.S_POST_REPORTED -->
+									<a class="btn btn-warning me-1" href="{postrow.U_MCP_REPORT}"><i class="fa fa-exclamation fa-fw icon-red" aria-hidden="true"></i> {L_POST_REPORTED}</a>
+								<!-- ENDIF -->
+								</form>
+							</div>
+						<!-- ENDIF -->
+
+							<div class="content pb-2">{postrow.MESSAGE}</div>
+
+							<!-- EVENT viewtopic_body_postrow_content_after -->
+
+							<!-- IF postrow.S_HAS_ATTACHMENTS -->
+								<div class="my-1 text-uppercase">{L_ATTACHMENTS}</div>
+								<div class="row<!-- IF $ATTACHMENT_COLUMNS eq 3 --> row-cols-lg-3 row-cols-md-2 row-cols-1<!-- ELSEIF $ATTACHMENT_COLUMNS eq 2 --> row-cols-lg-2 row-cols-1<!-- ELSE --> flex-column<!-- ENDIF -->">
+								<!-- BEGIN attachment -->
+									<div class="col d-flex">
+										<div class="card mb-3<!-- IF $ATTACHMENT_COLUMNS --> w-100<!-- ENDIF -->">
+											<div class="card-body p-2">
+												{postrow.attachment.DISPLAY_ATTACHMENT}
+											</div>
+										</div>
+									</div>
+								<!-- END attachment -->
+								</div>
+							<!-- ENDIF -->
+
+							<!-- EVENT viewtopic_body_postrow_post_notices_before -->
+							<!-- IF postrow.S_DISPLAY_NOTICE -->
+								<div class="alert alert-warning">{L_DOWNLOAD_NOTICE}</div>
+							<!-- ENDIF -->
+							<!-- IF postrow.DELETED_MESSAGE or postrow.DELETE_REASON -->
+								<div class="alert alert-danger post_deleted_msg">
+									{postrow.DELETED_MESSAGE}
+									<!-- IF postrow.DELETE_REASON --><br><strong>{L_REASON}{L_COLON}</strong> <em>{postrow.DELETE_REASON}</em><!-- ENDIF -->
+								</div>
+							<!-- ELSEIF postrow.EDITED_MESSAGE or postrow.EDIT_REASON -->
+								<div class="alert alert-info">
+									{postrow.EDITED_MESSAGE}
+									<!-- IF postrow.EDIT_REASON --><br><strong>{L_REASON}{L_COLON}</strong> <em>{postrow.EDIT_REASON}</em><!-- ENDIF -->
+								</div>
+							<!-- ENDIF -->
+
+							<!-- IF postrow.BUMPED_MESSAGE --><div class="alert alert-info">{postrow.BUMPED_MESSAGE}</div><!-- ENDIF -->
+							<!-- EVENT viewtopic_body_postrow_post_notices_after -->
+
+							<!-- EVENT viewtopic_body_postrow_post_content_footer -->
+						</div>
+
+						{% EVENT viewtopic_body_postrow_signature_before %}
+					<!-- IF postrow.SIGNATURE and $SIGNATURE_IN_POST -->
+						<div id="sig{postrow.POST_ID}" class="postbody-after d-none d-md-block px-3 py-2 border-top small">{postrow.SIGNATURE}</div>
+					<!-- ENDIF -->
+						{% EVENT viewtopic_body_postrow_signature_after %}
+
+					<!-- EVENT viewtopic_body_postrow_back2top_before -->
+
+					<!-- EVENT viewtopic_body_postrow_back2top_prepend -->
+					<!-- EVENT viewtopic_body_postrow_back2top_append -->
+
+					<!-- EVENT viewtopic_body_postrow_back2top_after -->
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<!-- EVENT viewtopic_body_postrow_post_after -->
+<!-- END postrow -->
