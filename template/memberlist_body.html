@@ -176,7 +176,7 @@
 			<!-- ENDIF -->
 			</div>
 			<div class="col-12<!-- IF U_SORT_ACTIVE --> col-md-3 col-lg-4 <!-- ELSE --> col-md-5 col-lg-6<!-- ENDIF --> py-2<!-- IF not memberrow.custom_fields --> d-none d-md-block<!-- ENDIF -->">
-				<span class="badge bg-secondary d-md-none">{% for field in custom_fields %}{% if not loop.first %}{L_COMMA_SEPARATOR} {% endif %}{{ field.PROFILE_FIELD_NAME }}{% endfor %}{L_COLON}</span>
+				<div class="badge bg-secondary d-md-none text-start text-wrap">{% for field in custom_fields %}{% if not loop.first %}{L_COMMA_SEPARATOR} {% endif %}<span class="text-nowrap">{{ field.PROFILE_FIELD_NAME }}</span>{% endfor %}{L_COLON}</div>
 				{%- for field in memberrow.custom_fields -%}
 					<div>{% if field.S_PROFILE_CONTACT %}<a href="{{ field.PROFILE_FIELD_CONTACT }}">{% endif %}{{ field.PROFILE_FIELD_VALUE }}{% if field.S_PROFILE_CONTACT %}</a>{% endif %}</div>
 				{%- else -%}
