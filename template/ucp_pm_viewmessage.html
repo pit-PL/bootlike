@@ -191,7 +191,7 @@
 
 <!-- IF S_DISPLAY_HISTORY --><!-- INCLUDE ucp_pm_history.html --><!-- ENDIF -->
 
-<!-- IF not ($PROFILE_POPUP_OFF) -->
+<!-- IF not $PROFILE_POPUP_OFF -->
 	<div id="modal_message_{MESSAGE_ID}" class="modal fade" tabindex="-1" role="dialog">
 		<div class="modal-dialog modal-dialog-centered" role="document">
 			<div class="modal-content">
@@ -219,6 +219,19 @@
 						</div>
 					</div>
 				</div>
+
+				<!-- IF SIGNATURE and not $SIGNATURE_IN_POST -->
+				<div id="accordion_signature" class="accordion accordion-flush d-none d-md-block border-top">
+				  <div class="accordion-item">
+					<h2 class="accordion-header bg1">
+						<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-signature" aria-expanded="false" aria-controls="flush-signature">{L_SIGNATURE}</button>
+					</h2>
+					<div id="flush-signature" class="accordion-collapse collapse" aria-labelledby="flush-signature" data-bs-parent="#accordion_signature">
+						<div id="sig{MESSAGE_ID}" class="accordion-body small bg1">{SIGNATURE}</div>
+					</div>
+				  </div>
+				</div>
+				<!-- ENDIF -->
 				
 				<!-- IF .contact -->
 				<div class="modal-footer py-2 justify-content-center">
