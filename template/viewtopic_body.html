@@ -79,8 +79,7 @@
 				<!-- EVENT viewtopic_body_poll_option_before -->
 				<!-- IF S_DISPLAY_RESULTS -->
 				<div class="float-end">
-				<!-- IF poll_option.POLL_OPTION_VOTED --><i class="fa fa-check" title="{L_POLL_VOTED_OPTION}"></i><span class="visually-hidden">{L_POLL_VOTED_OPTION}</span>  &nbsp;<!-- ENDIF -->
-				<!-- IF poll_option.POLL_OPTION_RESULT == 0 -->{L_NO_VOTES}<!-- ELSE -->{poll_option.POLL_OPTION_PERCENT}<!-- ENDIF -->
+				<!-- IF poll_option.POLL_OPTION_VOTED --><i class="fa fa-check d-md-none" title="{L_POLL_VOTED_OPTION}"></i><span class="visually-hidden">{L_POLL_VOTED_OPTION}</span><span class="d-none d-md-inline">{L_POLL_VOTED_OPTION}</span><!-- ENDIF -->
 				</div>
 				<!-- ENDIF -->
 			
@@ -98,8 +97,13 @@
 				<div class="clearfix"></div>
 			
 				<!-- IF S_DISPLAY_RESULTS -->
-				<div class="progress mb-3" style="height: 20px;">
-				<!-- IF poll_option.POLL_OPTION_RESULT != 0 --><div class="progress-bar<!-- IF poll_option.POLL_OPTION_PCT < 20 --> bg-success<!-- ELSEIF poll_option.POLL_OPTION_PCT < 40 --> bg-info<!-- ELSEIF poll_option.POLL_OPTION_PCT < 60 --> bg-warning<!-- ELSEIF poll_option.POLL_OPTION_PCT < 80 --> bg-danger<!-- ELSE --> bg-danger progress-bar-striped progress-bar-animated<!-- ENDIF -->" style="width:{poll_option.POLL_OPTION_PERCENT};" role="progressbar" aria-valuenow="{poll_option.POLL_OPTION_PCT}" aria-valuemin="0" aria-valuemax="100">{poll_option.POLL_OPTION_RESULT}</div><!-- ENDIF -->
+				<div class="progress-outer d-flex justify-content-between mb-3 p-1 border border-4 rounded-pill">
+					<div class="progress rounded-pill w-100" style="height: 24px;">
+					<!-- IF poll_option.POLL_OPTION_RESULT != 0 --><div class="progress-bar px-3<!-- IF poll_option.POLL_OPTION_PCT < 20 --> bg-info<!-- ELSEIF poll_option.POLL_OPTION_PCT < 40 --> bg-success<!-- ELSEIF poll_option.POLL_OPTION_PCT < 60 --> bg-primary<!-- ELSEIF poll_option.POLL_OPTION_PCT < 80 --> bg-warning<!-- ELSE --> bg-danger<!-- ENDIF --> progress-bar-striped fw-bold text-start text-white rounded-pill" style="width:{poll_option.POLL_OPTION_PERCENT};" role="progressbar" aria-valuenow="{poll_option.POLL_OPTION_PCT}" aria-valuemin="0" aria-valuemax="100">{poll_option.POLL_OPTION_RESULT}</div><!-- ENDIF -->
+					</div>
+					<div class="progress-value fw-bold text-center text-nowrap" style="min-width: 70px;">
+					<!-- IF poll_option.POLL_OPTION_RESULT == 0 -->0<!-- ELSE --><span>{poll_option.POLL_OPTION_PCT}</span>%<!-- ENDIF -->
+					</div>
 				</div>
 				<!-- ENDIF -->
 				<!-- EVENT viewtopic_body_poll_option_after -->
