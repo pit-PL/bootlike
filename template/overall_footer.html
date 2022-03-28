@@ -151,6 +151,20 @@ function topFunction() {
 	loginModal.addEventListener('shown.bs.modal', function () {
 		loginInput.focus()
 	})
+
+	$(document).ready(function(){
+		$('.progress-value > span').each(function(){
+			$(this).prop('Counter',0).animate({
+				Counter: $(this).text()
+			},{
+				duration: 1500,
+				easing: 'swing',
+				step: function (now){
+				$(this).text(Math.ceil(now));
+			}
+		});
+		});
+	});
 </script>
 
 <!-- EVENT overall_footer_after -->
