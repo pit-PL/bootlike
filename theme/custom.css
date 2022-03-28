@@ -227,6 +227,14 @@ a.postlink:hover, a.postlink:focus {
 	color: #23527c;
 }
 
+.progress-bar {
+	animation: animate-positive 2s;
+}
+
+@keyframes animate-positive {
+	0%{width: 0;}
+}
+
 .timeline-post,  .rtl .switch-profile.timeline-post {
 	margin-right: 0;
 	margin-left: 180px;
