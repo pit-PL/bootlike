@@ -1,68 +1,70 @@
-<div class="col-md-12 col-lg-10 offset-lg-1">
-	<div id="preview" class="card mb-3 shadow-sm">
+<div id="preview">
 
-	<!-- IF S_HAS_POLL_OPTIONS -->
+<!-- IF S_HAS_POLL_OPTIONS -->
+	<div class="card mb-3 shadow-sm">
 		<div class="card-header">
 			{L_PREVIEW}{L_COLON} {POLL_QUESTION}
 		</div>
-		<div class="card-body">
+		<div class="card-body bg1">
 			<p class="author"><!-- IF L_POLL_LENGTH -->{L_POLL_LENGTH}<br><!-- ENDIF -->{L_MAX_VOTES}</p>
 		<!-- BEGIN poll_option -->
 			<div class="form-switch">
 				<!-- IF S_IS_MULTI_CHOICE --> <input class="form-check-input" type="checkbox" name="vote_id[]" id="vote_{poll_option.POLL_OPTION_ID}" value="{poll_option.POLL_OPTION_ID}"<!-- IF poll_option.POLL_OPTION_VOTED --> checked="checked"<!-- ENDIF --> /><!-- ELSE --><input class="form-check-input" type="radio" name="vote_id[]" id="vote_{poll_option.POLL_OPTION_ID}" value="{poll_option.POLL_OPTION_ID}"<!-- IF poll_option.POLL_OPTION_VOTED --> checked="checked"<!-- ENDIF --> /><!-- ENDIF -->
 				<label class="form-check-label mb-2" for="vote_{poll_option.POLL_OPTION_ID}">&nbsp;{poll_option.POLL_OPTION_CAPTION}</label>
 			</div>
-		<!-- END poll_option -->
+			<!-- END poll_option -->
 		</div>
+
 	</div>
-</div>
+<!-- ENDIF -->
 
 <!-- EVENT posting_preview_poll_after -->
 
-<div class="card mb-3 shadow-sm">
+	<div class="card mb-3 p-1 py-2 p-md-2 p-lg-3 bg2 shadow-sm">
 
-<!-- ENDIF -->
+		<div class="<!-- IF $PROFILE_ON_RIGHT -->switch-profile <!-- ENDIF -->timeline-post position-relative clearfix">
+			<div class="timeline-entry">
+				<div class="timeline-entry-inner position-relative">
 
-	<div class="card-body p-0">
-		<div class="row m-0">
+					<div class="timeline-icon position-relative overflow-hidden border border-white rounded-circle shadow-sm">
+						<div class="position-absolute top-50">
+							<img class="avatar" src="{ROOT_PATH}styles/bootlike/theme/images/no_avatar.gif" alt="{L_IMAGE}" />
+						</div>
+					</div>
 
-			<div class="postprofile col-lg-3 col-md-4<!-- IF $PROFILE_ON_RIGHT --> order-first order-md-2<!-- ENDIF --> bg2">
-				<div class="text-center p-3"><img class="img-thumbnail rounded-circle" src="{ROOT_PATH}styles/bootlike/theme/images/no_avatar.gif" alt="{L_IMAGE}" /></div>
-			</div>
+					<div class="timeline-postbody position-relative px-3 py-2 bg-white rounded shadow-sm">
 
-			<div class="postbody col-lg-9 col-md-8 col-12 p-0<!-- IF $PROFILE_ON_RIGHT --> border-end<!-- ELSE --> border-start<!-- ENDIF --><!-- IF PREVIEW_SIGNATURE --> bg2<!-- ELSE --> bg1<!-- ENDIF -->">
-			<div class="opacity-50 d-md-none"><hr class="m-0"></div>
+						<div class="h-5 pb-3 pt-1 border-bottom">
+							{L_PREVIEW}{L_COLON} {PREVIEW_SUBJECT}
+						</div>
 
-				<div class="postbody-before p-3 border-bottom bg2">
-					{L_PREVIEW}{L_COLON} {PREVIEW_SUBJECT}
-				</div>
+						<div class="content pb-2">{PREVIEW_MESSAGE}</div>
+						<!-- EVENT posting_preview_content_after -->
 
-				<div class="px-3 py-2 bg1">
-					<div class="content">{PREVIEW_MESSAGE}</div>
-					<!-- EVENT posting_preview_content_after -->
-
-				<!-- IF .attachment -->
-					<div class="my-1 text-uppercase">{L_ATTACHMENTS}</div>
-					<div class="row<!-- IF $ATTACHMENT_COLUMNS eq 3 --> row-cols-lg-3 row-cols-md-2 row-cols-1<!-- ELSEIF $ATTACHMENT_COLUMNS eq 2 --> row-cols-lg-2 row-cols-1<!-- ELSE --> flex-column<!-- ENDIF -->">
-					<!-- BEGIN attachment -->
-						<div class="col d-flex">
-							<div class="card mb-3<!-- IF $ATTACHMENT_COLUMNS --> w-100<!-- ENDIF -->">
-								<div class="card-body p-2">
-									{attachment.DISPLAY_ATTACHMENT}
+					<!-- IF .attachment -->
+						<div class="my-1 text-uppercase">{L_ATTACHMENTS}</div>
+						<div class="row<!-- IF $ATTACHMENT_COLUMNS eq 3 --> row-cols-lg-3 row-cols-md-2 row-cols-1<!-- ELSEIF $ATTACHMENT_COLUMNS eq 2 --> row-cols-lg-2 row-cols-1<!-- ELSE --> flex-column<!-- ENDIF -->">
+						<!-- BEGIN attachment -->
+							<div class="col d-flex">
+								<div class="card mb-3<!-- IF $ATTACHMENT_COLUMNS --> w-100<!-- ENDIF -->">
+									<div class="card-body p-2">
+										{attachment.DISPLAY_ATTACHMENT}
+									</div>
 								</div>
 							</div>
+						<!-- END attachment -->
 						</div>
-					<!-- END attachment -->
-					</div>
-				<!-- ENDIF -->
-				</div>
+					<!-- ENDIF -->
 
-			<!-- IF PREVIEW_SIGNATURE -->
-				<div class="opacity-50 d-none d-md-block"><hr class="m-0"></div>
-				<div class="postbody-after d-none d-md-block px-3 py-2 small">{PREVIEW_SIGNATURE}</div>
-			<!-- ENDIF -->
+					</div>
+
+				</div>
 			</div>
 
+			<div class="timeline-entry-inner position-relative">
+				<div class="timeline-icon rounded-circle bg-primary border border-white text-white text-center shadow-sm" style="margin-top: -30px; line-height: 47px;"><i class="fa fa-plus" aria-hidden="true"></i></div>
+			</div>
 		</div>
 	</div>
+
 </div>
