@@ -1,22 +1,24 @@
 <!-- INCLUDE overall_header.html -->
+
+<h5 class="card-title pb-1 text-capitalize">{L_FAQ_TITLE}</h5>
+
 <div class="container-fluid">
 	<div class="row">
-		<h5 class="card-title pb-1 text-capitalize">{L_FAQ_TITLE}</h5>
-
+	
 		<div class="col-lg-3 col-md-4 col-12 mb-3 border bg1 shadow-sm">
-		<ul id="faq_links" class="navba nav nav-pills py-2">
-		<!-- BEGIN faq_block -->
-			<li class="nav-item dropdown w-100<!-- IF not faq_block.S_LAST_ROW --> border-bottom<!-- ENDIF -->"><a class="nav-link text-wrap" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><i class="fa fa-caret-down" aria-hidden="true"></i> {faq_block.BLOCK_TITLE}</a>
-				<ul class="dropdown-menu dropdown-menu-start">
-				<!-- BEGIN faq_row -->
-					<li><a class="dropdown-item" href="#f{faq_block.S_ROW_COUNT}r{faq_block.faq_row.S_ROW_COUNT}">{faq_block.faq_row.FAQ_QUESTION}</a></li>
-				<!-- END faq_row -->
-				</ul>
-			</li>
-			<!-- END faq_block -->
-		</ul>
+			<ul id="faq_links" class="nav nav-pills py-3">
+			<!-- BEGIN faq_block -->
+				<li class="nav-item dropdown w-100<!-- IF not faq_block.S_LAST_ROW --> border-bottom<!-- ENDIF -->"><a class="nav-link dropdown-toggle text-wrap" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">{faq_block.BLOCK_TITLE}</a>
+					<ul class="dropdown-menu dropdown-menu-start mx-3">
+					<!-- BEGIN faq_row -->
+						<li><a class="dropdown-item" href="#f{faq_block.S_ROW_COUNT}r{faq_block.faq_row.S_ROW_COUNT}">{faq_block.faq_row.FAQ_QUESTION}</a></li>
+					<!-- END faq_row -->
+					</ul>
+				</li>
+				<!-- END faq_block -->
+			</ul>
 		</div>
-				
+	
 		<div class="col-lg-9 col-md-8 col-12 position-relative mb-3 px-1 px-md-3 overflow-auto" style="height: 450px;" data-bs-spy="scroll" data-bs-target="#faq_links" data-bs-offset="0" tabindex="0">
 		<!-- BEGIN faq_block -->
 			<h5 class="alert alert-primary my-3 p-2">{faq_block.BLOCK_TITLE}</h5>
@@ -29,6 +31,7 @@
 			<!-- END faq_row -->
 		<!-- END faq_block -->
 		</div>
+	
 	</div>
 </div>
 <!-- INCLUDE overall_footer.html -->
