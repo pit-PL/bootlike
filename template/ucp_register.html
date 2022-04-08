@@ -12,10 +12,8 @@
 	}
 </script>
 
-<div class="card mb-3 col-12 col-lg-10 offset-lg-1">
-
 {% if PROVIDER_TEMPLATE_FILE %}
-<div class="card mb-3">
+<div class="card mb-3 col-12 col-lg-10 offset-lg-1">
 	<div class="card-header">
 		{{ SITENAME }} - {{ lang('OAUTH_REGISTRATION') }}
 	</div>
@@ -27,6 +25,7 @@
 
 <form id="register" method="post" action="{S_UCP_ACTION}"{S_FORM_ENCTYPE}>
 
+<div class="card mb-3 col-12 col-lg-10 offset-lg-1">
 	<div class="card-header">
 		{SITENAME} - {L_REGISTRATION}
 	</div>
