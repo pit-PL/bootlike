@@ -1,22 +1,23 @@
 <!-- INCLUDE overall_header.html -->
 
+<div class="col-12 col-lg-10 offset-lg-1">
+
 <!-- IF S_SHOW_COPPA or S_REGISTRATION -->
 
 <!-- IF S_LANG_OPTIONS -->
-<script>
-	/**
-	* Change language
-	*/
-	function change_language(lang_iso)
-	{
-		document.cookie = '{COOKIE_NAME}_lang=' + lang_iso + '; path={COOKIE_PATH}';
-		document.forms['register'].change_lang.value = lang_iso;
-		document.forms['register'].submit();
-	}
+	<script>
+		/**
+		* Change language
+		*/
+		function change_language(lang_iso)
+		{
+			document.cookie = '{COOKIE_NAME}_lang=' + lang_iso + '; path={COOKIE_PATH}';
+			document.forms['register'].change_lang.value = lang_iso;
+			document.forms['register'].submit();
+		}
 
-</script>
+	</script>
 
-<div class="col-12<!-- IF S_SHOW_COPPA --> col-lg-8 offset-lg-2<!-- ELSE --> col-lg-10 offset-lg-1<!-- ENDIF -->">
 	<form method="post" action="{S_UCP_ACTION}" id="register">
 		<div class="d-flex justify-content-end mb-3">
 			<div class="input-group w-auto">
@@ -26,12 +27,10 @@
 			{S_HIDDEN_FIELDS}
 		</div>
 	</form>
-</div>
 
 <!-- ENDIF -->
 
-<form method="post" action="{S_UCP_ACTION}" id="agreement">
-	<div class="col-12<!-- IF S_SHOW_COPPA --> col-lg-8 offset-lg-2<!-- ELSE --> col-lg-10 offset-lg-1<!-- ENDIF -->">
+	<form method="post" action="{S_UCP_ACTION}" id="agreement">
 		<div class="card mb-3">
 			<div class="card-header">
 				{{ SITENAME }} - {{ lang('REGISTRATION') }}
@@ -63,12 +62,10 @@
 			{S_FORM_TOKEN}
 			</div>
 		</div>
-	</div>
-</form>
+	</form>
 
 <!-- ELSEIF S_AGREEMENT -->
 
-<div class="col-md-12 col-lg-10 offset-lg-1">
 	<div class="card mb-3">
 		<div class="card-header">
 			{{ SITENAME }} - {{ AGREEMENT_TITLE }}
@@ -77,8 +74,9 @@
 			{{ AGREEMENT_TEXT }}
 		</div>
 	</div>
-</div>
 
 <!-- ENDIF -->
+
+</div>
 
 <!-- INCLUDE overall_footer.html -->
