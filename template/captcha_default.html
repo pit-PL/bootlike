@@ -30,17 +30,13 @@
 </div>
 <!-- ELSE -->
 <dl class="row mb-2">
-	<dt class="col-lg-3 col-md-4 col-12"><label class="col-form-label" for="confirm_code">{L_CONFIRM_CODE}{L_COLON}</label></dt>
-	<dd class="col-lg-9 col-md-8 col-12 form-inline"><img src="{CONFIRM_IMAGE_LINK}" alt="{L_CONFIRM_CODE}" /></dd>
-</dl>
-<dl class="row mb-0">
-	<dt class="col-lg-3 col-md-4 col-12 d-none d-md-block">&nbsp;</dt>
-	<dd class="col-lg-9 col-md-8 col-12 w-auto">
-		<div class="input-group">
-			<input type="text" name="confirm_code" id="confirm_code" size="8" maxlength="8" tabindex="{$CAPTCHA_TAB_INDEX}" class="form-control" title="{L_CONFIRM_CODE}" />
-			<button class="btn btn-outline-info" type="button" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="{L_CONFIRM_CODE_EXPLAIN}"><i class="fa fa-info fa-fw" aria-hidden="true"></i></button>
-		</div>
-		<input type="hidden" name="confirm_id" id="confirm_id" value="{CONFIRM_ID}" />
+	<dt class="col-lg-3 col-md-4 col-12">
+		<label class="col-form-label" for="confirm_code">{L_CONFIRM_CODE}{L_COLON}</label>
+		<div class="small text-muted fw-normal mb-1">{L_CONFIRM_CODE_EXPLAIN}</div>
+	</dt>
+	<dd class="col-lg-9 col-md-8 col-12 form-inline">
+		<img class="me-2" src="{CONFIRM_IMAGE_LINK}" alt="{L_CONFIRM_CODE}" />
+		<input class="form-control mt-2 mt-lg-0" type="text" name="confirm_code" id="confirm_code" size="8" maxlength="8" tabindex="{$CAPTCHA_TAB_INDEX}" title="{L_CONFIRM_CODE}" />
 	</dd>
 </dl>
 <!-- ENDIF -->
