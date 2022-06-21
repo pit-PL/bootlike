@@ -58,13 +58,13 @@
 		<h3 class="page-title">{PAGE_TITLE}<!-- IF SEARCH_WORDS -->{L_COLON} <a href="{U_SEARCH_WORDS}">{SEARCH_WORDS}</a><!-- ENDIF --></h3>
 
 		<div class="card mb-3">
-			<div class="card-body p-1 bg1">
+			<div class="card-body p-0 bg1">
 				<div class="d-lg-flex">
 				<!-- IF U_FIND_MEMBER and not S_SEARCH_USER -->
-					<a class="btn btn-outline-secondary border-0 btn-sm" href="{U_FIND_MEMBER}">{L_FIND_USERNAME}</a><!-- ELSEIF S_SEARCH_USER and U_HIDE_FIND_MEMBER and not S_IN_SEARCH_POPUP --><a class="btn btn-outline-secondary border-0 btn-sm" href="{U_HIDE_FIND_MEMBER}">{L_HIDE_MEMBER_SEARCH}</a>
+					<a class="btn btn-outline-secondary border-0 btn-sm rounded-0" href="{U_FIND_MEMBER}">{L_FIND_USERNAME}</a><!-- ELSEIF S_SEARCH_USER and U_HIDE_FIND_MEMBER and not S_IN_SEARCH_POPUP --><a class="btn btn-outline-secondary border-0 btn-sm rounded-0" href="{U_HIDE_FIND_MEMBER}">{L_HIDE_MEMBER_SEARCH}</a>
 				<!-- ENDIF -->
 				<!-- BEGIN first_char -->
-					<a href="{first_char.U_SORT}" class="btn btn-outline-secondary border-0 btn-sm flex-fill">{first_char.DESC}</a>
+					<a href="{first_char.U_SORT}" class="btn btn-outline-secondary border-0 btn-sm rounded-0 flex-fill">{first_char.DESC}</a>
 				<!-- END first_char -->
 				</div>
 			</div>
