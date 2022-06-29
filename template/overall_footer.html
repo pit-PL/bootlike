@@ -38,7 +38,7 @@
 
 	<div>
 		<a id="bottom" class="d-block" accesskey="z"></a>
-		<!-- IF not S_IS_BOT -->{RUN_CRON_TASK}<!-- ENDIF -->
+		{% if not S_IS_BOT %}{{ RUN_CRON_TASK }}{% endif %}
 	</div>
 
 	<div id="darkenwrapper" class="darkenwrapper position-relative" data-ajax-error-title="{L_AJAX_ERROR_TITLE}" data-ajax-error-text="{L_AJAX_ERROR_TEXT}" data-ajax-error-text-abort="{L_AJAX_ERROR_TEXT_ABORT}" data-ajax-error-text-timeout="{L_AJAX_ERROR_TEXT_TIMEOUT}" data-ajax-error-text-parsererror="{L_AJAX_ERROR_TEXT_PARSERERROR}">
