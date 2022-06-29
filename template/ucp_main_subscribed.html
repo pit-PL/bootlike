@@ -32,9 +32,9 @@
 					</div>
 				
 					<div class="col-lg-3 col-md-4 d-none d-md-block">
-					<!-- IF forumrow.LAST_POST_TIME -->
+					<!-- IF forumrow.LAST_POST_TIME_RFC3339 -->
 						{L_POST_BY_AUTHOR} {forumrow.LAST_POST_AUTHOR_FULL}
-						<a class="float-end" href="{forumrow.U_LAST_POST}" title="{L_GOTO_LAST_POST}"><i class="fa fa-arrow-{S_CONTENT_FLOW_END} fs-2" aria-hidden="true"></i><span class="visually-hidden">{L_VIEW_LATEST_POST}</span></a><br>{forumrow.LAST_POST_TIME}
+						<a class="float-end" href="{forumrow.U_LAST_POST}" title="{L_GOTO_LAST_POST}"><i class="fa fa-arrow-{S_CONTENT_FLOW_END} fs-2" aria-hidden="true"></i><span class="visually-hidden">{L_VIEW_LATEST_POST}</span></a><br><time datetime="{forumrow.LAST_POST_TIME_RFC3339}">{forumrow.LAST_POST_TIME}</time>
 					<!-- ELSE -->
 						{L_NO_POSTS}
 					<!-- ENDIF -->
