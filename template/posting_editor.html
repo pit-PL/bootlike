@@ -161,18 +161,20 @@
 						<label class="form-check-label" for="lock_post">{L_LOCK_POST} [{L_LOCK_POST_EXPLAIN}]</label>
 					</div>
 					<!-- ENDIF -->
-					<!-- IF S_SOFTDELETE_ALLOWED -->
+				{% if S_SOFTDELETE_ALLOWED || S_DELETE_ALLOWED %}
+					{% if S_SOFTDELETE_ALLOWED %}
 					<div class="form-check form-switch">
 						<input class="form-check-input" type="checkbox" name="delete" id="delete" {S_SOFTDELETE_CHECKED} />
-						<label class="form-check-label" for="delete">{L_DELETE_POST_WARN}</label>
+						<label class="form-check-label" for="delete">{{ lang('DELETE_POST') }}</label>
 					</div>
-					<!-- ENDIF -->
-					<!-- IF S_DELETE_ALLOWED -->
+					{% endif %}
+					{% if S_DELETE_ALLOWED %}
 					<div class="form-check form-switch">
 						<input class="form-check-input" type="checkbox" name="delete_permanent" id="delete_permanent" />
-						<label class="form-check-label" for="delete_permanent">{L_DELETE_POST_PERMANENTLY}</label>
+						<label class="form-check-label" for="delete_permanent">{{ lang('DELETE_POST_PERMANENTLY') }}</label>
 					</div>
-					<!-- ENDIF -->
+					{% endif %}
+				{% endif %}
 				</div>
 
 				<div class="text-md-end">
@@ -183,7 +185,9 @@
 					{BBCODE_STATUS}<br>
 					<!-- IF S_BBCODE_ALLOWED -->
 						{IMG_STATUS}<br>
+						<!-- IF S_BBCODE_FLASH -->
 						{FLASH_STATUS}<br>
+						<!-- ENDIF -->
 						{URL_STATUS}<br>
 					<!-- ENDIF -->
 					{SMILIES_STATUS}
