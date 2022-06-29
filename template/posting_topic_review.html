@@ -13,13 +13,15 @@
 	<!-- IF topic_review_row.S_IGNORE_POST -->
 		<div class="card mb-3 post-ignore">
 			<div class="card-body p-2">
-				{topic_review_row.L_IGNORE_POST}
+				{topic_review_row.L_IGNORE_POST}<br>
+				<a class="display_post_review" href="{{ post_review_row.U_MINI_POST }}">{{ lang('POST_DISPLAY') }}</a>
 			</div>
 		</div>
 	<!-- ELSE IF topic_review_row.S_POST_DELETED -->
 		<div class="card mb-3 post-ignore">
 			<div class="card-body p-2">
-				{topic_review_row.L_DELETE_POST}
+				{topic_review_row.L_DELETE_POST}<br>
+				<a class="display_post_review" href="{{ post_review_row.U_MINI_POST }}">{{ lang('POST_DISPLAY') }}</a>
 			</div>
 		</div>
 	<!-- ELSE -->
