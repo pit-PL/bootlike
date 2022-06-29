@@ -16,10 +16,10 @@
 				<div class="timeline-postbody position-relative px-3 py-2 bg-white rounded shadow-sm">
 				<!-- IF postrow.S_POST_DELETED -->
 					{postrow.L_POST_DELETED_MESSAGE}<br>
-					{postrow.L_POST_DISPLAY}
+					<a class="display_post" data-post-id="{{ postrow.POST_ID }}" href="{{ postrow.U_MINI_POST_VIEW }}">{{ lang('POST_DISPLAY') }}</a>
 				<!-- ELSEIF postrow.S_IGNORE_POST -->
 					{postrow.L_IGNORE_POST}<br>
-					{postrow.L_POST_DISPLAY}
+					<a class="display_post" data-post-id="{{ postrow.POST_ID }}" href="{{ postrow.U_MINI_POST_VIEW }}">{{ lang('POST_DISPLAY') }}</a>
 				<!-- ENDIF -->
 				</div>
 			</div>
