@@ -10,24 +10,19 @@
 	</script>
 	<!-- BEGIN topic_review_row -->
 
-	<!-- IF topic_review_row.S_IGNORE_POST -->
-		<div class="card mb-3 post-ignore">
-			<div class="card-body p-2">
+		<div class="card mb-3<!-- IF topic_review_row.POST_ID == REPORTED_POST_ID --> border-warning<!-- ENDIF --><!-- IF topic_review_row.S_IGNORE_POST or topic_review_row.S_POST_DELETED --> border-dark post-ignore<!-- ENDIF -->">
+			<div class="card-body p-0">
+			<!-- IF topic_review_row.S_IGNORE_POST -->
+			<div class="px-3 py-2">
 				{topic_review_row.L_IGNORE_POST}<br>
 				<a class="display_post_review" href="{{ post_review_row.U_MINI_POST }}">{{ lang('POST_DISPLAY') }}</a>
 			</div>
-		</div>
-	<!-- ELSE IF topic_review_row.S_POST_DELETED -->
-		<div class="card mb-3 post-ignore">
-			<div class="card-body p-2">
+			<!-- ELSE IF topic_review_row.S_POST_DELETED -->
+			<div class="px-3 py-2">
 				{topic_review_row.L_DELETE_POST}<br>
 				<a class="display_post_review" href="{{ post_review_row.U_MINI_POST }}">{{ lang('POST_DISPLAY') }}</a>
 			</div>
-		</div>
-	<!-- ELSE -->
-
-		<div class="card mb-3<!-- IF topic_review_row.POST_ID == REPORTED_POST_ID --> border-warning<!-- ENDIF -->">
-			<div class="card-body p-0">
+			<!-- ENDIF -->
 
 				<div class="postbody bg1" id="pr{topic_review_row.POST_ID}">
 					<div class="postbody-before d-sm-flex px-3 py-1 border-bottom justify-content-between align-items-center bg2">
