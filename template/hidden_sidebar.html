@@ -5,22 +5,20 @@
 	</div>
 	<div class="offcanvas-body bg2">
 		<div class="mb-1 text-center fw-bold user-panel">{L_PROFILE}</div>
-		<ul class="list-group mb-3 rounded-0 shadow">
-			<!-- IF S_DISPLAY_PM -->
-			<li class="list-group-item p-0 text-center">
-				<a class="dropdown-item" href="{U_PRIVATEMSGS}" role="menuitem">
-				<!-- IF PRIVATE_MESSAGE_COUNT -->
-					<div class="spinner-grow spinner-grow-sm text-danger" role="status"><span class="visually-hidden">{L_UNREAD_MESSAGES}</span></div>
-				<!-- ELSE -->
-					<i class="fa fa-inbox fa-fw position-relative" aria-hidden="true"></i>
-				<!-- ENDIF -->
-					{L_PRIVATE_MESSAGES}
-				</a>
-			</li>
+		<div class="list-group mb-3 rounded-0 shadow">
+		<!-- IF S_DISPLAY_PM -->
+			<a class="list-group-item list-group-item-action text-center" href="{U_PRIVATEMSGS}" role="menuitem">
+			<!-- IF PRIVATE_MESSAGE_COUNT -->
+				<div class="spinner-grow spinner-grow-sm text-danger" role="status"><span class="visually-hidden">{L_UNREAD_MESSAGES}</span></div>
+			<!-- ELSE -->
+				<i class="fa fa-inbox fa-fw position-relative" aria-hidden="true"></i>
 			<!-- ENDIF -->
+				{L_PRIVATE_MESSAGES}
+			</a>
+		<!-- ENDIF -->
 
-			<li class="list-group-item p-0">
-				<div class="row m-0 align-items-center">
+			<div class="list-group-item list-group-item-action disabled p-0">
+				<div class="row m-0 align-items-center bg2">
 					<!-- IF CURRENT_USER_AVATAR -->
 					<div class="col-4 justify-content-center my-1 px-2 py-1 d-none d-md-flex">
 						{CURRENT_USER_AVATAR}
@@ -50,11 +48,11 @@
 					<!-- ENDIF -->
 					</div>
 				</div>
-			</li>
-			<li class="list-group-item p-0 text-center">
-				<a class="dropdown-item" href="{U_LOGIN_LOGOUT}" accesskey="x" role="menuitem"><i class="fa fa-power-off fa-fw" aria-hidden="true"></i> {L_LOGIN_LOGOUT}</a>
-			</li>
-		</ul>
+			</div>
+
+			<a class="list-group-item list-group-item-action text-center" href="{U_LOGIN_LOGOUT}" accesskey="x" role="menuitem"><i class="fa fa-power-off fa-fw" aria-hidden="true"></i> {L_LOGIN_LOGOUT}</a>
+
+		</div>
 
 		<div class="mb-1 text-center fw-bold">{L_NOTIFICATIONS}</div>
 		<!-- INCLUDE notification_dropdown.html -->
