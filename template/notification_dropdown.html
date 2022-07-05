@@ -1,15 +1,15 @@
 <ul id="notification_list" class="list-group mb-3 rounded-0 shadow">
-	<li class="list-group-item list-group-item-action text-center"><a href="{U_NOTIFICATION_SETTINGS}" class="dropdown-item">{L_SETTINGS}</a></li>
+	<li class="list-group-item list-group-item-action p-0 text-center"><a href="{U_NOTIFICATION_SETTINGS}" class="dropdown-item p-2">{L_SETTINGS}</a></li>
 	<!-- IF not .notifications -->
-	<li class="list-group-item list-group-item-action notification-text text-center p-2">{L_NO_NOTIFICATIONS}</li>
+	<li class="list-group-item notification-text text-center p-2">{L_NO_NOTIFICATIONS}</li>
 	<!-- ENDIF -->
 
 	<!-- BEGIN notifications -->
-	<li class="list-group-item p-0 dropdown notification-block<!-- IF notifications.UNREAD --> bg-info<!-- ENDIF -->">
+	<li class="list-group-item p-2 dropdown notification-block<!-- IF notifications.UNREAD --> bg-info<!-- ENDIF -->">
 		<!-- IF notifications.URL -->
-		<a class="dropdown-item px-1" href="<!-- IF notifications.UNREAD -->{notifications.U_MARK_READ}" data-real-url="{notifications.URL}<!-- ELSE -->{notifications.URL}<!-- ENDIF -->">
+		<a class="dropdown-item" href="<!-- IF notifications.UNREAD -->{notifications.U_MARK_READ}" data-real-url="{notifications.URL}<!-- ELSE -->{notifications.URL}<!-- ENDIF -->">
 		<!-- ENDIF -->
-		<div class="row px-2 align-items-center">
+		<div class="row align-items-center">
 			<div class="col-md-3 pe-0 justify-content-center d-none d-md-flex">
 				<!-- IF notifications.AVATAR -->{notifications.AVATAR}<!-- ELSE --><img src="{ROOT_PATH}styles/bootlike/theme/images/no_avatar.gif" class="img-thumbnail" alt="{L_IMAGE}" /><!-- ENDIF -->
 			</div>
@@ -30,8 +30,8 @@
 	</li>
 	<!-- END notifications -->
 
-	<li class="list-group-item list-group-item-action text-center"><a class="dropdown-item" href="{U_VIEW_ALL_NOTIFICATIONS}">{L_SEE_ALL}</a></li>
+	<li class="list-group-item list-group-item-action p-0 text-center"><a class="dropdown-item p-2" href="{U_VIEW_ALL_NOTIFICATIONS}">{L_SEE_ALL}</a></li>
 	<!-- IF NOTIFICATIONS_COUNT -->
-	<li id="mark_all_notifications" class="list-group-item list-group-item-action text-center"><a class="dropdown-item bg-info text-dark" href="{U_MARK_ALL_NOTIFICATIONS}" data-ajax="notification.mark_all_read"><i class="fa fa-check fa-fw" aria-hidden="true"></i> {L_MARK_ALL_READ}</a></li>
+	<li id="mark_all_notifications" class="list-group-item list-group-item-action p-0 text-center"><a class="dropdown-item p-2 bg-info text-dark" href="{U_MARK_ALL_NOTIFICATIONS}" data-ajax="notification.mark_all_read"><i class="fa fa-check fa-fw" aria-hidden="true"></i> {L_MARK_ALL_READ}</a></li>
 	<!-- ENDIF -->
 </ul>
