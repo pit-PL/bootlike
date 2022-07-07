@@ -2,6 +2,7 @@
 
 <form action="{S_LOGIN_ACTION}" method="post" id="login" data-focus="<!-- IF S_ADMIN_AUTH -->{PASSWORD_CREDENTIAL}<!-- ELSE -->{USERNAME_CREDENTIAL}<!-- ENDIF -->">
 
+<div class="row">
 	<div class="col-12 col-lg-10 offset-lg-1 mb-3">
 		<div class="card">
 			<div class="card-header<!-- IF not S_ADMIN_AUTH and S_REGISTER_ENABLED --> text-center<!-- ENDIF -->">
@@ -98,6 +99,7 @@
 			</div>
 		</div>
 	</div>
+</div>
 
 </form>
 
