@@ -40,7 +40,8 @@
 
 		<div class="btn-group action-bar" role="group">
 		<!-- IF S_SHOW_COLOUR_LEGEND -->
-			<a class="btn tabs dropdown-toggle" href="#" title="{L_MESSAGE_COLOURS}" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-paint-brush fa-fw d-md-none" aria-hidden="true"></i><span class="d-none d-md-inline" title="">{L_MESSAGE_COLOURS}</span></a>
+		<div>
+			<a class="btn tabs dropdown-toggle rounded-0" href="#" title="{L_MESSAGE_COLOURS}" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-paint-brush fa-fw d-md-none" aria-hidden="true"></i><span class="d-none d-md-inline" title="">{L_MESSAGE_COLOURS}</span></a>
 
 			<ul class="dropdown-menu dropdown-menu-end px-2">
 			<!-- BEGIN pm_colour_info -->
@@ -49,25 +50,30 @@
 				</li>
 			<!-- END pm_colour_info -->
 			</ul>
+		</div>
 		<!-- ENDIF -->
 
 		<!-- IF .friends_online -->
-			<a class="btn tabs dropdown-toggle" href="#" title="{L_FRIENDS} {L_FRIENDS_ONLINE}" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-user-plus fa-fw d-md-none" aria-hidden="true"></i><span class="d-none d-md-inline" title="">{L_FRIENDS} {L_FRIENDS_ONLINE}</span></a>
+		<div>
+			<a class="btn tabs dropdown-toggle rounded-0" href="#" title="{L_FRIENDS} {L_FRIENDS_ONLINE}" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-user-plus fa-fw d-md-none" aria-hidden="true"></i><span class="d-none d-md-inline" title="">{L_FRIENDS} {L_FRIENDS_ONLINE}</span></a>
 
 			<ul class="dropdown-menu dropdown-menu-end px-2">
 			<!-- BEGIN friends_online -->
 				<li class="list-group-item text-nowrap d-flex align-items-center justify-content-lg-between">{% EVENT ucp_header_friends_online_username_full_prepend %} {friends_online.USERNAME_FULL} {% EVENT ucp_header_friends_online_username_full_append %}<!-- IF S_SHOW_PM_BOX --><button class="btn btn-success btn-sm ms-2" type="submit" name="add_to[{friends_online.USER_ID}]" value="{L_ADD}" title="{L_ADD}"><i class="fa fa-plus fa-fw" aria-hidden="true"></i></button><!-- ENDIF --></li>
 			<!-- END friends_online -->
 			</ul>
+		</div>
 		<!-- ENDIF -->
 		<!-- IF .friends_offline -->
-			<a class="btn tabs dropdown-toggle" href="#" title="{L_FRIENDS} {L_FRIENDS_OFFLINE}" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-user-times fa-fw d-md-none" aria-hidden="true"></i><span class="d-none d-md-inline" title="">{L_FRIENDS} {L_FRIENDS_OFFLINE}</span></a>
+		<div>
+			<a class="btn tabs dropdown-toggle rounded-0" href="#" title="{L_FRIENDS} {L_FRIENDS_OFFLINE}" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-user-times fa-fw d-md-none" aria-hidden="true"></i><span class="d-none d-md-inline" title="">{L_FRIENDS} {L_FRIENDS_OFFLINE}</span></a>
 
 			<ul class="dropdown-menu dropdown-menu-end px-2">
 			<!-- BEGIN friends_offline -->
 				<li class="list-group-item text-nowrap d-flex align-items-center justify-content-lg-between">{% EVENT ucp_header_friends_offline_username_full_prepend %} {friends_offline.USERNAME_FULL} {% EVENT ucp_header_friends_offline_username_full_append %}<!-- IF S_SHOW_PM_BOX --><button class="btn btn-success btn-sm ms-2" type="submit" name="add_to[{friends_offline.USER_ID}]" value="{L_ADD}" title="{L_ADD}"><i class="fa fa-plus fa-fw" aria-hidden="true"></i></button><!-- ENDIF --></li>
 			<!-- END friends_offline -->
 			</ul>
+		</div>
 		<!-- ENDIF -->
 		</div>
 
