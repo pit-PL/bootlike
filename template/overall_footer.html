@@ -45,19 +45,25 @@
 		<div id="darken" class="darken position-fixed start-0 top-0 w-100 h-100 bg-dark">&nbsp;</div>
 	</div>
 
-	<div id="phpbb_alert" class="phpbb_alert position-fixed start-0 end-0 mx-auto" data-l-err="{L_ERROR}" data-l-timeout-processing-req="{L_TIMEOUT_PROCESSING_REQ}">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="alert_title modal-title">&nbsp;</h5>
-				<a href="#" class="alert_close btn-close float-end" title="{L_CLOSE_WINDOW}"><span class="text-danger" aria-hidden="true"></span></a>
-			</div>
-			<div class="modal-body">
-				<p class="alert_text"></p>
+	<div id="phpbb_alert" class="phpbb_alert modal" tabindex="-1" data-l-err="{L_ERROR}" data-l-timeout-processing-req="{L_TIMEOUT_PROCESSING_REQ}">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="alert_title modal-title">&nbsp;</h5>
+					<button type="button" class="alert_close btn-close" title="{L_CLOSE_WINDOW}" data-bs-dismiss="modal" aria-label="{L_CLOSE_WINDOW}"></button>
+				</div>
+				<div class="modal-body">
+					<p class="alert_text"></p>
+				</div>
 			</div>
 		</div>
 	</div>
-	<div id="phpbb_confirm" class="phpbb_alert position-fixed start-0 end-0 mx-auto">
-		<div class="alert_text"></div>
+	<div id="phpbb_confirm" class="phpbb_alert modal" tabindex="-1">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="alert_text "></div>
+			</div>
+		</div>
 	</div>
 
 <!-- IF not $LOGIN_POPUP_OFF -->
