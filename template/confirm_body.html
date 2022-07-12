@@ -1,18 +1,14 @@
 <!-- IF S_AJAX_REQUEST -->
 <form action="{S_CONFIRM_ACTION}" method="post">
-	<div class="modal-dialog" role="document">
-		<div class="modal-content">
-			<div class="modal-header bg-warning alert_title">
-				<h5>{MESSAGE_TITLE}</h5>
-				<a href="#" class="alert_close btn-close float-end" title="{L_CLOSE_WINDOW}"><span class="text-danger" aria-hidden="true"></span></a>
-			</div>
-			<div class="modal-body">
-				<p>{MESSAGE_TEXT}</p>
-			</div>
-			<div class="modal-footer">
-				<input class="btn btn-success w-100" type="button" name="confirm" value="{L_YES}" />
-			</div>
-		</div>
+	<div class="modal-header bg-warning alert_title">
+		<h5>{MESSAGE_TITLE}</h5>
+		<button type="button" class="alert_close btn-close" title="{L_CLOSE_WINDOW}" data-bs-dismiss="modal" aria-label="{L_CLOSE_WINDOW}"></button>
+	</div>
+	<div class="modal-body">
+		<p>{MESSAGE_TEXT}</p>
+	</div>
+	<div class="modal-footer">
+		<input class="btn btn-success w-100" type="button" name="confirm" value="{L_YES}" />
 	</div>
 </form>
 
