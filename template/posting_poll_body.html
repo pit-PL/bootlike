@@ -40,7 +40,7 @@
 
 			<div class="d-md-flex justify-content-md-between">
 				<div class="me-md-2">
-					<label class="d-block mb-2" for="poll_max_options"><strong>{L_POLL_MAX_OPTIONS}{L_COLON}</strong></label>
+					<label class="col-form-label" for="poll_max_options"><strong>{L_POLL_MAX_OPTIONS}{L_COLON}</strong></label>
 					<div class="input-group">
 						<input class="form-control" type="number" min="0" max="999" name="poll_max_options" id="poll_max_options" value="{POLL_MAX_OPTIONS}" />
 						<button class="btn btn-outline-info" type="button" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="{L_POLL_MAX_OPTIONS_EXPLAIN}"><i class="fa fa-info fa-fw" aria-hidden="true"></i></button>
@@ -48,7 +48,7 @@
 				</div>
 
 				<div class="mt-2 mt-md-0 me-md-2">
-					<label class="d-block mb-2" for="poll_length"><strong>{L_POLL_FOR}{L_COLON}</strong></label>
+					<label class="col-form-label" for="poll_length"><strong>{L_POLL_FOR}{L_COLON}</strong></label>
 					<div class="input-group">
 						<input class="form-control" type="number" min="0" max="999" name="poll_length" id="poll_length" value="{POLL_LENGTH}" />
 						<span class="input-group-text">{L_DAYS}</span>
@@ -58,12 +58,12 @@
 
 			<!-- IF S_POLL_VOTE_CHANGE -->
 				<div class="mt-2 mt-md-0">
-					<label class="d-block mb-2" for="poll_vote_change"><strong>{L_POLL_VOTE_CHANGE}{L_COLON}</strong></label>
+					<label class="col-form-label" for="poll_vote_change"><strong>{L_POLL_VOTE_CHANGE}{L_COLON}</strong></label>
 					<div class="input-group flex-nowrap">
 						<div class="input-group-text border-primary border-end-0">
 							<input class="form-check-input mt-0" type="checkbox" id="poll_vote_change" name="poll_vote_change"{VOTE_CHANGE_CHECKED} />
 						</div>
-						<label class="btn btn-outline-primary text-nowrap" for="poll_vote_change">{L_POLL_VOTE_CHANGE_EXPLAIN}</label>
+						<label class="btn btn-outline-primary w-100 text-nowrap" for="poll_vote_change">{L_POLL_VOTE_CHANGE_EXPLAIN}</label>
 					</div>
 				</div>
 			<!-- ENDIF -->
