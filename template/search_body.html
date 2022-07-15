@@ -31,35 +31,23 @@
 
 		<div class="row pt-2">
 			<div class="col-12 col-md-6">
-				<label class="col-form-label"><strong>{L_SEARCH_OPTIONS}</strong></label>
-				<div class="input-group">
-					<div class="input-group-text border-primary border-end-0">
-						<input class="form-check-input mt-0" type="radio" name="terms" id="terms1" value="all" checked="checked" />
-					</div>
-					<label class="btn btn-outline-primary" for="terms1">{L_SEARCH_ALL_TERMS}</label>
-				</div>
-				<div class="input-group mt-2">
-					<div class="input-group-text border-primary border-end-0">
-						<input class="form-check-input mt-0" type="radio" name="terms" id="terms2" value="any" />
-					</div>
-					<label class="btn btn-outline-primary" for="terms2">{L_SEARCH_ANY_TERMS}</label>
-				</div>
+				<label class="col-form-label d-block pb-0"><strong>{L_SEARCH_OPTIONS}</strong></label>
+
+				<input class="btn-check" type="radio" name="terms" id="terms1" value="all" checked="checked">
+				<label class="btn btn-outline-primary mt-2" for="terms1">{L_SEARCH_ALL_TERMS}</label>
+
+				<input class="btn-check" type="radio" name="terms" id="terms2" value="any">
+				<label class="btn btn-outline-primary mt-2" for="terms2">{L_SEARCH_ANY_TERMS}</label>
 			</div>
 
 			<div class="col-12 col-md-6 mt-2 mt-md-0">
-				<label class="col-form-label d-block pt-0" for="show_results1"><strong>{L_DISPLAY_RESULTS}</strong></label>
-				<div class="input-group">
-					<div class="input-group-text border-primary border-end-0">
-						<input class="form-check-input mt-0" type="radio" name="sr" id="show_results1" value="posts" checked="checked" />
-					</div>
-					<label class="btn btn-outline-primary" for="show_results1">{L_POSTS}</label>
-				</div>
-				<div class="input-group mt-2">
-					<div class="input-group-text border-primary border-end-0">
-						<input class="form-check-input mt-0" type="radio" name="sr" id="show_results2" value="topics" />
-					</div>
-					<label class="btn btn-outline-primary" for="show_results2">{L_TOPICS}</label>
-				</div>
+				<label class="col-form-label d-block pb-0" for="show_results1"><strong>{L_DISPLAY_RESULTS}</strong></label>
+
+				<input class="btn-check" type="radio" name="sr" id="show_results1" value="posts" checked="checked" />
+				<label class="btn btn-outline-primary mt-2" for="show_results1">{L_POSTS}</label>
+
+				<input class="btn-check" type="radio" name="sr" id="show_results2" value="topics" />
+				<label class="btn btn-outline-primary mt-2" for="show_results2">{L_TOPICS}</label>
 			</div>
 		</div>
 		<!-- EVENT search_body_search_query_append -->
@@ -76,52 +64,39 @@
 			</div>
 
 			<div class="col-12 col-md-6 mt-2 mt-md-0">
-				<label class="col-form-label d-block pt-0" for="sf1"><strong>{L_SEARCH_WITHIN}</strong></label>
-				<div class="input-group">
-					<div class="input-group-text border-primary border-end-0">
-						<input class="form-check-input mt-0" type="radio" name="sf" id="sf1" value="all" checked="checked" />
-					</div>
-					<label class="btn btn-outline-primary" for="sf1">{L_SEARCH_TITLE_MSG}</label>
-				</div>
-				<div class="input-group my-2">
-					<div class="input-group-text border-primary border-end-0">
-						<input class="form-check-input mt-0" type="radio" name="sf" id="sf2" value="msgonly" />
-					</div>
-					<label class="btn btn-outline-primary" for="sf2">{L_SEARCH_MSG_ONLY}</label>
-				</div>
-				<div class="input-group">
-					<div class="input-group-text border-primary border-end-0">
-						<input class="form-check-input mt-0" type="radio" name="sf" id="sf3" value="titleonly" />
-					</div>
-					<label class="btn btn-outline-primary" for="sf3">{L_SEARCH_TITLE_ONLY}</label>
-				</div>
-				<div class="input-group mt-2">
-					<div class="input-group-text border-primary border-end-0">
-						<input class="form-check-input mt-0" type="radio" name="sf" id="sf4" value="firstpost" />
-					</div>
-					<label class="btn btn-outline-primary" for="sf4">{L_SEARCH_FIRST_POST}</label>
+				<label class="col-form-label d-block py-0" for="sf1"><strong>{L_SEARCH_WITHIN}</strong></label>
+
+				<div>
+					<input class="btn-check" type="radio" name="sf" id="sf1" value="all" checked="checked" />
+					<label class="btn btn-outline-primary mt-2" for="sf1">{L_SEARCH_TITLE_MSG}</label>
+
+					<input class="btn-check" type="radio" name="sf" id="sf2" value="msgonly" />
+					<label class="btn btn-outline-primary mt-2" for="sf2">{L_SEARCH_MSG_ONLY}</label>
 				</div>
 
-				<label class="col-form-label d-block pt-0 mt-3" for="sd"><strong>{L_RESULT_SORT}</strong></label>
-				<div class="clearfix">
-					<div class="float-md-start mb-1 me-md-2">
+				<div>
+					<input class="btn-check" type="radio" name="sf" id="sf3" value="titleonly" />
+					<label class="btn btn-outline-primary mt-2" for="sf3">{L_SEARCH_TITLE_ONLY}</label>
+
+					<input class="btn-check" type="radio" name="sf" id="sf4" value="firstpost" />
+					<label class="btn btn-outline-primary mt-2" for="sf4">{L_SEARCH_FIRST_POST}</label>
+				</div>
+
+				<label class="col-form-label d-block mt-2" for="sd"><strong>{L_RESULT_SORT}</strong></label>
+
+				<div class="row gy-2 gx-1 align-items-center">
+					<div class="col-auto">
 						{S_SELECT_SORT_KEY}
 					</div>
-					<div class="float-md-start mb-1 me-md-2">
-						<div class="input-group">
-							<div class="input-group-text border-primary border-end-0">
-								<input class="form-check-input mt-0" type="radio" name="sd" id="sa" value="a" />
-							</div>
-							<label class="btn btn-outline-primary" for="sa">{L_SORT_ASCENDING}</label>
-						</div>
+
+					<div class="col-auto">
+						<input class="btn-check" type="radio" name="sd" id="sa" value="a" />
+						<label class="btn btn-outline-primary" for="sa">{L_SORT_ASCENDING}</label>
 					</div>
-					<div class="float-md-start">
-						<div class="input-group">
-							<div class="input-group-text border-primary border-end-0">
-								<input class="form-check-input mt-0" type="radio" name="sd" id="sd" value="d" checked="checked" />
-							</div>
-							<label class="btn btn-outline-primary" for="sd">{L_SORT_DESCENDING}</label>
-						</div>
+
+					<div class="col-auto">
+						<input class="btn-check" type="radio" name="sd" id="sd" value="d" checked="checked" />
+						<label class="btn btn-outline-primary" for="sd">{L_SORT_DESCENDING}</label>
 					</div>
 				</div>
 			</div>
@@ -134,23 +109,16 @@
 		<div class="row">
 			<div class="col-12 col-md-3">
 				<label class="col-form-label d-block pt-0" for="search_child1"><strong>{L_SEARCH_SUBFORUMS}</strong></label>
-				<div class="clearfix">
-					<div class="float-start me-2 mb-1">
-						<div class="input-group">
-							<div class="input-group-text border-primary border-end-0">
-								<input class="form-check-input mt-0" type="radio" name="sc" id="search_child1" value="1" checked="checked" />
-							</div>
-							<label class="btn btn-outline-primary" for="search_child1">{L_YES}</label>
-						</div>
+
+				<div class="row gy-2 gx-1 align-items-center">
+					<div class="col-auto">
+						<input class="btn-check" type="radio" name="sc" id="search_child1" value="1" checked="checked" />
+						<label class="btn btn-outline-primary" for="search_child1">{L_YES}</label>
 					</div>
 
-					<div class="float-start">
-						<div class="input-group">
-							<div class="input-group-text border-primary border-end-0">
-								<input class="form-check-input mt-0" type="radio" name="sc" id="search_child2" value="0" />
-							</div>
-							<label class="btn btn-outline-primary" for="search_child2">{L_NO}</label>
-						</div>
+					<div class="col-auto">
+						<input class="btn-check" type="radio" name="sc" id="search_child2" value="0" />
+						<label class="btn btn-outline-primary" for="search_child2">{L_NO}</label>
 					</div>
 				</div>
 			</div>
