@@ -21,6 +21,7 @@ img {
 }
 
 .fancyhr {
+	border: 0;
 	height: 2px;
 	text-align: center;
 	background: linear-gradient(to right, #ccc, #555, #ccc);
