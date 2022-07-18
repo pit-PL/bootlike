@@ -68,16 +68,16 @@
 		
 		<!-- IF S_REGISTERED_USER -->
 			<!-- IF S_NOTIFICATIONS_DISPLAY and NOTIFICATIONS_COUNT -->
-			<li class="nav-item ms-2 ms-lg-0" title="{L_NEW_MESSAGE}">
-				<a class="nav-link ps-3 disabled">
+			<li class="nav-item" title="{L_NEW_MESSAGE}">
+				<a class="nav-link ps-4 disabled">
 					<i class="fa fa-bell fa-fw position-relative" aria-hidden="true"><strong class="position-absolute top-0 start-0 translate-middle badge rounded-pill bg-danger<!-- IF not NOTIFICATIONS_COUNT --> d-none<!-- ENDIF -->">{NOTIFICATIONS_COUNT}</strong><span class="visually-hidden">{NOTIFICATIONS_COUNT}</span></i>
 				</a>
 			</li>
 			<!-- ENDIF -->
 	
 			<!-- IF S_DISPLAY_PM and PRIVATE_MESSAGE_COUNT -->
-			<li class="nav-item ms-2 ms-lg-0" title="{L_BUTTON_PM_NEW}">
-				<a class="nav-link ps-3 disabled">
+			<li class="nav-item" title="{L_BUTTON_PM_NEW}">
+				<a class="nav-link ps-4 disabled">
 					<i class="fa fa-inbox fa-fw position-relative" aria-hidden="true"><strong class="position-absolute top-0 start-0 translate-middle badge rounded-pill bg-danger<!-- IF not PRIVATE_MESSAGE_COUNT --> d-none<!-- ENDIF -->">{PRIVATE_MESSAGE_COUNT}</strong><span class="visually-hidden">{L_UNREAD_MESSAGES}</span></i>
 				</a>
 			</li>
