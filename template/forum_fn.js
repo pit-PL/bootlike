@@ -919,18 +919,6 @@ function parseDocument($container) {
 	});
 }
 
-// I just copied this code from ComBoot Free by Florian Gareis
-$('.btn-radio-group .btn-radio').click(function() {
-	$(this).parents('.btn-radio-group').find('.btn-radio.active').removeClass('active');
-	$(this).addClass('active');
-	return true;
-});
-
-$('.btn-radio-group .btn-radio input:checked').each(function() {
-	$(this).parents('.btn-radio-group').find('.btn-radio.active').removeClass('active');
-	$(this).parent().addClass('active');
-});
-
 /**
 * Run onload functions
 */
