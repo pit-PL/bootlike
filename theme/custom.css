@@ -92,6 +92,10 @@ img {
 	height: auto;
 }
 
+#format-buttons .btn, .action-bar .btn {
+	border: 0;
+}
+
 .action-bar strong {
 	font-weight: normal;
 }
