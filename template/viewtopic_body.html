@@ -257,15 +257,15 @@
 <!-- BEGIN postrow -->
 	<div id="modal_post_{postrow.POST_ID}" class="modal fade" tabindex="-1" role="dialog">
 		<div class="modal-dialog modal-dialog-centered" role="document">
-			<div class="modal-content modal-dialog-scrollable bg1">
+			<div class="modal-content modal-dialog-scrollable">
 				<div class="modal-header">
 					<h5 class="modal-title">{L_READ_PROFILE} - {postrow.POST_AUTHOR}</h5>
 					<button type="button" class="btn-close" title="{L_CLOSE_WINDOW}" data-bs-dismiss="modal" aria-label="{L_CLOSE_WINDOW}"></button>
 				</div>
 
-				<div class="modal-body p-0 rounded-bottom">
-					<div class="row m-0 align-items-center bg1">
-						<div class="col-4 d-none d-md-block px-3 py-2 text-center">
+				<div class="modal-body py-2 bg1">
+					<div class="row align-items-center">
+						<div class="col-4 d-none d-md-block text-center">
 						<!-- EVENT viewtopic_body_avatar_before -->
 						<!-- IF postrow.POSTER_AVATAR -->
 							{postrow.POSTER_AVATAR}<!-- ELSE --><img class="img-thumbnail rounded-circle" src="{ROOT_PATH}styles/bootlike/theme/images/no_avatar.gif" alt="{L_IMAGE}" />
@@ -318,7 +318,7 @@
 				  </div>
 				</div>
 			<!-- ENDIF -->
-
+				
 			<!-- IF .postrow.contact -->
 				<div class="modal-footer py-2 justify-content-center">
 				<!-- EVENT viewtopic_body_contact_fields_before -->
