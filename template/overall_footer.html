@@ -9,27 +9,27 @@
 
 	<div id="page-footer" class="page-footer mb-3 px-3 d-md-flex justify-content-md-between" role="contentinfo">
 		<div>
-		<p class="m-0">{{ CREDIT_LINE }}</p>
-		<p class="m-0" role="menu"><a href="{{ U_PRIVACY }}" title="{{ lang('PRIVACY_LINK') }}" role="menuitem">{{ lang('PRIVACY_LINK') }}</a> | <a href="{{ U_TERMS_USE }}" title="{{ lang('TERMS_LINK') }}" role="menuitem">{{ lang('TERMS_LINK') }}</a></p>
+		<p class="mb-0">{{ CREDIT_LINE }}</p>
+		<p class="mb-0" role="menu"><a href="{{ U_PRIVACY }}" role="menuitem">{{ lang('PRIVACY') }}</a> | <a href="{{ U_TERMS_USE }}" role="menuitem">{{ lang('TERMS_USE') }}</a></p>
 		<!-- IF TRANSLATION_INFO -->
-		<p class="m-0">{{ TRANSLATION_INFO }}</p>
+		<p class="mb-0">{{ TRANSLATION_INFO }}</p>
 		<!-- ENDIF -->
 		<!-- EVENT overall_footer_copyright_append -->
 		<!-- IF U_ACP -->
-		<p class="m-0"><strong><a href="{{ U_ACP }}">{{ lang('ACP') }}</a></strong></p>
+		<p class="mb-0"><strong><a href="{{ U_ACP }}">{{ lang('ACP') }}</a></strong></p>
 		<!-- ENDIF -->
 		</div>
 
 		<div class="mt-2 mt-md-0 text-md-end">
 		<!-- IF S_USER_LOGGED_IN -->
-		<p class="m-0">{CURRENT_TIME}</p>
-		<p class="m-0">{LAST_VISIT_DATE}</p>
+		<p class="mb-0">{CURRENT_TIME}</p>
+		<p class="mb-0">{LAST_VISIT_DATE}</p>
 		<!-- ENDIF -->
 		<!-- EVENT overall_footer_timezone_before -->
-		<p class="m-0">{S_TIMEZONE}</p>
+		<p class="mb-0">{S_TIMEZONE}</p>
 		<!-- EVENT overall_footer_timezone_after -->
 		<!-- IF DEBUG_OUTPUT -->
-		<p class="m-0">{{ DEBUG_OUTPUT }}</p>
+		<p class="mb-0">{{ DEBUG_OUTPUT }}</p>
 		<!-- ENDIF -->
 		</div>
 	</div>
