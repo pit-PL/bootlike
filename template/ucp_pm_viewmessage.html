@@ -239,8 +239,8 @@
 					<!-- BEGIN contact -->
 					{% EVENT viewtopic_body_contact_icon_prepend %}
 					<a class="text-decoration-none" href="<!-- IF contact.U_CONTACT -->{contact.U_CONTACT}<!-- ELSE -->{postrow.U_POST_AUTHOR}<!-- ENDIF -->"<!-- IF contact.ID eq 'jabber' --> onclick="popup(this.href, 750, 320); return false;"<!-- ENDIF --> title="{contact.NAME}">
-						<div class="p-1 rounded-circle alert-primary shadow-sm">
-							<div class="contact-button d-flex align-items-center justify-content-center rounded-circle border border-4 border-white fs-5 alert-primary" style="width: 48px; height: 48px;">
+						<div class="p-1 rounded-circle alert alert-primary mb-0 shadow-sm">
+							<div class="contact-button d-flex align-items-center justify-content-center rounded-circle border border-4 border-white fs-5 alert alert-primary mb-0" style="width: 48px; height: 48px;">
 								<i class="fa fa-<!-- IF contact.ID eq 'pm' -->user<!-- ELSEIF contact.ID eq 'email' -->envelope<!-- ELSEIF contact.ID eq 'phpbb_website' -->globe<!-- ELSEIF contact.ID eq 'icon_contact_jabber' -->lightbulb-o<!-- ELSEIF contact.ID eq 'phpbb_yahoo' -->yahoo<!-- ELSEIF contact.ID eq 'phpbb_facebook' -->facebook<!-- ELSEIF contact.ID eq 'phpbb_twitter' -->twitter<!-- ELSEIF contact.ID eq 'phpbb_skype' -->skype<!-- ELSEIF contact.ID eq 'phpbb_youtube' -->youtube<!-- ELSEIF contact.ID eq 'phpbb_googleplus' -->google-plus<!-- ELSEIF contact.ID eq 'phpbb_icq' -->asterisk<!-- ELSE -->comments<!-- ENDIF --> fa-fw"></i>
 							</div>
 						</div>
