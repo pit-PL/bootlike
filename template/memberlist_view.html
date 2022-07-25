@@ -241,7 +241,7 @@
 				<div class="modal-footer py-1 justify-content-center">
 				<!-- EVENT memberlist_view_contact_before -->
 				<!-- IF U_EMAIL -->
-					<a class="contact-button my-2 text-decoration-none" href="{U_EMAIL}" title="{L_SEND_EMAIL_USER}">
+					<a class="contact-button my-1 text-decoration-none" href="{U_EMAIL}" title="{L_SEND_EMAIL_USER}">
 						<div class="p-1 rounded-circle alert alert-primary mb-0 shadow-sm">
 							<div class="alert alert-primary mb-0 d-flex align-items-center justify-content-center rounded-circle border border-4 border-white fs-5" style="width: 48px; height: 48px;">
 								<i class="fa fa-envelope-o fa-fw" aria-hidden="true"></i>
@@ -250,7 +250,7 @@
 					</a>
 				<!-- ENDIF -->
 				<!-- IF U_PM -->
-					<a class="contact-button my-2 text-decoration-none" href="{U_PM}" title="{L_SEND_PRIVATE_MESSAGE}">
+					<a class="contact-button my-1 text-decoration-none" href="{U_PM}" title="{L_SEND_PRIVATE_MESSAGE}">
 						<div class="p-1 rounded-circle alert alert-primary mb-0 shadow-sm">
 							<div class="alert alert-primary mb-0 d-flex align-items-center justify-content-center rounded-circle border border-4 border-white fs-5" style="width: 48px; height: 48px;">
 								<i class="fa fa-user fa-fw" aria-hidden="true"></i>
@@ -259,7 +259,7 @@
 					</a>
 				<!-- ENDIF -->
 				<!-- IF U_JABBER and S_JABBER_ENABLED -->
-					<a class="contact-button my-2 text-decoration-none" href="{U_JABBER}" title="{L_SEND_JABBER_MESSAGE}" onclick="popup(this.href, 750, 320); return false;">
+					<a class="contact-button my-1 text-decoration-none" href="{U_JABBER}" title="{L_SEND_JABBER_MESSAGE}" onclick="popup(this.href, 750, 320); return false;">
 						<div class="p-1 rounded-circle alert alert-primary mb-0 shadow-sm">
 							<div class="alert alert-primary mb-0 d-flex align-items-center justify-content-center rounded-circle border border-4 border-white fs-5" style="width: 48px; height: 48px;">
 								<i class="fa fa-lightbulb-o fa-fw" aria-hidden="true"></i>
@@ -271,7 +271,7 @@
 				<!-- EVENT memberlist_view_contact_custom_fields_before -->
 				<!-- BEGIN custom_fields -->
 					<!-- IF custom_fields.PROFILE_FIELD_CONTACT -->
-						<a class="contact-button my-2 text-decoration-none" href="{custom_fields.PROFILE_FIELD_CONTACT}" title="{custom_fields.PROFILE_FIELD_DESC}">
+						<a class="contact-button my-1 text-decoration-none" href="{custom_fields.PROFILE_FIELD_CONTACT}" title="{custom_fields.PROFILE_FIELD_DESC}">
 							<div class="p-1 rounded-circle alert alert-primary mb-0 shadow-sm">
 								<div class="alert alert-primary mb-0 d-flex align-items-center justify-content-center rounded-circle border border-4 border-white fs-5" style="width: 48px; height: 48px;">
 									<i class="fa fa-<!-- IF custom_fields.PROFILE_FIELD_NAME eq 'Website' -->globe<!-- ELSEIF custom_fields.PROFILE_FIELD_NAME eq 'ICQ' -->asterisk<!-- ELSEIF custom_fields.PROFILE_FIELD_NAME eq 'Yahoo Messenger' -->yahoo<!-- ELSEIF custom_fields.PROFILE_FIELD_NAME eq 'Facebook' -->facebook<!-- ELSEIF custom_fields.PROFILE_FIELD_NAME eq 'Twitter' -->twitter<!-- ELSEIF custom_fields.PROFILE_FIELD_NAME eq 'Skype' -->skype<!-- ELSEIF custom_fields.PROFILE_FIELD_NAME eq 'YouTube' -->youtube<!-- ELSE -->comments<!-- ENDIF --> fa-fw" aria-hidden="true"></i>
