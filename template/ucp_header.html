@@ -45,7 +45,7 @@
 
 			<ul class="dropdown-menu dropdown-menu-end px-2">
 			<!-- BEGIN pm_colour_info -->
-				<li class="list-group-item text-nowrap">
+				<li class="list-group-item my-1 text-nowrap">
 					<i class="fa fa-circle fs-5 me-2<!-- IF pm_colour_info.CLASS eq 'pm_friend_colour' --> text-primary<!-- ELSEIF pm_colour_info.CLASS eq 'pm_replied_colour' --> text-secondary<!-- ELSEIF pm_colour_info.CLASS eq 'pm_marked_colour' --> text-warning<!-- ELSEIF pm_colour_info.CLASS eq 'pm_message_reported_colour' --> text-danger<!-- ELSEIF pm_colour_info.CLASS eq 'pm_foe_colour' --> text-dark<!-- ENDIF -->" aria-hidden="true"></i>{pm_colour_info.LANG}
 				</li>
 			<!-- END pm_colour_info -->
@@ -59,7 +59,7 @@
 
 			<ul class="dropdown-menu dropdown-menu-end px-2">
 			<!-- BEGIN friends_online -->
-				<li class="list-group-item text-nowrap d-flex align-items-center justify-content-lg-between">{% EVENT ucp_header_friends_online_username_full_prepend %} {friends_online.USERNAME_FULL} {% EVENT ucp_header_friends_online_username_full_append %}<!-- IF S_SHOW_PM_BOX --><button class="btn btn-success btn-sm ms-2" type="submit" name="add_to[{friends_online.USER_ID}]" value="{L_ADD}" title="{L_ADD}"><i class="fa fa-plus fa-fw" aria-hidden="true"></i></button><!-- ENDIF --></li>
+				<li class="list-group-item my-1 text-nowrap d-flex align-items-center justify-content-lg-between">{% EVENT ucp_header_friends_online_username_full_prepend %} {friends_online.USERNAME_FULL} {% EVENT ucp_header_friends_online_username_full_append %}<!-- IF S_SHOW_PM_BOX --><button class="btn btn-success btn-sm ms-2" type="submit" name="add_to[{friends_online.USER_ID}]" value="{L_ADD}" title="{L_ADD}"><i class="fa fa-plus fa-fw" aria-hidden="true"></i></button><!-- ENDIF --></li>
 			<!-- END friends_online -->
 			</ul>
 		</div>
@@ -70,7 +70,7 @@
 
 			<ul class="dropdown-menu dropdown-menu-end px-2">
 			<!-- BEGIN friends_offline -->
-				<li class="list-group-item text-nowrap d-flex align-items-center justify-content-lg-between">{% EVENT ucp_header_friends_offline_username_full_prepend %} {friends_offline.USERNAME_FULL} {% EVENT ucp_header_friends_offline_username_full_append %}<!-- IF S_SHOW_PM_BOX --><button class="btn btn-success btn-sm ms-2" type="submit" name="add_to[{friends_offline.USER_ID}]" value="{L_ADD}" title="{L_ADD}"><i class="fa fa-plus fa-fw" aria-hidden="true"></i></button><!-- ENDIF --></li>
+				<li class="list-group-item my-1 text-nowrap d-flex align-items-center justify-content-lg-between">{% EVENT ucp_header_friends_offline_username_full_prepend %} {friends_offline.USERNAME_FULL} {% EVENT ucp_header_friends_offline_username_full_append %}<!-- IF S_SHOW_PM_BOX --><button class="btn btn-success btn-sm ms-2" type="submit" name="add_to[{friends_offline.USER_ID}]" value="{L_ADD}" title="{L_ADD}"><i class="fa fa-plus fa-fw" aria-hidden="true"></i></button><!-- ENDIF --></li>
 			<!-- END friends_offline -->
 			</ul>
 		</div>
