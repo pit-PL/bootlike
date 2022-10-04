@@ -50,8 +50,8 @@
 <div class="card mb-3">
 	<div class="card-body p-0">
 
-	<div class="postbody bg2">
-		<div class="postbody-before d-md-flex px-3 py-1 border-bottom justify-content-between align-items-center">
+	<div class="postbody bg-white">
+		<div class="postbody-before d-md-flex px-3 py-1 border-bottom justify-content-between align-items-center bg2">
 			<div>
 			<a href="{U_VIEW_POST}">{POST_SUBJECT}</a>
 				<div>
@@ -71,7 +71,7 @@
 			</div>
 		</div>
 
-		<div class="px-3 py-2 bg1">
+		<div class="px-3 py-2">
 		<!-- IF S_PM -->
 			<p>
 				<!-- IF S_TO_RECIPIENT --><strong>{L_TO}{L_COLON}</strong> <!-- BEGIN to_recipient --><!-- IF to_recipient.NAME_FULL -->{to_recipient.NAME_FULL}<!-- ELSE --><a href="{to_recipient.U_VIEW}"<!-- IF to_recipient.COLOUR --> style="color:{to_recipient.COLOUR};"<!-- ENDIF -->>{to_recipient.NAME}</a><!-- ENDIF -->&nbsp;<!-- END to_recipient --><br><!-- ENDIF -->
@@ -127,7 +127,7 @@
 			<!-- BEGIN attachment -->
 				<div class="col d-flex">
 					<div class="card mb-3<!-- IF $ATTACHMENT_COLUMNS --> w-100<!-- ENDIF -->">
-						<div class="card-body p-2">
+						<div class="card-body p-2 bg1">
 							{attachment.DISPLAY_ATTACHMENT}
 						</div>
 					</div>
@@ -145,7 +145,7 @@
 
 		</div>
 	<!-- IF SIGNATURE -->
-		<div id="sig{POST_ID}" class="postbody-after d-none d-md-block px-3 py-2 border-top small">{SIGNATURE}</div>
+		<div id="sig{POST_ID}" class="postbody-after d-none d-md-block px-3 py-2 border-top small bg2">{SIGNATURE}</div>
 	<!-- ENDIF -->
 	</div>
 
