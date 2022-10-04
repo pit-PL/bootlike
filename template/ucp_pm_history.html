@@ -5,14 +5,14 @@
 	</div>
 
 	<!-- EVENT ucp_pm_history_review_before -->
-	<div id="topicreview" class="card-body px-1 px-md-2 px-lg-3 pb-0 overflow-auto">
+	<div id="topicreview" class="card-body px-1 px-md-2 px-lg-3 pb-0 overflow-auto bg1">
 		<script>
 			bbcodeEnabled = {S_BBCODE_ALLOWED};
 		</script>
 		<!-- BEGIN history_row -->
 		<div class="card mb-3">
-			<div id="pr{history_row.MSG_ID}" class="postbody bg2">
-				<div class="postbody-before d-sm-flex px-3 py-1 border-bottom justify-content-between align-items-center">
+			<div id="pr{history_row.MSG_ID}" class="postbody bg-white">
+				<div class="postbody-before d-sm-flex px-3 py-1 border-bottom justify-content-between align-items-center bg2">
 					<div>
 						<a href="{history_row.U_VIEW_MESSAGE}"><!-- IF history_row.S_CURRENT_MSG --><mark>{history_row.SUBJECT}</mark><!-- ELSE -->{history_row.SUBJECT}<!-- ENDIF --></a><br>
 						<i class="fa fa-file-o fa-fw" aria-hidden="true"></i> {L_MESSAGE_BY_AUTHOR} <!-- EVENT ucp_pm_history_row_message_author_username_prepend --> {history_row.MESSAGE_AUTHOR_FULL} <!-- EVENT ucp_pm_history_row_message_author_username_append --> &raquo; {L_SENT_AT}{L_COLON} <strong>{history_row.SENT_DATE}</strong>
@@ -34,7 +34,7 @@
 					<!-- EVENT ucp_pm_history_post_buttons_list_after -->
 				</div>
 
-				<div class="px-3 py-2 bg1">
+				<div class="px-3 py-2">
 					<div class="content"><!-- IF history_row.MESSAGE -->{history_row.MESSAGE}<!-- ELSE --><span class="alert alert-warning">{L_MESSAGE_REMOVED_FROM_OUTBOX}</span><!-- ENDIF --></div>
 				</div>
 				<div id="message_{history_row.MSG_ID}" style="display: none;">{history_row.DECODED_MESSAGE}</div>
