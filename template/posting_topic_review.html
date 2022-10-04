@@ -4,7 +4,7 @@
 		<a href="#review" class="btn btn-secondary btn-secondary btn-sm ms-3 text-nowrap" onclick="viewableArea(getElementById('topicreview'), true); var rev_text = getElementById('review').getElementsByTagName('a').item(0).firstChild; if (rev_text.data == '{LA_EXPAND_VIEW}'){rev_text.data = '{LA_COLLAPSE_VIEW}'; } else if (rev_text.data == '{LA_COLLAPSE_VIEW}'){rev_text.data = '{LA_EXPAND_VIEW}'};">{L_EXPAND_VIEW}</a>
 	</div>
 
-	<div id="topicreview" class="card-body px-1 px-md-2 px-lg-3 pb-0 overflow-auto">
+	<div id="topicreview" class="card-body px-1 px-md-2 px-lg-3 pb-0 overflow-auto bg1">
 	<script>
 		bbcodeEnabled = {S_BBCODE_ALLOWED};
 	</script>
@@ -24,7 +24,7 @@
 			</div>
 			<!-- ENDIF -->
 
-				<div class="postbody bg1" id="pr{topic_review_row.POST_ID}">
+				<div class="postbody" id="pr{topic_review_row.POST_ID} bg-white">
 					<div class="postbody-before d-sm-flex px-3 py-1 border-bottom justify-content-between align-items-center bg2">
 						<div>
 						<a href="{topic_review_row.U_MINI_POST}">{topic_review_row.POST_SUBJECT}</a>
@@ -63,7 +63,7 @@
 							<!-- BEGIN attachment -->
 								<div class="col d-flex">
 									<div class="card mb-3<!-- IF $ATTACHMENT_COLUMNS --> w-100<!-- ENDIF -->">
-										<div class="card-body p-2">
+										<div class="card-body p-2 bg1">
 											{topic_review_row.attachment.DISPLAY_ATTACHMENT}
 										</div>
 									</div>
