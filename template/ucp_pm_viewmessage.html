@@ -79,7 +79,7 @@
 			<!-- ENDIF -->
 			</div>
 
-			<div class="postbody col-lg-9 col-md-8 p-0<!-- IF $PROFILE_ON_RIGHT --> border-end<!-- ELSE --> border-start<!-- ENDIF --><!-- IF SIGNATURE and $SIGNATURE_IN_POST --> bg2<!-- ELSE --> bg1<!-- ENDIF -->">
+			<div class="postbody col-lg-9 col-md-8 p-0<!-- IF $PROFILE_ON_RIGHT --> border-end<!-- ELSE --> border-start<!-- ENDIF --> bg-white">
 			<div class="opacity-50 d-md-none"><hr class="m-0"></div>
 
 				<div class="postbody-before d-flex px-3 py-2 justify-content-between align-items-center border-bottom bg2">
@@ -113,7 +113,7 @@
 					<!-- EVENT ucp_pm_viewmessage_post_buttons_list_after -->
 				</div>
 
-				<div class="px-3 py-2 bg1">
+				<div class="px-3 py-2">
 					<p class="author">
 						<strong>{L_PM_FROM}{L_COLON}</strong> {MESSAGE_AUTHOR_FULL}
 						<!-- IF S_TO_RECIPIENT --><br><strong>{L_TO}{L_COLON}</strong> <!-- BEGIN to_recipient --><!-- IF to_recipient.NAME_FULL -->{to_recipient.NAME_FULL}<!-- ELSE --><a href="{to_recipient.U_VIEW}"<!-- IF to_recipient.COLOUR --> style="color:{to_recipient.COLOUR};"<!-- ENDIF -->>{to_recipient.NAME}</a><!-- ENDIF -->&nbsp;<!-- END to_recipient --><!-- ENDIF -->
@@ -128,7 +128,7 @@
 					<!-- BEGIN attachment -->
 						<div class="col d-flex">
 							<div class="card mb-3<!-- IF $ATTACHMENT_COLUMNS --> w-100<!-- ENDIF -->">
-								<div class="card-body p-2">
+								<div class="card-body p-2 bg1">
 									{attachment.DISPLAY_ATTACHMENT}
 								</div>
 							</div>
@@ -150,7 +150,7 @@
 				</div>
 
 			<!-- IF SIGNATURE and $SIGNATURE_IN_POST -->
-				<div id="sig{MESSAGE_ID}" class="postbody-after d-none d-md-block px-3 py-2 border-top small">{SIGNATURE}</div>
+				<div id="sig{MESSAGE_ID}" class="postbody-after d-none d-md-block px-3 py-2 border-top small bg2">{SIGNATURE}</div>
 			<!-- ENDIF -->
 			</div>
 		</div>
@@ -227,7 +227,7 @@
 						<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-signature" aria-expanded="false" aria-controls="flush-signature">{L_SIGNATURE}</button>
 					</h2>
 					<div id="flush-signature" class="accordion-collapse collapse" aria-labelledby="flush-signature" data-bs-parent="#accordion_signature">
-						<div id="sig{MESSAGE_ID}" class="accordion-body small bg1">{SIGNATURE}</div>
+						<div id="sig{MESSAGE_ID}" class="accordion-body small py-2 bg1">{SIGNATURE}</div>
 					</div>
 				  </div>
 				</div>
