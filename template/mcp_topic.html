@@ -111,14 +111,14 @@
 			<a href="#review" class="btn btn-secondary btn-sm ms-3 text-nowrap" onclick="viewableArea(getElementById('topicreview'), true); var rev_text = getElementById('review').getElementsByTagName('a').item(0).firstChild; if (rev_text.data == '{LA_EXPAND_VIEW}'){rev_text.data = '{LA_COLLAPSE_VIEW}'; } else if (rev_text.data == '{LA_COLLAPSE_VIEW}'){rev_text.data = '{LA_EXPAND_VIEW}'};">{L_EXPAND_VIEW}</a>
 		</div>
 
-		<div id="topicreview" class="card-body pb-0 overflow-auto">
+		<div id="topicreview" class="card-body pb-0 overflow-auto bg1">
 			<!-- BEGIN postrow -->
 			<!-- EVENT mcp_topic_postrow_post_before -->
 			<div class="card mb-3<!-- IF postrow.S_POST_UNAPPROVED --> border-success<!-- ELSEIF postrow.S_POST_REPORTED --> border-warning<!-- ELSEIF postrow.S_POST_DELETED --> border-dark<!-- ENDIF -->">
 				<div class="card-body p-0">
 
-				<div class="postbody bg2" id="pr{postrow.POST_ID}">
-					<div class="postbody-before d-flex px-3 py-1 border-bottom justify-content-between align-items-center">
+				<div class="postbody bg-white" id="pr{postrow.POST_ID}">
+					<div class="postbody-before d-flex px-3 py-1 border-bottom justify-content-between align-items-center bg2">
 					<!-- EVENT mcp_topic_postrow_post_details_before -->
 						<div>
 							<!-- EVENT mcp_topic_postrow_post_subject_before -->
@@ -141,7 +141,7 @@
 					<!-- EVENT mcp_topic_postrow_post_details_after -->
 					</div>
 
-					<div class="px-3 py-2 bg1">
+					<div class="px-3 py-2">
 					<!-- IF postrow.S_POST_UNAPPROVED or postrow.S_POST_DELETED or postrow.S_POST_REPORTED -->
 						<div class="alert alert-warning">
 						<!-- IF postrow.S_POST_UNAPPROVED -->
@@ -168,7 +168,7 @@
 							<!-- BEGIN attachment -->
 								<div class="col d-flex">
 									<div class="card mb-3<!-- IF $ATTACHMENT_COLUMNS --> w-100<!-- ENDIF -->">
-										<div class="card-body p-2">
+										<div class="card-body p-2 bg1">
 											{postrow.attachment.DISPLAY_ATTACHMENT}
 										</div>
 									</div>
