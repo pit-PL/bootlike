@@ -8,8 +8,8 @@
 
 <!-- IF SIGNATURE_PREVIEW != '' -->
 	<div class="alert alert-info mb-3">{L_SIGNATURE_PREVIEW}</div>
-	<div class="card mb-3">
-		<div class="card-body small bg1">{SIGNATURE_PREVIEW}</div>
+	<div class="card mb-3<!-- IF not $CLASSIC_POST_VIEW --> border-0 border-top<!-- ENDIF -->">
+		<div class="card-body px-3 py-2 small<!-- IF $CLASSIC_POST_VIEW --> bg2<!-- ENDIF -->">{SIGNATURE_PREVIEW}</div>
 	</div>
 <!-- ENDIF -->
 
