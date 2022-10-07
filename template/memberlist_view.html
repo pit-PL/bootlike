@@ -9,7 +9,7 @@
 <div class="row row-cols-1 row-cols-lg-2">
 	<div class="col d-flex">
 		<div class="card mb-3 w-100">
-			<div class="card-body text-center<!-- IF S_ONLINE --> pt-0<!-- ENDIF -->">
+			<div class="card-body text-center<!-- IF S_ONLINE --> pt-0<!-- ENDIF --> bg1">
 
 			<!-- IF S_ONLINE -->
 				<span class="badge bg-success d-block text-uppercase online w-50 mb-2 mx-auto rounded-0 rounded-bottom"><i class="fa fa-signal fa-fw" aria-hidden="true"></i> {L_ONLINE} <i class="fa fa-signal fa-flip-horizontal fa-fw" aria-hidden="true"></i></span>
@@ -65,30 +65,30 @@
 						<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_contact" aria-expanded="false">{L_CONTACT}</button>
 					</h2>
 					<div id="collapse_contact" class="accordion-collapse collapse" data-bs-parent="#accordion_contact">
-						<div class="accordion-body text-center">
+						<div class="accordion-body text-center bg1">
 						<!-- EVENT memberlist_view_contact_before -->
 						<!-- IF U_EMAIL -->
-							<a class="d-inline-block m-1 text-decoration-none" href="{U_EMAIL}" title="{L_SEND_EMAIL_USER}">
-								<div class="p-1 rounded-circle alert-primary shadow-sm">
-									<div class="contact-button d-flex align-items-center justify-content-center rounded-circle border border-4 border-white fs-5 alert-primary" style="width: 48px; height: 48px;">
+							<a class="contact-button my-1 text-decoration-none" href="{U_EMAIL}" title="{L_SEND_EMAIL_USER}">
+								<div class="d-inline-block p-1 rounded-circle alert alert-primary mb-0 shadow-sm">
+									<div class="alert alert-primary mb-0 d-flex align-items-center justify-content-center rounded-circle border border-4 border-white fs-5" style="width: 48px; height: 48px;">
 										<i class="fa fa-envelope-o fa-fw" aria-hidden="true"></i>
 									</div>
 								</div>
 							</a>
 						<!-- ENDIF -->
 						<!-- IF U_PM -->
-							<a class="d-inline-block m-1 text-decoration-none" href="{U_PM}" title="{L_SEND_PRIVATE_MESSAGE}">
-								<div class="p-1 rounded-circle alert-primary shadow-sm">
-									<div class="contact-button d-flex align-items-center justify-content-center rounded-circle border border-4 border-white fs-5 alert-primary" style="width: 48px; height: 48px;">
+							<a class="contact-button my-1 text-decoration-none" href="{U_PM}" title="{L_SEND_PRIVATE_MESSAGE}">
+								<div class="d-inline-block p-1 rounded-circle alert alert-primary mb-0 shadow-sm">
+									<div class="alert alert-primary mb-0 d-flex align-items-center justify-content-center rounded-circle border border-4 border-white fs-5" style="width: 48px; height: 48px;">
 										<i class="fa fa-user fa-fw" aria-hidden="true"></i>
 									</div>
 								</div>
 							</a>
 						<!-- ENDIF -->
 						<!-- IF U_JABBER and S_JABBER_ENABLED -->
-							<a class="d-inline-block m-1 text-decoration-none" href="{U_JABBER}" title="{L_SEND_JABBER_MESSAGE}" onclick="popup(this.href, 750, 320); return false;">
-								<div class="p-1 rounded-circle alert-primary shadow-sm">
-									<div class="contact-button d-flex align-items-center justify-content-center rounded-circle border border-4 border-white fs-5 alert-primary" style="width: 48px; height: 48px;">
+							<a class="contact-button my-1 text-decoration-none" href="{U_JABBER}" title="{L_SEND_JABBER_MESSAGE}" onclick="popup(this.href, 750, 320); return false;">
+								<div class="d-inline-block p-1 rounded-circle alert alert-primary mb-0 shadow-sm">
+									<div class="alert alert-primary mb-0 d-flex align-items-center justify-content-center rounded-circle border border-4 border-white fs-5" style="width: 48px; height: 48px;">
 										<i class="fa fa-lightbulb-o fa-fw" aria-hidden="true"></i>
 									</div>
 								</div>
@@ -98,9 +98,9 @@
 						<!-- EVENT memberlist_view_contact_custom_fields_before -->
 						<!-- BEGIN custom_fields -->
 							<!-- IF custom_fields.PROFILE_FIELD_CONTACT -->
-								<a class="d-inline-block m-1 text-decoration-none" href="{custom_fields.PROFILE_FIELD_CONTACT}" title="{custom_fields.PROFILE_FIELD_DESC}">
-									<div class="p-1 rounded-circle alert-primary shadow-sm">
-										<div class="contact-button d-flex align-items-center justify-content-center rounded-circle border border-4 border-white fs-5 alert-primary" style="width: 48px; height: 48px;">
+								<a class="contact-button my-1 text-decoration-none" href="{custom_fields.PROFILE_FIELD_CONTACT}" title="{custom_fields.PROFILE_FIELD_DESC}">
+									<div class="d-inline-block p-1 rounded-circle alert alert-primary mb-0 shadow-sm">
+										<div class="alert alert-primary mb-0 d-flex align-items-center justify-content-center rounded-circle border border-4 border-white fs-5" style="width: 48px; height: 48px;">
 											<i class="fa fa-<!-- IF custom_fields.PROFILE_FIELD_NAME eq 'Website' -->globe<!-- ELSEIF custom_fields.PROFILE_FIELD_NAME eq 'ICQ' -->asterisk<!-- ELSEIF custom_fields.PROFILE_FIELD_NAME eq 'Yahoo Messenger' -->yahoo<!-- ELSEIF custom_fields.PROFILE_FIELD_NAME eq 'Facebook' -->facebook<!-- ELSEIF custom_fields.PROFILE_FIELD_NAME eq 'Twitter' -->twitter<!-- ELSEIF custom_fields.PROFILE_FIELD_NAME eq 'Skype' -->skype<!-- ELSEIF custom_fields.PROFILE_FIELD_NAME eq 'YouTube' -->youtube<!-- ELSE -->comments<!-- ENDIF --> fa-fw" aria-hidden="true"></i>
 										</div>
 									</div>
@@ -124,7 +124,7 @@
 
 	<div class="col d-flex">
 		<div class="card mb-3 w-100">
-			<div class="card-body">
+			<div class="card-body bg1">
 
 				<dl class="row mb-0">
 					<dt class="col-lg-4 col-md-5 col-12">{L_USERNAME}{L_COLON}</dt>
@@ -163,7 +163,7 @@
 						<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_user_statistics" aria-expanded="false">{L_STATISTICS}</button>
 					</h2>
 					<div id="collapse_user_statistics" class="accordion-collapse collapse">
-						<div class="accordion-body">
+						<div class="accordion-body bg1">
 							<dl class="row mb-0">
 								<!-- EVENT memberlist_view_user_statistics_before -->
 								<dt class="col-lg-4 col-md-5 col-12">{L_JOINED}{L_COLON}</dt><dd class="col-lg-8 col-md-7 col-12">{JOINED}</dd>
