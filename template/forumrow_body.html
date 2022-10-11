@@ -59,10 +59,10 @@
 				<!-- IF forumrow.CLICKS or forumrow.TOPICS -->
 					<div class="d-md-none">
 						<!-- IF forumrow.CLICKS -->
-							{L_REDIRECTS}{L_COLON} <span class="badge rounded-pill bg-secondary">{forumrow.CLICKS}</span>
+							{L_REDIRECTS}{L_COLON} <span class="badge rounded-pill text-bg-secondary">{forumrow.CLICKS}</span>
 						<!-- ELSEIF not forumrow.S_IS_LINK and forumrow.TOPICS -->
-							{L_TOPICS}{L_COLON} <span class="badge rounded-pill bg-secondary me-2">{forumrow.TOPICS}</span>
-							{L_POSTS}{L_COLON} <span class="badge rounded-pill bg-secondary me-2">{forumrow.POSTS}</span>
+							{L_TOPICS}{L_COLON} <span class="badge rounded-pill text-bg-secondary me-2">{forumrow.TOPICS}</span>
+							{L_POSTS}{L_COLON} <span class="badge rounded-pill text-bg-secondary me-2">{forumrow.POSTS}</span>
 						<!-- ENDIF -->
 					</div>
 				<!-- ENDIF -->
@@ -86,9 +86,9 @@
 					</div>
 					<div class="col-lg-3 col-md-4 d-none d-md-block">
 					<!-- IF forumrow.U_UNAPPROVED_TOPICS -->
-						<a href="{forumrow.U_UNAPPROVED_TOPICS}" class="badge bg-success" title="{L_TOPICS_UNAPPROVED}"><i class="fa fa-flag fa-fw" aria-hidden="true"></i><span class="sr-only">{TOPICS_UNAPPROVED}</span></a>
+						<a href="{forumrow.U_UNAPPROVED_TOPICS}" class="badge text-bg-success" title="{L_TOPICS_UNAPPROVED}"><i class="fa fa-flag fa-fw" aria-hidden="true"></i><span class="sr-only">{TOPICS_UNAPPROVED}</span></a>
 					<!-- ELSEIF forumrow.U_UNAPPROVED_POSTS -->
-						<a href="{forumrow.U_UNAPPROVED_POSTS}" class="badge bg-success" title="{L_POSTS_UNAPPROVED_FORUM}"><i class="fa fa-flag fa-fw" aria-hidden="true"></i><span class="sr-only">{POSTS_UNAPPROVED_FORUM}</span></a>
+						<a href="{forumrow.U_UNAPPROVED_POSTS}" class="badge text-bg-success" title="{L_POSTS_UNAPPROVED_FORUM}"><i class="fa fa-flag fa-fw" aria-hidden="true"></i><span class="sr-only">{POSTS_UNAPPROVED_FORUM}</span></a>
 					<!-- ENDIF -->
 					<!-- IF forumrow.LAST_POST_TIME_RFC3339 -->
 						<!-- IF forumrow.S_DISPLAY_SUBJECT -->
@@ -102,7 +102,7 @@
 							<br><time datetime="{forumrow.LAST_POST_TIME_RFC3339}">{forumrow.LAST_POST_TIME}</time>
 						<!-- ELSE -->
 						<!-- IF forumrow.U_UNAPPROVED_TOPICS -->
-							<span class="badge bg-info text-dark">{{ lang('TOPIC_UNAPPROVED_FORUM', forumrow.TOPICS) }}</span>
+							<span class="badge text-bg-info">{{ lang('TOPIC_UNAPPROVED_FORUM', forumrow.TOPICS) }}</span>
 						<!-- ELSE -->
 							{{ lang('NO_POSTS') }}
 						<!-- ENDIF -->
