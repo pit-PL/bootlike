@@ -12,25 +12,25 @@
 
 <!-- IF (S_DISPLAY_ONLINE_LIST or NEWEST_USER or (S_DISPLAY_BIRTHDAY_LIST and .birthdays) or not S_USER_LOGGED_IN) and not S_IS_BOT -->
 <div class="mb-3">
-	<ul class="nav nav-tabs" role="tablist">
+	<ul class="nav nav-tabs p-2 pb-0 border bg1" role="tablist">
 	<!-- IF S_DISPLAY_ONLINE_LIST -->
-		<li class="nav-item d-md-grid col-md-3 text-center">
-			<a class="nav-item nav-link<!-- IF S_USER_LOGGED_IN or (not S_USER_LOGGED_IN and not $LOGIN_POPUP_OFF) --> active<!-- ENDIF -->" data-bs-toggle="tab" href="#nav_online" role="tab" aria-controls="nav_online" aria-selected="true"><i class="fa fa-signal fa-fw d-none d-md-inline-block" aria-hidden="true"></i> {L_WHO_IS_ONLINE}</a>
+		<li class="nav-item">
+			<a class="nav-link<!-- IF S_USER_LOGGED_IN or (not S_USER_LOGGED_IN and not $LOGIN_POPUP_OFF) --> active<!-- ENDIF -->" data-bs-toggle="tab" href="#nav_online" role="tab" aria-controls="nav_online" aria-selected="true"><i class="fa fa-signal fa-fw d-none d-md-inline-block" aria-hidden="true"></i> {L_WHO_IS_ONLINE}</a>
 		</li>
 	<!-- ENDIF -->
 	<!-- IF NEWEST_USER -->
-		<li class="nav-item d-md-grid col-md-3 text-center">
-			<a class="nav-item nav-link" data-bs-toggle="tab" href="#nav_statistics" role="tab" aria-controls="nav-statistics" aria-selected="false"><i class="fa fa-pie-chart fa-fw d-none d-md-inline-block" aria-hidden="true"></i> {L_STATISTICS}</a>
+		<li class="nav-item">
+			<a class="nav-link" data-bs-toggle="tab" href="#nav_statistics" role="tab" aria-controls="nav-statistics" aria-selected="false"><i class="fa fa-pie-chart fa-fw d-none d-md-inline-block" aria-hidden="true"></i> {L_STATISTICS}</a>
 		</li>
 	<!-- ENDIF -->
 	<!-- IF S_DISPLAY_BIRTHDAY_LIST and .birthdays -->
-		<li class="nav-item d-md-grid col-md-3 text-center">
-			<a class="nav-item nav-link" data-bs-toggle="tab" href="#nav_birthday" role="tab" aria-controls="nav-birthday" aria-selected="false"><i class="fa fa-birthday-cake fa-fw d-none d-md-inline-block" aria-hidden="true"></i> {L_BIRTHDAYS}</a>
+		<li class="nav-item">
+			<a class="nav-link" data-bs-toggle="tab" href="#nav_birthday" role="tab" aria-controls="nav-birthday" aria-selected="false"><i class="fa fa-birthday-cake fa-fw d-none d-md-inline-block" aria-hidden="true"></i> {L_BIRTHDAYS}</a>
 		</li>
 	<!-- ENDIF -->
 	<!-- IF not S_USER_LOGGED_IN and $LOGIN_POPUP_OFF -->
-		<li class="nav-item d-md-grid col-md-3 text-center">
-			<a class="nav-item nav-link active" data-bs-toggle="tab" href="#nav_login" role="tab" aria-controls="nav-login" aria-selected="false"><i class="fa fa-power-off fa-fw d-none d-md-inline-block" aria-hidden="true"></i> {L_LOGIN_LOGOUT}</a>
+		<li class="nav-item">
+			<a class="nav-link active" data-bs-toggle="tab" href="#nav_login" role="tab" aria-controls="nav-login" aria-selected="false"><i class="fa fa-power-off fa-fw d-none d-md-inline-block" aria-hidden="true"></i> {L_LOGIN_LOGOUT}</a>
 		</li>
 	<!-- ENDIF -->
 	</ul>
