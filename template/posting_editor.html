@@ -192,12 +192,12 @@
 						{URL_STATUS}<br>
 					<!-- ENDIF -->
 					{SMILIES_STATUS}
+				<!-- ENDIF -->
+				<!-- EVENT posting_editor_bbcode_status_after -->
 				<!-- IF S_SHOW_SMILEY_LINK and S_SMILIES_ALLOWED -->
 					<a class="d-block" href="{U_MORE_SMILIES}" onclick="popup(this.href, 750, 350, '_phpbbsmilies'); return false;">{L_MORE_SMILIES}</a>
 				<!-- ENDIF -->
 				<!-- EVENT posting_editor_smilies_after -->
-				<!-- ENDIF -->
-				<!-- EVENT posting_editor_bbcode_status_after -->
 				<!-- IF S_EDIT_DRAFT || S_DISPLAY_REVIEW -->
 					<!-- IF S_EDIT_DRAFT --><a class="d-block" href="{S_UCP_ACTION}">{L_BACK_TO_DRAFTS}</a><!-- ENDIF -->
 					<!-- IF S_DISPLAY_REVIEW --><a class="d-block" href="#review">{L_TOPIC_REVIEW}</a><!-- ENDIF -->
