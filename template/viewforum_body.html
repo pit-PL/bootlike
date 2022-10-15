@@ -283,6 +283,109 @@
 	<!-- ENDIF -->
 <!-- END topicrow -->
 
+<!-- IF not S_IS_BOT -->
+	<div class="card mb-3 shadow-sm">
+		<div class="action-bar d-sm-flex justify-content-between bg1">
+			<div class="d-flex">
+			<!-- EVENT viewtopic_buttons_top_before -->
+			<!-- IF S_DISPLAY_REPLY_INFO -->
+				<a href="{U_POST_REPLY_TOPIC}#postingbox" class="btn btn-lg rounded-0 border-0<!-- IF S_IS_LOCKED --> text-muted<!-- ENDIF -->"><i class="fa<!-- IF S_IS_LOCKED --> fa-lock<!-- ELSE --> fa-reply<!-- IF S_CONTENT_DIRECTION eq 'rtl' --> fa-flip-horizontal<!-- ENDIF --><!-- ENDIF --> fa-fw" aria-hidden="true"></i><span class="text-nowrap"> <!-- IF S_IS_LOCKED -->{L_BUTTON_TOPIC_LOCKED}<!-- ELSE -->{L_BUTTON_POST_REPLY}<!-- ENDIF --></span></a>
+			<!-- ENDIF -->
+			<!-- EVENT viewtopic_buttons_top_after -->
+
+			<!-- EVENT viewtopic_topic_tools_before -->
+			<!-- EVENT viewtopic_topic_tools_after -->
+			<!-- EVENT viewtopic_dropdown_top_custom -->
+
+			<!-- IF S_NUM_POSTS > 1 or .pagination -->
+				<form method="post" action="{S_TOPIC_ACTION}">
+				<!-- INCLUDE display_options.html -->
+				</form>
+			<!-- ENDIF -->
+
+			<!-- IF S_DISPLAY_SEARCHBOX -->
+				<form method="get" id="topic-search" action="{S_SEARCHBOX_ACTION}">
+					<button class="btn dropdown-toggle btn-lg rounded-0 border-0" title="{L_SEARCH}" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-search fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_SEARCH}</span></button>
+					<div class="dropdown-menu dropdown-menu-start" role="search">
+						<div class="input-group input-group px-2">
+							<input class="form-control" type="search" name="keywords" id="search_keywords" size="20" placeholder="{L_SEARCH_TOPIC}" />
+							<button class="btn btn-secondary" type="submit" title="{L_SEARCH}"><i class="fa fa-search fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_SEARCH}</span></button>
+						</div>
+					</div>
+					{S_SEARCH_LOCAL_HIDDEN_FIELDS}
+				</form>
+			<!-- ENDIF -->
+			</div>
+
+			<!-- IF TOTAL_POSTS or TOTAL_TOPICS -->
+			<div class="btn btn-lg d-none d-lg-block disabled fs-6 mt-1 text-nowrap border-0">
+				{TOTAL_POSTS} &bull; <span class="fw-normal">{PAGE_NUMBER}</span>
+			</div>
+			<!-- ENDIF -->
+
+			<div class="d-flex">
+			<!-- IF S_VIEWTOPIC -->
+				<a href="{U_VIEW_FORUM}" class="btn btn-lg rounded-0 border-0" title="{L_RETURN_TO_FORUM}" accesskey="r"><i class="fa fa-chevron-{S_CONTENT_FLOW_BEGIN} fa-fw" aria-hidden="true"></i></a>
+			<!-- ENDIF -->
+
+			<!-- IF .quickmod -->
+				<div class="d-flex">
+					<div id="quickmod" class="btn-group dropdown">
+						<button type="button" class="btn btn-lg dropdown-toggle rounded-0 border-0" data-bs-toggle="dropdown" aria-expanded="false" title="{L_QUICK_MOD}"><i class="fa fa-gavel fa-fw"></i><span class="visually-hidden">{L_QUICK_MOD}</span></button>
+						<ul class="dropdown-menu dropdown-menu-end dropdown-contents p-1">
+						<!-- BEGIN quickmod -->
+							<!-- DEFINE $QUICKMOD_AJAX = (quickmod.VALUE in ['lock', 'unlock', 'delete_topic', 'restore_topic', 'make_normal', 'make_sticky', 'make_announce', 'make_global']) -->
+							<li><a class="dropdown-item" href="{quickmod.LINK}"<!-- IF $QUICKMOD_AJAX --> data-ajax="true" data-refresh="true"<!-- ENDIF -->>{quickmod.TITLE}</a></li>
+						<!-- END quickmod -->
+						</ul>
+					</div>
+				</div>
+			<!-- ENDIF -->
+
+			<!-- IF MODERATORS -->
+				<button class="btn dropdown-toggle btn-lg rounded-0 border-0" title="<!-- IF S_SINGLE_MODERATOR -->{L_MODERATOR}<!-- ELSE -->{L_MODERATORS}<!-- ENDIF -->" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<i class="fa fa-user-secret fa-fw"></i><span class="visually-hidden">{forumrow.L_MODERATOR_STR}</span>
+				</button>
+				<div class="dropdown-menu dropdown-menu-end">
+					<div class="px-3">{MODERATORS}</div>
+				</div>
+			<!-- ENDIF -->
+
+			<!-- IF U_VIEW_UNREAD_POST -->
+				<a href="{U_VIEW_UNREAD_POST}" class="btn btn-lg rounded-0 border-0" title="{L_VIEW_UNREAD_POST}"><i class="fa fa-file" aria-hidden="true"></i></a>
+			<!-- ENDIF -->
+
+			<!-- IF .pagination -->
+			<!-- IF BASE_URL and TOTAL_PAGES > 3 -->
+				<div class="dropdown-form">
+					<button class="btn dropdown-toggle btn-lg rounded-0 border-0" title="{L_JUMP_TO_PAGE}" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-clone fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_JUMP_TO_PAGE}</span></button>
+					<div class="dropdown-menu dropdown-menu-end p-2">
+						{L_JUMP_TO_PAGE}{L_COLON}
+						<div class="input-group my-2">
+							<input class="form-control" type="number" name="page-number" title="{L_JUMP_PAGE}" data-per-page="{PER_PAGE}" data-base-url="{BASE_URL|e('html_attr')}" data-start-name="{START_NAME}" />
+							<input class="btn btn-secondary" value="{L_GO}" type="button" />
+						</div>
+						<!-- INCLUDE pagination.html -->
+					</div>
+				</div>
+			<!-- ENDIF -->
+
+			<!-- BEGIN pagination -->
+				<!-- IF pagination.S_IS_PREV -->
+					<a class="btn btn-lg rounded-0 border-0" href="{pagination.PAGE_URL}" title="{L_PREVIOUS}" rel="prev" role="button"><i class="fa fa-step-backward fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_PREVIOUS}</span></a>
+				<!-- ENDIF -->
+				<!-- IF pagination.S_IS_NEXT -->
+					<a class="btn btn-lg rounded-0 border-0" href="{pagination.PAGE_URL}" title="{L_NEXT}" rel="next" role="button"><i class="fa fa-step-forward fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_NEXT}</span></a>
+				<!-- ENDIF -->
+			<!-- END pagination -->
+			<!-- ENDIF -->
+
+				<!-- EVENT viewtopic_body_pagination_top_after -->
+			</div>
+		</div>
+	</div>
+<!-- ENDIF -->
+
 {% EVENT viewforum_body_online_list_before %}
 
 <!-- IF (S_DISPLAY_ONLINE_LIST and U_VIEWONLINE) or (S_IS_POSTABLE and rules|length) -->
