@@ -459,19 +459,15 @@
 <!-- IF S_DISPLAY_ONLINE_LIST and U_VIEWONLINE -->
 <div class="mb-3">
 	<ul class="nav nav-tabs" role="tablist">
-	<!-- IF S_DISPLAY_ONLINE_LIST -->
 		<li class="nav-item d-md-grid col-md-3 text-center">
 			<a class="nav-item nav-link active disabled" data-bs-toggle="tab" href="#nav_online" role="tab" aria-controls="nav_online" aria-selected="true"><i class="fa fa-signal fa-fw d-none d-md-inline-block" aria-hidden="true"></i> {L_WHO_IS_ONLINE}</a>
 		</li>
-	<!-- ENDIF -->
 	</ul>
 
 	<div class="card tab-content p-3 border-top-0">
-	<!-- IF S_DISPLAY_ONLINE_LIST -->
 		<div class="tab-pane fade show active" id="nav_online" role="tabpanel" aria-labelledby="nav_online-tab">
 			{LOGGED_IN_USER_LIST}
 		</div>
-	<!-- ENDIF -->
 	</div>
 </div>
 <!-- ENDIF -->
