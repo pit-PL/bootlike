@@ -390,15 +390,15 @@
 
 <!-- IF (S_DISPLAY_ONLINE_LIST and U_VIEWONLINE) or (S_IS_POSTABLE and rules|length) -->
 <div class="mb-3">
-	<ul class="nav nav-tabs" role="tablist">
+	<ul class="nav nav-tabs p-2 pb-0 border bg1" role="tablist">
 	<!-- IF S_DISPLAY_ONLINE_LIST -->
-		<li class="nav-item d-md-grid col-md-3 text-center">
-			<a class="nav-item nav-link active" data-bs-toggle="tab" href="#nav_online" role="tab" aria-controls="nav_online" aria-selected="true"><i class="fa fa-signal fa-fw d-none d-md-inline-block" aria-hidden="true"></i> {L_WHO_IS_ONLINE}</a>
+		<li class="nav-item">
+			<a class="nav-link active" data-bs-toggle="tab" href="#nav_online" role="tab" aria-controls="nav_online" aria-selected="true"><i class="fa fa-signal fa-fw d-none d-md-inline-block" aria-hidden="true"></i> {L_WHO_IS_ONLINE}</a>
 		</li>
 	<!-- ENDIF -->
 	<!-- IF S_IS_POSTABLE and rules|length -->
-		<li class="nav-item d-md-grid col-md-3 text-center">
-			<a class="nav-item nav-link" data-bs-toggle="tab" href="#nav_permission" role="tab" aria-controls="nav-permission" aria-selected="false"><i class="fa fa-shield fa-fw d-none d-md-inline-block" aria-hidden="true"></i> {L_FORUM_PERMISSIONS}</a>
+		<li class="nav-item">
+			<a class="nav-link" data-bs-toggle="tab" href="#nav_permission" role="tab" aria-controls="nav-permission" aria-selected="false"><i class="fa fa-shield fa-fw d-none d-md-inline-block" aria-hidden="true"></i> {L_FORUM_PERMISSIONS}</a>
 		</li>
 	<!-- ENDIF -->
 	</ul>
