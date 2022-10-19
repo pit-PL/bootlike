@@ -11,8 +11,8 @@
 <!-- EVENT index_body_stat_blocks_before -->
 
 <!-- IF (S_DISPLAY_ONLINE_LIST or NEWEST_USER or (S_DISPLAY_BIRTHDAY_LIST and .birthdays) or not S_USER_LOGGED_IN) and not S_IS_BOT -->
-<div class="mb-3 shadow-sm">
-	<ul class="nav nav-tabs p-2 pb-0 border bg1" role="tablist">
+<div class="card mb-3 shadow-sm">
+	<ul class="nav nav-tabs p-2 pb-0 bg1" role="tablist">
 	<!-- IF S_DISPLAY_ONLINE_LIST -->
 		<li class="nav-item">
 			<a class="nav-link<!-- IF S_USER_LOGGED_IN or (not S_USER_LOGGED_IN and not $LOGIN_POPUP_OFF) --> active<!-- ENDIF -->" data-bs-toggle="tab" href="#nav_online" role="tab" aria-controls="nav_online" aria-selected="true"><i class="fa fa-signal fa-fw d-none d-md-inline-block" aria-hidden="true"></i> {L_WHO_IS_ONLINE}</a>
@@ -35,7 +35,7 @@
 	<!-- ENDIF -->
 	</ul>
 
-	<div class="card tab-content p-3 border-top-0">
+	<div class="card-body tab-content">
 	<!-- IF S_DISPLAY_ONLINE_LIST -->
 		<div class="tab-pane fade<!-- IF S_USER_LOGGED_IN or (not S_USER_LOGGED_IN and not $LOGIN_POPUP_OFF) --> show active<!-- ENDIF -->" id="nav_online" role="tabpanel" aria-labelledby="nav_online-tab">
 		<!-- EVENT index_body_block_online_prepend -->
