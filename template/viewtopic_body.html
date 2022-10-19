@@ -457,14 +457,14 @@
 {% EVENT viewtopic_body_online_list_before %}
 
 <!-- IF S_DISPLAY_ONLINE_LIST and U_VIEWONLINE -->
-<div class="mb-3 shadow-sm">
-	<ul class="nav nav-tabs p-2 pb-0 border bg1" role="tablist">
+<div class="card mb-3 shadow-sm">
+	<ul class="nav nav-tabs p-2 pb-0 bg1" role="tablist">
 		<li class="nav-item">
 			<a class="nav-link active disabled" data-bs-toggle="tab" href="#nav_online" role="tab" aria-controls="nav_online" aria-selected="true"><i class="fa fa-signal fa-fw d-none d-md-inline-block" aria-hidden="true"></i> {L_WHO_IS_ONLINE}</a>
 		</li>
 	</ul>
 
-	<div class="card tab-content p-3 border-top-0">
+	<div class="card-body tab-content">
 		<div class="tab-pane fade show active" id="nav_online" role="tabpanel" aria-labelledby="nav_online-tab">
 			{LOGGED_IN_USER_LIST}
 		</div>
