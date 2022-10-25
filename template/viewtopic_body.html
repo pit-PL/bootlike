@@ -186,16 +186,14 @@
 			<!-- ENDIF -->
 
 			<!-- IF .quickmod -->
-				<div class="d-flex">
-					<div id="quickmod" class="btn-group dropdown">
-						<button type="button" class="btn btn-lg dropdown-toggle rounded-0 border-0" data-bs-toggle="dropdown" aria-expanded="false" title="{L_QUICK_MOD}"><i class="fa fa-gavel fa-fw"></i><span class="visually-hidden">{L_QUICK_MOD}</span></button>
-						<ul class="dropdown-menu dropdown-menu-end dropdown-contents p-1">
-						<!-- BEGIN quickmod -->
-							<!-- DEFINE $QUICKMOD_AJAX = (quickmod.VALUE in ['lock', 'unlock', 'delete_topic', 'restore_topic', 'make_normal', 'make_sticky', 'make_announce', 'make_global']) -->
-							<li><a class="dropdown-item" href="{quickmod.LINK}"<!-- IF $QUICKMOD_AJAX --> data-ajax="true" data-refresh="true"<!-- ENDIF -->>{quickmod.TITLE}</a></li>
-						<!-- END quickmod -->
-						</ul>
-					</div>
+				<div id="quickmod" class="btn-group dropdown">
+					<button type="button" class="btn btn-lg dropdown-toggle rounded-0 border-0" data-bs-toggle="dropdown" aria-expanded="false" title="{L_QUICK_MOD}"><i class="fa fa-gavel fa-fw"></i><span class="visually-hidden">{L_QUICK_MOD}</span></button>
+					<ul class="dropdown-menu dropdown-menu-end dropdown-contents p-1">
+					<!-- BEGIN quickmod -->
+						<!-- DEFINE $QUICKMOD_AJAX = (quickmod.VALUE in ['lock', 'unlock', 'delete_topic', 'restore_topic', 'make_normal', 'make_sticky', 'make_announce', 'make_global']) -->
+						<li><a class="dropdown-item" href="{quickmod.LINK}"<!-- IF $QUICKMOD_AJAX --> data-ajax="true" data-refresh="true"<!-- ENDIF -->>{quickmod.TITLE}</a></li>
+					<!-- END quickmod -->
+					</ul>
 				</div>
 			<!-- ENDIF -->
 
