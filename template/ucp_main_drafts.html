@@ -9,10 +9,17 @@
 
 	<!-- IF S_EDIT_DRAFT -->
 		<!-- INCLUDE posting_editor.html -->
-		<div class="d-grid col-4 mx-auto my-3">
+		<div class="row my-3">
 			{S_HIDDEN_FIELDS}
-			<button class="btn btn-success" type="submit" name="submit" value="{L_SAVE}"><i class="fa fa-level-down fa-rotate-90 fa-fw" aria-hidden="true"></i> {L_SAVE}</button>
-			{S_FORM_TOKEN}
+		<!-- IF S_EDIT_DRAFT -->
+			<div class="d-grid col-4 mx-auto">
+				<a class="btn btn-secondary" href="{S_UCP_ACTION}"><i class="fa fa-chevron-{S_CONTENT_FLOW_BEGIN} fa-fw" aria-hidden="true"></i> {L_BACK_TO_DRAFTS}</a>
+			</div>
+		<!-- ENDIF -->
+			<div class="d-grid col-4 mx-auto">
+				<button class="btn btn-success" type="submit" name="submit" value="{L_SAVE}"><i class="fa fa-level-down fa-rotate-90 fa-fw" aria-hidden="true"></i> {L_SAVE}</button>
+				{S_FORM_TOKEN}
+			</div>
 		</div>
 	<!-- ELSE -->
 	</div>
