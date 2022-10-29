@@ -28,7 +28,7 @@
 				<dl class="row">
 					<dt class="col-lg-3 col-md-4 col-12"><label class="col-form-label" for="subject">{L_SUBJECT}{L_COLON}</label></dt>
 					<dd class="col-lg-9 col-md-8 col-12">
-						<input class="form-control" type="text" name="subject" id="subject" size="50" tabindex="1" value="{SUBJECT}" />
+						<input class="form-control mw-100" type="text" name="subject" id="subject" size="50" tabindex="1" value="{SUBJECT}" />
 					</dd>
 				</dl>
 			<!-- ELSEIF S_CONTACT_ADMIN-->
@@ -40,31 +40,33 @@
 				<dl class="row">
 					<dt class="col-lg-3 col-md-4 col-12"><label class="col-form-label" for="email">{L_SENDER_EMAIL_ADDRESS}{L_COLON}</label></dt>
 					<dd class="col-lg-9 col-md-8 col-12">
-						<input class="form-control" type="text" name="email" id="email" size="50" maxlength="100" tabindex="1" value="{EMAIL}" />
+						<input class="form-control mw-100" type="text" name="email" id="email" size="50" maxlength="100" tabindex="1" value="{EMAIL}" />
 					</dd>
 				</dl>
 				<dl class="row">
 					<dt class="col-lg-3 col-md-4 col-12"><label class="col-form-label" for="name">{L_SENDER_NAME}{L_COLON}</label></dt>
 					<dd class="col-lg-9 col-md-8 col-12">
-						<input class="form-control" type="text" name="name" id="name" size="50" tabindex="2" value="{NAME}" />
+						<input class="form-control mw-100" type="text" name="name" id="name" size="50" tabindex="2" value="{NAME}" />
 					</dd>
 				</dl>
 				<!-- ENDIF -->
 				<dl class="row">
 					<dt class="col-lg-3 col-md-4 col-12"><label class="col-form-label" for="subject">{L_SUBJECT}{L_COLON}</label></dt>
-					<dd class="col-lg-9 col-md-8 col-12"><input class="form-control" type="text" name="subject" id="subject" size="50" tabindex="3" value="{SUBJECT}" /></dd>
+					<dd class="col-lg-9 col-md-8 col-12">
+						<input class="form-control mw-100" type="text" name="subject" id="subject" size="50" tabindex="3" value="{SUBJECT}" />
+					</dd>
 				</dl>
 			<!-- ELSE -->
 				<dl class="row">
 					<dt class="col-lg-3 col-md-4 col-12"><label class="col-form-label" for="email">{L_EMAIL_ADDRESS}{L_COLON}</label></dt>
 					<dd class="col-lg-9 col-md-8 col-12">
-						<input class="form-control" type="email" name="email" id="email" size="50" maxlength="100" tabindex="2" value="{EMAIL}" />
+						<input class="form-control mw-100" type="email" name="email" id="email" size="50" maxlength="100" tabindex="2" value="{EMAIL}" />
 					</dd>
 				</dl>
 				<dl class="row">
 					<dt class="col-lg-3 col-md-4 col-12"><label class="col-form-label" for="name">{L_REAL_NAME}{L_COLON}</label></dt>
 					<dd class="col-lg-9 col-md-8 col-12">
-						<input class="form-control" type="text" name="name" id="name" size="50" tabindex="3" value="{NAME}" />
+						<input class="form-control mw-100" type="text" name="name" id="name" size="50" tabindex="3" value="{NAME}" />
 					</dd>
 				</dl>
 				<dl class="row">
@@ -72,7 +74,9 @@
 						<label class="col-form-label" for="lang">{L_DEST_LANG}{L_COLON}</label>
 						<div class="small text-muted mb-1 fw-normal">{L_DEST_LANG_EXPLAIN}</div>
 					</dt>
-					<dd class="col-lg-9 col-md-8 col-12"><select class="form-select" name="lang" id="lang">{S_LANG_OPTIONS}</select></dd>
+					<dd class="col-lg-9 col-md-8 col-12">
+						<select class="form-select" name="lang" id="lang">{S_LANG_OPTIONS}</select>
+					</dd>
 				</dl>
 			<!-- ENDIF -->
 				<dl class="row">
