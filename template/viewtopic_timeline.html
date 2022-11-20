@@ -87,8 +87,8 @@
 
 						<!-- IF not S_IS_BOT -->
 							<!-- IF $SHOW_POST_BUTTONS -->
-							<!-- EVENT viewtopic_body_post_buttons_before -->
 							<div class="btn-group mt-1">
+								<!-- EVENT viewtopic_body_post_buttons_before -->
 								<a href="{postrow.U_QUOTE}#postingbox" class="btn btn-primary text-nowrap<!-- IF not postrow.U_QUOTE --> disabled<!-- ENDIF -->"><i class="fa fa-quote-{S_CONTENT_FLOW_BEGIN} fa-fw" aria-hidden="true"></i> {L_BUTTON_QUOTE}</a>
 								<!-- IF postrow.U_EDIT or postrow.U_REPORT or postrow.U_INFO or postrow.U_WARN or postrow.U_DELETE -->
 								<a class="btn btn-primary dropdown-toggle active" data-bs-toggle="dropdown" href="#"></a>
@@ -113,9 +113,9 @@
 								<!-- ENDIF -->
 								</ul>
 								<!-- ENDIF -->
+								<!-- EVENT viewtopic_body_post_buttons_after -->
 							</div>
 							
-							<!-- EVENT viewtopic_body_post_buttons_after -->
 							<!-- ENDIF -->
 						<!-- ENDIF -->
 						</div>
