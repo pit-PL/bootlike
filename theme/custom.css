@@ -6,7 +6,7 @@ html {
 	background: #fff url("./images/bg_header.jpg") no-repeat 50% 0;
 }
 
-div.card, div.card-header {
+div.card, .card-header, .card-footer {
 	border-radius: 0 !important;
 }
 
