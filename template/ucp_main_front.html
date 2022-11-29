@@ -20,7 +20,7 @@
 					<!-- IF topicrow.S_UNREAD_TOPIC --><a href="{topicrow.U_NEWEST_POST}" class="row-item-link"></a><!-- ENDIF -->
 			
 					<!-- IF topicrow.S_UNREAD --><a href="{topicrow.U_NEWEST_POST}" class="badge bg-info" title="{L_VIEW_NEWEST_POST}"><i class="fa fa-file icon_topic_newest" aria-hidden="true"></i></a><!-- ENDIF -->
-					<!-- IF topicrow.TOPIC_ICON_IMG --><img src="{T_ICONS_PATH}{topicrow.TOPIC_ICON_IMG}" class="topic-icon align-baseline" alt="{L_IMAGE}" /> <!-- ENDIF --><a class="topic-title" href="{topicrow.U_VIEW_TOPIC}">{topicrow.TOPIC_TITLE}</a><br>
+					<!-- IF topicrow.TOPIC_ICON_IMG and topicrow.S_TOPIC_ICONS --><img src="{T_ICONS_PATH}{topicrow.TOPIC_ICON_IMG}" class="topic-icon align-baseline" alt="{L_IMAGE}" /> <!-- ENDIF --><a class="topic-title" href="{topicrow.U_VIEW_TOPIC}">{topicrow.TOPIC_TITLE}</a><br>
 			
 					<!-- IF .topicrow.pagination -->
 					<ul class="pagination">
