@@ -2,16 +2,14 @@
 
 <form id="ucp" method="post" action="{S_UCP_ACTION}"{S_FORM_ENCTYPE}>
 
-	<h4 class="cp-page-title mb-3">{L_TITLE}</h4>
-
 	<div class="alert alert-info">{L_PROFILE_AUTOLOGIN_KEYS}</div>
 
 	<!-- IF ERROR -->
 		<div class="alert alert-danger">{ERROR}</div>
 	<!-- ENDIF -->
 
-	<div class="card mb-3 pb-1">
-		<div class="card-header d-none d-md-block">
+	<div class="card mb-3">
+		<div class="card-header mb-1 d-none d-md-block border-bottom-0">
 			<div class="row">
 					{% EVENT ucp_profile_autologin_keys_thead_key_before %}
 				<div class="col-12 col-md-3">{L_LOGIN_KEY}</div>
@@ -24,21 +22,25 @@
 			</div>
 		</div>
 	<!-- BEGIN sessions -->
-		<div class="row m-0 mt-1 p-1 align-items-center bg1">
-				{% EVENT ucp_profile_autologin_keys_tbody_key_before %}
-			<div class="col-12 col-md-3 py-2"><span class="badge bg-secondary d-md-none">{L_LOGIN_KEY}{L_COLON}</span> <label class="form-check-label" for="{sessions.KEY}">{sessions.KEY}</label></div>
-				{% EVENT ucp_profile_autologin_keys_tbody_key_after %}
-			<div class="col-12 col-md-2 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_IP}{L_COLON}</span> {sessions.IP}</div>
-			<div class="col-12 col-md-5 py-2"><span class="badge bg-secondary d-md-none">{L_LOGIN_TIME}{L_COLON}</span> {sessions.LOGIN_TIME}</div>
-				{% EVENT ucp_profile_autologin_keys_tbody_mark_before %}
-			<div class="col-12 col-md-2 d-sm-flex py-2">
-				<span class="badge bg-secondary d-md-none me-1">{L_MARK}{L_COLON}</span>
-				<div class="form-switch mx-md-auto"><input class="form-check-input" type="checkbox" name="keys[]" value="{sessions.KEY}" id="{sessions.KEY}" /></div>
+		<div class="container-fluid p-0">
+			<div class="row m-1 mt-0 p-1 align-items-center bg1">
+					{% EVENT ucp_profile_autologin_keys_tbody_key_before %}
+				<div class="col-12 col-md-3 py-2"><span class="badge bg-secondary d-md-none">{L_LOGIN_KEY}{L_COLON}</span> <label class="form-check-label" for="{sessions.KEY}">{sessions.KEY}</label></div>
+					{% EVENT ucp_profile_autologin_keys_tbody_key_after %}
+				<div class="col-12 col-md-2 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_IP}{L_COLON}</span> {sessions.IP}</div>
+				<div class="col-12 col-md-5 py-2"><span class="badge bg-secondary d-md-none">{L_LOGIN_TIME}{L_COLON}</span> {sessions.LOGIN_TIME}</div>
+					{% EVENT ucp_profile_autologin_keys_tbody_mark_before %}
+				<div class="col-12 col-md-2 d-sm-flex py-2">
+					<span class="badge bg-secondary d-md-none me-1">{L_MARK}{L_COLON}</span>
+					<div class="form-switch mx-md-auto"><input class="form-check-input" type="checkbox" name="keys[]" value="{sessions.KEY}" id="{sessions.KEY}" /></div>
+				</div>
+					{% EVENT ucp_profile_autologin_keys_tbody_mark_after %}
 			</div>
-				{% EVENT ucp_profile_autologin_keys_tbody_mark_after %}
 		</div>
 	<!-- BEGINELSE -->
-			<div class="mt-1 px-3 py-2 text-center bg1">{L_PROFILE_NO_AUTOLOGIN_KEYS}</div>
+		<div class="container-fluid p-0">
+			<div class="m-1 mt-0 px-3 py-2 text-center bg1">{L_PROFILE_NO_AUTOLOGIN_KEYS}</div>
+		</div>
 	<!-- END sessions -->
 	</div>
 
