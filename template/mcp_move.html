@@ -34,61 +34,57 @@
 <!-- EVENT mcp_move_before -->
 
 <form id="confirm" action="{S_CONFIRM_ACTION}" method="post">
+	<div class="card mb-3">
+		<div class="card-header">
+			{MESSAGE_TITLE}
+		</div>
+		<div class="card-body pb-0">
+		<!-- IF ADDITIONAL_MSG -->
+			<div class="alert alert-info">{ADDITIONAL_MSG}</div>
+		<!-- ENDIF -->
 
-	<div class="col-md-12 col-lg-10 offset-lg-1">
-		<div class="card mb-3">
-			<div class="card-header">
-				{MESSAGE_TITLE}
-			</div>
-			<div class="card-body pb-0">
-			<!-- IF ADDITIONAL_MSG -->
-				<div class="alert alert-info">{ADDITIONAL_MSG}</div>
-			<!-- ENDIF -->
-
-				{% EVENT mcp_move_destination_forum_before %}
-				<dl class="row">
-					<dt class="col-lg-3 col-md-4 col-12"><label class="col-form-label">{L_SELECT_DESTINATION_FORUM}{L_COLON}</label></dt>
-					<dd class="col-lg-9 col-md-8 col-12"><select class="form-select" name="to_forum_id">{S_FORUM_SELECT}</select></dd>
-				</dl>
-				<!-- IF S_CAN_LEAVE_SHADOW or S_CAN_LOCK_TOPIC -->
-				<dl class="row">
-					<dt class="col-lg-3 col-md-4 col-12 d-none d-md-block">&nbsp;</dt>
-					<dd class="col-lg-9 col-md-8 col-12">
-				<!-- IF S_CAN_LEAVE_SHADOW -->
-					<div class="form-check form-switch">
-						<label class="form-check-label" for="move_leave_shadow"><input class="form-check-input" type="checkbox" name="move_leave_shadow" id="move_leave_shadow" /> {L_LEAVE_SHADOW}</label>
-					</div>
-				<!-- ENDIF -->
-				<!-- IF S_CAN_LOCK_TOPIC -->
-					<div class="form-check form-switch">
-						<label class="form-check-label" for="move_lock_topics"><input class="form-check-input" type="checkbox" name="move_lock_topics" id="move_lock_topics" /> {L_LOCK_TOPIC}</label>
-					</div>
-				<!-- ENDIF -->
-					</dd>
-				</dl>
-				<!-- ENDIF -->
-				{% EVENT mcp_move_destination_forum_after %}
-				<dl class="row">
-					<dt class="col-lg-3 col-md-4 col-12 d-none d-md-block">&nbsp;</dt>
-					<dd class="col-lg-9 col-md-8 col-12"><strong>{MESSAGE_TEXT}</strong></dd>
-				</dl>
-			</div>
-
-			<div class="card-footer">
-				{S_HIDDEN_FIELDS}
-				<div class="row">
-					<div class="d-grid col-4 mx-auto">
-						<button class="btn btn-danger" type="submit" name="cancel" value="{L_NO}"><i class="fa fa-minus fa-fw" aria-hidden="true"></i> {L_NO}</button>
-					</div>
-					<div class="d-grid col-4 mx-auto">
-						<button type="submit" name="confirm" value="{YES_VALUE}" class="btn btn-success"><i class="fa fa-plus fa-fw" aria-hidden="true"></i> {YES_VALUE}</button>
-					</div>
+			{% EVENT mcp_move_destination_forum_before %}
+			<dl class="row">
+				<dt class="col-lg-3 col-md-4 col-12"><label class="col-form-label">{L_SELECT_DESTINATION_FORUM}{L_COLON}</label></dt>
+				<dd class="col-lg-9 col-md-8 col-12"><select class="form-select" name="to_forum_id">{S_FORUM_SELECT}</select></dd>
+			</dl>
+			<!-- IF S_CAN_LEAVE_SHADOW or S_CAN_LOCK_TOPIC -->
+			<dl class="row">
+				<dt class="col-lg-3 col-md-4 col-12 d-none d-md-block">&nbsp;</dt>
+				<dd class="col-lg-9 col-md-8 col-12">
+			<!-- IF S_CAN_LEAVE_SHADOW -->
+				<div class="form-check form-switch">
+					<label class="form-check-label" for="move_leave_shadow"><input class="form-check-input" type="checkbox" name="move_leave_shadow" id="move_leave_shadow" /> {L_LEAVE_SHADOW}</label>
 				</div>
-				{S_FORM_TOKEN}
+			<!-- ENDIF -->
+			<!-- IF S_CAN_LOCK_TOPIC -->
+				<div class="form-check form-switch">
+					<label class="form-check-label" for="move_lock_topics"><input class="form-check-input" type="checkbox" name="move_lock_topics" id="move_lock_topics" /> {L_LOCK_TOPIC}</label>
+				</div>
+			<!-- ENDIF -->
+				</dd>
+			</dl>
+			<!-- ENDIF -->
+			{% EVENT mcp_move_destination_forum_after %}
+			<dl class="row">
+				<dt class="col-lg-3 col-md-4 col-12 d-none d-md-block">&nbsp;</dt>
+				<dd class="col-lg-9 col-md-8 col-12"><strong>{MESSAGE_TEXT}</strong></dd>
+			</dl>
+		</div>
+
+		<div class="card-footer">
+			{S_HIDDEN_FIELDS}
+			<div class="row">
+				<div class="d-grid col-4 mx-auto">
+					<button class="btn btn-danger" type="submit" name="cancel" value="{L_NO}"><i class="fa fa-minus fa-fw" aria-hidden="true"></i> {L_NO}</button>
+				</div>
+				<div class="d-grid col-4 mx-auto">
+					<button type="submit" name="confirm" value="{YES_VALUE}" class="btn btn-success"><i class="fa fa-plus fa-fw" aria-hidden="true"></i> {YES_VALUE}</button>
+				</div>
 			</div>
+			{S_FORM_TOKEN}
 		</div>
 	</div>
-
 </form>
 
 <!-- INCLUDE overall_footer.html -->
