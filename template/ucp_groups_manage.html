@@ -2,13 +2,14 @@
 
 <form id="ucp" method="post" action="{S_UCP_ACTION}"{S_FORM_ENCTYPE}>
 
-	<h4 class="cp-page-title mb-3">{L_USERGROUPS}<!-- IF GROUP_NAME --> :: <span<!-- IF GROUP_COLOUR --> style="color: #{GROUP_COLOUR};"<!-- ENDIF -->>{GROUP_NAME}</span><!-- ENDIF --></h4>
-
 	<!-- IF S_ERROR -->
 		<div class="alert alert-danger">{ERROR_MSG}</div>
 	<!-- ENDIF -->
 
-	<div class="alert alert-info">{L_GROUPS_EXPLAIN}</div>
+	<div class="alert alert-info">
+		<strong>{L_USERGROUPS}<!-- IF GROUP_NAME --> :: <span<!-- IF GROUP_COLOUR --> style="color: #{GROUP_COLOUR};"<!-- ENDIF -->>{GROUP_NAME}</span><!-- ENDIF --></strong><br>
+		{L_GROUPS_EXPLAIN}
+	</div>
 
 	<!-- IF S_EDIT -->
 	<div class="card mb-3">
@@ -111,8 +112,8 @@
 <!-- ELSEIF S_LIST -->
 
 	<!-- IF .leader -->
-	<div class="card mb-3 pb-1">
-		<div class="card-header d-none d-md-block">
+	<div class="card mb-3">
+		<div class="card-header mb-1 d-none d-md-block border-bottom-0">
 			<div class="row">
 				<div class="col-12 col-md-3">{L_GROUP_LEAD}</div>
 				<div class="col-12 col-md-3 text-md-center">{L_GROUP_DEFAULT}</div>
@@ -122,12 +123,14 @@
 			</div>
 		</div>
 		<!-- BEGIN leader -->
-		<div class="row m-0 mt-1 p-1 align-items-center bg1">
-			<div class="col-12 col-md-3 py-2"><span class="badge bg-secondary d-md-none">{L_GROUP_LEAD}{L_COLON}</span> {leader.USERNAME_FULL}</div>
-			<div class="col-12 col-md-3 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_GROUP_DEFAULT}{L_COLON}</span> <!-- IF leader.S_GROUP_DEFAULT -->{L_YES}<!-- ELSE -->{L_NO}<!-- ENDIF --></div>
-			<div class="col-12 col-md-2 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_POSTS}{L_COLON}</span> {leader.USER_POSTS}</div>
-			<div class="col-12 col-md-2 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_JOINED}{L_COLON}</span> {leader.JOINED}</div>
-			<div class="col-12 col-md-2 py-2 d-none d-md-block">&nbsp;</div>
+		<div class="container-fluid p-0">
+			<div class="row m-1 mt-0 p-1 align-items-center bg1">
+				<div class="col-12 col-md-3 py-2"><span class="badge bg-secondary d-md-none">{L_GROUP_LEAD}{L_COLON}</span> {leader.USERNAME_FULL}</div>
+				<div class="col-12 col-md-3 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_GROUP_DEFAULT}{L_COLON}</span> <!-- IF leader.S_GROUP_DEFAULT -->{L_YES}<!-- ELSE -->{L_NO}<!-- ENDIF --></div>
+				<div class="col-12 col-md-2 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_POSTS}{L_COLON}</span> {leader.USER_POSTS}</div>
+				<div class="col-12 col-md-2 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_JOINED}{L_COLON}</span> {leader.JOINED}</div>
+				<div class="col-12 col-md-2 py-2 d-none d-md-block">&nbsp;</div>
+			</div>
 		</div>
 		<!-- END leader -->
 	</div>
@@ -136,7 +139,7 @@
 	<!-- BEGIN member -->
 	<!-- IF member.S_PENDING -->
 	<div class="card mb-3">
-		<div class="card-header d-none d-md-block">
+		<div class="card-header d-none d-md-block border-bottom-0">
 			<div class="row">
 				<div class="col-12 col-md-3">{L_GROUP_PENDING}</div>
 				<div class="col-12 col-md-3 text-md-center">{L_GROUP_DEFAULT}</div>
@@ -149,8 +152,8 @@
 			<!-- IF S_PENDING_SET -->
 	</div>
 		<!-- ENDIF -->
-	<div class="card mb-3 pb-1">
-		<div class="card-header d-none d-md-block">
+	<div class="card mb-3">
+		<div class="card-header mb-1 d-none d-md-block border-bottom-0">
 			<div class="row">
 				<div class="col-12 col-md-3">{L_GROUP_APPROVED}</div>
 				<div class="col-12 col-md-3 text-md-center">{L_GROUP_DEFAULT}</div>
@@ -160,23 +163,27 @@
 			</div>
 		</div>
 	<!-- ELSE -->
-		<div class="row m-0 mt-1 p-1 align-items-center bg1">
-			<div class="col-12 col-md-3 py-2"><span class="badge bg-secondary d-md-none">{L_GROUP_APPROVED}{L_COLON}</span> {member.USERNAME_FULL}</div>
-			<div class="col-12 col-md-3 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_GROUP_DEFAULT}{L_COLON}</span> <!-- IF member.S_GROUP_DEFAULT -->{L_YES}<!-- ELSE -->{L_NO}<!-- ENDIF --></div>
-			<div class="col-12 col-md-2 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_POSTS}{L_COLON}</span> {member.USER_POSTS}</div>
-			<div class="col-12 col-md-2 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_JOINED}{L_COLON}</span> {member.JOINED}</div>
-			<div class="col-12 col-md-2 py-2 d-sm-flex py-2">
-				<span class="badge bg-secondary d-md-none me-1">{L_MARK}{L_COLON}</span>
-				<div class="form-switch mx-md-auto"><input class="form-check-input" type="checkbox" name="mark[]" value="{member.USER_ID}" /></div>
+		<div class="container-fluid p-0">
+			<div class="row m-1 mt-0 p-1 align-items-center bg1">
+				<div class="col-12 col-md-3 py-2"><span class="badge bg-secondary d-md-none">{L_GROUP_APPROVED}{L_COLON}</span> {member.USERNAME_FULL}</div>
+				<div class="col-12 col-md-3 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_GROUP_DEFAULT}{L_COLON}</span> <!-- IF member.S_GROUP_DEFAULT -->{L_YES}<!-- ELSE -->{L_NO}<!-- ENDIF --></div>
+				<div class="col-12 col-md-2 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_POSTS}{L_COLON}</span> {member.USER_POSTS}</div>
+				<div class="col-12 col-md-2 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_JOINED}{L_COLON}</span> {member.JOINED}</div>
+				<div class="col-12 col-md-2 py-2 d-sm-flex py-2">
+					<span class="badge bg-secondary d-md-none me-1">{L_MARK}{L_COLON}</span>
+					<div class="form-switch mx-md-auto"><input class="form-check-input" type="checkbox" name="mark[]" value="{member.USER_ID}" /></div>
+				</div>
 			</div>
 		</div>
 	<!-- ENDIF -->
 	<!-- BEGINELSE -->
-	<div class="card mb-3 pb-1">
-		<div class="card-header">
+	<div class="card mb-3">
+		<div class="card-header mb-1 border-bottom-0">
 			{L_MEMBERS}
 		</div>
-		<div class="mt-1 px-3 py-2 text-center bg1">{L_GROUPS_NO_MEMBERS}</div>
+		<div class="container-fluid p-0">
+			<div class="m-1 mt-0 px-3 py-2 text-center bg1">{L_GROUPS_NO_MEMBERS}</div>
+		</div>
 	<!-- END member -->
 	</div>
 
@@ -266,21 +273,23 @@
 <!-- ELSE -->
 
 	<!-- IF .leader -->
-	<div class="card mb-3 pb-1">
-	<div class="card-header">
+	<div class="card mb-3">
+	<div class="card-header mb-1 border-bottom-0">
 		<div class="row">
 			<div class="col-lg-9 col-md-8 col-7">{L_GROUP_LEADER}</div>
 			<div class="col-lg-3 col-md-4 col-5">{L_OPTIONS}</div>
 		</div>
 	</div>
 	<!-- BEGIN leader -->
-		<div class="row m-0 mt-1 py-1 align-items-center bg1">
-			<div class="col-lg-9 col-md-8 col-7">
-				<a class="topic-title" href="{leader.U_EDIT}"<!-- IF leader.GROUP_COLOUR --> style="color: #{leader.GROUP_COLOUR};"<!-- ENDIF -->>{leader.GROUP_NAME}</a>
-				<!-- IF leader.GROUP_DESC --><span class="form-text">{leader.GROUP_DESC}</span><!-- ENDIF -->
+		<div class="container-fluid p-0">
+			<div class="row m-1 mt-0 py-1 align-items-center bg1">
+				<div class="col-lg-9 col-md-8 col-7">
+					<a class="topic-title" href="{leader.U_EDIT}"<!-- IF leader.GROUP_COLOUR --> style="color: #{leader.GROUP_COLOUR};"<!-- ENDIF -->>{leader.GROUP_NAME}</a>
+					<!-- IF leader.GROUP_DESC --><span class="form-text">{leader.GROUP_DESC}</span><!-- ENDIF -->
+				</div>
+			
+				<div class="col-lg-3 col-md-4 col-5"><a href="{leader.U_EDIT}" >{L_EDIT}</a><br><a href="{leader.U_LIST}">{L_GROUP_LIST}</a></div>
 			</div>
-		
-			<div class="col-lg-3 col-md-4 col-5"><a href="{leader.U_EDIT}" >{L_EDIT}</a><br><a href="{leader.U_LIST}">{L_GROUP_LIST}</a></div>
 		</div>
 	<!-- END leader -->
 	</div>
