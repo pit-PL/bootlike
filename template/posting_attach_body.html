@@ -1,4 +1,4 @@
-<div id="attach-panel" class="card mb-3<!-- IF not (S_PRIVMSGS or S_SHOW_DRAFTS) --> border-top-0<!-- ENDIF --><!-- IF not S_PRIVMSGS --> col-md-12 col-lg-10 offset-lg-1<!-- ENDIF -->">
+<div id="attach-panel" class="card mb-3<!-- IF not (S_PRIVMSGS or S_SHOW_DRAFTS) --> border-top-0<!-- ENDIF -->">
 	<div class="card-body">
 
 	<p>{L_ADD_ATTACHMENT_EXPLAIN} <span class="hidden" id="drag-n-drop-message">{L_PLUPLOAD_DRAG_TEXTAREA}</span></p>
@@ -27,7 +27,7 @@
 	{% EVENT posting_attach_body_file_list_before %}
 
 	<div id="file-list-container" class="card mb-3 pb-1"<!-- IF not .attach_row --> style="display: none;"<!-- ENDIF -->>
-		<div class="card-header d-none d-md-block">
+		<div class="card-header mb-1 d-none d-md-block">
 			<div class="row">
 				<div class="col-12 col-md-4">{L_PLUPLOAD_FILENAME}</div>
 				<div class="col-12 col-md-4">{L_FILE_COMMENT}</div>
@@ -68,7 +68,7 @@
 		{% EVENT posting_attach_body_attach_row_before %}
 		<!-- BEGIN attach_row -->
 			{% EVENT posting_attach_body_attach_row_prepend %}
-			<div class="row m-0 mt-1 p-1 align-items-center bg1" data-attach-id="{attach_row.ATTACH_ID}">
+			<div class="row m-1 mt-0 p-1 align-items-center bg1" data-attach-id="{attach_row.ATTACH_ID}">
 				<div class="col-12 col-md-4 py-2">
 					<span class="file-name ellipsis-text"><a href="{attach_row.U_VIEW_ATTACHMENT}">{attach_row.FILENAME}</a></span>
 					{% EVENT posting_attach_body_attach_row_controls_prepend %}
