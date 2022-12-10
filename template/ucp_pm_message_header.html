@@ -1,30 +1,9 @@
 
 <form id="viewfolder" method="post" action="{S_PM_ACTION}">
 
-	<h4 class="cp-page-title mb-3">{L_TITLE}<!-- IF CUR_FOLDER_NAME -->{L_COLON} {CUR_FOLDER_NAME}<!-- ENDIF --></h4>
-
-	<!-- IF FOLDER_STATUS and FOLDER_MAX_MESSAGES neq 0 --><p class="mb-1">{FOLDER_STATUS}</p>
-		<!-- IF FOLDER_PERCENT > 0 -->
-		<div class="progress mb-3" style="height: 8px;">
-		<!-- IF FOLDER_PERCENT <= 60 -->
-			<div class="progress-bar bg-success" role="progressbar" style="width: {FOLDER_PERCENT}%" aria-valuenow="{FOLDER_PERCENT}" aria-valuemin="0" aria-valuemax="100"></div>
-		<!-- ELSEIF FOLDER_PERCENT > 60 and FOLDER_PERCENT <= 80 -->
-			<div class="progress-bar bg-success" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-			<div class="progress-bar bg-warning" role="progressbar" style="width: {{FOLDER_PERCENT - 60 }}%" aria-valuenow="{{FOLDER_PERCENT - 60 }}" aria-valuemin="0" aria-valuemax="100"></div>
-		<!-- ELSEIF FOLDER_PERCENT > 80 and FOLDER_PERCENT <= 95 -->
-			<div class="progress-bar bg-success" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-			<div class="progress-bar bg-warning" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-			<div class="progress-bar bg-danger" role="progressbar" style="width: {{FOLDER_PERCENT - 80 }}%" aria-valuenow="{{FOLDER_PERCENT - 80 }}" aria-valuemin="0" aria-valuemax="100"></div>
-		<!-- ELSE -->
-			<div class="progress-bar bg-danger progress-bar-striped" style="width: {FOLDER_PERCENT}%;" role="progressbar" aria-valuenow="{FOLDER_PERCENT}" aria-valuemin="0" aria-valuemax="100"></div>
-		<!-- ENDIF -->
-		</div>
-		<!-- ENDIF -->
-	<!-- ENDIF -->
-
 	<!-- IF not S_IS_BOT -->
 	<div class="card mb-3">
-		<div class="action-bar d-lg-flex justify-content-between bg1">
+		<div class="action-bar d-md-flex justify-content-md-between bg1">
 			<div class="d-flex">
 			<!-- IF U_POST_REPLY_PM -->
 				<a class="btn btn-lg rounded-0 border-0 text-nowrap" href="{U_POST_REPLY_PM}"><i class="fa fa-reply fa-fw" aria-hidden="true"></i> {L_BUTTON_PM_REPLY}</a>
