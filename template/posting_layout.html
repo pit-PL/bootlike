@@ -21,10 +21,6 @@
 
 <form id="postform" method="post" action="{S_POST_ACTION}"{S_FORM_ENCTYPE}>
 
-<!-- IF S_SHOW_DRAFTS or S_DRAFT_LOADED  -->
-<div class="col-md-12 col-lg-10 offset-lg-1">
-<!-- ENDIF -->
-
 <!-- IF S_DRAFT_LOADED -->
 	<div class="alert alert-info">
 		<strong>{L_INFORMATION}</strong><br>
@@ -34,15 +30,11 @@
 
 <!-- IF S_SHOW_DRAFTS --><!-- INCLUDE drafts.html --><!-- ENDIF -->
 
-<!-- IF S_SHOW_DRAFTS or S_DRAFT_LOADED  -->
-</div>
-<!-- ENDIF -->
-
 <!-- IF S_POST_REVIEW --><!-- INCLUDE posting_review.html --><!-- ENDIF -->
 
 <!-- IF S_DISPLAY_PREVIEW --><!-- INCLUDE posting_preview.html --><!-- ENDIF -->
 
-<div id="preview" class="col-md-12 col-lg-10 offset-lg-1">
+<div id="preview">
 	<div id="postingbox" class="card mb-3">
 		<div class="card-header">
 			{L_POST_A}
