@@ -1,10 +1,10 @@
 <div id="offcanvas_right" class="offcanvas offcanvas-<!-- IF $SIDEBAR_ON_LEFT -->start<!-- ELSE -->end<!-- ENDIF -->" tabindex="-1" aria-labelledby="offcanvas_right">
-	<div class="offcanvas-header">
+	<div class="offcanvas-header border-bottom">
 		<h5 class="offcanvas-title fw-bold">{CURRENT_USERNAME_SIMPLE}</h5>
 		<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="{L_CLOSE}"></button>
 	</div>
-	<div class="offcanvas-body border-top bg1">
-		<div class="mb-1 text-center fw-bold user-panel">{L_PROFILE}</div>
+	<div class="offcanvas-body bg1">
+		<div class="mb-1 text-center fw-bold">{L_PROFILE}</div>
 		<div class="list-group mb-3 rounded-0 shadow">
 		<!-- IF S_DISPLAY_PM -->
 			<a class="list-group-item list-group-item-action text-center" href="{U_PRIVATEMSGS}" role="menuitem">
@@ -17,8 +17,8 @@
 			</a>
 		<!-- ENDIF -->
 
-			<div class="list-group-item p-0">
-				<div class="row m-0 align-items-center bg2">
+			<div class="list-group-item p-0 bg2">
+				<div class="row m-0 align-items-center">
 					<!-- IF CURRENT_USER_AVATAR -->
 					<div class="col-4 justify-content-center my-1 px-2 py-1 d-none d-md-flex">
 						{CURRENT_USER_AVATAR}
