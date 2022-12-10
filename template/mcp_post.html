@@ -311,8 +311,8 @@
 			</p>
 		<!-- ENDIF -->
 
-			<div class="card mb-3 pb-1">
-				<div class="card-header d-none d-md-block">
+			<div class="card mb-3">
+				<div class="card-header mb-1 d-none d-md-block border-bottom-0">
 					<div class="row">
 						<div class="col-12 col-md-10">{L_OTHER_USERS}</div>
 						<div class="col-12 col-md-2 text-center">{L_POSTS}</div>
@@ -320,20 +320,24 @@
 				</div>
 
 			<!-- BEGIN userrow -->
-				<div class="row m-0 mt-1 p-1 align-items-center bg1">
-					<div class="col-12 col-md-10 py-2">
-						<span class="badge bg-secondary d-md-none">{L_OTHER_USERS}{L_COLON}</span>
-					<!-- IF userrow.U_PROFILE -->
-						<a href="{userrow.U_PROFILE}">{userrow.USERNAME}</a><!-- ELSE -->{userrow.USERNAME}
-					<!-- ENDIF -->
-					</div>
-					<div class="col-12 col-md-2 py-2 text-md-center">
-						<span class="badge bg-secondary d-md-none">{L_POSTS}{L_COLON}</span>
-						<a href="{userrow.U_SEARCHPOSTS}" title="{L_SEARCH_POSTS_BY} {userrow.USERNAME}">{userrow.NUM_POSTS}</a>
+				<div class="container-fluid p-0">
+					<div class="row m-1 mt-0 p-1 align-items-center bg1">
+						<div class="col-12 col-md-10 py-2">
+							<span class="badge bg-secondary d-md-none">{L_OTHER_USERS}{L_COLON}</span>
+						<!-- IF userrow.U_PROFILE -->
+							<a href="{userrow.U_PROFILE}">{userrow.USERNAME}</a><!-- ELSE -->{userrow.USERNAME}
+						<!-- ENDIF -->
+						</div>
+						<div class="col-12 col-md-2 py-2 text-md-center">
+							<span class="badge bg-secondary d-md-none">{L_POSTS}{L_COLON}</span>
+							<a href="{userrow.U_SEARCHPOSTS}" title="{L_SEARCH_POSTS_BY} {userrow.USERNAME}">{userrow.NUM_POSTS}</a>
+						</div>
 					</div>
 				</div>
 			<!-- BEGINELSE -->
-				<div class="mt-1 px-3 py-2 text-center bg1">{L_NO_MATCHES_FOUND}</div>
+				<div class="container-fluid p-0">
+					<div class="m-1 mt-0 px-3 py-2 text-center bg1">{L_NO_MATCHES_FOUND}</div>
+				</div>
 			<!-- END userrow -->
 			</div>
 
@@ -353,30 +357,34 @@
 			<!-- ENDIF -->
 
 			<!-- IF not $HIDE_USER_IP or U_ACP -->
-			<div class="card mb-3 pb-1">
-				<div class="card-header d-none d-md-block">
+			<div class="card mb-3">
+				<div class="card-header mb-1 d-none d-md-block border-bottom-0">
 					<div class="row">
 						<div class="col-12 col-md-10">{L_IPS_POSTED_FROM}</div>
 						<div class="col-12 col-md-2 text-center">{L_POSTS}</div>
 					</div>
 				</div>
 			<!-- BEGIN iprow -->
-				<div class="row m-0 mt-1 p-1 align-items-center bg1">
-					<div class="col-12 col-md-10 py-2">
-						<span class="badge bg-secondary d-md-none">{L_IPS_POSTED_FROM}{L_COLON}</span>
-					<!-- IF iprow.HOSTNAME -->
-						<a href="{iprow.U_WHOIS}">{iprow.HOSTNAME}</a> ({iprow.IP})
-					<!-- ELSE -->
-						<a href="{iprow.U_WHOIS}">{iprow.IP}</a> (<a href="{iprow.U_LOOKUP_IP}">{L_LOOKUP_IP}</a>)
-					<!-- ENDIF -->
-					</div>
-					<div class="col-12 col-md-2 py-2 text-md-center">
-						<span class="badge bg-secondary d-md-none">{L_POSTS}{L_COLON}</span>
-						{iprow.NUM_POSTS}
+				<div class="container-fluid p-0">
+					<div class="row m-1 mt-0 p-1 align-items-center bg1">
+						<div class="col-12 col-md-10 py-2">
+							<span class="badge bg-secondary d-md-none">{L_IPS_POSTED_FROM}{L_COLON}</span>
+						<!-- IF iprow.HOSTNAME -->
+							<a href="{iprow.U_WHOIS}">{iprow.HOSTNAME}</a> ({iprow.IP})
+						<!-- ELSE -->
+							<a href="{iprow.U_WHOIS}">{iprow.IP}</a> (<a href="{iprow.U_LOOKUP_IP}">{L_LOOKUP_IP}</a>)
+						<!-- ENDIF -->
+						</div>
+						<div class="col-12 col-md-2 py-2 text-md-center">
+							<span class="badge bg-secondary d-md-none">{L_POSTS}{L_COLON}</span>
+							{iprow.NUM_POSTS}
+						</div>
 					</div>
 				</div>
 			<!-- BEGINELSE -->
-				<div class="mt-1 px-3 py-2 text-center bg1">{L_NO_MATCHES_FOUND}</div>
+				<div class="container-fluid p-0">
+					<div class="m-1 mt-0 px-3 py-2 text-center bg1">{L_NO_MATCHES_FOUND}</div>
+				</div>
 			<!-- END iprow -->
 			</div>
 
