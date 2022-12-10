@@ -2,31 +2,27 @@
 
 <form id="postform" method="post" action="{S_UCP_ACTION}"{S_FORM_ENCTYPE}>
 
-	<h4 class="cp-page-title mb-3">{L_TITLE}</h4>
+	<div class="alert alert-info">{L_DRAFTS_EXPLAIN}</div>
 
-	<div<!-- IF S_EDIT_DRAFT --> class="col-md-12 col-lg-10 offset-lg-1"<!-- ENDIF -->>
-		<div class="alert alert-info">{L_DRAFTS_EXPLAIN}</div>
-
+<!-- IF S_EDIT_DRAFT -->
+	<!-- INCLUDE posting_editor.html -->
+	<div class="row my-3">
+		{S_HIDDEN_FIELDS}
 	<!-- IF S_EDIT_DRAFT -->
-		<!-- INCLUDE posting_editor.html -->
-		<div class="row my-3">
-			{S_HIDDEN_FIELDS}
-		<!-- IF S_EDIT_DRAFT -->
-			<div class="d-grid col-4 mx-auto">
-				<a class="btn btn-secondary" href="{S_UCP_ACTION}"><i class="fa fa-chevron-{S_CONTENT_FLOW_BEGIN} fa-fw" aria-hidden="true"></i> {L_BACK_TO_DRAFTS}</a>
-			</div>
-		<!-- ENDIF -->
-			<div class="d-grid col-4 mx-auto">
-				<button class="btn btn-success" type="submit" name="submit" value="{L_SAVE}"><i class="fa fa-level-down fa-rotate-90 fa-fw" aria-hidden="true"></i> {L_SAVE}</button>
-			{S_FORM_TOKEN}
-			</div>
+		<div class="d-grid col-4 mx-auto">
+			<a class="btn btn-secondary" href="{S_UCP_ACTION}"><i class="fa fa-chevron-{S_CONTENT_FLOW_BEGIN} fa-fw" aria-hidden="true"></i> {L_BACK_TO_DRAFTS}</a>
 		</div>
-	<!-- ELSE -->
+	<!-- ENDIF -->
+		<div class="d-grid col-4 mx-auto">
+			<button class="btn btn-success" type="submit" name="submit" value="{L_SAVE}"><i class="fa fa-level-down fa-rotate-90 fa-fw" aria-hidden="true"></i> {L_SAVE}</button>
+			{S_FORM_TOKEN}
+		</div>
 	</div>
+<!-- ELSE -->
 
 <!-- IF .draftrow -->
-	<div class="card mb-3 pb-1">
-		<div class="card-header">
+	<div class="card mb-3">
+		<div class="card-header mb-1 border-bottom-0">
 			<div class="row">
 				<div class="col-lg-7 col-md-6 col-sm-10 col-9">{L_DRAFT_TITLE}</div>
 				<div class="col-lg-3 col-md-4 d-none d-md-block">{L_SAVE_DATE}</div>
@@ -36,7 +32,7 @@
 
 	<!-- BEGIN draftrow -->
 		<div class="container-fluid row-item p-0">
-			<div class="row m-0 mt-1 p-1 align-items-center bg1">
+			<div class="row m-1 mt-0 p-1 align-items-center bg1">
 				<div class="col-lg-7 col-md-6 col-sm-10 col-9">
 					<a class="topic-title" href="{draftrow.U_VIEW_EDIT}">{draftrow.DRAFT_SUBJECT}</a><br>
 					<!-- IF draftrow.S_LINK_TOPIC -->{L_TOPIC}{L_COLON} <a href="{draftrow.U_VIEW}">{draftrow.TITLE}</a>
