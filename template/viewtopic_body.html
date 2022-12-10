@@ -62,8 +62,6 @@
 
 <!-- IF S_HAS_POLL -->
 	<form method="post" action="{S_POLL_ACTION}" class="topic_poll">
-
-	<div class="col-md-12 col-lg-10 offset-lg-1">
 		<div class="card mb-3">
 			<div class="card-header">
 				<!-- EVENT viewtopic_body_poll_question_prepend -->
@@ -99,7 +97,7 @@
 				<!-- IF S_DISPLAY_RESULTS -->
 				<div class="progress-outer d-flex justify-content-between mb-3 p-1 border border-4 rounded-pill">
 					<div class="progress rounded-pill w-100" style="height: 24px;">
-					<!-- IF poll_option.POLL_OPTION_RESULT != 0 --><div class="progress-bar px-3<!-- IF poll_option.POLL_OPTION_PCT < 20 --> bg-info<!-- ELSEIF poll_option.POLL_OPTION_PCT < 40 --> bg-success<!-- ELSEIF poll_option.POLL_OPTION_PCT < 60 --> bg-primary<!-- ELSEIF poll_option.POLL_OPTION_PCT < 80 --> bg-warning<!-- ELSE --> bg-danger progress-bar-striped<!-- ENDIF --> fw-bold text-start text-white rounded-pill" style="width:{poll_option.POLL_OPTION_PERCENT};" role="progressbar" aria-valuenow="{poll_option.POLL_OPTION_PCT}" aria-valuemin="0" aria-valuemax="100">{poll_option.POLL_OPTION_RESULT}</div><!-- ENDIF -->
+					<!-- IF poll_option.POLL_OPTION_RESULT != 0 --><div class="progress-bar px-3<!-- IF poll_option.POLL_OPTION_PCT < 30 --> bg-info<!-- ELSEIF poll_option.POLL_OPTION_PCT < 50 --> bg-primary<!-- ELSEIF poll_option.POLL_OPTION_PCT < 80 --> bg-warning<!-- ELSE --> bg-danger progress-bar-striped<!-- ENDIF --> fw-bold text-start text-white rounded-pill" style="width:{poll_option.POLL_OPTION_PERCENT};" role="progressbar" aria-valuenow="{poll_option.POLL_OPTION_PCT}" aria-valuemin="0" aria-valuemax="100">{poll_option.POLL_OPTION_RESULT}</div><!-- ENDIF -->
 					</div>
 					<div class="progress-value fw-bold text-center text-nowrap" style="min-width: 70px;">
 					<!-- IF poll_option.POLL_OPTION_RESULT == 0 -->0<!-- ELSE --><span>{poll_option.POLL_OPTION_PCT}</span>%<!-- ENDIF -->
@@ -135,8 +133,6 @@
 			{S_FORM_TOKEN}
 			{S_HIDDEN_FIELDS}
 		</div>
-	</div>
-
 	</form>
 <!-- ENDIF -->
 
@@ -307,11 +303,11 @@
 			<!-- IF postrow.SIGNATURE and not $SIGNATURE_IN_POST -->
 				<div id="accordion_signature" class="accordion accordion-flush d-none d-md-block border-top">
 				  <div class="accordion-item">
-					<h2 class="accordion-header bg1">
-						<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-signature" aria-expanded="false" aria-controls="flush-signature">{L_SIGNATURE}</button>
+					<h2 class="accordion-header">
+						<button class="accordion-button collapsed text-bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#flush-signature" aria-expanded="false" aria-controls="flush-signature">{L_SIGNATURE}</button>
 					</h2>
 					<div id="flush-signature" class="accordion-collapse collapse rounded-0" aria-labelledby="flush-signature" data-bs-parent="#accordion_signature">
-						<div id="sig{postrow.POST_ID}" class="accordion-body small py-2 bg1">{postrow.SIGNATURE}</div>
+						<div id="sig{postrow.POST_ID}" class="accordion-body small py-2 bg1 border-top-0">{postrow.SIGNATURE}</div>
 					</div>
 				  </div>
 				</div>
@@ -455,16 +451,18 @@
 {% EVENT viewtopic_body_online_list_before %}
 
 <!-- IF S_DISPLAY_ONLINE_LIST and U_VIEWONLINE -->
-<div class="card mb-3 shadow-sm">
-	<ul class="nav nav-tabs p-2 pb-0 bg1" role="tablist">
+<div class="mb-3 shadow-sm">
+	<ul class="nav nav-tabs p-2 pb-0 border bg1" role="tablist">
 		<li class="nav-item">
 			<a class="nav-link active disabled" data-bs-toggle="tab" href="#nav_online" role="tab" aria-controls="nav_online" aria-selected="true"><i class="fa fa-signal fa-fw d-none d-md-inline-block" aria-hidden="true"></i> {L_WHO_IS_ONLINE}</a>
 		</li>
 	</ul>
 
-	<div class="card-body tab-content">
-		<div class="tab-pane fade show active" id="nav_online" role="tabpanel" aria-labelledby="nav_online-tab">
-			{LOGGED_IN_USER_LIST}
+	<div class="card border-top-0">
+		<div class="card-body tab-content">
+			<div class="tab-pane fade show active" id="nav_online" role="tabpanel" aria-labelledby="nav_online-tab">
+				{LOGGED_IN_USER_LIST}
+			</div>
 		</div>
 	</div>
 </div>
