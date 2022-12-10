@@ -2,8 +2,6 @@
 
 <form id="ucp" method="post" action="{S_UCP_ACTION}"{S_FORM_ENCTYPE}>
 
-	<h4 class="cp-page-title mb-3">{L_TITLE}</h4>
-	
 	<div class="alert alert-info">{L_ATTACHMENTS_EXPLAIN}</div>
 
 	<!-- IF .attachrow -->
@@ -34,8 +32,8 @@
 	</div>
 <!-- ENDIF -->
 
-	<div class="card mb-3 pb-1">
-		<div class="card-header">
+	<div class="card mb-3">
+		<div class="card-header mb-1 border-bottom-0">
 			<div class="row">
 				<div class="col-md-5 col-sm-10 col-9">{L_FILENAME}</div>
 				<div class="col-md-2 d-none d-md-block text-center">{L_DOWNLOADS}</div>
@@ -46,7 +44,7 @@
 
 		<!-- BEGIN attachrow -->
 		<div class="container-fluid row-item p-0">
-			<div class="row m-0 mt-1 p-1 align-items-center bg1">
+			<div class="row m-1 mt-0 p-1 align-items-center bg1">
 				<div class="col-md-5 col-sm-10 col-9">
 					<a href="{attachrow.U_VIEW_ATTACHMENT}" class="topic-title attachment-filename ellipsis-text" title="{attachrow.FILENAME}">{attachrow.FILENAME}</a> &nbsp; <span class="badge bg-info text-dark">{attachrow.SIZE}</span><br>
 					<!-- IF attachrow.S_IN_MESSAGE -->{L_PM}{L_COLON} <!-- ELSE -->{L_TOPIC}{L_COLON} <!-- ENDIF --><a href="{attachrow.U_VIEW_TOPIC}">{attachrow.TOPIC_TITLE}</a>
