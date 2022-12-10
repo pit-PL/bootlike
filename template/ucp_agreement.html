@@ -1,82 +1,85 @@
-<!-- INCLUDE overall_header.html -->
+<!-- INCLUDE simple_header.html -->
 
-<div class="col-12 col-lg-10 offset-lg-1">
+<div class="container-fluid d-flex align-items-center" style="height: 98vh;">
+	<div class="col-12 col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
+		<div class="row align-items-center text-bg-dark pe-md-4 rounded-4 shadow">
 
-<!-- IF S_SHOW_COPPA or S_REGISTRATION -->
+		<!-- IF S_SHOW_COPPA or S_REGISTRATION -->
 
-<!-- IF S_LANG_OPTIONS -->
-	<script>
-		/**
-		* Change language
-		*/
-		function change_language(lang_iso)
-		{
-			document.cookie = '{COOKIE_NAME}_lang=' + lang_iso + '; path={COOKIE_PATH}';
-			document.forms['register'].change_lang.value = lang_iso;
-			document.forms['register'].submit();
-		}
+			<div class="col-12 col-lg-7 col-md-7 p-4">
+			<!-- EVENT ucp_agreement_terms_before -->
+			{% if S_SHOW_COPPA %}
+				<p>{{ lang('COPPA_BIRTHDAY') }}</p>
+			{% else %}
+				<a class="btn btn-info w-100 mb-3" href="{{ U_TERMS_USE }}"><i class="fa fa-shield fa-fw" aria-hidden="true"></i> {{ lang('TERMS_USE') }}</a>
+			{% endif %}
 
-	</script>
-
-	<form method="post" action="{S_UCP_ACTION}" id="register">
-		<div class="d-flex justify-content-end mb-3">
-			<div class="input-group w-auto">
-				<span class="input-group-text">{L_LANGUAGE}{L_COLON}</span>
-				<select class="form-select" name="lang" id="lang" onchange="change_language(this.value); return false;" title="{L_LANGUAGE}">{S_LANG_OPTIONS}</select>
-			</div>
-			{S_HIDDEN_FIELDS}
-		</div>
-	</form>
-
-<!-- ENDIF -->
-
-	<form method="post" action="{S_UCP_ACTION}" id="agreement">
-		<div class="card mb-3">
-			<div class="card-header">
-				{{ SITENAME }} - {{ lang('REGISTRATION') }}
-			</div>
-			<div class="card-body">
-				<!-- EVENT ucp_agreement_terms_before -->
-				{% if S_SHOW_COPPA %}{{ lang('COPPA_BIRTHDAY') }}{% else %}{{ lang('TERMS_OF_USE') }}{% endif %}
-				<!-- EVENT ucp_agreement_terms_after -->
+				<a href="{U_INDEX}" class="btn btn-secondary w-100 mb-3 mb-md-2"><i class="fa fa-home fa-fw" aria-hidden="true"></i> {L_HOME}</a>
+			<!-- EVENT ucp_agreement_terms_after -->
+				<div class="small d-none d-md-block text-center">{CREDIT_LINE}</div>
 			</div>
 
-			<div class="card-footer">
-				<div class="row">
-					<div class="col-12 col-md-6">
-					<!-- IF S_SHOW_COPPA -->
-						<input class="btn btn-outline-secondary w-100" type="submit" id="coppa_no" name="coppa_no" value="{{ L_COPPA_NO }}" />
-					<!-- ELSE -->
-						<button class="btn btn-danger w-100" type="submit" id="not_agreed" name="not_agreed" value="{L_NOT_AGREE}"><i class="fa fa-thumbs-o-down fa-fw" aria-hidden="true"></i> {L_NOT_AGREE}</button>
-					<!-- ENDIF -->
+			<div class="col-12 col-lg-5 col-md-5 p-4 simple-login text-bg-light rounded-4 shadow" style="margin-top: -1.5rem !important; margin-bottom: -1.5rem !important;">
+
+				<h4 class="card-title mb-3">{{ SITENAME }} - {{ lang('REGISTRATION') }}</h4>
+
+			<!-- IF S_LANG_OPTIONS -->
+				<script>
+					/**
+					* Change language
+					*/
+					function change_language(lang_iso)
+					{
+						document.cookie = '{COOKIE_NAME}_lang=' + lang_iso + '; path={COOKIE_PATH}';
+						document.forms['register'].change_lang.value = lang_iso;
+						document.forms['register'].submit();
+					}
+
+				</script>
+
+				<form method="post" action="{S_UCP_ACTION}" id="register">
+					<div class="input-group mb-3">
+						<span class="input-group-text">{L_LANGUAGE}{L_COLON}</span>
+						<select class="form-select" name="lang" id="lang" onchange="change_language(this.value); return false;" title="{L_LANGUAGE}">{S_LANG_OPTIONS}</select>
 					</div>
-					<div class="col-12 col-md-6">
-					<!-- IF S_SHOW_COPPA -->
-						<input class="btn btn-outline-secondary w-100 mt-1 mt-md-0" type="submit" id="coppa_yes" name="coppa_yes" value="{{ L_COPPA_YES }}" />
-					<!-- ELSE -->
-						<button class="btn btn-success w-100 mt-1 mt-md-0" type="submit" id="agreed" name="agreed" value="{L_AGREE}"><i class="fa fa-thumbs-o-up fa-fw" aria-hidden="true"></i> {L_AGREE}</button>
-					<!-- ENDIF -->
-					</div>
-				</div>
-			{S_HIDDEN_FIELDS}
-			{S_FORM_TOKEN}
+					{S_HIDDEN_FIELDS}
+				</form>
+			<!-- ENDIF -->
+
+				<form method="post" action="{S_UCP_ACTION}" id="agreement">
+
+				<!-- IF S_SHOW_COPPA -->
+					<input class="btn btn-secondary w-100 mb-3" type="submit" id="coppa_no" name="coppa_no" value="{{ L_COPPA_NO }}" />
+					<input class="btn btn-secondary w-100" type="submit" id="coppa_yes" name="coppa_yes" value="{{ L_COPPA_YES }}" />
+				<!-- ELSE -->
+					<button class="btn btn-danger w-100 mb-3" type="submit" id="not_agreed" name="not_agreed" value="{L_NOT_AGREE}"><i class="fa fa-thumbs-o-down fa-fw" aria-hidden="true"></i> {L_NOT_AGREE}</button>
+					<button class="btn btn-success w-100" type="submit" id="agreed" name="agreed" value="{L_AGREE}"><i class="fa fa-thumbs-o-up fa-fw" aria-hidden="true"></i> {L_AGREE}</button>
+				<!-- ENDIF -->
+
+					{S_HIDDEN_FIELDS}
+					{S_FORM_TOKEN}
+				</form>
+
 			</div>
+
+
 		</div>
-	</form>
+	</div>
 
 <!-- ELSEIF S_AGREEMENT -->
 
-	<div class="card mb-3">
-		<div class="card-header">
-			{{ SITENAME }} - {{ AGREEMENT_TITLE }}
-		</div>
-		<div class="card-body">
-			{{ AGREEMENT_TEXT }}
-		</div>
+	<div class="p-4">
+		<h4 class="card-title mb-3">{{ SITENAME }} - {{ AGREEMENT_TITLE }}</h4>
+		<p class="overflow-auto" style="max-height: 500px;">{{ AGREEMENT_TEXT }}</p>
+		<a class="btn btn-secondary btn-sm" href="#" onClick="history.go(-1)"><i class="fa fa-chevron-{S_CONTENT_FLOW_BEGIN} fa-fw" aria-hidden="true"></i> {L_BACK_TO_PREV}</a>
 	</div>
 
 <!-- ENDIF -->
 
 </div>
 
-<!-- INCLUDE overall_footer.html -->
+	</div><!-- end page-body -->
+</div><!-- end container -->
+
+</body>
+</html>
