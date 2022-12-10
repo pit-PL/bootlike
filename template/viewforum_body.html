@@ -41,38 +41,36 @@
 
 	<!-- IF not S_USER_LOGGED_IN and not S_IS_BOT -->
 	<form action="{S_LOGIN_ACTION}" method="post">
-		<div class="col-md-12 col-lg-10 offset-lg-1">
-			<div class="card mb-3">
-				<div class="card-header">
-					<a href="{U_LOGIN_LOGOUT}">{L_LOGIN_LOGOUT}</a><!-- IF S_REGISTER_ENABLED -->&nbsp; &bull; &nbsp;<a href="{U_REGISTER}">{L_REGISTER}</a><!-- ENDIF -->
-				</div>
+		<div class="card mb-3">
+			<div class="card-header">
+				<a href="{U_LOGIN_LOGOUT}">{L_LOGIN_LOGOUT}</a><!-- IF S_REGISTER_ENABLED -->&nbsp; &bull; &nbsp;<a href="{U_REGISTER}">{L_REGISTER}</a><!-- ENDIF -->
+			</div>
 
-				<div class="card-body">
-					<div class="form-floating">
-						<input class="form-control w-50" type="text" id="username" name="username" size="25" placeholder="{L_USERNAME}" tabindex="1" />
-						<label for="username">{L_USERNAME}</label>
-					</div>
-					<div class="form-floating mt-3">
-						<input class="form-control w-50" type="password" id="password" name="password" size="25" tabindex="2" placeholder="{L_PASSWORD}" autocomplete="off" />
-						<label for="password">{L_PASSWORD}</label>
-					</div>
-		
-					<!-- IF S_AUTOLOGIN_ENABLED -->
-					<div class="form-check form-switch">
-						<label class="form-check-label" for="autologin"><input class="form-check-input" type="checkbox" name="autologin" id="autologin" tabindex="3" />{L_LOG_ME_IN}</label>
-					</div>
-					<!-- ENDIF -->
-			
-					<div class="form-check form-switch">
-						<label class="form-check-label" for="viewonline"><input class="form-check-input" type="checkbox" name="viewonline" id="viewonline" tabindex="4" />{L_HIDE_ME}</label>
-					</div>
+			<div class="card-body">
+				<div class="form-floating mb-3">
+					<input class="form-control w-50" type="text" id="username" name="username" size="25" placeholder="{L_USERNAME}" tabindex="1" />
+					<label for="username">{L_USERNAME}</label>
+				</div>
+				<div class="form-floating mb-3">
+					<input class="form-control w-50" type="password" id="password" name="password" size="25" tabindex="2" placeholder="{L_PASSWORD}" autocomplete="off" />
+					<label for="password">{L_PASSWORD}</label>
 				</div>
 		
-				<div class="card-footer text-center">
-					<button class="btn btn-success w-50" type="submit" name="login" tabindex="5" value="{L_LOGIN}"><i class="fa fa-power-off fa-fw" aria-hidden="true"></i> {L_LOGIN}</button>
-					{S_LOGIN_REDIRECT}
-					{S_FORM_TOKEN_LOGIN}
+				<!-- IF S_AUTOLOGIN_ENABLED -->
+				<div class="form-check form-switch">
+					<label class="form-check-label" for="autologin"><input class="form-check-input" type="checkbox" name="autologin" id="autologin" tabindex="3" />{L_LOG_ME_IN}</label>
 				</div>
+				<!-- ENDIF -->
+		
+				<div class="form-check form-switch">
+					<label class="form-check-label" for="viewonline"><input class="form-check-input" type="checkbox" name="viewonline" id="viewonline" tabindex="4" />{L_HIDE_ME}</label>
+				</div>
+			</div>
+
+			<div class="card-footer text-center">
+				<button class="btn btn-success w-50" type="submit" name="login" tabindex="5" value="{L_LOGIN}"><i class="fa fa-power-off fa-fw" aria-hidden="true"></i> {L_LOGIN}</button>
+				{S_LOGIN_REDIRECT}
+				{S_FORM_TOKEN_LOGIN}
 			</div>
 		</div>
 	</form>
@@ -173,8 +171,8 @@
 	<!-- ENDIF -->
 
 	<!-- IF topicrow.S_FIRST_ROW or not topicrow.S_TOPIC_TYPE_SWITCH -->
-		<div class="card mb-3 pb-1 shadow-sm">
-		<div class="card-header">
+		<div class="card mb-3 shadow-sm">
+		<div class="card-header mb-1 border-bottom-0">
 			<div class="row">
 				<div class="col-lg-7 col-md-6 col-12"<!-- IF S_DISPLAY_ACTIVE --> id="active_topics"<!-- ENDIF -->>
 				<!-- IF S_DISPLAY_ACTIVE -->{L_ACTIVE_TOPICS}<!-- ELSEIF topicrow.S_TOPIC_TYPE_SWITCH and (topicrow.S_POST_ANNOUNCE or topicrow.S_POST_GLOBAL) -->{L_ANNOUNCEMENTS}<!-- ELSE -->{L_TOPICS}<!-- ENDIF -->
@@ -187,7 +185,7 @@
 
 		<!-- EVENT viewforum_body_topicrow_row_before -->
 		<div class="container-fluid row-item position-relative p-0 {topicrow.TOPIC_IMG_STYLE}">
-			<div class="row m-0 mt-1 p-1 align-items-center bg1" title="{topicrow.TOPIC_FOLDER_IMG_ALT}">
+			<div class="row m-1 mt-0 p-1 align-items-center bg1" title="{topicrow.TOPIC_FOLDER_IMG_ALT}">
 				<!-- EVENT viewforum_body_topic_row_prepend -->
 				<div class="col-lg-7 col-md-6 col-12 folder<!-- IF topicrow.S_TOPIC_UNAPPROVED or topicrow.S_POSTS_UNAPPROVED or topicrow.S_TOPIC_REPORTED --> folder-animation<!-- ENDIF --> hidden-folder">
 				<!-- IF topicrow.S_UNREAD_TOPIC and not S_IS_BOT --><a href="{topicrow.U_NEWEST_POST}" class="row-item-link"></a><!-- ENDIF -->
@@ -364,8 +362,8 @@
 {% EVENT viewforum_body_online_list_before %}
 
 <!-- IF (S_DISPLAY_ONLINE_LIST and U_VIEWONLINE) or (S_IS_POSTABLE and rules|length) -->
-<div class="card mb-3 shadow-sm">
-	<ul class="nav nav-tabs p-2 pb-0 bg1" role="tablist">
+<div class="mb-3 shadow-sm">
+	<ul class="nav nav-tabs p-2 pb-0 border bg1" role="tablist">
 	<!-- IF S_DISPLAY_ONLINE_LIST -->
 		<li class="nav-item">
 			<a class="nav-link active" data-bs-toggle="tab" href="#nav_online" role="tab" aria-controls="nav_online" aria-selected="true"><i class="fa fa-signal fa-fw d-none d-md-inline-block" aria-hidden="true"></i> {L_WHO_IS_ONLINE}</a>
@@ -378,17 +376,19 @@
 	<!-- ENDIF -->
 	</ul>
 
-	<div class="card-body tab-content">
-	<!-- IF S_DISPLAY_ONLINE_LIST -->
-		<div class="tab-pane fade show active" id="nav_online" role="tabpanel" aria-labelledby="nav_online-tab">
-			{LOGGED_IN_USER_LIST}
+	<div class="card border-top-0">
+		<div class="card-body tab-content">
+		<!-- IF S_DISPLAY_ONLINE_LIST -->
+			<div class="tab-pane fade show active" id="nav_online" role="tabpanel" aria-labelledby="nav_online-tab">
+				{LOGGED_IN_USER_LIST}
+			</div>
+		<!-- ENDIF -->
+		<!-- IF S_IS_POSTABLE and rules|length -->
+			<div class="tab-pane fade" id="nav_permission" role="tabpanel" aria-labelledby="nav_permission-tab">
+			<!-- BEGIN rules -->{rules.RULE}<br><!-- END rules -->
+			</div>
+		<!-- ENDIF -->
 		</div>
-	<!-- ENDIF -->
-	<!-- IF S_IS_POSTABLE and rules|length -->
-		<div class="tab-pane fade" id="nav_permission" role="tabpanel" aria-labelledby="nav_permission-tab">
-		<!-- BEGIN rules -->{rules.RULE}<br><!-- END rules -->
-		</div>
-	<!-- ENDIF -->
 	</div>
 </div>
 <!-- ENDIF -->
