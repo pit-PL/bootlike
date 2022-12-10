@@ -1,84 +1,119 @@
 <!-- INCLUDE overall_header.html -->
 
-<h3 class="cp-title mb-3">{L_UCP}</h3>
+<h3 class="cp-title mb-3">
+	{L_UCP} -
+	<small>
+	<!-- BEGIN t_block2 -->
+		<!-- IF t_block2.S_SELECTED -->{t_block2.L_TITLE}<!-- ENDIF -->
+	<!-- END t_block2 -->
+	<!-- IF CUR_FOLDER_NAME -->{L_TITLE}{L_COLON} {CUR_FOLDER_NAME}<!-- ENDIF -->
+	</small>
+</h3>
 
 <!-- IF S_COMPOSE_PM -->
 <form id="postform" method="post" action="{S_POST_ACTION}"{S_FORM_ENCTYPE}>
 <!-- ENDIF -->
 
-<div class="card">
-	<div class="btn-group btn-toolbar d-flex justify-content-between rounded-0 bg1">
+<!-- IF FOLDER_STATUS and FOLDER_MAX_MESSAGES neq 0 --><p class="mb-1">{FOLDER_STATUS}</p>
+	<!-- IF FOLDER_PERCENT > 0 -->
+	<div class="progress mb-3" style="height: 8px;">
+	<!-- IF FOLDER_PERCENT <= 60 -->
+		<div class="progress-bar bg-success" role="progressbar" style="width: {FOLDER_PERCENT}%" aria-valuenow="{FOLDER_PERCENT}" aria-valuemin="0" aria-valuemax="100"></div>
+	<!-- ELSEIF FOLDER_PERCENT > 60 and FOLDER_PERCENT <= 80 -->
+		<div class="progress-bar bg-success" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+		<div class="progress-bar bg-warning" role="progressbar" style="width: {{FOLDER_PERCENT - 60 }}%" aria-valuenow="{{FOLDER_PERCENT - 60 }}" aria-valuemin="0" aria-valuemax="100"></div>
+	<!-- ELSEIF FOLDER_PERCENT > 80 and FOLDER_PERCENT <= 95 -->
+		<div class="progress-bar bg-success" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+		<div class="progress-bar bg-warning" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+		<div class="progress-bar bg-danger" role="progressbar" style="width: {{FOLDER_PERCENT - 80 }}%" aria-valuenow="{{FOLDER_PERCENT - 80 }}" aria-valuemin="0" aria-valuemax="100"></div>
+	<!-- ELSE -->
+		<div class="progress-bar bg-danger progress-bar-striped" style="width: {FOLDER_PERCENT}%;" role="progressbar" aria-valuenow="{FOLDER_PERCENT}" aria-valuemin="0" aria-valuemax="100"></div>
+	<!-- ENDIF -->
+	</div>
+	<!-- ENDIF -->
+<!-- ENDIF -->
 
-		<div class="btn-group action-bar" role="group">
+<div class="container-fluid p-0">
+	<div class="row">
+
+	<div id="cp-menu" class="cp-menu col-lg-3 order-0 order-lg-2">
+
+		<div id="navigation" role="navigation">
+			<div  class="list-group mb-3 rounded-0">
 		<!-- BEGIN t_block1 -->
-			<a href="{t_block1.U_TITLE}" class="btn<!-- IF t_block1.S_SELECTED --> btn-primary<!-- ELSE --> tabs<!-- ENDIF --> rounded-0" title="{t_block1.L_TITLE}"><i class="fa<!-- IF t_block1.S_ROW_COUNT == 0 --> fa-home<!-- ELSEIF t_block1.S_ROW_COUNT == 1 --> fa-sliders<!-- ELSEIF t_block1.S_ROW_COUNT == 2 --> fa-user<!-- ELSEIF t_block1.S_ROW_COUNT == 3 --> fa-inbox<!-- ELSEIF t_block1.S_ROW_COUNT == 4 --> fa-users<!-- ELSEIF t_block1.S_ROW_COUNT == 5 --> fa-handshake-o<!-- ELSE --> fa-folder-o<!-- ENDIF --> fa-fw d-md-none" aria-hidden="true"></i><span class="d-none d-md-inline" title="">{t_block1.L_TITLE}</span></a>
 			<!-- IF t_block1.S_SELECTED -->
-			<button type="button" class="btn btn-primary active dropdown-toggle dropdown-toggle-split rounded-0" data-bs-toggle="dropdown" aria-expanded="false"></button>
+				<a class="list-group-item list-group-item-action active" href="{t_block1.U_TITLE}">{t_block1.L_TITLE}</a>
 			<!-- ENDIF -->
 		<!-- END t_block1 -->
 
-			<ul class="dropdown-menu">
-	<!-- IF S_PRIVMSGS -->
+		<!-- IF S_PRIVMSGS -->
+			<!-- BEGIN t_block2 -->
+				<!-- IF S_PRIVMSGS and not t_block2.S_LAST_ROW -->
+				<a class="list-group-item list-group-item-action<!-- IF t_block2.S_SELECTED --> text-primary fw-semibold pe-none<!-- ENDIF -->" href="{t_block2.U_TITLE}">{t_block2.L_TITLE}</a>
+				<!-- ENDIF -->
+			<!-- END t_block2 -->
+		
+			<!-- BEGIN folder -->
+				<a class="list-group-item list-group-item-action<!-- IF folder.S_CUR_FOLDER --> text-primary fw-semibold pe-none<!-- ENDIF --> d-flex align-items-center justify-content-lg-between" href="{folder.U_FOLDER}"><!-- IF folder.UNREAD_MESSAGES > 0 -->{folder.FOLDER_NAME} <strong class="badge bg-primary ms-2">{folder.UNREAD_MESSAGES}</strong><!-- ELSE -->{folder.FOLDER_NAME}<!-- ENDIF --></a>
+			<!-- END folder -->
+		<!-- ENDIF -->
+		
 		<!-- BEGIN t_block2 -->
-			<!-- IF S_PRIVMSGS and not t_block2.S_LAST_ROW -->
-			<li><a class="dropdown-item<!-- IF t_block2.S_SELECTED --> active<!-- ENDIF -->" href="{t_block2.U_TITLE}">{t_block2.L_TITLE}</a></li>
+			<!-- IF (S_PRIVMSGS and t_block2.S_LAST_ROW) or not S_PRIVMSGS -->
+				<a class="list-group-item list-group-item-action<!-- IF t_block2.S_SELECTED --> text-primary fw-semibold pe-none<!-- ENDIF -->" href="{t_block2.U_TITLE}">{t_block2.L_TITLE}</a>
 			<!-- ENDIF -->
 		<!-- END t_block2 -->
-	
-		<!-- BEGIN folder -->
-			<li><a class="dropdown-item<!-- IF folder.S_CUR_FOLDER --> active<!-- ENDIF --> d-flex align-items-center justify-content-lg-between" href="{folder.U_FOLDER}"><!-- IF folder.UNREAD_MESSAGES > 0 -->{folder.FOLDER_NAME} <strong class="badge<!-- IF folder.S_CUR_FOLDER --> bg-light text-dark<!-- ELSE --> bg-primary<!-- ENDIF --> ms-2">{folder.UNREAD_MESSAGES}</strong><!-- ELSE -->{folder.FOLDER_NAME}<!-- ENDIF --></a></li>
-		<!-- END folder -->
-	<!-- ENDIF -->
-	
-	<!-- BEGIN t_block2 -->
-		<!-- IF (S_PRIVMSGS and t_block2.S_LAST_ROW) or not S_PRIVMSGS -->
-			<li><a class="dropdown-item<!-- IF t_block2.S_SELECTED --> active<!-- ENDIF -->" href="{t_block2.U_TITLE}">{t_block2.L_TITLE}</a></li>
-		<!-- ENDIF -->
-	<!-- END t_block2 -->
-			</ul>
-		</div>
+			</div>
 
-		<div class="btn-group action-bar" role="group">
-		<!-- IF S_SHOW_COLOUR_LEGEND -->
-		<div>
-			<a class="btn tabs dropdown-toggle rounded-0" href="#" title="{L_MESSAGE_COLOURS}" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-paint-brush fa-fw d-md-none" aria-hidden="true"></i><span class="d-none d-md-inline" title="">{L_MESSAGE_COLOURS}</span></a>
-
-			<ul class="dropdown-menu dropdown-menu-end px-2">
-			<!-- BEGIN pm_colour_info -->
-				<li class="list-group-item my-1 text-nowrap">
-					<i class="fa fa-circle fs-5 me-2<!-- IF pm_colour_info.CLASS eq 'pm_friend_colour' --> text-primary<!-- ELSEIF pm_colour_info.CLASS eq 'pm_replied_colour' --> text-secondary<!-- ELSEIF pm_colour_info.CLASS eq 'pm_marked_colour' --> text-warning<!-- ELSEIF pm_colour_info.CLASS eq 'pm_message_reported_colour' --> text-danger<!-- ELSEIF pm_colour_info.CLASS eq 'pm_foe_colour' --> text-dark<!-- ENDIF -->" aria-hidden="true"></i>{pm_colour_info.LANG}
-				</li>
-			<!-- END pm_colour_info -->
-			</ul>
+			<div class="list-group mb-3 rounded-0">
+		<!-- BEGIN t_block1 -->
+			<!-- IF not t_block1.S_SELECTED -->
+				<a class="list-group-item list-group-item-action" href="{t_block1.U_TITLE}">{t_block1.L_TITLE}</a>
+			<!-- ENDIF -->
+		<!-- END t_block1 -->
+			</div>
 		</div>
-		<!-- ENDIF -->
 
 		<!-- IF .friends_online -->
-		<div>
-			<a class="btn tabs dropdown-toggle rounded-0" href="#" title="{L_FRIENDS} {L_FRIENDS_ONLINE}" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-user-plus fa-fw d-md-none" aria-hidden="true"></i><span class="d-none d-md-inline" title="">{L_FRIENDS} {L_FRIENDS_ONLINE}</span></a>
-
-			<ul class="dropdown-menu dropdown-menu-end px-2">
-			<!-- BEGIN friends_online -->
-				<li class="list-group-item my-1 text-nowrap d-flex align-items-center justify-content-lg-between">{% EVENT ucp_header_friends_online_username_full_prepend %} {friends_online.USERNAME_FULL} {% EVENT ucp_header_friends_online_username_full_append %}<!-- IF S_SHOW_PM_BOX --><button class="btn btn-success btn-sm ms-2" type="submit" name="add_to[{friends_online.USER_ID}]" value="{L_ADD}" title="{L_ADD}"><i class="fa fa-plus fa-fw" aria-hidden="true"></i></button><!-- ENDIF --></li>
-			<!-- END friends_online -->
-			</ul>
-		</div>
+		<ul class="list-group mb-3 rounded-0">
+			<li class="list-group-item active">{L_FRIENDS} {L_FRIENDS_ONLINE}<a class="dropdown-item d-inline ms-2 p-2" data-bs-toggle="collapse" href="#collaps_friends_online" role="button" aria-expanded="false" aria-controls="collaps_friends_online"><i class="fa fa-caret-down fa-fw d-lg-none" aria-hidden="true"></i></a></li>
+			<li id="collaps_friends_online" class="list-group-item hidden-friends-list p-0 border-0">
+				<ul class="p-0">
+				<!-- BEGIN friends_online -->
+					<li class="list-group-item d-flex align-items-center justify-content-lg-between">{% EVENT ucp_header_friends_online_username_full_prepend %} {friends_online.USERNAME_FULL} {% EVENT ucp_header_friends_online_username_full_append %}<!-- IF S_SHOW_PM_BOX --><button class="btn btn-success ms-2" type="submit" name="add_to[{friends_online.USER_ID}]" value="{L_ADD}" title="{L_ADD}"><i class="fa fa-plus fa-fw" aria-hidden="true"></i></button><!-- ENDIF --></li>
+				<!-- END friends_online -->
+				</ul>
+			</li>
+		</ul>
 		<!-- ENDIF -->
+
 		<!-- IF .friends_offline -->
-		<div>
-			<a class="btn tabs dropdown-toggle rounded-0" href="#" title="{L_FRIENDS} {L_FRIENDS_OFFLINE}" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-user-times fa-fw d-md-none" aria-hidden="true"></i><span class="d-none d-md-inline" title="">{L_FRIENDS} {L_FRIENDS_OFFLINE}</span></a>
-
-			<ul class="dropdown-menu dropdown-menu-end px-2">
-			<!-- BEGIN friends_offline -->
-				<li class="list-group-item my-1 text-nowrap d-flex align-items-center justify-content-lg-between">{% EVENT ucp_header_friends_offline_username_full_prepend %} {friends_offline.USERNAME_FULL} {% EVENT ucp_header_friends_offline_username_full_append %}<!-- IF S_SHOW_PM_BOX --><button class="btn btn-success btn-sm ms-2" type="submit" name="add_to[{friends_offline.USER_ID}]" value="{L_ADD}" title="{L_ADD}"><i class="fa fa-plus fa-fw" aria-hidden="true"></i></button><!-- ENDIF --></li>
-			<!-- END friends_offline -->
-			</ul>
-		</div>
+		<ul class="list-group mb-3 rounded-0">
+			<li class="list-group-item active">{L_FRIENDS} {L_FRIENDS_OFFLINE}<a class="dropdown-item d-inline ms-2 p-2" data-bs-toggle="collapse" href="#collaps_friends_offline" role="button" aria-expanded="false" aria-controls="collaps_friends_offline"><i class="fa fa-caret-down fa-fw d-lg-none" aria-hidden="true"></i></a></li>
+			<li id="collaps_friends_offline" class="list-group-item hidden-friends-list p-0 border-0">
+				<ul class="p-0">
+				<!-- BEGIN friends_offline -->
+					<li class="list-group-item d-flex align-items-center justify-content-lg-between">{% EVENT ucp_header_friends_offline_username_full_prepend %} {friends_offline.USERNAME_FULL} {% EVENT ucp_header_friends_offline_username_full_append %}<!-- IF S_SHOW_PM_BOX --><button class="btn btn-success ms-2" type="submit" name="add_to[{friends_offline.USER_ID}]" value="{L_ADD}" title="{L_ADD}"><i class="fa fa-plus fa-fw" aria-hidden="true"></i></button><!-- ENDIF --></li>
+				<!-- END friends_offline -->
+				</ul>
+			</li>
+		</ul>
 		<!-- ENDIF -->
-		</div>
 
+		<!-- IF S_SHOW_COLOUR_LEGEND -->
+		<ul class="list-group mb-3 rounded-0">
+			<li class="list-group-item active">{L_MESSAGE_COLOURS}<a class="dropdown-item d-inline ms-2 p-2" data-bs-toggle="collapse" href="#color_legend" role="button" aria-expanded="false" aria-controls="color_legend"><i class="fa fa-caret-down fa-fw d-lg-none" aria-hidden="true"></i></a></li>
+			<li id="color_legend" class="list-group-item hidden-friends-list p-0 border-0">
+				<ul class="p-0">
+				<!-- BEGIN pm_colour_info -->
+					<li class="list-group-item">
+						<i class="fa fa-circle fs-5 me-2<!-- IF pm_colour_info.CLASS eq 'pm_friend_colour' --> text-primary<!-- ELSEIF pm_colour_info.CLASS eq 'pm_replied_colour' --> text-secondary<!-- ELSEIF pm_colour_info.CLASS eq 'pm_marked_colour' --> text-warning<!-- ELSEIF pm_colour_info.CLASS eq 'pm_message_reported_colour' --> text-danger<!-- ELSEIF pm_colour_info.CLASS eq 'pm_foe_colour' --> text-dark<!-- ENDIF -->" aria-hidden="true"></i>{pm_colour_info.LANG}
+					</li>
+				<!-- END pm_colour_info -->
+				</ul>
+			</li>
+		</ul>
+		<!-- ENDIF -->
 	</div>
-</div>
 
-<div id="cp-main" class="card mb-3 border-top-0">
-	<div class="card-body px-1 py-1 px-lg-3 px-md-2 py-lg-3 py-md-2 pb-lg-0">
+	<div id="cp-main" class="col-lg-9">
