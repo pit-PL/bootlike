@@ -2,23 +2,6 @@
 
 <form id="mcp" method="post" action="{S_MCP_ACTION}">
 
-	<h4 class="mb-3<!-- IF not S_PM --> d-flex align-items-center justify-content-between<!-- ENDIF -->">
-		<div>{L_TITLE}</div>
-
-		<!-- IF not S_PM -->
-		<div class="d-flex">
-			<div class="input-group">
-				<div class="input-group-text">
-					<label for="fo">{L_FORUM}{L_COLON}</label>
-				</div>
-				<select class="form-select" name="f" id="fo">{S_FORUM_OPTIONS}</select>
-				<input type="submit" name="sort" value="{L_GO}" class="btn btn-secondary" />
-			</div>
-			{S_FORM_TOKEN}
-		</div>
-		<!-- ENDIF -->
-	</h4>
-	
 	<div class="alert alert-info">{L_EXPLAIN}</div>
 
 	<!-- IF .postrow -->
@@ -47,8 +30,8 @@
 		</div>
 	</div>
 
-	<div class="card mb-3 pb-1">
-		<div class="card-header">
+	<div class="card mb-3">
+		<div class="card-header mb-1 border-bottom-0">
 			<div class="row">
 				<div class="col-md-6 col-sm-10 col-9">{L_VIEW_DETAILS}</div>
 				<div class="col-md-4 d-none d-md-block">{L_REPORTER}<!-- IF not S_PM --> &amp; {L_FORUM}<!-- ENDIF --></div>
@@ -57,8 +40,8 @@
 		</div>
 
 	<!-- BEGIN postrow -->
-		<div class="container-fluid row-item p-0">
-			<div class="row m-0 mt-1 p-1 align-items-center bg1">
+		<div class="container-fluid p-0">
+			<div class="row m-1 mt-0 p-1 align-items-center bg1">
 			<!-- IF S_PM -->
 				<div class="col-md-6 col-sm-10 col-9">
 					<a class="topic-title" href="{{ postrow.U_VIEW_DETAILS }}">{{ postrow.PM_SUBJECT }}</a><br>
@@ -120,6 +103,21 @@
 				<a href="#" onclick="marklist('mcp', 'report_id_list', false); return false;" class="btn btn-lg rounded-0 border-0" title="{L_UNMARK_ALL}"><i class="fa fa-toggle-off fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_UNMARK_ALL}</span></a>
 				<a href="#" onclick="marklist('mcp', 'report_id_list', true); return false;" class="btn btn-lg rounded-0 border-0" title="{L_MARK_ALL}"><i class="fa fa-toggle-on fa-fw" aria-hidden="true"></i><span class="visually-hidden">{L_MARK_ALL}</span></a>
 			</div>
+		</div>
+	</div>
+<!-- ENDIF -->
+
+<!-- IF not S_PM -->
+	<div class="mb-3 text-end">
+		<div class="d-inline-block w-auto">
+			<div class="input-group">
+				<div class="input-group-text">
+					<label for="fo">{L_FORUM}{L_COLON}</label>
+				</div>
+				<select class="form-select" name="f" id="fo">{S_FORUM_OPTIONS}</select>
+				<input class="btn btn-secondary" type="submit" name="sort" value="{L_GO}" />
+			</div>
+			{S_FORM_TOKEN}
 		</div>
 	</div>
 <!-- ENDIF -->
