@@ -31,7 +31,7 @@
 					<!-- ENDIF -->
 					<!-- EVENT ucp_pm_viewmessage_avatar_after -->
 
-					<!-- IF not $PROFILE_POPUP_OFF and U_MESSAGE_AUTHOR -->
+					<!-- IF $PROFILE_POPUP and U_MESSAGE_AUTHOR -->
 					<button class="btn btn-primary btn-sm position-relative d-block mx-auto mt-3 mb-1 float-end float-md-none" type="button" data-bs-toggle="modal" data-bs-target="#modal_message_{MESSAGE_ID}">
 						<i class="fa fa-user-circle-o fa-fw" aria-hidden="true"></i> {L_READ_PROFILE} <svg width="1em" height="1em" viewBox="0 0 16 16" class="position-absolute top-100 start-50 translate-middle mt-1 bi bi-caret-down-fill d-none d-md-inline-block" fill="#0d6efd" xmlns="http://www.w3.org/2000/svg"><path d="M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/></svg>
 					</button>
@@ -48,7 +48,7 @@
 					</div>
 				</div>
 
-			<!-- IF $PROFILE_POPUP_OFF -->
+			<!-- IF not $PROFILE_POPUP -->
 				<div><strong>{L_POSTS}{L_COLON}</strong> <!-- IF U_AUTHOR_POSTS != '' --><a href="{U_AUTHOR_POSTS}">{AUTHOR_POSTS}</a><!-- ELSE -->{AUTHOR_POSTS}<!-- ENDIF --></div>
 				<!-- IF AUTHOR_JOINED --><div class="d-none d-md-block"><strong>{L_JOINED}{L_COLON}</strong> {AUTHOR_JOINED}</div><!-- ENDIF -->
 		
@@ -191,7 +191,7 @@
 
 <!-- IF S_DISPLAY_HISTORY --><!-- INCLUDE ucp_pm_history.html --><!-- ENDIF -->
 
-<!-- IF not $PROFILE_POPUP_OFF -->
+<!-- IF $PROFILE_POPUP -->
 	<div id="modal_message_{MESSAGE_ID}" class="modal fade" tabindex="-1" role="dialog">
 		<div class="modal-dialog modal-dialog-centered" role="document">
 			<div class="modal-content">
@@ -224,7 +224,7 @@
 				<div id="accordion_signature" class="accordion accordion-flush d-none d-md-block border-top">
 				  <div class="accordion-item">
 					<h2 class="accordion-header bg1">
-						<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-signature" aria-expanded="false" aria-controls="flush-signature">{L_SIGNATURE}</button>
+						<button class="accordion-button collapsed text-bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#flush-signature" aria-expanded="false" aria-controls="flush-signature">{L_SIGNATURE}</button>
 					</h2>
 					<div id="flush-signature" class="accordion-collapse collapse" aria-labelledby="flush-signature" data-bs-parent="#accordion_signature">
 						<div id="sig{MESSAGE_ID}" class="accordion-body small py-2 bg1">{SIGNATURE}</div>
