@@ -2,8 +2,6 @@
 
 <form method="post" id="mcp" action="{S_MCP_ACTION}">
 
-	<h4 class="mb-3"><a class="cp-page-title" href="{U_VIEW_FORUM}">{L_FORUM}{L_COLON} {FORUM_NAME}</a></h4>
-
 <!-- IF .topicrow -->
 	<!-- DEFINE $CUSTOM_JUMPBOX_CLASS = 1 -->
 	<div class="card mb-3">
@@ -33,8 +31,8 @@
 		</div>
 	</div>
 
-	<div class="card mb-3 pb-1">
-		<div class="card-header">
+	<div class="card mb-3">
+		<div class="card-header mb-1 border-bottom-0">
 			<div class="row">
 				<div class="<!-- IF S_MERGE_SELECT -->col-md-8<!-- ELSE -->col-md-6<!-- ENDIF --> col-sm-10 col-9">{L_TOPICS}</div>
 				<div class="col-md-4 d-none d-md-block">{L_LAST_POST}</div>
@@ -46,7 +44,7 @@
 
 		<!-- BEGIN topicrow -->
 		<div class="container-fluid row-item position-relative p-0 {topicrow.TOPIC_IMG_STYLE}">
-			<div class="row m-0 mt-1 p-1 align-items-center bg1">
+			<div class="row m-1 mt-0 p-1 align-items-center bg1">
 				<div class="<!-- IF S_MERGE_SELECT --> col-md-8<!-- ELSE --> col-md-6<!-- ENDIF --> col-sm-10 col-9 folder<!-- IF topicrow.S_TOPIC_REPORTED --> folder-animation<!-- ENDIF --> hidden-folder">
 					<!-- IF topicrow.S_UNREAD_TOPIC --><a href="{topicrow.U_NEWEST_POST}" class="row-item-link"></a><!-- ENDIF -->
 			
