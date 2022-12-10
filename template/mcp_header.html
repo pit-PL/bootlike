@@ -1,6 +1,15 @@
 <!-- INCLUDE overall_header.html -->
 
-<h3 class="cp-title mb-3">{L_MCP}</h3>
+<h3 class="cp-title mb-3">
+	{L_MCP}
+	<small>
+	<!-- BEGIN l_block1 -->
+		<!-- BEGIN l_block2 -->
+		<!-- IF l_block1.l_block2.S_SELECTED -->- {l_block1.l_block2.L_TITLE}<!-- IF U_VIEW_FORUM -->{L_COLON} <a href="{U_VIEW_FORUM}">{FORUM_NAME}</a><!-- ENDIF --><!-- IF U_VIEW_TOPIC -->{L_COLON} <a href="{U_VIEW_TOPIC}">{TOPIC_TITLE}</a><!-- ENDIF -->{POST_SUBJECT}<!-- ENDIF -->
+		<!-- END l_block2 -->
+	<!-- END l_block1 -->
+	</small>
+</h3>
 
 <!-- IF U_MCP -->
 	<ul class="breadcrumb" role="menubar">
@@ -20,42 +29,49 @@
 	</ul>
 <!-- ENDIF -->
 
-<div class="card">
-	<div class="btn-group btn-toolbar d-flex justify-content-between rounded-0 bg1">
+<div class="container-fluid p-0">
+	<div class="row">
 
-		<div class="btn-group action-bar" role="group">
+	<div id="cp-menu" class="cp-menu mb-3 col-lg-3 order-0 order-lg-2">
+
+		<div id="navigation" role="navigation">
+			<div class="list-group mb-3 rounded-0">
 		<!-- BEGIN l_block1 -->
-			<a href="{l_block1.U_TITLE}" class="btn<!-- IF l_block1.S_SELECTED --> btn-primary<!-- ELSE --> tabs<!-- ENDIF --> rounded-0" title="{l_block1.L_TITLE}"><i class="fa<!-- IF l_block1.S_ROW_COUNT == 0 --> fa-home<!-- ELSEIF l_block1.S_ROW_COUNT == 1 --> fa-flag<!-- ELSEIF l_block1.S_ROW_COUNT == 2 --> fa-exclamation<!-- ELSEIF l_block1.S_ROW_COUNT == 3 --> fa-user<!-- ELSEIF l_block1.S_ROW_COUNT == 4 --> fa-exclamation-triangle<!-- ELSEIF l_block1.S_ROW_COUNT == 5 --> fa-file<!-- ELSEIF l_block1.S_ROW_COUNT == 6 --> fa-ban<!-- ELSE --> fa-folder-o<!-- ENDIF --> fa-fw d-md-none" aria-hidden="true"></i><span class="d-none d-md-inline" title="">{l_block1.L_TITLE}</span></a>
 			<!-- IF l_block1.S_SELECTED -->
-			<button type="button" class="btn btn-primary active dropdown-toggle dropdown-toggle-split rounded-0" data-bs-toggle="dropdown" aria-expanded="false"></button>
+				<a class="list-group-item list-group-item-action active" href="{l_block1.U_TITLE}">{l_block1.L_TITLE}</a>
 			<!-- ENDIF -->
 		<!-- END l_block1 -->
 
-		<ul class="dropdown-menu">
 		<!-- BEGIN l_block1 -->
-		<!-- IF l_block1.S_SELECTED -->
-			<!-- BEGIN l_block2 -->
-			<li><a class="dropdown-item<!-- IF l_block1.l_block2.S_SELECTED --> active<!-- ENDIF -->" href="{l_block1.l_block2.U_TITLE}">{l_block1.l_block2.L_TITLE}<!-- IF l_block1.l_block2.ADD_ITEM --> ({l_block1.l_block2.ADD_ITEM})<!-- ENDIF --></a></li>
-			<!-- END l_block2 -->
-		<!-- ENDIF -->
+			<!-- IF l_block1.S_SELECTED -->
+				<!-- BEGIN l_block2 -->
+				<a class="list-group-item list-group-item-action<!-- IF l_block1.l_block2.S_SELECTED --> text-primary fw-semibold pe-none<!-- ENDIF -->" href="{l_block1.l_block2.U_TITLE}">{l_block1.l_block2.L_TITLE}<!-- IF l_block1.l_block2.ADD_ITEM --> ({l_block1.l_block2.ADD_ITEM})<!-- ENDIF --></a>
+				<!-- END l_block2 -->
+			<!-- ENDIF -->
 		<!-- END l_block1 -->
-		</ul>
+			</div>
+		</div>
+
+		<div class="list-group mb-3 rounded-0">
+	<!-- BEGIN l_block1 -->
+		<!-- IF not l_block1.S_SELECTED -->
+			<a class="list-group-item list-group-item-action" href="{l_block1.U_TITLE}">{l_block1.L_TITLE}</a>
+			<!-- ENDIF -->
+	<!-- END l_block1 -->
 		</div>
 
 	</div>
-</div>
 
-<div class="card mb-3 border-top-0">
-	<div class="card-body px-1 py-1 px-lg-3 px-md-2 py-lg-3 py-md-2 pb-lg-0">
+	<div id="cp-main" class="col-lg-9">
 
-		<!-- IF MESSAGE -->
+	<!-- IF MESSAGE -->
 		<div class="card mb-3">
 			<div class="card-header">
 				{L_MESSAGE}
 			</div>
 			<div class="card-body">
-				<p class="alert alert-danger">{MESSAGE}</p>
+				<p class="alert alert-danger<!-- IF not return_links --> mb-0<!-- ENDIF -->">{MESSAGE}</p>
 			<!-- BEGIN return_links -->{return_links.MESSAGE_LINK}<!-- END return_links -->
 			</div>
 		</div>
-		<!-- ENDIF -->
+	<!-- ENDIF -->
