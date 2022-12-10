@@ -26,8 +26,8 @@
 </div>
 <!-- ENDIF -->
 
-<div id="team" class="card mb-3 pb-1">
-	<div class="card-header d-none d-md-block">
+<div id="team" class="card mb-3">
+	<div class="card-header mb-1 d-none d-md-block border-bottom-0">
 		<div class="row">
 			<div class="col-12 col-md-6"><a href="{U_SORT_USERNAME}">{L_USERNAME}</a></div>
 			<div class="col-12 col-md-3"><a href="{U_SORT_LOCATION}">{L_FORUM_LOCATION}</a></div>
@@ -35,33 +35,37 @@
 		</div>
 	</div>
 <!-- BEGIN user_row -->
-	<div class="row m-0 mt-1 p-1 align-items-center bg1">
-		<div class="col-12 col-md-6 py-2 d-md-flex justify-content-md-between">
-			<div>
-				<span class="badge bg-secondary d-md-none">{L_USERNAME}{L_COLON}</span><!-- EVENT viewonline_body_username_prepend --> {user_row.USERNAME_FULL} <!-- EVENT viewonline_body_username_append -->
-			<!-- IF user_row.USER_BROWSER -->
-				<br>{user_row.USER_BROWSER}
-			<!-- ENDIF -->
+	<div class="container-fluid p-0">
+		<div class="row m-1 mt-0 p-1 align-items-center bg1">
+			<div class="col-12 col-md-6 py-2 d-md-flex justify-content-md-between">
+				<div>
+					<span class="badge bg-secondary d-md-none">{L_USERNAME}{L_COLON}</span><!-- EVENT viewonline_body_username_prepend --> {user_row.USERNAME_FULL} <!-- EVENT viewonline_body_username_append -->
+				<!-- IF user_row.USER_BROWSER -->
+					<br>{user_row.USER_BROWSER}
+				<!-- ENDIF -->
+				</div>
+				<div>
+				<!-- IF user_row.USER_IP and (not $HIDE_USER_IP or U_ACP) -->
+					<span class="badge bg-secondary d-md-none">{L_IP}{L_COLON}</span> <span class="d-sm-none d-md-inline">{L_IP}{L_COLON}</span> <a href="{user_row.U_USER_IP}">{user_row.USER_IP}</a> <br class="d-sm-none d-md-block" /><a href="{user_row.U_WHOIS}" onclick="popup(this.href, 750, 500); return false;">{L_WHOIS}</a>
+				<!-- ELSE -->
+					&nbsp;
+				<!-- ENDIF -->
+				</div>
 			</div>
-			<div>
-			<!-- IF user_row.USER_IP and (not $HIDE_USER_IP or U_ACP) -->
-				<span class="badge bg-secondary d-md-none">{L_IP}{L_COLON}</span> <span class="d-sm-none d-md-inline">{L_IP}{L_COLON}</span> <a href="{user_row.U_USER_IP}">{user_row.USER_IP}</a> <br class="d-sm-none d-md-block" /><a href="{user_row.U_WHOIS}" onclick="popup(this.href, 750, 500); return false;">{L_WHOIS}</a>
-			<!-- ELSE -->
-				&nbsp;
-			<!-- ENDIF -->
+			<div class="col-12 col-md-3 py-2">
+				<span class="badge bg-secondary d-md-none">{L_FORUM_LOCATION}{L_COLON}</span> 
+				<a href="{user_row.U_FORUM_LOCATION}">{user_row.FORUM_LOCATION}</a>
 			</div>
-		</div>
-		<div class="col-12 col-md-3 py-2">
-			<span class="badge bg-secondary d-md-none">{L_FORUM_LOCATION}{L_COLON}</span> 
-			<a href="{user_row.U_FORUM_LOCATION}">{user_row.FORUM_LOCATION}</a>
-		</div>
-		<div class="col-12 col-md-3 py-2">
-			<span class="badge bg-secondary d-md-none">{L_LAST_UPDATED}{L_COLON}</span> 
-			{user_row.LASTUPDATE}
+			<div class="col-12 col-md-3 py-2">
+				<span class="badge bg-secondary d-md-none">{L_LAST_UPDATED}{L_COLON}</span> 
+				{user_row.LASTUPDATE}
+			</div>
 		</div>
 	</div>
 <!-- BEGINELSE -->
-	<div class="mt-1 px-3 py-2 text-center bg2">{L_NO_ONLINE_USERS}<!-- IF S_SWITCH_GUEST_DISPLAY --> &bull; <a href="{U_SWITCH_GUEST_DISPLAY}">{L_SWITCH_GUEST_DISPLAY}</a><!-- ENDIF --></div>
+	<div class="container-fluid p-0">
+		<div class="m-1 mt-0 px-3 py-2 text-center bg1">{L_NO_ONLINE_USERS}<!-- IF S_SWITCH_GUEST_DISPLAY --> &bull; <a href="{U_SWITCH_GUEST_DISPLAY}">{L_SWITCH_GUEST_DISPLAY}</a><!-- ENDIF --></div>
+	</div>
 <!-- END user_row -->
 </div>
 
