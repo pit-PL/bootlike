@@ -29,6 +29,10 @@
 
 <!-- INCLUDE _config.html -->
 
+<script>
+	if (localStorage.theme) document.documentElement.classList.add(localStorage.theme);
+</script>
+
 <link href="{T_FONT_AWESOME_LINK}" rel="stylesheet">
 <link href="{T_STYLESHEET_LINK}" rel="stylesheet">
 
@@ -54,51 +58,42 @@
 <body id="phpbb" class="nojs notouch section-{SCRIPT_NAME} {S_CONTENT_DIRECTION} {BODY_CLASS} bg2">
 <button onclick="topFunction()" id="gototop" class="btn btn btn-link position-fixed" title="{L_BACK_TO_TOP}"><i class="fa fa-arrow-circle-up fa-3x" aria-hidden="true"></i></button> 
 
-<div class="<!-- IF $FORUM_WIDTH_FULL -->container-fluid<!-- ELSEIF $FORUM_WIDTH_XXL -->container-xxl<!-- ELSE -->container-xl<!-- ENDIF --> px-1 px-md-2 px-lg-3">
-
 	<!-- EVENT overall_header_body_before -->
+<!-- IF $CLICKABLE_HEADER -->
+	<div class="header position-relative d-none d-md-block shadow" style="height: {$BANNER_HEIGHT}px;" role="banner">
+		<a class="stretched-link" href="{% if U_SITE_HOME %}{{ U_SITE_HOME }}{% else %}{{ U_INDEX }}{% endif %}" title="{% if U_SITE_HOME %}{{ L_SITE_HOME }}{% else %}{{ L_INDEX }}{% endif %}"></a>
+	</div>
+<!-- ENDIF -->
 
-	<div class="row m-0">
-		<div class="card my-1 my-md-3 position-relative<!-- IF $CLICKABLE_HEADER --> header d-none d-md-flex<!-- ENDIF --> shadow-sm" role="banner">
-			<div class="card-body p-1 p-md-2 p-lg-3"<!-- IF $CLICKABLE_HEADER and $BANNER_HEIGHT --> style="height: {$BANNER_HEIGHT}px;"<!-- ENDIF -->>
-				<!-- EVENT overall_header_headerbar_before -->
-				<div class="d-flex align-items-center justify-content-center justify-content-md-between">
-					<a class="logo d-none d-md-inline-block me-3<!-- IF $CLICKABLE_HEADER --> stretched-link<!-- ENDIF -->" href="{% if U_SITE_HOME %}{{ U_SITE_HOME }}{% else %}{{ U_INDEX }}{% endif %}" title="{% if U_SITE_HOME %}{{ L_SITE_HOME }}{% else %}{{ L_INDEX }}{% endif %}"><!-- IF not $CLICKABLE_HEADER --><img src="{ROOT_PATH}styles/bootlike/theme/images/site_logo.png" alt="{L_IMAGE}" /><!-- ENDIF --></a>
-					<!-- IF not $CLICKABLE_HEADER -->
-					<div>
-						<!-- EVENT overall_header_searchbox_before -->
-						<div class="my-3 d-none d-md-block text-center text-md-end">
-							<h1><!-- IF SITENAME -->{SITENAME}<!-- ELSE -->{BOARD_URL}<!-- ENDIF --></h1>
-						<!-- IF SITE_DESCRIPTION -->
-							<div class="lead">{SITE_DESCRIPTION}</div>
-						<!-- ENDIF -->
-						<!-- EVENT overall_header_searchbox_after -->
-						</div>
-					
-						<div class="text-end">
-						<!-- IF not S_REGISTERED_USER and S_REGISTER_ENABLED and not (S_SHOW_COPPA or S_REGISTRATION) -->
-							<a class="btn btn-primary btn-lg my-1 ms-1 shadow" href="{U_REGISTER}" role="menuitem"><i class="fa fa-pencil-square-o fa-fw d-md-block mx-auto" aria-hidden="true"></i>{L_REGISTER}</a>
-						<!-- ENDIF -->
-						<!-- IF not S_USER_LOGGED_IN -->
-							<a class="btn btn-primary btn-lg my-1 ms-1 shadow"<!-- IF not $LOGIN_POPUP_OFF --> href="#" data-bs-toggle="modal" data-bs-target="#login-popup"<!-- ELSE --> href="{U_LOGIN_LOGOUT}"<!-- ENDIF --> title="{L_LOGIN_LOGOUT}" accesskey="x" role="menuitem"><i class="fa fa-power-off fa-fw d-md-block mx-auto" aria-hidden="true"></i>{L_LOGIN_LOGOUT}</a>
-						<!-- ENDIF -->
-							<a class="btn btn-primary btn-lg my-1 ms-1 shadow" href="{U_FAQ}" rel="help" title="{L_FAQ_EXPLAIN}" role="menuitem"><i class="fa fa-question fa-fw d-md-block mx-auto" aria-hidden="true"></i>{L_FAQ}</a>
-						</div>
-					</div>
-					<!-- ENDIF -->
-				</div>
-				<!-- EVENT overall_header_headerbar_after -->
-			</div>
-		</div>
-
+	<div class="card border-0<!-- IF $STICKY_NAVBAR --> sticky-top shadow<!-- ENDIF --><!-- IF $CLICKABLE_HEADER --> mb-3<!-- ENDIF -->">
+		<div class="card-body p-1 px-md-2 px-lg-3">
 		<!-- EVENT overall_header_navbar_before -->
-
 		<!-- INCLUDE navbar_header.html -->
+		</div>
+	</div>
+
+	<div class="card mb-3 d-none d-md-block<!-- IF $CLICKABLE_HEADER --> d-md-none<!-- ENDIF --> border-0">
+		<div class="card-body p-1 px-3 bg3 border-bottom shadow-sm">
+			<!-- EVENT overall_header_headerbar_before -->
+			<div class="m-3 d-flex align-items-center justify-content-md-between">
+				<a class="logo me-3" href="{% if U_SITE_HOME %}{{ U_SITE_HOME }}{% else %}{{ U_INDEX }}{% endif %}" title="{% if U_SITE_HOME %}{{ L_SITE_HOME }}{% else %}{{ L_INDEX }}{% endif %}"><!-- IF not $CLICKABLE_HEADER --><img class="img-thumbnail" src="{ROOT_PATH}styles/bootlike/theme/images/site_logo.png" alt="{L_IMAGE}" /><!-- ELSE -->{SITENAME}<!-- ENDIF --></a>
+				<h1 class="mb-0 fs-2 text-white"><!-- IF SITENAME -->{SITENAME}<!-- ELSE -->{BOARD_URL}<!-- ENDIF --><!-- IF SITE_DESCRIPTION --> {SITE_DESCRIPTION}<!-- ENDIF --></h1>
+			</div>
+			<!-- EVENT overall_header_headerbar_after -->
+		</div>
 	</div>
 
 	<a id="start_here" class="d-none">{L_SKIP}</a>
 
-	<div id="page-body" class="card mb-3 px-2 pt-3 px-lg-3 shadow-sm" role="main">
+		<div class="<!-- IF $FORUM_WIDTH_FULL or ($LEFT_SIDEBAR or $RIGHT_SIDEBAR) -->container-fluid<!-- ELSEIF $FORUM_WIDTH_XXL -->container-xxl<!-- ELSE -->container-xl<!-- ENDIF -->">
+		<div class="row">
+
+	<!-- IF (($LEFT_SIDEBAR or $RIGHT_SIDEBAR) and not (S_IN_UCP or S_IN_MCP)) -->
+		<!-- INCLUDE sidebar.html -->
+	<!-- ENDIF -->
+
+		<div class="col<!-- IF (($LEFT_SIDEBAR or $RIGHT_SIDEBAR) and not (S_IN_UCP or S_IN_MCP)) --> col-xl-9<!-- ENDIF -->">
+		<div id="page-body" class="card mb-3 p-3 pb-0 shadow" role="main">
 
 		<!-- IF S_BOARD_DISABLED and S_USER_LOGGED_IN and (U_MCP or U_ACP) -->
 		<div id="information" class="alert alert-info">
