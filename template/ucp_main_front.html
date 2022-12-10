@@ -1,12 +1,10 @@
 <!-- INCLUDE ucp_header.html -->
 
-	<h4 class="cp-page-title mb-3">{L_TITLE}</h4>
-
 	<div class="alert alert-info">{L_UCP_WELCOME}</div>
 
 <!-- IF .topicrow -->
-	<div class="card mb-3 pb-1">
-		<div class="card-header">
+	<div class="card mb-3">
+		<div class="card-header mb-1 border-bottom-0">
 			<div class="row">
 				<div class="col-lg-8 col-md-7 col-12">{L_IMPORTANT_NEWS}</div>
 				<div class="col-lg-4 col-md-5 d-none d-md-block">{L_LAST_POST}</div>
@@ -15,7 +13,7 @@
 
 		<!-- BEGIN topicrow -->
 		<div class="container-fluid row-item position-relative p-0 {topicrow.TOPIC_IMG_STYLE}">
-			<div class="row m-0 mt-1 p-1 align-items-center bg1">
+			<div class="row m-1 mt-0 p-1 align-items-center bg1">
 				<div class="col-lg-8 col-md-7 col-12 folder hidden-folder">
 					<!-- IF topicrow.S_UNREAD_TOPIC --><a href="{topicrow.U_NEWEST_POST}" class="row-item-link"></a><!-- ENDIF -->
 			
