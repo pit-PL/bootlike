@@ -78,8 +78,8 @@
 <!-- IF S_SHOW_TOPICS -->
 
 	<!-- IF .searchresults -->
-	<div class="card mb-3 pb-1 shadow-sm">
-		<div class="card-header">
+	<div class="card mb-3 shadow-sm">
+		<div class="card-header mb-1 border-bottom-0">
 			<div class="row">
 				<div class="col-lg-7 col-md-6 col-12">{L_TOPICS}</div>
 				<div class="col-md-2 d-none d-md-block text-center">{L_REPLIES}</div>
@@ -91,7 +91,7 @@
 	<!-- BEGIN searchresults -->
 		<!-- EVENT search_results_topic_before -->
 		<div class="container-fluid row-item position-relative p-0 {searchresults.TOPIC_IMG_STYLE}">
-			<div class="row m-0 mt-1 p-1 align-items-center bg1" title="{searchresults.TOPIC_FOLDER_IMG_ALT}">
+			<div class="row m-1 mt-0 p-1 align-items-center bg1" title="{searchresults.TOPIC_FOLDER_IMG_ALT}">
 				<div class="col-lg-7 col-md-6 col-12 folder<!-- IF searchresults.S_TOPIC_UNAPPROVED or searchresults.S_POSTS_UNAPPROVED or searchresults.S_TOPIC_REPORTED --> folder-animation<!-- ENDIF --> hidden-folder">
 					<!-- IF searchresults.S_UNREAD_TOPIC and not S_IS_BOT --><a href="{searchresults.U_NEWEST_POST}" class="row-item-link"></a><!-- ENDIF -->
 			
