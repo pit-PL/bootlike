@@ -1,40 +1,40 @@
 		<!-- EVENT overall_footer_content_after -->
-	</div><!-- end page-body -->
+		</div><!-- end end page-body-->
+		</div><!-- end col -->
+		</div><!-- end row -->
+	</div><!-- end container -->
 
 <!-- EVENT overall_footer_page_body_after -->
 
-<!-- INCLUDE navbar_footer.html -->
-
 <!-- EVENT overall_footer_copyright_prepend -->
 
-	<div id="page-footer" class="page-footer mb-3 px-3 d-md-flex justify-content-md-between" role="contentinfo">
-		<div>
-		<p class="mb-0">{{ CREDIT_LINE }}</p>
-		<p class="mb-0" role="menu"><a href="{{ U_PRIVACY }}" role="menuitem">{{ lang('PRIVACY') }}</a> | <a href="{{ U_TERMS_USE }}" role="menuitem">{{ lang('TERMS_USE') }}</a></p>
-		<!-- IF TRANSLATION_INFO -->
-		<p class="mb-0">{{ TRANSLATION_INFO }}</p>
-		<!-- ENDIF -->
-		<!-- EVENT overall_footer_copyright_append -->
-		<!-- IF U_ACP -->
-		<p class="mb-0"><strong><a href="{{ U_ACP }}">{{ lang('ACP') }}</a></strong></p>
-		<!-- ENDIF -->
-		</div>
+	<div class="page-footer" role="contentinfo">
+		<!-- INCLUDE navbar_footer.html -->
 
-		<div class="mt-2 mt-md-0 text-md-end">
-		<!-- IF S_USER_LOGGED_IN -->
-		<p class="mb-0">{CURRENT_TIME}</p>
-		<p class="mb-0">{LAST_VISIT_DATE}</p>
-		<!-- ENDIF -->
-		<!-- EVENT overall_footer_timezone_before -->
-		<p class="mb-0">{S_TIMEZONE}</p>
-		<!-- EVENT overall_footer_timezone_after -->
-		<!-- IF DEBUG_OUTPUT -->
-		<p class="mb-0">{{ DEBUG_OUTPUT }}</p>
-		<!-- ENDIF -->
+		<div class="p-3 mx-3 d-md-flex justify-content-md-between">
+			<div>
+				<p class="mb-0">{{ CREDIT_LINE }}</p>
+				<!-- IF TRANSLATION_INFO -->
+				<p class="mb-0">{{ TRANSLATION_INFO }}</p>
+				<!-- ENDIF -->
+				<!-- EVENT overall_footer_copyright_append -->
+			</div>
+
+			<div class="mt-2 mt-md-0 text-md-end">
+				<!-- IF S_USER_LOGGED_IN -->
+				<p class="mb-0">{CURRENT_TIME}</p>
+				<p class="mb-0">{LAST_VISIT_DATE}</p>
+				<!-- ENDIF -->
+				<!-- EVENT overall_footer_timezone_before -->
+				<p class="mb-0">{S_TIMEZONE}</p>
+				<!-- EVENT overall_footer_timezone_after -->
+				<!-- IF DEBUG_OUTPUT -->
+				<p class="mb-0">{{ DEBUG_OUTPUT }}</p>
+				<!-- ENDIF -->
+				<!-- EVENT overall_footer_copyright_append -->
+			</div>
 		</div>
 	</div>
-
-<!-- EVENT overall_footer_copyright_append -->
 
 	<div>
 		<a id="bottom" class="d-block" accesskey="z"></a>
@@ -66,13 +66,9 @@
 		</div>
 	</div>
 
-<!-- IF not $LOGIN_POPUP_OFF -->
 	<!-- INCLUDE login_popup.html -->
-<!-- ENDIF -->
 	<!-- INCLUDE forum_image_popup.html -->
 	<!-- INCLUDE hidden_sidebar.html -->
-
-</div><!-- end container -->
 
 <script src="{T_JQUERY_LINK}"></script>
 <script src="{T_ASSETS_PATH}/javascript/core.js?assets_version={T_ASSETS_VERSION}"></script>
@@ -109,7 +105,7 @@
 
 <script>
 //Get the button:
-goTopbutton = document.getElementById("gototop");
+goTopButton = document.getElementById("gototop");
 
 // When the user scrolls down 20px from the top of the document, show the button
 window.onscroll = function() {scrollFunction()};
@@ -130,16 +126,21 @@ function topFunction() {
 </script>
 
 <script>
-	var toHide = document.getElementsByClassName('user-panel');
-		for (var i=0; i<toHide.length; ++i) {
-			hideSecondWord(toHide[i]);
+	function resize() {
+		if ($(window).width() < 993) {
+			$('.hidden-friends-list').removeClass('show');
+			$('.hidden-friends-list').addClass('collapse');
+		}
+		else {
+			$('.hidden-friends-list').removeClass('collapse');
+			$('.hidden-friends-list').addClass('show');
+		}
 	}
 
-	function hideSecondWord(elem) {
-		elem.innerHTML = elem.textContent.replace(/\w+ (\w+)/, function(s, c) {
-			return s.replace(c, '<span class="d-none">'+c+'</span>');
-		});
-	}
+	$(document).ready( function() {
+		$(window).resize(resize);
+		resize();
+	});
 
 	var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
 	var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
@@ -170,6 +171,17 @@ function topFunction() {
 			}
 		});
 		});
+	});
+
+	$("#dark_mode").on("click", function (e) {
+		$("html").toggleClass("dark");
+
+		if ($("html").hasClass("dark")) {
+			localStorage.setItem("theme", "dark");
+		} else {
+			localStorage.removeItem("theme");
+		}
+		e.preventDefault();
 	});
 </script>
 
