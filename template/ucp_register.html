@@ -1,4 +1,4 @@
-<!-- INCLUDE overall_header.html -->
+<!-- INCLUDE simple_header.html -->
 
 <script>
 	/**
@@ -12,120 +12,133 @@
 	}
 </script>
 
-{% if PROVIDER_TEMPLATE_FILE %}
-<div class="card mb-3 col-12 col-lg-10 offset-lg-1">
-	<div class="card-header">
-		{{ SITENAME }} - {{ lang('OAUTH_REGISTRATION') }}
-	</div>
-	<div class="card-body">
-		{% include PROVIDER_TEMPLATE_FILE %}
-	</div>
-</div>
-{% endif %}
+<div class="container-fluid d-flex align-items-center" style="height: 98vh;">
+	<div class="col-12 col-lg-10 offset-lg-1">
+		<div class="card overflow-auto shadow" style="max-height: 90vh;">
+		<form id="register" method="post" action="{S_UCP_ACTION}"{S_FORM_ENCTYPE}>
 
-<form id="register" method="post" action="{S_UCP_ACTION}"{S_FORM_ENCTYPE}>
 
-<div class="card mb-3 col-12 col-lg-10 offset-lg-1">
-	<div class="card-header">
-		{SITENAME} - {L_REGISTRATION}
-	</div>
-	<div class="card-body pb-0">
+			<div class="card-body pb-0">
 
-	<!-- IF ERROR -->
-		<div class="alert alert-danger">{ERROR}</div>
-	<!-- ENDIF -->
+			{% if PROVIDER_TEMPLATE_FILE %}
+				<h4 class="card-title mb-3">{{ SITENAME }} - {{ lang('OAUTH_REGISTRATION') }}</h4>
 
-	<!-- IF L_REG_COND -->
-		<div class="alert alert-info">{L_REG_COND}</div>
-	<!-- ENDIF -->
+				<div class="mb-3">{% include PROVIDER_TEMPLATE_FILE %}</div>
+			{% endif %}
 
-	<!-- EVENT ucp_register_credentials_before -->
-	<div class="row">
-		<div class="col-12 col-md-6">
-			<label class="col-form-label pt-0" for="username"><strong>{L_USERNAME}{L_COLON}</strong></label>
-			<div class="input-group">
-				<input class="form-control" type="text" tabindex="1" name="username" id="username" size="25" value="{USERNAME}" title="{L_USERNAME}" />
-				<button class="btn btn-outline-info" type="button" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="{L_USERNAME_EXPLAIN}"><i class="fa fa-info fa-fw" aria-hidden="true"></i></button>
-			</div>
-		</div>
-		<div class="col-12 col-md-6 mt-2 mt-md-0">
-			<label class="col-form-label pt-0" for="email"><strong>{L_EMAIL_ADDRESS}{L_COLON}</strong></label>
-			<input class="form-control w-100" type="email" tabindex="2" name="email" id="email" size="25" maxlength="100" value="{EMAIL}" title="{L_EMAIL_ADDRESS}" autocomplete="off" />
-		</div>
-	</div>
+				<h4 class="card-title mb-3">{SITENAME} - {L_REGISTRATION}</h4>
 
-	<hr class="fancyhr">
+				<!-- IF ERROR -->
+					<div class="alert alert-danger">{ERROR}</div>
+				<!-- ENDIF -->
 
-	<div class="row">
-		<div class="col-12 col-md-6">
-			<label class="col-form-label pt-0" for="new_password"><strong>{L_PASSWORD}{L_COLON}</strong></label>
-			<div class="input-group">
-				<input class="form-control" type="password" tabindex="3" name="new_password" id="new_password" size="25" value="{PASSWORD}" title="{L_NEW_PASSWORD}" autocomplete="off" />
-				<button class="btn btn-outline-info" type="button" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="{L_PASSWORD_EXPLAIN}"><i class="fa fa-info fa-fw" aria-hidden="true"></i></button>
-			</div>
-		</div>
-		<div class="col-12 col-md-6 mt-2 mt-md-0">
-			<label class="col-form-label pt-0" for="password_confirm"><strong>{L_CONFIRM_PASSWORD}{L_COLON}</strong></label>
-			<input class="form-control w-100" type="password"  tabindex="4" name="password_confirm" id="password_confirm" size="25" value="{PASSWORD_CONFIRM}" title="{L_CONFIRM_PASSWORD}" autocomplete="off" />
-		</div>
-	</div>
-	<!-- EVENT ucp_register_credentials_after -->
+				<!-- IF L_REG_COND -->
+					<div class="alert alert-info">{L_REG_COND}</div>
+				<!-- ENDIF -->
 
-	<hr class="fancyhr">
+				<!-- EVENT ucp_register_credentials_before -->
+				<div class="row mb-3">
+					<div class="col-12 col-md-6">
+						<label class="col-form-label pt-0" for="username"><strong>{L_USERNAME}{L_COLON}</strong></label>
+						<div class="input-group">
+							<input class="form-control" type="text" tabindex="1" name="username" id="username" size="25" value="{USERNAME}" title="{L_USERNAME}" />
+							<button class="btn btn-outline-info" type="button" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="{L_USERNAME_EXPLAIN}"><i class="fa fa-info fa-fw" aria-hidden="true"></i></button>
+						</div>
+					</div>
+					<div class="col-12 col-md-6 mt-2 mt-md-0">
+						<label class="col-form-label pt-0" for="email"><strong>{L_EMAIL_ADDRESS}{L_COLON}</strong></label>
+						<input class="form-control w-100" type="email" tabindex="2" name="email" id="email" size="25" maxlength="100" value="{EMAIL}" title="{L_EMAIL_ADDRESS}" autocomplete="off" />
+					</div>
+				</div>
 
-	<!-- EVENT ucp_register_options_before -->
-		{% if S_LANG_OPTIONS %}
-		<div class="row">
-			<div class="col-12 col-md-6">
-				<label class="col-form-label pt-0" for="lang"><strong>{{ lang('LANGUAGE') ~ lang('COLON') }}</strong></label>
-				<select class="form-select w-100 mt-1" name="lang" id="lang" onchange="change_language(this.value); return false;" tabindex="6" title="{{ lang('LANGUAGE') }}">{{ S_LANG_OPTIONS }}</select>
-			</div>
-			<div class="col-12 col-md-6 mt-2 mt-md-0">
-				<!-- INCLUDE timezone_option.html -->
-			</div>
-		</div>
-		{% endif %}
+				<div class="row mb-3">
+					<div class="col-12 col-md-6">
+						<label class="col-form-label pt-0" for="new_password"><strong>{L_PASSWORD}{L_COLON}</strong></label>
+						<div class="input-group">
+							<input class="form-control" type="password" tabindex="3" name="new_password" id="new_password" size="25" value="{PASSWORD}" title="{L_NEW_PASSWORD}" autocomplete="off" />
+							<button class="btn btn-outline-info" type="button" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="{L_PASSWORD_EXPLAIN}"><i class="fa fa-info fa-fw" aria-hidden="true"></i></button>
+						</div>
+					</div>
+					<div class="col-12 col-md-6 mt-2 mt-md-0">
+						<label class="col-form-label pt-0" for="password_confirm"><strong>{L_CONFIRM_PASSWORD}{L_COLON}</strong></label>
+						<input class="form-control w-100" type="password"  tabindex="4" name="password_confirm" id="password_confirm" size="25" value="{PASSWORD_CONFIRM}" title="{L_CONFIRM_PASSWORD}" autocomplete="off" />
+					</div>
+				</div>
+				<!-- EVENT ucp_register_credentials_after -->
 
-	<!-- EVENT ucp_register_profile_fields_before -->
-	<!-- IF .profile_fields -->
-		<div class="alert alert-info">{L_ITEMS_REQUIRED}</div>
-	<!-- BEGIN profile_fields -->
-		<dl class="row">
-			<dt class="col-lg-4 col-md-5 col-12">
-				<label class="col-form-label"<!-- IF profile_fields.FIELD_ID --> for="{profile_fields.FIELD_ID}"<!-- ENDIF -->>{profile_fields.LANG_NAME}{L_COLON}</label><!-- IF profile_fields.S_REQUIRED --><i class="fa fa-asterisk text-info ms-2"></i><!-- ENDIF -->
-			<!-- IF profile_fields.LANG_EXPLAIN -->
-				<span class="small text-muted fw-normal d-block mb-1">{profile_fields.LANG_EXPLAIN}</span>
+				<!-- EVENT ucp_register_options_before -->
+					{% if S_LANG_OPTIONS %}
+					<div class="row mb-3">
+						<div class="col-12 col-md-6">
+							<label class="col-form-label pt-0" for="lang"><strong>{{ lang('LANGUAGE') ~ lang('COLON') }}</strong></label>
+							<select class="form-select w-100 mt-1" name="lang" id="lang" onchange="change_language(this.value); return false;" tabindex="6" title="{{ lang('LANGUAGE') }}">{{ S_LANG_OPTIONS }}</select>
+						</div>
+						<div class="col-12 col-md-6 mt-2 mt-md-0">
+							<!-- INCLUDE timezone_option.html -->
+						</div>
+					</div>
+					{% endif %}
+
+				<!-- EVENT ucp_register_profile_fields_before -->
+				<!-- IF .profile_fields -->
+					<div class="alert alert-info">{L_ITEMS_REQUIRED}</div>
+				<!-- BEGIN profile_fields -->
+					<dl class="row mb-3">
+						<dt class="col-lg-4 col-md-5 col-12">
+							<label class="col-form-label"<!-- IF profile_fields.FIELD_ID --> for="{profile_fields.FIELD_ID}"<!-- ENDIF -->>{profile_fields.LANG_NAME}{L_COLON}</label><!-- IF profile_fields.S_REQUIRED --><i class="fa fa-asterisk text-info ms-2"></i><!-- ENDIF -->
+						<!-- IF profile_fields.LANG_EXPLAIN -->
+							<span class="small text-muted fw-normal d-block mb-1">{profile_fields.LANG_EXPLAIN}</span>
+						<!-- ENDIF -->
+						</dt>
+						<dd class="col-lg-8 col-md-7 col-12">{profile_fields.FIELD}<!-- IF profile_fields.ERROR --><br><span class="text-danger">{profile_fields.ERROR}</span><!-- ENDIF --></dd>
+					</dl>
+				<!-- END profile_fields -->
+				<!-- ENDIF -->
+
+				<!-- EVENT ucp_register_profile_fields_after -->
+
+				<!-- IF CAPTCHA_TEMPLATE -->
+					<!-- DEFINE $CAPTCHA_TAB_INDEX = 8 -->
+					<!-- INCLUDE {CAPTCHA_TEMPLATE} -->
+				<!-- ENDIF -->
+
+			<!-- IF S_COPPA -->
+				<div class="alert alert-info">{L_COPPA_EXPLAIN}</div>
 			<!-- ENDIF -->
-			</dt>
-			<dd class="col-lg-8 col-md-7 col-12">{profile_fields.FIELD}<!-- IF profile_fields.ERROR --><br><span class="text-danger">{profile_fields.ERROR}</span><!-- ENDIF --></dd>
-		</dl>
-	<!-- END profile_fields -->
-	<!-- ENDIF -->
 
-	<!-- EVENT ucp_register_profile_fields_after -->
+				<!-- EVENT ucp_register_buttons_before -->
+			</div>
 
+			<div class="card-footer">
+				<div class="row">
+					{S_HIDDEN_FIELDS}
+					<div class="d-grid col-4 mx-auto">
+						<a class="btn btn-secondary" href="{U_INDEX}"><i class="fa fa-home fa-fw" aria-hidden="true"></i> {L_HOME}</a>
+					</div>
+					<div class="d-grid col-4 mx-auto">
+						<button class="btn btn-success default-submit-action" type="submit" tabindex="9" name="submit" id="submit" value="{L_SUBMIT}"><i class="fa fa-level-down fa-rotate-90 fa-fw" aria-hidden="true"></i> {L_SUBMIT}</button>
+					</div>
+					{S_FORM_TOKEN}
+				</div>
+			</div>
+		</form>
+
+		</div>
 	</div>
 </div>
 
-<!-- IF CAPTCHA_TEMPLATE -->
-	<!-- DEFINE $CAPTCHA_TAB_INDEX = 8 -->
-		<!-- INCLUDE {CAPTCHA_TEMPLATE} -->
-<!-- ENDIF -->
+	</div><!-- end page-body -->
+</div><!-- end container -->
 
-<!-- IF S_COPPA -->
-<div class="alert alert-info col-12 col-lg-10 offset-lg-1">
-	{L_COPPA_EXPLAIN}
-</div>
-<!-- ENDIF -->
-
-<!-- EVENT ucp_register_buttons_before -->
-
-<div class="d-grid col-4 mx-auto mb-3">
-	{S_HIDDEN_FIELDS}
-	<button class="btn btn-success default-submit-action" type="submit" tabindex="9" name="submit" id="submit" value="{L_SUBMIT}"><i class="fa fa-level-down fa-rotate-90 fa-fw" aria-hidden="true"></i> {L_SUBMIT}</button>
-	{S_FORM_TOKEN}
-</div>
-
-</form>
-
-<!-- INCLUDE overall_footer.html -->
+<script src="{T_JQUERY_LINK}"></script>
+<script src="{T_ASSETS_PATH}/javascript/core.js?assets_version={T_ASSETS_VERSION}"></script>
+<script src="{T_TEMPLATE_PATH}/bootstrap.bundle.min.js"></script>
+<script>
+	var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+	var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+		return new bootstrap.Popover(popoverTriggerEl)
+	})
+</script>
+{$SCRIPTS}
+</body>
+</html>
