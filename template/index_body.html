@@ -11,11 +11,11 @@
 <!-- EVENT index_body_stat_blocks_before -->
 
 <!-- IF (S_DISPLAY_ONLINE_LIST or NEWEST_USER or (S_DISPLAY_BIRTHDAY_LIST and .birthdays) or not S_USER_LOGGED_IN) and not S_IS_BOT -->
-<div class="card mb-3 shadow-sm">
-	<ul class="nav nav-tabs p-2 pb-0 bg1" role="tablist">
+<div class="mb-3 shadow-sm">
+	<ul class="nav nav-tabs p-2 pb-0 border bg1" role="tablist">
 	<!-- IF S_DISPLAY_ONLINE_LIST -->
 		<li class="nav-item">
-			<a class="nav-link<!-- IF S_USER_LOGGED_IN or (not S_USER_LOGGED_IN and not $LOGIN_POPUP_OFF) --> active<!-- ENDIF -->" data-bs-toggle="tab" href="#nav_online" role="tab" aria-controls="nav_online" aria-selected="true"><i class="fa fa-signal fa-fw d-none d-md-inline-block" aria-hidden="true"></i> {L_WHO_IS_ONLINE}</a>
+			<a class="nav-link<!-- IF S_USER_LOGGED_IN or (not S_USER_LOGGED_IN and $LOGIN_POPUP) --> active<!-- ENDIF -->" data-bs-toggle="tab" href="#nav_online" role="tab" aria-controls="nav_online" aria-selected="true"><i class="fa fa-signal fa-fw d-none d-md-inline-block" aria-hidden="true"></i> {L_WHO_IS_ONLINE}</a>
 		</li>
 	<!-- ENDIF -->
 	<!-- IF NEWEST_USER -->
@@ -28,88 +28,90 @@
 			<a class="nav-link" data-bs-toggle="tab" href="#nav_birthday" role="tab" aria-controls="nav-birthday" aria-selected="false"><i class="fa fa-birthday-cake fa-fw d-none d-md-inline-block" aria-hidden="true"></i> {L_BIRTHDAYS}</a>
 		</li>
 	<!-- ENDIF -->
-	<!-- IF not S_USER_LOGGED_IN and $LOGIN_POPUP_OFF -->
+	<!-- IF not S_USER_LOGGED_IN and not $LOGIN_POPUP -->
 		<li class="nav-item">
 			<a class="nav-link active" data-bs-toggle="tab" href="#nav_login" role="tab" aria-controls="nav-login" aria-selected="false"><i class="fa fa-power-off fa-fw d-none d-md-inline-block" aria-hidden="true"></i> {L_LOGIN_LOGOUT}</a>
 		</li>
 	<!-- ENDIF -->
 	</ul>
 
-	<div class="card-body tab-content">
-	<!-- IF S_DISPLAY_ONLINE_LIST -->
-		<div class="tab-pane fade<!-- IF S_USER_LOGGED_IN or (not S_USER_LOGGED_IN and not $LOGIN_POPUP_OFF) --> show active<!-- ENDIF -->" id="nav_online" role="tabpanel" aria-labelledby="nav_online-tab">
-		<!-- EVENT index_body_block_online_prepend -->
-			<p<!-- IF not S_USER_LOGGED_IN --> class="m-0"<!-- ENDIF -->>{TOTAL_USERS_ONLINE} ({L_ONLINE_EXPLAIN})<br>{RECORD_USERS}</p>
-		<!-- IF U_VIEWONLINE -->
-			<p class="m-0">{LOGGED_IN_USER_LIST}<!-- IF LEGEND --><br>{L_LEGEND}{L_COLON} {LEGEND}<!-- ENDIF --></p>
+	<div class="card border-top-0">
+		<div class="card-body tab-content">
+		<!-- IF S_DISPLAY_ONLINE_LIST -->
+			<div class="tab-pane fade<!-- IF S_USER_LOGGED_IN or (not S_USER_LOGGED_IN and $LOGIN_POPUP) --> show active<!-- ENDIF -->" id="nav_online" role="tabpanel" aria-labelledby="nav_online-tab">
+			<!-- EVENT index_body_block_online_prepend -->
+				<p<!-- IF not S_USER_LOGGED_IN --> class="m-0"<!-- ENDIF -->>{TOTAL_USERS_ONLINE} ({L_ONLINE_EXPLAIN})<br>{RECORD_USERS}</p>
+			<!-- IF U_VIEWONLINE -->
+				<p class="m-0">{LOGGED_IN_USER_LIST}<!-- IF LEGEND --><br>{L_LEGEND}{L_COLON} {LEGEND}<!-- ENDIF --></p>
+			<!-- ENDIF -->
+			<!-- EVENT index_body_block_online_append -->
+			</div>
 		<!-- ENDIF -->
-		<!-- EVENT index_body_block_online_append -->
-		</div>
-	<!-- ENDIF -->
 
-	<!-- IF NEWEST_USER -->
-		<div class="tab-pane fade" id="nav_statistics" role="tabpanel" aria-labelledby="nav_statistics-tab">
-		<!-- EVENT index_body_block_stats_prepend -->
-			{TOTAL_POSTS} &bull; {TOTAL_TOPICS} &bull; {TOTAL_USERS} &bull; {NEWEST_USER}
-		<!-- EVENT index_body_block_stats_append -->
-		</div>
-	<!-- ENDIF -->
+		<!-- IF NEWEST_USER -->
+			<div class="tab-pane fade" id="nav_statistics" role="tabpanel" aria-labelledby="nav_statistics-tab">
+			<!-- EVENT index_body_block_stats_prepend -->
+				{TOTAL_POSTS} &bull; {TOTAL_TOPICS} &bull; {TOTAL_USERS} &bull; {NEWEST_USER}
+			<!-- EVENT index_body_block_stats_append -->
+			</div>
+		<!-- ENDIF -->
 
-	<!-- IF S_DISPLAY_BIRTHDAY_LIST and .birthdays -->
-		<div class="tab-pane fade" id="nav_birthday" role="tabpanel" aria-labelledby="nav_birthday-tab">
-		<!-- EVENT index_body_block_birthday_prepend -->
-		<!-- IF .birthdays -->{L_CONGRATULATIONS}{L_COLON} <strong><!-- BEGIN birthdays -->{birthdays.USERNAME}<!-- IF birthdays.AGE !== '' --> ({birthdays.AGE})<!-- ENDIF --><!-- IF not birthdays.S_LAST_ROW -->, <!-- ENDIF --><!-- END birthdays --></strong><!-- ELSE -->{L_NO_BIRTHDAYS}<!-- ENDIF -->
-		<!-- EVENT index_body_block_birthday_append -->
-		</div>
-	<!-- ENDIF -->
+		<!-- IF S_DISPLAY_BIRTHDAY_LIST and .birthdays -->
+			<div class="tab-pane fade" id="nav_birthday" role="tabpanel" aria-labelledby="nav_birthday-tab">
+			<!-- EVENT index_body_block_birthday_prepend -->
+			<!-- IF .birthdays -->{L_CONGRATULATIONS}{L_COLON} <strong><!-- BEGIN birthdays -->{birthdays.USERNAME}<!-- IF birthdays.AGE !== '' --> ({birthdays.AGE})<!-- ENDIF --><!-- IF not birthdays.S_LAST_ROW -->, <!-- ENDIF --><!-- END birthdays --></strong><!-- ELSE -->{L_NO_BIRTHDAYS}<!-- ENDIF -->
+			<!-- EVENT index_body_block_birthday_append -->
+			</div>
+		<!-- ENDIF -->
 
-	<!-- IF not S_USER_LOGGED_IN and $LOGIN_POPUP_OFF -->
-		<div class="tab-pane fade show active" id="nav_login" role="tabpanel" aria-labelledby="nav-login-tab">
-			<form method="post" action="{S_LOGIN_ACTION}">
-				<div class="row gx-3 gy-2 justify-content-center">
+		<!-- IF not S_USER_LOGGED_IN and not $LOGIN_POPUP -->
+			<div class="tab-pane fade show active" id="nav_login" role="tabpanel" aria-labelledby="nav-login-tab">
+				<form method="post" action="{S_LOGIN_ACTION}">
+					<div class="row gx-3 gy-2 justify-content-center">
 
-					<div class="col-lg-3 col-md-4 col-sm-6">
-						<div class="input-group">
-							<span class="input-group-text"><i class="fa fa-user fa-fw" aria-hidden="true"></i></span>
-							<input class="form-control" type="text" tabindex="1" name="username" id="username" size="20" title="{L_USERNAME}" placeholder="{L_USERNAME}" />
-						</div>
-					</div>
-
-					<div class="col-lg-3 col-md-4 col-sm-6">
-						<div class="input-group">
-							<span class="input-group-text"><i class="fa fa-lock fa-fw" aria-hidden="true"></i></span>
-							<input class="form-control" type="password" tabindex="2" name="password" id="password" size="20" title="{L_PASSWORD}" autocomplete="off" placeholder="{L_PASSWORD}" />
-						</div>
-					</div>
-
-					<!-- IF U_SEND_PASSWORD -->
-					<div class="col-auto">
-						<a class="btn btn-outline-secondary" href="{U_SEND_PASSWORD}">{L_FORGOT_PASS}</a>
-					</div>
-					<!-- ENDIF -->
-
-					<!-- IF S_AUTOLOGIN_ENABLED -->
-					<div class="col-auto">
-						<div class="input-group">
-							<div class="input-group-text border-primary border-end-0">
-								<input class="form-check-input mt-0" type="checkbox" tabindex="4" name="autologin" id="autologin" checked />
+						<div class="col-lg-3 col-md-4 col-sm-6">
+							<div class="input-group">
+								<span class="input-group-text"><i class="fa fa-user fa-fw" aria-hidden="true"></i></span>
+								<input class="form-control" type="text" tabindex="1" name="username" id="username" size="20" title="{L_USERNAME}" placeholder="{L_USERNAME}" />
 							</div>
-							<label class="btn btn-outline-primary" for="autologin">{L_LOG_ME_IN}</label>
 						</div>
-					</div>
-					<!-- ENDIF -->
 
-					<div class="col-lg-2 col-md-3 col-sm-4">
-						<button class="btn btn-success w-100" type="submit" tabindex="5" name="login" value="{L_LOGIN}"><i class="fa fa-power-off fa-fw" aria-hidden="true"></i> {L_LOGIN}</button>
-					</div>
+						<div class="col-lg-3 col-md-4 col-sm-6">
+							<div class="input-group">
+								<span class="input-group-text"><i class="fa fa-lock fa-fw" aria-hidden="true"></i></span>
+								<input class="form-control" type="password" tabindex="2" name="password" id="password" size="20" title="{L_PASSWORD}" autocomplete="off" placeholder="{L_PASSWORD}" />
+							</div>
+						</div>
 
-					{S_LOGIN_REDIRECT}
-					{S_FORM_TOKEN_LOGIN}
-				</div>
-			</form>
+						<!-- IF U_SEND_PASSWORD -->
+						<div class="col-auto">
+							<a class="btn btn-outline-secondary" href="{U_SEND_PASSWORD}">{L_FORGOT_PASS}</a>
+						</div>
+						<!-- ENDIF -->
+
+						<!-- IF S_AUTOLOGIN_ENABLED -->
+						<div class="col-auto">
+							<div class="input-group">
+								<div class="input-group-text border-primary border-end-0">
+									<input class="form-check-input mt-0" type="checkbox" tabindex="4" name="autologin" id="autologin" />
+								</div>
+								<label class="btn btn-outline-primary" for="autologin">{L_LOG_ME_IN}</label>
+							</div>
+						</div>
+						<!-- ENDIF -->
+
+						<div class="col-lg-2 col-md-3 col-sm-4">
+							<button class="btn btn-success w-100" type="submit" tabindex="5" name="login" value="{L_LOGIN}"><i class="fa fa-power-off fa-fw" aria-hidden="true"></i> {L_LOGIN}</button>
+						</div>
+
+						{S_LOGIN_REDIRECT}
+						{S_FORM_TOKEN_LOGIN}
+					</div>
+				</form>
+			</div>
+		<!-- ENDIF -->
+
 		</div>
-	<!-- ENDIF -->
-
 	</div>
 </div>
 <!-- ENDIF -->
