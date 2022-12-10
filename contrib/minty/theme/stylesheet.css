@@ -1,6 +1,0 @@
-@import url("../../bootlike/theme/custom.css");
-@import url("../../bootlike/theme/imageset.css");
-@import url("bootstrap.min.css");
-.action-bar .btn {color: #999;}
-.contact-button:hover .alert-primary {border-color: #78c2ad !important;}
-.bi-caret-down-fill {fill: #78c2ad;}
