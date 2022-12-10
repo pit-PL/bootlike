@@ -1,7 +1,5 @@
 <!-- INCLUDE mcp_header.html -->
 
-<h4 class="cp-page-title mb-3">{PAGE_TITLE}</h4>
-
 <!-- EVENT mcp_front_latest_unapproved_before -->
 
 <!-- IF S_SHOW_UNAPPROVED -->
@@ -12,8 +10,8 @@
 		<p>{L_UNAPPROVED_TOTAL}</p>
 
 		<!-- IF .unapproved -->
-		<div class="card mb-3 pb-1">
-		<div class="card-header">
+		<div class="card mb-3">
+		<div class="card-header mb-1 border-bottom-0">
 			<div class="row">
 				<div class="col-md-6 col-sm-10 col-9">{L_VIEW_DETAILS}</div>
 				<div class="col-md-4 d-none d-md-block">{L_TOPIC} &amp; {L_FORUM}</div>
@@ -23,7 +21,7 @@
 
 			<!-- BEGIN unapproved -->
 			<div class="container-fluid row-item p-0">
-				<div class="row m-0 mt-1 p-1 align-items-center bg1">
+				<div class="row m-1 mt-0 p-1 align-items-center bg1">
 					<div class="col-md-6 col-sm-10 col-9">
 						<a class="topic-title" href="{unapproved.U_POST_DETAILS}">{unapproved.SUBJECT}</a><br>
 						<!-- IF unapproved.ATTACH_ICON_IMG --><i class="fa fa-paperclip" title="{L_TOTAL_ATTACHMENTS}" aria-hidden="true"></i><span class="visually-hidden">{L_TOTAL_ATTACHMENTS}</span><!-- ENDIF -->
@@ -70,8 +68,8 @@
 		<p>{L_REPORTS_TOTAL}</p>
 
 		<!-- IF .report -->
-		<div class="card mb-3 pb-1">
-			<div class="card-header">
+		<div class="card mb-3">
+			<div class="card-header mb-1 border-bottom-0">
 				<div class="row">
 					<div class="col-lg-8 col-md-7 col-12">{L_VIEW_DETAILS}</div>
 					<div class="col-lg-4 col-md-5 d-none d-md-block">{L_REPORTER} &amp; {L_FORUM}</div>
@@ -80,7 +78,7 @@
 
 			<!-- BEGIN report -->
 			<div class="container-fluid row-item p-0">
-				<div class="row m-0 mt-1 p-1 align-items-center bg1">
+				<div class="row m-1 mt-0 p-1 align-items-center bg1">
 					<div class="col-lg-8 col-md-7 col-12">
 						<a class="topic-title" href="{report.U_POST_DETAILS}#reports">{report.SUBJECT}</a><br>
 						<!-- IF report.ATTACH_ICON_IMG --><i class="fa fa-paperclip" title="{L_TOTAL_ATTACHMENTS}" aria-hidden="true"></i><!-- ENDIF -->
@@ -111,8 +109,8 @@
 		<p>{L_PM_REPORTS_TOTAL}</p>
 
 		<!-- IF .pm_report -->
-		<div class="card mb-3 pb-1">
-			<div class="card-header">
+		<div class="card mb-3">
+			<div class="card-header mb-1 border-bottom-0">
 				<div class="row align-items-center">
 					<div class="col-lg-8 col-md-7 col-12">{L_VIEW_DETAILS}</div>
 					<div class="col-lg-4 col-md-5 d-none d-md-block">{L_REPORTER}</div>
@@ -121,7 +119,7 @@
 
 			<!-- BEGIN pm_report -->
 			<div class="container-fluid row-item p-0">
-				<div class="row m-0 mt-1 p-1 align-items-center bg1">
+				<div class="row m-1 mt-0 p-1 align-items-center bg1">
 					<div class="col-lg-8 col-md-7 col-12">
 						<a class="topic-title" href="{pm_report.U_PM_DETAILS}">{pm_report.PM_SUBJECT}</a><br>
 						<!-- IF pm_report.ATTACH_ICON_IMG --><i class="fa fa-paperclip" title="{L_TOTAL_ATTACHMENTS}" aria-hidden="true"></i><!-- ENDIF -->
@@ -149,8 +147,8 @@
 
 	<h5 class="card-title pb-1 text-capitalize">{L_LATEST_LOGS}</h5>
 
-	<div class="card mb-3 pb-1">
-		<div class="card-header d-none d-md-block">
+	<div class="card mb-3">
+		<div class="card-header mb-1 d-none d-md-block border-bottom-0">
 			<div class="row">
 				<div class="col-12 col-md-6">{L_ACTION}</div>
 				<div class="col-12 col-md-2 text-center">{L_MCP_NOTES_USER}</div>
@@ -159,18 +157,22 @@
 			</div>
 		</div>
 		<!-- BEGIN log -->
-		<div class="row m-0 mt-1 p-1 align-items-center bg1">
-			<div class="col-12 col-md-6 py-2"><span class="badge bg-secondary d-md-none">{L_ACTION}{L_COLON}</span> {log.ACTION}</div>
-			<div class="col-12 col-md-2 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_MCP_NOTES_USER}{L_COLON}</span> {log.USERNAME}<!-- IF not $HIDE_USER_IP or U_ACP --> <br class="d-none d-md-block" />{log.IP}<!-- ENDIF --></div>
-			<div class="col-12 col-md-2 py-2 text-md-center">
-				<span class="badge bg-secondary d-md-none">{L_TOPIC}/<span class="text-lowercase">{L_LOGS}</span>{L_COLON}</span>
-				<!-- IF log.U_VIEW_TOPIC --><a href="{log.U_VIEW_TOPIC}" title="{L_VIEW_TOPIC}">{L_VIEW_TOPIC}</a><br class="d-none d-md-block" /><!-- ENDIF -->
-				<!-- IF log.U_VIEWLOGS --><a href="{log.U_VIEWLOGS}">{L_VIEW_TOPIC_LOGS}</a><!-- ENDIF -->
+		<div class="container-fluid row-item p-0">
+			<div class="row m-1 mt-0 p-1 align-items-center bg1">
+				<div class="col-12 col-md-6 py-2"><span class="badge bg-secondary d-md-none">{L_ACTION}{L_COLON}</span> {log.ACTION}</div>
+				<div class="col-12 col-md-2 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_MCP_NOTES_USER}{L_COLON}</span> {log.USERNAME}<!-- IF not $HIDE_USER_IP or U_ACP --> <br class="d-none d-md-block" />{log.IP}<!-- ENDIF --></div>
+				<div class="col-12 col-md-2 py-2 text-md-center">
+					<span class="badge bg-secondary d-md-none">{L_TOPIC}/<span class="text-lowercase">{L_LOGS}</span>{L_COLON}</span>
+					<!-- IF log.U_VIEW_TOPIC --><a href="{log.U_VIEW_TOPIC}" title="{L_VIEW_TOPIC}">{L_VIEW_TOPIC}</a><br class="d-none d-md-block" /><!-- ENDIF -->
+					<!-- IF log.U_VIEWLOGS --><a href="{log.U_VIEWLOGS}">{L_VIEW_TOPIC_LOGS}</a><!-- ENDIF -->
+				</div>
+				<div class="col-12 col-md-2 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_TIME}{L_COLON}</span> {log.TIME}</div>
 			</div>
-			<div class="col-12 col-md-2 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_TIME}{L_COLON}</span> {log.TIME}</div>
 		</div>
 		<!-- BEGINELSE -->
-		<div class="mt-1 px-3 py-2 text-center bg1">{L_NO_ENTRIES}</div>
+		<div class="container-fluid p-0">
+			<div class="m-1 mt-0 px-3 py-2 text-center bg1">{L_NO_ENTRIES}</div>
+		</div>
 		<!-- END log -->
 	</div>
 <!-- ENDIF -->
