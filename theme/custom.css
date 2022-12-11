@@ -271,6 +271,14 @@ a.postlink:hover, a.postlink:focus {
 	color: #23527c;
 }
 
+.list-group-item .jumpbox a, .list-group-item .jumpbox a:hover {
+	color: #444;
+}
+
+.list-group-item .jumpbox a.active {
+	color: #fff;
+}
+
 .progress-bar {
 	animation: animate-positive 2s;
 }
