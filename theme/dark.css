@@ -87,6 +87,10 @@
 	border-color: var(--border-color);
 }
 
+.dark .list-group-item .jumpbox a, .dark .list-group-item .jumpbox a:hover {
+	color: var(--card-body-color);
+}
+
 .dark .dropdown-menu .dropdown-item:hover {
 	background-color: var(--body-bg) !important;
 }
