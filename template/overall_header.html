@@ -73,11 +73,11 @@
 	</div>
 
 	<div class="card mb-3 d-none d-md-block<!-- IF $CLICKABLE_HEADER --> d-md-none<!-- ENDIF --> border-0">
-		<div class="card-body p-1 px-3 bg3 border-bottom shadow-sm">
+		<div class="card-body p-1 px-3 bg1 border-bottom shadow-sm">
 			<!-- EVENT overall_header_headerbar_before -->
 			<div class="m-3 d-flex align-items-center justify-content-md-between">
 				<a class="logo me-3" href="{% if U_SITE_HOME %}{{ U_SITE_HOME }}{% else %}{{ U_INDEX }}{% endif %}" title="{% if U_SITE_HOME %}{{ L_SITE_HOME }}{% else %}{{ L_INDEX }}{% endif %}"><!-- IF not $CLICKABLE_HEADER --><img class="img-thumbnail" src="{ROOT_PATH}styles/bootlike/theme/images/site_logo.png" alt="{L_IMAGE}" /><!-- ELSE -->{SITENAME}<!-- ENDIF --></a>
-				<h1 class="mb-0 fs-2 text-white"><!-- IF SITENAME -->{SITENAME}<!-- ELSE -->{BOARD_URL}<!-- ENDIF --><!-- IF SITE_DESCRIPTION --> {SITE_DESCRIPTION}<!-- ENDIF --></h1>
+				<h1 class="mb-0 fs-2 text-secondary"><!-- IF SITENAME -->{SITENAME}<!-- ELSE -->{BOARD_URL}<!-- ENDIF --><!-- IF SITE_DESCRIPTION --> {SITE_DESCRIPTION}<!-- ENDIF --></h1>
 			</div>
 			<!-- EVENT overall_header_headerbar_after -->
 		</div>
