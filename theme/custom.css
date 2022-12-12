@@ -275,7 +275,7 @@ a.postlink:hover, a.postlink:focus {
 	color: #444;
 }
 
-.list-group-item .jumpbox a.active {
+.list-group-item .jumpbox a.active, .list-group-item .jumpbox a:active {
 	color: #fff;
 }
 
