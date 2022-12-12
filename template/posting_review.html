@@ -31,12 +31,12 @@
 					<div class="content">{post_review_row.MESSAGE}</div>
 
 				<!-- IF post_review_row.S_HAS_ATTACHMENTS -->
-					<div class="my-1 text-uppercase">{L_ATTACHMENTS}</div>
+					<div class="my-1 fw-semibold">{L_ATTACHMENTS}</div>
 					<div class="row<!-- IF $ATTACHMENT_COLUMNS eq 3 --> row-cols-lg-3 row-cols-md-2 row-cols-1<!-- ENDIF --><!-- IF $ATTACHMENT_COLUMNS eq 2 --> row-cols-lg-2 row-cols-1<!-- ENDIF -->">
 					<!-- BEGIN attachment -->
 						<div class="col d-flex">
 							<div class="card mb-3<!-- IF $ATTACHMENT_COLUMNS --> w-100<!-- ENDIF -->">
-								<div class="card-body p-2 bg1">
+								<div class="card-body p-2 bg2">
 									{post_review_row.attachment.DISPLAY_ATTACHMENT}
 								</div>
 							</div>
