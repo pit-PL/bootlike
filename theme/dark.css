@@ -1,18 +1,16 @@
 :root {
-	--dark-bg: #191919;
-	--body-bg: #272b30;
+	--dark-bg: #171b24;
+	--body-bg: #242a36;
 	--body-color: #aaa;
-	--navbar-bg: #3a3f44;
-	--card-bg: #32383e;
-	--card-header-bg: #515960;
+	--navbar-bg: #343a46;
+	--card-bg: #1f242e;
 	--card-body-color: #eee;
-	--border-color: #141719;
+	--border-color: rgba(255,255,255,0.07);
 	--info-bg: #0fc2e6;
 	--warning-bg: #f89406;
 	--danger-bg: #ee5f5b;
 	--link-color: #fff;
 	--link-hover-color: #ccc;
-	--code-color: #a6e9d5;
 	--active-bg: #0d6efd;
 }
 
@@ -43,10 +41,13 @@
 	color: var(--card-body-color);
 }
 
-.dark .card-header, .dark .btn-close, .dark .btn .disabled {
+.dark .card-header {
 	color: var(--card-body-color);
-	background-color: var(--card-header-bg) !important;
-	border-color: var(--border-color);
+	background-color: var(--dark-bg) !important;
+}
+
+.dark .btn-close, .dark .btn .disabled {
+	background-color: var(--body-color) !important;
 }
 
 .dark .card-footer {
@@ -54,7 +55,7 @@
 }
 
 .dark .offcanvas-header {
-	background-color: var(--card-header-bg);
+	background-color: var(--dark-bg);
 }
 
 .dark .offcanvas-body, .dark .list-group-item-action:hover {
@@ -70,7 +71,7 @@
 }
 
 .dark .fancyhr {
-	background: linear-gradient(to right, #444, #ccc, #444);
+	background: linear-gradient(to right, #333, #bbb, #333);
 }
 
 .dark .fancyhr:after {
@@ -79,12 +80,12 @@
 
 .dark .list-group-item {
 	color: var(--body-color);
-	background-color: var(--card-header-bg) !important;
+	background-color: var(--body-bg) !important;
+	border-color: var(--border-color);
 }
 
 .dark .list-group-item.active {
 	background-color: var(--dark-bg) !important;
-	border-color: var(--border-color);
 }
 
 .dark .list-group-item .jumpbox a, .dark .list-group-item .jumpbox a:hover {
@@ -101,10 +102,6 @@
 
 .dark .bg2, .dark .card.bg2, .dark .action-bar, .dark .btn.btn-lg {
 	background-color: var(--body-bg) !important;
-}
-
-.dark .bg3 {
-	background-color: var(--dark-bg);
 }
 
 .dark .notification-block.bg-info {
@@ -135,11 +132,7 @@
 
 .dark .img-thumbnail {
 	background-color: var(--card-bg);
-	border-color: var(--card-header-bg) !important;
-}
-
-.dark .codebox pre {
-	color: var(--code-color);
+	border-color: var(--dark-bg) !important;
 }
 
 .dark .page-footer {
@@ -195,7 +188,7 @@
 
 .dark .input-group-text {
 	color: var(--body-color);
-	background-color: var(--card-header-bg) !important;
+	background-color: var(--navbar-bg);
 	border-color: var(--border-color);
 }
 
@@ -212,13 +205,13 @@
 }
 
 .dark .row-item .folder:before {
-	background-color: var(--body-bg);
+	background-color: var(--card-bg);
 }
 
 .dark .row-item .folder:before, .dark .row-item .folder:after {
-	text-shadow: 1px 1px 1px #111;
+	text-shadow: 1px 1px 1px #000;
 	-webkit-text-stroke: 1px #555;
-	border-color: #555;
+	border-color: var(--dark-bg);
 }
 
 @keyframes pulse-animation {
