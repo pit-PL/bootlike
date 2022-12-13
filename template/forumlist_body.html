@@ -1,5 +1,6 @@
 <!-- IF .forumrow -->
-<div class="row row-cols-1 row-cols-lg-2">
+<div class="container-xl p-0">
+	<div class="row row-cols-1 row-cols-lg-2">
 <!-- BEGIN forumrow -->
 
 	<!-- EVENT forumlist_body_category_header_before -->
@@ -81,29 +82,33 @@
 					<!-- IF S_ENABLE_FEEDS and forumrow.S_FEED_ENABLED --><!-- <a class="btn btn-outline-secondary btn-sm ms-1" title="{L_FEED} - {forumrow.FORUM_NAME}" href="{U_FEED}?f={forumrow.FORUM_ID}"><i class="fa fa-rss fa-fw"></i></a> --><!-- ENDIF -->
 
 					<!-- IF forumrow.MODERATORS -->
-						<button class="btn btn-outline-secondary btn-sm dropdown-toggle ms-1" title="{forumrow.L_MODERATOR_STR}" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						<i class="fa fa-user-secret fa-fw"></i><span class="visually-hidden">{forumrow.L_MODERATOR_STR}</span>
-						</button>
-						<div class="dropdown-menu dropdown-menu-end">
-							<div class="px-3">{forumrow.MODERATORS}</div>
+						<div class="d-inline">
+							<button class="btn btn-outline-secondary btn-sm dropdown-toggle ms-1" title="{forumrow.L_MODERATOR_STR}" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<i class="fa fa-user-secret fa-fw"></i><span class="visually-hidden">{forumrow.L_MODERATOR_STR}</span>
+							</button>
+							<div class="dropdown-menu dropdown-menu-end">
+								<div class="px-3">{forumrow.MODERATORS}</div>
+							</div>
 						</div>
 					<!-- ENDIF -->
 
 					<!-- IF .forumrow.subforum and forumrow.S_LIST_SUBFORUMS -->
-						<button class="btn btn-outline-secondary btn-sm dropdown-toggle ms-1" title="{forumrow.L_SUBFORUM_STR}" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						<i class="fa fa-files-o fa-fw"></i><span class="visually-hidden">{forumrow.L_SUBFORUM_STR}</span>
-						</button>
-						<div class="dropdown-menu dropdown-menu-end">
-							<div<!-- IF $SUBFORUM_COLUMNS and $SUBFORUM_COLUMNS_NUMBER neq '' --> class="row"<!-- ENDIF -->>
-							<!-- BEGIN subforum -->
-							<div<!-- IF $SUBFORUM_COLUMNS and $SUBFORUM_COLUMNS_NUMBER eq 3 --> class="col-lg-4 col-md-6"<!-- ENDIF --><!-- IF $SUBFORUM_COLUMNS and $SUBFORUM_COLUMNS_NUMBER eq 2 --> class="col-md-6"<!-- ENDIF -->>
-								<!-- EVENT forumlist_body_subforum_link_prepend -->
-								<a href="{forumrow.subforum.U_SUBFORUM}" class="dropdown-item subforum<!-- IF forumrow.subforum.S_UNREAD --> unread<!-- ELSE --> read<!-- ENDIF -->" title="<!-- IF forumrow.subforum.S_UNREAD -->{L_UNREAD_POSTS}<!-- ELSE -->{L_NO_UNREAD_POSTS}<!-- ENDIF -->">
-									<i class="fa<!-- IF forumrow.subforum.S_UNREAD --> fa-file<!-- ELSE --> fa-file-o<!-- ENDIF --> fa-fw" aria-hidden="true"></i> {forumrow.subforum.SUBFORUM_NAME}
-								</a>
-								<!-- EVENT forumlist_body_subforum_link_append -->
-							</div>
-							<!-- END subforum -->
+						<div class="d-inline">
+							<button class="btn btn-outline-secondary btn-sm dropdown-toggle ms-1" title="{forumrow.L_SUBFORUM_STR}" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<i class="fa fa-files-o fa-fw"></i><span class="visually-hidden">{forumrow.L_SUBFORUM_STR}</span>
+							</button>
+							<div class="dropdown-menu dropdown-menu-end">
+								<div<!-- IF $SUBFORUM_COLUMNS and $SUBFORUM_COLUMNS_NUMBER neq '' --> class="row"<!-- ENDIF -->>
+								<!-- BEGIN subforum -->
+								<div<!-- IF $SUBFORUM_COLUMNS and $SUBFORUM_COLUMNS_NUMBER eq 3 --> class="col-lg-4 col-md-6"<!-- ENDIF --><!-- IF $SUBFORUM_COLUMNS and $SUBFORUM_COLUMNS_NUMBER eq 2 --> class="col-md-6"<!-- ENDIF -->>
+									<!-- EVENT forumlist_body_subforum_link_prepend -->
+									<a href="{forumrow.subforum.U_SUBFORUM}" class="dropdown-item subforum<!-- IF forumrow.subforum.S_UNREAD --> unread<!-- ELSE --> read<!-- ENDIF -->" title="<!-- IF forumrow.subforum.S_UNREAD -->{L_UNREAD_POSTS}<!-- ELSE -->{L_NO_UNREAD_POSTS}<!-- ENDIF -->">
+										<i class="fa<!-- IF forumrow.subforum.S_UNREAD --> fa-file<!-- ELSE --> fa-file-o<!-- ENDIF --> fa-fw" aria-hidden="true"></i> {forumrow.subforum.SUBFORUM_NAME}
+									</a>
+									<!-- EVENT forumlist_body_subforum_link_append -->
+								</div>
+								<!-- END subforum -->
+								</div>
 							</div>
 						</div>
 					<!-- ENDIF -->
@@ -131,6 +136,7 @@
 
 <!-- END forumrow -->
 	</div>
+</div>
 <!-- ELSE -->
 	<div class="alert alert-info">
 		{L_NO_FORUMS}
