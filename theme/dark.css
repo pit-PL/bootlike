@@ -163,7 +163,7 @@
 	border-left-color: var(--body-bg);
 }
 
-.dark .border, .dark .border-start, .dark .border-top, .dark .border-end, .dark .border-bottom, .dark .modal-header, .dark .modal-footer, .dark .page-link {
+.dark .border, .dark .border-start, .dark .border-top, .dark .border-end, .dark .border-bottom, .dark .modal-header, .dark .modal-footer, .dark .page-link, .dark .dropdown-divider {
 	border-color: var(--border-color) !important;
 }
 
