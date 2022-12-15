@@ -188,7 +188,7 @@
 						<ul class="dropdown-menu dropdown-menu-end dropdown-contents">
 						<!-- BEGIN quickmod -->
 							<!-- DEFINE $QUICKMOD_AJAX = (quickmod.VALUE in ['lock', 'unlock', 'delete_topic', 'restore_topic', 'make_normal', 'make_sticky', 'make_announce', 'make_global']) -->
-							<li><a class="dropdown-item" href="{quickmod.LINK}"<!-- IF $QUICKMOD_AJAX --> data-ajax="true" data-refresh="true"<!-- ENDIF -->>{quickmod.TITLE}</a></li>
+							<li><a class="dropdown-item text-truncate" href="{quickmod.LINK}"<!-- IF $QUICKMOD_AJAX --> data-ajax="true" data-refresh="true"<!-- ENDIF -->>{quickmod.TITLE}</a></li>
 							<!-- IF not .quickmod.S_LAST_ROW -->
 							<li class="dropdown-divider m-0"></li>
 							<!-- ENDIF -->
@@ -402,7 +402,7 @@
 						<ul class="dropdown-menu dropdown-menu-end dropdown-contents">
 						<!-- BEGIN quickmod -->
 							<!-- DEFINE $QUICKMOD_AJAX = (quickmod.VALUE in ['lock', 'unlock', 'delete_topic', 'restore_topic', 'make_normal', 'make_sticky', 'make_announce', 'make_global']) -->
-							<li><a class="dropdown-item" href="{quickmod.LINK}"<!-- IF $QUICKMOD_AJAX --> data-ajax="true" data-refresh="true"<!-- ENDIF -->>{quickmod.TITLE}</a></li>
+							<li><a class="dropdown-item text-truncate" href="{quickmod.LINK}"<!-- IF $QUICKMOD_AJAX --> data-ajax="true" data-refresh="true"<!-- ENDIF -->>{quickmod.TITLE}</a></li>
 							<!-- IF not .quickmod.S_LAST_ROW -->
 							<li class="dropdown-divider m-0"></li>
 							<!-- ENDIF -->
