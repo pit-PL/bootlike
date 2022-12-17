@@ -214,6 +214,10 @@
 	border-color: var(--dark-bg);
 }
 
+.dark .row-item[class*="unread"] .folder:before, .dark .row-item[class*="unread"] .folder:after {
+	-webkit-text-stroke: 1px #a80202;
+}
+
 @keyframes pulse-animation {
 	0% {
 		box-shadow: 0 0 0 0px rgba(150, 150, 150, 0.4);
