@@ -46,7 +46,7 @@
 	background-color: var(--dark-bg) !important;
 }
 
-.dark .btn-close, .dark .btn .disabled {
+.dark .btn-close, .dark .btn .disabled, .dark .navbar-toggler {
 	background-color: var(--body-color) !important;
 }
 
