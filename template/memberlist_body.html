@@ -150,7 +150,7 @@
 			<!-- ENDIF -->
 		<div class="container-fluid p-0">
 			<div class="row m-1 mt-0 py-1 align-items-center bg1<!-- IF memberrow.S_INACTIVE --> text-muted<!-- ENDIF -->">
-				<div class="col-12 col-md-3 py-2 d-md-flex justify-content-md-between">
+				<div class="col-12 col-md-3 py-2<!-- IF not memberrow.RANK_IMG --> d-md-flex justify-content-md-between<!-- ENDIF -->">
 					<div class="me-2">
 						<span class="badge bg-secondary d-md-none">{L_USERNAME}{L_COLON}</span>
 					<!-- IF S_IN_SEARCH_POPUP and not S_SELECT_SINGLE -->
@@ -165,10 +165,11 @@
 					</div>
 					<div>
 					<!-- EVENT memberlist_body_rank_prepend -->
+					<!-- EVENT memberlist_body_rank_prepend -->
 				<!-- IF memberrow.RANK_IMG or memberrow.RANK_TITLE -->
 						<span class="badge bg-secondary d-md-none">{L_RANK}{L_COLON}</span>
 					<!-- IF memberrow.RANK_IMG -->
-						{memberrow.RANK_IMG}
+						<div class="d-inline d-md-block text-md-end">{memberrow.RANK_IMG}</div>
 					<!-- ELSE -->
 						{memberrow.RANK_TITLE}
 					<!-- ENDIF -->
