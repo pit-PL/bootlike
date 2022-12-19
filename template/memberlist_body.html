@@ -165,10 +165,14 @@
 					</div>
 					<div>
 					<!-- EVENT memberlist_body_rank_prepend -->
-					<!-- IF memberrow.RANK_IMG -->
+				<!-- IF memberrow.RANK_IMG or memberrow.RANK_TITLE -->
 						<span class="badge bg-secondary d-md-none">{L_RANK}{L_COLON}</span>
-						{memberrow.RANK_IMG}<!-- ELSE -->{memberrow.RANK_TITLE}
+					<!-- IF memberrow.RANK_IMG -->
+						{memberrow.RANK_IMG}
+					<!-- ELSE -->
+						{memberrow.RANK_TITLE}
 					<!-- ENDIF -->
+				<!-- ENDIF -->
 					<!-- EVENT memberlist_body_rank_append -->
 					</div>
 				</div>
