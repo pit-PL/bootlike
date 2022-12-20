@@ -157,10 +157,10 @@
 					<input class="form-check-input" type="checkbox" name="user" value="{memberrow.USERNAME}" />
 				<!-- ENDIF -->
 				<!-- EVENT memberlist_body_username_prepend -->
-					{memberrow.USERNAME_FULL}<!-- IF memberrow.S_INACTIVE --> <span class="badge bg-info text-dark">{L_INACTIVE}</span><!-- ENDIF -->
+					{memberrow.USERNAME_FULL}<!-- IF memberrow.S_INACTIVE --> <span class="badge text-bg-info">{L_INACTIVE}</span><!-- ENDIF -->
 					<!-- EVENT memberlist_body_username_append -->
 				<!-- IF S_IN_SEARCH_POPUP -->
-					<br>[&nbsp;<a href="#" onclick="insert_single_user('#results', '{memberrow.A_USERNAME}'); return false;">{L_SELECT}</a>&nbsp;]
+					<br><a class="btn btn-primary btn-sm py-0" href="#" onclick="insert_single_user('#results', '{memberrow.A_USERNAME}'); return false;">{L_SELECT}</a>
 				<!-- ENDIF -->
 				</div>
 				<div class="float-md-end mt-2 mt-md-0">
