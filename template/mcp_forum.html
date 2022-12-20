@@ -62,7 +62,7 @@
 					<!-- ENDIF -->
 			
 					<!-- EVENT topiclist_row_prepend -->
-					<!-- IF topicrow.S_SELECT_TOPIC --><a href="{topicrow.U_SELECT_TOPIC}" class="badge bg-primary" title="{L_SELECT_MERGE}">{L_SELECT_MERGE}</a><!-- ENDIF -->
+					<!-- IF topicrow.S_SELECT_TOPIC --><a class="btn btn-primary btn-sm py-0" href="{topicrow.U_SELECT_TOPIC}" title="{L_SELECT_MERGE}">{L_SELECT_MERGE}</a><!-- ENDIF -->
 					<!-- EVENT mcp_forum_topic_title_before -->
 					<!-- IF topicrow.S_MOVED_TOPIC and S_CAN_DELETE --><a href="{topicrow.U_DELETE_TOPIC}" class="badge bg-warning" title="{L_DELETE_SHADOW_TOPIC}">{L_DELETE_SHADOW_TOPIC}</a><!-- ENDIF -->
 					<!-- IF topicrow.S_TOPIC_UNAPPROVED or topicrow.S_POSTS_UNAPPROVED --><a href="{topicrow.U_MCP_QUEUE}" class="badge bg-success" title="<!-- IF topicrow.S_TOPIC_UNAPPROVED -->{L_TOPIC_UNAPPROVED}<!-- ELSE -->{L_POSTS_UNAPPROVED}<!-- ENDIF -->"><i class="fa fa-flag" aria-hidden="true"></i><span class="visually-hidden">{L_TOPIC_UNAPPROVED}</span></a><!-- ENDIF -->
