@@ -100,7 +100,7 @@
 			<div class="row align-items-center">
 				<div class="col-12 col-md-3" data-dfn="{L_RANK}{L_COMMA_SEPARATOR}<!-- IF S_SHOW_GROUP and .memberrow -->{L_GROUP_LEADER}<!-- ELSE -->{L_USERNAME}<!-- ENDIF -->"><span class="d-none d-md-block float-end"><a href="{U_SORT_RANK}">{L_RANK}</a></span><a href="{U_SORT_USERNAME}"><!-- IF S_SHOW_GROUP and .memberrow -->{L_GROUP_LEADER}<!-- ELSE -->{L_USERNAME}<!-- ENDIF --></a></div>
 				<div class="col-12 col-md-2 col-lg-1 text-center"><a href="{U_SORT_POSTS}#memberlist">{L_POSTS}</a></div>
-				<div class="col-12<!-- IF U_SORT_ACTIVE --> col-md-3 col-lg-4<!-- ELSE -->col-md-5 col-lg-6<!-- ENDIF --><!-- IF not memberrow.custom_fields --> d-none d-md-block<!-- ENDIF -->"><!-- BEGIN custom_fields --><!-- IF not custom_fields.S_FIRST_ROW -->{L_COMMA_SEPARATOR} <!-- ENDIF -->{custom_fields.PROFILE_FIELD_NAME}<!-- END custom_fields --></div>
+				<div class="col-12<!-- IF U_SORT_ACTIVE --> col-md-3 col-lg-4<!-- ELSE --> col-md-5 col-lg-6<!-- ENDIF --><!-- IF not memberrow.custom_fields --> d-none d-md-block<!-- ENDIF -->"><!-- BEGIN custom_fields --><!-- IF not custom_fields.S_FIRST_ROW -->{L_COMMA_SEPARATOR} <!-- ENDIF -->{custom_fields.PROFILE_FIELD_NAME}<!-- END custom_fields --></div>
 				<div class="col-12 col-md-2"><a href="{U_SORT_JOINED}#memberlist">{L_JOINED}</a></div>
 			<!-- IF U_SORT_ACTIVE -->
 				<div class="col-12 col-md-2"><a href="{U_SORT_ACTIVE}#memberlist">{L_LAST_ACTIVE}</a></div>
@@ -127,7 +127,7 @@
 		<!-- IF not S_LEADERS_SET -->
 			<div class="col-12 col-md-3" data-dfn="{L_RANK}{L_COMMA_SEPARATOR}{L_USERNAME}"><span class="d-none d-md-block float-end"><a href="{U_SORT_RANK}">{L_RANK}</a></span><a href="{U_SORT_USERNAME}"><!-- IF S_SHOW_GROUP -->{L_GROUP_MEMBERS}<!-- ELSE -->{L_USERNAME}<!-- ENDIF --></a></div>
 			<div class="col-12 col-md-2 col-lg-1 text-center"><a href="{U_SORT_POSTS}#memberlist">{L_POSTS}</a></div>
-			<div class="col-12<!-- IF U_SORT_ACTIVE --> col-md-3 col-lg-4<!-- ELSE -->col-md-5 col-lg-6<!-- ENDIF --><!-- IF not memberrow.custom_fields --> d-none d-md-block<!-- ENDIF -->">{% for field in custom_fields %}{% if not loop.first %}{L_COMMA_SEPARATOR} {% endif %}{{ field.PROFILE_FIELD_NAME }}{% endfor %}</div>
+			<div class="col-12<!-- IF U_SORT_ACTIVE --> col-md-3 col-lg-4<!-- ELSE --> col-md-5 col-lg-6<!-- ENDIF --><!-- IF not memberrow.custom_fields --> d-none d-md-block<!-- ENDIF -->">{% for field in custom_fields %}{% if not loop.first %}{L_COMMA_SEPARATOR} {% endif %}{{ field.PROFILE_FIELD_NAME }}{% endfor %}</div>
 			<div class="col-12 col-md-2"><a href="{U_SORT_JOINED}#memberlist">{L_JOINED}</a></div>
 		<!-- IF U_SORT_ACTIVE -->
 			<div class="col-12 col-md-2"><a href="{U_SORT_ACTIVE}#memberlist">{L_LAST_ACTIVE}</a></div>
@@ -136,7 +136,7 @@
 		<!-- ELSEIF S_SHOW_GROUP -->
 			<div class="col-12 col-md-3">{L_GROUP_MEMBERS}</div>
 			<div class="col-12 col-md-2 col-lg-1 text-center">{L_POSTS}</div>
-			<div class="col-12<!-- IF U_SORT_ACTIVE --> col-md-3 col-lg-4 <!-- ELSE -->col-md-5 col-lg-6<!-- ENDIF --><!-- IF not memberrow.custom_fields --> d-none d-md-block<!-- ENDIF -->"><!-- BEGIN custom_fields --><!-- IF not custom_fields.S_FIRST_ROW -->{L_COMMA_SEPARATOR} <!-- ENDIF -->{custom_fields.PROFILE_FIELD_NAME}<!-- END custom_fields --></div>
+			<div class="col-12<!-- IF U_SORT_ACTIVE --> col-md-3 col-lg-4 <!-- ELSE --> col-md-5 col-lg-6<!-- ENDIF --><!-- IF not memberrow.custom_fields --> d-none d-md-block<!-- ENDIF -->"><!-- BEGIN custom_fields --><!-- IF not custom_fields.S_FIRST_ROW -->{L_COMMA_SEPARATOR} <!-- ENDIF -->{custom_fields.PROFILE_FIELD_NAME}<!-- END custom_fields --></div>
 			<div class="col-12 col-md-2">{L_JOINED}</div>
 		<!-- IF U_SORT_ACTIVE -->
 			<div class="col-12 col-md-2">{L_LAST_ACTIVE}</div>
@@ -183,7 +183,7 @@
 				<a href="{memberrow.U_SEARCH_USER}" title="{L_SEARCH_USER_POSTS}">{memberrow.POSTS}</a><!-- ELSE -->{memberrow.POSTS}
 			<!-- ENDIF -->
 			</div>
-			<div class="col-12<!-- IF U_SORT_ACTIVE --> col-md-3 col-lg-4 <!-- ELSE -->col-md-5 col-lg-6<!-- ENDIF --> py-2<!-- IF not memberrow.custom_fields --> d-none d-md-block<!-- ENDIF -->">
+			<div class="col-12<!-- IF U_SORT_ACTIVE --> col-md-3 col-lg-4 <!-- ELSE --> col-md-5 col-lg-6<!-- ENDIF --> py-2<!-- IF not memberrow.custom_fields --> d-none d-md-block<!-- ENDIF -->">
 				<div class="badge bg-secondary d-md-none text-start text-wrap">{% for field in custom_fields %}{% if not loop.first %}{L_COMMA_SEPARATOR} {% endif %}<span class="text-nowrap">{{ field.PROFILE_FIELD_NAME }}</span>{% endfor %}{L_COLON}</div>
 				{%- for field in memberrow.custom_fields -%}
 					<div>{% if field.S_PROFILE_CONTACT %}<a href="{{ field.PROFILE_FIELD_CONTACT }}">{% endif %}{{ field.PROFILE_FIELD_VALUE }}{% if field.S_PROFILE_CONTACT %}</a>{% endif %}</div>
