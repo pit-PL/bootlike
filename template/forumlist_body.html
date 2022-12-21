@@ -102,7 +102,7 @@
 								<!-- BEGIN subforum -->
 								<div<!-- IF $SUBFORUM_COLUMNS and $SUBFORUM_COLUMNS_NUMBER eq 3 --> class="col-lg-4 col-md-6"<!-- ENDIF --><!-- IF $SUBFORUM_COLUMNS and $SUBFORUM_COLUMNS_NUMBER eq 2 --> class="col-md-6"<!-- ENDIF -->>
 									<!-- EVENT forumlist_body_subforum_link_prepend -->
-									<a href="{forumrow.subforum.U_SUBFORUM}" class="dropdown-item subforum<!-- IF forumrow.subforum.S_UNREAD --> unread<!-- ELSE --> read<!-- ENDIF -->" title="<!-- IF forumrow.subforum.S_UNREAD -->{L_UNREAD_POSTS}<!-- ELSE -->{L_NO_UNREAD_POSTS}<!-- ENDIF -->">
+									<a class="dropdown-item subforum<!-- IF forumrow.subforum.S_UNREAD --> unread<!-- ELSE --> read<!-- ENDIF --> text-truncate" href="{forumrow.subforum.U_SUBFORUM}" title="<!-- IF forumrow.subforum.S_UNREAD -->{L_UNREAD_POSTS}<!-- ELSE -->{L_NO_UNREAD_POSTS}<!-- ENDIF -->">
 										<i class="fa<!-- IF forumrow.subforum.S_UNREAD --> fa-file<!-- ELSE --> fa-file-o<!-- ENDIF --> fa-fw" aria-hidden="true"></i> {forumrow.subforum.SUBFORUM_NAME}
 									</a>
 									<!-- EVENT forumlist_body_subforum_link_append -->
