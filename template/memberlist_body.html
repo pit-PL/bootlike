@@ -21,7 +21,7 @@
 	{% EVENT memberlist_body_group_name_before %}
 	<h3 class="page-title mb-3"<!-- IF GROUP_COLOR --> style="color:#{GROUP_COLOR};"<!-- ENDIF -->>{GROUP_NAME}</h3>
 	{% EVENT memberlist_body_group_name_after %}
-	<div class="card mb-3">
+	<div class="card mt-3 mb-3">
 		<div class="card-body">
 			<div class="row">
 			<!-- IF AVATAR_IMG or RANK_IMG or GROUP_RANK -->
@@ -95,19 +95,23 @@
 <!-- ENDIF -->
 
 <!-- IF S_LEADERS_SET or not S_SHOW_GROUP or not .memberrow -->
-	<div id="memberlist" class="card mb-3">
-		<div class="card-header mb-1 d-none d-md-block border-bottom-0">
-			<div class="row align-items-center">
-				<div class="col-12 col-md-3" data-dfn="{L_RANK}{L_COMMA_SEPARATOR}<!-- IF S_SHOW_GROUP and .memberrow -->{L_GROUP_LEADER}<!-- ELSE -->{L_USERNAME}<!-- ENDIF -->"><span class="d-none d-md-block float-end"><a href="{U_SORT_RANK}">{L_RANK}</a></span><a href="{U_SORT_USERNAME}"><!-- IF S_SHOW_GROUP and .memberrow -->{L_GROUP_LEADER}<!-- ELSE -->{L_USERNAME}<!-- ENDIF --></a></div>
-				<div class="col-12 col-md-2 col-lg-1 text-center"><a href="{U_SORT_POSTS}#memberlist">{L_POSTS}</a></div>
-				<div class="col-12<!-- IF U_SORT_ACTIVE --> col-md-3 col-lg-4<!-- ELSE --> col-md-5 col-lg-6<!-- ENDIF --><!-- IF not memberrow.custom_fields --> d-none d-md-block<!-- ENDIF -->"><!-- BEGIN custom_fields --><!-- IF not custom_fields.S_FIRST_ROW -->{L_COMMA_SEPARATOR} <!-- ENDIF -->{custom_fields.PROFILE_FIELD_NAME}<!-- END custom_fields --></div>
-				<div class="col-12 col-md-2"><a href="{U_SORT_JOINED}#memberlist">{L_JOINED}</a></div>
-			<!-- IF U_SORT_ACTIVE -->
-				<div class="col-12 col-md-2"><a href="{U_SORT_ACTIVE}#memberlist">{L_LAST_ACTIVE}</a></div>
-			<!-- ENDIF -->
-				{% EVENT memberlist_body_memberlist_after %}
+<div id="memberlist" class="card mb-3">
+	<div class="card-header mb-1 border-bottom-0">
+		<div class="row align-items-center">
+			<div class="col-12<!-- IF U_SORT_ACTIVE --> col-md-4<!-- ELSE --> col-md-5<!-- ENDIF -->"><a href="{U_SORT_USERNAME}"><!-- IF S_SHOW_GROUP and .memberrow -->{L_GROUP_LEADER}<!-- ELSE -->{L_USERNAME}<!-- ENDIF --></a> &nbsp; <span class="float-md-end"><a href="{U_SORT_RANK}">{L_RANK}</a></span></div>
+			<div class="col-12<!-- IF U_SORT_ACTIVE --> col-md-8<!-- ELSE --> col-md-7<!-- ENDIF --> d-none d-md-block">
+				<div class="row align-items-center">
+					<div class="col-12 col-md-3 text-center"><a href="{U_SORT_POSTS}#memberlist">{L_POSTS}</a></div>
+					<div class="col-12 col-md-3 text-center">{L_CONTACT}</div>
+					<div class="col-12<!-- IF U_SORT_ACTIVE --> col-md-3<!-- ELSE --> col-md-4<!-- ENDIF -->"><a href="{U_SORT_JOINED}#memberlist">{L_JOINED}</a></div>
+				<!-- IF U_SORT_ACTIVE -->
+					<div class="col-12 col-md-3"><a href="{U_SORT_ACTIVE}#memberlist">{L_LAST_ACTIVE}</a></div>
+				<!-- ENDIF -->
+					{% EVENT memberlist_body_memberlist_after %}
+				</div>
 			</div>
 		</div>
+	</div>
 <!-- ENDIF -->
 		<!-- BEGIN memberrow -->
 			<!-- IF S_SHOW_GROUP -->
@@ -122,87 +126,123 @@
 <!-- ENDIF -->
 
 <div class="card mb-3">
-	<div class="card-header mb-1 d-none d-md-block border-bottom-0">
+	<div class="card-header mb-1 border-bottom-0">
 		<div class="row align-items-center">
 		<!-- IF not S_LEADERS_SET -->
-			<div class="col-12 col-md-3" data-dfn="{L_RANK}{L_COMMA_SEPARATOR}{L_USERNAME}"><span class="d-none d-md-block float-end"><a href="{U_SORT_RANK}">{L_RANK}</a></span><a href="{U_SORT_USERNAME}"><!-- IF S_SHOW_GROUP -->{L_GROUP_MEMBERS}<!-- ELSE -->{L_USERNAME}<!-- ENDIF --></a></div>
-			<div class="col-12 col-md-2 col-lg-1 text-center"><a href="{U_SORT_POSTS}#memberlist">{L_POSTS}</a></div>
-			<div class="col-12<!-- IF U_SORT_ACTIVE --> col-md-3 col-lg-4<!-- ELSE --> col-md-5 col-lg-6<!-- ENDIF --><!-- IF not memberrow.custom_fields --> d-none d-md-block<!-- ENDIF -->">{% for field in custom_fields %}{% if not loop.first %}{L_COMMA_SEPARATOR} {% endif %}{{ field.PROFILE_FIELD_NAME }}{% endfor %}</div>
-			<div class="col-12 col-md-2"><a href="{U_SORT_JOINED}#memberlist">{L_JOINED}</a></div>
-		<!-- IF U_SORT_ACTIVE -->
-			<div class="col-12 col-md-2"><a href="{U_SORT_ACTIVE}#memberlist">{L_LAST_ACTIVE}</a></div>
-		<!-- ENDIF -->
-			{% EVENT memberlist_body_leaders_set_after %}
+			<div class="col-12<!-- IF U_SORT_ACTIVE --> col-md-4<!-- ELSE --> col-md-5<!-- ENDIF -->"><a href="{U_SORT_USERNAME}"><!-- IF S_SHOW_GROUP -->{L_GROUP_MEMBERS}<!-- ELSE -->{L_USERNAME}<!-- ENDIF --></a> &nbsp; <span class="float-md-end"><a href="{U_SORT_RANK}">{L_RANK}</a></span></div>
+			<div class="col-12<!-- IF U_SORT_ACTIVE --> col-md-8<!-- ELSE --> col-md-7<!-- ENDIF --> d-none d-md-block">
+				<div class="row align-items-center">
+					<div class="col-12 col-md-3 text-center"><a href="{U_SORT_POSTS}#memberlist">{L_POSTS}</a></div>
+					<div class="col-12 col-md-3 text-center">{L_CONTACT}</div>
+					<div class="col-12<!-- IF U_SORT_ACTIVE --> col-md-3<!-- ELSE --> col-md-4<!-- ENDIF -->"><a href="{U_SORT_JOINED}#memberlist">{L_JOINED}</a></div>
+				<!-- IF U_SORT_ACTIVE -->
+					<div class="col-12 col-md-3"><a href="{U_SORT_ACTIVE}#memberlist">{L_LAST_ACTIVE}</a></div>
+				<!-- ENDIF -->
+					{% EVENT memberlist_body_leaders_set_after %}
+				</div>
+			</div>
 		<!-- ELSEIF S_SHOW_GROUP -->
-			<div class="col-12 col-md-3">{L_GROUP_MEMBERS}</div>
-			<div class="col-12 col-md-2 col-lg-1 text-center">{L_POSTS}</div>
-			<div class="col-12<!-- IF U_SORT_ACTIVE --> col-md-3 col-lg-4 <!-- ELSE --> col-md-5 col-lg-6<!-- ENDIF --><!-- IF not memberrow.custom_fields --> d-none d-md-block<!-- ENDIF -->"><!-- BEGIN custom_fields --><!-- IF not custom_fields.S_FIRST_ROW -->{L_COMMA_SEPARATOR} <!-- ENDIF -->{custom_fields.PROFILE_FIELD_NAME}<!-- END custom_fields --></div>
-			<div class="col-12 col-md-2">{L_JOINED}</div>
-		<!-- IF U_SORT_ACTIVE -->
-			<div class="col-12 col-md-2">{L_LAST_ACTIVE}</div>
-		<!-- ENDIF -->
-			{% EVENT memberlist_body_show_group_after %}
-		<!-- ENDIF -->
+			<div class="col-12<!-- IF U_SORT_ACTIVE --> col-md-4<!-- ELSE --> col-md-5<!-- ENDIF -->">{L_GROUP_MEMBERS} &nbsp; <span class="d-none d-md-block float-md-end">{L_RANK}</span></div>
+			<div class="col-12<!-- IF U_SORT_ACTIVE --> col-md-8<!-- ELSE --> col-md-7<!-- ENDIF --> d-none d-md-block">
+				<div class="row align-items-center">
+					<div class="col-12 col-md-3 text-center">{L_POSTS}</div>
+					<div class="col-12 col-md-3 text-center">{L_CONTACT}</div>
+					<div class="col-12<!-- IF U_SORT_ACTIVE --> col-md-3<!-- ELSE --> col-md-4<!-- ENDIF -->">{L_JOINED}</div>
+				<!-- IF U_SORT_ACTIVE -->
+					<div class="col-12 col-md-3">{L_LAST_ACTIVE}</div>
+				<!-- ENDIF -->
+					{% EVENT memberlist_body_show_group_after %}
+				<!-- ENDIF -->
+				</div>
+			</div>
 		</div>
 	</div>
 					<!-- DEFINE $S_MEMBER_HEADER = 1 -->
 				<!-- ENDIF -->
 			<!-- ENDIF -->
-	<div class="container-fluid p-0">
-		<div class="row m-1 mt-0 py-1 align-items-center bg1<!-- IF memberrow.S_INACTIVE --> text-muted<!-- ENDIF -->">
-			<div class="col-12 col-md-3 py-2<!-- IF not memberrow.RANK_IMG --> d-md-flex justify-content-md-between<!-- ENDIF -->">
-				<div class="float-md-start me-2">
-					<span class="badge bg-secondary d-md-none">{L_USERNAME}{L_COLON}</span>
-				<!-- IF S_IN_SEARCH_POPUP and not S_SELECT_SINGLE -->
-					<input class="form-check-input" type="checkbox" name="user" value="{memberrow.USERNAME}" />
+		<div class="container-fluid p-0">
+			<div class="row m-1 mt-0 py-1 align-items-center bg1<!-- IF memberrow.S_INACTIVE --> text-muted<!-- ENDIF -->">
+				<div class="col-12<!-- IF U_SORT_ACTIVE --> col-md-4<!-- ELSE --> col-md-5<!-- ENDIF --> py-1<!-- IF not memberrow.RANK_IMG --> d-md-flex justify-content-md-between<!-- ENDIF -->">
+					<a class="btn btn-secondary float-end mt-3 py-0 d-md-none toggle-plus" title="{L_OTHER}" data-bs-toggle="collapse" href="#collapse_member_info_{memberrow.S_ROW_COUNT}" role="button" aria-expanded="false" aria-controls="collapse_member_info"><i class="fa fa-plus" aria-hidden="true"></i><i class="fa fa-minus" aria-hidden="true"></i></a>
+
+					<div class="float-md-start me-2">
+					<!-- IF S_IN_SEARCH_POPUP and not S_SELECT_SINGLE -->
+						<input class="form-check-input" type="checkbox" name="user" value="{memberrow.USERNAME}" />
+					<!-- ENDIF -->
+					<!-- EVENT memberlist_body_username_prepend -->
+						{memberrow.USERNAME_FULL}<!-- IF memberrow.S_INACTIVE --> <span class="badge text-bg-info">{L_INACTIVE}</span><!-- ENDIF -->
+						<!-- EVENT memberlist_body_username_append -->
+					<!-- IF S_IN_SEARCH_POPUP -->
+						<br><a class="btn btn-primary btn-sm py-0" href="#" onclick="insert_single_user('#results', '{memberrow.A_USERNAME}'); return false;">{L_SELECT}</a>
+					<!-- ENDIF -->
+					</div>
+					<div class="float-md-end mt-2 mt-md-0">
+					<!-- EVENT memberlist_body_rank_prepend -->
+				<!-- IF memberrow.RANK_IMG or memberrow.RANK_TITLE -->
+					<!-- IF memberrow.RANK_IMG -->
+						<div class="d-inline text-md-end">{memberrow.RANK_IMG}</div>
+					<!-- ELSE -->
+						{memberrow.RANK_TITLE}
+					<!-- ENDIF -->
 				<!-- ENDIF -->
-				<!-- EVENT memberlist_body_username_prepend -->
-					{memberrow.USERNAME_FULL}<!-- IF memberrow.S_INACTIVE --> <span class="badge text-bg-info">{L_INACTIVE}</span><!-- ENDIF -->
-					<!-- EVENT memberlist_body_username_append -->
-				<!-- IF S_IN_SEARCH_POPUP -->
-					<br><a class="btn btn-primary btn-sm py-0" href="#" onclick="insert_single_user('#results', '{memberrow.A_USERNAME}'); return false;">{L_SELECT}</a>
-				<!-- ENDIF -->
+					<!-- EVENT memberlist_body_rank_append -->
+					</div>
 				</div>
-				<div class="float-md-end mt-2 mt-md-0">
-				<!-- EVENT memberlist_body_rank_prepend -->
-				<!-- EVENT memberlist_body_rank_prepend -->
-			<!-- IF memberrow.RANK_IMG or memberrow.RANK_TITLE -->
-					<span class="badge bg-secondary d-md-none">{L_RANK}{L_COLON}</span>
-				<!-- IF memberrow.RANK_IMG -->
-					<div class="d-inline text-md-end">{memberrow.RANK_IMG}</div>
-				<!-- ELSE -->
-					{memberrow.RANK_TITLE}
-				<!-- ENDIF -->
-			<!-- ENDIF -->
-				<!-- EVENT memberlist_body_rank_append -->
+
+				<div class="col-12<!-- IF U_SORT_ACTIVE --> col-md-8<!-- ELSE --> col-md-7<!-- ENDIF -->">
+					<div id="collapse_member_info_{memberrow.S_ROW_COUNT}" class="row align-items-center collapse d-md-flex">
+						<div class="col-12 col-md-3 py-1 text-md-center">
+							<span class="fw-semibold d-md-none">{L_POSTS}{L_COLON}</span>
+						<!-- IF memberrow.POSTS and S_DISPLAY_SEARCH -->
+							<a href="{memberrow.U_SEARCH_USER}" title="{L_SEARCH_USER_POSTS}">{memberrow.POSTS}</a><!-- ELSE -->{memberrow.POSTS}
+						<!-- ENDIF -->
+						</div>
+						<div class="col-12 col-md-3 py-1<!-- IF not memberrow.custom_fields --> d-none d-md-block<!-- ENDIF --> text-md-center">
+						<!-- IF memberrow.custom_fields -->
+							<span class="fw-semibold d-md-none">{L_CONTACT}{L_COLON}</span>
+							<button class="btn btn-secondary dropdown-toggle py-0" type="button" data-bs-toggle="dropdown" aria-expanded="false" title="{L_CONTACT} {memberrow.USERNAME}"></button>
+							<ul class="dropdown-menu dropdown-form px-2">
+							{%- for field in memberrow.custom_fields -%}
+								{% if field.S_PROFILE_CONTACT %}
+							<!-- IF $MEMBERLIST_CONTACT_BTN -->
+								<li class="px-1">
+									<a class="contact-button float-start m-1 text-decoration-none" href="{{ field.PROFILE_FIELD_CONTACT }}" title="{{ field.PROFILE_FIELD_NAME }}">
+										<div class="p-1 rounded-circle alert alert-primary mb-0 shadow-sm">
+											<div class="alert alert-primary mb-0 d-flex align-items-center justify-content-center rounded-circle border border-4 border-white fs-5" style="width: 48px; height: 48px;">
+												<i class="fa fa-{% if field.PROFILE_FIELD_NAME eq 'Website' %}globe{% elseif field.PROFILE_FIELD_NAME eq 'ICQ' %}asterisk{% elseif field.PROFILE_FIELD_NAME eq 'Yahoo Messenger' %}yahoo{% elseif field.PROFILE_FIELD_NAME eq 'Facebook' %}facebook{% elseif field.PROFILE_FIELD_NAME eq 'Twitter' %}twitter{% elseif field.PROFILE_FIELD_NAME eq 'Skype' %}skype{% elseif field.PROFILE_FIELD_NAME eq 'YouTube' %}youtube{% else %}comments{% endif %} fa-fw"></i>
+											</div>
+										</div>
+									</a>
+								</li>
+							<!-- ELSEIF not $MEMBERLIST_CONTACT_BTN  -->
+								<li class="d-flex justify-content-between px-2">
+									<span>{{ field.PROFILE_FIELD_NAME }}{L_COLON}&nbsp;</span><a href="{{ field.PROFILE_FIELD_CONTACT }}">{{ field.PROFILE_FIELD_VALUE }}</a>
+								</li>
+								{% if not loop.last %}
+								<li class="dropdown-divider my-1"></li>
+								{% endif %}
+							<!-- ENDIF -->
+								{% endif %}
+							{%- endfor -%}
+							</ul>
+						<!-- ELSE -->
+							&nbsp;
+						<!-- ENDIF -->
+						</div>
+						<div class="col-12<!-- IF U_SORT_ACTIVE --> col-md-3<!-- ELSE --> col-md-4<!-- ENDIF --> py-1"><span class="fw-semibold d-md-none">{L_JOINED}{L_COLON}</span> {memberrow.JOINED}</div>
+					<!-- IF S_VIEWONLINE -->
+						<div class="col-12 col-md-3 py-1"><span class="fw-semibold d-md-none">{L_LAST_ACTIVE}{L_COLON}</span> {memberrow.LAST_ACTIVE}&nbsp;</div>
+					<!-- ENDIF -->
+						{% EVENT memberlist_body_memberrow_after %}
+					</div>
 				</div>
 			</div>
-			<div class="col-12 col-md-2 col-lg-1 py-2 text-md-center">
-				<span class="badge bg-secondary d-md-none">{L_POSTS}{L_COLON}</span>
-			<!-- IF memberrow.POSTS and S_DISPLAY_SEARCH -->
-				<a href="{memberrow.U_SEARCH_USER}" title="{L_SEARCH_USER_POSTS}">{memberrow.POSTS}</a><!-- ELSE -->{memberrow.POSTS}
-			<!-- ENDIF -->
-			</div>
-			<div class="col-12<!-- IF U_SORT_ACTIVE --> col-md-3 col-lg-4 <!-- ELSE --> col-md-5 col-lg-6<!-- ENDIF --> py-2<!-- IF not memberrow.custom_fields --> d-none d-md-block<!-- ENDIF -->">
-				<div class="badge bg-secondary d-md-none text-start text-wrap">{% for field in custom_fields %}{% if not loop.first %}{L_COMMA_SEPARATOR} {% endif %}<span class="text-nowrap">{{ field.PROFILE_FIELD_NAME }}</span>{% endfor %}{L_COLON}</div>
-				{%- for field in memberrow.custom_fields -%}
-					<div>{% if field.S_PROFILE_CONTACT %}<a href="{{ field.PROFILE_FIELD_CONTACT }}">{% endif %}{{ field.PROFILE_FIELD_VALUE }}{% if field.S_PROFILE_CONTACT %}</a>{% endif %}</div>
-				{%- else -%}
-					&nbsp;
-				{%- endfor -%}
-			</div>
-			<div class="col-12 col-md-2 py-2"><span class="badge bg-secondary d-md-none">{L_JOINED}{L_COLON}</span> {memberrow.JOINED}</div>
-		<!-- IF S_VIEWONLINE -->
-			<div class="col-12 col-md-2 py-2"><span class="badge bg-secondary d-md-none">{L_LAST_ACTIVE}{L_COLON}</span> {memberrow.LAST_ACTIVE}&nbsp;</div>
-		<!-- ENDIF -->
-			{% EVENT memberlist_body_memberrow_after %}
 		</div>
-	</div>
-	<!-- BEGINELSE -->
-	<div class="container-fluid p-0">
-		<div class="m-1 mt-0 px-3 py-2 text-center bg1">{L_NO_MEMBERS}</div>
-	</div>
-	<!-- END memberrow -->
+		<!-- BEGINELSE -->
+		<div class="container-fluid p-0">
+			<div class="m-1 mt-0 px-3 py-2 text-center bg1">{L_NO_MEMBERS}</div>
+		</div>
+		<!-- END memberrow -->
 </div>
 
 <!-- IF S_IN_SEARCH_POPUP and not S_SELECT_SINGLE -->
