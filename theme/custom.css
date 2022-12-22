@@ -438,6 +438,14 @@ a.postlink:hover, a.postlink:focus {
 	color: #fff;
 }
 
+.toggle-plus .fa-minus, .toggle-minus .fa-plus {
+	display: none;
+}
+
+.toggle-minus .fa-minus {
+	display: inline;
+}
+
 /* jQuery popups
 ---------------------------------------- */
 .phpbb_alert, #login-popup {
