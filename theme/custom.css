@@ -496,7 +496,7 @@ a.postlink:hover, a.postlink:focus {
 
 	.row-item .hidden-folder.folder:before, .row-item .hidden-folder.folder:after {
 		content: "";
-		background: none;
+		background: none !important;
 		border: 0;
 		animation: none;
 	}
