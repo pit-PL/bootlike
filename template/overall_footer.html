@@ -173,6 +173,10 @@ function topFunction() {
 		});
 	});
 
+	$('.toggle-plus').click(function() {
+		$(this).toggleClass('toggle-minus');
+	});
+
 	$("#dark_mode").on("click", function (e) {
 		$("html").toggleClass("dark");
 
