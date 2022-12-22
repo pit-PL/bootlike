@@ -10,8 +10,14 @@
 
 <script src="{T_JQUERY_LINK}"></script>
 <script src="{T_ASSETS_PATH}/javascript/core.js?assets_version={T_ASSETS_VERSION}"></script>
+<script src="{T_TEMPLATE_PATH}/bootstrap.bundle.min.js"></script>
 <!-- INCLUDEJS forum_fn.js -->
 <!-- INCLUDEJS ajax.js -->
+<script>
+	$('.toggle-plus').click(function() {
+		$(this).toggleClass('toggle-minus');
+	});
+</script>
 
 <!-- EVENT simple_footer_after -->
 
