@@ -76,7 +76,7 @@
 
 		<!-- IF .friends_online -->
 		<ul class="list-group mb-3 rounded-0">
-			<li class="list-group-item active">{L_FRIENDS} {L_FRIENDS_ONLINE}<a class="dropdown-item d-inline ms-2 p-2" data-bs-toggle="collapse" href="#collaps_friends_online" role="button" aria-expanded="false" aria-controls="collaps_friends_online"><i class="fa fa-caret-down fa-fw d-lg-none" aria-hidden="true"></i></a></li>
+			<li class="list-group-item active d-flex justify-content-between">{L_FRIENDS} {L_FRIENDS_ONLINE}<a class="dropdown-item w-auto ms-2 toggle-plus d-lg-none" data-bs-toggle="collapse" href="#collaps_friends_online" role="button" aria-expanded="false" aria-controls="collaps_friends_online"><i class="fa fa-plus" aria-hidden="true"></i><i class="fa fa-minus" aria-hidden="true"></i></a></li>
 			<li id="collaps_friends_online" class="list-group-item hidden-friends-list p-0 border-0">
 				<ul class="p-0">
 				<!-- BEGIN friends_online -->
@@ -89,7 +89,7 @@
 
 		<!-- IF .friends_offline -->
 		<ul class="list-group mb-3 rounded-0">
-			<li class="list-group-item active">{L_FRIENDS} {L_FRIENDS_OFFLINE}<a class="dropdown-item d-inline ms-2 p-2" data-bs-toggle="collapse" href="#collaps_friends_offline" role="button" aria-expanded="false" aria-controls="collaps_friends_offline"><i class="fa fa-caret-down fa-fw d-lg-none" aria-hidden="true"></i></a></li>
+			<li class="list-group-item active d-flex justify-content-between">{L_FRIENDS} {L_FRIENDS_OFFLINE}<a class="dropdown-item w-auto ms-2 toggle-plus d-lg-none" data-bs-toggle="collapse" href="#collaps_friends_offline" role="button" aria-expanded="false" aria-controls="collaps_friends_offline"><i class="fa fa-plus" aria-hidden="true"></i><i class="fa fa-minus" aria-hidden="true"></i></a></li>
 			<li id="collaps_friends_offline" class="list-group-item hidden-friends-list p-0 border-0">
 				<ul class="p-0">
 				<!-- BEGIN friends_offline -->
@@ -102,7 +102,7 @@
 
 		<!-- IF S_SHOW_COLOUR_LEGEND -->
 		<ul class="list-group mb-3 rounded-0">
-			<li class="list-group-item active">{L_MESSAGE_COLOURS}<a class="dropdown-item d-inline ms-2 p-2" data-bs-toggle="collapse" href="#color_legend" role="button" aria-expanded="false" aria-controls="color_legend"><i class="fa fa-caret-down fa-fw d-lg-none" aria-hidden="true"></i></a></li>
+			<li class="list-group-item active d-flex justify-content-between">{L_MESSAGE_COLOURS}<a class="dropdown-item w-auto ms-2 toggle-plus d-lg-none" data-bs-toggle="collapse" href="#color_legend" role="button" aria-expanded="false" aria-controls="color_legend"><i class="fa fa-plus" aria-hidden="true"></i><i class="fa fa-minus" aria-hidden="true"></i></a></li>
 			<li id="color_legend" class="list-group-item hidden-friends-list p-0 border-0">
 				<ul class="p-0">
 				<!-- BEGIN pm_colour_info -->
