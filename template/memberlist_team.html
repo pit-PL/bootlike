@@ -6,28 +6,35 @@
 
 <!-- BEGIN group -->
 <div id="team" class="card mb-3">
-	<div class="card-header mb-1 d-none d-md-block border-bottom-0">
+	<div class="card-header mb-1 border-bottom-0">
 		<div class="row">
-			<div class="col-12<!-- IF S_DISPLAY_MODERATOR_FORUMS --> col-md-4<!-- ELSE --> col-md-6<!-- ENDIF -->" data-dfn="{L_RANK}{L_COMMA_SEPARATOR}{L_USERNAME}"><span class="rank-img hidden-xs pull-{S_CONTENT_FLOW_END}">{L_RANK}&nbsp;</span><!-- IF group.U_GROUP --><a href="{group.U_GROUP}">{group.GROUP_NAME}</a><!-- ELSE -->{group.GROUP_NAME}<!-- ENDIF --></div>
-			<div class="col-12<!-- IF S_DISPLAY_MODERATOR_FORUMS --> col-md-4<!-- ELSE --> col-md-6<!-- ENDIF -->">{L_PRIMARY_GROUP}</div>
+			<div class="col-12<!-- IF S_DISPLAY_MODERATOR_FORUMS --> col-md-4<!-- ELSE --> col-md-6<!-- ENDIF -->" data-dfn="{L_RANK}{L_COMMA_SEPARATOR}{L_USERNAME}"><span class="rank-img d-none d-md-block pull-{S_CONTENT_FLOW_END}">{L_RANK}&nbsp;</span><!-- IF group.U_GROUP --><a href="{group.U_GROUP}">{group.GROUP_NAME}</a><!-- ELSE -->{group.GROUP_NAME}<!-- ENDIF --></div>
+			<div class="col-12<!-- IF S_DISPLAY_MODERATOR_FORUMS --> col-md-4<!-- ELSE --> col-md-6<!-- ENDIF --> d-none d-md-block">{L_PRIMARY_GROUP}</div>
 			<!-- IF S_DISPLAY_MODERATOR_FORUMS -->
-			<div class="col-12 col-md-4">{L_MODERATOR}</div>
+			<div class="col-12 col-md-4 d-none d-md-block">{L_MODERATOR}</div>
 			<!-- ENDIF -->
 		</div>
 	</div>
 
 <!-- BEGIN user -->
 	<div class="container-fluid p-0">
-		<div class="row m-1 mt-0 p-1 align-items-center bg1<!-- IF group.user.S_INACTIVE --> fst-italic<!-- ENDIF -->">
-			<div class="col-12<!-- IF S_DISPLAY_MODERATOR_FORUMS --> col-md-4<!-- ELSE --> col-md-6<!-- ENDIF --> py-2 d-md-flex justify-content-md-between">
-				<div>
-					<!-- EVENT memberlist_team_username_prepend -->
-					<span class="badge bg-secondary d-md-none">{L_USERNAME}{L_COLON}</span> {group.user.USERNAME_FULL}<!-- IF group.user.S_INACTIVE --> ({L_INACTIVE})<!-- ENDIF -->
-					<!-- EVENT memberlist_team_username_append -->
+		<div class="row m-1 mt-0 p-1 align-items-center bg1<!-- IF group.user.S_INACTIVE --> text-muted<!-- ENDIF -->">
+			<div class="col-12<!-- IF S_DISPLAY_MODERATOR_FORUMS --> col-md-4<!-- ELSE --> col-md-6<!-- ENDIF --> py-1 d-md-flex justify-content-md-between">
+				<div class="float-md-start me-2">
+				<!-- EVENT memberlist_team_username_prepend -->
+					{group.user.USERNAME_FULL}<!-- IF group.user.S_INACTIVE --> <span class="badge text-bg-info">({L_INACTIVE})</span><!-- ENDIF -->
+				<!-- EVENT memberlist_team_username_append -->
+				</div>
+				<div class="float-md-end mt-2 mt-md-0">
+				<!-- IF group.user.RANK_IMG -->
+					{group.user.RANK_IMG}
+				<!-- ELSE -->
+					{group.user.RANK_TITLE}
+				<!-- ENDIF -->
 				</div>
 			</div>
-			<div class="col-12<!-- IF S_DISPLAY_MODERATOR_FORUMS --> col-md-4<!-- ELSE --> col-md-6<!-- ENDIF --> py-2">
-				<span class="badge bg-secondary d-md-none">{L_PRIMARY_GROUP}{L_COLON}</span>
+			<div class="col-12<!-- IF S_DISPLAY_MODERATOR_FORUMS --> col-md-4<!-- ELSE --> col-md-6<!-- ENDIF --> py-1">
+				<span class="fw-semibold d-md-none">{L_PRIMARY_GROUP}{L_COLON}</span>
 			<!-- IF group.user.U_GROUP -->
 				<a<!-- IF group.user.GROUP_COLOR --> style="font-weight: bold; color: #{group.user.GROUP_COLOR}"<!-- ENDIF --> href="{group.user.U_GROUP}">{group.user.GROUP_NAME}</a>
 			<!-- ELSE -->
@@ -35,8 +42,8 @@
 			<!-- ENDIF -->
 			</div>
 			<!-- IF S_DISPLAY_MODERATOR_FORUMS -->
-			<div class="col-12 col-md-4 py-2">
-				<span class="badge bg-secondary d-md-none">{L_MODERATOR}{L_COLON}</span>
+			<div class="col-12 col-md-4 py-1">
+				<span class="fw-semibold d-md-none">{L_MODERATOR}{L_COLON}</span>
 			<!-- IF group.user.FORUM_OPTIONS -->
 				<select class="form-select">{group.user.FORUMS}</select><!-- ELSEIF group.user.FORUMS -->{group.user.FORUMS}<!-- ELSE -->-<!-- ENDIF -->
 			</div>
