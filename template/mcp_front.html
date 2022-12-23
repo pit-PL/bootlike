@@ -160,11 +160,11 @@
 		<div class="container-fluid row-item p-0">
 			<div class="row m-1 mt-0 p-1 align-items-center bg1">
 				<div class="col-12 col-md-6 py-1">
-					<a class="btn btn-secondary float-end ms-3 mt-2 py-0 d-md-none toggle-plus" title="{L_OTHER}" data-bs-toggle="collapse" href="#collapse_logged_actions_{log.S_ROW_COUNT}" role="button" aria-expanded="false" aria-controls="collapse_logged_actions"><i class="fa fa-plus" aria-hidden="true"></i><i class="fa fa-minus" aria-hidden="true"></i></a>
+					<a class="btn btn-secondary float-end ms-3 mt-2 py-0 d-md-none toggle-plus" href="#collapse_log_actions_{log.S_ROW_COUNT}" title="{L_EXPAND_VIEW}" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapse_log_actions"><i class="fa fa-plus" aria-hidden="true"></i><i class="fa fa-minus" aria-hidden="true"></i></a>
 					{log.ACTION}
 				</div>
 				<div class="col-12 col-md-6">
-					<div id="collapse_logged_actions_{log.S_ROW_COUNT}" class="row align-items-center collapse d-md-flex">
+					<div id="collapse_log_actions_{log.S_ROW_COUNT}" class="row align-items-center collapse d-md-flex">
 						<div class="col-12 col-md-4 py-1 text-md-center">
 							<span class="fw-semibold d-md-none">{L_MCP_NOTES_USER}{L_COLON}</span> {log.USERNAME}
 							<!-- IF not $HIDE_USER_IP or U_ACP --><br class="d-none d-md-block">{log.IP}<!-- ENDIF -->
