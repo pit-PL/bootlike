@@ -27,38 +27,50 @@
 <!-- ENDIF -->
 
 <div id="team" class="card mb-3">
-	<div class="card-header mb-1 d-none d-md-block border-bottom-0">
+	<div class="card-header mb-1 border-bottom-0">
 		<div class="row">
-			<div class="col-12 col-md-6"><a href="{U_SORT_USERNAME}">{L_USERNAME}</a></div>
-			<div class="col-12 col-md-3"><a href="{U_SORT_LOCATION}">{L_FORUM_LOCATION}</a></div>
-			<div class="col-12 col-md-3"><a href="{U_SORT_UPDATED}">{L_LAST_UPDATED}</a></div>
+			<div class="col-12 col-md-3"><a href="{U_SORT_USERNAME}">{L_USERNAME}</a></div>
+			<div class="col-12 col-md-9 d-none d-md-block">
+				<div class="row align-items-center">
+					<div class="col-12 col-md-6">{L_OTHER}</div>
+					<div class="col-12 col-md-3"><a href="{U_SORT_LOCATION}">{L_FORUM_LOCATION}</a></div>
+					<div class="col-12 col-md-3"><a href="{U_SORT_UPDATED}">{L_LAST_UPDATED}</a></div>
+				</div>
+			</div>
 		</div>
 	</div>
 <!-- BEGIN user_row -->
 	<div class="container-fluid p-0">
 		<div class="row m-1 mt-0 p-1 align-items-center bg1">
-			<div class="col-12 col-md-6 py-2 d-md-flex justify-content-md-between">
-				<div>
-					<span class="badge bg-secondary d-md-none">{L_USERNAME}{L_COLON}</span><!-- EVENT viewonline_body_username_prepend --> {user_row.USERNAME_FULL} <!-- EVENT viewonline_body_username_append -->
-				<!-- IF user_row.USER_BROWSER -->
-					<br>{user_row.USER_BROWSER}
-				<!-- ENDIF -->
-				</div>
-				<div>
-				<!-- IF user_row.USER_IP and (not $HIDE_USER_IP or U_ACP) -->
-					<span class="badge bg-secondary d-md-none">{L_IP}{L_COLON}</span> <span class="d-sm-none d-md-inline">{L_IP}{L_COLON}</span> <a href="{user_row.U_USER_IP}">{user_row.USER_IP}</a> <br class="d-sm-none d-md-block" /><a href="{user_row.U_WHOIS}" onclick="popup(this.href, 750, 500); return false;">{L_WHOIS}</a>
-				<!-- ELSE -->
-					&nbsp;
-				<!-- ENDIF -->
+			<div class="col-12 col-md-3 py-1">
+				<div class="me-2">
+					<a class="btn btn-secondary float-end ms-3 mt-1 py-0 d-md-none toggle-plus" href="#collapse_viewonline_{user_row.S_ROW_COUNT}" title="{L_EXPAND_VIEW}" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapse_viewonline"><i class="fa fa-plus" aria-hidden="true"></i><i class="fa fa-minus" aria-hidden="true"></i></a>
+					<!-- EVENT viewonline_body_username_prepend -->{user_row.USERNAME_FULL} <!-- EVENT viewonline_body_username_append -->
 				</div>
 			</div>
-			<div class="col-12 col-md-3 py-2">
-				<span class="badge bg-secondary d-md-none">{L_FORUM_LOCATION}{L_COLON}</span> 
-				<a href="{user_row.U_FORUM_LOCATION}">{user_row.FORUM_LOCATION}</a>
-			</div>
-			<div class="col-12 col-md-3 py-2">
-				<span class="badge bg-secondary d-md-none">{L_LAST_UPDATED}{L_COLON}</span> 
-				{user_row.LASTUPDATE}
+			<div class="col-12 col-md-9">
+				<div id="collapse_viewonline_{user_row.S_ROW_COUNT}" class="row align-items-center collapse d-md-flex">
+					<div class="col-12 col-md-6 py-1">
+					<!-- IF user_row.USER_BROWSER -->
+						{user_row.USER_BROWSER}
+					<!-- ENDIF -->
+					<!-- IF user_row.USER_IP and (not $HIDE_USER_IP or U_ACP) -->
+						<div>
+							<span class="fw-semibold">{L_IP}{L_COLON}</span>
+							<a href="{user_row.U_USER_IP}">{user_row.USER_IP}</a>&nbsp;
+							<a href="{user_row.U_WHOIS}" onclick="popup(this.href, 750, 500); return false;">{L_WHOIS}</a>
+						</div>
+					<!-- ENDIF -->
+					</div>
+					<div class="col-12 col-md-3 py-1">
+						<span class="fw-semibold d-md-none">{L_FORUM_LOCATION}{L_COLON}</span> 
+						<a href="{user_row.U_FORUM_LOCATION}">{user_row.FORUM_LOCATION}</a>
+					</div>
+					<div class="col-12 col-md-3 py-1">
+						<span class="fw-semibold d-md-none">{L_LAST_UPDATED}{L_COLON}</span> 
+						{user_row.LASTUPDATE}
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
