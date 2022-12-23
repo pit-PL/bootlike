@@ -177,6 +177,15 @@ function topFunction() {
 		$(this).toggleClass('toggle-minus');
 	});
 
+	$('.toggle-plus').attr('title', '{L_EXPAND_VIEW}').click(function() {
+		$(this).toggleClass('toggle-plus');
+		var title = '{L_EXPAND_VIEW}' ;
+		if( $(this).hasClass('toggle-minus')){
+			title = '{L_COLLAPSE_VIEW}';
+		}
+		$(this).attr('title', title);
+	});
+
 	$("#dark_mode").on("click", function (e) {
 		$("html").toggleClass("dark");
 
