@@ -113,23 +113,40 @@
 
 	<!-- IF .leader -->
 	<div class="card mb-3">
-		<div class="card-header mb-1 d-none d-md-block border-bottom-0">
+		<div class="card-header mb-1 border-bottom-0">
 			<div class="row">
 				<div class="col-12 col-md-3">{L_GROUP_LEAD}</div>
-				<div class="col-12 col-md-3 text-md-center">{L_GROUP_DEFAULT}</div>
-				<div class="col-12 col-md-2 text-md-center">{L_POSTS}</div>
-				<div class="col-12 col-md-2 text-md-center">{L_JOINED}</div>
-				<div class="col-12 col-md-2 text-md-center">{L_MARK}</div>
+				<div class="col-12 col-md-9 d-none d-md-block">
+					<div class="row align-items-center">
+						<div class="col-12 col-md-3">{L_GROUP_DEFAULT}</div>
+						<div class="col-12 col-md-3 text-md-center">{L_POSTS}</div>
+						<div class="col-12 col-md-3">{L_JOINED}</div>
+						<div class="col-12 col-md-3 text-md-center">{L_MARK}</div>
+					</div>
+				</div>
 			</div>
 		</div>
 		<!-- BEGIN leader -->
 		<div class="container-fluid p-0">
 			<div class="row m-1 mt-0 p-1 align-items-center bg1">
-				<div class="col-12 col-md-3 py-2"><span class="badge bg-secondary d-md-none">{L_GROUP_LEAD}{L_COLON}</span> {leader.USERNAME_FULL}</div>
-				<div class="col-12 col-md-3 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_GROUP_DEFAULT}{L_COLON}</span> <!-- IF leader.S_GROUP_DEFAULT -->{L_YES}<!-- ELSE -->{L_NO}<!-- ENDIF --></div>
-				<div class="col-12 col-md-2 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_POSTS}{L_COLON}</span> {leader.USER_POSTS}</div>
-				<div class="col-12 col-md-2 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_JOINED}{L_COLON}</span> {leader.JOINED}</div>
-				<div class="col-12 col-md-2 py-2 d-none d-md-block">&nbsp;</div>
+				<div class="col-12 col-md-3 py-1">
+					<a class="btn btn-secondary float-end mt-2 py-0 d-md-none toggle-plus" href="#collapse_leader_info_{leader.S_ROW_COUNT}" title="{L_EXPAND_VIEW}" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapse_leader_info"><i class="fa fa-plus" aria-hidden="true"></i><i class="fa fa-minus" aria-hidden="true"></i></a>
+					{leader.USERNAME_FULL}
+				</div>
+				<div class="col-12 col-md-9">
+					<div id="collapse_leader_info_{leader.S_ROW_COUNT}" class="row align-items-center collapse d-md-flex">
+						<div class="col-12 col-md-3 py-1">
+							<span class="fw-semibold d-md-none">{L_GROUP_DEFAULT}{L_COLON}</span> <!-- IF leader.S_GROUP_DEFAULT -->{L_YES}<!-- ELSE -->{L_NO}<!-- ENDIF -->
+						</div>
+						<div class="col-12 col-md-3 py-1 text-md-center">
+							<span class="fw-semibold d-md-none">{L_POSTS}{L_COLON}</span> {leader.USER_POSTS}
+						</div>
+						<div class="col-12 col-md-3 py-1">
+							<span class="fw-semibold d-md-none">{L_JOINED}{L_COLON}</span> {leader.JOINED}
+						</div>
+						<div class="col-12 col-md-3 py-1 d-none d-md-block">&nbsp;</div>
+					</div>
+				</div>
 			</div>
 		</div>
 		<!-- END leader -->
@@ -139,13 +156,17 @@
 	<!-- BEGIN member -->
 	<!-- IF member.S_PENDING -->
 	<div class="card mb-3">
-		<div class="card-header d-none d-md-block border-bottom-0">
+		<div class="card-header border-bottom-0">
 			<div class="row">
 				<div class="col-12 col-md-3">{L_GROUP_PENDING}</div>
-				<div class="col-12 col-md-3 text-md-center">{L_GROUP_DEFAULT}</div>
-				<div class="col-12 col-md-2 text-md-center">{L_POSTS}</div>
-				<div class="col-12 col-md-2 text-md-center">{L_JOINED}</div>
-				<div class="col-12 col-md-2 text-md-center">{L_MARK}</div>
+				<div class="col-12 col-md-9 d-none d-md-block">
+					<div class="row align-items-center">
+						<div class="col-12 col-md-3">{L_GROUP_DEFAULT}</div>
+						<div class="col-12 col-md-3 text-md-center">{L_POSTS}</div>
+						<div class="col-12 col-md-3">{L_JOINED}</div>
+						<div class="col-12 col-md-3 text-md-center">{L_MARK}</div>
+					</div>
+				</div>
 			</div>
 		</div>
 		<!-- ELSEIF member.S_APPROVED -->
@@ -153,25 +174,42 @@
 	</div>
 		<!-- ENDIF -->
 	<div class="card mb-3">
-		<div class="card-header mb-1 d-none d-md-block border-bottom-0">
+		<div class="card-header mb-1 border-bottom-0">
 			<div class="row">
 				<div class="col-12 col-md-3">{L_GROUP_APPROVED}</div>
-				<div class="col-12 col-md-3 text-md-center">{L_GROUP_DEFAULT}</div>
-				<div class="col-12 col-md-2 text-md-center">{L_POSTS}</div>
-				<div class="col-12 col-md-2 text-md-center">{L_JOINED}</div>
-				<div class="col-12 col-md-2 text-md-center">{L_MARK}</div>
+				<div class="col-12 col-md-9 d-none d-md-block">
+					<div class="row align-items-center">
+						<div class="col-12 col-md-3">{L_GROUP_DEFAULT}</div>
+						<div class="col-12 col-md-3 text-md-center">{L_POSTS}</div>
+						<div class="col-12 col-md-3">{L_JOINED}</div>
+						<div class="col-12 col-md-3 text-md-center">{L_MARK}</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	<!-- ELSE -->
 		<div class="container-fluid p-0">
 			<div class="row m-1 mt-0 p-1 align-items-center bg1">
-				<div class="col-12 col-md-3 py-2"><span class="badge bg-secondary d-md-none">{L_GROUP_APPROVED}{L_COLON}</span> {member.USERNAME_FULL}</div>
-				<div class="col-12 col-md-3 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_GROUP_DEFAULT}{L_COLON}</span> <!-- IF member.S_GROUP_DEFAULT -->{L_YES}<!-- ELSE -->{L_NO}<!-- ENDIF --></div>
-				<div class="col-12 col-md-2 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_POSTS}{L_COLON}</span> {member.USER_POSTS}</div>
-				<div class="col-12 col-md-2 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_JOINED}{L_COLON}</span> {member.JOINED}</div>
-				<div class="col-12 col-md-2 py-2 d-sm-flex py-2">
-					<span class="badge bg-secondary d-md-none me-1">{L_MARK}{L_COLON}</span>
-					<div class="form-switch mx-md-auto"><input class="form-check-input" type="checkbox" name="mark[]" value="{member.USER_ID}" /></div>
+				<div class="col-12 col-md-3 py-1">
+					<a class="btn btn-secondary float-end mt-2 py-0 d-md-none toggle-plus" href="#collapse_member_info_{member.S_ROW_COUNT}" title="{L_EXPAND_VIEW}" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapse_member_info"><i class="fa fa-plus" aria-hidden="true"></i><i class="fa fa-minus" aria-hidden="true"></i></a>
+					{member.USERNAME_FULL}
+				</div>
+				<div class="col-12 col-md-9">
+					<div id="collapse_member_info_{member.S_ROW_COUNT}" class="row align-items-center collapse d-md-flex">
+						<div class="col-12 col-md-3 py-1">
+							<span class="fw-semibold d-md-none">{L_GROUP_DEFAULT}{L_COLON}</span> <!-- IF member.S_GROUP_DEFAULT -->{L_YES}<!-- ELSE -->{L_NO}<!-- ENDIF -->
+						</div>
+						<div class="col-12 col-md-3 py-1 text-md-center">
+							<span class="fw-semibold d-md-none">{L_POSTS}{L_COLON}</span> {member.USER_POSTS}
+						</div>
+						<div class="col-12 col-md-3 py-1">
+							<span class="fw-semibold d-md-none">{L_JOINED}{L_COLON}</span> {member.JOINED}
+						</div>
+						<div class="col-12 col-md-3 py-1 d-sm-flex py-2">
+							<span class="fw-semibold d-md-none me-1">{L_MARK}{L_COLON}</span>
+							<div class="form-switch mx-md-auto"><input class="form-check-input" type="checkbox" name="mark[]" value="{member.USER_ID}" /></div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
