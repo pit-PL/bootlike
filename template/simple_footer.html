@@ -17,6 +17,15 @@
 	$('.toggle-plus').click(function() {
 		$(this).toggleClass('toggle-minus');
 	});
+
+	$('.toggle-plus').attr('title', '{L_EXPAND_VIEW}').click(function() {
+		$(this).toggleClass('toggle-plus');
+		var title = '{L_EXPAND_VIEW}' ;
+		if( $(this).hasClass('toggle-minus')){
+			title = '{L_COLLAPSE_VIEW}';
+		}
+		$(this).attr('title', title);
+	});
 </script>
 
 <!-- EVENT simple_footer_after -->
