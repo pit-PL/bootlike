@@ -2,82 +2,119 @@
 
 <form method="post" id="mcp" action="{U_POST_ACTION}">
 
-	<h4 class="cp-page-title mb-3">{L_MCP_WARN_POST}</h4>
-
-	<div class="card mb-3">
-		<div class="card-header">
-			<!-- IF USER_COLOR --><span style="color: #{USER_COLOR}">{USERNAME}</span><!-- ELSE -->{USERNAME}<!-- ENDIF -->
+<div class="card mb-3">
+	<div class="card-header">
+		{L_SELECT_USER}
+	</div>
+	<div class="card-body">
+		<div class="d-inline-block w-auto">
+			<div class="input-group">
+				<input name="username" id="username" type="text" class="form-control" />
+				<a class="btn btn-secondary" href="{U_FIND_USERNAME}" onclick="find_username(this.href); return false;" title="{L_FIND_USERNAME}"><i class="fa fa-search fa-fw" aria-hidden="true"></i></a>
+			</div>
 		</div>
+	</div>
 
-		<div class="card-body p-0">
-			<div class="row m-0">
+	<div class="card-footer">
+		<div class="d-grid col-4 mx-auto">
+			<button class="btn btn-success" type="submit" name="submituser" value="{L_SUBMIT}"><i class="fa fa-level-down fa-rotate-90 fa-fw" aria-hidden="true"></i> {L_SUBMIT}</button>
+		</div>
+		{S_FORM_TOKEN}
+	</div>
+</div>
 
-			<!-- IF AVATAR_IMG -->
-				<div class="postprofile col-lg-3 col-md-4<!-- IF $PROFILE_ON_RIGHT --> order-first order-md-2<!-- ENDIF --> bg2">
-					<div class="text-center p-3">{AVATAR_IMG}</div>
-				</div>
-			<!-- ENDIF -->
-				<div class="postbody<!-- IF AVATAR_IMG --> col-lg-9 col-md-8<!-- ELSE --> col-12<!-- ENDIF --> p-0<!-- IF $PROFILE_ON_RIGHT and AVATAR_IMG --> border-end<!-- ELSEIF AVATAR_IMG --> border-start<!-- ENDIF --> bg-white">
-				<div class="opacity-50 d-md-none"><hr class="m-0"></div>
+</form>
 
-					<div class="px-3 py-2">
-						<dl class="row mb-0">
-						<!-- IF RANK_TITLE -->
-							<dt class="col-lg-4 col-md-5 col-12">{L_RANK}{L_COLON}</dt>
-							<dd class="col-lg-8 col-md-7 col-12">{RANK_TITLE}</dd>
-						<!-- ENDIF -->
-						<!-- IF RANK_IMG -->
-							<dt class="col-lg-4 col-md-5 col-12"><!-- IF RANK_TITLE -->&nbsp;<!-- ELSE -->{L_RANK}{L_COLON}<!-- ENDIF --></dt>
-							<dd class="col-lg-8 col-md-7 col-12">{RANK_IMG}</dd>
-						<!-- ENDIF -->
-							<dt class="col-lg-4 col-md-5 col-12">{L_JOINED}{L_COLON}</dt>
-							<dd class="col-lg-8 col-md-7 col-12">{JOINED}</dd>
-							<dt class="col-lg-4 col-md-5 col-12">{L_TOTAL_POSTS}{L_COLON}</dt>
-							<dd class="col-lg-8 col-md-7 col-12">{POSTS}</dd>
-							<dt class="col-lg-4 col-md-5 col-12">{L_WARNINGS}{L_COLON}</dt>
-							<dd class="col-lg-8 col-md-7 col-12">{WARNINGS}</dd>
-						</dl>
+<h5 class="card-title pb-1 text-capitalize">{L_MOST_WARNINGS}</h5>
+
+<!-- IF .highest -->
+	<div class="card mb-3">
+		<div class="card-header mb-1 border-bottom-0">
+			<div class="row">
+				<div class="col-12 col-md-4">{L_USERNAME}</div>
+				<div class="col-12 col-md-8 d-none d-md-block">
+					<div class="row align-items-center">
+						<div class="col-12 col-md-4">{L_LATEST_WARNING_TIME}</div>
+						<div class="col-12 col-md-4 text-md-center">{L_WARNINGS}</div>
+						<div class="col-12 col-md-4 text-md-center">&nbsp;</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-
-	<div class="card mb-3">
-		<div class="card-header">
-			{L_POST_DETAILS}
-		</div>
-		<div class="card-body">
-			{POST}
-		</div>
-	</div>
-
-	<!-- EVENT mcp_warn_post_add_warning_field_before -->
-
-	<div class="card mb-3">
-		<div class="card-header">
-			{L_ADD_WARNING}
-		</div>
-		<div class="card-body">
-			<div class="alert alert-info">{L_ADD_WARNING_EXPLAIN}</div>
-
-			<textarea name="warning" id="warning" class="form-control" cols="40" rows="3">{L_WARNING_POST_DEFAULT}</textarea>
-			<!-- IF S_CAN_NOTIFY -->
-			<div class="form-switch">
-				<label class="col-form-label"><input class="form-check-input" type="checkbox" name="notify_user" checked="checked" /> {L_NOTIFY_USER_WARN}</label>
+		<!-- BEGIN highest -->
+		<div class="container-fluid p-0">
+			<div class="row m-1 mt-0 p-1 align-items-center bg1">
+				<div class="col-12 col-md-4 py-1">
+					<a class="btn btn-secondary float-end mt-1 py-0 d-md-none toggle-plus" href="#collapse_highest_warnings_{highest.S_ROW_COUNT}" title="{L_EXPAND_VIEW}" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapse_highest_warnings"><i class="fa fa-plus" aria-hidden="true"></i><i class="fa fa-minus" aria-hidden="true"></i></a>
+					{highest.USERNAME_FULL}
+				</div>
+				<div class="col-12 col-md-8">
+					<div id="collapse_highest_warnings_{highest.S_ROW_COUNT}" class="row align-items-center collapse d-md-flex">
+						<div class="col-12 col-md-4 py-1">
+							<span class="fw-semibold d-md-none">{L_LATEST_WARNING_TIME}{L_COLON}</span> {highest.WARNING_TIME}
+						</div>
+						<div class="col-12 col-md-4 py-1 text-md-center">
+							<span class="fw-semibold d-md-none">{L_WARNINGS}{L_COLON}</span> <span class="badge rounded-pill text-bg-secondary">{highest.WARNINGS}</span>
+						</div>
+						<div class="col-12 col-md-4 py-1 text-md-center">
+							<a href="{highest.U_NOTES}">{L_VIEW_NOTES}</a>
+						</div>
+					</div>
+				</div>
 			</div>
-			<!-- ENDIF -->
 		</div>
+		<!-- END highest -->
 	</div>
-
-	<!-- EVENT mcp_warn_post_add_warning_field_after -->
-
-
-	<div class="d-grid col-4 mx-auto mb-3">
-		<button class="btn btn-success" type="submit" name="action[add_warning]" value="{L_SUBMIT}"><i class="fa fa-level-down fa-rotate-90 fa-fw" aria-hidden="true"></i> {L_SUBMIT}</button>
-		{S_FORM_TOKEN}
+<!-- ELSE -->
+	<div class="alert alert-info">
+		{L_NO_WARNINGS}
 	</div>
+<!-- ENDIF -->
 
-</form>
+<h5 class="card-title pb-1 text-capitalize">{L_LATEST_WARNINGS}</h5>
+
+<!-- IF .latest -->
+	<div class="card mb-3">
+		<div class="card-header mb-1 border-bottom-0">
+			<div class="row">
+				<div class="col-12 col-md-4">{L_USERNAME}</div>
+				<div class="col-12 col-md-8 d-none d-md-block">
+					<div class="row align-items-center">
+						<div class="col-12 col-md-4">{L_TIME}</div>
+						<div class="col-12 col-md-4 text-md-center">{L_TOTAL_WARNINGS}</div>
+						<div class="col-12 col-md-4 text-md-center">&nbsp;</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- BEGIN latest -->
+		<div class="container-fluid p-0">
+			<div class="row m-1 mt-0 p-1 align-items-center bg1">
+				<div class="col-12 col-md-4 py-1">
+					<a class="btn btn-secondary float-end mt-1 py-0 d-md-none toggle-plus" href="#collapse_latest_warnings_{latest.S_ROW_COUNT}" title="{L_EXPAND_VIEW}" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapse_latest_warnings"><i class="fa fa-plus" aria-hidden="true"></i><i class="fa fa-minus" aria-hidden="true"></i></a>
+					{latest.USERNAME_FULL}
+				</div>
+				<div class="col-12 col-md-8">
+					<div id="collapse_latest_warnings_{latest.S_ROW_COUNT}" class="row align-items-center collapse d-md-flex">
+						<div class="col-12 col-md-4 py-1">
+							<span class="fw-semibold d-md-none">{L_TIME}{L_COLON}</span> {latest.WARNING_TIME}
+						</div>
+						<div class="col-12 col-md-4 py-1 text-md-center">
+							<span class="fw-semibold d-md-none">{L_TOTAL_WARNINGS}{L_COLON}</span> <span class="badge rounded-pill text-bg-secondary">{latest.WARNINGS}</span>
+						</div>
+						<div class="col-12 col-md-4 py-1 text-md-center">
+							<a href="{latest.U_NOTES}">{L_VIEW_NOTES}</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- END latest -->
+	</div>
+<!-- ELSE -->
+	<div class="alert alert-info">
+		{L_NO_WARNINGS}
+	</div>
+<!-- ENDIF -->
 
 <!-- INCLUDE mcp_footer.html -->
