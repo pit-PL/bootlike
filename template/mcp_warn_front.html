@@ -29,21 +29,38 @@
 
 <!-- IF .highest -->
 	<div class="card mb-3">
-		<div class="card-header mb-1 d-none d-md-block border-bottom-0">
+		<div class="card-header mb-1 border-bottom-0">
 			<div class="row">
 				<div class="col-12 col-md-4">{L_USERNAME}</div>
-				<div class="col-12 col-md-4 text-md-center">{L_LATEST_WARNING_TIME}</div>
-				<div class="col-12 col-md-2 text-md-center">{L_WARNINGS}</div>
-				<div class="col-12 col-md-2 text-md-center">&nbsp;</div>
+				<div class="col-12 col-md-8 d-none d-md-block">
+					<div class="row align-items-center">
+						<div class="col-12 col-md-4">{L_LATEST_WARNING_TIME}</div>
+						<div class="col-12 col-md-4 text-md-center">{L_WARNINGS}</div>
+						<div class="col-12 col-md-4 text-md-center">&nbsp;</div>
+					</div>
+				</div>
 			</div>
 		</div>
 		<!-- BEGIN highest -->
 		<div class="container-fluid p-0">
 			<div class="row m-1 mt-0 p-1 align-items-center bg1">
-				<div class="col-12 col-md-4 py-2"><span class="badge bg-secondary d-md-none">{L_USERNAME}{L_COLON}</span> {highest.USERNAME_FULL}</div>
-				<div class="col-12 col-md-4 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_LATEST_WARNING_TIME}{L_COLON}</span> {highest.WARNING_TIME}</div>
-				<div class="col-12 col-md-2 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_WARNINGS}{L_COLON}</span> {highest.WARNINGS}</div>
-				<div class="col-12 col-md-2 py-2 text-md-center"><a href="{highest.U_NOTES}">{L_VIEW_NOTES}</a></div>
+				<div class="col-12 col-md-4 py-1">
+					<a class="btn btn-secondary float-end mt-1 py-0 d-md-none toggle-plus" href="#collapse_highest_warnings_{highest.S_ROW_COUNT}" title="{L_EXPAND_VIEW}" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapse_highest_warnings"><i class="fa fa-plus" aria-hidden="true"></i><i class="fa fa-minus" aria-hidden="true"></i></a>
+					{highest.USERNAME_FULL}
+				</div>
+				<div class="col-12 col-md-8">
+					<div id="collapse_highest_warnings_{highest.S_ROW_COUNT}" class="row align-items-center collapse d-md-flex">
+						<div class="col-12 col-md-4 py-1">
+							<span class="fw-semibold d-md-none">{L_LATEST_WARNING_TIME}{L_COLON}</span> {highest.WARNING_TIME}
+						</div>
+						<div class="col-12 col-md-4 py-1 text-md-center">
+							<span class="fw-semibold d-md-none">{L_WARNINGS}{L_COLON}</span> <span class="badge rounded-pill text-bg-secondary">{highest.WARNINGS}</span>
+						</div>
+						<div class="col-12 col-md-4 py-1 text-md-center">
+							<a href="{highest.U_NOTES}">{L_VIEW_NOTES}</a>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 		<!-- END highest -->
@@ -58,21 +75,38 @@
 
 <!-- IF .latest -->
 	<div class="card mb-3">
-		<div class="card-header mb-1 d-none d-md-block border-bottom-0">
+		<div class="card-header mb-1 border-bottom-0">
 			<div class="row">
 				<div class="col-12 col-md-4">{L_USERNAME}</div>
-				<div class="col-12 col-md-4 text-md-center">{L_TIME}</div>
-				<div class="col-12 col-md-2 text-md-center">{L_TOTAL_WARNINGS}</div>
-				<div class="col-12 col-md-2 text-md-center">&nbsp;</div>
+				<div class="col-12 col-md-8 d-none d-md-block">
+					<div class="row align-items-center">
+						<div class="col-12 col-md-4">{L_TIME}</div>
+						<div class="col-12 col-md-4 text-md-center">{L_TOTAL_WARNINGS}</div>
+						<div class="col-12 col-md-4 text-md-center">&nbsp;</div>
+					</div>
+				</div>
 			</div>
 		</div>
 		<!-- BEGIN latest -->
 		<div class="container-fluid p-0">
 			<div class="row m-1 mt-0 p-1 align-items-center bg1">
-				<div class="col-12 col-md-4 py-2"><span class="badge bg-secondary d-md-none">{L_USERNAME}{L_COLON}</span> {latest.USERNAME_FULL}</div>
-				<div class="col-12 col-md-4 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_TIME}{L_COLON}</span> {latest.WARNING_TIME}</div>
-				<div class="col-12 col-md-2 py-2 text-md-center"><span class="badge bg-secondary d-md-none">{L_TOTAL_WARNINGS}{L_COLON}</span> {latest.WARNINGS}</div>
-				<div class="col-12 col-md-2 py-2 text-md-center"><a href="{latest.U_NOTES}">{L_VIEW_NOTES}</a></div>
+				<div class="col-12 col-md-4 py-1">
+					<a class="btn btn-secondary float-end mt-1 py-0 d-md-none toggle-plus" href="#collapse_latest_warnings_{latest.S_ROW_COUNT}" title="{L_EXPAND_VIEW}" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapse_latest_warnings"><i class="fa fa-plus" aria-hidden="true"></i><i class="fa fa-minus" aria-hidden="true"></i></a>
+					{latest.USERNAME_FULL}
+				</div>
+				<div class="col-12 col-md-8">
+					<div id="collapse_latest_warnings_{latest.S_ROW_COUNT}" class="row align-items-center collapse d-md-flex">
+						<div class="col-12 col-md-4 py-1">
+							<span class="fw-semibold d-md-none">{L_TIME}{L_COLON}</span> {latest.WARNING_TIME}
+						</div>
+						<div class="col-12 col-md-4 py-1 text-md-center">
+							<span class="fw-semibold d-md-none">{L_TOTAL_WARNINGS}{L_COLON}</span> <span class="badge rounded-pill text-bg-secondary">{latest.WARNINGS}</span>
+						</div>
+						<div class="col-12 col-md-4 py-1 text-md-center">
+							<a href="{latest.U_NOTES}">{L_VIEW_NOTES}</a>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 		<!-- END latest -->
