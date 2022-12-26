@@ -8,7 +8,7 @@
 <div id="team" class="card mb-3">
 	<div class="card-header mb-1 border-bottom-0">
 		<div class="row">
-			<div class="col-12<!-- IF S_DISPLAY_MODERATOR_FORUMS --> col-md-5<!-- ELSE --> col-md-6<!-- ENDIF -->" data-dfn="{L_RANK}{L_COMMA_SEPARATOR}{L_USERNAME}"><!-- IF group.U_GROUP --><a href="{group.U_GROUP}">{group.GROUP_NAME}</a><!-- ELSE -->{group.GROUP_NAME}<!-- ENDIF --> &nbsp; <span class="float-md-end">{L_RANK}&nbsp;</span></div>
+			<div class="col-12<!-- IF S_DISPLAY_MODERATOR_FORUMS --> col-md-5<!-- ELSE --> col-md-6<!-- ENDIF -->" data-dfn="{L_RANK}{L_COMMA_SEPARATOR}{L_USERNAME}"><!-- IF group.U_GROUP --><a href="{group.U_GROUP}">{group.GROUP_NAME}</a><!-- ELSE -->{group.GROUP_NAME}<!-- ENDIF --><span class="d-none d-md-inline float-md-end">{L_RANK}&nbsp;</span></div>
 			<div class="col-12<!-- IF S_DISPLAY_MODERATOR_FORUMS --> col-md-7<!-- ELSE --> col-md-6<!-- ENDIF --> d-none d-md-block">
 				<div class="row align-items-center">
 					<div class="col-12<!-- IF S_DISPLAY_MODERATOR_FORUMS --> col-md-6<!-- ELSE --> col-md-12<!-- ENDIF -->">{L_PRIMARY_GROUP}</div>
@@ -32,6 +32,7 @@
 				<!-- EVENT memberlist_team_username_append -->
 				</div>
 				<div class="float-md-end mt-2 mt-md-0">
+					<span class="fw-semibold d-md-none">{L_RANK}{L_COLON}</span>
 				<!-- IF group.user.RANK_IMG -->
 					{group.user.RANK_IMG}
 				<!-- ELSE -->
