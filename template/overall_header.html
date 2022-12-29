@@ -65,14 +65,14 @@
 	</div>
 <!-- ENDIF -->
 
-	<div class="card<!-- IF $STICKY_NAVBAR --> sticky-top shadow<!-- ENDIF --><!-- IF $CLICKABLE_HEADER --> mb-3<!-- ENDIF --> border-0">
+	<div class="card<!-- IF $STICKY_NAVBAR --> sticky-top shadow<!-- ENDIF --> border-0">
 		<div class="card-body p-1 px-md-2 px-lg-3">
 		<!-- EVENT overall_header_navbar_before -->
 		<!-- INCLUDE navbar_header.html -->
 		</div>
 	</div>
 
-	<div class="card mb-3 d-none d-md-block<!-- IF $CLICKABLE_HEADER --> d-md-none<!-- ENDIF --> border-0">
+	<div class="card d-none d-md-block<!-- IF $CLICKABLE_HEADER --> d-md-none<!-- ENDIF --> border-0">
 		<div class="card-body p-1 px-3 bg1 border-bottom shadow-sm">
 			<!-- EVENT overall_header_headerbar_before -->
 			<div class="m-3 d-flex align-items-center justify-content-md-between">
@@ -85,7 +85,7 @@
 
 	<a id="start_here" class="d-none">{L_SKIP}</a>
 
-		<div class="<!-- IF $FORUM_WIDTH_FULL or ($LEFT_SIDEBAR or $RIGHT_SIDEBAR) -->container-fluid<!-- ELSEIF $FORUM_WIDTH_XXL -->container-xxl<!-- ELSE -->container-xl<!-- ENDIF -->">
+		<div class="<!-- IF $FORUM_WIDTH_FULL or ($LEFT_SIDEBAR or $RIGHT_SIDEBAR) -->container-fluid<!-- ELSEIF $FORUM_WIDTH_XXL -->container-xxl<!-- ELSE -->container-xl<!-- ENDIF --> py-3">
 		<div class="row">
 
 	<!-- IF (($LEFT_SIDEBAR or $RIGHT_SIDEBAR) and not (S_IN_UCP or S_IN_MCP)) -->
@@ -93,7 +93,7 @@
 	<!-- ENDIF -->
 
 		<div class="col<!-- IF (($LEFT_SIDEBAR or $RIGHT_SIDEBAR) and not (S_IN_UCP or S_IN_MCP)) --> col-xl-9<!-- ENDIF -->">
-		<div id="page-body" class="card mb-3 p-3 pb-0 shadow" role="main">
+		<div id="page-body" class="card p-3 pb-0 shadow" role="main">
 
 		<!-- IF S_BOARD_DISABLED and S_USER_LOGGED_IN and (U_MCP or U_ACP) -->
 		<div id="information" class="alert alert-info">
