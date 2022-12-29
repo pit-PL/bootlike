@@ -18,19 +18,18 @@
 				<!-- EVENT overall_header_navigation_prepend -->
 				<!-- EVENT overall_header_navigation_append -->
 			</ul>
-		
+
 			<ul class="navbar-nav fw-semibold" role="menubar">
-		
+
 				<!-- IF S_DISPLAY_SEARCH -->
 				<li class="nav-item"><a class="nav-link" data-bs-toggle="offcanvas" data-bs-target="#navbar-collapse-search" aria-controls="navbar-collapse-search" role="button" aria-expanded="false">{L_SEARCH}</a></li>
 				<!-- ENDIF -->
-		
+
 				<!-- EVENT overall_header_searchbox_after -->
-		
 				<!-- EVENT navbar_header_quick_links_after -->
-		
+
 				<li class="nav-item"><a class="nav-link" href="{U_FAQ}" rel="help" title="{L_FAQ_EXPLAIN}" role="menuitem">{L_FAQ}</a></li>
-		
+
 			<!-- IF S_REGISTERED_USER -->
 				<!-- IF S_NOTIFICATIONS_DISPLAY and NOTIFICATIONS_COUNT -->
 				<li class="nav-item" title="{L_NEW_MESSAGE}">
@@ -39,7 +38,7 @@
 					</a>
 				</li>
 				<!-- ENDIF -->
-		
+
 				<!-- IF S_DISPLAY_PM and PRIVATE_MESSAGE_COUNT -->
 				<li class="nav-item" title="{L_BUTTON_PM_NEW}">
 					<a class="nav-link ps-4 pe-none">
@@ -47,15 +46,14 @@
 					</a>
 				</li>
 				<!-- ENDIF -->
-		
+
 				<li class="nav-item">
 					<a class="nav-link" href="#offcanvas_right" data-bs-toggle="offcanvas" aria-controls="offcanvas_right" role="button">
 						<i class="fa fa-bars fa-fw" aria-hidden="true"></i> {CURRENT_USERNAME_SIMPLE}
 					</a>
 				</li>
-		
+
 				<!-- EVENT navbar_header_username_append -->
-		
 				<!-- EVENT navbar_header_user_profile_append -->
 			<!-- ELSE IF not S_IS_BOT -->
 				<!-- IF S_REGISTER_ENABLED and not (S_SHOW_COPPA or S_REGISTRATION) -->
@@ -65,7 +63,7 @@
 			<!-- EVENT navbar_header_logged_out_content -->
 		<!-- ENDIF -->
 			</ul>
-		
+
 		</div>
 	</div>
 </nav>
