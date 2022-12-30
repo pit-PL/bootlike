@@ -65,14 +65,14 @@
 	</div>
 <!-- ENDIF -->
 
-	<div class="card<!-- IF $STICKY_NAVBAR --> sticky-top shadow<!-- ENDIF --> border-0">
+	<div class="card<!-- IF $STICKY_NAVBAR --> sticky-top shadow<!-- ENDIF --> border-0<!-- IF $CLICKABLE_HEADER --> border-bottom<!-- ENDIF -->">
 		<div class="card-body p-1 px-md-2 px-lg-3">
 		<!-- EVENT overall_header_navbar_before -->
 		<!-- INCLUDE navbar_header.html -->
 		</div>
 	</div>
 
-	<div class="card d-none d-md-block<!-- IF $CLICKABLE_HEADER --> d-md-none<!-- ENDIF --> border-0">
+	<div class="card d-none d-md-block<!-- IF $CLICKABLE_HEADER --> d-md-none<!-- ENDIF --> border-0 border-bottom">
 		<div class="card-body p-1 px-3 bg1 border-bottom shadow-sm">
 			<!-- EVENT overall_header_headerbar_before -->
 			<div class="m-3 d-flex align-items-center justify-content-md-between">
