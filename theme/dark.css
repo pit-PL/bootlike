@@ -14,7 +14,7 @@
 	--active-bg: #0d6efd;
 }
 
-.dark, .dark .popover {
+html.dark, .dark .popover {
 	background-color: var(--body-bg);
 }
 
@@ -62,11 +62,11 @@
 	background-color: var(--card-bg) !important;
 }
 
-.dark a {
+.dark .navbar a, .dark .dropdown-menu a {
 	color: var(--link-color);
 }
 
-.dark a:hover, .dark a:active, .dark a:focus {
+.dark .navbar a:hover, .dark .dropdown-menu a:hover, .dark .navbar a:active, .dark .dropdown-menu a:active, .navbar .dark a:focus, .dark .dropdown-menu a:focus {
 	color: var(--link-hover-color);
 }
 
