@@ -58,21 +58,37 @@
 <body id="phpbb" class="nojs notouch section-{SCRIPT_NAME} {S_CONTENT_DIRECTION} {BODY_CLASS} bg2">
 <button onclick="topFunction()" id="gototop" class="btn btn btn-link position-fixed" title="{L_BACK_TO_TOP}"><i class="fa fa-arrow-circle-up fa-3x" aria-hidden="true"></i></button> 
 
-	<!-- EVENT overall_header_body_before -->
-<!-- IF $CLICKABLE_HEADER -->
-	<div class="header position-relative d-none d-md-block shadow" style="height: {$BANNER_HEIGHT}px;" role="banner">
+<!-- EVENT overall_header_body_before -->
+
+<!-- IF $HEADER_CAROUSEL or $CLICKABLE_HEADER -->
+	<div class="header-<!-- IF $HEADER_CAROUSEL -->carousel<!-- ELSEIF $CLICKABLE_HEADER -->link<!-- ENDIF --> position-relative d-none d-md-block shadow" style="height: {$BANNER_HEIGHT}px;" role="banner">
+	<!-- IF $HEADER_CAROUSEL -->
+		<div class="container-fluid header-carousel">
+			<div class="row align-items-center">
+				<div class="col-4">
+					<a class="d-block p-3" href="{% if U_SITE_HOME %}{{ U_SITE_HOME }}{% else %}{{ U_INDEX }}{% endif %}" title="{% if U_SITE_HOME %}{{ L_SITE_HOME }}{% else %}{{ L_INDEX }}{% endif %}">
+						<img src="{T_THEME_PATH}/images/site_logo.png" alt="{L_IMAGE}">
+					</a>
+				</div>
+				<div class="col-8">
+					<!-- INCLUDE header_carousel.html -->
+				</div>
+			</div>
+		</div>
+	<!-- ELSEIF $CLICKABLE_HEADER -->
 		<a class="stretched-link" href="{% if U_SITE_HOME %}{{ U_SITE_HOME }}{% else %}{{ U_INDEX }}{% endif %}" title="{% if U_SITE_HOME %}{{ L_SITE_HOME }}{% else %}{{ L_INDEX }}{% endif %}"></a>
+	<!-- ENDIF -->
 	</div>
 <!-- ENDIF -->
 
-	<div class="card<!-- IF $STICKY_NAVBAR --> sticky-top shadow<!-- ENDIF --> border-0<!-- IF $CLICKABLE_HEADER --> border-bottom<!-- ENDIF -->">
+	<div class="card<!-- IF $STICKY_NAVBAR --> sticky-top shadow<!-- ENDIF --> border-0<!-- IF $HEADER_CAROUSEL or $CLICKABLE_HEADER --> border-bottom<!-- ENDIF -->">
 		<div class="card-body p-1 px-md-2 px-lg-3">
 		<!-- EVENT overall_header_navbar_before -->
 		<!-- INCLUDE navbar_header.html -->
 		</div>
 	</div>
 
-	<div class="card d-none d-md-block<!-- IF $CLICKABLE_HEADER --> d-md-none<!-- ENDIF --> border-0 border-bottom">
+	<div class="card d-none d-md-block<!-- IF $HEADER_CAROUSEL or $CLICKABLE_HEADER --> d-md-none<!-- ENDIF --> border-0 border-bottom">
 		<div class="card-body p-1 px-3 bg1 border-bottom shadow-sm">
 			<!-- EVENT overall_header_headerbar_before -->
 			<div class="m-3 d-flex align-items-center justify-content-md-between">
