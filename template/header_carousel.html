@@ -1,0 +1,48 @@
+<div id="header_carousel" class="carousel slide"<!-- IF not S_USER_LOGGED_IN --> data-bs-ride="carousel"<!-- ENDIF -->>
+	<div class="carousel-indicators">
+		<button type="button" data-bs-target="#header_carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+		<button type="button" data-bs-target="#header_carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+		<button type="button" data-bs-target="#header_carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+	</div>
+	<div class="carousel-inner" style="height: {$BANNER_HEIGHT}px;">
+
+		<div class="carousel-item carousel-item-1 p-5 active">
+			<div class="carousel-caption d-none d-md-block text-secondary top-0 mt-3">
+				<h1 class="fs-2">{SITENAME}</h1>
+				<h5>{SITE_DESCRIPTION}</h5>
+			</div>
+		</div>
+		<div class="carousel-item carousel-item-2">
+			<div class="carousel-caption d-none d-md-block text-secondary top-0 mt-3">
+				<h1 class="fs-2">Made with Bootstrap</h1>
+				<p>Make the 2023 the year you learn to code.</p>
+				<p><a class="btn btn-primary" href="https://getbootstrap.com/docs/5.2/getting-started/introduction/" role="button">Learn more</a></p>
+			</div>
+		</div>
+		<div class="carousel-item carousel-item-3">
+			<div class="carousel-caption d-none d-md-block text-secondary top-0 mt-3">
+				<div class="row">
+					<div class="d-grid col-6">
+						<h1 class="fs-2">{L_REGISTER}</h1>
+						<p>Fill the form accurately to be part of us.</p>
+						<p><a class="btn btn-primary w-25" href="{U_REGISTER}" role="button"><i class="fa fa-pencil-square-o fa-fw" aria-hidden="true"></i></a></p>
+					</div>
+					<div class="d-grid col-6">
+						<h1 class="fs-2">{L_LOGIN}</h1>
+						<p>Click on the button to open the login form.</p>
+						<p><a class="btn btn-primary w-25" href="{U_LOGIN_LOGOUT}" role="button"><i class="fa fa-power-off fa-fw" aria-hidden="true"></i></a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<button class="carousel-control-prev" type="button" data-bs-target="#header_carousel" data-bs-slide="{L_PREVIOUS}">
+		<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+		<span class="visually-hidden">{L_PREVIOUS}</span>
+	</button>
+	<button class="carousel-control-next" type="button" data-bs-target="#header_carousel" data-bs-slide="{L_NEXT}">
+		<span class="carousel-control-next-icon" aria-hidden="true"></span>
+		<span class="visually-hidden">{L_NEXT}</span>
+	</button>
+</div>
