@@ -25,9 +25,9 @@
 				<div class="col-12 col-lg-5 col-md-5<!-- IF S_ADMIN_AUTH --> w-100<!-- ENDIF --> p-4 simple-login text-bg-light rounded-4 shadow" style="margin-top: -1.5rem !important; margin-bottom: -1.5rem !important;">
 					<h4 class="card-title mb-3"><!-- IF LOGIN_EXPLAIN -->{LOGIN_EXPLAIN}<!-- ELSE -->{L_LOGIN}<!-- ENDIF --></h4>
 
-					<!-- IF LOGIN_ERROR -->
-					<p class="text-danger">{LOGIN_ERROR}</p>
-					<!-- ENDIF -->
+				<!-- IF LOGIN_ERROR -->
+					<div class="alert alert-danger">{LOGIN_ERROR}</div>
+				<!-- ENDIF -->
 
 					<div class="form-floating mb-3">
 						<input class="form-control w-100" type="text" id="{USERNAME_CREDENTIAL}" name="{USERNAME_CREDENTIAL}" size="25" value="{USERNAME}" placeholder="{L_USERNAME}" tabindex="1" />
@@ -39,31 +39,31 @@
 						<label for="{PASSWORD_CREDENTIAL}">{L_PASSWORD}</label>
 					</div>
 
-			<!-- IF S_DISPLAY_FULL_LOGIN and (U_SEND_PASSWORD or U_RESEND_ACTIVATION) -->
+				<!-- IF S_DISPLAY_FULL_LOGIN and (U_SEND_PASSWORD or U_RESEND_ACTIVATION) -->
 					<div class="mb-2">
-				<!-- IF U_SEND_PASSWORD -->
+					<!-- IF U_SEND_PASSWORD -->
 						<a class="d-block" href="{U_SEND_PASSWORD}">{L_FORGOT_PASS}</a>
-				<!-- ENDIF -->
-				<!-- IF U_RESEND_ACTIVATION -->
+					<!-- ENDIF -->
+					<!-- IF U_RESEND_ACTIVATION -->
 						<a class="d-block" href="{U_RESEND_ACTIVATION}">{L_RESEND_ACTIVATION}</a>
-				<!-- ENDIF -->
+					<!-- ENDIF -->
 					</div>
-			<!-- ENDIF -->
+				<!-- ENDIF -->
 
-			<!-- IF S_DISPLAY_FULL_LOGIN -->
+				<!-- IF S_DISPLAY_FULL_LOGIN -->
 					<div class="mb-2">
-				<!-- IF S_AUTOLOGIN_ENABLED -->
+					<!-- IF S_AUTOLOGIN_ENABLED -->
 						<div class="form-check form-switch">
 							<input class="form-check-input" type="checkbox" name="autologin" id="autologin" tabindex="4" />
 							<label class="form-check-label" for="autologin">{L_LOG_ME_IN}</label>
 						</div>
-				<!-- ENDIF -->
+					<!-- ENDIF -->
 						<div class="form-check form-switch">
 							<input class="form-check-input" type="checkbox" name="viewonline" id="viewonline" tabindex="5" />
 							<label class="form-check-label" for="viewonline">{L_HIDE_ME}</label>
 						</div>
 					</div>
-			<!-- ENDIF -->
+				<!-- ENDIF -->
 
 					{S_LOGIN_REDIRECT}
 					{S_FORM_TOKEN_LOGIN}
