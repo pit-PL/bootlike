@@ -69,7 +69,16 @@
 					{S_FORM_TOKEN_LOGIN}
 					{S_HIDDEN_FIELDS}
 
-					<button class="btn btn-success w-100" type="submit" name="login" tabindex="5" value="{L_LOGIN}"><i class="fa fa-power-off fa-fw" aria-hidden="true"></i> {L_LOGIN}</button>
+					<div class="row">
+					<!-- IF S_ADMIN_AUTH -->
+						<div class="d-grid col-6 mx-auto">
+							<a class="btn btn-secondary" href="{U_INDEX}"><i class="fa fa-home fa-fw" aria-hidden="true"></i> <span class="text-nowrap">{L_HOME}</span></a>
+						</div>
+					<!-- ENDIF -->
+						<div class="d-grid<!-- IF S_ADMIN_AUTH --> col-6<!-- ELSE --> col-12<!-- ENDIF --> mx-auto">
+							<button class="btn btn-success w-100" type="submit" name="login" tabindex="5" value="{L_LOGIN}"><i class="fa fa-power-off fa-fw" aria-hidden="true"></i> {L_LOGIN}</button>
+						</div>
+					</div>
 				</div>
 
 			</div>
