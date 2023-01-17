@@ -5,18 +5,14 @@
 	<div class="container-fluid d-flex align-items-center vh-100">
 		<div class="col-12 col-xl-6 offset-xl-3 col-lg-8 offset-lg-2">
 			<div class="card mb-3">
-				<div class="card-header">{L_LOGIN}</div>
+				<div class="card-header">{L_LOGIN}<!-- IF FORUM_NAME --> - {FORUM_NAME}<!-- ENDIF --></div>
 
 				<div class="card-body">
-					<!-- IF FORUM_NAME -->
-					<h4 class="card-title mb-3">{FORUM_NAME}</h4>
-					<!-- ENDIF -->
-
-					<div class="alert alert-info">{L_LOGIN_FORUM}</div>
-
 					<!-- IF LOGIN_ERROR -->
 					<div class="alert alert-danger">{LOGIN_ERROR}</div>
 					<!-- ENDIF -->
+
+					<div class="alert alert-info">{L_LOGIN_FORUM}</div>
 
 					<div class="form-floating">
 						<input class="form-control w-100" type="password" tabindex="1" id="password" name="password" size="25" placeholder="{L_PASSWORD}" autocomplete="off" />
