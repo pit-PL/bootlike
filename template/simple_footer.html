@@ -1,19 +1,19 @@
-	</div>
 
-	<p class="text-center mb-0 pb-3" role="contentinfo">
-		{CREDIT_LINE}
-		{% if TRANSLATION_INFO %}<br>{TRANSLATION_INFO}{% endif %}
-		{% if DEBUG_OUTPUT %}<br>{DEBUG_OUTPUT}{% endif %}
-	</p>
-
-</div>
+	</div><!-- end page-body -->
+</div><!-- end container -->
 
 <script src="{T_JQUERY_LINK}"></script>
 <script src="{T_ASSETS_PATH}/javascript/core.js?assets_version={T_ASSETS_VERSION}"></script>
 <script src="{T_TEMPLATE_PATH}/bootstrap.bundle.min.js"></script>
 <!-- INCLUDEJS forum_fn.js -->
 <!-- INCLUDEJS ajax.js -->
+
 <script>
+	var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+	var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+		return new bootstrap.Popover(popoverTriggerEl)
+	})
+
 	$('.toggle-plus').click(function() {
 		$(this).toggleClass('toggle-minus');
 	});
@@ -25,6 +25,18 @@
 			title = '{L_COLLAPSE_VIEW}';
 		}
 		$(this).attr('title', title);
+	});
+
+	function showTheme() {
+	  // Check Local Storage then apply dark theme if it's active
+	}
+	function showContent() {
+		document.body.style.visibility = 'visible';
+		document.body.style.opacity = 1;
+	}
+	window.addEventListener('DOMContentLoaded', function () {
+		showTheme();
+		showContent();
 	});
 </script>
 
