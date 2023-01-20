@@ -4,10 +4,12 @@
 		{S_FORM_TOKEN}
 	<div class="container-fluid d-flex align-items-center vh-100">
 		<div class="col-12 col-xl-6 offset-xl-3 col-lg-8 offset-lg-2">
-			<div class="card mb-3">
-				<div class="card-header">{L_LOGIN}<!-- IF FORUM_NAME --> - {FORUM_NAME}<!-- ENDIF --></div>
 
+			<div class="card mb-3">
 				<div class="card-body">
+
+					<h4 class="card-title mb-3">{L_LOGIN}<!-- IF FORUM_NAME --> - <span class="small">{FORUM_NAME}</span><!-- ENDIF --></h4>
+
 					<div class="alert alert-info">{L_LOGIN_FORUM}</div>
 
 					<!-- IF LOGIN_ERROR -->
@@ -35,6 +37,7 @@
 				</div>
 
 			</div>
+
 		</div>
 	</div>
 
