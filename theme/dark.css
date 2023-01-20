@@ -14,7 +14,7 @@
 	--active-bg: #0d6efd;
 }
 
-body {
+.dark body {
 	visibility: hidden;
 	opacity: 0;
 }
