@@ -100,6 +100,10 @@ html.dark, .dark .popover {
 	color: var(--card-body-color);
 }
 
+.list-group-item.bg-info {
+	color: var(--dark-bg);
+}
+
 .dark .dropdown-menu .dropdown-item:hover {
 	background-color: var(--body-bg) !important;
 }
