@@ -45,7 +45,7 @@ html.dark, .dark .popover {
 	border-color: var(--border-color) !important;
 }
 
-.dark .card .card, .nav-tabs .nav-link.active {
+.dark .card .card, .dark .nav-tabs .nav-link.active {
 	background-color: var(--body-bg) !important;
 }
 
@@ -108,7 +108,7 @@ html.dark, .dark .popover {
 	color: var(--card-body-color);
 }
 
-.list-group-item.bg-info {
+.dark .list-group-item.bg-info {
 	color: var(--dark-bg);
 }
 
