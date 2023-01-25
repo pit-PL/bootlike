@@ -35,7 +35,7 @@ html.dark, .dark .popover {
 	background-color: var(--dark-bg) !important;
 }
 
-.dark body, .dark .modal-content, .dark .page-link, .dark .text-bg-light, .dark .progress, .dark .form-select, .dark select {
+.dark body, .dark .modal-content, .dark .page-link, .dark .text-bg-light, .dark .progress {
 	color: var(--body-color) !important;
 	background-color: var(--body-bg) !important;
 }
@@ -45,7 +45,11 @@ html.dark, .dark .popover {
 	border-color: var(--border-color) !important;
 }
 
-.dark .card-body, .dark .btn.btn-lg, .dark .dropdown-menu, .dark .accordion-body, .dark .popover-body {
+.dark .card .card, .nav-tabs .nav-link.active {
+	background-color: var(--body-bg) !important;
+}
+
+.dark .card-body, .dark .btn.btn-lg, .dark .dropdown-menu, .dark .accordion-body, .dark .popover-body, .dark .form-select, .dark select {
 	color: var(--card-body-color);
 }
 
@@ -59,14 +63,14 @@ html.dark, .dark .popover {
 }
 
 .dark .card-footer {
-	background-color: var(--body-bg) !important;
+	background-color: var(--navbar-bg) !important;
 }
 
 .dark .offcanvas-header {
 	background-color: var(--dark-bg);
 }
 
-.dark .offcanvas-body, .dark .list-group-item-action:hover {
+.dark .offcanvas-body, .dark .list-group-item-action:hover, .dark .form-select, .dark select {
 	background-color: var(--card-bg) !important;
 }
 
@@ -84,6 +88,10 @@ html.dark, .dark .popover {
 
 .dark .fancyhr:after {
 	background: var(--card-bg);
+}
+
+.dark .card .card .fancyhr:after {
+	background: var(--body-bg);
 }
 
 .dark .list-group-item {
