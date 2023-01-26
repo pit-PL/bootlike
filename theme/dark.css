@@ -63,7 +63,7 @@ html.dark, .dark .popover {
 }
 
 .dark .card-footer {
-	background-color: var(--navbar-bg) !important;
+	background-color: var(--dark-bg) !important;
 }
 
 .dark .offcanvas-header {
