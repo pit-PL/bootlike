@@ -195,7 +195,7 @@ html.dark {
 	border-color: var(--card-bg) !important;
 }
 
-.contact-button .border-white {
+.dark .contact-button .border-white {
 	border-color: var(--active-bg) !important;
 }
 
