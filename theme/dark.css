@@ -137,7 +137,7 @@ html.dark {
 }
 
 .dark .contact-button i {
-	color: var(--active-bg) !important;
+	color: var(--active-bg);
 }
 
 .dark .contact-button:hover .alert-primary {
