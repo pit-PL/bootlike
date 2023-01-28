@@ -136,6 +136,10 @@ html.dark {
 	background-color: var(--dark-bg);
 }
 
+.dark .contact-button i {
+	color: var(--active-bg) !important;
+}
+
 .dark .contact-button:hover .alert-primary {
 	border-color: var(--dark-bg) !important;
 }
@@ -189,6 +193,10 @@ html.dark {
 
 .dark .border-white {
 	border-color: var(--card-bg) !important;
+}
+
+.contact-button .border-white {
+	border-color: var(--active-bg) !important;
 }
 
 .dark .nav-tabs .nav-link.active {
