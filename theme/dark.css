@@ -169,6 +169,7 @@ html.dark {
 
 .dark .footer-links .list-group-item {
 	background: none !important;
+	border-color: var(--bs-gray-700);
 }
 
 .dark .bs-popover-top > .popover-arrow::after, .dark .bs-popover-auto[data-popper-placement^=top] > .popover-arrow::after {
