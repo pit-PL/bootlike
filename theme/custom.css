@@ -430,8 +430,8 @@ a.postlink:hover, a.postlink:focus {
 	color: #e0e0e0;
 }
 
-.footer-links .list-group-item {
-	background: none;
+.footer-links .list-group-flush .list-group-item {
+	background: none !important;
 	border-color: #a4aeb8;
 }
 
