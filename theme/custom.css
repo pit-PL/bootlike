@@ -432,6 +432,7 @@ a.postlink:hover, a.postlink:focus {
 
 .footer-links .list-group-item {
 	background: none;
+	border-color: #a4aeb8;
 }
 
 .footer-links a {
