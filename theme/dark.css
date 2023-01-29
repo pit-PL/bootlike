@@ -168,7 +168,6 @@ html.dark {
 }
 
 .dark .footer-links .list-group-item {
-	background: none !important;
 	border-color: var(--bs-gray-700);
 }
 
