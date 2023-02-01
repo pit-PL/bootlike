@@ -309,6 +309,11 @@ a.postlink:hover, a.postlink:focus {
 	margin-left: -4px;
 }
 
+.rtl .timeline-post:before {
+	margin-left: 0;
+	margin-right: -4px;
+}
+
 .timeline-entry-inner, .rtl .switch-profile .timeline-entry-inner {
 	margin-right: 0;
 	margin-left: -31px;
