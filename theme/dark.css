@@ -112,6 +112,10 @@ html.dark {
 	color: var(--dark-bg);
 }
 
+.dark .form-floating label {
+	color: var(--navbar-bg);
+}
+
 .dark .dropdown-menu .dropdown-item:hover {
 	background-color: var(--body-bg) !important;
 }
