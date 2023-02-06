@@ -1,46 +1,36 @@
-<!-- INCLUDE simple_header.html -->
+<!-- INCLUDE overall_header.html -->
+
+<!-- IF FORUM_NAME -->
+<h3 class="mb-3"><a href="{U_VIEW_FORUM}">{FORUM_NAME}</a></h3>
+<!-- ENDIF -->
 
 <form id="login_forum" method="post" action="{S_LOGIN_ACTION}">
-		{S_FORM_TOKEN}
-	<div class="container-fluid d-flex align-items-center vh-100">
-		<div class="col-12 col-xl-6 offset-xl-3 col-lg-8 offset-lg-2">
+	{S_FORM_TOKEN}
 
-			<div class="card mb-3">
-				<div class="card-body">
-
-					<h4 class="card-title mb-3">{L_LOGIN}<!-- IF FORUM_NAME --> - <span class="small">{FORUM_NAME}</span><!-- ENDIF --></h4>
-
-					<div class="alert alert-info">{L_LOGIN_FORUM}</div>
-
-					<!-- IF LOGIN_ERROR -->
-					<div class="alert alert-danger">{LOGIN_ERROR}</div>
-					<!-- ENDIF -->
-
-					<div class="form-floating">
-						<input class="form-control w-100" type="password" tabindex="1" id="password" name="password" size="25" placeholder="{L_PASSWORD}" autocomplete="off" />
-						<label for="password">{L_PASSWORD}</label>
-					</div>
-					{S_LOGIN_REDIRECT}
-					{S_FORM_TOKEN_LOGIN}
-				</div>
-
-				<div class="card-footer text-center">
-					{S_HIDDEN_FIELDS}
-					<div class="row">
-						<div class="col-12 col-md-6">
-							<a class="btn btn-secondary w-100 my-1" href="#" onClick="history.go(-1)"><i class="fa fa-chevron-{S_CONTENT_FLOW_BEGIN} fa-fw" aria-hidden="true"></i> {L_BACK_TO_PREV}</a>
-						</div>
-						<div class="col-12 col-md-6">
-							<button class="btn btn-success w-100 my-1" type="submit" name="login" id="login" value="{L_LOGIN}" tabindex="2"><i class="fa fa-power-off fa-fw" aria-hidden="true"></i> {L_LOGIN}</button>
-						</div>
-					</div>
-				</div>
-
+	<div class="card mb-3">
+		<div class="card-header">{L_LOGIN}</div>
+	
+		<div class="card-body">
+			<p>{L_LOGIN_FORUM}</p>
+	
+			<!-- IF LOGIN_ERROR -->
+			<div class="alert alert-danger">{LOGIN_ERROR}</div>
+			<!-- ENDIF -->
+	
+			<div class="form-floating mb-3">
+				<input class="form-control w-50" type="password" tabindex="1" id="password" name="password" size="25" placeholder="{L_PASSWORD}" autocomplete="off" />
+				<label for="password">{L_PASSWORD}</label>
 			</div>
-
+			{S_LOGIN_REDIRECT}
+			{S_FORM_TOKEN_LOGIN}
+		</div>
+	
+		<div class="card-footer text-center">
+			{S_HIDDEN_FIELDS}
+			<button class="btn btn-success w-50" type="submit" name="login" id="login" value="{L_LOGIN}" tabindex="2"><i class="fa fa-power-off fa-fw" aria-hidden="true"></i> {L_LOGIN}</button>
 		</div>
 	</div>
 
 </form>
 
-<!-- INCLUDE simple_footer.html -->
+<!-- INCLUDE overall_footer.html -->
