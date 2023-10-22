@@ -45,11 +45,15 @@ html.dark {
 	border-color: var(--border-color) !important;
 }
 
+.dark .card {
+	color: var(--body-color);
+}
+
 .dark .card .card, .dark .nav-tabs .nav-link.active {
 	background-color: var(--body-bg) !important;
 }
 
-.dark .card-body, .dark .btn.btn-lg, .dark .dropdown-menu, .dark .accordion-body, .dark .popover-body, .dark .form-select, .dark select {
+.dark .card-body, .dark .offcanvas-body, .dark .btn.btn-lg, .dark .dropdown-menu, .dark .accordion-body, .dark .popover-body, .dark .form-select, .dark select {
 	color: var(--card-body-color);
 }
 
