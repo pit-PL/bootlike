@@ -79,8 +79,9 @@
 					{% endif %}
 
 				<!-- EVENT ucp_register_profile_fields_before -->
-				<!-- IF .profile_fields -->
+				{% if PROFILE_FIELDS_REQUIRED %}
 					<div class="alert alert-info">{L_ITEMS_REQUIRED}</div>
+				{% endif %}
 				<!-- BEGIN profile_fields -->
 					<dl class="row mb-3">
 						<dt class="col-lg-4 col-md-5 col-12">
@@ -92,7 +93,6 @@
 						<dd class="col-lg-8 col-md-7 col-12">{profile_fields.FIELD}<!-- IF profile_fields.ERROR --><br><span class="text-danger">{profile_fields.ERROR}</span><!-- ENDIF --></dd>
 					</dl>
 				<!-- END profile_fields -->
-				<!-- ENDIF -->
 
 				<!-- EVENT ucp_register_profile_fields_after -->
 
