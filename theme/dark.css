@@ -222,6 +222,10 @@ html.dark {
 	background-color: var(--active-bg) !important;
 }
 
+.dark .text-muted {
+	color: var(--body-color) !important;
+}
+
 .dark .input-group-text {
 	color: var(--body-color);
 	background-color: var(--navbar-bg);
