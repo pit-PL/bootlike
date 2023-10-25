@@ -7,7 +7,10 @@
 {META}
 <title>{SITENAME} &bull; {PAGE_TITLE}</title>
 <link href="{T_FONT_AWESOME_LINK}" rel="stylesheet">
-<link href="{ROOT_PATH}styles/bootlike/theme/stylesheet.css" rel="stylesheet">
+<link href="{T_THEME_PATH}/stylesheet.css" rel="stylesheet">
+{% if S_CONTENT_DIRECTION eq 'rtl' %}
+<link href="{T_THEME_PATH}/bootstrap.rtl.min.css" rel="stylesheet">
+{% endif %}
 <style>
 html {background-color: #fff;}
 a {color: #212529 !important;}
