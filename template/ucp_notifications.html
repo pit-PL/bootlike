@@ -79,13 +79,13 @@
 
 		<!-- BEGIN notification_list -->
 		<div class="container-fluid p-0 notification-text">
-			<div class="m-1 mt-0 bg1<!-- IF notification_list.UNREAD --> bg-info<!-- ENDIF --><!-- IF notification_list.STYLING --> {notification_list.STYLING}<!-- ENDIF -->">
+			<div class="m-1 mt-0<!-- IF notification_list.UNREAD --> text-bg-info<!-- ELSE --> bg1<!-- ENDIF --><!-- IF notification_list.STYLING --> {notification_list.STYLING}<!-- ENDIF -->">
 				<div class="row px-3 py-2 align-items-center">
 					<div class="col-md-10 col-sm-9 col-9">
 						<div class="float-start me-2">
 							<!-- IF notification_list.AVATAR -->{notification_list.AVATAR}<!-- ELSE --><img src="{ROOT_PATH}styles/bootlike/theme/images/no_avatar.gif" class="img-thumbnail" alt="{L_IMAGE}" /><!-- ENDIF -->
 						</div>
-						<!-- IF notification_list.URL --><a href="<!-- IF notification_list.UNREAD -->{notification_list.U_MARK_READ}<!-- ELSE -->{notification_list.URL}<!-- ENDIF -->"><!-- ENDIF -->
+						<!-- IF notification_list.URL --><a<!-- IF notification_list.UNREAD --> class="alert-link"<!-- ENDIF --> href="<!-- IF notification_list.UNREAD -->{notification_list.U_MARK_READ}<!-- ELSE -->{notification_list.URL}<!-- ENDIF -->"><!-- ENDIF -->
 						{notification_list.FORMATTED_TITLE}<!-- IF notification_list.REFERENCE --> {notification_list.REFERENCE}<!-- ENDIF --><br>
 						<!-- IF notification_list.URL --></a><!-- ENDIF -->
 						<!-- IF notification_list.FORUM -->{notification_list.FORUM}<br><!-- ENDIF -->
