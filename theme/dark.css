@@ -31,7 +31,7 @@ html.dark {
 	background-image: url("./images/meteor_dark.svg");
 }
 
-.dark .btn.btn-lg:hover, .dark #format-buttons .btn:hover, .dark .popover-header {
+.dark .action-bar .btn.btn-lg:hover, .dark #format-buttons .btn:hover, .dark .popover-header, .dark .bg-light {
 	background-color: var(--dark-bg) !important;
 }
 
