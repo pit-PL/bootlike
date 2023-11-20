@@ -49,18 +49,18 @@
 		<!-- IF S_PRIVMSGS -->
 			<!-- BEGIN t_block2 -->
 				<!-- IF S_PRIVMSGS and not t_block2.S_LAST_ROW -->
-				<a class="list-group-item list-group-item-action<!-- IF t_block2.S_SELECTED --> text-primary fw-semibold pe-none<!-- ENDIF -->" href="{t_block2.U_TITLE}">{t_block2.L_TITLE}</a>
+				<a class="list-group-item list-group-item-action<!-- IF t_block2.S_SELECTED --> pe-none<!-- ENDIF -->" href="{t_block2.U_TITLE}"><!-- IF t_block2.S_SELECTED --><i class="fa<!-- IF S_CONTENT_DIRECTION eq 'rtl' --> fa-level-down<!-- ELSE --> fa-level-up<!-- ENDIF --> fa-rotate-90" aria-hidden="true"></i> &nbsp; <!-- ENDIF -->{t_block2.L_TITLE}</a>
 				<!-- ENDIF -->
 			<!-- END t_block2 -->
 		
 			<!-- BEGIN folder -->
-				<a class="list-group-item list-group-item-action<!-- IF folder.S_CUR_FOLDER --> text-primary fw-semibold pe-none<!-- ENDIF --> d-flex align-items-center justify-content-lg-between" href="{folder.U_FOLDER}"><!-- IF folder.UNREAD_MESSAGES > 0 -->{folder.FOLDER_NAME} <strong class="badge bg-primary ms-2">{folder.UNREAD_MESSAGES}</strong><!-- ELSE -->{folder.FOLDER_NAME}<!-- ENDIF --></a>
+				<a class="list-group-item list-group-item-action d-flex<!-- IF folder.S_CUR_FOLDER --> pe-none<!-- ENDIF -->" href="{folder.U_FOLDER}"><!-- IF folder.S_CUR_FOLDER --><i class="fa<!-- IF S_CONTENT_DIRECTION eq 'rtl' --> fa-level-down<!-- ELSE --> fa-level-up<!-- ENDIF --> fa-rotate-90 me-1" aria-hidden="true"></i>&nbsp; &nbsp;<!-- ENDIF --><span class="d-inline-block"><!-- IF folder.UNREAD_MESSAGES > 0 -->{folder.FOLDER_NAME} <strong class="badge bg-primary ms-2">{folder.UNREAD_MESSAGES}</strong><!-- ELSE -->{folder.FOLDER_NAME}<!-- ENDIF --></span</a>
 			<!-- END folder -->
 		<!-- ENDIF -->
 		
 		<!-- BEGIN t_block2 -->
 			<!-- IF (S_PRIVMSGS and t_block2.S_LAST_ROW) or not S_PRIVMSGS -->
-				<a class="list-group-item list-group-item-action<!-- IF t_block2.S_SELECTED --> text-primary fw-semibold pe-none<!-- ENDIF -->" href="{t_block2.U_TITLE}">{t_block2.L_TITLE}</a>
+				<a class="list-group-item list-group-item-action<!-- IF t_block2.S_SELECTED --> pe-none<!-- ENDIF -->" href="{t_block2.U_TITLE}"><!-- IF t_block2.S_SELECTED --><i class="fa<!-- IF S_CONTENT_DIRECTION eq 'rtl' --> fa-level-down<!-- ELSE --> fa-level-up<!-- ENDIF --> fa-rotate-90" aria-hidden="true"></i> &nbsp; <!-- ENDIF -->{t_block2.L_TITLE}</a>
 			<!-- ENDIF -->
 		<!-- END t_block2 -->
 			</div>
