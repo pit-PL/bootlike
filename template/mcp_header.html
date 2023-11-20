@@ -45,7 +45,7 @@
 		<!-- BEGIN l_block1 -->
 			<!-- IF l_block1.S_SELECTED -->
 				<!-- BEGIN l_block2 -->
-				<a class="list-group-item list-group-item-action<!-- IF l_block1.l_block2.S_SELECTED --> text-primary fw-semibold pe-none<!-- ENDIF -->" href="{l_block1.l_block2.U_TITLE}">{l_block1.l_block2.L_TITLE}<!-- IF l_block1.l_block2.ADD_ITEM --> ({l_block1.l_block2.ADD_ITEM})<!-- ENDIF --></a>
+				<a class="list-group-item list-group-item-action<!-- IF l_block1.l_block2.S_SELECTED --> pe-none<!-- ENDIF -->" href="{l_block1.l_block2.U_TITLE}"><!-- IF l_block1.l_block2.S_SELECTED --><i class="fa<!-- IF S_CONTENT_DIRECTION eq 'rtl' --> fa-level-down<!-- ELSE --> fa-level-up<!-- ENDIF --> fa-rotate-90" aria-hidden="true"></i> &nbsp; <!-- ENDIF -->{l_block1.l_block2.L_TITLE}<!-- IF l_block1.l_block2.ADD_ITEM --> ({l_block1.l_block2.ADD_ITEM})<!-- ENDIF --></a>
 				<!-- END l_block2 -->
 			<!-- ENDIF -->
 		<!-- END l_block1 -->
