@@ -14,17 +14,29 @@
 
 <!-- NOTE: remove the "d-none" when you want to have the forum description on the forum body -->
 <!-- IF FORUM_DESC -->
-	<div class="alert alert-info d-none">{FORUM_DESC}</div>
+<div class="alert alert-primary d-flex p-0 rounded-0 shadow-sm d-none">
+	<div class="p-3 text-bg-primary d-flex align-items-center">
+		<i class="fa fa-comment-o fa-fw fa-2x" aria-hidden="true"></i>
+	</div>
+	<div class="w-100 p-3">
+		{FORUM_DESC}
+	</div>
+</div>
 <!-- ENDIF -->
 
 <!-- IF S_FORUM_RULES -->
-<div class="alert alert-warning">
+<div class="alert alert-warning d-flex p-0 rounded-0 shadow-sm">
+	<div class="p-3 text-bg-danger d-flex align-items-center">
+		<i class="fa fa-exclamation-triangle fa-fw fa-2x" aria-hidden="true"></i>
+	</div>
+	<div class="w-100 p-3">
 	<!-- IF U_FORUM_RULES -->
-		<a href="{U_FORUM_RULES}"><strong>{L_FORUM_RULES}</strong></a>
+		<a class="fs-5" href="{U_FORUM_RULES}"><strong>{L_FORUM_RULES}</strong></a>
 	<!-- ELSE -->
-		<strong>{L_FORUM_RULES}</strong><br>
+		<strong class="d-block fs-5">{L_FORUM_RULES}</strong>
 		{FORUM_RULES}
 	<!-- ENDIF -->
+	</div>
 </div>
 <!-- ENDIF -->
 
@@ -37,7 +49,14 @@
 <!-- ENDIF -->
 
 <!-- IF S_NO_READ_ACCESS -->
-	<div class="alert alert-warning">{L_NO_READ_ACCESS}</div>
+	<div class="alert alert-warning d-flex p-0 rounded-0 shadow-sm">
+		<div class="p-3 text-bg-danger d-flex align-items-center">
+			<i class="fa fa-exclamation-triangle fa-fw fa-2x" aria-hidden="true"></i>
+		</div>
+		<div class="w-100 p-3">
+			{L_NO_READ_ACCESS}
+		</div>
+	</div>
 
 	<!-- IF not S_USER_LOGGED_IN and not S_IS_BOT -->
 	<form action="{S_LOGIN_ACTION}" method="post">
@@ -265,13 +284,18 @@
 	<!-- ENDIF -->
 
 <!-- BEGINELSE -->
-	<!-- IF S_IS_POSTABLE -->
-	<div class="alert alert-info">
-		{L_NO_TOPICS}
-	</div>
-	<!-- ELSE IF not S_HAS_SUBFORUM -->
-	<div class="alert alert-info">
-		{L_NO_FORUMS_IN_CATEGORY}
+	<!-- IF S_IS_POSTABLE or not S_HAS_SUBFORUM -->
+	<div class="alert alert-info d-flex p-0 rounded-0 shadow-sm">
+		<div class="p-3 text-bg-info d-flex align-items-center">
+			<i class="fa fa-info fa-fw fa-2x" aria-hidden="true"></i>
+		</div>
+		<div class="w-100 p-3">
+		<!-- IF S_IS_POSTABLE -->
+			{L_NO_TOPICS}
+		<!-- ELSE IF not S_HAS_SUBFORUM -->
+			{L_NO_FORUMS_IN_CATEGORY}
+		<!-- ENDIF -->
+		</div>
 	</div>
 	<!-- ENDIF -->
 <!-- END topicrow -->
