@@ -44,17 +44,29 @@
 
 <!-- NOTE: remove the "d-none" when you want to have the forum description on the topic body -->
 <!-- IF FORUM_DESC -->
-<div class="alert alert-info d-none">{FORUM_DESC}</div>
+<div class="alert alert-info d-flex p-0 rounded-0 shadow-sm d-none">
+	<div class="p-3 text-bg-info d-flex align-items-center">
+		<i class="fa fa-comment-o fa-fw fa-2x" aria-hidden="true"></i>
+	</div>
+	<div class="w-100 p-3">
+		{FORUM_DESC}
+	</div>
+</div>
 <!-- ENDIF -->
 
 <!-- IF S_FORUM_RULES -->
-<div class="alert alert-warning">
-<!-- IF U_FORUM_RULES -->
-	<a href="{U_FORUM_RULES}"><strong>{L_FORUM_RULES}</strong></a>
-<!-- ELSE -->
-	<strong>{L_FORUM_RULES}</strong><br>
-	{FORUM_RULES}
-<!-- ENDIF -->
+<div class="alert alert-warning d-flex p-0 rounded-0 shadow-sm">
+	<div class="p-3 text-bg-danger d-flex align-items-center">
+		<i class="fa fa-exclamation-triangle fa-fw fa-2x" aria-hidden="true"></i>
+	</div>
+	<div class="w-100 p-3">
+	<!-- IF U_FORUM_RULES -->
+		<a class="fs-5" href="{U_FORUM_RULES}"><strong>{L_FORUM_RULES}</strong></a>
+	<!-- ELSE -->
+		<strong class="d-block fs-5">{L_FORUM_RULES}</strong>
+		{FORUM_RULES}
+	<!-- ENDIF -->
+	</div>
 </div>
 <!-- ENDIF -->
 
