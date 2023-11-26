@@ -240,8 +240,12 @@ html.dark {
 	box-shadow: 0 0 0 0.25rem rgba(58, 63, 68, 0.25);
 }
 
-.dark .timeline-postbody:after {
+.dark .timeline-postbody:after, .dark .rtl .switch-profile .timeline-postbody:after {
 	border-color: transparent var(--card-bg) transparent transparent;
+}
+
+.dark .switch-profile .timeline-postbody:after, .dark .rtl .timeline-postbody:after {
+	border-color: transparent transparent transparent var(--card-bg);
 }
 
 .dark .row-item .folder:before {
