@@ -309,6 +309,22 @@ a.postlink:hover, a.postlink:focus {
 	margin-left: -4px;
 }
 
+.timeline-post.unapproved:before {
+	background: #a3cfbb;
+}
+
+.timeline-post.unread:before {
+	background: #9eeaf9;
+}
+
+.timeline-post.reported:before {
+	background: #ffe69c;
+}
+
+.timeline-post.hidden:before {
+	background: #f1aeb5;
+}
+
 .rtl .timeline-post:before {
 	margin-left: 0;
 	margin-right: -4px;
