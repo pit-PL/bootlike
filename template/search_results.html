@@ -182,13 +182,13 @@
 
 				<div class="postprofile col-lg-3 col-md-4<!-- IF $PROFILE_ON_RIGHT --> order-first order-md-2<!-- ENDIF --> px-3 py-2 lh-lg bg2">
 				<!-- EVENT search_results_postprofile_before -->
-					<div class="mb-2">{L_POST_BY_AUTHOR} <!-- EVENT search_results_post_author_username_prepend --> {searchresults.POST_AUTHOR_FULL}<!-- EVENT search_results_post_author_username_append --></div>
+					<div>{L_POST_BY_AUTHOR} <!-- EVENT search_results_post_author_username_prepend --> {searchresults.POST_AUTHOR_FULL}<!-- EVENT search_results_post_author_username_append --></div>
 					<div>{searchresults.POST_DATE}</div>
 					<div>{L_FORUM}{L_COLON} <a href="{searchresults.U_VIEW_FORUM}">{searchresults.FORUM_TITLE}</a></div>
 					<div>{L_TOPIC}{L_COLON} <a href="{searchresults.U_VIEW_TOPIC}">{searchresults.TOPIC_TITLE}</a></div>
 					<!-- EVENT search_results_topic_title_after -->
-					<div>{L_REPLIES}{L_COLON} <strong>{searchresults.TOPIC_REPLIES}</strong></div>
-					<div>{L_VIEWS}{L_COLON} <strong>{searchresults.TOPIC_VIEWS}</strong></div>
+					<div>{L_REPLIES}{L_COLON} {searchresults.TOPIC_REPLIES}</div>
+					<div>{L_VIEWS}{L_COLON} {searchresults.TOPIC_VIEWS}</div>
 				<!-- EVENT search_results_postprofile_after -->
 				</div>
 
