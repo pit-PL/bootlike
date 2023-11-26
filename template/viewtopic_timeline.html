@@ -33,7 +33,7 @@
 	</div>
 	<!-- ENDIF -->
 
-	<div id="p{postrow.POST_ID}" class="<!-- IF $PROFILE_ON_RIGHT -->switch-profile <!-- ENDIF -->timeline-post position-relative clearfix"<!-- IF postrow.S_POST_HIDDEN --> style="display: none;"<!-- ENDIF -->>
+	<div id="p{postrow.POST_ID}" class="<!-- IF $PROFILE_ON_RIGHT -->switch-profile <!-- ENDIF -->timeline-post position-relative clearfix<!-- IF postrow.S_POST_UNAPPROVED --> unapproved<!-- ENDIF --><!-- IF postrow.S_UNREAD_POST --> unread<!-- ENDIF --><!-- IF postrow.S_POST_REPORTED --> reported<!-- ENDIF --><!-- IF postrow.S_POST_HIDDEN --> hidden<!-- ENDIF -->"<!-- IF postrow.S_POST_HIDDEN --> style="display: none;"<!-- ENDIF -->>
 		<div class="timeline-entry pb-3">
 			<div class="timeline-entry-inner position-relative">
 			<!-- IF postrow.S_ONLINE and not postrow.S_POST_HIDDEN -->
