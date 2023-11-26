@@ -258,6 +258,22 @@ html.dark {
 	-webkit-text-stroke: 1px #a80202;
 }
 
+.timeline-post.unapproved:before {
+	background: #0f5132 !important;
+}
+
+.timeline-post.unread:before {
+	background: #087990 !important;
+}
+
+.timeline-post.reported:before {
+	background: #997404 !important;
+}
+
+.timeline-post.hidden:before {
+	background: #842029 !important;
+}
+
 @keyframes pulse-animation {
 	0% {
 		box-shadow: 0 0 0 0px rgba(150, 150, 150, 0.4);
