@@ -8,9 +8,11 @@
 
 			<ul class="navbar-nav fw-semibold" role="menubar">
 				<li class="nav-item">
-					<a id="dark_mode" class="nav-link" href="javascript:;" role="switch">
-						<span class="light-mode"><i class="fa fa-sun-o fa-fw" aria-hidden="true"></i> {$LIGHT_MODE}</span>
-						<span class="dark-mode"><i class="fa fa-moon-o fa-fw" aria-hidden="true"></i> {$DARK_MODE}</span>
+					<a class="nav-link light-mode" href="javascript:;" data-bs-theme-value="light" role="switch">
+						<i class="fa fa-moon-o fa-fw" aria-hidden="true"></i> {$DARK_MODE}
+					</a>
+					<a class="nav-link dark-mode" href="javascript:;" data-bs-theme-value="dark" role="switch">
+						<i class="fa fa-sun-o fa-fw" aria-hidden="true"></i> {$LIGHT_MODE}
 					</a>
 				</li>
 
