@@ -29,10 +29,6 @@
 
 <!-- INCLUDE _config.html -->
 
-<script>
-	if (localStorage.theme) document.documentElement.classList.add(localStorage.theme);
-</script>
-
 <link href="{T_FONT_AWESOME_LINK}" rel="stylesheet">
 <link href="{T_STYLESHEET_LINK}" rel="stylesheet">
 
@@ -55,7 +51,7 @@
 <!-- EVENT overall_header_stylesheets_after -->
 
 <noscript><style>body {visibility: visible; opacity: 1;}</style></noscript>
-
+<script src="{T_TEMPLATE_PATH}/color_modes.js"></script>
 </head>
 <body id="phpbb" class="nojs notouch section-{SCRIPT_NAME} {S_CONTENT_DIRECTION} {BODY_CLASS} bg2">
 <button onclick="topFunction()" id="gototop" class="btn btn-primary rounded-circle border border-5 border-white position-fixed" title="{L_BACK_TO_TOP}"><i class="fa fa-angle-up fa-2x" aria-hidden="true"></i></button> 
