@@ -1,8 +1,11 @@
 html {
 	height: 101%;
-	background-color: #466494;
 	opacity: 0.95;
 	scroll-padding-top: 4.5rem;
+}
+
+html[data-bs-theme='light'] {
+	background-color: #466494 !important;
 }
 
 .header-link {
@@ -125,7 +128,7 @@ img {
 	min-width: 150px;
 }
 
-.post-ignore .postbody, .dark-mode {
+.post-ignore .postbody {
 	display: none;
 }
 
@@ -470,6 +473,10 @@ a.postlink:hover, a.postlink:focus {
 
 .toggle-minus .fa-minus {
 	display: inline;
+}
+
+.light-mode {
+	display: none !important;
 }
 
 /* jQuery popups
