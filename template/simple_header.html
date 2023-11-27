@@ -7,10 +7,6 @@
 {META}
 <title>{SITENAME} &bull; <!-- IF S_IN_MCP -->{L_MCP} &bull; <!-- ELSEIF S_IN_UCP -->{L_UCP} &bull; <!-- ENDIF -->{PAGE_TITLE}</title>
 
-<script>
-	if (localStorage.theme) document.documentElement.classList.add(localStorage.theme);
-</script>
-
 <link href="{T_FONT_AWESOME_LINK}" rel="stylesheet">
 <link href="{T_STYLESHEET_LINK}" rel="stylesheet">
 
@@ -27,7 +23,7 @@
 <!-- EVENT simple_header_stylesheets_after -->
 
 <noscript><style>body {visibility: visible; opacity: 1;}</style></noscript>
-
+<script src="{T_TEMPLATE_PATH}/color_modes.js"></script>
 </head>
 
 <body id="phpbb" class="nojs {S_CONTENT_DIRECTION} {BODY_CLASS} bg1">
