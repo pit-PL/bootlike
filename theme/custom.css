@@ -35,8 +35,17 @@ div.card, .card-header, .card-footer {
 }
 
 .card-title {
-	border-bottom: 4px solid;
-	border-image: linear-gradient(to right, #6c757d 40%, #d3d3d3 40%, #d3d3d3 75%) 4;
+	border-bottom: 1px solid #6c757d;
+}
+
+.card-title > span {
+	padding-right: 2rem;
+	border-bottom: 0.25rem solid #6c757d;
+}
+
+.rtl .card-title > span {
+	padding-right: 0;
+	padding-left: 2rem;
 }
 
 img {
