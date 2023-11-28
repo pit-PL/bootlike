@@ -10,10 +10,6 @@
 	--active-bg: #0d6efd;
 }
 
-html[data-bs-theme='dark'] {
-	background-color: var(--dark-bg);
-}
-
 [data-bs-theme="dark"] {
 	.card {
 		background-color: var(--card-bg) !important;
