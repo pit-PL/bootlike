@@ -5,7 +5,7 @@ html {
 }
 
 html[data-bs-theme='light'] {
-	background-color: #466494 !important;
+	background-color: #466494;
 }
 
 .header-link {
