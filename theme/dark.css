@@ -11,6 +11,11 @@
 }
 
 [data-bs-theme="dark"] {
+	 body {
+		visibility: hidden;
+		opacity: 0;
+	}
+
 	.card {
 		background-color: var(--card-bg) !important;
 	}
