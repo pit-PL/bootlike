@@ -20,12 +20,12 @@
 			<div class="card-body pb-0">
 
 			{% if PROVIDER_TEMPLATE_FILE %}
-				<h4 class="card-title mb-3">{{ SITENAME }} - {{ lang('OAUTH_REGISTRATION') }}</h4>
+				<h4 class="card-title mb-3 pb-1 lh-sm"><span>{{ SITENAME }} - {{ lang('OAUTH_REGISTRATION') }}</span></h4>
 
 				<div class="mb-3">{% include PROVIDER_TEMPLATE_FILE %}</div>
 			{% endif %}
 
-				<h4 class="card-title mb-3">{SITENAME} - {L_REGISTRATION}</h4>
+				<h4 class="card-title mb-3 pb-1 lh-sm"><span>{SITENAME} - {L_REGISTRATION}</span></h4>
 
 				<!-- IF ERROR -->
 					<div class="alert alert-danger">{ERROR}</div>
