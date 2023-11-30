@@ -1,5 +1,5 @@
 <!-- IF S_TYPE == 1 -->
-	<h4 class="card-title mb-3">{L_CONFIRMATION}</h4>
+<h4 class="card-title mb-3 pb-1 lh-sm"><span>{L_CONFIRMATION}</span></h4>
 
 <div class="row mb-3">
 	<div class="col-12 col-md-6">
@@ -13,14 +13,14 @@
 	</div>
 </div>
 <!-- ELSE -->
-	<dl class="row">
-		<dt class="col-lg-3 col-md-4 col-12">
-			<label class="col-form-label" for="answer">{QA_CONFIRM_QUESTION}{L_COLON}</label>
-			<div class="small text-muted fw-normal mb-1">{L_CONFIRM_QUESTION_EXPLAIN}</div>
-		</dt>
-		<dd class="col-lg-9 col-md-8 col-12">
-			<input class="form-control" type="text" tabindex="{$CAPTCHA_TAB_INDEX}" name="qa_answer" id="answer" size="25" title="{L_ANSWER}" />
-			<input type="hidden" name="qa_confirm_id" id="qa_confirm_id" value="{QA_CONFIRM_ID}" />
-		</dd>
-	</dl>
+<dl class="row">
+	<dt class="col-lg-3 col-md-4 col-12">
+		<label class="col-form-label" for="answer">{QA_CONFIRM_QUESTION}{L_COLON}</label>
+		<div class="small text-muted fw-normal mb-1">{L_CONFIRM_QUESTION_EXPLAIN}</div>
+	</dt>
+	<dd class="col-lg-9 col-md-8 col-12">
+		<input class="form-control" type="text" tabindex="{$CAPTCHA_TAB_INDEX}" name="qa_answer" id="answer" size="25" title="{L_ANSWER}" />
+		<input type="hidden" name="qa_confirm_id" id="qa_confirm_id" value="{QA_CONFIRM_ID}" />
+	</dd>
+</dl>
 <!-- ENDIF -->
