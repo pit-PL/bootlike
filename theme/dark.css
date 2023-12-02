@@ -16,19 +16,19 @@
 		opacity: 0;
 	}
 
-	.card, .dropdown-menu {
-		background-color: var(--card-bg) !important;
-	}
-
-	.bg1, .footer-links {
+	.bg1, .footer-links, .modal-content {
 		background-color: var(--navbar-bg);
 	}
 
-	.bg2, .card .card, .card.bg2, .modal-body, .nav-tabs .nav-link.active, .page-footer, .list-group-item, #format-buttons .btn:hover, .action-bar, .text-bg-light {
+	.bg2, .card .card, .card.bg2, .nav-tabs .nav-link.active, .page-footer, .list-group-item, #format-buttons .btn:hover, .action-bar, .text-bg-light {
 		background-color: var(--body-bg) !important;
 	}
 
-	.card-header, .card-footer, .modal-header, .modal-footer, .form-control, .form-select, select, .action-bar .btn.btn-lg:hover, #format-buttons .btn, .bg-light {
+	.card, .dropdown-menu, .bg-white, .timeline-post:before, .row-item .folder:before, .list-group-item-action:hover, .fancyhr:after {
+		background-color: var(--card-bg) !important;
+	}
+
+	.card-header, .card-footer, .form-control, .form-select, select, .action-bar .btn.btn-lg:hover, #format-buttons .btn, .bg-light {
 		background-color: var(--dark-bg) !important;
 	}
 
@@ -46,10 +46,6 @@
 
 	.form-select, select {
 		color: var(--card-body-color);
-	}
-
-	.bg-white, .timeline-post:before, .row-item .folder:before, .list-group-item-action:hover, .fancyhr:after {
-		background-color: var(--card-bg) !important;
 	}
 
 	.fancyhr {
