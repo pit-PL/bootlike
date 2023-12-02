@@ -1,5 +1,5 @@
 <div id="header_carousel" class="carousel slide"<!-- IF not S_USER_LOGGED_IN --> data-bs-ride="carousel"<!-- ENDIF -->>
-	<div class="carousel-indicators">
+	<div class="carousel-indicators<!-- IF S_USER_LOGGED_IN --> d-none<!-- ENDIF -->">
 		<button type="button" data-bs-target="#header_carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
 		<button type="button" data-bs-target="#header_carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
 		<button type="button" data-bs-target="#header_carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
@@ -37,11 +37,11 @@
 		</div>
 
 	</div>
-	<button class="carousel-control-prev" type="button" data-bs-target="#header_carousel" data-bs-slide="{L_PREVIOUS}">
+	<button class="carousel-control-prev<!-- IF S_USER_LOGGED_IN --> d-none<!-- ENDIF -->" type="button" data-bs-target="#header_carousel" data-bs-slide="{L_PREVIOUS}">
 		<span class="carousel-control-prev-icon" aria-hidden="true"></span>
 		<span class="visually-hidden">{L_PREVIOUS}</span>
 	</button>
-	<button class="carousel-control-next" type="button" data-bs-target="#header_carousel" data-bs-slide="{L_NEXT}">
+	<button class="carousel-control-next<!-- IF S_USER_LOGGED_IN --> d-none<!-- ENDIF -->" type="button" data-bs-target="#header_carousel" data-bs-slide="{L_NEXT}">
 		<span class="carousel-control-next-icon" aria-hidden="true"></span>
 		<span class="visually-hidden">{L_NEXT}</span>
 	</button>
