@@ -24,7 +24,7 @@
 		background-color: var(--navbar-bg);
 	}
 
-	.bg2, .card .card, .card.bg2, .nav-tabs .nav-link.active, .page-footer, .list-group-item, #format-buttons .btn:hover, .action-bar, .text-bg-light {
+	.bg2, .card .card, .card.bg2, .modal-body, .nav-tabs .nav-link.active, .page-footer, .list-group-item, #format-buttons .btn:hover, .action-bar, .text-bg-light {
 		background-color: var(--body-bg) !important;
 	}
 
