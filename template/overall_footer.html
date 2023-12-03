@@ -8,7 +8,7 @@
 
 <!-- EVENT overall_footer_copyright_prepend -->
 
-	<div class="page-footer border-top" role="contentinfo">
+	<div id="page-footer" class="page-footer border-top" role="contentinfo">
 		<!-- INCLUDE navbar_footer.html -->
 
 		<div class="p-3 mx-3 d-md-flex justify-content-md-between">
@@ -45,25 +45,17 @@
 		<div id="darken" class="darken position-fixed start-0 top-0 w-100 h-100 bg-dark">&nbsp;</div>
 	</div>
 
-	<div id="phpbb_alert" class="phpbb_alert modal" tabindex="-1" data-l-err="{L_ERROR}" data-l-timeout-processing-req="{L_TIMEOUT_PROCESSING_REQ}">
-		<div class="modal-dialog modal-dialog-centered">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="alert_title modal-title">&nbsp;</h5>
-					<button type="button" class="alert_close btn-close" title="{L_CLOSE_WINDOW}" data-bs-dismiss="modal" aria-label="{L_CLOSE_WINDOW}"></button>
-				</div>
-				<div class="modal-body rounded-bottom">
-					<p class="alert_text"></p>
-				</div>
+	<div id="phpbb_alert" class="phpbb_alert position-fixed start-0 end-0 mx-auto" data-l-err="{L_ERROR}" data-l-timeout-processing-req="{L_TIMEOUT_PROCESSING_REQ}">
+		<div class="bg-white border">
+			<div class="modal-header p-3 border-bottom">
+				<h5 class="alert_title modal-title">&nbsp;</h5>
+				<a href="#" class="alert_close btn-close float-end" title="{L_CLOSE_WINDOW}"><span class="text-danger" aria-hidden="true"></span></a>
 			</div>
+			<p class="alert_text p-3"></p>
 		</div>
 	</div>
-	<div id="phpbb_confirm" class="phpbb_alert modal" tabindex="-1">
-		<div class="modal-dialog modal-dialog-centered">
-			<div class="modal-content">
-				<div class="alert_text"></div>
-			</div>
-		</div>
+	<div id="phpbb_confirm" class="phpbb_alert position-fixed start-0 end-0 mx-auto">
+		<p class="alert_text"></p>
 	</div>
 
 	<!-- INCLUDE login_popup.html -->
