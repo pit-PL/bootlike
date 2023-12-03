@@ -1,41 +1,36 @@
 <!-- IF S_AJAX_REQUEST -->
-	<form action="{S_CONFIRM_ACTION}" method="post">
-		<div class="modal-dialog m-0" role="document">
-			<div class="modal-content">
-				<div class="modal-header alert_title">
-					<h5>{L_DELETE_TOPIC}</h5>
-					<a href="#" class="alert_close btn-close float-end" title="{L_CLOSE_WINDOW}"><span class="text-danger" aria-hidden="true"></span></a>
+<form action="{S_CONFIRM_ACTION}" method="post">
+	<div class="bg-white border">
+		<p class="alert alert-danger m-3">{MESSAGE_TEXT}</p>
+	
+	<!-- IF not S_SHADOW_TOPICS -->
+		<div class="p-3">
+			<!-- IF not S_SOFTDELETED and S_ALLOWED_DELETE and S_ALLOWED_SOFTDELETE -->
+			<label class="d-block fw-bold" for="delete_permanent">{L_DELETE_PERMANENTLY}{L_COLON}</label>
+			<div class="form-check form-switch mb-3">
+				<input class="form-check-input mt-2" id="delete_permanent" name="delete_permanent" type="checkbox" value="1" {S_CHECKED_PERMANENT} /><!-- IF S_TOPIC_MODE --> {DELETE_TOPIC_PERMANENTLY}<!-- ELSE --> {DELETE_POST_PERMANENTLY}<!-- ENDIF -->
+				<label class="form-check-label mt-1" for="delete_permanent"><!-- IF S_TOPIC_MODE -->{DELETE_TOPIC_PERMANENTLY_EXPLAIN}<!-- ELSE -->{DELETE_POST_PERMANENTLY_EXPLAIN}<!-- ENDIF --></label>
+			</div>
+			<!-- ENDIF -->
+			<label class="d-block fw-bold mb-1" for="delete_reason">{L_DELETE_REASON}{L_COLON}</label>
+			<input class="form-control" id="delete_reason" name="delete_reason" type="text" value="" maxlength="120" size="45" />
+			<div class="form-text">{L_DELETE_REASON_EXPLAIN}</div>
+		</div>
+	<!-- ENDIF -->
+	
+		<div class="p-3 border-top">
+			<div class="row">
+				<div class="d-grid col-5 mx-auto">
+					<input class="btn btn-secondary" type="button" name="cancel" value="{L_NO}" />
 				</div>
-				<div class="modal-body">
-					<p class="alert alert-danger py-1">{MESSAGE_TEXT}</p>
-
-				<!-- IF not S_SHADOW_TOPICS -->
-					<!-- IF not S_SOFTDELETED and S_ALLOWED_DELETE and S_ALLOWED_SOFTDELETE -->
-					<label class="fw-bold" for="delete_permanent">{L_DELETE_PERMANENTLY}{L_COLON}</label>
-					<div class="form-check form-switch mb-3">
-						<input class="form-check-input mt-2" id="delete_permanent" name="delete_permanent" type="checkbox" value="1" {S_CHECKED_PERMANENT} /><!-- IF S_TOPIC_MODE --> {DELETE_TOPIC_PERMANENTLY}<!-- ELSE --> {DELETE_POST_PERMANENTLY}<!-- ENDIF -->
-						<label class="form-check-label mt-1" for="delete_permanent"><!-- IF S_TOPIC_MODE -->{DELETE_TOPIC_PERMANENTLY_EXPLAIN}<!-- ELSE -->{DELETE_POST_PERMANENTLY_EXPLAIN}<!-- ENDIF --></label>
-					</div>
-					<!-- ENDIF -->
-					<label class="fw-bold mb-1" for="delete_reason">{L_DELETE_REASON}{L_COLON}</label>
-					<input class="form-control" id="delete_reason" name="delete_reason" type="text" value="" maxlength="120" size="45" />
-					<div class="form-text">{L_DELETE_REASON_EXPLAIN}</div>
-				<!-- ENDIF -->
-				</div>
-
-				<div class="modal-footer">
-					<div class="row w-100">
-						<div class="col-12 col-md-6">
-							<input class="btn btn-secondary w-100 mt-1 mt-md-0" type="button" name="cancel" value="{L_NO}" />
-						</div>
-						<div class="col-12 col-md-6">
-							<input class="btn btn-success w-100 mt-1 mt-md-0" type="button" name="confirm" value="{L_YES}" />
-						</div>
-					</div>
+				<div class="d-grid col-5 mx-auto">
+					<input class="btn btn-success" type="button" name="confirm" value="{L_YES}" />
 				</div>
 			</div>
 		</div>
-	</form>
+	</div>
+</form>
+
 <!-- ELSE -->
 
 <!-- INCLUDE overall_header.html -->
