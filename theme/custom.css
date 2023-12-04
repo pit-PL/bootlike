@@ -490,10 +490,6 @@ a.postlink:hover, a.postlink:focus {
 
 /* jQuery popups
 ---------------------------------------- */
-.phpbb_alert, #login-popup {
-	top: 150px;
-}
-
 .phpbb_alert {
 	display: none;
 	z-index: 50;
@@ -570,12 +566,6 @@ a.postlink:hover, a.postlink:focus {
 		max-width: 460px;
 		overflow: hidden;
 		text-overflow: ellipsis;
-	}
-
-	.phpbb_alert, #login-popup {
-		top: 0;
-		width: auto;
-		margin: 10px;
 	}
 }
 
