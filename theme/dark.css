@@ -1,13 +1,10 @@
 :root {
 	--dark-bg: #171b24;
 	--body-bg: #242a36;
-	--body-color: #aaa;
-	--navbar-bg: #343a46;
+	--footer-bg: #343a46;
 	--card-bg: #1f242e;
-	--card-body-color: #eee;
-	--border-color: #495057;
+	--form-color: #eee;
 	--primary-bg: #071a38;
-	--active-bg: #0d6efd;
 }
 
 [data-bs-theme="dark"] {
@@ -17,7 +14,7 @@
 	}
 
 	.bg1, .footer-links, .modal-content {
-		background-color: var(--navbar-bg);
+		background-color: var(--footer-bg);
 	}
 
 	.bg2, .card .card, .card.bg2, .nav-tabs .nav-link.active, .page-footer, .list-group-item, #format-buttons .btn:hover, .action-bar, .text-bg-light {
@@ -45,7 +42,7 @@
 	}
 
 	.form-select, select {
-		color: var(--card-body-color);
+		color: var(--form-color);
 	}
 
 	.fancyhr {
@@ -65,27 +62,23 @@
 	}
 
 	.footer-links .list-group-item, .card.blockquote, .form-select, select {
-		border-color: var(--border-color);
+		border-color: var(--bs-border-color);
 	}
 
 	.contact-button .border-white {
-		border-color: var(--active-bg) !important;
+		border-color: var(--bs-info-border-subtle) !important;
 	}
 
 	.contact-button:hover .alert-primary {
-		border-color: var(--primary-bg) !important;
+		border-color: var(--bs-primary-bg-subtle) !important;
 	}
 
-	.list-group-item.active {
-		background-color: var(--active-bg) !important;
+	.list-group-item.active, .list-group-item.bg-info {
+		background-color: var(--bs-info-border-subtle) !important;
 	}
 
 	.list-group-item .jumpbox a, .text-bg-light {
-		color: var(--card-body-color) !important;
-	}
-
-	.list-group-item.bg-info {
-		background-color: var(--active-bg) !important;
+		color: var(--form-color) !important;
 	}
 
 	.row-item .folder:before, .row-item .folder:after {
