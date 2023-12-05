@@ -69,7 +69,7 @@
 		border-color: var(--bs-info-border-subtle) !important;
 	}
 
-	.contact-button:hover .alert-primary {
+	.contact-button:hover .alert-primary, .list-group-item.active {
 		border-color: var(--bs-primary-bg-subtle) !important;
 	}
 
