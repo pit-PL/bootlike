@@ -449,6 +449,7 @@ a.postlink:hover, a.postlink:focus {
 	right: 10px;
 	display: none;
 	z-index: 99;
+	box-shadow: 0 0 0 6px rgba(0,0,0,0.15);
 }
 
 .page-footer {
