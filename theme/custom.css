@@ -94,12 +94,12 @@ img {
 	min-height: 4rem;
 }
 
-.row-item .forum-image img {
+.row-item .forum-image-popup img {
 	width: 70px;
 	height: auto;
 }
 
-.row-item .forum-image img:hover {
+.row-item .forum-image-popup img:hover {
 	cursor: zoom-in;
 }
 
