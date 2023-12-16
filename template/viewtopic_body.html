@@ -108,13 +108,13 @@
 			
 				<!-- IF S_DISPLAY_RESULTS -->
 				<div class="progress-outer d-flex justify-content-between mb-3 p-1 border border-4 rounded-pill">
-					<div class="progress-value fw-bold text-center text-nowrap" style="min-width: 70px;">
+					<div class="fw-semibold text-center text-nowrap" style="min-width: 70px;">
 						{poll_option.POLL_OPTION_RESULT}
 					</div>
 					<div class="progress rounded-pill w-100 mx-2" style="height: 24px;">
-					<!-- IF poll_option.POLL_OPTION_RESULT != 0 --><div class="progress-bar px-3<!-- IF poll_option.POLL_OPTION_PCT < 30 --> bg-info<!-- ELSEIF poll_option.POLL_OPTION_PCT < 50 --> bg-primary<!-- ELSEIF poll_option.POLL_OPTION_PCT < 80 --> bg-warning<!-- ELSE --> bg-danger progress-bar-striped<!-- ENDIF --> fw-bold text-start text-white rounded-pill" style="width:{poll_option.POLL_OPTION_PERCENT};" role="progressbar" aria-valuenow="{poll_option.POLL_OPTION_PCT}" aria-valuemin="0" aria-valuemax="100"></div><!-- ENDIF -->
+					<!-- IF poll_option.POLL_OPTION_RESULT != 0 --><div class="progress-bar px-3<!-- IF poll_option.POLL_OPTION_PCT < 30 --> bg-info<!-- ELSEIF poll_option.POLL_OPTION_PCT < 50 --> bg-primary<!-- ELSEIF poll_option.POLL_OPTION_PCT < 80 --> bg-warning<!-- ELSE --> bg-danger progress-bar-striped<!-- ENDIF --> rounded-pill" style="width:{poll_option.POLL_OPTION_PERCENT};" role="progressbar" aria-valuenow="{poll_option.POLL_OPTION_PCT}" aria-valuemin="0" aria-valuemax="100"></div><!-- ENDIF -->
 					</div>
-					<div class="progress-value fw-bold text-center text-nowrap" style="min-width: 70px;">
+					<div class="fw-semibold text-center text-nowrap" style="min-width: 70px;">
 					<!-- IF poll_option.POLL_OPTION_RESULT == 0 -->0<!-- ELSE --><span>{poll_option.POLL_OPTION_PCT}</span>%<!-- ENDIF -->
 					</div>
 				</div>
