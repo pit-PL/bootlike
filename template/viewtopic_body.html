@@ -114,7 +114,7 @@
 					<div class="progress w-100 rounded-0" style="height: 1.5rem;">
 					<!-- IF poll_option.POLL_OPTION_RESULT != 0 --><div class="progress-bar px-3<!-- IF poll_option.POLL_OPTION_PCT < 30 --> bg-info<!-- ELSEIF poll_option.POLL_OPTION_PCT < 50 --> bg-primary<!-- ELSEIF poll_option.POLL_OPTION_PCT < 80 --> bg-warning<!-- ELSE --> bg-danger progress-bar-striped<!-- ENDIF -->" style="width:{poll_option.POLL_OPTION_PERCENT};" role="progressbar" aria-valuenow="{poll_option.POLL_OPTION_PCT}" aria-valuemin="0" aria-valuemax="100"></div><!-- ENDIF -->
 					</div>
-					<div class="fw-semibold text-center text-bg-secondary rounded-end-pill" style="min-width: 5rem;">
+					<div class="fw-semibold text-center text-bg-secondary rounded-end-pill progress_value" style="min-width: 5rem;">
 					<!-- IF poll_option.POLL_OPTION_RESULT == 0 -->0<!-- ELSE --><span>{poll_option.POLL_OPTION_PCT}</span>%<!-- ENDIF -->
 					</div>
 				</div>
