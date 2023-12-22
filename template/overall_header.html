@@ -61,8 +61,8 @@
 <!-- IF $HEADER_CAROUSEL or $CLICKABLE_HEADER -->
 	<div class="header-<!-- IF $HEADER_CAROUSEL -->carousel<!-- ELSEIF $CLICKABLE_HEADER -->link<!-- ENDIF --> position-relative d-none d-md-block shadow" style="height: {$BANNER_HEIGHT}px;" role="banner">
 	<!-- IF $HEADER_CAROUSEL -->
-		<div class="container-fluid header-carousel">
-			<div class="row align-items-center">
+		<div class="<!-- IF $FORUM_WIDTH_FULL or ($LEFT_SIDEBAR or $RIGHT_SIDEBAR or $HEADER_FOOTER_FULL) -->container-fluid<!-- ELSEIF $FORUM_WIDTH_XXL -->container-xxl<!-- ELSE -->container-xl<!-- ENDIF --> header-carousel">
+			<div class="row m-0 align-items-center">
 				<div class="col-4">
 					<a class="d-block p-3" href="{% if U_SITE_HOME %}{{ U_SITE_HOME }}{% else %}{{ U_INDEX }}{% endif %}" title="{% if U_SITE_HOME %}{{ L_SITE_HOME }}{% else %}{{ L_INDEX }}{% endif %}">
 						<img src="{T_THEME_PATH}/images/site_logo.png" alt="{L_IMAGE}">
