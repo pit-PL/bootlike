@@ -11,27 +11,29 @@
 	<div id="page-footer" class="page-footer border-top" role="contentinfo">
 		<!-- INCLUDE navbar_footer.html -->
 
-		<div class="p-3 mx-3 d-md-flex justify-content-md-between">
-			<div>
-				<p class="mb-0">{{ CREDIT_LINE }}</p>
-				<!-- IF TRANSLATION_INFO -->
-				<p class="mb-0">{{ TRANSLATION_INFO }}</p>
-				<!-- ENDIF -->
-				<!-- EVENT overall_footer_copyright_append -->
-			</div>
+		<div class="<!-- IF $FORUM_WIDTH_FULL or ($LEFT_SIDEBAR or $RIGHT_SIDEBAR) or $HEADER_FOOTER_FULL -->container-fluid<!-- ELSEIF $FORUM_WIDTH_XXL -->container-xxl<!-- ELSE -->container-xl<!-- ENDIF -->">
+			<div class="p-3 d-md-flex justify-content-md-between">
+				<div>
+					<p class="mb-0">{{ CREDIT_LINE }}</p>
+					<!-- IF TRANSLATION_INFO -->
+					<p class="mb-0">{{ TRANSLATION_INFO }}</p>
+					<!-- ENDIF -->
+					<!-- EVENT overall_footer_copyright_append -->
+				</div>
 
-			<div class="mt-2 mt-md-0 text-md-end">
-				<!-- IF S_USER_LOGGED_IN -->
-				<p class="mb-0">{CURRENT_TIME}</p>
-				<p class="mb-0">{LAST_VISIT_DATE}</p>
-				<!-- ENDIF -->
-				<!-- EVENT overall_footer_timezone_before -->
-				<p class="mb-0">{S_TIMEZONE}</p>
-				<!-- EVENT overall_footer_timezone_after -->
-				<!-- IF DEBUG_OUTPUT -->
-				<p class="mb-0">{{ DEBUG_OUTPUT }}</p>
-				<!-- ENDIF -->
-				<!-- EVENT overall_footer_copyright_append -->
+				<div class="mt-2 mt-md-0 text-md-end">
+					<!-- IF S_USER_LOGGED_IN -->
+					<p class="mb-0">{CURRENT_TIME}</p>
+					<p class="mb-0">{LAST_VISIT_DATE}</p>
+					<!-- ENDIF -->
+					<!-- EVENT overall_footer_timezone_before -->
+					<p class="mb-0">{S_TIMEZONE}</p>
+					<!-- EVENT overall_footer_timezone_after -->
+					<!-- IF DEBUG_OUTPUT -->
+					<p class="mb-0">{{ DEBUG_OUTPUT }}</p>
+					<!-- ENDIF -->
+					<!-- EVENT overall_footer_copyright_append -->
+				</div>
 			</div>
 		</div>
 	</div>
