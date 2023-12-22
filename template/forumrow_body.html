@@ -26,7 +26,7 @@
 				<!-- EVENT forumlist_body_forum_row_prepend -->
 				<div class="col-lg-7 col-md-6 col-12 folder<!-- IF forumrow.U_UNAPPROVED_TOPICS or forumrow.U_UNAPPROVED_POSTS --> folder-animation<!-- ENDIF -->">
 				<!-- IF forumrow.S_UNREAD_FORUM --><a href="{forumrow.U_VIEWFORUM}" class="row-item-link"></a><!-- ENDIF -->
-				<!-- IF S_ENABLE_FEEDS and forumrow.S_FEED_ENABLED and $FEED_ICON --><a class="float-end ms-2 mb-2" title="{L_FEED} - {forumrow.FORUM_NAME}" href="{U_FEED}?f={forumrow.FORUM_ID}"><i class="fa fa-rss fa-fw"></i></a><!-- ENDIF -->
+				<!-- IF S_ENABLE_FEEDS and forumrow.S_FEED_ENABLED and $FEED_ICON --><a class="float-end m-2 badge bg-warning" title="{L_FEED} - {forumrow.FORUM_NAME}" href="{U_FEED}?f={forumrow.FORUM_ID}"><i class="fa fa-rss fa-fw"></i></a><!-- ENDIF -->
 			
 				<!-- IF forumrow.FORUM_IMAGE -->
 					<!-- EVENT forumlist_body_forum_image_before -->
