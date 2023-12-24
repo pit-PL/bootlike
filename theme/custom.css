@@ -94,6 +94,11 @@ img {
 	min-height: 4rem;
 }
 
+.row-item .forum-image img {
+	max-height: 70px;
+	width: auto;
+}
+
 .row-item .forum-image-popup img {
 	width: 70px;
 	height: auto;
