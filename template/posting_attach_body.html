@@ -38,10 +38,10 @@
 		<div id="file-list">
 			<div id="attach-row-tpl" class="row px-3 py-1 attach-row align-items-center">
 				<div class="col-12 col-md-4 py-1">
-					<span class="file-name ellipsis-text"></span>
-					<span class="attach-controls d-block float-none">
-						<button class="btn btn-secondary mt-1 py-0 hidden file-inline-bbcode" type="button" value="{L_PLACE_INLINE}"><i class="fa fa-arrows-h" aria-hidden="true"></i> {L_PLACE_INLINE}</button>
-						<button class="btn btn-danger mt-1 py-0 file-delete" type="button" value="{L_DELETE_FILE}"><i class="fa fa-times fa-fw" aria-hidden="true"></i> {L_DELETE_FILE}</button>
+					<div class="file-name ellipsis-text mw-100"></div>
+					<span class="attach-controls d-block float-none mt-1">
+						<button class="btn btn-secondary btn-sm me-2 hidden file-inline-bbcode" type="button" value="{L_PLACE_INLINE}"><i class="fa fa-arrows-h" aria-hidden="true"></i> {L_PLACE_INLINE}</button>
+						<button class="btn btn-danger btn-sm file-delete" type="button" value="{L_DELETE_FILE}"><i class="fa fa-times fa-fw" aria-hidden="true"></i> {L_DELETE_FILE}</button>
 					</span>
 					<div id="file-total-progress" class="file-progress progress w-100 m-0">
 						<div id="file-total-progress-bar" class="file-progress-bar progress-bar bg-info progress-bar-striped" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
@@ -53,7 +53,7 @@
 				</div>
 				<div class="col-12 col-md-2 py-1 text-md-center">
 					<span class="fw-semibold d-md-none">{L_PLUPLOAD_SIZE}{L_COLON}</span>
-					<span class="badge rounded-pill text-bg-secondary file-size"></span>
+					<span class="file-size"></span>
 				</div>
 				<div class="col-12 col-md-2 py-1 text-md-center">
 					<span class="fw-semibold d-md-none">{L_PLUPLOAD_STATUS}{L_COLON}</span>
@@ -69,11 +69,13 @@
 			{% EVENT posting_attach_body_attach_row_prepend %}
 			<div class="row m-1 mt-0 p-1 align-items-center bg1" data-attach-id="{attach_row.ATTACH_ID}">
 				<div class="col-12 col-md-4 py-2">
-					<span class="file-name ellipsis-text"><a href="{attach_row.U_VIEW_ATTACHMENT}">{attach_row.FILENAME}</a></span>
+					<div class="file-name ellipsis-text mw-100"><a href="{attach_row.U_VIEW_ATTACHMENT}">{attach_row.FILENAME}</a></div>
 					{% EVENT posting_attach_body_attach_row_controls_prepend %}
-					<span class="attach-controls">
-						{% if S_BBCODE_ALLOWED and S_INLINE_ATTACHMENT_OPTIONS %}<input class="btn btn-secondary mt-1 py-0 file-inline-bbcode" type="button" value="{{ lang('PLACE_INLINE') }}" />{% endif %}
-						<input class="btn btn-danger mt-1 py-0 file-delete" type="submit" name="delete_file[{attach_row.ASSOC_INDEX}]" value="{L_DELETE_FILE}" />
+					<span class="attach-controls d-block float-none mt-1">
+					{% if S_BBCODE_ALLOWED and S_INLINE_ATTACHMENT_OPTIONS %}
+						<button class="btn btn-secondary btn-sm me-2 file-inline-bbcode" type="button" value="{{ lang('PLACE_INLINE') }}"><i class="fa fa-arrows-h" aria-hidden="true"></i> {{ lang('PLACE_INLINE') }}</button>
+					{% endif %}
+						<button class="btn btn-danger btn-sm file-delete" type="submit" name="delete_file[{attach_row.ASSOC_INDEX}]" value="{L_DELETE_FILE}"><i class="fa fa-times fa-fw" aria-hidden="true"></i> {L_DELETE_FILE}</button>
 					</span>
 					{% EVENT posting_attach_body_attach_row_controls_append %}
 				</div>
