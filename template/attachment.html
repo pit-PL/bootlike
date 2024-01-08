@@ -7,18 +7,14 @@
 		<!-- EVENT attachment_file_prepend -->
 
 		<!-- IF _file.S_THUMBNAIL -->
-			<div class="text-center">
-				<a href="{_file.U_DOWNLOAD_LINK}"><img src="{_file.THUMB_IMAGE}" class="img-thumbnail" alt="{% if _file.COMMENT %}{{ _file.COMMENT|e('html') }}{% else %}{{ _file.DOWNLOAD_NAME }}{% endif %}" title="{_file.DOWNLOAD_NAME} ({_file.FILESIZE} {_file.SIZE_LANG}) {_file.L_DOWNLOAD_COUNT}" /></a>
-			</div>
+			<a href="{_file.U_DOWNLOAD_LINK}"><img src="{_file.THUMB_IMAGE}" class="img-thumbnail" alt="{% if _file.COMMENT %}{{ _file.COMMENT|e('html') }}{% else %}{{ _file.DOWNLOAD_NAME }}{% endif %}" title="{_file.DOWNLOAD_NAME} ({_file.FILESIZE} {_file.SIZE_LANG}) {_file.L_DOWNLOAD_COUNT}" /></a>
 			<!-- IF _file.COMMENT -->
 			<div class="small mt-1">{_file.COMMENT}</div>
 			<!-- ENDIF -->
 		<!-- ENDIF -->
 
 		<!-- IF _file.S_IMAGE -->
-			<div class="text-center">
-				<img class="img-thumbnail" src="{_file.U_INLINE_LINK}" alt="{% if _file.COMMENT %}{{ _file.COMMENT|e('html') }}{% else %}{{ _file.DOWNLOAD_NAME }}{% endif %}" onclick="viewableArea(this);">
-			</div>
+			<img class="img-thumbnail" src="{_file.U_INLINE_LINK}" alt="{% if _file.COMMENT %}{{ _file.COMMENT|e('html') }}{% else %}{{ _file.DOWNLOAD_NAME }}{% endif %}" onclick="viewableArea(this);">
 			<div class="small mt-1">
 			<!-- IF _file.COMMENT -->
 				<div class="mb-1">{_file.COMMENT}</div>
