@@ -28,11 +28,11 @@
 		<!-- ENDIF -->
 			<dl class="row">
 				<dt class="col-lg-3 col-md-4 col-12"><label class="col-form-label" for="{USERNAME_CREDENTIAL}">{L_USERNAME}{L_COLON}</label></dt>
-				<dd class="col-lg-9 col-md-8 col-12"><input type="text" tabindex="1" name="{USERNAME_CREDENTIAL}" id="{USERNAME_CREDENTIAL}" size="25" value="{LOGIN_USERNAME}" class="form-control" /></dd>
+				<dd class="col-lg-9 col-md-8 col-12"><input type="text" tabindex="1" name="{USERNAME_CREDENTIAL}" id="{USERNAME_CREDENTIAL}" size="25" value="{LOGIN_USERNAME}" class="form-control" autocomplete="username" /></dd>
 			</dl>
 			<dl class="row">
 				<dt class="col-lg-3 col-md-4 col-12"><label class="col-form-label" for="{PASSWORD_CREDENTIAL}">{L_PASSWORD}{L_COLON}</label></dt>
-				<dd class="col-lg-9 col-md-8 col-12"><input type="password" tabindex="2" id="{PASSWORD_CREDENTIAL}" name="{PASSWORD_CREDENTIAL}" size="25" class="form-control" autocomplete="off" /></dd>
+				<dd class="col-lg-9 col-md-8 col-12"><input type="password" tabindex="2" id="{PASSWORD_CREDENTIAL}" name="{PASSWORD_CREDENTIAL}" size="25" class="form-control" autocomplete="current-password" /></dd>
 			</dl>
 			<!-- IF CAPTCHA_TEMPLATE and S_CONFIRM_CODE -->
 				<!-- DEFINE $CAPTCHA_TAB_INDEX = 3 -->
