@@ -1,6 +1,10 @@
 <!-- INCLUDE ucp_header.html -->
 
+{% EVENT ucp_notifications_form_before %}
+
 <form id="ucp" method="post" action="{S_UCP_ACTION}"{S_FORM_ENCTYPE}>
+
+{% EVENT ucp_notifications_content_before %}
 
 	<div class="alert alert-info">{TITLE_EXPLAIN}</div>
 
@@ -109,6 +113,8 @@
 
 <!-- ENDIF -->
 
+{% EVENT ucp_notifications_content_after %}
+
 <!-- IF .notification_types or .notification_list -->
 	<div class="card mb-3">
 		<div class="action-bar d-sm-flex justify-content-end bg1">
@@ -123,5 +129,7 @@
 <!-- ENDIF -->
 
 </form>
+
+{% EVENT ucp_notifications_form_after %}
 
 <!-- INCLUDE ucp_footer.html -->
