@@ -338,6 +338,29 @@ $('[data-ajax]').each(function() {
 	}
 });
 
+// Prevent accidental double submission of form
+$('[data-prevent-flood] button[type=submit]').click(function(event) {
+	const $submitButton = $(this); // Store the button element
+	const $form = $submitButton.closest('form');
+
+	// Always add the disabled class for visual feedback
+	$submitButton.addClass('disabled');
+
+	// Submit form if it hasn't been submitted yet
+	if (!$form.prop('data-form-submitted')) {
+		$form.prop('data-form-submitted', true);
+
+		return;
+	}
+
+	// Prevent default submission for subsequent clicks within 5 seconds
+	event.preventDefault();
+
+	setTimeout(() => {
+		$form.prop('removeProp', 'data-form-submitted');
+		$submitButton.removeClass('disabled'); // Re-enable after 5 seconds
+	}, 5000);
+});
 
 /**
  * This simply appends #preview to the action of the
@@ -348,7 +371,6 @@ $('#qr_full_editor').click(function() {
 		return val + '#preview';
 	});
 });
-
 
 /**
  * Make the display post links to use JS
@@ -392,6 +414,5 @@ $('#member_search').click(function () {
 	}
 	return false;
 });
-
 
 })(jQuery); // Avoid conflicts with other libraries
