@@ -113,6 +113,9 @@
 		<div id="topicreview" class="card-body pb-0 overflow-auto bg1">
 			<!-- BEGIN postrow -->
 			<!-- EVENT mcp_topic_postrow_post_before -->
+		<!-- IF postrow.S_FIRST_UNREAD -->
+			<a id="unread" class="d-block"<!-- IF S_UNREAD_VIEW --> data-url="{postrow.U_MINI_POST}"<!-- ENDIF -->></a>
+		<!-- ENDIF -->
 			<div class="card mb-3<!-- IF postrow.S_POST_UNAPPROVED --> border-success<!-- ELSEIF postrow.S_POST_REPORTED --> border-warning<!-- ELSEIF postrow.S_POST_DELETED --> border-danger<!-- ENDIF -->">
 				<div class="card-body p-0">
 
