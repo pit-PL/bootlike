@@ -79,6 +79,7 @@
 			</p>
 		<!-- ENDIF -->
 
+		{% if S_CAN_APPROVE %}
 		<!-- IF S_POST_UNAPPROVED -->
 			<form method="post" id="mcp_approve" action="{U_APPROVE_ACTION}">
 
@@ -104,6 +105,7 @@
 			</div>
 			</form>
 		<!-- ENDIF -->
+		{% endif %}
 
 		<!-- IF S_MESSAGE_REPORTED -->
 			<div class="alert alert-danger">
