@@ -82,7 +82,8 @@
 }
 
 .row-item[class*="unread"] .folder:before, .row-item[class*="unread"] .folder:after {
-	color: #C13B5B;
+	color: #9f0328;
+	-webkit-text-stroke: 1px #ffa4ba;
 }
 
 .row-item .folder:before, .row-item .folder:after {
