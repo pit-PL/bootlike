@@ -42,7 +42,7 @@
 				</xsl:if>
 				<xsl:if test="@msg_url">
 					<xsl:text> </xsl:text>
-					<a href="{@msg_url}" data-msg-id="{@msg_id}">&#8593;</a>
+					<a href="{@msg_url}" aria-label="{L_VIEW_QUOTED_POST}" data-msg-id="{@msg_id}"><i class="fa fa-long-arrow-up" aria-hidden="true"></i></a>
 				</xsl:if>
 			</cite>
 		</xsl:if>
