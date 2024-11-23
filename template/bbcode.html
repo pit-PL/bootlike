@@ -38,7 +38,7 @@
 				<xsl:value-of select="$L_COLON"/>
 				<xsl:if test="@post_url">
 					<xsl:text> </xsl:text>
-					<a href="{@post_url}" data-post-id="{@post_id}" onclick="if(document.getElementById(hash.substr(1)))href=hash"><i class="fa fa-long-arrow-up"></i></a>
+					<a href="{@post_url}" aria-label="{L_VIEW_QUOTED_POST}" data-post-id="{@post_id}" onclick="if(document.getElementById(hash.substr(1)))href=hash"><i class="fa fa-long-arrow-up" aria-hidden="true"></i></a>
 				</xsl:if>
 				<xsl:if test="@msg_url">
 					<xsl:text> </xsl:text>
