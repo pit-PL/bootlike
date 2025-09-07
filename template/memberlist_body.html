@@ -201,7 +201,7 @@
 						<!-- IF memberrow.custom_fields -->
 							<span class="fw-semibold d-md-none">{L_CONTACT}{L_COLON}</span>
 							<button class="btn btn-secondary dropdown-toggle py-0" type="button" data-bs-toggle="dropdown" aria-expanded="false" title="{L_CONTACT} {memberrow.USERNAME}"></button>
-							<ul class="dropdown-menu dropdown-form px-2">
+							<ul class="dropdown-menu dropdown-form px-2"<!-- IF $STICKY_NAVBAR --> style="z-index: 1021;"<!-- ENDIF -->>
 							{%- for field in memberrow.custom_fields -%}
 								{% if field.S_PROFILE_CONTACT %}
 							<!-- IF $MEMBERLIST_CONTACT_BTN -->
