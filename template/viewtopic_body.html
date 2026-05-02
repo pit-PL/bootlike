@@ -8,11 +8,11 @@
 	<div class="text-end">
 	<!-- IF U_WATCH_TOPIC or U_BOOKMARK_TOPIC or U_BUMP_TOPIC -->
 		<div class="btn-group mb-1">
-		<!-- IF U_WATCH_TOPIC -->
-			<a class="btn btn-primary watch-topic-link" href="{U_WATCH_TOPIC}" title="{S_WATCH_TOPIC_TITLE}" data-ajax="toggle_link" data-toggle-class="icon fa <!-- IF S_WATCHING_TOPIC -->fa-check-square-o<!-- ELSE -->fa-square-o<!-- ENDIF --> fa-fw" data-toggle-text="{S_WATCH_TOPIC_TOGGLE}" data-toggle-url="{U_WATCH_TOPIC_TOGGLE}" data-update-all=".watch-topic-link">
-				<i class="icon fa<!-- IF S_WATCHING_TOPIC --> fa-square-o<!-- ELSE --> fa-check-square-o<!-- ENDIF --> fa-fw" aria-hidden="true"></i>
+		{% if U_WATCH_TOPIC %}
+			<a class="btn btn-primary watch-topic-link" href="{{ U_WATCH_TOPIC }}" title="{{ S_WATCH_TOPIC_TITLE }}" data-ajax="toggle_link" data-toggle-class="icon fa {{ !S_WATCHING_TOPIC ? 'fa-check-square-o' : 'fa-square-o' }} fa-fw" data-toggle-text="{{ S_WATCH_TOPIC_TOGGLE }}" data-toggle-url="{{ U_WATCH_TOPIC_TOGGLE }}" data-update-all=".watch-topic-link">
+				<i class="icon fa {{ S_WATCHING_TOPIC ? 'fa-check-square-o' : 'fa-square-o' }} fa-fw" aria-hidden="true"></i>
 			</a>
-		<!-- ENDIF -->
+		{% endif %}
 		<!-- IF U_BOOKMARK_TOPIC -->
 			<a class="btn btn-primary bookmark-link" href="{U_BOOKMARK_TOPIC}" title="{L_BOOKMARK_TOPIC}" data-ajax="alt_text" data-alt-text="{S_BOOKMARK_TOGGLE}" data-update-all=".bookmark-link">
 				<i class="icon fa fa-bookmark-o fa-fw" aria-hidden="true"></i>
