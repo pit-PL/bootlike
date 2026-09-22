@@ -435,7 +435,7 @@ a.postlink:hover, a.postlink:focus {
 	z-index: 1;
 }
 
-.switch-profile .timeline-online, .rtl .timeline-online {
+.switch-profile .timeline-online {
 	left: inherit;
 	right: 30px;
 }
