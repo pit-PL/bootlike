@@ -132,13 +132,13 @@
 			<div class="card-footer">
 				<div class="row">
 					<!-- IF not S_DISPLAY_RESULTS -->
-					<div class="d-grid col-4 mx-auto">
-						<a class="btn btn-secondary" href="{U_VIEW_RESULTS}"><i class="fa fa-eye fa-fw" aria-hidden="true"></i> <span class="text-nowrap">{L_VIEW_RESULTS}</span></a>
+					<div class="col-6 d-md-grid col-md-4 mx-auto">
+						<a class="btn btn-secondary w-100" href="{U_VIEW_RESULTS}"><i class="fa fa-eye fa-fw" aria-hidden="true"></i> <span class="text-nowrap">{L_VIEW_RESULTS}</span></a>
 					</div>
 					<!-- ENDIF -->
 					<!-- IF S_CAN_VOTE -->
-					<div class="d-grid col-4 mx-auto">
-						<button class="btn btn-success" type="submit" name="update" value="{L_SUBMIT_VOTE}"><i class="fa fa-level-down fa-rotate-90 fa-fw" aria-hidden="true"></i> <span class="text-nowrap">{L_SUBMIT_VOTE}</span></button>
+					<div class="<!-- IF S_DISPLAY_RESULTS -->col-12<!-- ELSE -->col-6<!-- ENDIF --> d-md-grid col-md-4 mx-auto">
+						<button class="btn btn-success w-100" type="submit" name="update" value="{L_SUBMIT_VOTE}"><i class="fa fa-level-down fa-rotate-90 fa-fw" aria-hidden="true"></i> <span class="text-nowrap">{L_SUBMIT_VOTE}</span></button>
 					</div>
 					<!-- ENDIF -->
 				</div>
