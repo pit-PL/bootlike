@@ -1,7 +1,6 @@
 html {
 	height: 101%;
 	opacity: 0.95;
-	scroll-padding-top: 4.5rem;
 }
 
 html[data-bs-theme='light'] {
