@@ -65,12 +65,12 @@
 		border-color: var(--bs-border-color);
 	}
 
-	.contact-button .border-white {
+	.contact-button .border-white, .list-group-item.active {
 		border-color: #0d6efd !important;
 	}
 
-	.contact-button:hover .alert-primary, .list-group-item.active {
-		border-color: #0d6efd !important;
+	.contact-button:hover .alert-primary {
+		border-color: #051834 !important;
 	}
 
 	.list-group-item.active, .list-group-item.bg-info {
