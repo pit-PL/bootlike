@@ -9,7 +9,11 @@
 		{MESSAGE_TITLE}
 	</div>
 	<div class="card-body">
+	{% if RETURN_LINK and RETURN_LINK_TITLE %}
+		<p>{MESSAGE_TEXT}<br><br>{{ lang(RETURN_LINK_TITLE, '<a href="' ~ RETURN_LINK ~ '">', '</a>') }}</p>
+	{% else  %}
 		<p>{MESSAGE_TEXT}</p>
+	{% endif %}
 	<!-- IF SCRIPT_NAME == "search" and not S_BOARD_DISABLED and not S_NO_SEARCH and L_RETURN_TO_SEARCH_ADV -->
 		<a href="{U_SEARCH}" accesskey="r"><i class="fa fa-angle-{S_CONTENT_FLOW_BEGIN} fa-fw icon-black" aria-hidden="true"></i> {L_GO_TO_SEARCH_ADV}</a>
 	<!-- ENDIF -->
