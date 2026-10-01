@@ -81,19 +81,23 @@
 
 	<div class="card d-none d-md-block<!-- IF $HEADER_CAROUSEL or $CLICKABLE_HEADER --> d-md-none<!-- ENDIF --> border-0">
 		<div class="card-body p-1 px-3 bg1 border-bottom">
-			<!-- EVENT overall_header_headerbar_before -->
-			<div class="m-3 d-flex align-items-center justify-content-md-between">
-				<a class="logo me-3" href="{% if U_SITE_HOME %}{{ U_SITE_HOME }}{% else %}{{ U_INDEX }}{% endif %}" title="{% if U_SITE_HOME %}{{ L_SITE_HOME }}{% else %}{{ L_INDEX }}{% endif %}"><!-- IF not $CLICKABLE_HEADER --><img class="img-thumbnail" src="{ROOT_PATH}styles/bootlike/theme/images/site_logo.png" alt="{L_IMAGE}" /><!-- ELSE -->{SITENAME}<!-- ENDIF --></a>
-				<h1 class="mb-0 fs-2 text-secondary"><!-- IF SITENAME -->{SITENAME}<!-- ELSE -->{BOARD_URL}<!-- ENDIF --><!-- IF SITE_DESCRIPTION --> <span class="fs-5">{SITE_DESCRIPTION}</span><!-- ENDIF --></h1>
+			<div class="<!-- IF $FORUM_WIDTH_FULL or ($LEFT_SIDEBAR or $RIGHT_SIDEBAR) or $HEADER_FOOTER_FULL -->container-fluid<!-- ELSEIF $FORUM_WIDTH_XXL -->container-xxl<!-- ELSE -->container-xl<!-- ENDIF -->">
+				<!-- EVENT overall_header_headerbar_before -->
+				<div class="mx-1 my-3 d-flex align-items-center justify-content-md-between">
+					<a class="logo me-3" href="{% if U_SITE_HOME %}{{ U_SITE_HOME }}{% else %}{{ U_INDEX }}{% endif %}" title="{% if U_SITE_HOME %}{{ L_SITE_HOME }}{% else %}{{ L_INDEX }}{% endif %}"><!-- IF not $CLICKABLE_HEADER --><img class="img-thumbnail" src="{ROOT_PATH}styles/bootlike/theme/images/site_logo.png" alt="{L_IMAGE}" /><!-- ELSE -->{SITENAME}<!-- ENDIF --></a>
+					<h1 class="mb-0 fs-2 text-secondary"><!-- IF SITENAME -->{SITENAME}<!-- ELSE -->{BOARD_URL}<!-- ENDIF --><!-- IF SITE_DESCRIPTION --> <span class="fs-5">{SITE_DESCRIPTION}</span><!-- ENDIF --></h1>
+				</div>
+				<!-- EVENT overall_header_headerbar_after -->
 			</div>
-			<!-- EVENT overall_header_headerbar_after -->
 		</div>
 	</div>
 
 	<div class="card border-0<!-- IF $STICKY_NAVBAR --> sticky-top<!-- ENDIF --> shadow-sm border-bottom">
 		<div class="card-body p-1 px-md-2 px-lg-3">
-		<!-- EVENT overall_header_navbar_before -->
-		<!-- INCLUDE navbar_header.html -->
+			<div class="<!-- IF $FORUM_WIDTH_FULL or ($LEFT_SIDEBAR or $RIGHT_SIDEBAR) or $HEADER_FOOTER_FULL -->container-fluid<!-- ELSEIF $FORUM_WIDTH_XXL -->container-xxl<!-- ELSE -->container-xl<!-- ENDIF -->">
+			<!-- EVENT overall_header_navbar_before -->
+			<!-- INCLUDE navbar_header.html -->
+			</div>
 		</div>
 	</div>
 
