@@ -1,75 +1,72 @@
 <nav class="navbar navbar-expand-md">
-	<div class="<!-- IF $FORUM_WIDTH_FULL or ($LEFT_SIDEBAR or $RIGHT_SIDEBAR) or $HEADER_FOOTER_FULL -->container-fluid<!-- ELSEIF $FORUM_WIDTH_XXL -->container-xxl<!-- ELSE -->container-xl<!-- ENDIF -->">
-		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar_collapse_header" aria-controls="navbar-collapse-header" aria-expanded="false">
-			<span class="navbar-toggler-icon"></span>
-		</button>
+	<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar_collapse_header" aria-controls="navbar-collapse-header" aria-expanded="false">
+		<span class="navbar-toggler-icon"></span>
+	</button>
 
-		<div id="navbar_collapse_header" class="collapse navbar-collapse justify-content-between">
+	<div id="navbar_collapse_header" class="collapse navbar-collapse justify-content-between">
 
-			<ul class="navbar-nav fw-semibold" role="menubar">
-				<li class="nav-item light-mode">
-					<a class="nav-link" href="javascript:;" title="{$DARK_MODE}" data-bs-theme-value="light" role="switch">
-						<i class="fa fa-moon-o fa-fw" aria-hidden="true"></i>
-					</a>
-				</li>
-				<li class="nav-item dark-mode">
-					<a class="nav-link" href="javascript:;" title="{$LIGHT_MODE}" data-bs-theme-value="dark" role="switch">
-						<i class="fa fa-sun-o fa-fw" aria-hidden="true"></i>
-					</a>
-				</li>
+		<ul class="navbar-nav fw-semibold" role="menubar">
+			<li class="nav-item light-mode">
+				<a class="nav-link" href="javascript:;" title="{$DARK_MODE}" data-bs-theme-value="light" role="switch">
+					<i class="fa fa-moon-o fa-fw" aria-hidden="true"></i>
+				</a>
+			</li>
+			<li class="nav-item dark-mode">
+				<a class="nav-link" href="javascript:;" title="{$LIGHT_MODE}" data-bs-theme-value="dark" role="switch">
+					<i class="fa fa-sun-o fa-fw" aria-hidden="true"></i>
+				</a>
+			</li>
 
-				<!-- EVENT navbar_header_quick_links_before -->
-				<!-- EVENT overall_header_searchbox_before -->
-				<!-- EVENT overall_header_navigation_prepend -->
-				<!-- EVENT overall_header_navigation_append -->
-			</ul>
+			<!-- EVENT navbar_header_quick_links_before -->
+			<!-- EVENT overall_header_searchbox_before -->
+			<!-- EVENT overall_header_navigation_prepend -->
+			<!-- EVENT overall_header_navigation_append -->
+		</ul>
 
-			<ul class="navbar-nav fw-semibold" role="menubar">
+		<ul class="navbar-nav fw-semibold" role="menubar">
 
-				<!-- IF S_DISPLAY_SEARCH -->
-				<li class="nav-item"><a class="nav-link" data-bs-toggle="offcanvas" data-bs-target="#navbar-collapse-search" aria-controls="navbar-collapse-search" role="button" aria-expanded="false">{L_SEARCH}</a></li>
-				<!-- ENDIF -->
+			<!-- IF S_DISPLAY_SEARCH -->
+			<li class="nav-item"><a class="nav-link" data-bs-toggle="offcanvas" data-bs-target="#navbar-collapse-search" aria-controls="navbar-collapse-search" role="button" aria-expanded="false">{L_SEARCH}</a></li>
+			<!-- ENDIF -->
 
-				<!-- EVENT overall_header_searchbox_after -->
-				<!-- EVENT navbar_header_quick_links_after -->
+			<!-- EVENT overall_header_searchbox_after -->
+			<!-- EVENT navbar_header_quick_links_after -->
 
-				<li class="nav-item"><a class="nav-link" href="{U_FAQ}" rel="help" title="{L_FAQ_EXPLAIN}" role="menuitem">{L_FAQ}</a></li>
+			<li class="nav-item"><a class="nav-link" href="{U_FAQ}" rel="help" title="{L_FAQ_EXPLAIN}" role="menuitem">{L_FAQ}</a></li>
 
-			<!-- IF S_REGISTERED_USER -->
-				<!-- IF S_NOTIFICATIONS_DISPLAY and NOTIFICATIONS_COUNT -->
-				<li class="nav-item" title="{L_NEW_MESSAGE}">
-					<a class="nav-link ps-4 pe-none">
-						<i class="fa fa-bell fa-fw position-relative" aria-hidden="true"><strong class="position-absolute top-0 start-0 translate-middle badge rounded-pill bg-danger<!-- IF not NOTIFICATIONS_COUNT --> d-none<!-- ENDIF -->">{NOTIFICATIONS_COUNT}</strong><span class="visually-hidden">{NOTIFICATIONS_COUNT}</span></i>
-					</a>
-				</li>
-				<!-- ENDIF -->
+		<!-- IF S_REGISTERED_USER -->
+			<!-- IF S_NOTIFICATIONS_DISPLAY and NOTIFICATIONS_COUNT -->
+			<li class="nav-item" title="{L_NEW_MESSAGE}">
+				<a class="nav-link ps-4 pe-none">
+					<i class="fa fa-bell fa-fw position-relative" aria-hidden="true"><strong class="position-absolute top-0 start-0 translate-middle badge rounded-pill bg-danger<!-- IF not NOTIFICATIONS_COUNT --> d-none<!-- ENDIF -->">{NOTIFICATIONS_COUNT}</strong><span class="visually-hidden">{NOTIFICATIONS_COUNT}</span></i>
+				</a>
+			</li>
+			<!-- ENDIF -->
 
-				<!-- IF S_DISPLAY_PM and PRIVATE_MESSAGE_COUNT -->
-				<li class="nav-item" title="{L_BUTTON_PM_NEW}">
-					<a class="nav-link ps-4 pe-none">
-						<i class="fa fa-inbox fa-fw position-relative" aria-hidden="true"><strong class="position-absolute top-0 start-0 translate-middle badge rounded-pill bg-danger<!-- IF not PRIVATE_MESSAGE_COUNT --> d-none<!-- ENDIF -->">{PRIVATE_MESSAGE_COUNT}</strong><span class="visually-hidden">{L_UNREAD_MESSAGES}</span></i>
-					</a>
-				</li>
-				<!-- ENDIF -->
+			<!-- IF S_DISPLAY_PM and PRIVATE_MESSAGE_COUNT -->
+			<li class="nav-item" title="{L_BUTTON_PM_NEW}">
+				<a class="nav-link ps-4 pe-none">
+					<i class="fa fa-inbox fa-fw position-relative" aria-hidden="true"><strong class="position-absolute top-0 start-0 translate-middle badge rounded-pill bg-danger<!-- IF not PRIVATE_MESSAGE_COUNT --> d-none<!-- ENDIF -->">{PRIVATE_MESSAGE_COUNT}</strong><span class="visually-hidden">{L_UNREAD_MESSAGES}</span></i>
+				</a>
+			</li>
+			<!-- ENDIF -->
 
-				<li class="nav-item">
-					<a class="nav-link" href="#offcanvas_right" data-bs-toggle="offcanvas" aria-controls="offcanvas_right" role="button">
-						<i class="fa fa-bars fa-fw" aria-hidden="true"></i> {CURRENT_USERNAME_SIMPLE}
-					</a>
-				</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#offcanvas_right" data-bs-toggle="offcanvas" aria-controls="offcanvas_right" role="button">
+					<i class="fa fa-bars fa-fw" aria-hidden="true"></i> {CURRENT_USERNAME_SIMPLE}
+				</a>
+			</li>
 
-				<!-- EVENT navbar_header_username_append -->
-				<!-- EVENT navbar_header_user_profile_append -->
-			<!-- ELSE IF not S_IS_BOT -->
-				<!-- IF S_REGISTER_ENABLED and not (S_SHOW_COPPA or S_REGISTRATION) -->
-				<li class="nav-item"><a class="nav-link" href="{U_REGISTER}" role="menuitem">{L_REGISTER}</a></li>
-				<!-- ENDIF -->
-				<li class="nav-item"><a class="nav-link"<!-- IF $LOGIN_POPUP --> href="#" data-bs-toggle="modal" data-bs-target="#login_popup"<!-- ELSE --> href="{U_LOGIN_LOGOUT}"<!-- ENDIF --> accesskey="x" role="menuitem">{L_LOGIN_LOGOUT}</a></li>
-			<!-- EVENT navbar_header_logged_out_content -->
-		<!-- ENDIF -->
-			</ul>
-
-		</div>
+			<!-- EVENT navbar_header_username_append -->
+			<!-- EVENT navbar_header_user_profile_append -->
+		<!-- ELSE IF not S_IS_BOT -->
+			<!-- IF S_REGISTER_ENABLED and not (S_SHOW_COPPA or S_REGISTRATION) -->
+			<li class="nav-item"><a class="nav-link" href="{U_REGISTER}" role="menuitem">{L_REGISTER}</a></li>
+			<!-- ENDIF -->
+			<li class="nav-item"><a class="nav-link"<!-- IF $LOGIN_POPUP --> href="#" data-bs-toggle="modal" data-bs-target="#login_popup"<!-- ELSE --> href="{U_LOGIN_LOGOUT}"<!-- ENDIF --> accesskey="x" role="menuitem">{L_LOGIN_LOGOUT}</a></li>
+		<!-- EVENT navbar_header_logged_out_content -->
+	<!-- ENDIF -->
+		</ul>
 	</div>
 </nav>
 
